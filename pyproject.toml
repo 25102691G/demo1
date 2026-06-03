@@ -1,0 +1,13 @@
+[project]
+name = "guideline-skill-pack"
+version = "0.1.0"
+description = "Core schemas for medical guideline skill packs."
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2",
+    "PyYAML>=6",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
