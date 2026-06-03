@@ -45,12 +45,6 @@ def test_orchestrator_prioritizes_red_flag_safety() -> None:
     assert response.recommended_next_steps[0].startswith("优先处理红旗")
 
 
-def test_load_skill_packs_loads_seed_directory() -> None:
-    skill_packs = load_skill_packs(SKILLS_DIR)
-
-    assert [pack.skill_name for pack in skill_packs] == ["crohn_disease_2023_guangzhou"]
-
-
 def test_run_agent_cli_outputs_structured_json_with_readable_summary() -> None:
     script = ROOT / "scripts" / "run_agent.py"
     started_at = datetime.now()

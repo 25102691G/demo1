@@ -27,14 +27,45 @@ from .csv_to_skill_pack import (
     read_recommendations_csv,
     write_skill_pack_from_csv,
 )
+from .anchors import AnchorMatch, AnchorRegistry, AnchorScore
+from .classifier import ClassificationResult, GuidelineClassifier
+from .extractors import ClinicalInfoExtractor, ClinicalInfoPayload, ExtractedStatementFields, StatementExtractor
+from .llm import DeepSeekClient
+from .normalizer import LLMNormalizer, NormalizationResult
+from .pipelines import NarrativeGuidelinePipeline, StructuredGuidelinePipeline
+from .schemas import (
+    ClinicalInfoUnit,
+    ClinicalInfoUnitBody,
+    GuidelineMeta,
+    SourceLocation,
+    StatementUnit,
+    StatementUnitBody,
+)
+from .segmenters import StatementSegment, StatementSegmenter
+from .validators import validate_clinical_info_unit, validate_statement_unit
 
 __all__ = [
+    "AnchorMatch",
+    "AnchorRegistry",
+    "AnchorScore",
+    "ClinicalInfoExtractor",
+    "ClinicalInfoPayload",
+    "ClinicalInfoUnit",
+    "ClinicalInfoUnitBody",
+    "ClassificationResult",
     "CsvRecommendation",
     "DifferentialDiagnosisItem",
     "DiseaseSkillPack",
     "EvidenceReference",
+    "ExtractedStatementFields",
+    "GuidelineMeta",
+    "GuidelineClassifier",
+    "DeepSeekClient",
+    "LLMNormalizer",
     "LlmSemanticEnricher",
     "MissingInformationItem",
+    "NarrativeGuidelinePipeline",
+    "NormalizationResult",
     "OpenAICompatibleChatClient",
     "PatientCase",
     "RecommendationCard",
@@ -43,6 +74,13 @@ __all__ = [
     "SemanticEnricher",
     "SkillPackMetadata",
     "SkillExecutionResult",
+    "SourceLocation",
+    "StatementUnit",
+    "StatementUnitBody",
+    "StatementExtractor",
+    "StatementSegment",
+    "StatementSegmenter",
+    "StructuredGuidelinePipeline",
     "SubSkill",
     "build_llm_enrichment_prompt",
     "build_skill_pack_from_csv",
@@ -50,6 +88,8 @@ __all__ = [
     "load_skill_pack",
     "read_recommendations_csv",
     "save_skill_pack",
+    "validate_clinical_info_unit",
+    "validate_statement_unit",
     "validate_skill_pack",
     "write_skill_pack_from_csv",
 ]

@@ -1,5 +1,136 @@
 # Medical Guideline Skill Pack Demo
 
+## 最新 CLI 输出路径
+
+单文件抽取不需要手动传 `--output` 和 `--summary`：
+
+```bash
+python -m guideline_skill.cli extract `
+  --input "/path/to/file.pdf"
+```
+
+默认输出到：
+
+```text
+data/extractor/<PDF 文件名不含扩展名>/
+  result.jsonl
+  summary.json
+```
+
+批量抽取不需要手动传 `--output-dir`：
+
+```bash
+python -m guideline_skill.cli batch `
+  --input-dir "data/guides"
+```
+
+批量模式默认非递归扫描目录下的 `.pdf`、`.txt`、`.md` 文件，并为每个输入文件分别创建对应子目录。`batch` 仍兼容 `--inputs "/path/a.pdf" "/path/b.pdf"` 手动指定文件，也兼容 `--output-dir` 作为输出根目录覆盖参数。
+
+## 指南分类与抽取 CLI
+
+通用指南分类与抽取入口：
+
+```bash
+python -m guideline_skill.cli extract `
+  --input "/path/to/file.pdf"
+```
+
+批量抽取：
+
+```bash
+python -m guideline_skill.cli batch `
+  --inputs "/path/a.pdf" "/path/b.pdf"
+```
+
+默认输出目录为 `data/extractor/`：
+
+- `data/extractor/result.jsonl`：每行一个抽取单元。
+- `data/extractor/summary.json`：分类分数、单元数量、人工复核数量、LLM 模型等汇总信息。
+
+### 分类逻辑
+
+文档先由 `AnchorRegistry` 和 `GuidelineClassifier` 分类：
+
+- `structured_guideline`：命中足够多结构化主锚点，例如“推荐意见”“共识意见”“陈述”“Recommendation”。
+- `narrative_guideline`：未命中足够结构化主锚点时，默认归为叙述性指南。
+
+分类只依赖结构化主锚点命中情况。字段锚点，例如“证据等级”“推荐强度”“实施建议”，不会单独决定文档为结构化指南。
+
+### 配置文件
+
+锚点规则配置在 `configs/anchor_rules.yaml`：
+
+- `unit_anchors` 用于结构化指南分类、主切分、statement type 推断。
+- `field_anchors` 只用于结构化指南 raw 字段抽取，不作为切分边界。
+
+标题规则配置在 `configs/heading_rules.yaml`。`HeadingSegmenter` 使用该配置识别“一、诊断”“1.1 实验室检查”“II.6.1 化疗药物”等标题层级。
+
+### 结构化指南流程
+
+`structured_guideline` 的处理流程：
+
+1. 使用 `unit_anchors` 切分 `StatementUnit`。
+2. 使用 `field_anchors` 抽取 raw 字段，例如 `evidence_quality_raw`、`strength_raw`、`implementation_advice`、`rationale`。
+3. 使用 DeepSeek LLM 归一化 `evidence_quality_normalized` 和 `strength_normalized`。
+4. 使用 Pydantic schema 和 validators 标记需要人工复核的单元。
+
+结构化指南只对 raw 字段做规则抽取；证据等级和推荐强度归一化必须走 DeepSeek LLM。
+
+### 叙述性指南流程
+
+`narrative_guideline` 的处理流程：
+
+1. 使用 `HeadingSegmenter` 按配置化标题规则切分章节。
+2. 过长 segment 会先按段落或长度切成更小 chunk。
+3. 每个 chunk 都交给 `ClinicalInfoExtractor`。
+4. `ClinicalInfoExtractor` 全部使用 DeepSeek LLM 抽取 `ClinicalInfoUnit`，不做规则字段抽取。
+5. LLM 失败或返回非法 JSON 时保留 `raw_text`，输出兜底单元并标记 `needs_human_review=true`。
+
+### DeepSeek 环境变量
+
+运行真实 LLM 抽取前需要配置：
+
+```bash
+export DEEPSEEK_MODEL="..."
+export DEEPSEEK_BASE_URL="..."
+export DEEPSEEK_API_KEY="..."
+```
+
+PowerShell：
+
+```powershell
+$env:DEEPSEEK_MODEL="..."
+$env:DEEPSEEK_BASE_URL="..."
+$env:DEEPSEEK_API_KEY="..."
+```
+
+缺失任一变量时，`DeepSeekClient` 会报出清晰错误：
+
+```text
+Missing DEEPSEEK_MODEL / DEEPSEEK_BASE_URL / DEEPSEEK_API_KEY
+```
+
+### 输出示例
+
+结构化指南 JSONL 单行示例：
+
+```json
+{"record_type":"statement_unit","guideline_meta":{"title":"...","source_file":"...","doc_type":"structured_guideline"},"unit":{"id":"statement_unit_001_xxxxxxxx","original_label":"推荐意见1：","statement_type":"recommendation","statement_text":"...","clinical_question":null,"evidence_quality_raw":"2","evidence_quality_normalized":"moderate","strength_raw":"强","strength_normalized":"strong","consensus_level":null,"implementation_advice":"...","rationale":"...","source_location":{"page_start":1,"page_end":2,"section":null},"confidence":0.9,"needs_human_review":false,"review_reasons":[]}}
+```
+
+叙述性指南 JSONL 单行示例：
+
+```json
+{"record_type":"clinical_info_unit","guideline_meta":{"title":"...","source_file":"...","doc_type":"narrative_guideline"},"unit":{"id":"clinical_info_unit_xxxxxxxxxxxx","section_path":["诊断","实验室检查"],"title":"实验室检查","raw_text":"...","unit_type":"test_order","clinical_topic":"diagnosis","action":"完善相关检查","condition":null,"indication":[],"contraindication":[],"diagnostic_criteria":[],"differential_diagnosis":[],"drug":null,"dose":null,"route":null,"frequency":null,"duration":null,"source_location":{"page_start":1,"page_end":1,"section":"诊断 / 实验室检查"},"confidence":0.86,"needs_human_review":false,"review_reasons":[]}}
+```
+
+### 当前限制
+
+- PDF 双栏解析可能影响标题和段落顺序。
+- LLM 结果必须抽样复核，不能直接作为最终医学结论。
+- 标题规则需要随新文档不断扩充。
+- 结构化指南的 raw 字段依赖锚点匹配质量。
+
 这是一个“医疗诊治指南 PDF -> Guideline Skill Pack -> Agent 调用”的 Python demo 项目。
 
 第一阶段以《中国克罗恩病诊治指南（2023 年·广州）》为示例，实现了一个最小可运行闭环：

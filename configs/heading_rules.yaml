@@ -1,0 +1,50 @@
+heading_patterns:
+  - name: chinese_section
+    rank: 10
+    patterns:
+      - "^[一二三四五六七八九十百]+(?:[、．.]|\\s+).+$"
+
+  - name: arabic_section
+    rank: 10
+    patterns:
+      - "^\\d+(?!\\.\\d)(?:[、．.]|\\s+).+$"
+
+  - name: roman_heading
+    rank: 20
+    patterns:
+      - "^[IVXLCDM]+\\s+.+$"
+
+  - name: roman_decimal_heading
+    rank: 30
+    patterns:
+      - "^[IVXLCDM]+(?:\\.\\d+)+\\s+.+$"
+
+  - name: arabic_decimal_heading
+    rank: 30
+    patterns:
+      - "^\\d+(?:\\.\\d+)+\\s+.+$"
+
+  - name: chinese_parentheses
+    rank: 40
+    patterns:
+      - "^[（(][一二三四五六七八九十百]+[）)].+$"
+
+  - name: uppercase_parentheses
+    rank: 40
+    patterns:
+      - "^[（(][A-Z][）)].+$"
+
+  - name: lowercase_parentheses
+    rank: 50
+    patterns:
+      - "^[（(][a-z][）)].+$"
+
+  - name: circled_number
+    rank: 60
+    patterns:
+      - "^[①②③④⑤⑥⑦⑧⑨⑩].+$"
+
+  - name: bracket_number
+    rank: 60
+    patterns:
+      - "^\\[\\d+\\].+$"
