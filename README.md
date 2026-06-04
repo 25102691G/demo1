@@ -26,6 +26,86 @@ python -m guideline_skill.cli batch `
 
 批量模式默认非递归扫描目录下的 `.pdf`、`.txt`、`.md` 文件，并为每个输入文件分别创建对应子目录。`batch` 仍兼容 `--inputs "/path/a.pdf" "/path/b.pdf"` 手动指定文件，也兼容 `--output-dir` 作为输出根目录覆盖参数。
 
+## 从 extractor JSONL 构建 disease skill pack
+
+`scripts/build_skill_pack.py` 用于把抽取后的 JSONL 构建为可校验的 disease skill pack：
+
+```text
+data/extractor/<指南名>/result.jsonl
+  -> data/skill/<指南名>/skill.yaml
+  -> data/skill/<指南名>/cards.jsonl
+```
+
+单文件构建示例：
+
+```powershell
+python scripts/build_skill_pack.py --cards ".\data\extractor\中国克罗恩病诊治指南（2023年·广州）\result.jsonl" --out-dir ".\data\skill" --skill-schema schema/skill_pack.schema.json --card-schema schema/recommendation_card.schema.json --schema-version 0.3 --force
+```
+
+批量构建示例：
+
+```powershell
+python scripts/build_skill_pack.py --cards data/extractor --out-dir data/skill --skill-schema schema/skill_pack.schema.json --card-schema schema/recommendation_card.schema.json --schema-version 0.3 --force
+```
+
+`--cards` 支持两种输入：
+
+- 单个 `.jsonl` 文件：只构建该文件对应的 skill pack。
+- 目录路径：递归识别目录下所有 `*.jsonl` 文件，并自动排除 `summary.json` 等非 JSONL 文件。
+
+输出目录命名规则：
+
+- 如果输入是 `data/extractor/<指南名>/result.jsonl`，输出到 `data/skill/<指南名>/`。
+- 如果输入是普通文件名，例如 `custom_cards.jsonl`，输出到 `data/skill/custom_cards/`。
+- `skill.yaml` 内部的 `metadata.skill_id` 仍由疾病名、指南版本或安全 hash 推断；磁盘目录名优先使用输入来源名，便于和 extractor 目录对应。
+
+生成内容：
+
+- `skill.yaml`：执行配置，只引用 `cards.jsonl`，不会把所有 card 内容塞进 YAML。
+- `cards.jsonl`：输入 JSONL 的规范化副本。它不是字节级直接复制；脚本会读取每行 JSON 后重新写出，字段内容来自源数据，但空格、换行和字段顺序不保证完全一致。
+
+输入兼容：
+
+- 已经是 `recommendation_card` 的 JSONL 会直接规范化写出。
+- `statement_unit` 和 `clinical_info_unit` 会先转换为最低限度的 `recommendation_card`，再通过 `schema/recommendation_card.schema.json` 校验。
+
+`--taxonomy` 是可选参数，用于提供自定义 subskill 分类关键词：
+
+```powershell
+python scripts/build_skill_pack.py --cards data/extractor --out-dir data/skill --taxonomy config/subskill_taxonomy.yaml --force
+```
+
+如果 `config/subskill_taxonomy.yaml` 不存在，脚本会使用内置通用 taxonomy，不会报错。taxonomy 只能定义通用任务分类关键词，不应写入某个疾病专属规则。
+
+构建过程中会执行：
+
+- card schema 校验
+- `schema/skill_pack.schema.json` 校验
+- workflow transition 目标校验
+- workflow subskill 引用校验
+- output template 引用校验
+- subskill 选择的 card_id 存在性校验
+
+可以使用 `--dry-run` 只构建和校验，不写文件：
+
+```powershell
+python scripts/build_skill_pack.py --cards data/extractor --out-dir data/skill --skill-schema schema/skill_pack.schema.json --card-schema schema/recommendation_card.schema.json --schema-version 0.3 --dry-run
+```
+
+成功时输出中会包含：
+
+```json
+{
+  "status": "ok",
+  "processed_count": 1,
+  "results": [
+    {
+      "schema_validation": "pass"
+    }
+  ]
+}
+```
+
 ## 指南分类与抽取 CLI
 
 通用指南分类与抽取入口：
@@ -167,6 +247,7 @@ data/
     crohn_disease_2023_guangzhou.yaml
 
 scripts/
+  build_skill_pack.py
   check_skill_quality.py
   evaluate_skill.py
   extract_patient_case.py
