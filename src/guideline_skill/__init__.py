@@ -38,6 +38,7 @@ from .schemas import (
     ClinicalInfoUnitBody,
     GuidelineMeta,
     SourceLocation,
+    StatementEvidence,
     StatementUnit,
     StatementUnitBody,
 )
@@ -75,6 +76,7 @@ __all__ = [
     "SkillPackMetadata",
     "SkillExecutionResult",
     "SourceLocation",
+    "StatementEvidence",
     "StatementUnit",
     "StatementUnitBody",
     "StatementExtractor",

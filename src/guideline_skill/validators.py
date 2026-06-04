@@ -39,32 +39,32 @@ def validate_statement_unit(
     *,
     primary_anchor_count: int = 1,
 ) -> StatementUnit:
-    unit = statement_unit.unit
-    reasons = list(unit.review_reasons)
+    reasons = list(statement_unit.review_reasons)
 
-    if not unit.statement_text.strip():
+    if not statement_unit.statement_text.strip():
         reasons.append("empty_statement_text")
-    if not unit.evidence_quality_raw and not _is_bps(unit.strength_raw):
+    if not statement_unit.evidence.evidence_quality_raw and not _is_bps(
+        statement_unit.evidence.recommendation_strength_raw
+    ):
         reasons.append("missing_evidence_quality_raw")
-    if not unit.strength_raw and unit.statement_type != "consensus":
+    if not statement_unit.evidence.recommendation_strength_raw and statement_unit.statement_type != "consensus":
         reasons.append("missing_strength_raw")
-    if len(unit.statement_text) > 1000:
+    if len(statement_unit.statement_text) > 1000:
         reasons.append("statement_text_too_long")
     if primary_anchor_count > 1:
         reasons.append("multiple_primary_unit_anchors_in_segment")
-    if unit.confidence < 0.75:
+    if statement_unit.confidence < 0.75:
         reasons.append("low_confidence")
-    if unit.needs_human_review:
+    if statement_unit.needs_human_review:
         reasons.append("normalizer_needs_human_review")
 
     deduped_reasons = _dedupe(reasons)
-    updated_unit = unit.model_copy(
+    return statement_unit.model_copy(
         update={
             "needs_human_review": bool(deduped_reasons),
             "review_reasons": deduped_reasons,
         }
     )
-    return statement_unit.model_copy(update={"unit": updated_unit})
 
 
 def validate_clinical_info_unit(clinical_info_unit: ClinicalInfoUnit) -> ClinicalInfoUnit:

@@ -270,7 +270,7 @@ def build_summary(
     human_review_count = 0
 
     for extracted_unit in units:
-        unit_body = extracted_unit.unit
+        unit_body = extracted_unit.unit if isinstance(extracted_unit, ClinicalInfoUnit) else extracted_unit
         if getattr(unit_body, "needs_human_review", False):
             human_review_count += 1
         unit_type = getattr(unit_body, "unit_type", None) or getattr(unit_body, "statement_type", None)

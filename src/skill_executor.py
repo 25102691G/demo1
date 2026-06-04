@@ -599,6 +599,12 @@ def _page_from_source_span(source_span: str) -> int | None:
     match = re.search(r"pages?\s*(\d+)", source_span, re.IGNORECASE)
     if match:
         return int(match.group(1))
+    match = re.search(r"第\s*(\d+)\s*(?:页|頁)", source_span)
+    if match:
+        return int(match.group(1))
+    match = re.search(r"第\s*(\d+)\s*(?:至|到|-|—|~)\s*\d+\s*(?:页|頁)?", source_span)
+    if match:
+        return int(match.group(1))
     return None
 
 

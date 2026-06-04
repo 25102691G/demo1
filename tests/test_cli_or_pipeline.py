@@ -39,6 +39,23 @@ class MockDeepSeekClient:
                 "needs_human_review": False,
                 "review_reasons": [],
             }
+        if "disease name" in system_prompt:
+            return {"disease": "test disease"}
+        if "推荐卡字段抽取助手" in system_prompt:
+            return {
+                "action": "summarized action",
+                "clinical_task": "检查选择",
+                "population": "疑似 CD 患者",
+                "condition": "需要评估病变范围时",
+                "do_not": ["不要单独依赖单一检查"],
+                "required_inputs": ["临床表现"],
+                "supporting_features": ["腹痛"],
+                "recommended_tests": ["内镜检查"],
+            }
+        if "evidence quality values" in system_prompt:
+            return {"normalizations": {"2": "moderate"}}
+        if "recommendation strength values" in system_prompt:
+            return {"normalizations": {"强": "strong"}}
         return {
             "evidence_quality_normalized": "moderate",
             "strength_normalized": "strong",
@@ -69,7 +86,19 @@ def test_structured_guideline_uses_structured_pipeline_and_writes_default_output
     summary_payload = json.loads(summary_path.read_text(encoding="utf-8"))
 
     assert summary["doc_type"] == "structured_guideline"
-    assert records[0]["record_type"] == "statement_unit"
+    assert records[0]["record_type"] == "recommendation_card"
+    assert records[0]["guideline"]["title"] == "structured"
+    assert records[0]["disease"] == "test disease"
+    assert records[0]["action"] == "summarized action"
+    assert records[0]["clinical_task"] == "检查选择"
+    assert records[0]["population"] == "疑似 CD 患者"
+    assert records[0]["condition"] == "需要评估病变范围时"
+    assert records[0]["do_not"] == ["不要单独依赖单一检查"]
+    assert records[0]["required_inputs"] == ["临床表现"]
+    assert records[0]["supporting_features"] == ["腹痛"]
+    assert records[0]["recommended_tests"] == ["内镜检查"]
+    assert "unit" not in records[0]
+    assert records[0]["evidence"]["recommendation_strength_normalized"] == "strong"
     assert result_path.exists()
     assert summary_path.exists()
     assert summary_payload["doc_type"] == "structured_guideline"

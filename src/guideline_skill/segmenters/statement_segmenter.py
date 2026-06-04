@@ -15,6 +15,7 @@ class StatementSegment:
     end: int
     page_start: int | None
     page_end: int | None
+    section: str | None
 
 
 class StatementSegmenter:
@@ -48,6 +49,7 @@ class StatementSegmenter:
                     end=end,
                     page_start=_page_for_offset(text, start),
                     page_end=_page_for_offset(text, max(start, end - 1)),
+                    section=_section_for_offset(text, start),
                 )
             )
         return segments
@@ -94,3 +96,23 @@ def _page_for_offset(text: str, offset: int) -> int | None:
         found_marker = True
         page = int(marker.group(1))
     return page if found_marker or text else None
+
+
+def _section_for_offset(text: str, offset: int) -> str | None:
+    preceding_text = text[:offset]
+    matches = list(
+        re.finditer(
+            r"(?m)^\s*([一二三四五六七八九十]+、[^\n]{2,80})\s*$",
+            preceding_text,
+        )
+    )
+    if not matches:
+        return None
+    section = matches[-1].group(1).strip()
+    return _clean_section_title(section)
+
+
+def _clean_section_title(section: str) -> str:
+    section = re.sub(r"\s+", " ", section)
+    section = re.sub(r"^([一二三四五六七八九十]+、)\s*", r"\1", section)
+    return section.strip(" \t\r\n")

@@ -49,7 +49,7 @@ class StatementExtractor:
             if field not in fields or fields[field]:
                 continue
             next_start = field_matches[index + 1].start if index + 1 < len(field_matches) else len(text)
-            fields[field] = _extract_value(text, match, next_start)
+            fields[field] = _extract_value(text, match, next_start, field=field)
 
         if not fields["clinical_question"] and surrounding_context:
             fields["clinical_question"] = _extract_context_clinical_question(
@@ -135,12 +135,12 @@ def _label_end(text: str, original_label: str) -> int:
     return index + len(original_label) if index >= 0 else 0
 
 
-def _extract_value(text: str, match: _FieldMatch, next_start: int) -> str | None:
+def _extract_value(text: str, match: _FieldMatch, next_start: int, *, field: str | None = None) -> str | None:
     if _anchor_has_explicit_value(match.text):
         value = text[match.end:next_start]
     else:
         value = match.text
-    cleaned = _clean_value(value)
+    cleaned = _clean_field_value(value, field)
     return cleaned or None
 
 
@@ -166,7 +166,7 @@ def _extract_context_clinical_question(
         if item.start > match.start
     ]
     next_start = following_matches[0].start if following_matches else len(surrounding_context)
-    return _extract_value(surrounding_context, match, next_start)
+    return _extract_value(surrounding_context, match, next_start, field="clinical_question")
 
 
 def _infer_statement_type(original_label: str) -> str:
@@ -179,4 +179,51 @@ def _infer_statement_type(original_label: str) -> str:
 
 def _clean_value(value: str) -> str:
     text = re.sub(r"\s+", " ", value.replace("\u3000", " "))
-    return text.strip(" \t\r\n,，;；。)")
+    text = re.sub(r"^[\s,，;；。]+|[\s,，;；。]+$", "", text)
+    text = re.sub(r"[（(]\s*$", "", text)
+    return re.sub(r"^[\s,，;；。]+|[\s,，;；。]+$", "", text)
+
+
+def _clean_field_value(value: str, field: str | None) -> str:
+    text = _cut_noise(value)
+    if field == "evidence_quality_raw":
+        return _clean_evidence_quality_raw(text)
+    if field == "strength_raw":
+        return _clean_strength_raw(text)
+    return _clean_value(text)
+
+
+def _cut_noise(value: str) -> str:
+    text = value
+    noise_patterns = [
+        r"——中华消化杂志.*",
+        r"中华消化杂志\d{4}年.*",
+        r"ChinJDig,.*",
+        r"##\s*Page\s+\d+.*",
+        r"表\s*\d+.*",
+    ]
+    for pattern in noise_patterns:
+        text = re.split(pattern, text, maxsplit=1, flags=re.IGNORECASE | re.DOTALL)[0]
+    return text
+
+
+def _clean_evidence_quality_raw(value: str) -> str:
+    text = _clean_value(value)
+    match = re.search(r"\b([1-4])\b|([A-D])级?|([高中过]?低|极低|很低|中等)", text, flags=re.IGNORECASE)
+    if match:
+        return match.group(0).strip()
+    return text
+
+
+def _clean_strength_raw(value: str) -> str:
+    text = _clean_value(value)
+    if re.search(r"\bBPS\b|最佳临床实践", text, flags=re.IGNORECASE):
+        return "BPS"
+    if "强" in text:
+        return "强"
+    if "弱" in text:
+        return "弱"
+    match = re.search(r"\b(strong|weak)\b", text, flags=re.IGNORECASE)
+    if match:
+        return match.group(1).lower()
+    return text

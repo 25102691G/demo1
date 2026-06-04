@@ -61,6 +61,16 @@ class SourceLocation(BaseModel):
     section: str | None = None
 
 
+class StatementEvidence(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    evidence_quality_raw: str | None = None
+    evidence_quality_normalized: EvidenceQualityNormalized | None = None
+    recommendation_strength_raw: str | None = None
+    recommendation_strength_normalized: StrengthNormalized | None = None
+    consensus_level: str | None = None
+
+
 class StatementUnitBody(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -71,12 +81,14 @@ class StatementUnitBody(BaseModel):
     clinical_question: str | None = None
     evidence_quality_raw: str | None = None
     evidence_quality_normalized: EvidenceQualityNormalized | None = None
+    # TODO: 需要处理下BPS的情况
     strength_raw: str | None = None
     strength_normalized: StrengthNormalized | None = None
     consensus_level: str | None = None
     implementation_advice: str | None = None
     rationale: str | None = None
     source_location: SourceLocation
+    # TODO：BPS情况下为0，后续需要处理（可以考虑拆分为多个置信度）
     confidence: float = Field(ge=0.0, le=1.0)
     needs_human_review: bool
     review_reasons: list[str] = Field(default_factory=list)
@@ -85,9 +97,30 @@ class StatementUnitBody(BaseModel):
 class StatementUnit(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    record_type: Literal["statement_unit"] = "statement_unit"
-    guideline_meta: GuidelineMeta
-    unit: StatementUnitBody
+    record_type: Literal["recommendation_card"] = "recommendation_card"
+    guideline: GuidelineMeta
+    card_id: str
+    source_statement_id: str
+    disease: str
+    statement_type: str
+    statement_text: str
+    clinical_question: str | None = None
+    clinical_stage: str
+    clinical_task: str = ""
+    population: str | None = None
+    condition: str | None = None
+    action: str
+    do_not: list[str] = Field(default_factory=list)
+    required_inputs: list[str] = Field(default_factory=list)
+    supporting_features: list[str] = Field(default_factory=list)
+    recommended_tests: list[str] = Field(default_factory=list)
+    evidence: StatementEvidence
+    implementation_advice: str | None = None
+    rationale: str | None = None
+    source_location: SourceLocation
+    confidence: float = Field(ge=0.0, le=1.0)
+    needs_human_review: bool
+    review_reasons: list[str] = Field(default_factory=list)
 
     def to_json(self, **kwargs: object) -> str:
         return json.dumps(
