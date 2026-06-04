@@ -1,0 +1,438 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "workflow_output.schema.json",
+  "title": "Skill Engine Workflow Output Schema",
+  "type": "object",
+  "required": [
+    "run_id",
+    "case_id",
+    "status",
+    "top_candidates",
+    "selected_skill_outputs",
+    "final_response",
+    "safety",
+    "citations",
+    "debug_trace"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "stopped_for_safety",
+        "missing_information",
+        "low_confidence",
+        "needs_human_review",
+        "error"
+      ]
+    },
+    "top_candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/candidateSkill"
+      }
+    },
+    "selected_skill_outputs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/skillOutput"
+      }
+    },
+    "final_response": {
+      "type": "object",
+      "required": [
+        "audience",
+        "summary",
+        "structured_result",
+        "disclaimer"
+      ],
+      "properties": {
+        "audience": {
+          "type": "string",
+          "enum": ["patient", "clinician", "system", "mixed"]
+        },
+        "summary": {
+          "type": "string"
+        },
+        "structured_result": {
+          "type": "object",
+          "properties": {
+            "diagnosis_status": {
+              "type": ["string", "null"],
+              "enum": [
+                "not_applicable",
+                "low_probability",
+                "candidate",
+                "suspected",
+                "highly_suspected",
+                "confirmed",
+                "evidence_insufficient",
+                null
+              ]
+            },
+            "supporting_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "opposing_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "missing_information": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "recommended_next_steps": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "differentials_to_consider": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "management_recommendations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "monitoring_or_follow_up": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "safety_notes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "disclaimer": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "safety": {
+      "type": "object",
+      "required": ["has_red_flags", "red_flags", "workflow_stopped"],
+      "properties": {
+        "has_red_flags": {
+          "type": "boolean"
+        },
+        "red_flags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/redFlagOutput"
+          }
+        },
+        "workflow_stopped": {
+          "type": "boolean"
+        },
+        "safety_message": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/citation"
+      }
+    },
+    "debug_trace": {
+      "type": "object",
+      "required": ["enabled"],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "route_scores": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/routeScore"
+          }
+        },
+        "executed_steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/executedStep"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "candidateSkill": {
+      "type": "object",
+      "required": [
+        "skill_id",
+        "disease_name",
+        "score",
+        "matched_features",
+        "missing_key_evidence"
+      ],
+      "properties": {
+        "skill_id": {
+          "type": "string"
+        },
+        "disease_name": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        },
+        "rank": {
+          "type": "integer"
+        },
+        "matched_features": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/matchedFeature"
+          }
+        },
+        "negative_features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missing_key_evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reasoning_summary": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "matchedFeature": {
+      "type": "object",
+      "required": ["name", "source", "weight"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "enum": ["symptom", "sign", "lab", "imaging", "endoscopy", "pathology", "diagnosis", "text", "other"]
+        },
+        "weight": {
+          "type": "number"
+        },
+        "evidence_text": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "skillOutput": {
+      "type": "object",
+      "required": [
+        "skill_id",
+        "disease_name",
+        "workflow_status",
+        "executed_steps",
+        "result"
+      ],
+      "properties": {
+        "skill_id": {
+          "type": "string"
+        },
+        "disease_name": {
+          "type": "string"
+        },
+        "workflow_status": {
+          "type": "string",
+          "enum": [
+            "completed",
+            "stopped_for_safety",
+            "missing_information",
+            "candidate_only",
+            "error"
+          ]
+        },
+        "executed_steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/executedStep"
+          }
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "current_status": {
+              "type": "string"
+            },
+            "suspicion_level": {
+              "type": ["string", "null"]
+            },
+            "supporting_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "opposing_evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "missing_information": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "recommended_next_steps": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "used_cards": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "redFlagOutput": {
+      "type": "object",
+      "required": ["name", "severity"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "source": {
+          "type": "string"
+        },
+        "recommended_action": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "citation": {
+      "type": "object",
+      "required": ["card_id", "source"],
+      "properties": {
+        "card_id": {
+          "type": "string"
+        },
+        "recommendation_label": {
+          "type": ["string", "null"]
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "pdf": {
+              "type": "string"
+            },
+            "page_start": {
+              "type": "integer"
+            },
+            "page_end": {
+              "type": "integer"
+            },
+            "quote": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "routeScore": {
+      "type": "object",
+      "required": ["skill_id", "score"],
+      "properties": {
+        "skill_id": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        },
+        "matched": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "penalties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "executedStep": {
+      "type": "object",
+      "required": ["step_id", "type", "status"],
+      "properties": {
+        "step_id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["completed", "skipped", "stopped", "error"]
+        },
+        "result_summary": {
+          "type": ["string", "null"]
+        },
+        "next_step": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

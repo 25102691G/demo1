@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "recommendation_card.schema.json",
+  "title": "Recommendation Card Schema",
+  "type": "object",
+  "required": [
+    "record_type",
+    "card_id",
+    "source_statement_id",
+    "disease",
+    "guideline",
+    "clinical_stage",
+    "action",
+    "evidence",
+    "source_location"
+  ],
+  "properties": {
+    "record_type": {
+      "type": "string",
+      "const": "recommendation_card"
+    },
+    "card_id": {
+      "type": "string"
+    },
+    "source_statement_id": {
+      "type": ["string", "null"]
+    },
+    "disease": {
+      "type": "string"
+    },
+    "guideline": {
+      "type": "object",
+      "required": ["title", "source_file", "doc_type"],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "source_file": {
+          "type": ["string", "null"]
+        },
+        "doc_type": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "clinical_stage": {
+      "type": "string",
+      "$comment": "TODO: 后续需优化为enum类"
+    },
+    "clinical_task": {
+      "type": ["string", "null"]
+    },
+    "population": {
+      "type": ["string", "null"]
+    },
+    "condition": {
+      "type": ["string", "null"]
+    },
+    "action": {
+      "type": "string"
+    },
+    "do_not": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supporting_features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommended_tests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contraindications_or_cautions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "safety_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "evidence_quality_normalized",
+        "recommendation_strength_normalized"
+      ],
+      "properties": {
+        "evidence_quality_raw": {
+          "type": ["string", "null"]
+        },
+        "evidence_quality_normalized": {
+          "type": "string",
+          "enum": [
+            "high",
+            "moderate",
+            "low",
+            "very_low",
+            "level_1",
+            "level_2",
+            "level_3",
+            "level_4",
+            "level_5",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "recommendation_strength_raw": {
+          "type": ["string", "null"]
+        },
+        "recommendation_strength_normalized": {
+          "type": "string",
+          "enum": [
+            "strong",
+            "weak",
+            "grade_a",
+            "grade_b",
+            "best_practice_statement",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "consensus_level": {
+          "type": ["string", "number", "null"]
+        },
+        "grading_system": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "rationale": {
+      "type": ["string", "null"]
+    },
+    "source_location": {
+      "type": "object",
+      "required": ["page_start", "page_end"],
+      "properties": {
+        "pdf": {
+          "type": "string"
+        },
+        "page_start": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "page_end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "section": {
+          "type": ["string", "null"]
+        },
+        "quote": {
+          "type": "string"
+        },
+        "source_span": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "retrieval": {
+      "type": "object",
+      "properties": {
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "semantic_text": {
+          "type": ["string", "null"]
+        },
+        "embedding_id": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,780 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "skill_pack.schema.json",
+  "title": "Disease Skill Pack Schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "metadata",
+    "routing_profile",
+    "knowledge_base",
+    "workflow",
+    "subskills",
+    "safety_constraints",
+    "output_templates",
+    "validation"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^0\\.\\d+$"
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "skill_id",
+        "disease_name",
+        "disease_aliases",
+        "guideline",
+        "target_users",
+        "intended_use",
+        "scope",
+        "disclaimer"
+      ],
+      "properties": {
+        "skill_id": {
+          "type": "string"
+        },
+        "disease_name": {
+          "type": "string"
+        },
+        "disease_code": {
+          "type": "object",
+          "properties": {
+            "icd10": {
+              "type": ["string", "null"]
+            },
+            "icd11": {
+              "type": ["string", "null"]
+            }
+          },
+          "additionalProperties": true
+        },
+        "disease_aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "body_system": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "specialty": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "guideline": {
+          "type": "object",
+          "required": ["name", "version", "source_pdf"],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "source_pdf": {
+              "type": "string"
+            },
+            "publication_year": {
+              "type": ["integer", "null"]
+            },
+            "issuing_organization": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "language": {
+              "type": "string",
+              "default": "zh-CN"
+            }
+          },
+          "additionalProperties": true
+        },
+        "target_users": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "intended_use": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scope": {
+          "type": "string"
+        },
+        "out_of_scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "disclaimer": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "runtime": {
+      "type": "object",
+      "properties": {
+        "engine_min_version": {
+          "type": "string"
+        },
+        "execution_mode": {
+          "type": "string",
+          "enum": ["declarative_workflow"]
+        },
+        "llm_usage": {
+          "type": "object",
+          "properties": {
+            "allowed": {
+              "type": "boolean"
+            },
+            "roles": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "case_normalization",
+                  "semantic_matching",
+                  "explanation_generation",
+                  "card_structuring"
+                ]
+              }
+            },
+            "forbidden_roles": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "default_language": {
+          "type": "string"
+        },
+        "output_mode": {
+          "type": "object",
+          "properties": {
+            "default": {
+              "type": "string"
+            },
+            "allow_patient_friendly_summary": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "case_schema": {
+      "type": "object",
+      "properties": {
+        "canonical_case_ref": {
+          "type": "string"
+        },
+        "required_minimum_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "field_mapping_hints": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "routing_profile": {
+      "type": "object",
+      "required": [
+        "routing_version",
+        "disease_identity",
+        "positive_features",
+        "red_flags",
+        "must_differentiate",
+        "scoring"
+      ],
+      "properties": {
+        "routing_version": {
+          "type": "string"
+        },
+        "disease_identity": {
+          "type": "object",
+          "required": ["primary_name", "aliases"],
+          "properties": {
+            "primary_name": {
+              "type": "string"
+            },
+            "aliases": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "abbreviations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "positive_features": {
+          "type": "object",
+          "properties": {
+            "symptoms": {
+              "$ref": "#/$defs/featureList"
+            },
+            "signs": {
+              "$ref": "#/$defs/featureList"
+            },
+            "labs": {
+              "$ref": "#/$defs/featureList"
+            },
+            "imaging": {
+              "$ref": "#/$defs/featureList"
+            },
+            "endoscopy": {
+              "$ref": "#/$defs/featureList"
+            },
+            "pathology": {
+              "$ref": "#/$defs/featureList"
+            },
+            "findings": {
+              "$ref": "#/$defs/featureList"
+            }
+          },
+          "additionalProperties": false
+        },
+        "negative_features": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/negativeFeature"
+          }
+        },
+        "red_flags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/redFlag"
+          }
+        },
+        "must_differentiate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/differentialDisease"
+          }
+        },
+        "scoring": {
+          "type": "object",
+          "required": ["method", "thresholds", "top_k_default", "safety_override"],
+          "properties": {
+            "method": {
+              "type": "string",
+              "enum": ["weighted_feature_sum", "hybrid_weighted_semantic"]
+            },
+            "normalization": {
+              "type": "string"
+            },
+            "thresholds": {
+              "type": "object",
+              "required": ["candidate", "strong_candidate"],
+              "properties": {
+                "candidate": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "strong_candidate": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "very_likely": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            },
+            "top_k_default": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "safety_override": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "knowledge_base": {
+      "type": "object",
+      "required": ["cards_path", "card_schema_ref", "retrieval"],
+      "properties": {
+        "cards_path": {
+          "type": "string"
+        },
+        "source_map_path": {
+          "type": "string"
+        },
+        "embedding_index_path": {
+          "type": "string"
+        },
+        "card_schema_ref": {
+          "type": "string"
+        },
+        "retrieval": {
+          "type": "object",
+          "required": ["default_mode", "default_top_k", "citation_required"],
+          "properties": {
+            "default_mode": {
+              "type": "string",
+              "enum": ["by_recommendation_id", "semantic", "metadata_filter", "hybrid"]
+            },
+            "modes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["by_recommendation_id", "semantic", "metadata_filter", "hybrid"]
+              }
+            },
+            "default_top_k": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "filters": {
+              "type": "object",
+              "additionalProperties": true
+            },
+            "citation_required": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "workflow": {
+      "type": "object",
+      "required": ["workflow_version", "entrypoint", "steps"],
+      "properties": {
+        "workflow_version": {
+          "type": "string"
+        },
+        "entrypoint": {
+          "type": "string"
+        },
+        "global_policies": {
+          "type": "object",
+          "additionalProperties": {
+            "type": ["boolean", "string", "number", "array", "object", "null"]
+          }
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/workflowStep"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "subskills": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/subskill"
+      }
+    },
+    "safety_constraints": {
+      "type": "object",
+      "required": ["general", "treatment_policy", "emergency_policy"],
+      "properties": {
+        "safety_version": {
+          "type": "string"
+        },
+        "general": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/safetyRule"
+          }
+        },
+        "treatment_policy": {
+          "type": "object",
+          "properties": {
+            "diagnosis_required": {
+              "type": "string"
+            },
+            "allow_general_management_advice": {
+              "type": "boolean"
+            },
+            "allow_specific_drug_dosing": {
+              "type": "boolean"
+            },
+            "allow_prescription": {
+              "type": "boolean"
+            },
+            "require_physician_review": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": true
+        },
+        "emergency_policy": {
+          "type": "object",
+          "properties": {
+            "trigger_from": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "output_template": {
+              "type": "string"
+            },
+            "stop_workflow": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "output_templates": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/outputTemplate"
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "required_checks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "review_policy": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "test_cases_path": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "featureList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/feature"
+      }
+    },
+    "feature": {
+      "type": "object",
+      "required": ["name", "weight"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "synonyms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "path": {
+          "type": "string"
+        },
+        "operator": {
+          "type": "string",
+          "enum": ["exists", "eq", "neq", "gt", "gte", "lt", "lte", "contains", "any_match", "semantic_match"]
+        },
+        "threshold": {
+          "type": ["number", "string", "null"]
+        },
+        "unit": {
+          "type": ["string", "null"]
+        },
+        "weight": {
+          "type": "number"
+        },
+        "match_type": {
+          "type": "string",
+          "enum": ["exact", "semantic", "semantic_or_exact", "structured", "structured_or_text"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "negativeFeature": {
+      "type": "object",
+      "required": ["name", "penalty"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "suggests": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "penalty": {
+          "type": "number"
+        },
+        "match_type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "redFlag": {
+      "type": "object",
+      "required": ["name", "severity", "action"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "action": {
+          "type": "string"
+        },
+        "synonyms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "differentialDisease": {
+      "type": "object",
+      "required": ["disease_name"],
+      "properties": {
+        "disease_name": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "key_distinguishing_features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "workflowStep": {
+      "type": "object",
+      "required": ["step_id", "type", "transitions"],
+      "properties": {
+        "step_id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "safety_triage",
+            "evidence_check",
+            "differential_check",
+            "management_gate",
+            "plan_generation",
+            "terminal_output",
+            "card_retrieval",
+            "llm_generation"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "config": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/transition"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "transition": {
+      "type": "object",
+      "required": ["to"],
+      "properties": {
+        "when": {
+          "$ref": "#/$defs/condition"
+        },
+        "to": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "condition": {
+      "type": "object",
+      "required": ["op"],
+      "properties": {
+        "op": {
+          "type": "string",
+          "enum": ["exists", "missing", "eq", "neq", "gt", "gte", "lt", "lte", "contains", "any_match", "all_present", "missing_any", "default"]
+        },
+        "path": {
+          "type": "string"
+        },
+        "left": {
+          "type": ["string", "number", "boolean", "array", "object", "null"]
+        },
+        "right": {
+          "type": ["string", "number", "boolean", "array", "object", "null"]
+        },
+        "right_ref": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "subskill": {
+      "type": "object",
+      "required": ["subskill_id", "name", "type", "input_requirements", "card_selection", "output_schema_ref"],
+      "properties": {
+        "subskill_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "safety_triage",
+            "evidence_check",
+            "differential_check",
+            "management_gate",
+            "plan_generation",
+            "terminal_output",
+            "card_retrieval",
+            "llm_generation"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "input_requirements": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "card_selection": {
+          "type": "object",
+          "required": ["mode"],
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": ["by_recommendation_id", "semantic", "metadata_filter", "hybrid"]
+            },
+            "required": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "optional": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "filters": {
+              "type": "object",
+              "additionalProperties": true
+            },
+            "semantic_query_from": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "output_schema_ref": {
+          "type": "string"
+        },
+        "output_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "policies": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "safetyRule": {
+      "type": "object",
+      "required": ["id", "rule", "severity"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "rule": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "outputTemplate": {
+      "type": "object",
+      "required": ["structure"],
+      "properties": {
+        "audience": {
+          "type": "string"
+        },
+        "structure": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

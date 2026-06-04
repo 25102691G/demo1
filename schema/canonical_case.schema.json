@@ -1,0 +1,517 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "canonical_case.schema.json",
+  "title": "Canonical Clinical Case Schema",
+  "type": "object",
+  "required": [
+    "case_id",
+    "raw_input",
+    "demographics",
+    "symptoms",
+    "signs",
+    "vitals",
+    "labs",
+    "imaging",
+    "endoscopy",
+    "pathology",
+    "diagnoses",
+    "medications",
+    "procedures",
+    "red_flags",
+    "extraction_quality"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "raw_input": {
+      "type": "string"
+    },
+    "input_language": {
+      "type": "string",
+      "default": "zh-CN"
+    },
+    "demographics": {
+      "type": "object",
+      "properties": {
+        "age": {
+          "type": ["number", "null"]
+        },
+        "sex": {
+          "type": ["string", "null"],
+          "enum": ["male", "female", "unknown", null]
+        },
+        "pregnancy_status": {
+          "type": ["string", "null"],
+          "enum": ["pregnant", "not_pregnant", "unknown", null]
+        }
+      },
+      "additionalProperties": true
+    },
+    "chief_complaint": {
+      "type": ["string", "null"]
+    },
+    "history_of_present_illness": {
+      "type": ["string", "null"]
+    },
+    "symptoms": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/clinicalItem"
+      }
+    },
+    "signs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/clinicalItem"
+      }
+    },
+    "vitals": {
+      "type": "object",
+      "properties": {
+        "temperature": {
+          "$ref": "#/$defs/measurement"
+        },
+        "heart_rate": {
+          "$ref": "#/$defs/measurement"
+        },
+        "respiratory_rate": {
+          "$ref": "#/$defs/measurement"
+        },
+        "blood_pressure": {
+          "type": "object",
+          "properties": {
+            "systolic": {
+              "type": ["number", "null"]
+            },
+            "diastolic": {
+              "type": ["number", "null"]
+            },
+            "unit": {
+              "type": ["string", "null"],
+              "default": "mmHg"
+            },
+            "interpretation": {
+              "$ref": "#/$defs/interpretation"
+            }
+          },
+          "additionalProperties": true
+        },
+        "oxygen_saturation": {
+          "$ref": "#/$defs/measurement"
+        }
+      },
+      "additionalProperties": true
+    },
+    "labs": {
+      "type": "object",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/labItem"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "imaging": {
+      "type": "object",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/imagingItem"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "endoscopy": {
+      "type": "object",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/endoscopyItem"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "pathology": {
+      "type": "object",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/pathologyItem"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "diagnoses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/diagnosisItem"
+      }
+    },
+    "medications": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/medicationItem"
+      }
+    },
+    "procedures": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/procedureItem"
+      }
+    },
+    "allergies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "comorbidities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "family_history": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "extra_manifestations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/clinicalItem"
+      }
+    },
+    "scores": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/scoreItem"
+      }
+    },
+    "red_flags": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/redFlagItem"
+      }
+    },
+    "patient_goal": {
+      "type": ["string", "null"]
+    },
+    "extraction_quality": {
+      "type": "object",
+      "required": ["confidence", "missing_or_uncertain"],
+      "properties": {
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "missing_or_uncertain": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "normalization_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "interpretation": {
+      "type": ["string", "null"],
+      "enum": [
+        "low",
+        "normal",
+        "high",
+        "positive",
+        "negative",
+        "abnormal",
+        "elevated",
+        "decreased",
+        "unknown",
+        null
+      ]
+    },
+    "clinicalItem": {
+      "type": "object",
+      "required": ["name", "status"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "standard_name": {
+          "type": ["string", "null"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["present", "absent", "unknown"]
+        },
+        "duration": {
+          "type": ["string", "null"]
+        },
+        "severity": {
+          "type": ["string", "null"],
+          "enum": ["mild", "moderate", "severe", "unknown", null]
+        },
+        "value": {
+          "type": ["string", "number", "null"]
+        },
+        "source_text": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "measurement": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": ["number", "null"]
+        },
+        "unit": {
+          "type": ["string", "null"]
+        },
+        "interpretation": {
+          "$ref": "#/$defs/interpretation"
+        }
+      },
+      "additionalProperties": true
+    },
+    "labItem": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "standard_name": {
+          "type": ["string", "null"]
+        },
+        "value": {
+          "type": ["number", "string", "null"]
+        },
+        "unit": {
+          "type": ["string", "null"]
+        },
+        "reference_range": {
+          "type": ["string", "null"]
+        },
+        "interpretation": {
+          "$ref": "#/$defs/interpretation"
+        },
+        "date": {
+          "type": ["string", "null"]
+        },
+        "source_text": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "imagingItem": {
+      "type": "object",
+      "required": ["modality", "findings"],
+      "properties": {
+        "modality": {
+          "type": "string"
+        },
+        "body_part": {
+          "type": ["string", "null"]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "impression": {
+          "type": ["string", "null"]
+        },
+        "date": {
+          "type": ["string", "null"]
+        },
+        "source_text": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "endoscopyItem": {
+      "type": "object",
+      "required": ["type", "findings"],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "biopsy_taken": {
+          "type": "string",
+          "enum": ["true", "false", "unknown"]
+        },
+        "date": {
+          "type": ["string", "null"]
+        },
+        "source_text": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "pathologyItem": {
+      "type": "object",
+      "properties": {
+        "specimen": {
+          "type": ["string", "null"]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "diagnosis": {
+          "type": ["string", "null"]
+        },
+        "date": {
+          "type": ["string", "null"]
+        },
+        "source_text": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "diagnosisItem": {
+      "type": "object",
+      "required": ["name", "status"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["suspected", "highly_suspected", "confirmed", "ruled_out", "history", "unknown"]
+        },
+        "date": {
+          "type": ["string", "null"]
+        },
+        "source_text": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "medicationItem": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["current", "past", "planned", "unknown"]
+        },
+        "dose": {
+          "type": ["string", "null"]
+        },
+        "frequency": {
+          "type": ["string", "null"]
+        },
+        "start_date": {
+          "type": ["string", "null"]
+        },
+        "source_text": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "procedureItem": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "date": {
+          "type": ["string", "null"]
+        },
+        "result": {
+          "type": ["string", "null"]
+        },
+        "source_text": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "scoreItem": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": ["number", "string", "null"]
+        },
+        "interpretation": {
+          "$ref": "#/$defs/interpretation"
+        },
+        "date": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "redFlagItem": {
+      "type": "object",
+      "required": ["name", "source", "severity"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "enum": ["user_reported", "llm_inferred", "rule_detected"]
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "source_text": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
