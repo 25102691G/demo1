@@ -1145,7 +1145,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         required=True,
         help="Input cards.jsonl file path, or a directory to recursively process all .jsonl files.",
     )
-    parser.add_argument("--out-dir", default="data/skill", help="Output skill pack root directory.")
+    parser.add_argument("--out-dir", default="data/skills", help="Output skill pack root directory.")
     parser.add_argument(
         "--skill-schema",
         default="schema/skill_pack.schema.json",
