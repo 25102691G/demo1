@@ -70,7 +70,7 @@ python -m guideline_skill.cli batch --input-dir data/guides
 输出：
 
 ```text
-data/skill/<指南名>/
+data/skills/<指南名>/
   skill.yaml
   cards.jsonl
 ```
@@ -105,7 +105,7 @@ python scripts/build_skill_pack.py --cards data/extractor --force
 只校验不写文件：
 
 ```powershell
-python scripts/build_skill_pack.py --cards data/extractor --out-dir data/skill --skill-schema schema/skill_pack.schema.json --card-schema schema/recommendation_card.schema.json --schema-version 0.3 --dry-run
+python scripts/build_skill_pack.py --cards data/extractor --skill-schema schema/skill_pack.schema.json --card-schema schema/recommendation_card.schema.json --schema-version 0.3 --dry-run
 ```
 
 ## 3. 运行 SkillEngine
@@ -126,13 +126,13 @@ python scripts/run_skill_engine.py --input-text "腹痛腹泻半年，体重下�
 
 ## 输出文件
 
-`data/skill/<指南名>/skill.yaml`
+`data/skills/<指南名>/skill.yaml`
 
 - skill pack 的声明式配置
 - 包含 metadata、routing_profile、workflow、subskills、output_templates 等
 - 不内嵌全部推荐卡片正文，只引用 `cards.jsonl`
 
-`data/skill/<指南名>/cards.jsonl`
+`data/skills/<指南名>/cards.jsonl`
 
 - recommendation cards
 - 每行一个 card

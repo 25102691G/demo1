@@ -27,7 +27,7 @@ def main(argv: list[str] | None = None) -> int:
         sys.stderr.reconfigure(encoding="utf-8")
 
     parser = argparse.ArgumentParser(description="Run a generic guideline SkillEngine workflow.")
-    parser.add_argument("--skills-dir", default="data/skill", help="Directory containing */skill.yaml packs.")
+    parser.add_argument("--skills-dir", default="data/skills", help="Directory containing */skill.yaml packs.")
     parser.add_argument("--input-text", required=True, help="Raw case text.")
     parser.add_argument("--input-file", help="Raw case text file.")
     parser.add_argument("--case-json", help="Partially or fully structured canonical case JSON.")
