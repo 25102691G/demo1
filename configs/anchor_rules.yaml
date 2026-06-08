@@ -1,12 +1,21 @@
+# 医学指南锚点匹配规则。
+#
+# 本文件供 guideline_skill.AnchorRegistry 使用，用于对清洗后的指南文本进行分类，
+# 并在文本中定位结构化推荐单元。patterns 中的规则是正则表达式，会匹配归一化后的
+# PDF 文本。
+#
+# classification 用于控制何时将文档判定为结构化指南。
 classification:
   structured_threshold: 15
   min_unit_anchor_count: 2
 
+# unit_anchors 定义顶层推荐单元锚点，例如“推荐意见 1:”或“共识意见 2:”。
+# 结构化抽取流程会使用主推荐单元锚点将文档切分为 recommendation_card 记录。
 unit_anchors:
   - name: recommendation
     label: 推荐意见
     patterns:
-      - "推荐意见\\s*\\d+(\\.\\d+)?[:：]"
+      - "推荐意见\\s*[a-zA-Z]?\\d+(\\.\\d+)?[a-zA-Z]?[:：]"
     weight: 5
     statement_type: recommendation
 
@@ -22,7 +31,7 @@ unit_anchors:
     patterns:
       - "陈述\\s*\\d+(\\.\\d+)?[:：]"
       - "声明\\s*\\d+(\\.\\d+)?[:：]"
-    weight: 4
+    weight: 5
     statement_type: statement
 
   - name: english_recommendation
@@ -32,6 +41,9 @@ unit_anchors:
     weight: 5
     statement_type: recommendation
 
+# field_anchors 定义每个推荐片段内部的字段级锚点。
+# StatementExtractor 会根据这些锚点识别临床问题、证据等级、推荐强度、
+# 实施建议和推荐理由等字段。
 field_anchors:
   - name: clinical_question
     label: 临床问题

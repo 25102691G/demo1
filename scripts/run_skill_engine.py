@@ -30,6 +30,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--skills-dir", default="data/skills", help="Directory containing */skill.yaml packs.")
     parser.add_argument("--input-text", required=True, help="Raw case text.")
     parser.add_argument("--input-file", help="Raw case text file.")
+    # TODO：case json字段看是否需要保留，目前有重复字段
     parser.add_argument("--case-json", help="Partially or fully structured canonical case JSON.")
     parser.add_argument("--skill-schema", default="schema/skill_pack.schema.json")
     parser.add_argument("--case-schema", default="schema/canonical_case.schema.json")
@@ -40,6 +41,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--print-canonical-case", action="store_true")
     args = parser.parse_args(argv)
 
+    # TODO：病人case提取需要改为LLM + HPO数据库形式
     try:
         raw_input = _read_raw_input(args)
         if args.case_json:

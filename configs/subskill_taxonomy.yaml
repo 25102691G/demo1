@@ -1,0 +1,102 @@
+# scripts/build_skill_pack.py 使用的 subskill taxonomy 配置。
+#
+# 本文件定义写入 skill.yaml 的 subskill 类别，以及用于把 recommendation
+# cards 分配到对应 subskill 的关键词规则。
+# 每个条目必须保持通用，不应定义 disease、disease_name、disease_aliases
+# 等具体疾病身份信息。
+#
+# 字段说明：
+# - name：写入 skill.yaml 的展示名称。
+# - type：workflow 执行时使用的 executor 类别。
+# - replace：兼容字段；当前 taxonomy 会直接从本文件加载。
+# - keywords：用于匹配 card 字段的关键词，匹配字段包括 clinical_task、
+#   clinical_stage、condition、action、statement_text 等。
+subskills:
+  initial_triage:
+    name: Initial triage
+    type: safety_triage
+    replace: true
+    keywords:
+      - 初筛
+      - 急诊
+      - 危险
+      - 警示
+      - 红旗
+      - 转诊
+
+  diagnostic_integration:
+    name: Diagnostic integration
+    type: evidence_check
+    replace: true
+    keywords:
+      - 诊断
+      - 检查
+      - 实验室
+      - 内镜
+      - 影像
+      - 病理
+      - 综合判断
+
+  differential_diagnosis:
+    name: Differential diagnosis
+    type: differential_check
+    replace: true
+    keywords:
+      - 鉴别
+      - 排除
+      - 区别
+      - 误诊
+
+  staging_assessment:
+    name: Staging and assessment
+    type: evidence_check
+    replace: true
+    keywords:
+      - 分型
+      - 分期
+      - 活动度
+      - 严重程度
+      - 并发症
+      - 风险评估
+
+  management_plan:
+    name: Management plan
+    type: plan_generation
+    replace: true
+    keywords:
+      - 治疗
+      - 药物
+      - 手术
+      - 营养
+      - 诱导
+      - 维持
+      - 管理
+      - 方案
+
+  monitoring_follow_up:
+    name: Monitoring and follow-up
+    type: plan_generation
+    replace: true
+    keywords:
+      - 监测
+      - 随访
+      - 复查
+      - 复发
+      - 长期管理
+
+  patient_support:
+    name: Patient support
+    type: plan_generation
+    replace: true
+    keywords:
+      - 患者教育
+      - 生活方式
+      - 心理
+      - 依从性
+      - 饮食
+
+  general_guideline_support:
+    name: General guideline support
+    type: card_retrieval
+    replace: true
+    keywords: []

@@ -13,6 +13,8 @@ from typing import Any, Iterable, Mapping, Sequence
 
 
 ROOT = Path(__file__).resolve().parents[1]
+NORMALIZE_BRANCH_COUNTS: Counter[str] = Counter()
+DEFAULT_TAXONOMY_PATH = ROOT / "configs" / "subskill_taxonomy.yaml"
 
 
 class BuildSkillPackError(ValueError):
@@ -33,83 +35,6 @@ class TaxonomyEntry:
     type: str
     keywords: tuple[str, ...]
 
-
-DEFAULT_TAXONOMY: "OrderedDict[str, TaxonomyEntry]" = OrderedDict(
-    [
-        (
-            "initial_triage",
-            TaxonomyEntry(
-                subskill_id="initial_triage",
-                name="Initial triage",
-                type="safety_triage",
-                keywords=("初筛", "急诊", "危险", "警示", "红旗", "转诊"),
-            ),
-        ),
-        (
-            "diagnostic_integration",
-            TaxonomyEntry(
-                subskill_id="diagnostic_integration",
-                name="Diagnostic integration",
-                type="evidence_check",
-                keywords=("诊断", "检查", "实验室", "内镜", "影像", "病理", "综合判断"),
-            ),
-        ),
-        (
-            "differential_diagnosis",
-            TaxonomyEntry(
-                subskill_id="differential_diagnosis",
-                name="Differential diagnosis",
-                type="differential_check",
-                keywords=("鉴别", "排除", "区别", "误诊"),
-            ),
-        ),
-        (
-            "staging_assessment",
-            TaxonomyEntry(
-                subskill_id="staging_assessment",
-                name="Staging and assessment",
-                type="evidence_check",
-                keywords=("分型", "分期", "活动度", "严重程度", "并发症", "风险评估"),
-            ),
-        ),
-        (
-            "management_plan",
-            TaxonomyEntry(
-                subskill_id="management_plan",
-                name="Management plan",
-                type="plan_generation",
-                keywords=("治疗", "药物", "手术", "营养", "诱导", "维持", "管理", "方案"),
-            ),
-        ),
-        (
-            "monitoring_follow_up",
-            TaxonomyEntry(
-                subskill_id="monitoring_follow_up",
-                name="Monitoring and follow-up",
-                type="plan_generation",
-                keywords=("监测", "随访", "复查", "复发", "长期管理"),
-            ),
-        ),
-        (
-            "patient_support",
-            TaxonomyEntry(
-                subskill_id="patient_support",
-                name="Patient support",
-                type="plan_generation",
-                keywords=("患者教育", "生活方式", "心理", "依从性", "饮食"),
-            ),
-        ),
-        (
-            "general_guideline_support",
-            TaxonomyEntry(
-                subskill_id="general_guideline_support",
-                name="General guideline support",
-                type="card_retrieval",
-                keywords=(),
-            ),
-        ),
-    ]
-)
 
 WORKFLOW_REQUIRED_SUBSKILLS = (
     "initial_triage",
@@ -218,7 +143,7 @@ def validate_cards(
 
     cards: list[dict[str, Any]] = []
     for loaded in loaded_cards:
-        card = normalize_card_payload(loaded.data)
+        card = dict(loaded.data)
         card_id = _clean_text(card.get("card_id"))
         if not card_id:
             raise BuildSkillPackError(
@@ -247,18 +172,7 @@ def validate_cards(
 
 
 def normalize_card_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
-    record_type = _clean_text(payload.get("record_type"))
-    if record_type == "recommendation_card" or "card_id" in payload:
-        return dict(payload)
-    unit = payload.get("unit")
-    if not isinstance(unit, Mapping):
-        return dict(payload)
-    if record_type == "clinical_info_unit":
-        return _clinical_info_unit_to_card(payload, unit)
-    if record_type != "statement_unit":
-        return dict(payload)
-
-    return _statement_unit_to_card(payload, unit)
+    return dict(payload)
 
 
 def _statement_unit_to_card(payload: Mapping[str, Any], unit: Mapping[str, Any]) -> dict[str, Any]:
@@ -441,7 +355,7 @@ def infer_metadata(cards: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
             "structured guideline workflow execution",
         ],
         "scope": (
-            "This skill pack is generated from recommendation cards in the input cards.jsonl "
+            "This skill pack is generated from recommendation cards in the input result.jsonl "
             "and supports guideline retrieval, evidence checking, and management recommendation drafting."
         ),
         "disclaimer": "本工具仅用于指南知识组织和临床决策支持，不替代医生诊断、处方或急诊处理。",
@@ -577,13 +491,11 @@ def build_routing_profile(cards: Sequence[Mapping[str, Any]], metadata: Mapping[
 
 
 def load_taxonomy(taxonomy_path: str | Path | None = None) -> "OrderedDict[str, TaxonomyEntry]":
-    taxonomy: "OrderedDict[str, TaxonomyEntry]" = OrderedDict(DEFAULT_TAXONOMY)
-    if not taxonomy_path:
-        return taxonomy
-
-    path = Path(taxonomy_path)
+    path = Path(taxonomy_path) if taxonomy_path else DEFAULT_TAXONOMY_PATH
+    if not path.is_absolute():
+        path = ROOT / path
     if not path.exists():
-        return taxonomy
+        raise BuildSkillPackError(f"taxonomy file does not exist: {path}")
 
     try:
         import yaml
@@ -603,23 +515,16 @@ def load_taxonomy(taxonomy_path: str | Path | None = None) -> "OrderedDict[str, 
     if not isinstance(entries, Mapping):
         raise BuildSkillPackError(f"{path}: taxonomy subskills must be a mapping")
 
+    taxonomy: "OrderedDict[str, TaxonomyEntry]" = OrderedDict()
     for subskill_id, entry in entries.items():
         subskill_key = str(subskill_id)
-        if subskill_key not in taxonomy:
-            taxonomy[subskill_key] = TaxonomyEntry(
-                subskill_id=subskill_key,
-                name=_humanize_identifier(subskill_key),
-                type="card_retrieval",
-                keywords=(),
-            )
-        current = taxonomy[subskill_key]
         keywords, replace_keywords, name, subskill_type = _parse_taxonomy_entry(path, subskill_key, entry)
-        merged_keywords = tuple(_dedupe_texts(keywords if replace_keywords else [*current.keywords, *keywords]))
+        del replace_keywords
         taxonomy[subskill_key] = TaxonomyEntry(
             subskill_id=subskill_key,
-            name=name or current.name,
-            type=subskill_type or current.type,
-            keywords=merged_keywords,
+            name=name or _humanize_identifier(subskill_key),
+            type=subskill_type or "card_retrieval",
+            keywords=tuple(_dedupe_texts(keywords)),
         )
     return taxonomy
 
@@ -811,7 +716,7 @@ def build_workflow() -> dict[str, Any]:
 
 def build_knowledge_base() -> dict[str, Any]:
     return {
-        "cards_path": "cards.jsonl",
+        "cards_path": "result.jsonl",
         "card_schema_ref": "schema/recommendation_card.schema.json",
         "retrieval": {
             "default_mode": "hybrid",
@@ -954,7 +859,7 @@ def build_validation_block() -> dict[str, Any]:
         "review_policy": {
             "requires_human_review": True,
             "reviewer_role": "clinician_or_guideline_curator",
-            "notes": "Automatically generated from cards.jsonl; clinical review is required before production use.",
+            "notes": "Automatically generated from result.jsonl; clinical review is required before production use.",
         },
         "test_cases_path": "tests/fixtures/skill_pack_cases.jsonl",
     }
@@ -1073,13 +978,15 @@ def validate_cross_references(
 
     knowledge_base = _require_mapping(skill_dict.get("knowledge_base"), "knowledge_base")
     cards_path = _clean_text(knowledge_base.get("cards_path"))
-    if cards_path != "cards.jsonl":
-        errors.append("knowledge_base.cards_path must be exactly 'cards.jsonl'")
+    if cards_path != "result.jsonl":
+        errors.append("knowledge_base.cards_path must be exactly 'result.jsonl'")
     if output_dir is not None and cards_path:
-        package_name = output_package_name or skill_id
-        expected = Path(output_dir) / package_name / cards_path
-        if expected.name != "cards.jsonl":
-            errors.append(f"knowledge_base.cards_path does not point to output cards.jsonl: {expected}")
+        expected_dir = Path(output_dir)
+        if output_package_name:
+            expected_dir = expected_dir / output_package_name
+        expected = expected_dir / cards_path
+        if expected.name != "result.jsonl":
+            errors.append(f"knowledge_base.cards_path does not point to result.jsonl: {expected}")
 
     if errors:
         raise BuildSkillPackError("cross-reference validation failed:\n" + "\n".join(errors))
@@ -1094,6 +1001,7 @@ def write_skill_pack(
     force: bool = False,
     dry_run: bool = False,
 ) -> Path:
+    del cards
     try:
         import yaml
     except ImportError as exc:
@@ -1103,16 +1011,16 @@ def write_skill_pack(
     if not skill_id:
         raise BuildSkillPackError("metadata.skill_id must not be empty")
 
-    package_name = output_package_name or skill_id
-    target_dir = Path(out_dir) / package_name
-    if target_dir.exists() and not force and not dry_run:
-        raise BuildSkillPackError(f"output directory already exists: {target_dir}; use --force to overwrite")
+    target_dir = Path(out_dir)
+    if output_package_name:
+        target_dir = target_dir / output_package_name
+    skill_path = target_dir / "skill.yaml"
+    if skill_path.exists() and not force and not dry_run:
+        raise BuildSkillPackError(f"skill.yaml already exists: {skill_path}; use --force to overwrite")
     if dry_run:
         return target_dir
 
     target_dir.mkdir(parents=True, exist_ok=True)
-    skill_path = target_dir / "skill.yaml"
-    cards_path = target_dir / "cards.jsonl"
 
     with skill_path.open("w", encoding="utf-8", newline="\n") as handle:
         yaml.safe_dump(
@@ -1124,10 +1032,6 @@ def write_skill_pack(
             width=1000,
         )
 
-    with cards_path.open("w", encoding="utf-8", newline="\n") as handle:
-        for card in cards:
-            handle.write(json.dumps(card, ensure_ascii=False, sort_keys=False))
-            handle.write("\n")
     return target_dir
 
 
@@ -1143,9 +1047,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument(
         "--cards",
         required=True,
-        help="Input cards.jsonl file path, or a directory to recursively process all .jsonl files.",
+        help="Input result.jsonl file path, or a directory to recursively process all .jsonl files.",
     )
-    parser.add_argument("--out-dir", default="data/skills", help="Output skill pack root directory.")
+    parser.add_argument(
+        "--out-dir",
+        default=None,
+        help="Optional output root. Defaults to writing skill.yaml next to each input result.jsonl.",
+    )
     parser.add_argument(
         "--skill-schema",
         default="schema/skill_pack.schema.json",
@@ -1158,7 +1066,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     parser.add_argument(
         "--taxonomy",
-        default="config/subskill_taxonomy.yaml",
+        default="configs/subskill_taxonomy.yaml",
         help="Optional subskill taxonomy YAML path.",
     )
     parser.add_argument("--schema-version", default="0.3", help="Skill schema_version, e.g. 0.3.")
@@ -1174,18 +1082,19 @@ def main(argv: Sequence[str] | None = None) -> int:
             loaded_cards = load_jsonl(cards_source)
             cards = validate_cards(loaded_cards, args.card_schema)
             skill_dict = build_skill_pack(cards, taxonomy, schema_version=args.schema_version)
-            package_name = infer_output_package_name(cards_source)
+            package_name = infer_output_package_name(cards_source) if args.out_dir else None
+            output_dir = Path(args.out_dir) if args.out_dir else cards_source.parent
             validate_cross_references(
                 skill_dict,
                 cards,
-                output_dir=args.out_dir,
+                output_dir=output_dir,
                 output_package_name=package_name,
             )
             validate_skill_schema(skill_dict, args.skill_schema)
             target_dir = write_skill_pack(
                 skill_dict,
                 cards,
-                args.out_dir,
+                output_dir,
                 output_package_name=package_name,
                 force=args.force,
                 dry_run=args.dry_run,
@@ -1193,13 +1102,13 @@ def main(argv: Sequence[str] | None = None) -> int:
             results.append(
                 {
                     "cards_source": str(cards_source),
-                    "package_name": package_name,
+                    "package_name": package_name or cards_source.parent.name,
                     "skill_id": skill_dict["metadata"]["skill_id"],
                     "card_count": len(cards),
                     "subskill_count": len(skill_dict["subskills"]),
                     "output_dir": str(target_dir),
                     "skill_yaml": str(target_dir / "skill.yaml"),
-                    "cards_jsonl": str(target_dir / "cards.jsonl"),
+                    "result_jsonl": str(cards_source),
                     "schema_validation": "pass",
                 }
             )

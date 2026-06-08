@@ -44,8 +44,10 @@ class AnchorRegistry:
         if not isinstance(classification, Mapping):
             raise ValueError("anchor_rules.yaml 的 classification 必须是映射对象。")
 
+        # 以下两个值来源于configs\anchor_rules.yaml。
         self.structured_threshold = int(classification.get("structured_threshold", 15))
         self.min_unit_anchor_count = int(classification.get("min_unit_anchor_count", 2))
+        
         self._unit_anchors = _normalize_anchor_rules(payload.get("unit_anchors"), "unit_anchors")
         self._field_anchors = _normalize_anchor_rules(payload.get("field_anchors"), "field_anchors")
         self._compiled_unit_anchors = _compile_anchor_rules(self._unit_anchors, anchor_type="unit")

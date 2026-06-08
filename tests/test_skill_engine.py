@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CASE_SCHEMA = ROOT / "schema" / "canonical_case.schema.json"
 SKILL_SCHEMA = ROOT / "schema" / "skill_pack.schema.json"
 OUTPUT_SCHEMA = ROOT / "schema" / "workflow_output.schema.json"
-CROHN_SKILL_DIR = ROOT / "data" / "skill" / "中国克罗恩病诊治指南（2023年·广州）"
+CROHN_SKILL_DIR = ROOT / "data" / "skills" / "中国克罗恩病诊治指南（2023年·广州）"
 
 
 def test_case_normalizer_minimal_text() -> None:

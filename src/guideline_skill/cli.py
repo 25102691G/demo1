@@ -18,18 +18,18 @@ from .extractors import ClinicalInfoExtractor
 from .llm import DeepSeekClient
 from .normalizer import LLMNormalizer
 from .pipelines import NarrativeGuidelinePipeline, StructuredGuidelinePipeline
-from .schemas import ClinicalInfoUnit, StatementUnit
+from .schemas import StatementUnit
 
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_OUTPUT_DIR = Path("data/extractor")
+DEFAULT_OUTPUT_DIR = Path("data/skills")
 RESULT_FILENAME = "result.jsonl"
 SUMMARY_FILENAME = "summary.json"
 SUPPORTED_INPUT_SUFFIXES = {".pdf", ".txt", ".md"}
 
 
-ExtractedUnit = StatementUnit | ClinicalInfoUnit
+ExtractedUnit = StatementUnit
 
 
 def extract_document(
@@ -270,7 +270,7 @@ def build_summary(
     human_review_count = 0
 
     for extracted_unit in units:
-        unit_body = extracted_unit.unit if isinstance(extracted_unit, ClinicalInfoUnit) else extracted_unit
+        unit_body = extracted_unit
         if getattr(unit_body, "needs_human_review", False):
             human_review_count += 1
         unit_type = getattr(unit_body, "unit_type", None) or getattr(unit_body, "statement_type", None)
@@ -331,12 +331,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
     extract_parser.add_argument(
         "--output",
         default=None,
-        help="Optional JSONL override. Defaults to data/extractor/<input-stem>/result.jsonl.",
+        help="Optional JSONL override. Defaults to data/skills/<input-stem>/result.jsonl.",
     )
     extract_parser.add_argument(
         "--summary",
         default=None,
-        help="Optional summary override. Defaults to data/extractor/<input-stem>/summary.json.",
+        help="Optional summary override. Defaults to data/skills/<input-stem>/summary.json.",
     )
     extract_parser.add_argument(
         "--output-root",
@@ -355,7 +355,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     batch_parser.add_argument(
         "--output-dir",
         default=str(DEFAULT_OUTPUT_DIR),
-        help="Optional output root. Each input gets data/extractor/<input-stem>/ by default.",
+        help="Optional output root. Each input gets data/skills/<input-stem>/ by default.",
     )
 
     return parser

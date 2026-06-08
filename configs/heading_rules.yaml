@@ -1,3 +1,8 @@
+# 医学指南标题分段规则。
+#
+# 本文件供 HeadingSegmenter 在处理叙述性指南时使用，用于识别清洗后的
+# PDF/TXT/MD 文本中的章节标题，并通过 rank 表示标题层级。抽取流程会先根据
+# 这些标题构建章节路径，再将正文切分为 clinical_info_unit 记录。
 heading_patterns:
   - name: chinese_section
     rank: 10

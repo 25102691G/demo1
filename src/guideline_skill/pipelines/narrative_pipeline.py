@@ -3,9 +3,9 @@ from __future__ import annotations
 from typing import Any, Sequence
 
 from guideline_skill.extractors.clinical_info_extractor import ClinicalInfoExtractor
-from guideline_skill.schemas import ClinicalInfoUnit
+from guideline_skill.schemas import StatementUnit
 from guideline_skill.segmenters.heading_segmenter import HeadingSegment, HeadingSegmenter
-from guideline_skill.validators import validate_clinical_info_unit
+from guideline_skill.validators import validate_statement_unit
 
 
 class NarrativeGuidelinePipeline:
@@ -26,10 +26,10 @@ class NarrativeGuidelinePipeline:
         *,
         title: str | None = None,
         source_file: str | None = None,
-    ) -> list[ClinicalInfoUnit]:
+    ) -> list[StatementUnit]:
         text = _coerce_text(pages_or_text)
         segments = self.heading_segmenter.segment(text)
-        units: list[ClinicalInfoUnit] = []
+        units: list[StatementUnit] = []
 
         for segment in segments:
             for chunk in _chunk_segment(segment, max_chunk_chars=self.max_chunk_chars):
@@ -38,7 +38,7 @@ class NarrativeGuidelinePipeline:
                     title=title,
                     source_file=source_file,
                 )
-                units.append(validate_clinical_info_unit(extracted))
+                units.append(validate_statement_unit(extracted))
 
         return units
 

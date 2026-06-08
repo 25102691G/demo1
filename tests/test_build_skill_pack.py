@@ -22,7 +22,7 @@ sys.modules[_SPEC.name] = builder
 _SPEC.loader.exec_module(builder)
 
 
-def test_build_skill_pack_from_cards_jsonl(tmp_path: Path) -> None:
+def test_build_skill_pack_from_result_jsonl(tmp_path: Path) -> None:
     source_dir = tmp_path / "Example guideline"
     source_dir.mkdir()
     cards_path = source_dir / "result.jsonl"
@@ -30,26 +30,24 @@ def test_build_skill_pack_from_cards_jsonl(tmp_path: Path) -> None:
 
     cards = builder.validate_cards(builder.load_jsonl(cards_path), CARD_SCHEMA)
     skill = builder.build_skill_pack(cards, builder.load_taxonomy(), schema_version="0.3")
-    package_name = builder.infer_output_package_name(cards_path)
     builder.validate_cross_references(
         skill,
         cards,
-        output_dir=tmp_path / "skills",
-        output_package_name=package_name,
+        output_dir=source_dir,
     )
     builder.validate_skill_schema(skill, SKILL_SCHEMA)
     output_dir = builder.write_skill_pack(
         skill,
         cards,
-        tmp_path / "skills",
-        output_package_name=package_name,
+        source_dir,
         force=True,
     )
 
     assert output_dir.name == "Example guideline"
     raw_skill = yaml.safe_load((output_dir / "skill.yaml").read_text(encoding="utf-8"))
-    assert raw_skill["knowledge_base"]["cards_path"] == "cards.jsonl"
-    assert (output_dir / "cards.jsonl").exists()
+    assert raw_skill["knowledge_base"]["cards_path"] == "result.jsonl"
+    assert (output_dir / "result.jsonl").exists()
+    assert not (output_dir / "cards.jsonl").exists()
     assert raw_skill["metadata"]["disease_name"] == "Example disease"
 
 
@@ -99,50 +97,20 @@ def test_card_schema_validation_reports_missing_required_field(tmp_path: Path) -
         builder.validate_cards(builder.load_jsonl(cards_path), CARD_SCHEMA)
 
 
-def test_statement_and_clinical_info_units_are_normalized_to_cards(tmp_path: Path) -> None:
-    cards_path = tmp_path / "mixed.jsonl"
+def test_validate_cards_keeps_result_jsonl_payload_unchanged(tmp_path: Path) -> None:
+    cards_path = tmp_path / "result.jsonl"
+    raw_cards = [
+        _card("CARD-001"),
+        _card("CARD-002", clinical_task="治疗方案"),
+    ]
     _write_jsonl(
         cards_path,
-        [
-            {
-                "record_type": "statement_unit",
-                "guideline_meta": {
-                    "title": "Example guideline 2024",
-                    "source_file": "example.pdf",
-                    "doc_type": "structured_guideline",
-                },
-                "unit": {
-                    "id": "statement-001",
-                    "original_label": "REC-1",
-                    "statement_text": "Use integrated assessment.",
-                    "evidence_quality_normalized": "unknown",
-                    "strength_normalized": "unknown",
-                    "source_location": {"page_start": 1, "page_end": 1},
-                },
-            },
-            {
-                "record_type": "clinical_info_unit",
-                "guideline_meta": {
-                    "title": "Example diagnosis guideline",
-                    "source_file": "example.pdf",
-                    "doc_type": "narrative_guideline",
-                },
-                "unit": {
-                    "id": "clinical-001",
-                    "title": "Abdominal ultrasound can help assessment.",
-                    "raw_text": "Abdominal ultrasound can help assessment.",
-                    "unit_type": "imaging_exam",
-                    "clinical_topic": "diagnosis",
-                    "source_location": {"page_start": 2, "page_end": 2},
-                },
-            },
-        ],
+        raw_cards,
     )
 
     cards = builder.validate_cards(builder.load_jsonl(cards_path), CARD_SCHEMA)
 
-    assert [card["card_id"] for card in cards] == ["statement-001", "clinical-001"]
-    assert all(card["record_type"] == "recommendation_card" for card in cards)
+    assert cards == raw_cards
 
 
 def test_discover_cards_sources_accepts_file_or_directory(tmp_path: Path) -> None:

@@ -36,17 +36,20 @@ def test_clinical_info_extractor_builds_unit_from_valid_llm_json() -> None:
 
     unit = extractor.extract(_segment(), title="测试指南", source_file="test.pdf")
 
-    assert unit.record_type == "clinical_info_unit"
-    assert unit.guideline_meta.doc_type == "narrative_guideline"
-    assert unit.guideline_meta.title == "测试指南"
-    assert unit.unit.section_path == ["诊断", "实验室检查"]
-    assert unit.unit.title == "实验室检查"
-    assert unit.unit.raw_text == _segment().raw_text
-    assert unit.unit.unit_type == "test_order"
-    assert unit.unit.clinical_topic == "diagnosis"
-    assert unit.unit.action == "建议完善血常规。"
-    assert unit.unit.confidence == 0.86
-    assert unit.unit.needs_human_review is False
+    assert unit.record_type == "recommendation_card"
+    assert unit.guideline.doc_type == "narrative_guideline"
+    assert unit.guideline.title == "测试指南"
+    assert unit.card_id.startswith("clinical_info_unit_")
+    assert unit.source_statement_id == unit.card_id
+    assert unit.statement_text == _segment().raw_text
+    assert unit.statement_type == "test_order"
+    assert unit.clinical_stage == "诊断 / 实验室检查"
+    assert unit.clinical_task == "diagnosis"
+    assert unit.action == "建议完善血常规。"
+    assert unit.confidence == 0.86
+    assert unit.needs_human_review is False
+    assert unit.evidence.evidence_quality_normalized == "unknown"
+    assert unit.evidence.recommendation_strength_normalized == "unknown"
 
 
 def test_clinical_info_extractor_falls_back_when_llm_call_fails() -> None:
@@ -55,12 +58,12 @@ def test_clinical_info_extractor_falls_back_when_llm_call_fails() -> None:
 
     unit = extractor.extract(_segment())
 
-    assert unit.unit.unit_type == "other"
-    assert unit.unit.clinical_topic == "other"
-    assert unit.unit.raw_text == _segment().raw_text
-    assert unit.unit.confidence == 0.0
-    assert unit.unit.needs_human_review is True
-    assert unit.unit.review_reasons[0].startswith("clinical_info_llm_failed:")
+    assert unit.statement_type == "other"
+    assert unit.clinical_task == "other"
+    assert unit.statement_text == _segment().raw_text
+    assert unit.confidence == 0.0
+    assert unit.needs_human_review is True
+    assert unit.review_reasons[0].startswith("clinical_info_llm_failed:")
 
 
 def test_clinical_info_extractor_has_no_rule_extraction_logic() -> None:

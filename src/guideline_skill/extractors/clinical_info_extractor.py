@@ -8,12 +8,12 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from guideline_skill.normalizer import JsonChatClient
 from guideline_skill.schemas import (
-    ClinicalInfoUnit,
-    ClinicalInfoUnitBody,
     ClinicalInfoUnitType,
     ClinicalTopic,
     GuidelineMeta,
     SourceLocation,
+    StatementEvidence,
+    StatementUnit,
 )
 from guideline_skill.segmenters.heading_segmenter import HeadingSegment
 
@@ -105,7 +105,7 @@ class ClinicalInfoExtractor:
         *,
         title: str | None = None,
         source_file: str | None = None,
-    ) -> ClinicalInfoUnit:
+    ) -> StatementUnit:
         guideline_meta = GuidelineMeta(
             title=title,
             source_file=source_file,
@@ -117,13 +117,11 @@ class ClinicalInfoExtractor:
                 _build_user_prompt(segment),
             )
             parsed = ClinicalInfoPayload.model_validate(payload)
-            return ClinicalInfoUnit(
+            return _build_statement_unit(
+                segment=segment,
                 guideline_meta=guideline_meta,
-                unit=_build_unit_body(
-                    segment=segment,
-                    payload=parsed,
-                    review_reasons=parsed.review_reasons,
-                ),
+                payload=parsed,
+                review_reasons=parsed.review_reasons,
             )
         except (Exception, ValidationError) as exc:
             return _fallback_unit(
@@ -162,47 +160,12 @@ def _build_user_prompt(segment: HeadingSegment) -> str:
     )
 
 
-def _build_unit_body(
-    *,
-    segment: HeadingSegment,
-    payload: ClinicalInfoPayload,
-    review_reasons: list[str],
-) -> ClinicalInfoUnitBody:
-    return ClinicalInfoUnitBody(
-        id=_unit_id(segment),
-        section_path=list(segment.section_path),
-        title=segment.title or None,
-        raw_text=segment.raw_text,
-        unit_type=payload.unit_type,
-        clinical_topic=payload.clinical_topic,
-        action=payload.action,
-        condition=payload.condition,
-        indication=list(payload.indication),
-        contraindication=list(payload.contraindication),
-        diagnostic_criteria=list(payload.diagnostic_criteria),
-        differential_diagnosis=list(payload.differential_diagnosis),
-        drug=payload.drug,
-        dose=payload.dose,
-        route=payload.route,
-        frequency=payload.frequency,
-        duration=payload.duration,
-        source_location=SourceLocation(
-            page_start=segment.page_start,
-            page_end=segment.page_end,
-            section=" / ".join(segment.section_path) if segment.section_path else None,
-        ),
-        confidence=payload.confidence,
-        needs_human_review=payload.needs_human_review,
-        review_reasons=list(review_reasons),
-    )
-
-
 def _fallback_unit(
     *,
     segment: HeadingSegment,
     guideline_meta: GuidelineMeta,
     error: Exception,
-) -> ClinicalInfoUnit:
+) -> StatementUnit:
     payload = ClinicalInfoPayload(
         unit_type="other",
         clinical_topic="other",
@@ -221,14 +184,107 @@ def _fallback_unit(
         needs_human_review=True,
         review_reasons=[f"clinical_info_llm_failed: {error}"],
     )
-    return ClinicalInfoUnit(
+    return _build_statement_unit(
+        segment=segment,
         guideline_meta=guideline_meta,
-        unit=_build_unit_body(
-            segment=segment,
-            payload=payload,
-            review_reasons=payload.review_reasons,
-        ),
+        payload=payload,
+        review_reasons=payload.review_reasons,
     )
+
+
+def _build_statement_unit(
+    *,
+    segment: HeadingSegment,
+    guideline_meta: GuidelineMeta,
+    payload: ClinicalInfoPayload,
+    review_reasons: list[str],
+) -> StatementUnit:
+    source_location = SourceLocation(
+        page_start=segment.page_start,
+        page_end=segment.page_end,
+        section=" / ".join(segment.section_path) if segment.section_path else None,
+    )
+    unit_id = _unit_id(segment)
+    action = _first_text(payload.action, segment.title, segment.raw_text, "See statement_text.")
+    return StatementUnit(
+        guideline=guideline_meta,
+        card_id=unit_id,
+        source_statement_id=unit_id,
+        disease=_infer_disease_name_from_title(guideline_meta.title),
+        statement_type=payload.unit_type,
+        statement_text=segment.raw_text,
+        clinical_question=None,
+        clinical_stage=source_location.section or payload.clinical_topic or "general_guideline_support",
+        clinical_task=payload.clinical_topic or payload.unit_type,
+        population=None,
+        condition=payload.condition,
+        action=action,
+        do_not=list(payload.contraindication),
+        required_inputs=_required_inputs_from_payload(payload),
+        supporting_features=list(payload.indication),
+        recommended_tests=_recommended_tests_from_payload(payload, segment, action),
+        evidence=StatementEvidence(
+            evidence_quality_raw=None,
+            evidence_quality_normalized="unknown",
+            recommendation_strength_raw=None,
+            recommendation_strength_normalized="unknown",
+            consensus_level=None,
+        ),
+        implementation_advice=None,
+        rationale=None,
+        source_location=source_location,
+        confidence=payload.confidence,
+        needs_human_review=payload.needs_human_review,
+        review_reasons=list(review_reasons),
+    )
+
+
+def _required_inputs_from_payload(payload: ClinicalInfoPayload) -> list[str]:
+    if payload.unit_type == "diagnostic_criteria":
+        return list(payload.diagnostic_criteria)
+    return []
+
+
+def _recommended_tests_from_payload(
+    payload: ClinicalInfoPayload,
+    segment: HeadingSegment,
+    action: str,
+) -> list[str]:
+    if payload.unit_type not in {"test_order", "instrumental_exam", "imaging_exam", "endoscopy_exam"}:
+        return []
+    return _dedupe_texts([segment.title, action, segment.raw_text, *payload.diagnostic_criteria])
+
+
+def _first_text(*values: str | None) -> str:
+    for value in values:
+        text = (value or "").strip()
+        if text:
+            return text
+    return ""
+
+
+def _dedupe_texts(values: list[str | None]) -> list[str]:
+    seen: set[str] = set()
+    deduped: list[str] = []
+    for value in values:
+        text = (value or "").strip()
+        key = " ".join(text.lower().split())
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        deduped.append(text)
+    return deduped
+
+
+def _infer_disease_name_from_title(title: str | None) -> str:
+    text = (title or "").strip()
+    if not text:
+        return "unknown"
+    for marker in ("诊治指南", "诊断和治疗共识意见", "专家共识意见", "筛查与早诊早治指南", "指南", "共识"):
+        if marker in text:
+            text = text.split(marker, 1)[0]
+            break
+    return text.strip(" ：:，,。.()（）") or title or "unknown"
 
 
 def _unit_id(segment: HeadingSegment) -> str:

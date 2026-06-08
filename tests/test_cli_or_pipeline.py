@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from jsonschema import Draft202012Validator
+
 from guideline_skill.cli import (
     DEFAULT_OUTPUT_DIR,
     batch_extract,
@@ -10,6 +12,10 @@ from guideline_skill.cli import (
     output_paths_for_input,
     resolve_batch_inputs,
 )
+
+
+ROOT = Path(__file__).resolve().parents[1]
+CARD_SCHEMA = ROOT / "schema" / "recommendation_card.schema.json"
 
 
 class MockDeepSeekClient:
@@ -132,7 +138,10 @@ def test_narrative_guideline_uses_narrative_pipeline_and_writes_summary(tmp_path
     summary_payload = json.loads(summary_path.read_text(encoding="utf-8"))
 
     assert records
-    assert records[0]["record_type"] == "clinical_info_unit"
+    assert records[0]["record_type"] == "recommendation_card"
+    assert "unit" not in records[0]
+    assert records[0]["guideline"]["doc_type"] == "narrative_guideline"
+    assert not list(_card_validator().iter_errors(records[0]))
     assert summary_payload["doc_type"] == "narrative_guideline"
     assert summary_payload["total_units"] >= 1
     assert "human_review_count" in summary_payload
@@ -213,3 +222,8 @@ def _read_jsonl(path: Path) -> list[dict[str, object]]:
         for line in path.read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
+
+
+def _card_validator() -> Draft202012Validator:
+    schema = json.loads(CARD_SCHEMA.read_text(encoding="utf-8"))
+    return Draft202012Validator(schema)

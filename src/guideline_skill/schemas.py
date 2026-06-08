@@ -81,14 +81,12 @@ class StatementUnitBody(BaseModel):
     clinical_question: str | None = None
     evidence_quality_raw: str | None = None
     evidence_quality_normalized: EvidenceQualityNormalized | None = None
-    # TODO: 需要处理下BPS的情况
     strength_raw: str | None = None
     strength_normalized: StrengthNormalized | None = None
     consensus_level: str | None = None
     implementation_advice: str | None = None
     rationale: str | None = None
     source_location: SourceLocation
-    # TODO：BPS情况下为0，后续需要处理（可以考虑拆分为多个置信度）
     confidence: float = Field(ge=0.0, le=1.0)
     needs_human_review: bool
     review_reasons: list[str] = Field(default_factory=list)

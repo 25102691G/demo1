@@ -48,5 +48,6 @@ def test_narrative_pipeline_segments_by_heading_and_calls_llm_per_segment() -> N
 
     assert client.calls == len(units)
     assert len(units) == 3
-    assert all(unit.record_type == "clinical_info_unit" for unit in units)
-    assert units[1].unit.section_path == ["诊断", "实验室检查"]
+    assert all(unit.record_type == "recommendation_card" for unit in units)
+    assert units[1].clinical_stage == "诊断 / 实验室检查"
+    assert not hasattr(units[1], "unit")
