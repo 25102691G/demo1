@@ -4,7 +4,7 @@ import copy
 import json
 import re
 import uuid
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from pathlib import Path
 from typing import Any
 
@@ -69,11 +69,19 @@ RED_FLAG_KEYWORDS = (
 CRITICAL_RED_FLAGS = ("休克", "穿孔", "意识障碍", "中毒性巨结肠")
 
 
-def normalize_case(raw_input: str, schema_path: Path) -> dict[str, Any]:
-    canonical = _default_case(raw_input)
-    _apply_rule_extraction(canonical, raw_input)
-    _record_missing_fields(canonical)
+EndoscopyItemsExtractor = Callable[[str], list[dict[str, Any]]]
+
+
+def normalize_case(
+    raw_input: str,
+    schema_path: Path,
+    *,
+    endoscopy_items_extractor: EndoscopyItemsExtractor | None = None,
+) -> dict[str, Any]:
     schema = load_json_schema(Path(schema_path))
+    canonical = _default_case(raw_input, schema)
+    _apply_rule_extraction(canonical, raw_input, endoscopy_items_extractor=endoscopy_items_extractor)
+    _record_missing_fields(canonical)
     validate_json(canonical, schema, label="canonical_case")
     return canonical
 
@@ -82,15 +90,17 @@ def normalize_case_from_json(
     data: dict[str, Any],
     raw_input: str | None,
     schema_path: Path,
+    *,
+    endoscopy_items_extractor: EndoscopyItemsExtractor | None = None,
 ) -> dict[str, Any]:
+    schema = load_json_schema(Path(schema_path))
     effective_raw = raw_input or clean_text(data.get("raw_input"))
-    canonical = _default_case(effective_raw)
-    _apply_rule_extraction(canonical, effective_raw)
+    canonical = _default_case(effective_raw, schema)
+    _apply_rule_extraction(canonical, effective_raw, endoscopy_items_extractor=endoscopy_items_extractor)
     _deep_merge(canonical, data)
     canonical["raw_input"] = clean_text(canonical.get("raw_input")) or effective_raw
     _repair_container_shapes(canonical)
     _record_missing_fields(canonical)
-    schema = load_json_schema(Path(schema_path))
     validate_json(canonical, schema, label="canonical_case")
     return canonical
 
@@ -103,55 +113,60 @@ def load_case_json(path: Path) -> dict[str, Any]:
     return data
 
 
-def _default_case(raw_input: str) -> dict[str, Any]:
-    return {
-        "case_id": f"case_{uuid.uuid4().hex}",
-        "raw_input": raw_input or "",
-        "input_language": "zh-CN",
-        "demographics": {
-            "age": None,
-            "sex": "unknown",
-            "pregnancy_status": "unknown",
-        },
-        "chief_complaint": None,
-        "history_of_present_illness": None,
-        "symptoms": [],
-        "signs": [],
-        "vitals": {
-            "temperature": {"value": None, "unit": "℃", "interpretation": None},
-            "heart_rate": {"value": None, "unit": "次/分", "interpretation": None},
-            "respiratory_rate": {"value": None, "unit": "次/分", "interpretation": None},
-            "blood_pressure": {
-                "systolic": None,
-                "diastolic": None,
-                "unit": "mmHg",
-                "interpretation": None,
-            },
-            "oxygen_saturation": {"value": None, "unit": "%", "interpretation": None},
-        },
-        "labs": {"items": []},
-        "imaging": {"items": []},
-        "endoscopy": {"items": []},
-        "pathology": {"items": []},
-        "diagnoses": [],
-        "medications": [],
-        "procedures": [],
-        "allergies": [],
-        "comorbidities": [],
-        "family_history": [],
-        "extra_manifestations": [],
-        "scores": [],
-        "red_flags": [],
-        "patient_goal": None,
-        "extraction_quality": {
-            "confidence": 0.5,
-            "missing_or_uncertain": [],
-            "normalization_notes": ["rule_based_normalization_v1"],
-        },
-    }
+def _default_case(raw_input: str, schema: Mapping[str, Any]) -> dict[str, Any]:
+    canonical = _default_from_schema(schema, schema)
+    if not isinstance(canonical, dict):
+        raise ValueError("canonical case schema must generate an object")
+    canonical["case_id"] = f"case_{uuid.uuid4().hex}"
+    canonical["raw_input"] = raw_input or ""
+    return canonical
 
 
-def _apply_rule_extraction(canonical: dict[str, Any], raw_input: str) -> None:
+def _default_from_schema(schema: Mapping[str, Any], root_schema: Mapping[str, Any]) -> Any:
+    if "default" in schema:
+        return copy.deepcopy(schema["default"])
+    if "$ref" in schema:
+        return _default_from_schema(_resolve_schema_ref(str(schema["$ref"]), root_schema), root_schema)
+
+    schema_type = schema.get("type")
+    types = schema_type if isinstance(schema_type, list) else [schema_type]
+    if "object" in types:
+        return {
+            key: _default_from_schema(property_schema, root_schema)
+            for key, property_schema in schema.get("properties", {}).items()
+        }
+    if "array" in types:
+        return []
+    if "null" in types:
+        return None
+    if "string" in types:
+        return ""
+    if "number" in types or "integer" in types:
+        return None
+    if "boolean" in types:
+        return False
+    return None
+
+
+def _resolve_schema_ref(ref: str, root_schema: Mapping[str, Any]) -> Mapping[str, Any]:
+    if not ref.startswith("#/"):
+        raise ValueError(f"unsupported schema ref: {ref}")
+    current: Any = root_schema
+    for part in ref[2:].split("/"):
+        if not isinstance(current, Mapping) or part not in current:
+            raise ValueError(f"unresolvable schema ref: {ref}")
+        current = current[part]
+    if not isinstance(current, Mapping):
+        raise ValueError(f"schema ref does not point to an object: {ref}")
+    return current
+
+
+def _apply_rule_extraction(
+    canonical: dict[str, Any],
+    raw_input: str,
+    *,
+    endoscopy_items_extractor: EndoscopyItemsExtractor | None = None,
+) -> None:
     text = raw_input or ""
     _extract_demographics(canonical, text)
     canonical["chief_complaint"] = _short_clause(text)
@@ -162,9 +177,12 @@ def _apply_rule_extraction(canonical: dict[str, Any], raw_input: str) -> None:
     canonical["imaging"]["items"] = [
         _imaging_item(keyword, text) for keyword in _matched(IMAGING_KEYWORDS, text)
     ]
-    canonical["endoscopy"]["items"] = [
-        _endoscopy_item(keyword, text) for keyword in _matched(ENDOSCOPY_KEYWORDS, text)
-    ]
+    if endoscopy_items_extractor is None:
+        canonical["endoscopy"]["items"] = [
+            _endoscopy_item(keyword, text) for keyword in _matched(ENDOSCOPY_KEYWORDS, text)
+        ]
+    else:
+        canonical["endoscopy"]["items"] = endoscopy_items_extractor(text)
     canonical["pathology"]["items"] = [
         _pathology_item(keyword, text) for keyword in _matched(PATHOLOGY_KEYWORDS, text)
     ]

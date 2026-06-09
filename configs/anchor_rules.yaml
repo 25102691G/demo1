@@ -29,8 +29,8 @@ unit_anchors:
   - name: statement
     label: 陈述
     patterns:
-      - "陈述\\s*\\d+(\\.\\d+)?[:：]"
-      - "声明\\s*\\d+(\\.\\d+)?[:：]"
+      - "[[【]?陈述\\s*\\d+(\\.\\d+)?[]】]?[:：]?"
+      - "[[【]?声明\\s*\\d+(\\.\\d+)?[]】]?[:：]?"
     weight: 5
     statement_type: statement
 

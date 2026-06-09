@@ -35,15 +35,18 @@
       "type": "object",
       "properties": {
         "age": {
-          "type": ["number", "null"]
+          "type": ["number", "null"],
+          "default": null
         },
         "sex": {
           "type": ["string", "null"],
-          "enum": ["male", "female", "unknown", null]
+          "enum": ["male", "female", "unknown", null],
+          "default": "unknown"
         },
         "pregnancy_status": {
           "type": ["string", "null"],
-          "enum": ["pregnant", "not_pregnant", "unknown", null]
+          "enum": ["pregnant", "not_pregnant", "unknown", null],
+          "default": "unknown"
         }
       },
       "additionalProperties": true
@@ -70,22 +73,27 @@
       "type": "object",
       "properties": {
         "temperature": {
-          "$ref": "#/$defs/measurement"
+          "$ref": "#/$defs/measurement",
+          "default": {"value": null, "unit": "℃", "interpretation": null}
         },
         "heart_rate": {
-          "$ref": "#/$defs/measurement"
+          "$ref": "#/$defs/measurement",
+          "default": {"value": null, "unit": "次/分", "interpretation": null}
         },
         "respiratory_rate": {
-          "$ref": "#/$defs/measurement"
+          "$ref": "#/$defs/measurement",
+          "default": {"value": null, "unit": "次/分", "interpretation": null}
         },
         "blood_pressure": {
           "type": "object",
           "properties": {
             "systolic": {
-              "type": ["number", "null"]
+              "type": ["number", "null"],
+              "default": null
             },
             "diastolic": {
-              "type": ["number", "null"]
+              "type": ["number", "null"],
+              "default": null
             },
             "unit": {
               "type": ["string", "null"],
@@ -98,7 +106,8 @@
           "additionalProperties": true
         },
         "oxygen_saturation": {
-          "$ref": "#/$defs/measurement"
+          "$ref": "#/$defs/measurement",
+          "default": {"value": null, "unit": "%", "interpretation": null}
         }
       },
       "additionalProperties": true
@@ -130,6 +139,11 @@
       "additionalProperties": true
     },
     "endoscopy": {
+      "type": "object",
+      "required": ["items"],
+      "additionalProperties": true
+    },
+    "endoscopy_complex": {
       "type": "object",
       "required": ["items"],
       "properties": {
@@ -219,19 +233,22 @@
         "confidence": {
           "type": "number",
           "minimum": 0,
-          "maximum": 1
+          "maximum": 1,
+          "default": 0.5
         },
         "missing_or_uncertain": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "default": []
         },
         "normalization_notes": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "default": ["rule_based_normalization_v1"]
         }
       },
       "additionalProperties": true

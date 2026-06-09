@@ -46,6 +46,45 @@ def test_case_normalizer_minimal_text() -> None:
     validate_json(canonical_case, load_json_schema(CASE_SCHEMA), label="canonical_case")
 
 
+def test_case_normalizer_accepts_hpo_endoscopy_extractor() -> None:
+    def extract_endoscopy_items(text: str) -> list[dict[str, object]]:
+        assert text
+        return [
+            {
+                "type": "hpo_extraction",
+                "findings": ["longitudinal ulcer"],
+                "biopsy_taken": "unknown",
+                "date": None,
+                "source_text": "longitudinal ulcer",
+                "hpo_code": "HP:TEST",
+                "hpo_term": "longitudinal ulcer",
+                "similarity_score": 0.92,
+                "status": "mapped",
+            }
+        ]
+
+    canonical_case = normalize_case(
+        "endoscopy shows longitudinal ulcer.",
+        CASE_SCHEMA,
+        endoscopy_items_extractor=extract_endoscopy_items,
+    )
+
+    assert canonical_case["endoscopy"]["items"] == [
+        {
+            "type": "hpo_extraction",
+            "findings": ["longitudinal ulcer"],
+            "biopsy_taken": "unknown",
+            "date": None,
+            "source_text": "longitudinal ulcer",
+            "hpo_code": "HP:TEST",
+            "hpo_term": "longitudinal ulcer",
+            "similarity_score": 0.92,
+            "status": "mapped",
+        }
+    ]
+    validate_json(canonical_case, load_json_schema(CASE_SCHEMA), label="canonical_case")
+
+
 def test_skill_loader_loads_generated_skill() -> None:
     pack = _load_crohn_pack()
 
@@ -131,6 +170,8 @@ def test_workflow_output_schema_validation() -> None:
 
     validate_json(output, load_json_schema(OUTPUT_SCHEMA), label="workflow_output")
     assert output["case_id"] == canonical_case["case_id"]
+    assert output["input_text"] == canonical_case["raw_input"]
+    assert output["canonical_case"] == canonical_case
 
 
 def test_safety_red_flag_stops_workflow() -> None:
