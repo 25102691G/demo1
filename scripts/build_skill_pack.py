@@ -422,7 +422,7 @@ def build_routing_profile(
         _add_hpo_positive_features(
             positive_features,
             feature_seen,
-            hpo_extractor.extract_positive_features(
+            hpo_extractor.extract_mapped_from_text(
                 _clean_text(card.get("raw_chunk_text")),
                 deepseek_client,
             ),

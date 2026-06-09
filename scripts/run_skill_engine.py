@@ -14,6 +14,13 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from skill_engine.case_normalizer import load_case_json, normalize_case, normalize_case_from_json
+from skill_engine.hpo_extractor import (
+    DEFAULT_DEFINITION2ID_PATH,
+    DEFAULT_DEFINITION_EMBEDDINGS_PATH,
+    DEFAULT_MODEL_PATH,
+    HpoExtractor,
+)
+from skill_engine.llm_client import OpenAICompatibleJsonChatClient, load_deepseek_config_from_env
 from skill_engine.output_builder import build_error_output, build_workflow_output
 from skill_engine.router import route_skills
 from skill_engine.skill_loader import load_skill_packs
@@ -46,17 +53,22 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         raw_input = _read_raw_input(args)
+        hpo_extractor, deepseek_client = _build_hpo_dependencies()
 
         if args.case_json:
             canonical_case = normalize_case_from_json(
                 load_case_json(_resolve(args.case_json)),
                 raw_input,
                 _resolve(args.case_schema),
+                hpo_extractor=hpo_extractor,
+                deepseek_client=deepseek_client,
             )
         else:
             canonical_case = normalize_case(
                 raw_input,
                 _resolve(args.case_schema),
+                hpo_extractor=hpo_extractor,
+                deepseek_client=deepseek_client,
             )
 
         packs, load_errors = load_skill_packs(_resolve(args.skills_dir), _resolve(args.skill_schema))
@@ -122,6 +134,16 @@ def _resolve(path: str | Path) -> Path:
 def _default_output_path() -> Path:
     filename = datetime.now().strftime("%Y%m%d_%H_%M.json")
     return ROOT / "data" / "runs" / filename
+
+
+def _build_hpo_dependencies() -> tuple[HpoExtractor, OpenAICompatibleJsonChatClient]:
+    hpo_extractor = HpoExtractor.from_paths(
+        model_path=DEFAULT_MODEL_PATH,
+        definition2id_path=DEFAULT_DEFINITION2ID_PATH,
+        definition_embeddings_path=DEFAULT_DEFINITION_EMBEDDINGS_PATH,
+    )
+    deepseek_client = OpenAICompatibleJsonChatClient(load_deepseek_config_from_env())
+    return hpo_extractor, deepseek_client
 
 
 if __name__ == "__main__":

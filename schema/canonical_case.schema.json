@@ -6,19 +6,7 @@
   "required": [
     "case_id",
     "raw_input",
-    "demographics",
-    "symptoms",
-    "signs",
-    "vitals",
-    "labs",
-    "imaging",
-    "endoscopy",
-    "pathology",
-    "diagnoses",
-    "medications",
-    "procedures",
-    "red_flags",
-    "extraction_quality"
+    "symptoms"
   ],
   "properties": {
     "case_id": {
@@ -60,7 +48,7 @@
     "symptoms": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/clinicalItem"
+        "$ref": "#/$defs/feature"
       }
     },
     "signs": {
@@ -255,6 +243,16 @@
     }
   },
   "$defs": {
+    "feature": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "interpretation": {
       "type": ["string", "null"],
       "enum": [

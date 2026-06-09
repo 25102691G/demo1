@@ -46,7 +46,7 @@ class HpoExtractor:
         self,
         resources: HpoResources,
         *,
-        similarity_threshold: float = 0.8,
+        similarity_threshold: float = 0.6,
         batch_size: int = 30,
         max_length: int = 128,
     ) -> None:
@@ -62,7 +62,7 @@ class HpoExtractor:
         model_path: str | Path,
         definition2id_path: str | Path,
         definition_embeddings_path: str | Path,
-        similarity_threshold: float = 0.8,
+        similarity_threshold: float = 0.6,
         batch_size: int = 30,
         max_length: int = 128,
     ) -> HpoExtractor:
@@ -96,6 +96,22 @@ class HpoExtractor:
             "hpo_codes": [item["hpo_code"] for item in mapped],
             "hpo_descriptions": [item["hpo_term"] for item in mapped],
             "hpo_mappings": mappings,
+        }
+
+    def extract_mapped_from_text(self, text: str, deepseek_client: JsonChatClient) -> dict[str, Any]:
+        extracted = self.extract_from_text(text, deepseek_client)
+        mapped_phenotypes = [
+            item["original_phenotype"]
+            for item in extracted["hpo_mappings"]
+            if item["status"] == "mapped"
+        ]
+        return {
+            "symptoms": [
+                {
+                    "name": phenotype,
+                }
+                for phenotype in _dedupe_texts(mapped_phenotypes)
+            ]
         }
 
     def extract_phenotypes(self, text: str, deepseek_client: JsonChatClient) -> list[str]:

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from skill_engine.case_normalizer import normalize_case
+from skill_engine.case_normalizer import normalize_case, normalize_case_from_json
 from skill_engine.output_builder import build_workflow_output
 from skill_engine.router import route_skills
 from skill_engine.schemas import load_json_schema, validate_json
@@ -17,71 +17,55 @@ OUTPUT_SCHEMA = ROOT / "schema" / "workflow_output.schema.json"
 CROHN_SKILL_DIR = ROOT / "data" / "skills" / "中国克罗恩病诊治指南（2023年·广州）"
 
 
-def test_case_normalizer_minimal_text() -> None:
-    canonical_case = normalize_case("42岁男性，腹痛腹泻半年，CRP升高。", CASE_SCHEMA)
+class MockHpoExtractor:
+    def __init__(self) -> None:
+        self.calls: list[tuple[str, object]] = []
 
-    for field in (
-        "case_id",
-        "raw_input",
-        "demographics",
-        "symptoms",
-        "signs",
-        "vitals",
-        "labs",
-        "imaging",
-        "endoscopy",
-        "pathology",
-        "diagnoses",
-        "medications",
-        "procedures",
-        "red_flags",
-        "extraction_quality",
-    ):
-        assert field in canonical_case
-    assert canonical_case["labs"]["items"]
-    assert canonical_case["imaging"] == {"items": []}
-    assert canonical_case["endoscopy"] == {"items": []}
-    assert canonical_case["pathology"] == {"items": []}
-    assert 0 <= canonical_case["extraction_quality"]["confidence"] <= 1
+    def extract_positive_features(self, text: str, deepseek_client: object) -> dict[str, list[dict[str, object]]]:
+        self.calls.append((text, deepseek_client))
+        return {"symptoms": [{"name": "腹痛", "weight": 0.2}, {"name": "腹泻", "weight": 0.2}]}
+
+
+class MockDeepSeekClient:
+    pass
+
+
+def _normalize_case(text: str) -> dict[str, object]:
+    return normalize_case(
+        text,
+        CASE_SCHEMA,
+        hpo_extractor=MockHpoExtractor(),
+        deepseek_client=MockDeepSeekClient(),
+    )
+
+
+def test_case_normalizer_minimal_text() -> None:
+    hpo_extractor = MockHpoExtractor()
+    deepseek_client = MockDeepSeekClient()
+    canonical_case = normalize_case(
+        "42岁男性，腹痛腹泻半年，CRP升高。",
+        CASE_SCHEMA,
+        hpo_extractor=hpo_extractor,
+        deepseek_client=deepseek_client,
+    )
+
+    assert set(canonical_case) == {"case_id", "raw_input", "symptoms"}
+    assert hpo_extractor.calls == [("42岁男性，腹痛腹泻半年，CRP升高。", deepseek_client)]
+    assert canonical_case["symptoms"] == [{"name": "腹痛", "weight": 0.2}, {"name": "腹泻", "weight": 0.2}]
     validate_json(canonical_case, load_json_schema(CASE_SCHEMA), label="canonical_case")
 
 
-def test_case_normalizer_accepts_hpo_endoscopy_extractor() -> None:
-    def extract_endoscopy_items(text: str) -> list[dict[str, object]]:
-        assert text
-        return [
-            {
-                "type": "hpo_extraction",
-                "findings": ["longitudinal ulcer"],
-                "biopsy_taken": "unknown",
-                "date": None,
-                "source_text": "longitudinal ulcer",
-                "hpo_code": "HP:TEST",
-                "hpo_term": "longitudinal ulcer",
-                "similarity_score": 0.92,
-                "status": "mapped",
-            }
-        ]
-
-    canonical_case = normalize_case(
-        "endoscopy shows longitudinal ulcer.",
+def test_case_normalizer_from_json_overrides_hpo_symptoms() -> None:
+    canonical_case = normalize_case_from_json(
+        {"raw_input": "structured case", "symptoms": [{"name": "结构化症状", "weight": 0.8}]},
+        None,
         CASE_SCHEMA,
-        endoscopy_items_extractor=extract_endoscopy_items,
+        hpo_extractor=MockHpoExtractor(),
+        deepseek_client=MockDeepSeekClient(),
     )
 
-    assert canonical_case["endoscopy"]["items"] == [
-        {
-            "type": "hpo_extraction",
-            "findings": ["longitudinal ulcer"],
-            "biopsy_taken": "unknown",
-            "date": None,
-            "source_text": "longitudinal ulcer",
-            "hpo_code": "HP:TEST",
-            "hpo_term": "longitudinal ulcer",
-            "similarity_score": 0.92,
-            "status": "mapped",
-        }
-    ]
+    assert canonical_case["raw_input"] == "structured case"
+    assert canonical_case["symptoms"] == [{"name": "结构化症状", "weight": 0.8}]
     validate_json(canonical_case, load_json_schema(CASE_SCHEMA), label="canonical_case")
 
 
@@ -107,10 +91,7 @@ def test_skill_loader_loads_generated_skill() -> None:
 
 
 def test_router_returns_schema_candidate() -> None:
-    canonical_case = normalize_case(
-        "腹痛腹泻半年，体重下降，肛瘘，粪便钙卫蛋白升高。",
-        CASE_SCHEMA,
-    )
+    canonical_case = _normalize_case("腹痛腹泻半年，体重下降，肛瘘，粪便钙卫蛋白升高。")
     candidate = route_skills(canonical_case, [_load_crohn_pack()], top_k=1)[0]
 
     assert candidate["skill_id"] == "disease_skill_5098a99979"
@@ -134,7 +115,7 @@ def test_router_returns_schema_candidate() -> None:
 
 def test_workflow_engine_runs_without_disease_hardcoding() -> None:
     pack = _load_crohn_pack()
-    canonical_case = normalize_case("腹痛腹泻半年，粪便钙卫蛋白升高。", CASE_SCHEMA)
+    canonical_case = _normalize_case("腹痛腹泻半年，粪便钙卫蛋白升高。")
     candidate = route_skills(canonical_case, [pack], top_k=1)[0]
 
     skill_output = WorkflowEngine().run(pack, canonical_case, candidate)
@@ -152,10 +133,7 @@ def test_workflow_engine_runs_without_disease_hardcoding() -> None:
 
 def test_workflow_output_schema_validation() -> None:
     pack = _load_crohn_pack()
-    canonical_case = normalize_case(
-        "腹痛腹泻半年，体重下降，肛瘘，粪便钙卫蛋白升高。",
-        CASE_SCHEMA,
-    )
+    canonical_case = _normalize_case("腹痛腹泻半年，体重下降，肛瘘，粪便钙卫蛋白升高。")
     top_candidates = route_skills(canonical_case, [pack], top_k=1)
     selected_outputs = [WorkflowEngine().run(pack, canonical_case, top_candidates[0])]
 
@@ -174,9 +152,9 @@ def test_workflow_output_schema_validation() -> None:
     assert output["canonical_case"] == canonical_case
 
 
-def test_safety_red_flag_stops_workflow() -> None:
+def test_safety_red_flags_are_not_rule_extracted_by_normalizer() -> None:
     pack = _load_crohn_pack()
-    canonical_case = normalize_case("剧烈腹痛、高热、休克，腹泻三天。", CASE_SCHEMA)
+    canonical_case = _normalize_case("剧烈腹痛、高热、休克，腹泻三天。")
     top_candidates = route_skills(canonical_case, [pack], top_k=1)
     selected_outputs = [WorkflowEngine().run(pack, canonical_case, top_candidates[0])]
 
@@ -189,9 +167,9 @@ def test_safety_red_flag_stops_workflow() -> None:
         debug=True,
     )
 
-    assert output["status"] == "stopped_for_safety"
-    assert output["safety"]["has_red_flags"] is True
-    assert output["safety"]["workflow_stopped"] is True
+    assert "red_flags" not in canonical_case
+    assert output["safety"]["has_red_flags"] is False
+    assert output["safety"]["workflow_stopped"] is False
 
 
 def _load_crohn_pack() -> SkillPack:
