@@ -103,6 +103,7 @@ def test_structured_guideline_uses_structured_pipeline_and_writes_default_output
     assert records[0]["required_inputs"] == ["临床表现"]
     assert records[0]["supporting_features"] == ["腹痛"]
     assert records[0]["recommended_tests"] == ["内镜检查"]
+    assert records[0]["raw_chunk_text"].startswith("推荐意见1")
     assert "unit" not in records[0]
     assert records[0]["evidence"]["recommendation_strength_normalized"] == "strong"
     assert result_path.exists()
@@ -139,6 +140,7 @@ def test_narrative_guideline_uses_narrative_pipeline_and_writes_summary(tmp_path
 
     assert records
     assert records[0]["record_type"] == "recommendation_card"
+    assert records[0]["raw_chunk_text"] == records[0]["statement_text"]
     assert "unit" not in records[0]
     assert records[0]["guideline"]["doc_type"] == "narrative_guideline"
     assert not list(_card_validator().iter_errors(records[0]))

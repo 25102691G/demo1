@@ -42,6 +42,7 @@ def test_clinical_info_extractor_builds_unit_from_valid_llm_json() -> None:
     assert unit.card_id.startswith("clinical_info_unit_")
     assert unit.source_statement_id == unit.card_id
     assert unit.statement_text == _segment().raw_text
+    assert unit.raw_chunk_text == _segment().raw_text
     assert unit.statement_type == "test_order"
     assert unit.clinical_stage == "诊断 / 实验室检查"
     assert unit.clinical_task == "diagnosis"
@@ -61,6 +62,7 @@ def test_clinical_info_extractor_falls_back_when_llm_call_fails() -> None:
     assert unit.statement_type == "other"
     assert unit.clinical_task == "other"
     assert unit.statement_text == _segment().raw_text
+    assert unit.raw_chunk_text == _segment().raw_text
     assert unit.confidence == 0.0
     assert unit.needs_human_review is True
     assert unit.review_reasons[0].startswith("clinical_info_llm_failed:")

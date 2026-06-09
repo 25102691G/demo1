@@ -7,6 +7,7 @@ from skill_engine.hpo_extractor import (
     HpoExtractor,
     HpoResources,
     _load_definition2id,
+    phenotypes_to_positive_features,
 )
 
 
@@ -72,6 +73,17 @@ def test_extract_from_text_returns_empty_result_without_phenotypes() -> None:
         "hpo_codes": [],
         "hpo_descriptions": [],
         "hpo_mappings": [],
+    }
+
+
+def test_phenotypes_to_positive_features_uses_symptom_features() -> None:
+    result = phenotypes_to_positive_features(["鑵圭棝", "鑵规郴", "鑵圭棝", ""])
+
+    assert result == {
+        "symptoms": [
+            {"name": "鑵圭棝", "weight": 0.2},
+            {"name": "鑵规郴", "weight": 0.2},
+        ]
     }
 
 

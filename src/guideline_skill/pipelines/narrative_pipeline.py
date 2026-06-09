@@ -18,6 +18,7 @@ class NarrativeGuidelinePipeline:
     ) -> None:
         self.clinical_info_extractor = clinical_info_extractor
         self.heading_segmenter = heading_segmenter or HeadingSegmenter()
+        # Kept for backwards-compatible construction; narrative chunks are now paragraph-based.
         self.max_chunk_chars = max_chunk_chars
 
     def run(
@@ -32,7 +33,7 @@ class NarrativeGuidelinePipeline:
         units: list[StatementUnit] = []
 
         for segment in segments:
-            for chunk in _chunk_segment(segment, max_chunk_chars=self.max_chunk_chars):
+            for chunk in _paragraph_chunks(segment):
                 extracted = self.clinical_info_extractor.extract(
                     chunk,
                     title=title,
@@ -57,42 +58,14 @@ def _coerce_text(pages_or_text: str | Sequence[Any]) -> str:
     return "\n".join(parts)
 
 
-def _chunk_segment(segment: HeadingSegment, *, max_chunk_chars: int) -> list[HeadingSegment]:
-    if max_chunk_chars <= 0 or len(segment.raw_text) <= max_chunk_chars:
-        return [segment]
-
+def _paragraph_chunks(segment: HeadingSegment) -> list[HeadingSegment]:
     chunks: list[HeadingSegment] = []
     offset = 0
-    current_parts: list[str] = []
-    current_start: int | None = None
-    current_length = 0
 
     for part in _paragraph_parts(segment.raw_text):
-        if len(part) > max_chunk_chars:
-            if current_parts:
-                chunks.append(_make_chunk(segment, current_parts, current_start or 0))
-                current_parts = []
-                current_start = None
-                current_length = 0
-            for sliced, slice_start in _slice_long_part(part, max_chunk_chars):
-                chunks.append(_make_chunk(segment, [sliced], offset + slice_start))
-            offset += len(part)
-            continue
-
-        if current_parts and current_length + len(part) > max_chunk_chars:
-            chunks.append(_make_chunk(segment, current_parts, current_start or 0))
-            current_parts = []
-            current_start = None
-            current_length = 0
-
-        if current_start is None:
-            current_start = offset
-        current_parts.append(part)
-        current_length += len(part)
+        if part.strip():
+            chunks.append(_make_chunk(segment, [part], offset))
         offset += len(part)
-
-    if current_parts:
-        chunks.append(_make_chunk(segment, current_parts, current_start or 0))
 
     return chunks or [segment]
 
@@ -110,16 +83,6 @@ def _paragraph_parts(text: str) -> list[str]:
     if current:
         parts.append(current)
     return parts
-
-
-def _slice_long_part(text: str, max_chunk_chars: int) -> list[tuple[str, int]]:
-    slices: list[tuple[str, int]] = []
-    start = 0
-    while start < len(text):
-        end = min(start + max_chunk_chars, len(text))
-        slices.append((text[start:end], start))
-        start = end
-    return slices
 
 
 def _make_chunk(

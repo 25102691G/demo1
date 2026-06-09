@@ -204,8 +204,6 @@
         "routing_version",
         "disease_identity",
         "positive_features",
-        "red_flags",
-        "must_differentiate",
         "scoring"
       ],
       "properties": {
@@ -239,45 +237,9 @@
           "properties": {
             "symptoms": {
               "$ref": "#/$defs/featureList"
-            },
-            "signs": {
-              "$ref": "#/$defs/featureList"
-            },
-            "labs": {
-              "$ref": "#/$defs/featureList"
-            },
-            "imaging": {
-              "$ref": "#/$defs/featureList"
-            },
-            "endoscopy": {
-              "$ref": "#/$defs/featureList"
-            },
-            "pathology": {
-              "$ref": "#/$defs/featureList"
-            },
-            "findings": {
-              "$ref": "#/$defs/featureList"
             }
           },
           "additionalProperties": false
-        },
-        "negative_features": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/negativeFeature"
-          }
-        },
-        "red_flags": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/redFlag"
-          }
-        },
-        "must_differentiate": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/differentialDisease"
-          }
         },
         "scoring": {
           "type": "object",
@@ -498,31 +460,8 @@
         "name": {
           "type": "string"
         },
-        "synonyms": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "path": {
-          "type": "string"
-        },
-        "operator": {
-          "type": "string",
-          "enum": ["exists", "eq", "neq", "gt", "gte", "lt", "lte", "contains", "any_match", "semantic_match"]
-        },
-        "threshold": {
-          "type": ["number", "string", "null"]
-        },
-        "unit": {
-          "type": ["string", "null"]
-        },
         "weight": {
           "type": "number"
-        },
-        "match_type": {
-          "type": "string",
-          "enum": ["exact", "semantic", "semantic_or_exact", "structured", "structured_or_text"]
         }
       },
       "additionalProperties": false

@@ -213,6 +213,7 @@ def _build_statement_unit(
         disease=_infer_disease_name_from_title(guideline_meta.title),
         statement_type=payload.unit_type,
         statement_text=segment.raw_text,
+        raw_chunk_text=segment.raw_text,
         clinical_question=None,
         clinical_stage=source_location.section or payload.clinical_topic or "general_guideline_support",
         clinical_task=payload.clinical_topic or payload.unit_type,

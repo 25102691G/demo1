@@ -29,7 +29,14 @@ def test_build_skill_pack_from_result_jsonl(tmp_path: Path) -> None:
     _write_jsonl(cards_path, [_card("CARD-001"), _card("CARD-002", clinical_task="治疗方案")])
 
     cards = builder.validate_cards(builder.load_jsonl(cards_path), CARD_SCHEMA)
-    skill = builder.build_skill_pack(cards, builder.load_taxonomy(), schema_version="0.3")
+    hpo_extractor, deepseek_client = _mock_hpo_dependencies()
+    skill = builder.build_skill_pack(
+        cards,
+        builder.load_taxonomy(),
+        schema_version="0.3",
+        hpo_extractor=hpo_extractor,
+        deepseek_client=deepseek_client,
+    )
     builder.validate_cross_references(
         skill,
         cards,
@@ -49,13 +56,27 @@ def test_build_skill_pack_from_result_jsonl(tmp_path: Path) -> None:
     assert (output_dir / "result.jsonl").exists()
     assert not (output_dir / "cards.jsonl").exists()
     assert raw_skill["metadata"]["disease_name"] == "Example disease"
+    assert hpo_extractor.calls == [
+        (cards[0]["raw_chunk_text"], deepseek_client),
+        (cards[1]["raw_chunk_text"], deepseek_client),
+    ]
+    assert raw_skill["routing_profile"]["positive_features"] == {
+        "symptoms": [{"name": "HPO phenotype", "weight": 0.2}]
+    }
 
 
 def test_workflow_references_existing_steps_subskills_and_templates(tmp_path: Path) -> None:
     cards_path = tmp_path / "cards.jsonl"
     _write_jsonl(cards_path, [_card("CARD-001")])
     cards = builder.validate_cards(builder.load_jsonl(cards_path), CARD_SCHEMA)
-    skill = builder.build_skill_pack(cards, builder.load_taxonomy(), schema_version="0.3")
+    hpo_extractor, deepseek_client = _mock_hpo_dependencies()
+    skill = builder.build_skill_pack(
+        cards,
+        builder.load_taxonomy(),
+        schema_version="0.3",
+        hpo_extractor=hpo_extractor,
+        deepseek_client=deepseek_client,
+    )
 
     step_ids = {step["step_id"] for step in skill["workflow"]["steps"]}
     subskill_ids = {subskill["subskill_id"] for subskill in skill["subskills"]}
@@ -130,6 +151,23 @@ def test_discover_cards_sources_accepts_file_or_directory(tmp_path: Path) -> Non
     assert builder.infer_output_package_name(second_cards) == "custom_cards"
 
 
+class MockHpoExtractor:
+    def __init__(self) -> None:
+        self.calls: list[tuple[str, object]] = []
+
+    def extract_positive_features(self, text: str, deepseek_client: object) -> dict[str, list[dict[str, object]]]:
+        self.calls.append((text, deepseek_client))
+        return {"symptoms": [{"name": "HPO phenotype", "weight": 0.2}]}
+
+
+class MockDeepSeekClient:
+    pass
+
+
+def _mock_hpo_dependencies() -> tuple[MockHpoExtractor, MockDeepSeekClient]:
+    return MockHpoExtractor(), MockDeepSeekClient()
+
+
 def _write_jsonl(path: Path, records: list[dict[str, object]]) -> None:
     path.write_text(
         "".join(json.dumps(record, ensure_ascii=False) + "\n" for record in records),
@@ -152,6 +190,7 @@ def _card(card_id: str, *, clinical_task: str = "诊断检查") -> dict[str, obj
         "clinical_task": clinical_task,
         "population": "suspected patients",
         "condition": "需要完善诊断证据时",
+        "raw_chunk_text": "推荐意见1：结合血常规、结肠镜和病理检查进行综合判断。",
         "action": "结合血常规、结肠镜和病理检查进行综合判断",
         "do_not": ["不要替代医生诊断"],
         "required_inputs": ["症状", "实验室检查"],

@@ -44,6 +44,16 @@ def test_deepseek_client_raises_for_non_json_response(monkeypatch: pytest.Monkey
         client.chat_json("system", "user")
 
 
+def test_deepseek_client_returns_empty_object_for_missing_choices(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    _install_fake_openai_response(monkeypatch, SimpleNamespace(choices=None))
+    _set_deepseek_env(monkeypatch)
+    client = DeepSeekClient()
+
+    assert client.chat_json("system", "user") == {}
+
+
 def _set_deepseek_env(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setenv("DEEPSEEK_MODEL", "deepseek-test")
     monkeypatch.setenv("DEEPSEEK_BASE_URL", "https://example.invalid/v1")
@@ -51,15 +61,22 @@ def _set_deepseek_env(monkeypatch: pytest.MonkeyPatch) -> None:
 
 
 def _install_fake_openai(monkeypatch: pytest.MonkeyPatch, content: str) -> None:
+    _install_fake_openai_response(
+        monkeypatch,
+        SimpleNamespace(
+            choices=[
+                SimpleNamespace(
+                    message=SimpleNamespace(content=content),
+                )
+            ]
+        ),
+    )
+
+
+def _install_fake_openai_response(monkeypatch: pytest.MonkeyPatch, response: object) -> None:
     class FakeCompletions:
         def create(self, **kwargs: object) -> object:
-            return SimpleNamespace(
-                choices=[
-                    SimpleNamespace(
-                        message=SimpleNamespace(content=content),
-                    )
-                ]
-            )
+            return response
 
     class FakeChat:
         completions = FakeCompletions()

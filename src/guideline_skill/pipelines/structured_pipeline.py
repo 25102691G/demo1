@@ -106,6 +106,7 @@ class StructuredGuidelinePipeline:
                 disease=disease,
                 statement_type=extracted.statement_type,
                 statement_text=extracted.statement_text,
+                raw_chunk_text=segment.raw_text,
                 clinical_question=extracted.clinical_question,
                 clinical_stage=source_location.section or "unknown",
                 clinical_task=str(action_payload.get("clinical_task") or ""),

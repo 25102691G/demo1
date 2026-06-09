@@ -102,6 +102,7 @@ class StatementUnit(BaseModel):
     disease: str
     statement_type: str
     statement_text: str
+    raw_chunk_text: str
     clinical_question: str | None = None
     clinical_stage: str
     clinical_task: str = ""

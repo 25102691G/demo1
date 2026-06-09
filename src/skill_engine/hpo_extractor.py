@@ -1,25 +1,14 @@
 from __future__ import annotations
 
-import argparse
 import json
-import os
-import sys
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
 
-from skill_engine.llm_client import (
-    JsonChatClient,
-    LlmConfig,
-    OpenAICompatibleJsonChatClient,
-    load_llm_config_from_env,
-)
+from skill_engine.llm_client import JsonChatClient
 
 
 HPO_EXTRACTION_SYSTEM_PROMPT = """你是医学表型抽取助手。
@@ -115,6 +104,10 @@ class HpoExtractor:
         user_prompt = json.dumps({"clinical_text": text}, ensure_ascii=False)
         payload = deepseek_client.chat_json(HPO_EXTRACTION_SYSTEM_PROMPT, user_prompt)
         return _parse_phenotypes(payload)
+
+    def extract_positive_features(self, text: str, deepseek_client: JsonChatClient) -> dict[str, list[dict[str, Any]]]:
+        phenotypes = self.extract_phenotypes(text, deepseek_client)
+        return phenotypes_to_positive_features(phenotypes)
 
     def map_phenotypes_to_hpo(self, phenotypes: Sequence[str]) -> list[dict[str, Any]]:
         cleaned = _dedupe_texts(phenotypes)
@@ -226,6 +219,20 @@ def _parse_phenotypes(payload: Mapping[str, Any]) -> list[str]:
     return _dedupe_texts(phenotypes)
 
 
+def phenotypes_to_positive_features(phenotypes: Sequence[str]) -> dict[str, list[dict[str, Any]]]:
+    # TODO: 后续需要将固定权重改为可配置或根据表型重要性动态计算。
+    positive_feature_weight = 0.2
+    return {
+        "symptoms": [
+            {
+                "name": phenotype,
+                "weight": positive_feature_weight,
+            }
+            for phenotype in _dedupe_texts(phenotypes)
+        ]
+    }
+
+
 def _dedupe_texts(values: Sequence[str]) -> list[str]:
     seen: set[str] = set()
     deduped: list[str] = []
@@ -300,76 +307,3 @@ def _load_transformers() -> tuple[Any, Any]:
             "Install it before loading BioLORD resources."
         ) from exc
     return AutoTokenizer, AutoModel
-
-
-def main(argv: Sequence[str] | None = None) -> int:
-    if hasattr(sys.stdout, "reconfigure"):
-        sys.stdout.reconfigure(encoding="utf-8")
-    if hasattr(sys.stderr, "reconfigure"):
-        sys.stderr.reconfigure(encoding="utf-8")
-
-    parser = argparse.ArgumentParser(
-        description="Extract phenotypes from clinical text with an LLM and map them to HPO IDs."
-    )
-    input_group = parser.add_mutually_exclusive_group(required=True)
-    input_group.add_argument("--input-text", help="Raw clinical text.")
-    input_group.add_argument("--input-file", help="UTF-8 text file containing raw clinical text.")
-    parser.add_argument("--model-path", default=str(DEFAULT_MODEL_PATH), help="Local BGE model path.")
-    parser.add_argument("--definition2id-path", default=str(DEFAULT_DEFINITION2ID_PATH))
-    parser.add_argument("--definition-embeddings-path", default=str(DEFAULT_DEFINITION_EMBEDDINGS_PATH))
-    parser.add_argument("--similarity-threshold", type=float, default=0.8)
-    parser.add_argument("--batch-size", type=int, default=30)
-    parser.add_argument("--max-length", type=int, default=128)
-    parser.add_argument("--api-key", default=os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("OPENAI_API_KEY"))
-    parser.add_argument("--base-url", default=os.environ.get("DEEPSEEK_BASE_URL", "https://api.deepseek.com"))
-    parser.add_argument("--llm-model", default=os.environ.get("DEEPSEEK_MODEL", "deepseek-chat"))
-    parser.add_argument("--temperature", type=float, default=0.0)
-    args = parser.parse_args(argv)
-
-    try:
-        text = _read_cli_input(args)
-        llm_config = _cli_llm_config(args)
-        extractor = HpoExtractor.from_paths(
-            model_path=_resolve_cli_path(args.model_path),
-            definition2id_path=_resolve_cli_path(args.definition2id_path),
-            definition_embeddings_path=_resolve_cli_path(args.definition_embeddings_path),
-            similarity_threshold=args.similarity_threshold,
-            batch_size=args.batch_size,
-            max_length=args.max_length,
-        )
-        llm_client = OpenAICompatibleJsonChatClient(llm_config)
-        result = extractor.extract_from_text(text, llm_client)
-    except Exception as exc:
-        print(f"hpo_extractor: error: {exc}", file=sys.stderr)
-        return 1
-
-    print(json.dumps(result, ensure_ascii=False, indent=2))
-    return 0
-
-
-def _read_cli_input(args: argparse.Namespace) -> str:
-    if args.input_text:
-        return args.input_text
-    if args.input_file:
-        return _resolve_cli_path(args.input_file).read_text(encoding="utf-8-sig")
-    raise ValueError("provide --input-text or --input-file")
-
-
-def _resolve_cli_path(path: str | Path) -> Path:
-    value = Path(path)
-    return value if value.is_absolute() else ROOT / value
-
-
-def _cli_llm_config(args: argparse.Namespace) -> LlmConfig:
-    if args.api_key:
-        return LlmConfig(
-            api_key=args.api_key,
-            base_url=args.base_url,
-            model=args.llm_model,
-            temperature=args.temperature,
-        )
-    return load_llm_config_from_env(temperature=args.temperature)
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())

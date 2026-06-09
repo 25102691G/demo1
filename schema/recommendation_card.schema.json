@@ -10,6 +10,7 @@
     "disease",
     "guideline",
     "clinical_stage",
+    "raw_chunk_text",
     "action",
     "evidence",
     "source_location"
@@ -56,6 +57,9 @@
     },
     "condition": {
       "type": ["string", "null"]
+    },
+    "raw_chunk_text": {
+      "type": "string"
     },
     "action": {
       "type": "string"

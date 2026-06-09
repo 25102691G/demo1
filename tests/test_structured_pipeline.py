@@ -82,6 +82,8 @@ def test_structured_pipeline_extracts_recommendation_cards_with_llm_enrichment()
     assert units[0].supporting_features == ["腹痛"]
     assert units[0].recommended_tests == ["内镜检查"]
     assert units[0].statement_text.startswith("Complete endoscopy.")
+    assert units[0].raw_chunk_text.startswith("Recommendation 1:")
+    assert "Recommendation 2:" not in units[0].raw_chunk_text
     assert units[0].evidence.evidence_quality_raw is None
     assert units[0].evidence.evidence_quality_normalized == "unknown"
     assert units[0].evidence.recommendation_strength_raw is None

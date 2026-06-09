@@ -13,6 +13,13 @@ from typing import Any, Iterable, Mapping, Sequence
 
 
 ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from skill_engine.hpo_extractor import HpoExtractor, HpoResources
+from skill_engine.llm_client import OpenAICompatibleJsonChatClient, load_llm_config_from_env
+
 NORMALIZE_BRANCH_COUNTS: Counter[str] = Counter()
 DEFAULT_TAXONOMY_PATH = ROOT / "configs" / "subskill_taxonomy.yaml"
 
@@ -53,10 +60,6 @@ CARD_TEXT_FIELDS_FOR_CLASSIFICATION = (
     "statement_text",
 )
 
-LAB_KEYWORDS = ("血", "CRP", "ESR", "粪便", "指标", "抗体", "生化", "白蛋白", "实验室", "钙卫蛋白")
-IMAGING_KEYWORDS = ("CT", "MRI", "MRE", "CTE", "超声", "影像", "造影")
-ENDOSCOPY_KEYWORDS = ("内镜", "结肠镜", "胃镜", "肠镜", "小肠镜")
-PATHOLOGY_KEYWORDS = ("病理", "活检", "活体", "组织学")
 EMERGENCY_KEYWORDS = (
     "急诊",
     "急症",
@@ -224,6 +227,7 @@ def _statement_unit_to_card(payload: Mapping[str, Any], unit: Mapping[str, Any])
             "section": section or None,
         },
         "statement_text": statement_text,
+        "raw_chunk_text": _first_text(unit.get("raw_chunk_text"), unit.get("raw_text"), statement_text),
         "needs_human_review": unit.get("needs_human_review", True),
         "review_reasons": unit.get("review_reasons", ["converted_from_statement_unit"]),
     }
@@ -277,6 +281,7 @@ def _clinical_info_unit_to_card(payload: Mapping[str, Any], unit: Mapping[str, A
             "section": section or None,
         },
         "statement_text": raw_text,
+        "raw_chunk_text": raw_text,
         "must_differentiate": _as_text_list(unit.get("differential_diagnosis")),
         "needs_human_review": unit.get("needs_human_review", True),
         "review_reasons": unit.get("review_reasons", ["converted_from_clinical_info_unit"]),
@@ -401,69 +406,27 @@ def infer_output_package_name(cards_path: str | Path) -> str:
     return package_name
 
 
-def build_routing_profile(cards: Sequence[Mapping[str, Any]], metadata: Mapping[str, Any]) -> dict[str, Any]:
+def build_routing_profile(
+    cards: Sequence[Mapping[str, Any]],
+    metadata: Mapping[str, Any],
+    *,
+    hpo_extractor: HpoExtractor,
+    deepseek_client: Any,
+) -> dict[str, Any]:
     positive_features: dict[str, list[dict[str, Any]]] = {
         "symptoms": [],
-        "signs": [],
-        "labs": [],
-        "imaging": [],
-        "endoscopy": [],
-        "pathology": [],
-        "findings": [],
     }
     feature_seen: dict[str, set[str]] = {key: set() for key in positive_features}
 
-    negative_features: list[dict[str, Any]] = []
-    negative_seen: set[str] = set()
-    red_flags: list[dict[str, Any]] = []
-    red_seen: set[str] = set()
-    must_differentiate: list[dict[str, Any]] = []
-    differential_seen: set[str] = set()
-
-    disease_name = _clean_text(metadata.get("disease_name"))
-
     for card in cards:
-        for feature in _as_text_list(card.get("supporting_features")):
-            _add_feature(positive_features, feature_seen, "findings", feature, weight=0.2)
-
-        for test in _as_text_list(card.get("recommended_tests")):
-            bucket = _classify_test_feature(test)
-            _add_feature(positive_features, feature_seen, bucket, test, weight=0.2)
-
-        for field in ("do_not", "not_recommended", "avoid", "contraindications_or_cautions"):
-            for value in _as_text_list(card.get(field)):
-                key = _normalize_key(value)
-                if not key or key in negative_seen:
-                    continue
-                negative_seen.add(key)
-                negative_features.append(
-                    {"name": value, "penalty": 0.3, "match_type": "semantic_or_exact"}
-                )
-
-        for value in _safety_candidate_texts(card):
-            if _contains_any(value, EMERGENCY_KEYWORDS):
-                key = _normalize_key(value)
-                if key and key not in red_seen:
-                    red_seen.add(key)
-                    red_flags.append(
-                        {
-                            "name": _shorten_text(value, limit=80),
-                            "severity": _red_flag_severity(value),
-                            "action": "Recommend urgent medical evaluation.",
-                        }
-                    )
-
-        for disease in _extract_differentials(card, current_disease=disease_name):
-            key = _normalize_key(disease)
-            if not key or key in differential_seen:
-                continue
-            differential_seen.add(key)
-            must_differentiate.append(
-                {
-                    "disease_name": disease,
-                    "reason": "Mentioned in guideline text as a condition to distinguish or exclude.",
-                }
-            )
+        _add_hpo_positive_features(
+            positive_features,
+            feature_seen,
+            hpo_extractor.extract_positive_features(
+                _clean_text(card.get("raw_chunk_text")),
+                deepseek_client,
+            ),
+        )
 
     return {
         "routing_version": "0.1",
@@ -473,9 +436,6 @@ def build_routing_profile(cards: Sequence[Mapping[str, Any]], metadata: Mapping[
             "abbreviations": [],
         },
         "positive_features": positive_features,
-        "negative_features": negative_features,
-        "red_flags": red_flags,
-        "must_differentiate": must_differentiate,
         "scoring": {
             "method": "hybrid_weighted_semantic",
             "normalization": "sum_max_1",
@@ -870,12 +830,19 @@ def build_skill_pack(
     taxonomy: Mapping[str, TaxonomyEntry],
     *,
     schema_version: str = "0.3",
+    hpo_extractor: HpoExtractor,
+    deepseek_client: Any,
 ) -> dict[str, Any]:
     metadata = infer_metadata(cards)
     skill = {
         "schema_version": schema_version,
         "metadata": metadata,
-        "routing_profile": build_routing_profile(cards, metadata),
+        "routing_profile": build_routing_profile(
+            cards,
+            metadata,
+            hpo_extractor=hpo_extractor,
+            deepseek_client=deepseek_client,
+        ),
         "knowledge_base": build_knowledge_base(),
         "workflow": build_workflow(),
         "subskills": build_subskills(cards, taxonomy),
@@ -1035,6 +1002,20 @@ def write_skill_pack(
     return target_dir
 
 
+def build_default_hpo_dependencies() -> tuple[HpoExtractor, OpenAICompatibleJsonChatClient]:
+    hpo_extractor = HpoExtractor(
+        HpoResources(
+            model=None,
+            tokenizer=None,
+            definition2id={},
+            definition_embeddings=None,
+            definition_keys=[],
+        )
+    )
+    deepseek_client = OpenAICompatibleJsonChatClient(load_llm_config_from_env())
+    return hpo_extractor, deepseek_client
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
@@ -1081,7 +1062,14 @@ def main(argv: Sequence[str] | None = None) -> int:
         for cards_source in card_sources:
             loaded_cards = load_jsonl(cards_source)
             cards = validate_cards(loaded_cards, args.card_schema)
-            skill_dict = build_skill_pack(cards, taxonomy, schema_version=args.schema_version)
+            hpo_extractor, deepseek_client = build_default_hpo_dependencies()
+            skill_dict = build_skill_pack(
+                cards,
+                taxonomy,
+                schema_version=args.schema_version,
+                hpo_extractor=hpo_extractor,
+                deepseek_client=deepseek_client,
+            )
             package_name = infer_output_package_name(cards_source) if args.out_dir else None
             output_dir = Path(args.out_dir) if args.out_dir else cards_source.parent
             validate_cross_references(
@@ -1319,45 +1307,31 @@ def _hashed_skill_id(value: str) -> str:
     return f"disease_skill_{digest}"
 
 
-def _classify_test_feature(test_name: str) -> str:
-    if _contains_any(test_name, LAB_KEYWORDS):
-        return "labs"
-    if _contains_any(test_name, IMAGING_KEYWORDS):
-        return "imaging"
-    if _contains_any(test_name, ENDOSCOPY_KEYWORDS):
-        return "endoscopy"
-    if _contains_any(test_name, PATHOLOGY_KEYWORDS):
-        return "pathology"
-    return "findings"
-
-
 def _contains_any(text: str, keywords: Iterable[str]) -> bool:
     text_upper = text.upper()
     text_lower = text.lower()
     return any(keyword.upper() in text_upper or keyword.lower() in text_lower for keyword in keywords)
 
 
-def _add_feature(
+def _add_hpo_positive_features(
     feature_buckets: dict[str, list[dict[str, Any]]],
     seen: dict[str, set[str]],
-    bucket: str,
-    name: str,
-    *,
-    weight: float,
+    extracted_features: Mapping[str, Any],
 ) -> None:
-    text = _clean_text(name)
-    key = _normalize_key(text)
-    if not key or key in seen[bucket]:
-        return
-    seen[bucket].add(key)
-    feature_buckets[bucket].append(
-        {
-            "name": text,
-            "operator": "semantic_match",
-            "weight": weight,
-            "match_type": "semantic_or_exact",
-        }
-    )
+    for bucket, features in extracted_features.items():
+        if bucket not in feature_buckets or not isinstance(features, Sequence):
+            continue
+        for feature in features:
+            if not isinstance(feature, Mapping):
+                continue
+            name = _clean_text(feature.get("name"))
+            key = _normalize_key(name)
+            if not key or key in seen[bucket]:
+                continue
+            seen[bucket].add(key)
+            copied = dict(feature)
+            copied["name"] = name
+            feature_buckets[bucket].append(copied)
 
 
 def _safety_candidate_texts(card: Mapping[str, Any]) -> list[str]:

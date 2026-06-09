@@ -171,6 +171,7 @@
 | `clinical_task` | 临床任务，如诊断、评估、治疗、随访。 |
 | `population` | 推荐适用人群。 |
 | `condition` | 触发该推荐的条件或病情上下文。 |
+| `raw_chunk_text` | PDF 文本清洗并分块后，该推荐对应的完整原始分块文本。 |
 | `action` | 推荐执行的操作。 |
 | `do_not` | 不建议或禁止执行的事项。 |
 | `required_inputs` | 应用推荐前需要的输入信息。 |

@@ -14,13 +14,6 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from skill_engine.case_normalizer import load_case_json, normalize_case, normalize_case_from_json
-from skill_engine.hpo_extractor import (
-    DEFAULT_DEFINITION2ID_PATH,
-    DEFAULT_DEFINITION_EMBEDDINGS_PATH,
-    DEFAULT_MODEL_PATH,
-    HpoExtractor,
-)
-from skill_engine.llm_client import OpenAICompatibleJsonChatClient, load_llm_config_from_env
 from skill_engine.output_builder import build_error_output, build_workflow_output
 from skill_engine.router import route_skills
 from skill_engine.skill_loader import load_skill_packs
@@ -36,49 +29,34 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Run a generic guideline SkillEngine workflow.")
     parser.add_argument("--skills-dir", default="data/skills", help="Directory containing */skill.yaml packs.")
 
-    # Input options:text/file/json 三选一。
+    # 输入来源：文本、文件、JSON 三选一。
     input_group = parser.add_mutually_exclusive_group(required=True)
     input_group.add_argument("--input-text", help="Raw case text.")
     input_group.add_argument("--input-file", help="Raw case text file.")
     input_group.add_argument("--case-json", help="Partially or fully structured canonical case JSON.")
-    
+
     parser.add_argument("--skill-schema", default="schema/skill_pack.schema.json")
     parser.add_argument("--case-schema", default="schema/canonical_case.schema.json")
     parser.add_argument("--output-schema", default="schema/workflow_output.schema.json")
     parser.add_argument("--top-k", type=int, default=5)
     parser.add_argument("--min-score", type=float)
-    parser.add_argument(
-        "--endoscopy",
-        action="store_true",
-        help="Use HPO extraction for canonical.endoscopy.items instead of rule keywords.",
-    )
-    parser.add_argument("--hpo-model-path", default=str(DEFAULT_MODEL_PATH), help="Local BGE model path.")
-    parser.add_argument("--hpo-definition2id-path", default=str(DEFAULT_DEFINITION2ID_PATH))
-    parser.add_argument("--hpo-definition-embeddings-path", default=str(DEFAULT_DEFINITION_EMBEDDINGS_PATH))
-    parser.add_argument("--hpo-similarity-threshold", type=float, default=0.8)
-    parser.add_argument("--hpo-batch-size", type=int, default=30)
-    parser.add_argument("--hpo-max-length", type=int, default=128)
-    parser.add_argument("--llm-temperature", type=float, default=0.0)
     parser.add_argument("--debug", action="store_true")
     parser.add_argument("--print-canonical-case", action="store_true")
     args = parser.parse_args(argv)
 
-    # TODO：病人case提取需要改为LLM + HPO数据库形式
     try:
         raw_input = _read_raw_input(args)
-        endoscopy_items_extractor = _build_hpo_endoscopy_extractor(args) if args.endoscopy else None
+
         if args.case_json:
             canonical_case = normalize_case_from_json(
                 load_case_json(_resolve(args.case_json)),
                 raw_input,
                 _resolve(args.case_schema),
-                endoscopy_items_extractor=endoscopy_items_extractor,
             )
         else:
             canonical_case = normalize_case(
                 raw_input,
                 _resolve(args.case_schema),
-                endoscopy_items_extractor=endoscopy_items_extractor,
             )
 
         packs, load_errors = load_skill_packs(_resolve(args.skills_dir), _resolve(args.skill_schema))
@@ -139,53 +117,6 @@ def _read_raw_input(args: argparse.Namespace) -> str:
 def _resolve(path: str | Path) -> Path:
     value = Path(path)
     return value if value.is_absolute() else ROOT / value
-
-
-def _build_hpo_endoscopy_extractor(args: argparse.Namespace):
-    hpo_extractor = HpoExtractor.from_paths(
-        model_path=_resolve(args.hpo_model_path),
-        definition2id_path=_resolve(args.hpo_definition2id_path),
-        definition_embeddings_path=_resolve(args.hpo_definition_embeddings_path),
-        similarity_threshold=args.hpo_similarity_threshold,
-        batch_size=args.hpo_batch_size,
-        max_length=args.hpo_max_length,
-    )
-    llm_client = OpenAICompatibleJsonChatClient(
-        load_llm_config_from_env(temperature=args.llm_temperature)
-    )
-
-    def extract(text: str) -> list[dict[str, Any]]:
-        result = hpo_extractor.extract_from_text(text, llm_client)
-        return _hpo_result_to_endoscopy_items(result)
-
-    return extract
-
-
-def _hpo_result_to_endoscopy_items(result: dict[str, Any]) -> list[dict[str, Any]]:
-    items: list[dict[str, Any]] = []
-    mappings = result.get("hpo_mappings") or []
-    for mapping in mappings:
-        if not isinstance(mapping, dict):
-            continue
-        phenotype = str(mapping.get("original_phenotype") or "").strip()
-        hpo_term = str(mapping.get("hpo_term") or "").strip()
-        finding = hpo_term or phenotype
-        if not finding:
-            continue
-        items.append(
-            {
-                "type": "hpo_extraction",
-                "findings": [finding],
-                "biopsy_taken": "unknown",
-                "date": None,
-                "source_text": phenotype or finding,
-                "hpo_code": mapping.get("hpo_code"),
-                "hpo_term": hpo_term or None,
-                "similarity_score": mapping.get("similarity_score"),
-                "status": mapping.get("status"),
-            }
-        )
-    return items
 
 
 def _default_output_path() -> Path:

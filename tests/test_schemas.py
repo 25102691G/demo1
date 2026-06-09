@@ -23,6 +23,7 @@ def test_statement_unit_serializes_recommendation_card_shape() -> None:
     assert payload["card_id"] == "statement_unit_001"
     assert payload["source_statement_id"] == "Recommendation 1:"
     assert payload["disease"] == "Crohn disease"
+    assert payload["raw_chunk_text"] == "Recommendation 1: Complete testing."
     assert payload["action"] == "Complete testing."
     assert payload["clinical_task"] == "testing"
     assert payload["do_not"] == ["Do not rely on one test."]
@@ -66,6 +67,7 @@ def _statement_unit() -> StatementUnit:
         disease="Crohn disease",
         statement_type="recommendation",
         statement_text="Complete testing.",
+        raw_chunk_text="Recommendation 1: Complete testing.",
         clinical_question=None,
         clinical_stage="diagnosis",
         clinical_task="testing",

@@ -74,13 +74,9 @@ class OpenAICompatibleJsonChatClient:
         except Exception as exc:
             raise RuntimeError(f"LLM API request failed: {exc}") from exc
 
-        try:
-            content = response.choices[0].message.content
-        except Exception as exc:
-            raise ValueError("LLM response did not include message content.") from exc
-
+        content = _response_message_content(response)
         if not content or not content.strip():
-            raise ValueError("LLM returned an empty response.")
+            return {}
         return loads_json_object(content)
 
 
@@ -97,6 +93,20 @@ def loads_json_object(content: str) -> dict[str, Any]:
     if not isinstance(data, dict):
         raise ValueError("LLM JSON response must be an object.")
     return data
+
+
+def _response_message_content(response: Any) -> str | None:
+    choices = getattr(response, "choices", None)
+    if not choices:
+        return None
+    try:
+        first_choice = choices[0]
+    except (IndexError, TypeError):
+        return None
+    message = getattr(first_choice, "message", None)
+    if message is None:
+        return None
+    return getattr(message, "content", None)
 
 
 def _first_env(names: Sequence[str]) -> str | None:
