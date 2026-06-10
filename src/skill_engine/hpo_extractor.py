@@ -87,16 +87,6 @@ class HpoExtractor:
             max_length=max_length,
         )
 
-    def extract_from_text(self, text: str, deepseek_client: JsonChatClient) -> dict[str, Any]:
-        phenotypes = self.extract_phenotypes(text, deepseek_client)
-        mappings = self.map_phenotypes_to_hpo(phenotypes)
-        mapped = [item for item in mappings if item["status"] == "mapped"]
-        return {
-            "phenotypes": phenotypes,
-            "hpo_codes": [item["hpo_code"] for item in mapped],
-            "hpo_descriptions": [item["hpo_term"] for item in mapped],
-            "hpo_mappings": mappings,
-        }
     
     def extract_hpo_from_text(self, text: str, deepseek_client: JsonChatClient) -> dict[str, Any]:
         phenotypes = self.extract_phenotypes(text, deepseek_client)
@@ -115,37 +105,12 @@ class HpoExtractor:
             ],
         }
 
-    def extract_mapped_from_text(self, text: str, deepseek_client: JsonChatClient) -> dict[str, Any]:
-        extracted = self.extract_from_text(text, deepseek_client)
-        mapped_phenotypes = [
-            item["original_phenotype"]
-            for item in extracted["hpo_mappings"]
-            if item["status"] == "mapped"
-        ]
-        return {
-            "symptoms": [
-                {
-                    "name": phenotype,
-                }
-                for phenotype in _dedupe_texts(mapped_phenotypes)
-            ]
-        }
-
     def extract_phenotypes(self, text: str, deepseek_client: JsonChatClient) -> list[str]:
         if not str(text or "").strip():
             return []
         user_prompt = json.dumps({"clinical_text": text}, ensure_ascii=False)
         payload = deepseek_client.chat_json(HPO_EXTRACTION_SYSTEM_PROMPT, user_prompt)
         return _parse_phenotypes(payload)
-
-    def extract_positive_features(self, text: str, deepseek_client: JsonChatClient) -> dict[str, list[dict[str, Any]]]:
-        extracted = self.extract_from_text(text, deepseek_client)
-        mapped_phenotypes = [
-            item["original_phenotype"]
-            for item in extracted["hpo_mappings"]
-            if item["status"] == "mapped"
-        ]
-        return phenotypes_to_positive_features(mapped_phenotypes)
 
     def map_phenotypes_to_hpo(self, phenotypes: Sequence[str]) -> list[dict[str, Any]]:
         cleaned = _dedupe_texts(phenotypes)
@@ -255,20 +220,6 @@ def _parse_phenotypes(payload: Mapping[str, Any]) -> list[str]:
             if value is not None:
                 phenotypes.append(str(value))
     return _dedupe_texts(phenotypes)
-
-
-def phenotypes_to_positive_features(phenotypes: Sequence[str]) -> dict[str, list[dict[str, Any]]]:
-    # TODO: 后续需要将固定权重改为可配置或根据表型重要性动态计算。
-    positive_feature_weight = 0.2
-    return {
-        "symptoms": [
-            {
-                "name": phenotype,
-                "weight": positive_feature_weight,
-            }
-            for phenotype in _dedupe_texts(phenotypes)
-        ]
-    }
 
 
 def _dedupe_texts(values: Sequence[str]) -> list[str]:
