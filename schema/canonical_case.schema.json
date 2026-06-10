@@ -245,13 +245,7 @@
   "$defs": {
     "feature": {
       "type": "object",
-      "required": ["name"],
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
+      "additionalProperties": true
     },
     "interpretation": {
       "type": ["string", "null"],

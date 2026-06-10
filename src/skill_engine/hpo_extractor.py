@@ -97,6 +97,23 @@ class HpoExtractor:
             "hpo_descriptions": [item["hpo_term"] for item in mapped],
             "hpo_mappings": mappings,
         }
+    
+    def extract_hpo_from_text(self, text: str, deepseek_client: JsonChatClient) -> dict[str, Any]:
+        phenotypes = self.extract_phenotypes(text, deepseek_client)
+        mappings = self.map_phenotypes_to_hpo(phenotypes)
+        mapped = [item for item in mappings if item["status"] == "mapped"]
+        return {
+            "symptoms": [
+                {
+                    "name": item["original_phenotype"],
+                    "hpo_code": item["hpo_code"],
+                    "hpo_term": item["hpo_term"],
+                    "similarity_score": item["similarity_score"],
+                    "status": item["status"],
+                }
+                for item in mapped
+            ],
+        }
 
     def extract_mapped_from_text(self, text: str, deepseek_client: JsonChatClient) -> dict[str, Any]:
         extracted = self.extract_from_text(text, deepseek_client)
@@ -122,8 +139,13 @@ class HpoExtractor:
         return _parse_phenotypes(payload)
 
     def extract_positive_features(self, text: str, deepseek_client: JsonChatClient) -> dict[str, list[dict[str, Any]]]:
-        phenotypes = self.extract_phenotypes(text, deepseek_client)
-        return phenotypes_to_positive_features(phenotypes)
+        extracted = self.extract_from_text(text, deepseek_client)
+        mapped_phenotypes = [
+            item["original_phenotype"]
+            for item in extracted["hpo_mappings"]
+            if item["status"] == "mapped"
+        ]
+        return phenotypes_to_positive_features(mapped_phenotypes)
 
     def map_phenotypes_to_hpo(self, phenotypes: Sequence[str]) -> list[dict[str, Any]]:
         cleaned = _dedupe_texts(phenotypes)

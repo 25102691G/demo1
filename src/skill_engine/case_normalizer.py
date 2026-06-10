@@ -67,7 +67,7 @@ def _apply_hpo_extraction(
     hpo_extractor: HpoExtractor,
     deepseek_client: JsonChatClient,
 ) -> None:
-    positive_features = hpo_extractor.extract_mapped_from_text(raw_input or "", deepseek_client)
+    positive_features = hpo_extractor.extract_hpo_from_text(raw_input or "", deepseek_client)
     symptoms = positive_features.get("symptoms", [])
     canonical["symptoms"] = symptoms if isinstance(symptoms, list) else []
 

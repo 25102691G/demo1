@@ -155,7 +155,7 @@ class MockHpoExtractor:
     def __init__(self) -> None:
         self.calls: list[tuple[str, object]] = []
 
-    def extract_positive_features(self, text: str, deepseek_client: object) -> dict[str, list[dict[str, object]]]:
+    def extract_hpo_from_text(self, text: str, deepseek_client: object) -> dict[str, list[dict[str, object]]]:
         self.calls.append((text, deepseek_client))
         return {"symptoms": [{"name": "HPO phenotype", "weight": 0.2}]}
 

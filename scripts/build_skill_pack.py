@@ -17,7 +17,12 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from skill_engine.hpo_extractor import HpoExtractor, HpoResources
+from skill_engine.hpo_extractor import (
+    DEFAULT_DEFINITION2ID_PATH,
+    DEFAULT_DEFINITION_EMBEDDINGS_PATH,
+    DEFAULT_MODEL_PATH,
+    HpoExtractor,
+)
 from skill_engine.llm_client import OpenAICompatibleJsonChatClient, load_llm_config_from_env
 
 NORMALIZE_BRANCH_COUNTS: Counter[str] = Counter()
@@ -422,7 +427,7 @@ def build_routing_profile(
         _add_hpo_positive_features(
             positive_features,
             feature_seen,
-            hpo_extractor.extract_mapped_from_text(
+            hpo_extractor.extract_hpo_from_text(
                 _clean_text(card.get("raw_chunk_text")),
                 deepseek_client,
             ),
@@ -1003,14 +1008,10 @@ def write_skill_pack(
 
 
 def build_default_hpo_dependencies() -> tuple[HpoExtractor, OpenAICompatibleJsonChatClient]:
-    hpo_extractor = HpoExtractor(
-        HpoResources(
-            model=None,
-            tokenizer=None,
-            definition2id={},
-            definition_embeddings=None,
-            definition_keys=[],
-        )
+    hpo_extractor = HpoExtractor.from_paths(
+        model_path=DEFAULT_MODEL_PATH,
+        definition2id_path=DEFAULT_DEFINITION2ID_PATH,
+        definition_embeddings_path=DEFAULT_DEFINITION_EMBEDDINGS_PATH,
     )
     deepseek_client = OpenAICompatibleJsonChatClient(load_llm_config_from_env())
     return hpo_extractor, deepseek_client
