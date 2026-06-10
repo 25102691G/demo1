@@ -111,7 +111,6 @@ class StatementUnit(BaseModel):
     action: str
     do_not: list[str] = Field(default_factory=list)
     required_inputs: list[str] = Field(default_factory=list)
-    supporting_features: list[str] = Field(default_factory=list)
     recommended_tests: list[str] = Field(default_factory=list)
     evidence: StatementEvidence
     implementation_advice: str | None = None

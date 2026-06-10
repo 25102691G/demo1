@@ -40,6 +40,7 @@ def extract_document(
     output_root: str | Path = DEFAULT_OUTPUT_DIR,
     deepseek_client: Any | None = None,
     title: str | None = None,
+    llm_workers: int = 1,
 ) -> dict[str, Any]:
     """Extract one guideline document and write JSONL plus summary files."""
 
@@ -62,6 +63,7 @@ def extract_document(
         source_file=str(source_path),
         title=title or source_path.stem,
         deepseek_client=client,
+        llm_workers=llm_workers,
     )
 
     write_jsonl(units, output)
@@ -84,6 +86,7 @@ def batch_extract(
     *,
     output_dir: str | Path = DEFAULT_OUTPUT_DIR,
     deepseek_client: Any | None = None,
+    llm_workers: int = 1,
 ) -> dict[str, Any]:
     """Extract multiple guideline documents, one output folder per input."""
 
@@ -100,6 +103,7 @@ def batch_extract(
                 output_root=output_directory,
                 deepseek_client=client,
                 title=source_path.stem,
+                llm_workers=llm_workers,
             )
         )
 
@@ -194,6 +198,7 @@ def extract_units_from_text(
     source_file: str | None,
     title: str | None,
     deepseek_client: Any,
+    llm_workers: int = 1,
 ) -> tuple[list[ExtractedUnit], ClassificationResult]:
     anchor_registry = AnchorRegistry()
     classifier = GuidelineClassifier(anchor_registry)
@@ -210,6 +215,7 @@ def extract_units_from_text(
         pipeline = StructuredGuidelinePipeline(
             anchor_registry=anchor_registry,
             normalizer=LLMNormalizer(deepseek_client),
+            llm_workers=llm_workers,
         )
         return pipeline.run(
             text,
@@ -220,6 +226,7 @@ def extract_units_from_text(
 
     pipeline = NarrativeGuidelinePipeline(
         clinical_info_extractor=ClinicalInfoExtractor(deepseek_client),
+        llm_workers=llm_workers,
     )
     return pipeline.run(
         text,
@@ -344,6 +351,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
         help="Output root used when --output/--summary are omitted.",
     )
     extract_parser.add_argument("--title", default=None, help="Optional guideline title.")
+    extract_parser.add_argument(
+        "--llm-workers",
+        type=int,
+        default=1,
+        help="Concurrent LLM calls within one document. Defaults to 1.",
+    )
 
     batch_parser = subparsers.add_parser("batch", help="Extract multiple guideline documents.")
     batch_parser.add_argument("--inputs", nargs="+", default=None, help="Input PDF/TXT/MD file paths.")
@@ -356,6 +369,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
         "--output-dir",
         default=str(DEFAULT_OUTPUT_DIR),
         help="Optional output root. Each input gets data/skills/<input-stem>/ by default.",
+    )
+    batch_parser.add_argument(
+        "--llm-workers",
+        type=int,
+        default=1,
+        help="Concurrent LLM calls within each document. Defaults to 1.",
     )
 
     return parser
@@ -372,6 +391,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             summary_path=args.summary,
             output_root=args.output_root,
             title=args.title,
+            llm_workers=args.llm_workers,
         )
         return 0
 
@@ -379,6 +399,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         batch_extract(
             resolve_batch_inputs(args.inputs, input_dir=args.input_dir),
             output_dir=args.output_dir,
+            llm_workers=args.llm_workers,
         )
         return 0
 

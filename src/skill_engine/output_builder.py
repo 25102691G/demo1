@@ -213,19 +213,17 @@ def _citations(
 
 def _citation_source(card: dict[str, Any]) -> dict[str, Any]:
     location = card.get("source_location") if isinstance(card.get("source_location"), dict) else {}
-    retrieval = card.get("retrieval") if isinstance(card.get("retrieval"), dict) else {}
     source = card.get("source") if isinstance(card.get("source"), dict) else {}
     guideline = card.get("guideline") if isinstance(card.get("guideline"), dict) else {}
     guideline_meta = card.get("guideline_meta") if isinstance(card.get("guideline_meta"), dict) else {}
     pdf = (
         clean_text(location.get("pdf"))
-        or clean_text(retrieval.get("source_pdf"))
         or clean_text(source.get("pdf"))
         or clean_text(guideline.get("source_file"))
         or clean_text(guideline_meta.get("source_file"))
     )
-    page_start = _positive_int(location.get("page_start") or retrieval.get("page_start") or source.get("page_start"))
-    page_end = _positive_int(location.get("page_end") or retrieval.get("page_end") or source.get("page_end"))
+    page_start = _positive_int(location.get("page_start") or source.get("page_start"))
+    page_end = _positive_int(location.get("page_end") or source.get("page_end"))
     quote = clean_text(card.get("original_text") or card.get("statement_text") or card.get("action"))
     payload: dict[str, Any] = {}
     if pdf:

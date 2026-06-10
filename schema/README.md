@@ -177,14 +177,12 @@
 | `action` | 推荐执行的操作。 |
 | `do_not` | 不建议或禁止执行的事项。 |
 | `required_inputs` | 应用推荐前需要的输入信息。 |
-| `supporting_features` | 支持该推荐适用的病例特征。 |
 | `recommended_tests` | 建议补充的检查。 |
 | `contraindications_or_cautions` | 禁忌证或需要谨慎的情况。 |
 | `safety_notes` | 安全注意事项。 |
 | `evidence` | 证据质量、推荐强度和评级体系信息。 |
 | `rationale` | 推荐理由或解释。 |
 | `source_location` | 推荐在原始文档中的位置和引用。 |
-| `retrieval` | 检索相关元数据。 |
 
 ### `guideline`
 
@@ -215,14 +213,6 @@
 | `section` | 所属章节。 |
 | `quote` | 原文引用。 |
 | `source_span` | 原文范围、段落或字符跨度标识。 |
-
-### `retrieval`
-
-| 字段名 | 含义 |
-| --- | --- |
-| `keywords` | 用于关键词检索的词表。 |
-| `semantic_text` | 用于语义检索的文本。 |
-| `embedding_id` | 向量索引或 embedding 记录标识。 |
 
 ## skill_pack.schema.json
 

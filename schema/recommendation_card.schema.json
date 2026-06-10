@@ -76,12 +76,6 @@
         "type": "string"
       }
     },
-    "supporting_features": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
     "recommended_tests": {
       "type": "array",
       "items": {
@@ -175,24 +169,6 @@
           "type": "string"
         },
         "source_span": {
-          "type": ["string", "null"]
-        }
-      },
-      "additionalProperties": true
-    },
-    "retrieval": {
-      "type": "object",
-      "properties": {
-        "keywords": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "semantic_text": {
-          "type": ["string", "null"]
-        },
-        "embedding_id": {
           "type": ["string", "null"]
         }
       },

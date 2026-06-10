@@ -7,6 +7,7 @@ import re
 import sys
 import unicodedata
 from collections import Counter, OrderedDict, defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
@@ -182,7 +183,7 @@ def validate_cards(
 def normalize_card_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
     return dict(payload)
 
-
+# TODO：这两个方法怎么没用？可以考虑删除
 def _statement_unit_to_card(payload: Mapping[str, Any], unit: Mapping[str, Any]) -> dict[str, Any]:
     guideline = payload.get("guideline_meta") if isinstance(payload.get("guideline_meta"), Mapping) else {}
     source_location = unit.get("source_location") if isinstance(unit.get("source_location"), Mapping) else {}
@@ -207,7 +208,6 @@ def _statement_unit_to_card(payload: Mapping[str, Any], unit: Mapping[str, Any])
         "action": statement_text or "See statement_text.",
         "do_not": [],
         "required_inputs": [],
-        "supporting_features": [],
         "recommended_tests": [],
         "safety_notes": [],
         "evidence": {
@@ -264,7 +264,6 @@ def _clinical_info_unit_to_card(payload: Mapping[str, Any], unit: Mapping[str, A
         "action": action,
         "do_not": _as_text_list(unit.get("contraindication")),
         "required_inputs": [],
-        "supporting_features": _as_text_list(unit.get("indication")),
         "recommended_tests": _recommended_tests_from_clinical_info(unit),
         "contraindications_or_cautions": _as_text_list(unit.get("contraindication")),
         "safety_notes": [],
@@ -417,21 +416,36 @@ def build_routing_profile(
     *,
     hpo_extractor: HpoExtractor,
     deepseek_client: Any,
+    hpo_workers: int = 1,
 ) -> dict[str, Any]:
     positive_features: dict[str, list[dict[str, Any]]] = {
         "symptoms": [],
     }
     feature_seen: dict[str, set[str]] = {key: set() for key in positive_features}
-
-    for card in cards:
-        _add_hpo_positive_features(
-            positive_features,
-            feature_seen,
-            hpo_extractor.extract_hpo_from_text(
-                _clean_text(card.get("raw_chunk_text")),
-                deepseek_client,
-            ),
-        )
+    phenotypes = _extract_hpo_phenotypes_from_cards(
+        cards,
+        hpo_extractor=hpo_extractor,
+        deepseek_client=deepseek_client,
+        hpo_workers=hpo_workers,
+    )
+    mappings = hpo_extractor.map_phenotypes_to_hpo(phenotypes)
+    _add_hpo_positive_features(
+        positive_features,
+        feature_seen,
+        {
+            "symptoms": [
+                {
+                    "name": item["original_phenotype"],
+                    "hpo_code": item["hpo_code"],
+                    "hpo_term": item["hpo_term"],
+                    "similarity_score": item["similarity_score"],
+                    "status": item["status"],
+                }
+                for item in mappings
+                if item["status"] == "mapped"
+            ],
+        },
+    )
 
     return {
         "positive_features": positive_features,
@@ -447,6 +461,32 @@ def build_routing_profile(
             "safety_override": True,
         },
     }
+
+
+def _extract_hpo_phenotypes_from_cards(
+    cards: Sequence[Mapping[str, Any]],
+    *,
+    hpo_extractor: HpoExtractor,
+    deepseek_client: Any,
+    hpo_workers: int,
+) -> list[str]:
+    texts = [_clean_text(card.get("raw_chunk_text")) for card in cards]
+    workers = max(1, int(hpo_workers or 1))
+    if workers <= 1 or len(texts) <= 1:
+        return _dedupe_texts(
+            phenotype
+            for text in texts
+            for phenotype in hpo_extractor.extract_phenotypes(text, deepseek_client)
+        )
+
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        phenotype_groups = list(
+            executor.map(
+                lambda text: hpo_extractor.extract_phenotypes(text, deepseek_client),
+                texts,
+            )
+        )
+    return _dedupe_texts(phenotype for group in phenotype_groups for phenotype in group)
 
 
 def load_taxonomy(taxonomy_path: str | Path | None = None) -> "OrderedDict[str, TaxonomyEntry]":
@@ -831,6 +871,7 @@ def build_skill_pack(
     schema_version: str = "0.3",
     hpo_extractor: HpoExtractor,
     deepseek_client: Any,
+    hpo_workers: int = 1,
 ) -> dict[str, Any]:
     metadata = infer_metadata(cards)
     skill = {
@@ -841,6 +882,7 @@ def build_skill_pack(
             metadata,
             hpo_extractor=hpo_extractor,
             deepseek_client=deepseek_client,
+            hpo_workers=hpo_workers,
         ),
         "knowledge_base": build_knowledge_base(),
         "workflow": build_workflow(),
@@ -1046,6 +1088,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         help="Optional subskill taxonomy YAML path.",
     )
     parser.add_argument("--schema-version", default="0.3", help="Skill schema_version, e.g. 0.3.")
+    parser.add_argument(
+        "--hpo-workers",
+        type=int,
+        default=1,
+        help="Concurrent LLM calls for HPO phenotype extraction. Defaults to 1.",
+    )
     parser.add_argument("--force", action="store_true", help="Overwrite existing output files.")
     parser.add_argument("--dry-run", action="store_true", help="Build and validate without writing files.")
     args = parser.parse_args(argv)
@@ -1053,17 +1101,18 @@ def main(argv: Sequence[str] | None = None) -> int:
     try:
         card_sources = discover_cards_sources(args.cards)
         taxonomy = load_taxonomy(args.taxonomy)
+        hpo_extractor, deepseek_client = build_default_hpo_dependencies()
         results = []
         for cards_source in card_sources:
             loaded_cards = load_jsonl(cards_source)
             cards = validate_cards(loaded_cards, args.card_schema)
-            hpo_extractor, deepseek_client = build_default_hpo_dependencies()
             skill_dict = build_skill_pack(
                 cards,
                 taxonomy,
                 schema_version=args.schema_version,
                 hpo_extractor=hpo_extractor,
                 deepseek_client=deepseek_client,
+                hpo_workers=args.hpo_workers,
             )
             package_name = infer_output_package_name(cards_source) if args.out_dir else None
             output_dir = Path(args.out_dir) if args.out_dir else cards_source.parent

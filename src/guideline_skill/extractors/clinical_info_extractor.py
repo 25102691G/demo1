@@ -222,7 +222,6 @@ def _build_statement_unit(
         action=action,
         do_not=list(payload.contraindication),
         required_inputs=_required_inputs_from_payload(payload),
-        supporting_features=list(payload.indication),
         recommended_tests=_recommended_tests_from_payload(payload, segment, action),
         evidence=StatementEvidence(
             evidence_quality_raw=None,

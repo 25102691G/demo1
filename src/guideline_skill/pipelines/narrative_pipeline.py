@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Sequence
 
 from guideline_skill.extractors.clinical_info_extractor import ClinicalInfoExtractor
@@ -15,11 +16,13 @@ class NarrativeGuidelinePipeline:
         clinical_info_extractor: ClinicalInfoExtractor,
         heading_segmenter: HeadingSegmenter | None = None,
         max_chunk_chars: int = 1200,
+        llm_workers: int = 1,
     ) -> None:
         self.clinical_info_extractor = clinical_info_extractor
         self.heading_segmenter = heading_segmenter or HeadingSegmenter()
         # Kept for backwards-compatible construction; narrative chunks are now paragraph-based.
         self.max_chunk_chars = max_chunk_chars
+        self.llm_workers = max(1, int(llm_workers or 1))
 
     def run(
         self,
@@ -30,18 +33,33 @@ class NarrativeGuidelinePipeline:
     ) -> list[StatementUnit]:
         text = _coerce_text(pages_or_text)
         segments = self.heading_segmenter.segment(text)
-        units: list[StatementUnit] = []
+        chunks = [chunk for segment in segments for chunk in _paragraph_chunks(segment)]
 
-        for segment in segments:
-            for chunk in _paragraph_chunks(segment):
-                extracted = self.clinical_info_extractor.extract(
-                    chunk,
-                    title=title,
-                    source_file=source_file,
+        if self.llm_workers <= 1 or len(chunks) <= 1:
+            return [
+                validate_statement_unit(
+                    self.clinical_info_extractor.extract(
+                        chunk,
+                        title=title,
+                        source_file=source_file,
+                    )
                 )
-                units.append(validate_statement_unit(extracted))
+                for chunk in chunks
+            ]
 
-        return units
+        with ThreadPoolExecutor(max_workers=self.llm_workers) as executor:
+            return list(
+                executor.map(
+                    lambda chunk: validate_statement_unit(
+                        self.clinical_info_extractor.extract(
+                            chunk,
+                            title=title,
+                            source_file=source_file,
+                        )
+                    ),
+                    chunks,
+                )
+            )
 
 
 def _coerce_text(pages_or_text: str | Sequence[Any]) -> str:

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import re
+from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Sequence
 
 from guideline_skill.anchors import AnchorRegistry
@@ -21,11 +22,13 @@ class StructuredGuidelinePipeline:
         normalizer: LLMNormalizer,
         statement_segmenter: StatementSegmenter | None = None,
         statement_extractor: StatementExtractor | None = None,
+        llm_workers: int = 1,
     ) -> None:
         self.anchor_registry = anchor_registry
         self.normalizer = normalizer
         self.statement_segmenter = statement_segmenter or StatementSegmenter(anchor_registry)
         self.statement_extractor = statement_extractor or StatementExtractor(anchor_registry.get_field_anchors())
+        self.llm_workers = max(1, int(llm_workers or 1))
 
     def run(
         self,
@@ -82,13 +85,8 @@ class StructuredGuidelinePipeline:
         ]
 
         units: list[StatementUnit] = []
-        for index, segment, extracted in extracted_items:
-            action_payload = self.normalizer.summarize_recommendation_action(
-                statement_text=extracted.statement_text,
-                implementation_advice=extracted.implementation_advice,
-                rationale=extracted.rationale,
-                clinical_stage=segment.section,
-            )
+        action_payloads = self._summarize_actions(extracted_items)
+        for (index, segment, extracted), action_payload in zip(extracted_items, action_payloads):
             review_reasons = [
                 *batch_review_reasons,
                 *disease_review_reasons,
@@ -115,7 +113,6 @@ class StructuredGuidelinePipeline:
                 action=str(action_payload.get("action") or extracted.statement_text),
                 do_not=list(action_payload.get("do_not", [])),
                 required_inputs=list(action_payload.get("required_inputs", [])),
-                supporting_features=list(action_payload.get("supporting_features", [])),
                 recommended_tests=list(action_payload.get("recommended_tests", [])),
                 evidence=StatementEvidence(
                     evidence_quality_raw=extracted.evidence_quality_raw,
@@ -139,6 +136,33 @@ class StructuredGuidelinePipeline:
             )
 
         return units
+
+    def _summarize_actions(
+        self,
+        extracted_items: Sequence[tuple[int, StatementSegment, ExtractedStatementFields]],
+    ) -> list[dict[str, Any]]:
+        if self.llm_workers <= 1 or len(extracted_items) <= 1:
+            return [self._summarize_action(segment, extracted) for _, segment, extracted in extracted_items]
+
+        with ThreadPoolExecutor(max_workers=self.llm_workers) as executor:
+            return list(
+                executor.map(
+                    lambda item: self._summarize_action(item[1], item[2]),
+                    extracted_items,
+                )
+            )
+
+    def _summarize_action(
+        self,
+        segment: StatementSegment,
+        extracted: ExtractedStatementFields,
+    ) -> dict[str, Any]:
+        return self.normalizer.summarize_recommendation_action(
+            statement_text=extracted.statement_text,
+            implementation_advice=extracted.implementation_advice,
+            rationale=extracted.rationale,
+            clinical_stage=segment.section,
+        )
 
 
 def _coerce_text(pages_or_text: str | Sequence[Any]) -> str:
