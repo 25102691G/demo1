@@ -220,8 +220,9 @@
         "matched_features": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/matchedFeature"
-          }
+            "type": "object",
+            "additionalProperties": true
+      }
         },
         "negative_features": {
           "type": "array",
@@ -237,26 +238,6 @@
         },
         "reasoning_summary": {
           "type": "string"
-        }
-      },
-      "additionalProperties": true
-    },
-    "matchedFeature": {
-      "type": "object",
-      "required": ["name", "source", "weight"],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "source": {
-          "type": "string",
-          "enum": ["symptom", "sign", "lab", "imaging", "endoscopy", "pathology", "diagnosis", "text", "other"]
-        },
-        "weight": {
-          "type": "number"
-        },
-        "evidence_text": {
-          "type": ["string", "null"]
         }
       },
       "additionalProperties": true

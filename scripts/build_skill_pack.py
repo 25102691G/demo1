@@ -434,12 +434,6 @@ def build_routing_profile(
         )
 
     return {
-        "routing_version": "0.1",
-        "disease_identity": {
-            "primary_name": metadata["disease_name"],
-            "aliases": metadata["disease_aliases"],
-            "abbreviations": [],
-        },
         "positive_features": positive_features,
         "scoring": {
             "method": "hybrid_weighted_semantic",

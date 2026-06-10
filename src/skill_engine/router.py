@@ -1,23 +1,17 @@
 from __future__ import annotations
 
+import json
 from collections.abc import Mapping
+from functools import lru_cache
+from pathlib import Path
 from typing import Any
 
 from .skill_loader import SkillPack
 from .utils import clean_text, flatten_text, is_present, resolve_case_path, text_contains_term
 
 
-FEATURE_SOURCE = {
-    "symptoms": "symptom",
-    "signs": "sign",
-    "labs": "lab",
-    "imaging": "imaging",
-    "endoscopy": "endoscopy",
-    "pathology": "pathology",
-    "diagnoses": "diagnosis",
-    "findings": "other",
-}
-
+ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_DEFINITION2ID_PATH = ROOT / "data" / "ontology" / "definition2id.json"
 
 def route_skills(
     canonical_case: dict[str, Any],
@@ -50,36 +44,32 @@ def _score_skill(
     raw_score = 0.0
 
     for bucket, features in positive_features.items():
-        source = FEATURE_SOURCE.get(bucket, "other")
         for feature in features or []:
             if not isinstance(feature, Mapping):
                 continue
-            match_text = _match_feature(searchable_text, feature)
-            if not match_text:
+            if bucket == "symptoms":
+                matched = _match_symptom_feature(canonical_case, feature)
+            else:
+                matched = _match_feature(searchable_text, feature)
+            if not matched:
                 continue
-            weight = float(feature.get("weight") or 0)
+            weight = float(feature.get("weight") or 0.2)
             raw_score += weight
-            matched_features.append(
-                {
-                    "name": clean_text(feature.get("name")),
-                    "source": source,
-                    "weight": weight,
-                    "evidence_text": match_text,
-                }
-            )
+            matched_features.append(_matched_feature_payload(feature))
 
     penalties: list[str] = []
-    penalty_score = 0.0
-    for feature in routing.get("negative_features") or []:
-        if not isinstance(feature, Mapping):
-            continue
-        name = clean_text(feature.get("name"))
-        if text_contains_term(searchable_text, name):
-            penalty = float(feature.get("penalty") or 0)
-            penalty_score += penalty
-            penalties.append(name)
+    # penalty_score = 0.0
+    # for feature in routing.get("negative_features") or []:
+    #     if not isinstance(feature, Mapping):
+    #         continue
+    #     name = clean_text(feature.get("name"))
+    #     if text_contains_term(searchable_text, name):
+    #         penalty = float(feature.get("penalty") or 0)
+    #         penalty_score += penalty
+    #         penalties.append(name)
 
-    score = _normalize_score(raw_score - penalty_score, routing.get("scoring") or {})
+    # score = _normalize_score(raw_score - penalty_score, routing.get("scoring") or {})
+    score = raw_score
     threshold = _candidate_threshold(routing, min_score=min_score)
     missing_key_evidence = _missing_key_evidence(canonical_case, pack)
     disease_name = pack.disease_name or clean_text((routing.get("disease_identity") or {}).get("primary_name"))
@@ -127,6 +117,56 @@ def _match_feature(searchable_text: str, feature: Mapping[str, Any]) -> str | No
         if text_contains_term(searchable_text, name):
             return name
     return None
+
+
+def _match_symptom_feature(canonical_case: Mapping[str, Any], feature: Mapping[str, Any]) -> bool:
+    feature_code = clean_text(feature.get("hpo_code"))
+    if not feature_code:
+        return False
+    return any(
+        _hpo_codes_match(clean_text(symptom.get("hpo_code")), feature_code)
+        for symptom in canonical_case.get("symptoms") or []
+        if isinstance(symptom, Mapping)
+    )
+
+
+def _hpo_codes_match(case_code: str, feature_code: str) -> bool:
+    if not case_code or not feature_code:
+        return False
+    if case_code == feature_code:
+        return True
+    code_terms = _load_hpo_code_terms()
+    return bool(code_terms.get(case_code) and code_terms.get(case_code) == code_terms.get(feature_code))
+
+
+@lru_cache(maxsize=1)
+def _load_hpo_code_terms(path: Path = DEFAULT_DEFINITION2ID_PATH) -> dict[str, str]:
+    with Path(path).open("r", encoding="utf-8-sig") as handle:
+        data = json.load(handle)
+    if not isinstance(data, dict):
+        return {}
+
+    code_terms: dict[str, str] = {}
+    for term, value in data.items():
+        term_text = clean_text(term)
+        if not term_text:
+            continue
+        codes = value if isinstance(value, list) else [value]
+        for code in codes:
+            code_text = clean_text(code)
+            if code_text and code_text not in code_terms:
+                code_terms[code_text] = term_text
+    return code_terms
+
+
+def _matched_feature_payload(feature: Mapping[str, Any]) -> dict[str, Any]:
+    payload: dict[str, Any] = {}
+    for key in ("name", "hpo_code", "hpo_term", "similarity_score", "status"):
+        if key in feature:
+            payload[key] = feature[key]
+    if "name" not in payload:
+        payload["name"] = clean_text(feature.get("name"))
+    return payload
 
 
 def _normalize_score(score: float, scoring: Mapping[str, Any]) -> float:

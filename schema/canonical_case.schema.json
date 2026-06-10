@@ -48,7 +48,8 @@
     "symptoms": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/feature"
+        "type": "object",
+        "additionalProperties": true
       }
     },
     "signs": {
@@ -243,10 +244,6 @@
     }
   },
   "$defs": {
-    "feature": {
-      "type": "object",
-      "additionalProperties": true
-    },
     "interpretation": {
       "type": ["string", "null"],
       "enum": [

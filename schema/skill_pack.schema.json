@@ -201,45 +201,23 @@
     "routing_profile": {
       "type": "object",
       "required": [
-        "routing_version",
-        "disease_identity",
         "positive_features",
         "scoring"
       ],
       "properties": {
-        "routing_version": {
-          "type": "string"
-        },
-        "disease_identity": {
-          "type": "object",
-          "required": ["primary_name", "aliases"],
-          "properties": {
-            "primary_name": {
-              "type": "string"
-            },
-            "aliases": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "abbreviations": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          "additionalProperties": false
-        },
         "positive_features": {
           "type": "object",
           "properties": {
             "symptoms": {
-              "$ref": "#/$defs/featureList"
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "additionalProperties": true
             }
           },
-          "additionalProperties": false
+          "additionalProperties": true
         },
         "scoring": {
           "type": "object",
@@ -282,7 +260,7 @@
           "additionalProperties": true
         }
       },
-      "additionalProperties": false
+      "additionalProperties": true
     },
     "knowledge_base": {
       "type": "object",
@@ -447,89 +425,6 @@
     }
   },
   "$defs": {
-    "featureList": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/feature"
-      }
-    },
-    "feature": {
-      "type": "object",
-      "required": ["name", "weight"],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "weight": {
-          "type": "number"
-        }
-      },
-      "additionalProperties": false
-    },
-    "negativeFeature": {
-      "type": "object",
-      "required": ["name", "penalty"],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "suggests": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "penalty": {
-          "type": "number"
-        },
-        "match_type": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": true
-    },
-    "redFlag": {
-      "type": "object",
-      "required": ["name", "severity", "action"],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "severity": {
-          "type": "string",
-          "enum": ["low", "medium", "high", "critical"]
-        },
-        "action": {
-          "type": "string"
-        },
-        "synonyms": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "additionalProperties": true
-    },
-    "differentialDisease": {
-      "type": "object",
-      "required": ["disease_name"],
-      "properties": {
-        "disease_name": {
-          "type": "string"
-        },
-        "reason": {
-          "type": "string"
-        },
-        "key_distinguishing_features": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "additionalProperties": true
-    },
     "workflowStep": {
       "type": "object",
       "required": ["step_id", "type", "transitions"],

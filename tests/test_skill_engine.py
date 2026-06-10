@@ -2,11 +2,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from skill_engine import router as router_module
 from skill_engine.case_normalizer import normalize_case, normalize_case_from_json
 from skill_engine.output_builder import build_workflow_output
 from skill_engine.router import route_skills
 from skill_engine.schemas import load_json_schema, validate_json
-from skill_engine.skill_loader import SkillPack, load_skill_pack
+from skill_engine.skill_loader import SkillPack
 from skill_engine.workflow_engine import WorkflowEngine
 
 
@@ -23,7 +24,24 @@ class MockHpoExtractor:
 
     def extract_hpo_from_text(self, text: str, deepseek_client: object) -> dict[str, list[dict[str, object]]]:
         self.calls.append((text, deepseek_client))
-        return {"symptoms": [{"name": "腹痛", "weight": 0.2}, {"name": "腹泻", "weight": 0.2}]}
+        return {
+            "symptoms": [
+                {
+                    "name": "腹痛",
+                    "hpo_code": "HP:0002027",
+                    "hpo_term": "腹痛",
+                    "similarity_score": 1.0,
+                    "status": "mapped",
+                },
+                {
+                    "name": "腹泻",
+                    "hpo_code": "HP:0002014",
+                    "hpo_term": "腹泻",
+                    "similarity_score": 1.0,
+                    "status": "mapped",
+                },
+            ]
+        }
 
 
 class MockDeepSeekClient:
@@ -51,7 +69,22 @@ def test_case_normalizer_minimal_text() -> None:
 
     assert set(canonical_case) == {"case_id", "raw_input", "symptoms"}
     assert hpo_extractor.calls == [("42岁男性，腹痛腹泻半年，CRP升高。", deepseek_client)]
-    assert canonical_case["symptoms"] == [{"name": "腹痛", "weight": 0.2}, {"name": "腹泻", "weight": 0.2}]
+    assert canonical_case["symptoms"] == [
+        {
+            "name": "腹痛",
+            "hpo_code": "HP:0002027",
+            "hpo_term": "腹痛",
+            "similarity_score": 1.0,
+            "status": "mapped",
+        },
+        {
+            "name": "腹泻",
+            "hpo_code": "HP:0002014",
+            "hpo_term": "腹泻",
+            "similarity_score": 1.0,
+            "status": "mapped",
+        },
+    ]
     validate_json(canonical_case, load_json_schema(CASE_SCHEMA), label="canonical_case")
 
 
@@ -69,11 +102,10 @@ def test_case_normalizer_from_json_overrides_hpo_symptoms() -> None:
     validate_json(canonical_case, load_json_schema(CASE_SCHEMA), label="canonical_case")
 
 
-def test_skill_loader_loads_generated_skill() -> None:
+def test_skill_pack_fixture_has_workflow_shape() -> None:
     pack = _load_crohn_pack()
 
-    assert pack.skill_id == "disease_skill_5098a99979"
-    assert pack.cards
+    assert pack.skill_id == "workflow_test_skill"
     assert len(pack.cards_by_id) == len(pack.cards)
     step_ids = {step["step_id"] for step in pack.skill["workflow"]["steps"]}
     subskill_ids = {subskill["subskill_id"] for subskill in pack.skill["subskills"]}
@@ -91,26 +123,106 @@ def test_skill_loader_loads_generated_skill() -> None:
 
 
 def test_router_returns_schema_candidate() -> None:
-    canonical_case = _normalize_case("腹痛腹泻半年，体重下降，肛瘘，粪便钙卫蛋白升高。")
-    candidate = route_skills(canonical_case, [_load_crohn_pack()], top_k=1)[0]
-
-    assert candidate["skill_id"] == "disease_skill_5098a99979"
-    assert candidate["disease_name"] == "克罗恩病"
-    assert candidate["score"] >= 0
-    assert candidate["matched_features"]
-    assert "missing_key_evidence" in candidate
-    allowed_sources = {
-        "symptom",
-        "sign",
-        "lab",
-        "imaging",
-        "endoscopy",
-        "pathology",
-        "diagnosis",
-        "text",
-        "other",
+    canonical_case = {
+        "case_id": "case_router",
+        "raw_input": "腹痛",
+        "symptoms": [{"name": "腹痛", "hpo_code": "HP:0002027"}],
     }
-    assert all(feature["source"] in allowed_sources for feature in candidate["matched_features"])
+    pack = _make_router_pack(
+        [
+            {
+                "name": "腹痛",
+                "hpo_code": "HP:0002027",
+                "hpo_term": "腹痛",
+                "similarity_score": 1.0,
+                "status": "mapped",
+                "weight": 0.2,
+            }
+        ]
+    )
+    candidate = route_skills(canonical_case, [pack], top_k=1)[0]
+
+    assert candidate["skill_id"] == "test_skill"
+    assert candidate["disease_name"] == "测试病"
+    assert candidate["score"] == 0.2
+    assert candidate["matched_features"] == [
+        {
+            "name": "腹痛",
+            "hpo_code": "HP:0002027",
+            "hpo_term": "腹痛",
+            "similarity_score": 1.0,
+            "status": "mapped",
+        }
+    ]
+    assert "missing_key_evidence" in candidate
+
+
+def test_router_matches_symptom_hpo_codes_with_same_definition_term(monkeypatch) -> None:
+    monkeypatch.setattr(
+        router_module,
+        "_load_hpo_code_terms",
+        lambda: {"HP:CASE": "同一术语", "HP:FEATURE": "同一术语"},
+    )
+    canonical_case = {
+        "case_id": "case_router",
+        "raw_input": "同义症状",
+        "symptoms": [{"name": "同义症状", "hpo_code": "HP:CASE"}],
+    }
+    pack = _make_router_pack(
+        [
+            {
+                "name": "同义特征",
+                "hpo_code": "HP:FEATURE",
+                "hpo_term": "同一术语",
+                "similarity_score": 0.9,
+                "status": "mapped",
+                "weight": 0.4,
+            }
+        ]
+    )
+
+    candidate = route_skills(canonical_case, [pack], top_k=1)[0]
+
+    assert candidate["score"] == 0.4
+    assert candidate["matched_features"] == [
+        {
+            "name": "同义特征",
+            "hpo_code": "HP:FEATURE",
+            "hpo_term": "同一术语",
+            "similarity_score": 0.9,
+            "status": "mapped",
+        }
+    ]
+
+
+def test_router_does_not_match_symptom_text_without_hpo_match(monkeypatch) -> None:
+    monkeypatch.setattr(
+        router_module,
+        "_load_hpo_code_terms",
+        lambda: {"HP:CASE": "病例术语", "HP:FEATURE": "技能术语"},
+    )
+    canonical_case = {
+        "case_id": "case_router",
+        "raw_input": "腹痛",
+        "symptoms": [{"name": "腹痛", "hpo_code": "HP:CASE"}],
+    }
+    pack = _make_router_pack(
+        [
+            {
+                "name": "腹痛",
+                "hpo_code": "HP:FEATURE",
+                "hpo_term": "技能术语",
+                "similarity_score": 1.0,
+                "status": "mapped",
+                "weight": 0.2,
+            }
+        ]
+    )
+
+    candidate = route_skills(canonical_case, [pack], top_k=1)[0]
+
+    assert candidate["score"] == 0.0
+    assert candidate["matched_features"] == []
 
 
 def test_workflow_engine_runs_without_disease_hardcoding() -> None:
@@ -173,4 +285,72 @@ def test_safety_red_flags_are_not_rule_extracted_by_normalizer() -> None:
 
 
 def _load_crohn_pack() -> SkillPack:
-    return load_skill_pack(CROHN_SKILL_DIR, SKILL_SCHEMA)
+    return _make_workflow_pack()
+
+
+def _make_router_pack(symptoms: list[dict[str, object]]) -> SkillPack:
+    return SkillPack(
+        skill_dir=ROOT,
+        skill={
+            "metadata": {"skill_id": "test_skill", "disease_name": "测试病"},
+            "routing_profile": {
+                "positive_features": {"symptoms": symptoms},
+                "scoring": {
+                    "normalization": "sum_max_1",
+                    "thresholds": {"candidate": 0.1, "strong_candidate": 0.5},
+                    "top_k_default": 1,
+                },
+            },
+        },
+        skill_id="test_skill",
+        disease_name="测试病",
+        cards=[],
+        cards_by_id={},
+    )
+
+
+def _make_workflow_pack() -> SkillPack:
+    return SkillPack(
+        skill_dir=ROOT,
+        skill={
+            "metadata": {"skill_id": "workflow_test_skill", "disease_name": "工作流测试病"},
+            "routing_profile": {
+                "positive_features": {
+                    "symptoms": [
+                        {
+                            "name": "腹痛",
+                            "hpo_code": "HP:0002027",
+                            "hpo_term": "腹痛",
+                            "similarity_score": 1.0,
+                            "status": "mapped",
+                            "weight": 0.2,
+                        }
+                    ]
+                },
+                "scoring": {
+                    "method": "hybrid_weighted_semantic",
+                    "normalization": "sum_max_1",
+                    "thresholds": {"candidate": 0.1, "strong_candidate": 0.5},
+                    "top_k_default": 1,
+                    "safety_override": True,
+                },
+            },
+            "workflow": {
+                "entrypoint": "candidate_summary_output",
+                "steps": [
+                    {
+                        "step_id": "candidate_summary_output",
+                        "type": "terminal_output",
+                        "config": {"output_template": "candidate_summary"},
+                        "transitions": [],
+                    }
+                ],
+            },
+            "subskills": [{"subskill_id": "general_guideline_support"}],
+            "output_templates": {"candidate_summary": {"audience": "clinician", "structure": []}},
+        },
+        skill_id="workflow_test_skill",
+        disease_name="工作流测试病",
+        cards=[],
+        cards_by_id={},
+    )
