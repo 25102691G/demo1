@@ -148,7 +148,7 @@ def test_workflow_output_schema_validation() -> None:
 
     validate_json(output, load_json_schema(OUTPUT_SCHEMA), label="workflow_output")
     assert output["case_id"] == canonical_case["case_id"]
-    assert output["input_text"] == canonical_case["raw_input"]
+    assert "input_text" not in output
     assert output["canonical_case"] == canonical_case
 
 

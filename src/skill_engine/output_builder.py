@@ -36,7 +36,6 @@ def build_workflow_output(
     output = {
         "run_id": run_id,
         "case_id": canonical_case["case_id"],
-        "input_text": clean_text(canonical_case.get("raw_input")),
         "canonical_case": canonical_case,
         "status": status,
         "top_candidates": top_candidates,

@@ -21,9 +21,6 @@
     "case_id": {
       "type": "string"
     },
-    "input_text": {
-      "type": "string"
-    },
     "canonical_case": {
       "type": "object",
       "additionalProperties": true
