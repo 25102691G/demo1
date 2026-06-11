@@ -6,6 +6,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
+from .hpo_features import pick_hpo_feature_payload
 from .skill_loader import SkillPack
 from .utils import clean_text, flatten_text, is_present, resolve_case_path, text_contains_term
 
@@ -160,13 +161,7 @@ def _load_hpo_code_terms(path: Path = DEFAULT_DEFINITION2ID_PATH) -> dict[str, s
 
 
 def _matched_feature_payload(feature: Mapping[str, Any]) -> dict[str, Any]:
-    payload: dict[str, Any] = {}
-    for key in ("name", "hpo_code", "hpo_term", "similarity_score", "status"):
-        if key in feature:
-            payload[key] = feature[key]
-    if "name" not in payload:
-        payload["name"] = clean_text(feature.get("name"))
-    return payload
+    return pick_hpo_feature_payload(feature)
 
 
 def _normalize_score(score: float, scoring: Mapping[str, Any]) -> float:

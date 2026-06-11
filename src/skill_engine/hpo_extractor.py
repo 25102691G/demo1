@@ -8,6 +8,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 
+from skill_engine.hpo_features import build_mapped_hpo_features
 from skill_engine.llm_client import JsonChatClient
 
 
@@ -91,19 +92,7 @@ class HpoExtractor:
     def extract_hpo_from_text(self, text: str, deepseek_client: JsonChatClient) -> dict[str, Any]:
         phenotypes = self.extract_phenotypes(text, deepseek_client)
         mappings = self.map_phenotypes_to_hpo(phenotypes)
-        mapped = [item for item in mappings if item["status"] == "mapped"]
-        return {
-            "symptoms": [
-                {
-                    "name": item["original_phenotype"],
-                    "hpo_code": item["hpo_code"],
-                    "hpo_term": item["hpo_term"],
-                    "similarity_score": item["similarity_score"],
-                    "status": item["status"],
-                }
-                for item in mapped
-            ],
-        }
+        return {"symptoms": build_mapped_hpo_features(mappings)}
 
     def extract_phenotypes(self, text: str, deepseek_client: JsonChatClient) -> list[str]:
         if not str(text or "").strip():

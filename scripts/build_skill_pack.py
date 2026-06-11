@@ -24,6 +24,7 @@ from skill_engine.hpo_extractor import (
     DEFAULT_MODEL_PATH,
     HpoExtractor,
 )
+from skill_engine.hpo_features import build_mapped_hpo_features
 from skill_engine.llm_client import OpenAICompatibleJsonChatClient, load_llm_config_from_env
 
 NORMALIZE_BRANCH_COUNTS: Counter[str] = Counter()
@@ -432,19 +433,7 @@ def build_routing_profile(
     _add_hpo_positive_features(
         positive_features,
         feature_seen,
-        {
-            "symptoms": [
-                {
-                    "name": item["original_phenotype"],
-                    "hpo_code": item["hpo_code"],
-                    "hpo_term": item["hpo_term"],
-                    "similarity_score": item["similarity_score"],
-                    "status": item["status"],
-                }
-                for item in mappings
-                if item["status"] == "mapped"
-            ],
-        },
+        {"symptoms": build_mapped_hpo_features(mappings)},
     )
 
     return {
