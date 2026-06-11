@@ -274,13 +274,10 @@ def build_summary(
 ) -> dict[str, Any]:
     record_type_counts = Counter(unit.record_type for unit in units)
     unit_type_counts: Counter[str] = Counter()
-    human_review_count = 0
 
     for extracted_unit in units:
         unit_body = extracted_unit
-        if getattr(unit_body, "needs_human_review", False):
-            human_review_count += 1
-        unit_type = getattr(unit_body, "unit_type", None) or getattr(unit_body, "statement_type", None)
+        unit_type = getattr(unit_body, "unit_type", None)
         if unit_type:
             unit_type_counts[str(unit_type)] += 1
 
@@ -296,7 +293,6 @@ def build_summary(
         "total_units": len(units),
         "record_type_counts": dict(record_type_counts),
         "unit_type_counts": dict(unit_type_counts),
-        "human_review_count": human_review_count,
         "llm_enabled": True,
         "llm_model": llm_model,
         "output_dir": output_dir.as_posix(),

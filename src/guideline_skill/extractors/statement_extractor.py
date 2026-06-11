@@ -10,14 +10,10 @@ from guideline_skill.segmenters.statement_segmenter import StatementSegment
 @dataclass(frozen=True)
 class ExtractedStatementFields:
     original_label: str
-    statement_type: str
     statement_text: str
-    clinical_question: str | None
     evidence_quality_raw: str | None
     strength_raw: str | None
     consensus_level: str | None
-    implementation_advice: str | None
-    rationale: str | None
 
 
 class StatementExtractor:
@@ -36,12 +32,9 @@ class StatementExtractor:
         first_field_start = field_matches[0].start if field_matches else len(text)
 
         fields: dict[str, str | None] = {
-            "clinical_question": None,
             "evidence_quality_raw": None,
             "strength_raw": None,
             "consensus_level": None,
-            "implementation_advice": None,
-            "rationale": None,
         }
 
         for index, match in enumerate(field_matches):
@@ -51,22 +44,12 @@ class StatementExtractor:
             next_start = field_matches[index + 1].start if index + 1 < len(field_matches) else len(text)
             fields[field] = _extract_value(text, match, next_start, field=field)
 
-        if not fields["clinical_question"] and surrounding_context:
-            fields["clinical_question"] = _extract_context_clinical_question(
-                surrounding_context,
-                self._compiled,
-            )
-
         return ExtractedStatementFields(
             original_label=segment.original_label,
-            statement_type=_infer_statement_type(segment.original_label),
             statement_text=_clean_value(text[label_end:first_field_start]),
-            clinical_question=fields["clinical_question"],
             evidence_quality_raw=fields["evidence_quality_raw"],
             strength_raw=fields["strength_raw"],
             consensus_level=fields["consensus_level"],
-            implementation_advice=fields["implementation_advice"],
-            rationale=fields["rationale"],
         )
 
 
@@ -148,14 +131,14 @@ def _anchor_has_explicit_value(anchor_text: str) -> bool:
     return anchor_text.rstrip().endswith((":", "："))
 
 
-def _extract_context_clinical_question(
+def _extract_context_field(
     surrounding_context: str,
     compiled: list[_CompiledFieldAnchor],
 ) -> str | None:
     clinical_matches = [
         match
         for match in _field_matches(surrounding_context, compiled, start=0)
-        if match.anchor.get("field") == "clinical_question"
+        if match.anchor.get("field") == "unused_context_field"
     ]
     if not clinical_matches:
         return None
@@ -166,10 +149,10 @@ def _extract_context_clinical_question(
         if item.start > match.start
     ]
     next_start = following_matches[0].start if following_matches else len(surrounding_context)
-    return _extract_value(surrounding_context, match, next_start, field="clinical_question")
+    return _extract_value(surrounding_context, match, next_start, field="unused_context_field")
 
 
-def _infer_statement_type(original_label: str) -> str:
+def _infer_statement_category(original_label: str) -> str:
     if re.search(r"共识意见", original_label):
         return "consensus"
     if re.search(r"陈述|声明", original_label):

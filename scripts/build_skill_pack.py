@@ -203,13 +203,11 @@ def _statement_unit_to_card(payload: Mapping[str, Any], unit: Mapping[str, Any])
             "doc_type": guideline.get("doc_type"),
         },
         "clinical_stage": section or "general_guideline_support",
-        "clinical_task": unit.get("clinical_question"),
+        "clinical_task": None,
         "population": None,
         "condition": None,
         "action": statement_text or "See statement_text.",
-        "do_not": [],
         "required_inputs": [],
-        "recommended_tests": [],
         "safety_notes": [],
         "evidence": {
             "evidence_quality_raw": unit.get("evidence_quality_raw"),
@@ -222,7 +220,6 @@ def _statement_unit_to_card(payload: Mapping[str, Any], unit: Mapping[str, Any])
             ),
             "consensus_level": unit.get("consensus_level"),
         },
-        "rationale": unit.get("rationale"),
         "source_location": {
             "pdf": guideline.get("source_file"),
             "page_start": _positive_int(source_location.get("page_start"), default=1),
@@ -234,8 +231,6 @@ def _statement_unit_to_card(payload: Mapping[str, Any], unit: Mapping[str, Any])
         },
         "statement_text": statement_text,
         "raw_chunk_text": _first_text(unit.get("raw_chunk_text"), unit.get("raw_text"), statement_text),
-        "needs_human_review": unit.get("needs_human_review", True),
-        "review_reasons": unit.get("review_reasons", ["converted_from_statement_unit"]),
     }
 
 
@@ -263,10 +258,7 @@ def _clinical_info_unit_to_card(payload: Mapping[str, Any], unit: Mapping[str, A
         "population": None,
         "condition": unit.get("condition"),
         "action": action,
-        "do_not": _as_text_list(unit.get("contraindication")),
         "required_inputs": [],
-        "recommended_tests": _recommended_tests_from_clinical_info(unit),
-        "contraindications_or_cautions": _as_text_list(unit.get("contraindication")),
         "safety_notes": [],
         "evidence": {
             "evidence_quality_raw": None,
@@ -275,7 +267,6 @@ def _clinical_info_unit_to_card(payload: Mapping[str, Any], unit: Mapping[str, A
             "recommendation_strength_normalized": "unknown",
             "consensus_level": None,
         },
-        "rationale": None,
         "source_location": {
             "pdf": guideline.get("source_file"),
             "page_start": _positive_int(source_location.get("page_start"), default=1),
@@ -287,21 +278,7 @@ def _clinical_info_unit_to_card(payload: Mapping[str, Any], unit: Mapping[str, A
         },
         "statement_text": raw_text,
         "raw_chunk_text": raw_text,
-        "must_differentiate": _as_text_list(unit.get("differential_diagnosis")),
-        "needs_human_review": unit.get("needs_human_review", True),
-        "review_reasons": unit.get("review_reasons", ["converted_from_clinical_info_unit"]),
     }
-
-
-def _recommended_tests_from_clinical_info(unit: Mapping[str, Any]) -> list[str]:
-    unit_type = _clean_text(unit.get("unit_type"))
-    if unit_type not in {"test_order", "instrumental_exam", "imaging_exam", "endoscopy_exam"}:
-        return []
-    return _dedupe_texts(
-        _as_text_list(unit.get("title"))
-        + _as_text_list(unit.get("raw_text"))
-        + _as_text_list(unit.get("diagnostic_criteria"))
-    )
 
 
 def infer_metadata(cards: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
@@ -1384,7 +1361,7 @@ def _red_flag_severity(text: str) -> str:
 
 def _extract_differentials(card: Mapping[str, Any], *, current_disease: str) -> list[str]:
     explicit: list[str] = []
-    for field in ("must_differentiate", "differential_diagnoses", "differential_disease"):
+    for field in ():
         explicit.extend(_as_text_list(card.get(field)))
     if explicit:
         return _clean_differential_names(explicit, current_disease=current_disease)

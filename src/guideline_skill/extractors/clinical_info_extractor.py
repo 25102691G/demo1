@@ -60,39 +60,29 @@ clinical_topic 必须从以下枚举中选择：
   "action": null,
   "condition": null,
   "indication": [],
-  "contraindication": [],
   "diagnostic_criteria": [],
-  "differential_diagnosis": [],
   "drug": null,
   "dose": null,
   "route": null,
   "frequency": null,
-  "duration": null,
-  "confidence": 0.0,
-  "needs_human_review": false,
-  "review_reasons": []
+  "duration": null
 }"""
 
 
 class ClinicalInfoPayload(BaseModel):
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="ignore")
 
     unit_type: ClinicalInfoUnitType
     clinical_topic: ClinicalTopic
     action: str | None = None
     condition: str | None = None
     indication: list[str] = Field(default_factory=list)
-    contraindication: list[str] = Field(default_factory=list)
     diagnostic_criteria: list[str] = Field(default_factory=list)
-    differential_diagnosis: list[str] = Field(default_factory=list)
     drug: str | None = None
     dose: str | None = None
     route: str | None = None
     frequency: str | None = None
     duration: str | None = None
-    confidence: float = Field(ge=0.0, le=1.0)
-    needs_human_review: bool
-    review_reasons: list[str] = Field(default_factory=list)
 
 
 class ClinicalInfoExtractor:
@@ -121,7 +111,6 @@ class ClinicalInfoExtractor:
                 segment=segment,
                 guideline_meta=guideline_meta,
                 payload=parsed,
-                review_reasons=parsed.review_reasons,
             )
         except (Exception, ValidationError) as exc:
             return _fallback_unit(
@@ -143,17 +132,12 @@ def _build_user_prompt(segment: HeadingSegment) -> str:
                 "action": "string | null",
                 "condition": "string | null",
                 "indication": "string[]",
-                "contraindication": "string[]",
                 "diagnostic_criteria": "string[]",
-                "differential_diagnosis": "string[]",
                 "drug": "string | null",
                 "dose": "string | null",
                 "route": "string | null",
                 "frequency": "string | null",
                 "duration": "string | null",
-                "confidence": "number between 0 and 1",
-                "needs_human_review": "boolean",
-                "review_reasons": "string[]",
             },
         },
         ensure_ascii=False,
@@ -172,23 +156,17 @@ def _fallback_unit(
         action=None,
         condition=None,
         indication=[],
-        contraindication=[],
         diagnostic_criteria=[],
-        differential_diagnosis=[],
         drug=None,
         dose=None,
         route=None,
         frequency=None,
         duration=None,
-        confidence=0.0,
-        needs_human_review=True,
-        review_reasons=[f"clinical_info_llm_failed: {error}"],
     )
     return _build_statement_unit(
         segment=segment,
         guideline_meta=guideline_meta,
         payload=payload,
-        review_reasons=payload.review_reasons,
     )
 
 
@@ -197,32 +175,27 @@ def _build_statement_unit(
     segment: HeadingSegment,
     guideline_meta: GuidelineMeta,
     payload: ClinicalInfoPayload,
-    review_reasons: list[str],
 ) -> StatementUnit:
     source_location = SourceLocation(
         page_start=segment.page_start,
         page_end=segment.page_end,
-        section=" / ".join(segment.section_path) if segment.section_path else None,
     )
     unit_id = _unit_id(segment)
     action = _first_text(payload.action, segment.title, segment.raw_text, "See statement_text.")
+    clinical_stage = " / ".join(segment.section_path) if segment.section_path else None
     return StatementUnit(
         guideline=guideline_meta,
         card_id=unit_id,
         source_statement_id=unit_id,
         disease=_infer_disease_name_from_title(guideline_meta.title),
-        statement_type=payload.unit_type,
         statement_text=segment.raw_text,
         raw_chunk_text=segment.raw_text,
-        clinical_question=None,
-        clinical_stage=source_location.section or payload.clinical_topic or "general_guideline_support",
+        clinical_stage=clinical_stage or payload.clinical_topic or "general_guideline_support",
         clinical_task=payload.clinical_topic or payload.unit_type,
         population=None,
         condition=payload.condition,
         action=action,
-        do_not=list(payload.contraindication),
         required_inputs=_required_inputs_from_payload(payload),
-        recommended_tests=_recommended_tests_from_payload(payload, segment, action),
         evidence=StatementEvidence(
             evidence_quality_raw=None,
             evidence_quality_normalized="unknown",
@@ -230,12 +203,7 @@ def _build_statement_unit(
             recommendation_strength_normalized="unknown",
             consensus_level=None,
         ),
-        implementation_advice=None,
-        rationale=None,
         source_location=source_location,
-        confidence=payload.confidence,
-        needs_human_review=payload.needs_human_review,
-        review_reasons=list(review_reasons),
     )
 
 
@@ -243,16 +211,6 @@ def _required_inputs_from_payload(payload: ClinicalInfoPayload) -> list[str]:
     if payload.unit_type == "diagnostic_criteria":
         return list(payload.diagnostic_criteria)
     return []
-
-
-def _recommended_tests_from_payload(
-    payload: ClinicalInfoPayload,
-    segment: HeadingSegment,
-    action: str,
-) -> list[str]:
-    if payload.unit_type not in {"test_order", "instrumental_exam", "imaging_exam", "endoscopy_exam"}:
-        return []
-    return _dedupe_texts([segment.title, action, segment.raw_text, *payload.diagnostic_criteria])
 
 
 def _first_text(*values: str | None) -> str:

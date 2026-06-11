@@ -58,7 +58,6 @@ class SourceLocation(BaseModel):
 
     page_start: int | None = None
     page_end: int | None = None
-    section: str | None = None
 
 
 class StatementEvidence(BaseModel):
@@ -76,20 +75,13 @@ class StatementUnitBody(BaseModel):
 
     id: str
     original_label: str
-    statement_type: str
     statement_text: str
-    clinical_question: str | None = None
     evidence_quality_raw: str | None = None
     evidence_quality_normalized: EvidenceQualityNormalized | None = None
     strength_raw: str | None = None
     strength_normalized: StrengthNormalized | None = None
     consensus_level: str | None = None
-    implementation_advice: str | None = None
-    rationale: str | None = None
     source_location: SourceLocation
-    confidence: float = Field(ge=0.0, le=1.0)
-    needs_human_review: bool
-    review_reasons: list[str] = Field(default_factory=list)
 
 
 class StatementUnit(BaseModel):
@@ -100,25 +92,16 @@ class StatementUnit(BaseModel):
     card_id: str
     source_statement_id: str
     disease: str
-    statement_type: str
     statement_text: str
     raw_chunk_text: str
-    clinical_question: str | None = None
     clinical_stage: str
     clinical_task: str = ""
     population: str | None = None
     condition: str | None = None
     action: str
-    do_not: list[str] = Field(default_factory=list)
     required_inputs: list[str] = Field(default_factory=list)
-    recommended_tests: list[str] = Field(default_factory=list)
     evidence: StatementEvidence
-    implementation_advice: str | None = None
-    rationale: str | None = None
     source_location: SourceLocation
-    confidence: float = Field(ge=0.0, le=1.0)
-    needs_human_review: bool
-    review_reasons: list[str] = Field(default_factory=list)
 
     def to_json(self, **kwargs: object) -> str:
         return json.dumps(
@@ -149,9 +132,6 @@ class ClinicalInfoUnitBody(BaseModel):
     frequency: str | None = None
     duration: str | None = None
     source_location: SourceLocation
-    confidence: float = Field(ge=0.0, le=1.0)
-    needs_human_review: bool
-    review_reasons: list[str] = Field(default_factory=list)
 
 
 class ClinicalInfoUnit(BaseModel):

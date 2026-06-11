@@ -64,25 +64,7 @@
     "action": {
       "type": "string"
     },
-    "do_not": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
     "required_inputs": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "recommended_tests": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "contraindications_or_cautions": {
       "type": "array",
       "items": {
         "type": "string"
@@ -144,9 +126,6 @@
       },
       "additionalProperties": true
     },
-    "rationale": {
-      "type": ["string", "null"]
-    },
     "source_location": {
       "type": "object",
       "required": ["page_start", "page_end"],
@@ -161,9 +140,6 @@
         "page_end": {
           "type": "integer",
           "minimum": 1
-        },
-        "section": {
-          "type": ["string", "null"]
         },
         "quote": {
           "type": "string"

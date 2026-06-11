@@ -175,13 +175,9 @@
 | `condition` | 触发该推荐的条件或病情上下文。 |
 | `raw_chunk_text` | PDF 文本清洗并分块后，该推荐对应的完整原始分块文本。 |
 | `action` | 推荐执行的操作。 |
-| `do_not` | 不建议或禁止执行的事项。 |
 | `required_inputs` | 应用推荐前需要的输入信息。 |
-| `recommended_tests` | 建议补充的检查。 |
-| `contraindications_or_cautions` | 禁忌证或需要谨慎的情况。 |
 | `safety_notes` | 安全注意事项。 |
 | `evidence` | 证据质量、推荐强度和评级体系信息。 |
-| `rationale` | 推荐理由或解释。 |
 | `source_location` | 推荐在原始文档中的位置和引用。 |
 
 ### `guideline`
@@ -210,7 +206,6 @@
 | `pdf` | 来源 PDF 文件名或路径。 |
 | `page_start` | 引文起始页码。 |
 | `page_end` | 引文结束页码。 |
-| `section` | 所属章节。 |
 | `quote` | 原文引用。 |
 | `source_span` | 原文范围、段落或字符跨度标识。 |
 
@@ -299,7 +294,6 @@
 | `positive_features` | 支持匹配该疾病的阳性特征集合。 |
 | `negative_features` | 降低匹配分或提示其他疾病的阴性特征。 |
 | `red_flags` | 路由阶段识别的危险信号。 |
-| `must_differentiate` | 必须鉴别的疾病列表。 |
 | `scoring` | 路由评分配置。 |
 | `symptoms` | 症状类阳性特征。 |
 | `signs` | 体征类阳性特征。 |

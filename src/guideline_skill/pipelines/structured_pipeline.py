@@ -56,7 +56,6 @@ class StructuredGuidelinePipeline:
         )
         disease_payload = self.normalizer.extract_disease_from_filename(source_file)
         disease = str(disease_payload.get("disease") or "unknown")
-        disease_review_reasons = list(disease_payload.get("review_reasons", []))
 
         extracted_items: list[tuple[int, StatementSegment, ExtractedStatementFields]] = []
         for index, segment in enumerate(segments, 1):
@@ -79,41 +78,26 @@ class StructuredGuidelinePipeline:
         )
         evidence_normalizations = dict(evidence_payload.get("normalizations", {}))
         strength_normalizations = dict(strength_payload.get("normalizations", {}))
-        batch_review_reasons = [
-            *list(evidence_payload.get("review_reasons", [])),
-            *list(strength_payload.get("review_reasons", [])),
-        ]
-
         units: list[StatementUnit] = []
         action_payloads = self._summarize_actions(extracted_items)
         for (index, segment, extracted), action_payload in zip(extracted_items, action_payloads):
-            review_reasons = [
-                *batch_review_reasons,
-                *disease_review_reasons,
-                *list(action_payload.get("review_reasons", [])),
-            ]
             source_location = SourceLocation(
                 page_start=segment.page_start,
                 page_end=segment.page_end,
-                section=segment.section,
             )
             unit = StatementUnit(
                 guideline=guideline_meta,
                 card_id=_statement_id(index, segment),
                 source_statement_id=extracted.original_label,
                 disease=disease,
-                statement_type=extracted.statement_type,
                 statement_text=extracted.statement_text,
                 raw_chunk_text=segment.raw_text,
-                clinical_question=extracted.clinical_question,
-                clinical_stage=source_location.section or "unknown",
+                clinical_stage=segment.section or "unknown",
                 clinical_task=str(action_payload.get("clinical_task") or ""),
                 population=action_payload.get("population"),
                 condition=action_payload.get("condition"),
                 action=str(action_payload.get("action") or extracted.statement_text),
-                do_not=list(action_payload.get("do_not", [])),
                 required_inputs=list(action_payload.get("required_inputs", [])),
-                recommended_tests=list(action_payload.get("recommended_tests", [])),
                 evidence=StatementEvidence(
                     evidence_quality_raw=extracted.evidence_quality_raw,
                     evidence_quality_normalized=evidence_normalizations.get(extracted.evidence_quality_raw, "unknown"),
@@ -121,12 +105,7 @@ class StructuredGuidelinePipeline:
                     recommendation_strength_normalized=strength_normalizations.get(extracted.strength_raw, "unknown"),
                     consensus_level=extracted.consensus_level,
                 ),
-                implementation_advice=extracted.implementation_advice,
-                rationale=extracted.rationale,
                 source_location=source_location,
-                confidence=0.9,
-                needs_human_review=bool(review_reasons),
-                review_reasons=review_reasons,
             )
             units.append(
                 validate_statement_unit(
@@ -159,8 +138,6 @@ class StructuredGuidelinePipeline:
     ) -> dict[str, Any]:
         return self.normalizer.summarize_recommendation_action(
             statement_text=extracted.statement_text,
-            implementation_advice=extracted.implementation_advice,
-            rationale=extracted.rationale,
             clinical_stage=segment.section,
         )
 
