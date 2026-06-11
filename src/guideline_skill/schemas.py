@@ -6,14 +6,8 @@ from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field
 
 
-EvidenceQualityNormalized = Literal["high", "moderate", "low", "very_low", "unknown"]
-StrengthNormalized = Literal[
-    "strong",
-    "weak",
-    "best_practice_statement",
-    "consensus_statement",
-    "unknown",
-]
+EvidenceQualityNormalized = float
+StrengthNormalized = float
 ClinicalInfoUnitType = Literal[
     "definition",
     "classification",
@@ -64,9 +58,9 @@ class StatementEvidence(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     evidence_quality_raw: str | None = None
-    evidence_quality_normalized: EvidenceQualityNormalized | None = None
+    evidence_quality_normalized: EvidenceQualityNormalized = 0.5
     recommendation_strength_raw: str | None = None
-    recommendation_strength_normalized: StrengthNormalized | None = None
+    recommendation_strength_normalized: StrengthNormalized = 0.5
     consensus_level: str | None = None
 
 
@@ -77,9 +71,9 @@ class StatementUnitBody(BaseModel):
     original_label: str
     statement_text: str
     evidence_quality_raw: str | None = None
-    evidence_quality_normalized: EvidenceQualityNormalized | None = None
+    evidence_quality_normalized: EvidenceQualityNormalized = 0.5
     strength_raw: str | None = None
-    strength_normalized: StrengthNormalized | None = None
+    strength_normalized: StrengthNormalized = 0.5
     consensus_level: str | None = None
     source_location: SourceLocation
 

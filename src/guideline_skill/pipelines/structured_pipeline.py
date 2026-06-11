@@ -70,14 +70,13 @@ class StructuredGuidelinePipeline:
                 )
             )
 
-        evidence_payload = self.normalizer.normalize_evidence_quality_values(
-            [item[2].evidence_quality_raw for item in extracted_items]
+        normalization_payload = self.normalizer.normalize_evidence_and_strength_values(
+            [item[2].evidence_quality_raw for item in extracted_items],
+            [item[2].strength_raw for item in extracted_items],
+            source_file=source_file,
         )
-        strength_payload = self.normalizer.normalize_strength_values(
-            [item[2].strength_raw for item in extracted_items]
-        )
-        evidence_normalizations = dict(evidence_payload.get("normalizations", {}))
-        strength_normalizations = dict(strength_payload.get("normalizations", {}))
+        evidence_normalizations = dict(normalization_payload.get("evidence_quality_normalizations", {}))
+        strength_normalizations = dict(normalization_payload.get("strength_normalizations", {}))
         units: list[StatementUnit] = []
         action_payloads = self._summarize_actions(extracted_items)
         for (index, segment, extracted), action_payload in zip(extracted_items, action_payloads):
@@ -85,6 +84,11 @@ class StructuredGuidelinePipeline:
                 page_start=segment.page_start,
                 page_end=segment.page_end,
             )
+            evidence_quality_normalized = evidence_normalizations.get(extracted.evidence_quality_raw, 0.5)
+            recommendation_strength_normalized = strength_normalizations.get(extracted.strength_raw, 0.5)
+            if _has_bps_raw(extracted.evidence_quality_raw, extracted.strength_raw):
+                evidence_quality_normalized = 1.0
+                recommendation_strength_normalized = 1.0
             unit = StatementUnit(
                 guideline=guideline_meta,
                 card_id=_statement_id(index, segment),
@@ -100,9 +104,9 @@ class StructuredGuidelinePipeline:
                 required_inputs=list(action_payload.get("required_inputs", [])),
                 evidence=StatementEvidence(
                     evidence_quality_raw=extracted.evidence_quality_raw,
-                    evidence_quality_normalized=evidence_normalizations.get(extracted.evidence_quality_raw, "unknown"),
+                    evidence_quality_normalized=evidence_quality_normalized,
                     recommendation_strength_raw=extracted.strength_raw,
-                    recommendation_strength_normalized=strength_normalizations.get(extracted.strength_raw, "unknown"),
+                    recommendation_strength_normalized=recommendation_strength_normalized,
                     consensus_level=extracted.consensus_level,
                 ),
                 source_location=source_location,
@@ -166,3 +170,7 @@ def _count_primary_anchor_matches(raw_text: str, primary_anchor: dict[str, Any])
     for pattern_text in primary_anchor.get("patterns", []):
         count += len(re.findall(str(pattern_text), raw_text, flags=re.IGNORECASE | re.MULTILINE))
     return count
+
+
+def _has_bps_raw(*values: str | None) -> bool:
+    return any(value and ("BPS" in value.upper() or "最佳临床实践" in value) for value in values)

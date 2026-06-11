@@ -210,9 +210,9 @@ def _build_statement_unit(
         required_inputs=list(summary_payload.get("required_inputs") or _required_inputs_from_payload(payload)),
         evidence=StatementEvidence(
             evidence_quality_raw=None,
-            evidence_quality_normalized="unknown",
+            evidence_quality_normalized=0.5,
             recommendation_strength_raw=None,
-            recommendation_strength_normalized="unknown",
+            recommendation_strength_normalized=0.5,
             consensus_level=None,
         ),
         source_location=source_location,
