@@ -400,17 +400,20 @@ def build_routing_profile(
         "symptoms": [],
     }
     feature_seen: dict[str, set[str]] = {key: set() for key in positive_features}
-    phenotypes = _extract_hpo_phenotypes_from_cards(
+    phenotype_sources = _extract_hpo_phenotype_sources_from_cards(
         cards,
         hpo_extractor=hpo_extractor,
         deepseek_client=deepseek_client,
         hpo_workers=hpo_workers,
     )
+    phenotypes = _dedupe_texts(item["phenotype"] for item in phenotype_sources)
     mappings = hpo_extractor.map_phenotypes_to_hpo(phenotypes)
+    hpo_features = build_mapped_hpo_features(mappings)
+    _attach_card_ids_to_hpo_features(hpo_features, phenotype_sources)
     _add_hpo_positive_features(
         positive_features,
         feature_seen,
-        {"symptoms": build_mapped_hpo_features(mappings)},
+        {"symptoms": hpo_features},
     )
 
     return {
@@ -431,30 +434,81 @@ def build_routing_profile(
     }
 
 
-def _extract_hpo_phenotypes_from_cards(
+def _extract_hpo_phenotype_sources_from_cards(
     cards: Sequence[Mapping[str, Any]],
     *,
     hpo_extractor: HpoExtractor,
     deepseek_client: Any,
     hpo_workers: int,
-) -> list[str]:
-    texts = [_clean_text(card.get("raw_chunk_text")) for card in cards]
+) -> list[dict[str, str]]:
+    candidates = [
+        (_clean_text(card.get("card_id")), _clean_text(card.get("raw_chunk_text")))
+        for card in cards
+    ]
     workers = max(1, int(hpo_workers or 1))
-    if workers <= 1 or len(texts) <= 1:
-        return _dedupe_texts(
-            phenotype
-            for text in texts
+    if workers <= 1 or len(candidates) <= 1:
+        return _dedupe_phenotype_sources(
+            {
+                "phenotype": phenotype,
+                "card_id": card_id,
+            }
+            for card_id, text in candidates
+            if card_id
             for phenotype in hpo_extractor.extract_phenotypes(text, deepseek_client)
         )
 
     with ThreadPoolExecutor(max_workers=workers) as executor:
         phenotype_groups = list(
             executor.map(
-                lambda text: hpo_extractor.extract_phenotypes(text, deepseek_client),
-                texts,
+                lambda item: hpo_extractor.extract_phenotypes(item[1], deepseek_client),
+                candidates,
             )
         )
-    return _dedupe_texts(phenotype for group in phenotype_groups for phenotype in group)
+    return _dedupe_phenotype_sources(
+        {
+            "phenotype": phenotype,
+            "card_id": card_id,
+        }
+        for (card_id, _text), group in zip(candidates, phenotype_groups, strict=False)
+        if card_id
+        for phenotype in group
+    )
+
+
+def _dedupe_phenotype_sources(values: Iterable[Mapping[str, Any]]) -> list[dict[str, str]]:
+    seen: set[tuple[str, str]] = set()
+    deduped: list[dict[str, str]] = []
+    for value in values:
+        phenotype = _clean_text(value.get("phenotype"))
+        card_id = _clean_text(value.get("card_id"))
+        key = (_normalize_key(phenotype), card_id)
+        if not key[0] or not key[1] or key in seen:
+            continue
+        seen.add(key)
+        deduped.append({"phenotype": phenotype, "card_id": card_id})
+    return deduped
+
+
+def _attach_card_ids_to_hpo_features(
+    features: Sequence[dict[str, Any]],
+    phenotype_sources: Sequence[Mapping[str, Any]],
+) -> None:
+    sources_by_phenotype: dict[str, list[str]] = defaultdict(list)
+    seen_by_phenotype: dict[str, set[str]] = defaultdict(set)
+    for source in phenotype_sources:
+        phenotype = _clean_text(source.get("phenotype"))
+        card_id = _clean_text(source.get("card_id"))
+        key = _normalize_key(phenotype)
+        if not key or not card_id or card_id in seen_by_phenotype[key]:
+            continue
+        seen_by_phenotype[key].add(card_id)
+        sources_by_phenotype[key].append(card_id)
+
+    for feature in features:
+        key = _normalize_key(_clean_text(feature.get("name")))
+        card_ids = sources_by_phenotype.get(key)
+        if card_ids:
+            feature["card_id"] = list(card_ids)
 
 
 def _build_card_evidence_mapping(cards: Sequence[Mapping[str, Any]]) -> dict[str, dict[str, Any]]:
