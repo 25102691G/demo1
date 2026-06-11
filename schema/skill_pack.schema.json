@@ -205,6 +205,12 @@
         "scoring"
       ],
       "properties": {
+        "population": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "positive_features": {
           "type": "object",
           "properties": {
@@ -255,6 +261,13 @@
             },
             "safety_override": {
               "type": "boolean"
+            },
+            "mapping": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": true
+              }
             }
           },
           "additionalProperties": true

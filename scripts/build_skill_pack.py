@@ -414,6 +414,7 @@ def build_routing_profile(
     )
 
     return {
+        "population": _dedupe_texts(card.get("population") for card in cards),
         "positive_features": positive_features,
         "scoring": {
             "method": "hybrid_weighted_semantic",
@@ -425,6 +426,7 @@ def build_routing_profile(
             },
             "top_k_default": 5,
             "safety_override": True,
+            "mapping": _build_card_evidence_mapping(cards),
         },
     }
 
@@ -453,6 +455,17 @@ def _extract_hpo_phenotypes_from_cards(
             )
         )
     return _dedupe_texts(phenotype for group in phenotype_groups for phenotype in group)
+
+
+def _build_card_evidence_mapping(cards: Sequence[Mapping[str, Any]]) -> dict[str, dict[str, Any]]:
+    mapping: dict[str, dict[str, Any]] = {}
+    for card in cards:
+        card_id = _clean_text(card.get("card_id"))
+        evidence = card.get("evidence")
+        if not card_id or not isinstance(evidence, Mapping):
+            continue
+        mapping[card_id] = dict(evidence)
+    return mapping
 
 
 def load_taxonomy(taxonomy_path: str | Path | None = None) -> "OrderedDict[str, TaxonomyEntry]":

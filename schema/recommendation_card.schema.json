@@ -87,35 +87,13 @@
           "type": ["string", "null"]
         },
         "evidence_quality_normalized": {
-          "type": "string",
-          "enum": [
-            "high",
-            "moderate",
-            "low",
-            "very_low",
-            "level_1",
-            "level_2",
-            "level_3",
-            "level_4",
-            "level_5",
-            "not_applicable",
-            "unknown"
-          ]
+          "type": "number"
         },
         "recommendation_strength_raw": {
           "type": ["string", "null"]
         },
         "recommendation_strength_normalized": {
-          "type": "string",
-          "enum": [
-            "strong",
-            "weak",
-            "grade_a",
-            "grade_b",
-            "best_practice_statement",
-            "not_applicable",
-            "unknown"
-          ]
+          "type": "number"
         },
         "consensus_level": {
           "type": ["string", "number", "null"]
