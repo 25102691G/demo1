@@ -136,9 +136,9 @@ class StructuredGuidelinePipeline:
         segment: StatementSegment,
         extracted: ExtractedStatementFields,
     ) -> dict[str, Any]:
-        return self.normalizer.summarize_recommendation_action(
+        return self.normalizer.summarize_recommendation(
+            raw_chunk_text=segment.raw_text,
             statement_text=extracted.statement_text,
-            clinical_stage=segment.section,
         )
 
 

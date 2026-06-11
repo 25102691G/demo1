@@ -6,7 +6,7 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
-from guideline_skill.normalizer import JsonChatClient
+from guideline_skill.normalizer import JsonChatClient, LLMNormalizer
 from guideline_skill.schemas import (
     ClinicalInfoUnitType,
     ClinicalTopic,
@@ -86,8 +86,9 @@ class ClinicalInfoPayload(BaseModel):
 
 
 class ClinicalInfoExtractor:
-    def __init__(self, deepseek_client: JsonChatClient) -> None:
+    def __init__(self, deepseek_client: JsonChatClient, normalizer: LLMNormalizer | None = None) -> None:
         self.deepseek_client = deepseek_client
+        self.normalizer = normalizer
 
     def extract(
         self,
@@ -111,6 +112,7 @@ class ClinicalInfoExtractor:
                 segment=segment,
                 guideline_meta=guideline_meta,
                 payload=parsed,
+                normalizer=self.normalizer,
             )
         except (Exception, ValidationError) as exc:
             return _fallback_unit(
@@ -167,6 +169,7 @@ def _fallback_unit(
         segment=segment,
         guideline_meta=guideline_meta,
         payload=payload,
+        normalizer=None,
     )
 
 
@@ -175,6 +178,7 @@ def _build_statement_unit(
     segment: HeadingSegment,
     guideline_meta: GuidelineMeta,
     payload: ClinicalInfoPayload,
+    normalizer: LLMNormalizer | None,
 ) -> StatementUnit:
     source_location = SourceLocation(
         page_start=segment.page_start,
@@ -182,6 +186,14 @@ def _build_statement_unit(
     )
     unit_id = _unit_id(segment)
     action = _first_text(payload.action, segment.title, segment.raw_text, "See statement_text.")
+    summary_payload = (
+        normalizer.summarize_recommendation(
+            raw_chunk_text=segment.raw_text,
+            statement_text=action,
+        )
+        if normalizer is not None
+        else {}
+    )
     clinical_stage = " / ".join(segment.section_path) if segment.section_path else None
     return StatementUnit(
         guideline=guideline_meta,
@@ -191,11 +203,11 @@ def _build_statement_unit(
         statement_text=segment.raw_text,
         raw_chunk_text=segment.raw_text,
         clinical_stage=clinical_stage or payload.clinical_topic or "general_guideline_support",
-        clinical_task=payload.clinical_topic or payload.unit_type,
-        population=None,
-        condition=payload.condition,
-        action=action,
-        required_inputs=_required_inputs_from_payload(payload),
+        clinical_task=_first_text(summary_payload.get("clinical_task"), payload.clinical_topic, payload.unit_type),
+        population=summary_payload.get("population"),
+        condition=_first_text(summary_payload.get("condition"), payload.condition) or None,
+        action=_first_text(summary_payload.get("action"), action),
+        required_inputs=list(summary_payload.get("required_inputs") or _required_inputs_from_payload(payload)),
         evidence=StatementEvidence(
             evidence_quality_raw=None,
             evidence_quality_normalized="unknown",

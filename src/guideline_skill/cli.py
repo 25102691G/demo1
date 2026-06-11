@@ -224,8 +224,9 @@ def extract_units_from_text(
             source_file=source_file,
         ), classification
 
+    normalizer = LLMNormalizer(deepseek_client)
     pipeline = NarrativeGuidelinePipeline(
-        clinical_info_extractor=ClinicalInfoExtractor(deepseek_client),
+        clinical_info_extractor=ClinicalInfoExtractor(deepseek_client, normalizer=normalizer),
         llm_workers=llm_workers,
     )
     return pipeline.run(
