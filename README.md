@@ -36,41 +36,23 @@ pytest
 
 输出：
 
-- JSONL 文件，每行一个抽取单元或推荐卡片
-- `summary.json`，记录分类、抽取数量和人工复核数量等信息
-
-示例：
-
-```powershell
-python -m guideline_skill.cli extract --input .\data\skills\小儿急腹症的诊治策略\小儿急腹症的诊治策略.pdf
-```
-
-默认输出到：
-
 ```text
 data/skills/<PDF文件名>/
-  result.jsonl
-  summary.json
+  result.jsonl：每行一个抽取单元或推荐卡片
+  summary.json：记录分类、抽取数量和人工复核数量等信息
 ```
 
-批量抽取：
+单文档抽取示例：
 
 ```powershell
-python -m guideline_skill.cli batch --input-dir .\data\skills
+python -m guideline_skill.cli extract --input .\data\skills\小儿急腹症的诊治策略\小儿急腹症的诊治策略.pdf --llm-workers 4
 ```
 
-单文档内部 LLM 并发：
+批量抽取示例：
 
 ```powershell
 python -m guideline_skill.cli batch --input-dir .\data\skills --llm-workers 4
 ```
-
-`--llm-workers` 用于并发处理同一文档内部的 LLM 字段生成：
-
-- 结构化指南：并发生成每条 recommendation 的动作、任务、条件、必需输入等字段。
-- 叙述型指南：并发抽取每个 paragraph chunk 的临床信息。
-- 默认值为 `1`，保持线性执行；建议先从 `4` 开始，稳定后再尝试 `6`、`8` 或更高。
-- 该参数不做多文档并发，批量模式仍按文档顺序逐个处理。
 
 ## 2. JSONL 到 skill.yaml
 
@@ -91,42 +73,14 @@ data/skills/<指南名>/
 单文件构建示例：
 
 ```powershell
-python scripts/build_skill_pack.py --cards data/skills/中国克罗恩病诊治指南（2023年·广州）/result.jsonl --force
+python scripts/build_skill_pack.py --cards data/skills/中国克罗恩病诊治指南（2023年·广州）/result.jsonl --force --hpo-workers 4
 ```
 
 批量构建示例：
 
 ```powershell
-python scripts/build_skill_pack.py --cards data/skills --force
-```
-
-HPO 抽取并发构建示例：
-
-```powershell
 python scripts/build_skill_pack.py --cards data/skills --force --hpo-workers 4
 ```
-
-`build_skill_pack.py` 的 HPO 加速策略：
-
-- HPO 模型、ontology embedding 和 LLM client 在一次命令中只加载一次，批量构建多个 `result.jsonl` 时会复用。
-- `--hpo-workers` 并发抽取各 card 的 phenotype 文本。
-- phenotype 抽取完成后会统一去重，并集中执行一次 HPO embedding 映射。
-- 默认值为 `1`，保持线性执行；建议先从 `4` 开始，稳定后再逐步增大。
-
-`--cards` 支持：
-
-- 单个 `.jsonl` 文件
-- 一个目录，脚本会递归处理其中的 `*.jsonl`
-
-构建时会执行：
-
-- `schema/recommendation_card.schema.json` 校验
-- `schema/skill_pack.schema.json` 校验
-- workflow entrypoint 校验
-- workflow transition 目标校验
-- workflow subskill 引用校验
-- output template 引用校验
-- subskill 中引用的 card_id 存在性校验
 
 只校验不写文件：
 

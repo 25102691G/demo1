@@ -136,7 +136,7 @@ def resolve_batch_inputs(
             raise FileNotFoundError(f"Input directory does not exist: {directory}")
         if not directory.is_dir():
             raise NotADirectoryError(f"Input path is not a directory: {directory}")
-        for path in sorted(directory.iterdir(), key=lambda item: item.name.casefold()):
+        for path in sorted(directory.rglob("*"), key=lambda item: str(item).casefold()):
             if not path.is_file() or path.suffix.lower() not in SUPPORTED_INPUT_SUFFIXES:
                 continue
             key = _stable_path_key(path)
