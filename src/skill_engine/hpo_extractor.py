@@ -24,6 +24,7 @@ HPO_EXTRACTION_SYSTEM_PROMPT = """你是医学表型抽取助手。
 DEFAULT_MODEL_PATH = ROOT / "data" / "bge-large-zh-v1.5"
 DEFAULT_DEFINITION2ID_PATH = ROOT / "data" / "ontology" / "definition2id.json"
 DEFAULT_DEFINITION_EMBEDDINGS_PATH = ROOT / "data" / "ontology" / "definition_embeddings.pt"
+DEFAULT_HPO_SIMILARITY_THRESHOLD = 0.8
 
 
 @dataclass(frozen=True)
@@ -47,7 +48,7 @@ class HpoExtractor:
         self,
         resources: HpoResources,
         *,
-        similarity_threshold: float = 0.6,
+        similarity_threshold: float = DEFAULT_HPO_SIMILARITY_THRESHOLD,
         batch_size: int = 30,
         max_length: int = 128,
     ) -> None:
@@ -63,7 +64,7 @@ class HpoExtractor:
         model_path: str | Path,
         definition2id_path: str | Path,
         definition_embeddings_path: str | Path,
-        similarity_threshold: float = 0.6,
+        similarity_threshold: float = DEFAULT_HPO_SIMILARITY_THRESHOLD,
         batch_size: int = 30,
         max_length: int = 128,
     ) -> HpoExtractor:
