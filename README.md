@@ -161,3 +161,35 @@ schema/workflow_output.schema.json
 - PDF 抽取结果需要人工审核。
 - 管理建议只组织指南卡片内容，不生成个体化处方或剂量。
 - 有安全红旗时，workflow 会优先停止并提示临床安全评估。
+
+## 百度文档解析预览
+
+`scripts/preview_pdf_ocr.py` 用于直接调用百度智能云文档解析接口，查看 PDF 经过 OCR/文档解析后的原始结果。该脚本不会运行后续 guideline 抽取流程，成功时控制台不输出信息。
+
+运行前需要配置环境变量：
+
+```powershell
+$env:BAIDU_API_KEY="你的百度 API Key"
+$env:BAIDU_SECRET_KEY="你的百度 Secret Key"
+```
+
+单文档提取：
+
+```powershell
+python scripts/preview_pdf_ocr.py --input .\data\skills\肠结核的诊断与治疗\肠结核的诊断与治疗.pdf
+```
+
+批量提取：
+
+```powershell
+python scripts/preview_pdf_ocr.py --input-dir .\data\skills
+```
+
+`--input` 和 `--input-dir` 必须且只能指定一个。`--input-dir` 会递归扫描目录下所有 `.pdf` 文件。
+
+每个 PDF 的输出文件保存在 PDF 同目录：
+
+```text
+<PDF文件名>.parse_result.json
+<PDF文件名>.markdown.md
+```

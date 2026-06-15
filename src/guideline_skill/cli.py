@@ -8,12 +8,11 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Sequence
 
-from extractor.models import TextPage
-from extractor.pdf_loader import load_pdf_pages
-from extractor.text_cleaner import clean_pages
-
 from .anchors import AnchorRegistry
 from .classifier import ClassificationResult, GuidelineClassifier
+from .document.models import PDFDocumentLoadResult, TextPage, model_to_dict
+from .document.pdf_loader import load_pdf_document
+from .document.text_cleaner import clean_pages
 from .extractors import ClinicalInfoExtractor
 from .llm import DeepSeekClient
 from .normalizer import LLMNormalizer
@@ -41,6 +40,10 @@ def extract_document(
     deepseek_client: Any | None = None,
     title: str | None = None,
     llm_workers: int = 1,
+    ocr_mode: str = "auto",
+    ocr_provider: str = "baidu_doc_parser",
+    baidu_api_key_env: str = "BAIDU_API_KEY",
+    baidu_secret_key_env: str = "BAIDU_SECRET_KEY",
 ) -> dict[str, Any]:
     """Extract one guideline document and write JSONL plus summary files."""
 
@@ -54,7 +57,13 @@ def extract_document(
     client = deepseek_client or DeepSeekClient()
 
     logger.info("Loading guideline document: %s", source_path)
-    pages = load_document_pages(source_path)
+    pages, pdf_load_result = load_document_pages_with_metadata(
+        source_path,
+        ocr_mode=ocr_mode,
+        ocr_provider=ocr_provider,
+        baidu_api_key_env=baidu_api_key_env,
+        baidu_secret_key_env=baidu_secret_key_env,
+    )
     cleaned_pages = clean_pages(pages)
     text = pages_to_text(cleaned_pages)
 
@@ -73,6 +82,7 @@ def extract_document(
         units=units,
         output_dir=output.parent,
         llm_model=getattr(client, "model", None) or os.getenv("DEEPSEEK_MODEL"),
+        pdf_load_result=pdf_load_result,
     )
     write_json(summary_payload, summary)
 
@@ -87,6 +97,10 @@ def batch_extract(
     output_dir: str | Path = DEFAULT_OUTPUT_DIR,
     deepseek_client: Any | None = None,
     llm_workers: int = 1,
+    ocr_mode: str = "auto",
+    ocr_provider: str = "baidu_doc_parser",
+    baidu_api_key_env: str = "BAIDU_API_KEY",
+    baidu_secret_key_env: str = "BAIDU_SECRET_KEY",
 ) -> dict[str, Any]:
     """Extract multiple guideline documents, one output folder per input."""
 
@@ -104,6 +118,10 @@ def batch_extract(
                 deepseek_client=client,
                 title=source_path.stem,
                 llm_workers=llm_workers,
+                ocr_mode=ocr_mode,
+                ocr_provider=ocr_provider,
+                baidu_api_key_env=baidu_api_key_env,
+                baidu_secret_key_env=baidu_secret_key_env,
             )
         )
 
@@ -236,11 +254,43 @@ def extract_units_from_text(
     ), classification
 
 
-def load_document_pages(path: str | Path) -> list[TextPage]:
+def load_document_pages(
+    path: str | Path,
+    *,
+    ocr_mode: str = "auto",
+    ocr_provider: str = "baidu_doc_parser",
+    baidu_api_key_env: str = "BAIDU_API_KEY",
+    baidu_secret_key_env: str = "BAIDU_SECRET_KEY",
+) -> list[TextPage]:
+    pages, _ = load_document_pages_with_metadata(
+        path,
+        ocr_mode=ocr_mode,
+        ocr_provider=ocr_provider,
+        baidu_api_key_env=baidu_api_key_env,
+        baidu_secret_key_env=baidu_secret_key_env,
+    )
+    return pages
+
+
+def load_document_pages_with_metadata(
+    path: str | Path,
+    *,
+    ocr_mode: str = "auto",
+    ocr_provider: str = "baidu_doc_parser",
+    baidu_api_key_env: str = "BAIDU_API_KEY",
+    baidu_secret_key_env: str = "BAIDU_SECRET_KEY",
+) -> tuple[list[TextPage], PDFDocumentLoadResult | None]:
     source_path = Path(path)
     if source_path.suffix.lower() in {".txt", ".md"}:
-        return [TextPage(page_number=1, text=source_path.read_text(encoding="utf-8"))]
-    return load_pdf_pages(source_path)
+        return [TextPage(page_number=1, text=source_path.read_text(encoding="utf-8"))], None
+    pdf_load_result = load_pdf_document(
+        source_path,
+        ocr_mode=ocr_mode,
+        ocr_provider=ocr_provider,
+        baidu_api_key_env=baidu_api_key_env,
+        baidu_secret_key_env=baidu_secret_key_env,
+    )
+    return pdf_load_result.pages, pdf_load_result
 
 
 def pages_to_text(pages: Sequence[TextPage]) -> str:
@@ -272,6 +322,7 @@ def build_summary(
     units: Sequence[ExtractedUnit],
     output_dir: Path,
     llm_model: str | None,
+    pdf_load_result: PDFDocumentLoadResult | None = None,
 ) -> dict[str, Any]:
     record_type_counts = Counter(unit.record_type for unit in units)
     unit_type_counts: Counter[str] = Counter()
@@ -282,7 +333,7 @@ def build_summary(
         if unit_type:
             unit_type_counts[str(unit_type)] += 1
 
-    return {
+    payload = {
         "source_file": source_file,
         "doc_type": classification.doc_type,
         "total_score": classification.total_score,
@@ -298,6 +349,18 @@ def build_summary(
         "llm_model": llm_model,
         "output_dir": output_dir.as_posix(),
     }
+    if pdf_load_result is not None:
+        payload.update(
+            {
+                "pdf_text_quality": pdf_load_result.quality.status,
+                "pdf_text_quality_score": pdf_load_result.quality.score,
+                "pdf_text_quality_detail": model_to_dict(pdf_load_result.quality),
+                "pdf_text_extraction_method": pdf_load_result.extraction_method,
+                "ocr_used": pdf_load_result.ocr_used,
+                "ocr_provider": pdf_load_result.ocr_provider,
+            }
+        )
+    return payload
 
 
 def build_batch_summary(
@@ -354,6 +417,27 @@ def build_arg_parser() -> argparse.ArgumentParser:
         default=1,
         help="Concurrent LLM calls within one document. Defaults to 1.",
     )
+    extract_parser.add_argument(
+        "--ocr-mode",
+        choices=["auto", "never", "always"],
+        default="auto",
+        help="PDF OCR mode. Defaults to auto.",
+    )
+    extract_parser.add_argument(
+        "--ocr-provider",
+        default="baidu_doc_parser",
+        help="OCR provider. Defaults to baidu_doc_parser.",
+    )
+    extract_parser.add_argument(
+        "--baidu-api-key-env",
+        default="BAIDU_API_KEY",
+        help="Environment variable name for Baidu API Key. Defaults to BAIDU_API_KEY.",
+    )
+    extract_parser.add_argument(
+        "--baidu-secret-key-env",
+        default="BAIDU_SECRET_KEY",
+        help="Environment variable name for Baidu Secret Key. Defaults to BAIDU_SECRET_KEY.",
+    )
 
     batch_parser = subparsers.add_parser("batch", help="Extract multiple guideline documents.")
     batch_parser.add_argument("--inputs", nargs="+", default=None, help="Input PDF/TXT/MD file paths.")
@@ -373,6 +457,27 @@ def build_arg_parser() -> argparse.ArgumentParser:
         default=1,
         help="Concurrent LLM calls within each document. Defaults to 1.",
     )
+    batch_parser.add_argument(
+        "--ocr-mode",
+        choices=["auto", "never", "always"],
+        default="auto",
+        help="PDF OCR mode. Defaults to auto.",
+    )
+    batch_parser.add_argument(
+        "--ocr-provider",
+        default="baidu_doc_parser",
+        help="OCR provider. Defaults to baidu_doc_parser.",
+    )
+    batch_parser.add_argument(
+        "--baidu-api-key-env",
+        default="BAIDU_API_KEY",
+        help="Environment variable name for Baidu API Key. Defaults to BAIDU_API_KEY.",
+    )
+    batch_parser.add_argument(
+        "--baidu-secret-key-env",
+        default="BAIDU_SECRET_KEY",
+        help="Environment variable name for Baidu Secret Key. Defaults to BAIDU_SECRET_KEY.",
+    )
 
     return parser
 
@@ -389,6 +494,10 @@ def main(argv: Sequence[str] | None = None) -> int:
             output_root=args.output_root,
             title=args.title,
             llm_workers=args.llm_workers,
+            ocr_mode=args.ocr_mode,
+            ocr_provider=args.ocr_provider,
+            baidu_api_key_env=args.baidu_api_key_env,
+            baidu_secret_key_env=args.baidu_secret_key_env,
         )
         return 0
 
@@ -397,6 +506,10 @@ def main(argv: Sequence[str] | None = None) -> int:
             resolve_batch_inputs(args.inputs, input_dir=args.input_dir),
             output_dir=args.output_dir,
             llm_workers=args.llm_workers,
+            ocr_mode=args.ocr_mode,
+            ocr_provider=args.ocr_provider,
+            baidu_api_key_env=args.baidu_api_key_env,
+            baidu_secret_key_env=args.baidu_secret_key_env,
         )
         return 0
 

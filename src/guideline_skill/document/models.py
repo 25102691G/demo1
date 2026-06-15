@@ -28,6 +28,24 @@ class TextPage(GraphBaseModel):
     text: str
 
 
+class PDFTextQualityReport(GraphBaseModel):
+    status: str
+    score: float
+    total_chars: int
+    chinese_ratio: float
+    suspicious_ratio: float
+    control_ratio: float
+    reason: str = ""
+
+
+class PDFDocumentLoadResult(GraphBaseModel):
+    pages: list[TextPage]
+    quality: PDFTextQualityReport
+    extraction_method: str
+    ocr_used: bool = False
+    ocr_provider: str = ""
+
+
 class SectionRecord(GraphBaseModel):
     section_id: str
     parent_section_id: str = ""
@@ -136,4 +154,3 @@ def make_edge_id(source_id: str, relation_type: str, target_id: str, context: st
 
 def aliases_to_json(aliases: list[str]) -> str:
     return json.dumps(aliases, ensure_ascii=False)
-
