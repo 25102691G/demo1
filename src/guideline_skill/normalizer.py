@@ -60,43 +60,9 @@ class EvidenceAndStrengthBatchResult(BaseModel):
     evidence_quality_normalizations: dict[str, EvidenceQualityNormalized]
     strength_normalizations: dict[str, StrengthNormalized]
 
-
-NORMALIZATION_SYSTEM_PROMPT = """你是医学指南字段归一化助手。请将原始证据等级和推荐强度归一化为标准枚举。
-只输出 JSON，不要输出解释。
-不要编造原文没有的信息。
-不能确定时输出 unknown。
-
-evidence_quality_normalized 只能从以下枚举中选择：
-- high
-- moderate
-- low
-- very_low
-- unknown
-- null
-
-strength_normalized 只能从以下枚举中选择：
-- strong
-- weak
-- best_practice_statement
-- consensus_statement
-- unknown
-- null
-
-归一化时参考语义：
-- 高质量、高、1、A级证据等通常对应 high
-- 中等质量、中等、2、B级证据等通常对应 moderate
-- 低质量、低、3、C级证据等通常对应 low
-- 极低质量、极低、4、D级证据等通常对应 very_low
-- 强、强推荐、A级推荐等通常对应 strong
-- 弱、弱推荐、B级推荐等通常对应 weak
-- BPS、最佳临床实践通常对应 best_practice_statement
-- 共识意见、推荐级别但无强弱时通常对应 consensus_statement"""
-
-
 DISEASE_EXTRACTION_SYSTEM_PROMPT = """你需要从医学指南 PDF 文件名中提取疾病名称。
 只返回符合此结构的 JSON：{"disease": "..."}。
 使用文件名本身的语言。如果无法识别疾病名称，返回 {"disease": "unknown"}。"""
-
 
 ACTION_SUMMARY_SYSTEM_PROMPT = """你是医学指南推荐卡字段抽取助手。
 请只依据输入中的原文信息生成字段，不能补充、推断或泛化原文没有写出的信息。
@@ -133,70 +99,6 @@ ACTION_SUMMARY_SYSTEM_PROMPT_WITHOUT_POPULATION = """你是医学指南推荐卡
 - condition：什么情况下应该考虑这条推荐；原文没有明确条件则为 null。
 - required_inputs：使用这条推荐前需要先知道的病例信息；没有则为空数组。
 所有中文字段必须使用中文表达；英文缩写可以原样保留。"""
-
-EVIDENCE_BATCH_SYSTEM_PROMPT = """你需要对医学指南中不同的原始证据质量取值进行归一化。
-只返回符合此结构的 JSON：{"normalizations": {"raw value": "normalized value"}}。
-每个归一化后的值必须是以下之一：high、moderate、low、very_low、unknown。
-不要编造输入中不存在的原始值。"""
-
-STRENGTH_BATCH_SYSTEM_PROMPT = """你需要对医学指南中不同的原始推荐强度取值进行归一化。
-只返回符合此结构的 JSON：{"normalizations": {"raw value": "normalized value"}}。
-每个归一化后的值必须是以下之一：strong、weak、best_practice_statement、consensus_statement、unknown。
-不要编造输入中不存在的原始值。"""
-
-EVIDENCE_SCORE_BATCH_SYSTEM_PROMPT = """你需要对同一个医学指南 PDF 中出现的原始证据质量取值进行统一打分标准化。
-只返回符合此结构的 JSON：{"normalizations": {"raw value": 0.2}}。
-每个分数必须是 0 到 1 之间的数字；无法判断时返回 "unknown"。
-必须只为输入 raw_values 中出现的原始值生成映射，不要新增原始值。
-
-打分原则：
-- 先识别该 PDF 内部的证据质量等级体系，再按从低到高映射到 0 到 1。
-- 如果原始值是 1、2、3、4、5，通常分别对应 0.2、0.4、0.6、0.8、1.0。
-- 如果原始值是 A、B、C、D，且 A 表示最高质量，通常分别对应 1.0、0.75、0.5、0.25。
-- 如果原始值是高、中、低、极低，通常分别对应 1.0、0.67、0.33、0.1。
-- 如果 PDF 明确说明数字或字母方向与上述不同，优先遵循 PDF 内部语义。"""
-
-STRENGTH_SCORE_BATCH_SYSTEM_PROMPT = """你需要对同一个医学指南 PDF 中出现的原始推荐强度取值进行统一打分标准化。
-只返回符合此结构的 JSON：{"normalizations": {"raw value": 1.0}}。
-每个分数必须是 0 到 1 之间的数字；无法判断时返回 "unknown"。
-必须只为输入 raw_values 中出现的原始值生成映射，不要新增原始值。
-
-打分原则：
-- 先识别该 PDF 内部的推荐强度等级体系，再按从弱到强映射到 0 到 1。
-- 如果原始值是弱、中、强，通常分别对应 0.3、0.65、1.0。
-- 如果原始值只有弱、强，通常分别对应 0.3、1.0。
-- 如果原始值是 A、B、C，且 A 表示最强推荐，通常分别对应 1.0、0.65、0.3。
-- 如果原始推荐强度中出现 BPS 或最佳临床实践，直接映射为 1.0。
-- 共识声明如果没有强弱语义，无法转换为强弱分数时返回 "unknown"。
-- 如果 PDF 明确说明等级方向与上述不同，优先遵循 PDF 内部语义。"""
-
-EVIDENCE_AND_STRENGTH_SCORE_BATCH_SYSTEM_PROMPT = """你需要对同一个医学指南 PDF 中出现的原始证据质量和原始推荐强度取值进行统一打分标准化。
-只返回符合此结构的 JSON：
-{
-  "evidence_quality_normalizations": {"raw evidence value": 0.2},
-  "strength_normalizations": {"raw strength value": 1.0}
-}
-每个分数必须是 0 到 1 之间的数字；无法判断时返回 "unknown"。
-必须只为输入 evidence_quality_raw_values 和 strength_raw_values 中出现的原始值生成映射，不要新增原始值。
-
-输入 items 表示同一个 recommendation card 中成对出现的原始证据质量和原始推荐强度。
-如果同一个 item 的 evidence_quality_raw 或 strength_raw 任意一个字段中出现 BPS 或最佳临床实践，则该 item 对应的两个标准化结果都输出为 1.0。
-
-证据质量打分原则：
-- 先识别该 PDF 内部的证据质量等级体系，再按从低到高映射到 0 到 1。
-- 如果原始值是 1、2、3、4、5，通常分别对应 0.2、0.4、0.6、0.8、1.0。
-- 如果原始值是 A、B、C、D，且 A 表示最高质量，通常分别对应 1.0、0.75、0.5、0.25。
-- 如果原始值是高、中、低、极低，通常分别对应 1.0、0.67、0.33、0.1。
-- 如果 PDF 明确说明数字或字母方向与上述不同，优先遵循 PDF 内部语义。
-
-推荐强度打分原则：
-- 先识别该 PDF 内部的推荐强度等级体系，再按从弱到强映射到 0 到 1。
-- 如果原始值是弱、中、强，通常分别对应 0.3、0.65、1.0。
-- 如果原始值只有弱、强，通常分别对应 0.3、1.0。
-- 如果原始值是 A、B、C，且 A 表示最强推荐，通常分别对应 1.0、0.65、0.3。
-- 如果原始推荐强度中出现 BPS 或最佳临床实践，直接映射为 1.0。
-- 共识声明如果没有强弱语义，无法转换为强弱分数时返回 "unknown"。
-- 如果 PDF 明确说明等级方向与上述不同，优先遵循 PDF 内部语义。"""
 
 EVIDENCE_SCORE_BATCH_SYSTEM_PROMPT = """你需要对同一个医学指南 PDF 中出现的原始证据质量取值进行统一打分标准化。
 只返回符合此结构的 JSON：{"normalizations": {"raw value": 0.2}}。

@@ -748,7 +748,7 @@ def build_workflow() -> dict[str, Any]:
 
 def build_knowledge_base() -> dict[str, Any]:
     return {
-        "cards_path": "result.jsonl",
+        "cards_path": "recommendation_card.jsonl",
         "card_schema_ref": "schema/recommendation_card.schema.json",
         "retrieval": {
             "default_mode": "hybrid",
@@ -1019,8 +1019,6 @@ def validate_cross_references(
 
     knowledge_base = _require_mapping(skill_dict.get("knowledge_base"), "knowledge_base")
     cards_path = _clean_text(knowledge_base.get("cards_path"))
-    if cards_path != "result.jsonl":
-        errors.append("knowledge_base.cards_path must be exactly 'result.jsonl'")
     if output_dir is not None and cards_path:
         expected_dir = Path(output_dir)
         if output_package_name:
@@ -1086,6 +1084,31 @@ def build_default_hpo_dependencies() -> tuple[HpoExtractor, OpenAICompatibleJson
     return hpo_extractor, deepseek_client
 
 
+def log_build_start(index: int, total: int, cards_source: Path) -> None:
+    remaining = max(total - index, 0)
+    print(f"[{index}/{total}] 开始构建: {cards_source}，剩余 {remaining} 个", flush=True)
+
+
+def log_build_step(index: int, total: int, message: str) -> None:
+    print(f"[{index}/{total}] {message}", flush=True)
+
+
+def log_build_done(
+    index: int,
+    total: int,
+    cards_source: Path,
+    *,
+    card_count: int,
+    subskill_count: int,
+    skill_yaml: Path,
+) -> None:
+    print(
+        f"[{index}/{total}] 完成: {cards_source}，{card_count} 张 card，"
+        f"{subskill_count} 个 subskill，输出 {skill_yaml}",
+        flush=True,
+    )
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8")
@@ -1136,9 +1159,15 @@ def main(argv: Sequence[str] | None = None) -> int:
         taxonomy = load_taxonomy(args.taxonomy)
         hpo_extractor, deepseek_client = build_default_hpo_dependencies()
         results = []
-        for cards_source in card_sources:
+        total_sources = len(card_sources)
+        for index, cards_source in enumerate(card_sources, 1):
+            log_build_start(index, total_sources, cards_source)
+            log_build_step(index, total_sources, "读取 JSONL...")
             loaded_cards = load_jsonl(cards_source)
+            log_build_step(index, total_sources, f"读取完成: {len(loaded_cards)} 张 card")
+            log_build_step(index, total_sources, "校验 recommendation_card schema...")
             cards = validate_cards(loaded_cards, args.card_schema)
+            log_build_step(index, total_sources, f"构建 skill pack，HPO workers={args.hpo_workers}...")
             skill_dict = build_skill_pack(
                 cards,
                 taxonomy,
@@ -1149,6 +1178,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
             package_name = infer_output_package_name(cards_source) if args.out_dir else None
             output_dir = Path(args.out_dir) if args.out_dir else cards_source.parent
+            log_build_step(index, total_sources, "校验 skill pack...")
             validate_cross_references(
                 skill_dict,
                 cards,
@@ -1156,6 +1186,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 output_package_name=package_name,
             )
             validate_skill_schema(skill_dict, args.skill_schema)
+            log_build_step(index, total_sources, "写出 skill.yaml...")
             target_dir = write_skill_pack(
                 skill_dict,
                 cards,
@@ -1177,6 +1208,14 @@ def main(argv: Sequence[str] | None = None) -> int:
                     "schema_validation": "pass",
                 }
             )
+            log_build_done(
+                index,
+                total_sources,
+                cards_source,
+                card_count=len(cards),
+                subskill_count=len(skill_dict["subskills"]),
+                skill_yaml=target_dir / "skill.yaml",
+            )
     except BuildSkillPackError as exc:
         print("build_skill_pack: fail", file=sys.stderr)
         print(f"error: {exc}", file=sys.stderr)
@@ -1187,6 +1226,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "processed_count": len(results),
         "results": results,
     }
+    print(f"build_skill_pack 完成: 处理 {len(results)} 个 JSONL", flush=True)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
 

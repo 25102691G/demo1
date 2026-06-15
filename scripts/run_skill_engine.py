@@ -47,13 +47,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output-schema", default="schema/workflow_output.schema.json")
     parser.add_argument("--top-k", type=int, default=5)
     parser.add_argument("--min-score", type=float)
+    parser.add_argument("--hpo-similarity-threshold", type=_similarity_threshold)
     parser.add_argument("--debug", action="store_true")
     parser.add_argument("--print-canonical-case", action="store_true")
     args = parser.parse_args(argv)
 
     try:
         raw_input = _read_raw_input(args)
-        hpo_extractor, deepseek_client = _build_hpo_dependencies()
+        hpo_extractor, deepseek_client = _build_hpo_dependencies(args.hpo_similarity_threshold)
 
         if args.case_json:
             canonical_case = normalize_case_from_json(
@@ -136,11 +137,27 @@ def _default_output_path() -> Path:
     return ROOT / "data" / "runs" / filename
 
 
-def _build_hpo_dependencies() -> tuple[HpoExtractor, OpenAICompatibleJsonChatClient]:
+def _similarity_threshold(value: str) -> float:
+    try:
+        threshold = float(value)
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError("must be a number between 0 and 1") from exc
+    if not 0 <= threshold <= 1:
+        raise argparse.ArgumentTypeError("must be between 0 and 1")
+    return threshold
+
+
+def _build_hpo_dependencies(
+    hpo_similarity_threshold: float | None = None,
+) -> tuple[HpoExtractor, OpenAICompatibleJsonChatClient]:
+    hpo_kwargs: dict[str, Any] = {}
+    if hpo_similarity_threshold is not None:
+        hpo_kwargs["similarity_threshold"] = hpo_similarity_threshold
     hpo_extractor = HpoExtractor.from_paths(
         model_path=DEFAULT_MODEL_PATH,
         definition2id_path=DEFAULT_DEFINITION2ID_PATH,
         definition_embeddings_path=DEFAULT_DEFINITION_EMBEDDINGS_PATH,
+        **hpo_kwargs,
     )
     deepseek_client = OpenAICompatibleJsonChatClient(load_deepseek_config_from_env())
     return hpo_extractor, deepseek_client
