@@ -1,5 +1,7 @@
 # Project data and generated outputs
-data/
+data/runs
+data/bge-large-zh-v1.5
+data/skills
 output/
 
 # Python bytecode and caches
