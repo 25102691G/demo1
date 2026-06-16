@@ -25,6 +25,24 @@ POPULATION_FROM_FILENAME_SYSTEM_PROMPT = """你是医学指南文件名解析助
 只能返回 JSON 对象，且 population 必须是以下值之一：
 儿童、青少年、成人、老年人、孕妇、没有明确人群。
 如果文件名没有明确人群信息，返回 {"population": "没有明确人群"}。"""
+ALLOWED_CLINICAL_STAGES = {"诊断评估流程", "治疗流程", "其他流程"}
+CLINICAL_STAGE_SYSTEM_PROMPT = """你是医学指南章节分类助手。
+请只根据输入的 section_path 判断该章节属于哪类临床流程。
+只能返回 JSON 对象，且 clinical_stage 必须是以下值之一：诊断评估流程、治疗流程、其他流程。
+判断规则：
+1. 章节涉及诊断、鉴别诊断、检查、检测、评估、分型、分期、病情活动度、风险评估、筛查、监测等，返回诊断评估流程。
+2. 章节涉及药物治疗、手术治疗、营养治疗、维持治疗、诱导缓解、治疗选择、治疗调整、并发症处理等，返回治疗流程。
+3. 章节路径为空，或无法明确归入以上两类，返回其他流程。
+不要返回解释。"""
+DIAGNOSIS_CLINICAL_TASKS = {"初步筛查与临床表现评估", "实验室检查", "影像学检查", "内镜检查", "病理", "综合诊断"}
+TREATMENT_CLINICAL_TASKS = {"一般治疗", "药物治疗", "手术治疗", "随访与监测"}
+CLINICAL_TASK_SYSTEM_PROMPT = """你是医学指南推荐内容分类助手。
+请根据输入的 clinical_stage 和 raw_text 判断该推荐对应的具体 clinical_task。
+只能返回 JSON 对象，且 clinical_task 必须是允许值之一。
+如果 clinical_stage 是诊断评估流程，clinical_task 只能是以下值之一：初步筛查与临床表现评估、实验室检查、影像学检查、内镜检查、病理、综合诊断。
+如果 clinical_stage 是治疗流程，clinical_task 只能是以下值之一：一般治疗、药物治疗、手术治疗、随访与监测。
+如果无法明确判断，返回未知。
+不要返回解释。"""
 
 
 @dataclass(slots=True)
@@ -62,13 +80,20 @@ def main(argv: Sequence[str] | None = None) -> None:
     input_paths = collect_input_paths(args.input, args.input_dir)
     client = build_llm_client()
     population_cache: dict[str, str] = {}
+    clinical_stage_cache: dict[str, str] = {}
     total_inputs = len(input_paths)
 
     if args.output is not None:
         cards: list[dict[str, Any]] = []
         for index, input_path in enumerate(input_paths, 1):
             log_file_start(index, total_inputs, input_path)
-            file_cards, summary = convert_input_file(input_path, client, population_cache, args.llm_workers)
+            file_cards, summary = convert_input_file(
+                input_path,
+                client,
+                population_cache,
+                clinical_stage_cache,
+                args.llm_workers,
+            )
             cards.extend(file_cards)
             summary_path = default_summary_path(input_path)
             write_json(summary_path, summary)
@@ -80,7 +105,13 @@ def main(argv: Sequence[str] | None = None) -> None:
     total_cards = 0
     for index, input_path in enumerate(input_paths, 1):
         log_file_start(index, total_inputs, input_path)
-        cards, summary = convert_input_file(input_path, client, population_cache, args.llm_workers)
+        cards, summary = convert_input_file(
+            input_path,
+            client,
+            population_cache,
+            clinical_stage_cache,
+            args.llm_workers,
+        )
         output_path = default_output_path(input_path)
         summary_path = default_summary_path(input_path)
         write_jsonl(output_path, cards)
@@ -95,7 +126,7 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--input", type=Path, default=None, help="Input OCR parse_result.json file.")
     parser.add_argument("--input-dir", type=Path, default=None, help="Directory containing *.parse_result.json files.")
     parser.add_argument("--output", type=Path, default=None, help="Output JSONL path.")
-    parser.add_argument("--llm-workers", type=int, default=1, help="Concurrent LLM workers for text layout cleaning.")
+    parser.add_argument("--llm-workers", type=int, default=10, help="Concurrent LLM workers for text layout cleaning.")
     args = parser.parse_args(argv)
     if args.input is None and args.input_dir is None:
         parser.error("one of --input or --input-dir is required")
@@ -125,8 +156,10 @@ def convert_input_file(
     input_path: Path,
     client: Any,
     population_cache: dict[str, str],
+    clinical_stage_cache: dict[str, str],
     llm_workers: int,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """读取单个 OCR parse_result.json 文件，转换为 recommendation_card 列表和处理 summary"""
     payload = read_json(input_path)
     summary = create_summary(input_path, payload)
     population = extract_population_from_filename(payload, input_path=input_path, client=client, cache=population_cache)
@@ -138,7 +171,7 @@ def convert_input_file(
         summary=summary,
         llm_workers=llm_workers,
     )
-    cards = [unit_to_card(unit, payload) for unit in units if clinical_stage(unit.section_path) != "reference"]
+    cards = build_cards(units, payload, client, clinical_stage_cache, llm_workers)
     summary["output_cards"] = len(cards)
     summary["discarded_layout_count"] = len(summary["discarded_layouts"])
     summary["discarded_by_reason"] = count_by_key(summary["discarded_layouts"], "reason")
@@ -180,6 +213,10 @@ def log_batch_done(total_inputs: int, total_cards: int, output_path: Path | None
 
 def log_llm_progress(done: int, total: int) -> None:
     print(f"LLM 清洗 text layouts: {done}/{total}", flush=True)
+
+
+def log_card_progress(done: int, total: int) -> None:
+    print(f"LLM 生成 recommendation cards: {done}/{total}", flush=True)
 
 
 def extract_population_from_filename(
@@ -317,6 +354,7 @@ def parse_ocr_payload(
     summary: dict[str, Any],
     llm_workers: int,
 ) -> list[ClinicalTextUnit]:
+    """从 OCR parse_result.json 中提取文本布局，清洗过滤后构建 ClinicalTextUnit 列表"""
     layouts = extract_layouts(payload, summary)
     apply_section_paths(layouts)
     ordered_layouts = sort_reading_order(layouts, payload)
@@ -359,7 +397,6 @@ def parse_ocr_payload(
                 reason="llm_conclusion",
                 text=layout.text,
             )
-        # TODO：这里的section_reference是什么意思？
         elif section_is_reference(layout.section_path):
             add_discarded_layout(
                 summary,
@@ -635,7 +672,65 @@ def should_merge(previous: ClinicalTextUnit, current: ClinicalTextUnit) -> bool:
     return True
 
 
-def unit_to_card(unit: ClinicalTextUnit, payload: Mapping[str, Any]) -> dict[str, Any]:
+def build_cards(
+    units: Sequence[ClinicalTextUnit],
+    payload: Mapping[str, Any],
+    client: Any,
+    clinical_stage_cache: dict[str, str],
+    llm_workers: int,
+) -> list[dict[str, Any]]:
+    card_units = [unit for unit in units if not section_is_reference(unit.section_path)]
+    total = len(card_units)
+    if total == 0:
+        log_card_progress(0, 0)
+        return []
+
+    log_card_progress(0, total)
+    staged_units = [
+        (unit, clinical_stage(unit.section_path, client=client, cache=clinical_stage_cache))
+        for unit in card_units
+    ]
+
+    if llm_workers <= 1 or total <= 1:
+        cards: list[dict[str, Any]] = []
+        for index, (unit, stage) in enumerate(staged_units, 1):
+            cards.append(build_card(unit, payload, stage, client))
+            if should_log_llm_progress(index, total):
+                log_card_progress(index, total)
+        return cards
+
+    cards_by_index: list[dict[str, Any] | None] = [None] * total
+    with ThreadPoolExecutor(max_workers=llm_workers) as executor:
+        futures = {
+            executor.submit(build_card, unit, payload, stage, client): index
+            for index, (unit, stage) in enumerate(staged_units)
+        }
+        for done, future in enumerate(as_completed(futures), 1):
+            index = futures[future]
+            cards_by_index[index] = future.result()
+            if should_log_llm_progress(done, total):
+                log_card_progress(done, total)
+
+    return [card for card in cards_by_index if card is not None]
+
+
+def build_card(
+    unit: ClinicalTextUnit,
+    payload: Mapping[str, Any],
+    clinical_stage_value: str,
+    client: Any,
+) -> dict[str, Any]:
+    task = clinical_task(clinical_stage_value, unit.raw_text, client=client)
+    return unit_to_card(unit, payload, clinical_stage_value, task)
+
+
+def unit_to_card(
+    unit: ClinicalTextUnit,
+    payload: Mapping[str, Any],
+    clinical_stage_value: str,
+    clinical_task_value: str,
+) -> dict[str, Any]:
+    """将 ClinicalTextUnit 转换为 recommendation_card dict，guideline 信息来自 payload"""
     guideline_title = guideline_name(payload)
     source_file = source_file_name(payload)
     raw_text = unit.raw_text
@@ -649,8 +744,8 @@ def unit_to_card(unit: ClinicalTextUnit, payload: Mapping[str, Any]) -> dict[str
             "source_file": source_file,
             "doc_type": "ocr_parse_result",
         },
-        "clinical_stage": clinical_stage(unit.section_path),
-        "clinical_task": None,
+        "clinical_stage": clinical_stage_value,
+        "clinical_task": clinical_task_value,
         "population": unit.population,
         "condition": None,
         "raw_chunk_text": raw_text,
@@ -677,17 +772,44 @@ def unit_to_card(unit: ClinicalTextUnit, payload: Mapping[str, Any]) -> dict[str
     }
 
 
-def clinical_stage(section_path: Sequence[str]) -> str:
-    section_text = " / ".join(section_path)
-    if "参考文献" in section_text:
-        return "reference"
-    if "诊断" in section_text or "璇婃柇" in section_text:
-        return "diagnosis"
-    if "治疗" in section_text or "娌荤枟" in section_text:
-        return "treatment"
-    if "病因" in section_text or "鐥呭洜" in section_text:
-        return "etiology"
-    return "unknown"
+def clinical_stage(section_path: Sequence[str], *, client: Any, cache: dict[str, str]) -> str:
+    cache_key = json.dumps([clean_text(part) for part in section_path], ensure_ascii=False, separators=(",", ":"))
+    if cache_key in cache:
+        return normalize_clinical_stage(cache[cache_key])
+
+    payload = client.chat_json(
+        CLINICAL_STAGE_SYSTEM_PROMPT,
+        json.dumps({"section_path": list(section_path)}, ensure_ascii=False),
+    )
+    stage = normalize_clinical_stage(clean_text(payload.get("clinical_stage")))
+    cache[cache_key] = stage
+    return stage
+
+
+def normalize_clinical_stage(value: Any) -> str:
+    text = clean_text(value)
+    return text if text in ALLOWED_CLINICAL_STAGES else "其他流程"
+
+
+def clinical_task(clinical_stage_value: str, raw_text: str, *, client: Any) -> str:
+    stage = normalize_clinical_stage(clinical_stage_value)
+    if stage not in {"诊断评估流程", "治疗流程"}:
+        return "未知"
+
+    payload = client.chat_json(
+        CLINICAL_TASK_SYSTEM_PROMPT,
+        json.dumps({"clinical_stage": stage, "raw_text": raw_text}, ensure_ascii=False),
+    )
+    return normalize_clinical_task(stage, clean_text(payload.get("clinical_task")))
+
+
+def normalize_clinical_task(clinical_stage_value: str, value: Any) -> str:
+    text = clean_text(value)
+    if clinical_stage_value == "诊断评估流程" and text in DIAGNOSIS_CLINICAL_TASKS:
+        return text
+    if clinical_stage_value == "治疗流程" and text in TREATMENT_CLINICAL_TASKS:
+        return text
+    return "未知"
 
 
 def section_is_reference(section_path: Sequence[str]) -> bool:
