@@ -7,7 +7,6 @@ import re
 import sys
 import unicodedata
 from collections import Counter, OrderedDict, defaultdict
-from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
@@ -22,9 +21,9 @@ from skill_engine.hpo_extractor import (
     DEFAULT_DEFINITION2ID_PATH,
     DEFAULT_DEFINITION_EMBEDDINGS_PATH,
     DEFAULT_MODEL_PATH,
+    HPO_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS,
     HpoExtractor,
 )
-from skill_engine.hpo_features import build_mapped_hpo_features
 from skill_engine.llm_client import OpenAICompatibleJsonChatClient, load_llm_config_from_env
 
 NORMALIZE_BRANCH_COUNTS: Counter[str] = Counter()
@@ -400,16 +399,12 @@ def build_routing_profile(
         "symptoms": [],
     }
     feature_seen: dict[str, set[str]] = {key: set() for key in positive_features}
-    phenotype_sources = _extract_hpo_phenotype_sources_from_cards(
+    hpo_features = hpo_extractor.extract_hpo_from_cards(
         cards,
-        hpo_extractor=hpo_extractor,
-        deepseek_client=deepseek_client,
+        deepseek_client,
         hpo_workers=hpo_workers,
+        prompt=HPO_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS,
     )
-    phenotypes = _dedupe_texts(item["phenotype"] for item in phenotype_sources)
-    mappings = hpo_extractor.map_phenotypes_to_hpo(phenotypes)
-    hpo_features = build_mapped_hpo_features(mappings)
-    _attach_card_ids_to_hpo_features(hpo_features, phenotype_sources)
     _add_hpo_positive_features(
         positive_features,
         feature_seen,
@@ -432,84 +427,6 @@ def build_routing_profile(
             "mapping": _build_card_evidence_mapping(cards),
         },
     }
-
-
-def _extract_hpo_phenotype_sources_from_cards(
-    cards: Sequence[Mapping[str, Any]],
-    *,
-    hpo_extractor: HpoExtractor,
-    deepseek_client: Any,
-    hpo_workers: int,
-) -> list[dict[str, str]]:
-    candidates = [
-        (_clean_text(card.get("card_id")), _clean_text(card.get("raw_chunk_text")))
-        for card in cards
-    ]
-    workers = max(1, int(hpo_workers or 1))
-    if workers <= 1 or len(candidates) <= 1:
-        return _dedupe_phenotype_sources(
-            {
-                "phenotype": phenotype,
-                "card_id": card_id,
-            }
-            for card_id, text in candidates
-            if card_id
-            for phenotype in hpo_extractor.extract_phenotypes(text, deepseek_client)
-        )
-
-    with ThreadPoolExecutor(max_workers=workers) as executor:
-        phenotype_groups = list(
-            executor.map(
-                lambda item: hpo_extractor.extract_phenotypes(item[1], deepseek_client),
-                candidates,
-            )
-        )
-    return _dedupe_phenotype_sources(
-        {
-            "phenotype": phenotype,
-            "card_id": card_id,
-        }
-        for (card_id, _text), group in zip(candidates, phenotype_groups, strict=False)
-        if card_id
-        for phenotype in group
-    )
-
-
-def _dedupe_phenotype_sources(values: Iterable[Mapping[str, Any]]) -> list[dict[str, str]]:
-    seen: set[tuple[str, str]] = set()
-    deduped: list[dict[str, str]] = []
-    for value in values:
-        phenotype = _clean_text(value.get("phenotype"))
-        card_id = _clean_text(value.get("card_id"))
-        key = (_normalize_key(phenotype), card_id)
-        if not key[0] or not key[1] or key in seen:
-            continue
-        seen.add(key)
-        deduped.append({"phenotype": phenotype, "card_id": card_id})
-    return deduped
-
-
-def _attach_card_ids_to_hpo_features(
-    features: Sequence[dict[str, Any]],
-    phenotype_sources: Sequence[Mapping[str, Any]],
-) -> None:
-    sources_by_phenotype: dict[str, list[str]] = defaultdict(list)
-    seen_by_phenotype: dict[str, set[str]] = defaultdict(set)
-    for source in phenotype_sources:
-        phenotype = _clean_text(source.get("phenotype"))
-        card_id = _clean_text(source.get("card_id"))
-        key = _normalize_key(phenotype)
-        if not key or not card_id or card_id in seen_by_phenotype[key]:
-            continue
-        seen_by_phenotype[key].add(card_id)
-        sources_by_phenotype[key].append(card_id)
-
-    for feature in features:
-        key = _normalize_key(_clean_text(feature.get("name")))
-        card_ids = sources_by_phenotype.get(key)
-        if card_ids:
-            feature["card_id"] = list(card_ids)
-
 
 def _build_card_evidence_mapping(cards: Sequence[Mapping[str, Any]]) -> dict[str, dict[str, Any]]:
     mapping: dict[str, dict[str, Any]] = {}
@@ -1023,9 +940,6 @@ def validate_cross_references(
         expected_dir = Path(output_dir)
         if output_package_name:
             expected_dir = expected_dir / output_package_name
-        expected = expected_dir / cards_path
-        if expected.name != "result.jsonl":
-            errors.append(f"knowledge_base.cards_path does not point to result.jsonl: {expected}")
 
     if errors:
         raise BuildSkillPackError("cross-reference validation failed:\n" + "\n".join(errors))
@@ -1074,11 +988,17 @@ def write_skill_pack(
     return target_dir
 
 
-def build_default_hpo_dependencies() -> tuple[HpoExtractor, OpenAICompatibleJsonChatClient]:
+def build_default_hpo_dependencies(
+    hpo_similarity_threshold: float | None = None,
+) -> tuple[HpoExtractor, OpenAICompatibleJsonChatClient]:
+    hpo_kwargs: dict[str, Any] = {}
+    if hpo_similarity_threshold is not None:
+        hpo_kwargs["similarity_threshold"] = hpo_similarity_threshold
     hpo_extractor = HpoExtractor.from_paths(
         model_path=DEFAULT_MODEL_PATH,
         definition2id_path=DEFAULT_DEFINITION2ID_PATH,
         definition_embeddings_path=DEFAULT_DEFINITION_EMBEDDINGS_PATH,
+        **hpo_kwargs,
     )
     deepseek_client = OpenAICompatibleJsonChatClient(load_llm_config_from_env())
     return hpo_extractor, deepseek_client
@@ -1145,11 +1065,17 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     parser.add_argument("--schema-version", default="0.3", help="Skill schema_version, e.g. 0.3.")
     parser.add_argument(
+        "--hpo-summary-output",
+        default=None,
+        help="Optional HPO summary JSON path. Defaults to skill_summary.json next to each input JSONL.",
+    )
+    parser.add_argument(
         "--hpo-workers",
         type=int,
         default=1,
         help="Concurrent LLM calls for HPO phenotype extraction. Defaults to 1.",
     )
+    parser.add_argument("--hpo-similarity-threshold", type=_similarity_threshold)
     parser.add_argument("--force", action="store_true", help="Overwrite existing output files.")
     parser.add_argument("--dry-run", action="store_true", help="Build and validate without writing files.")
     args = parser.parse_args(argv)
@@ -1157,7 +1083,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     try:
         card_sources = discover_cards_sources(args.cards)
         taxonomy = load_taxonomy(args.taxonomy)
-        hpo_extractor, deepseek_client = build_default_hpo_dependencies()
+        hpo_extractor, deepseek_client = build_default_hpo_dependencies(args.hpo_similarity_threshold)
         results = []
         total_sources = len(card_sources)
         for index, cards_source in enumerate(card_sources, 1):
@@ -1176,6 +1102,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 deepseek_client=deepseek_client,
                 hpo_workers=args.hpo_workers,
             )
+            hpo_summary_path = _hpo_summary_output_path(cards_source, args.hpo_summary_output)
             package_name = infer_output_package_name(cards_source) if args.out_dir else None
             output_dir = Path(args.out_dir) if args.out_dir else cards_source.parent
             log_build_step(index, total_sources, "校验 skill pack...")
@@ -1195,6 +1122,8 @@ def main(argv: Sequence[str] | None = None) -> int:
                 force=args.force,
                 dry_run=args.dry_run,
             )
+            if not args.dry_run:
+                hpo_extractor.write_last_summary(hpo_summary_path)
             results.append(
                 {
                     "cards_source": str(cards_source),
@@ -1205,6 +1134,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                     "output_dir": str(target_dir),
                     "skill_yaml": str(target_dir / "skill.yaml"),
                     "result_jsonl": str(cards_source),
+                    "hpo_summary": str(hpo_summary_path),
                     "schema_validation": "pass",
                 }
             )
@@ -1229,6 +1159,22 @@ def main(argv: Sequence[str] | None = None) -> int:
     print(f"build_skill_pack 完成: 处理 {len(results)} 个 JSONL", flush=True)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
+
+
+def _hpo_summary_output_path(cards_source: Path, explicit_path: str | None) -> Path:
+    if explicit_path:
+        return Path(explicit_path)
+    return cards_source.parent / "skill_summary.json"
+
+
+def _similarity_threshold(value: str) -> float:
+    try:
+        threshold = float(value)
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError("must be a number between 0 and 1") from exc
+    if not 0 <= threshold <= 1:
+        raise argparse.ArgumentTypeError("must be between 0 and 1")
+    return threshold
 
 
 def _load_json(path: Path) -> dict[str, Any]:

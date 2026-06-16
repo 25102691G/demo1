@@ -48,6 +48,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--top-k", type=int, default=5)
     parser.add_argument("--min-score", type=float)
     parser.add_argument("--hpo-similarity-threshold", type=_similarity_threshold)
+    parser.add_argument(
+        "--hpo-summary-output",
+        default=None,
+        help="Optional extra HPO summary JSON path. By default, HPO summary is embedded in workflow output.",
+    )
     parser.add_argument("--debug", action="store_true")
     parser.add_argument("--print-canonical-case", action="store_true")
     args = parser.parse_args(argv)
@@ -109,9 +114,14 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.print_canonical_case:
         print(json.dumps(canonical_case, ensure_ascii=False, indent=2))
+    output["hpo_summary"] = hpo_extractor.get_last_summary()
     out_path = _default_output_path()
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    if args.hpo_summary_output:
+        hpo_summary_path = _hpo_summary_output_path(args)
+        hpo_extractor.write_last_summary(hpo_summary_path)
+        print(f"hpo_summary written to {hpo_summary_path}")
     print(f"workflow_output written to {out_path}")
     return 0
 
@@ -135,6 +145,12 @@ def _resolve(path: str | Path) -> Path:
 def _default_output_path() -> Path:
     filename = datetime.now().strftime("%Y%m%d_%H_%M.json")
     return ROOT / "data" / "runs" / filename
+
+
+def _hpo_summary_output_path(args: argparse.Namespace) -> Path:
+    if args.hpo_summary_output:
+        return _resolve(args.hpo_summary_output)
+    raise ValueError("--hpo-summary-output is required")
 
 
 def _similarity_threshold(value: str) -> float:

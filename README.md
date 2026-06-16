@@ -136,22 +136,14 @@ data/skills/<指南名>/
 单文件构建示例：
 
 ```powershell
-python scripts/build_skill_pack.py --cards data/skills/中国克罗恩病诊治指南（2023年·广州）/result.jsonl --force --hpo-workers 4
+python scripts/build_skill_pack.py --cards data/skills/中国克罗恩病诊治指南（2023年·广州）/recommendation_card.jsonl --force --hpo-workers 4 --hpo-similarity-threshold 0.7
 ```
 
 批量构建示例：
 
 ```powershell
-python scripts/build_skill_pack.py --cards data/skills --force --hpo-workers 4
+python scripts/build_skill_pack.py --cards data/skills --force --hpo-workers 4 --hpo-similarity-threshold 0.7
 ```
-
-只校验不写文件：
-
-```powershell
-python scripts/build_skill_pack.py --cards data/skills --skill-schema schema/skill_pack.schema.json --card-schema schema/recommendation_card.schema.json --schema-version 0.3 --dry-run
-```
-
-运行时会在控制台打印当前处理的 JSONL 序号、剩余数量、读取/校验/构建/写出阶段和最终输出路径。
 
 ## 5. 运行 SkillEngine
 
@@ -173,7 +165,7 @@ python scripts/build_skill_pack.py --cards data/skills --skill-schema schema/ski
 示例：
 
 ```powershell
-python scripts/run_skill_engine.py --input-text "进镜至回肠末端，回盲瓣变形，回盲瓣口及回肠末端四壁散在形态不规则溃疡，部分呈纵形分布，表面覆大量浓稠白色粘液，回肠末端四壁皱襞纠集，肠腔狭窄，内镜无法通过。于回肠末端溃疡周边活检4块，质软。所见升结肠、横结肠、降结肠、乙状结肠粘膜光滑。距肛门15cm以下直肠四壁散在点状糜烂及浅溃疡，血管纹理模糊。于回盲部、升结肠、横结肠、降结肠、乙状结肠、直肠各活检2块，组织软。" --debug --hpo-similarity-threshold 0.75
+python scripts/run_skill_engine.py --input-text "进镜至回肠末端，回盲瓣变形，回盲瓣口及回肠末端四壁散在形态不规则溃疡，部分呈纵形分布，表面覆大量浓稠白色粘液，回肠末端四壁皱襞纠集，肠腔狭窄，内镜无法通过。于回肠末端溃疡周边活检4块，质软。所见升结肠、横结肠、降结肠、乙状结肠粘膜光滑。距肛门15cm以下直肠四壁散在点状糜烂及浅溃疡，血管纹理模糊。于回盲部、升结肠、横结肠、降结肠、乙状结肠、直肠各活检2块，组织软。" --debug --hpo-similarity-threshold 0.7
 ```
 
 ## 输出文件

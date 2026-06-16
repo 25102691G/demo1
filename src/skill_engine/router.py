@@ -152,7 +152,13 @@ def _load_hpo_code_terms(path: Path = DEFAULT_DEFINITION2ID_PATH) -> dict[str, s
         term_text = clean_text(term)
         if not term_text:
             continue
-        codes = value if isinstance(value, list) else [value]
+        if isinstance(value, Mapping):
+            raw_codes = value.get("hpo_ids")
+            if raw_codes is None:
+                raw_codes = value.get("hpo_id") or value.get("id")
+            codes = raw_codes if isinstance(raw_codes, list) else [raw_codes]
+        else:
+            codes = value if isinstance(value, list) else [value]
         for code in codes:
             code_text = clean_text(code)
             if code_text and code_text not in code_terms:

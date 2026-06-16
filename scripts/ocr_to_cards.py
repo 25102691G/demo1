@@ -339,6 +339,8 @@ def parse_ocr_payload(
                 reason="llm_reference",
                 text=layout.text,
             )
+        # TODO：这里的section_reference是什么意思？
+        # TODO：考虑添加摘要部分，也需要移除。
         elif section_is_reference(layout.section_path):
             add_discarded_layout(
                 summary,
