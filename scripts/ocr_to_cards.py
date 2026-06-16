@@ -39,6 +39,8 @@ class OcrLayout:
     section_path: list[str] = field(default_factory=list)
     is_metadata: bool = False
     is_reference: bool = False
+    is_abstract: bool = False
+    is_conclusion: bool = False
     action_summary: str | None = None
 
 
@@ -148,7 +150,7 @@ def default_output_path(input_path: Path) -> Path:
 
 
 def default_summary_path(input_path: Path) -> Path:
-    return input_path.parent / "summary.json"
+    return input_path.parent / "ocr_summary.json"
 
 
 def log_file_start(index: int, total: int, input_path: Path) -> None:
@@ -339,8 +341,25 @@ def parse_ocr_payload(
                 reason="llm_reference",
                 text=layout.text,
             )
+        elif layout.is_abstract:
+            add_discarded_layout(
+                summary,
+                layout_id=layout.layout_id,
+                page_num=layout.page_num,
+                layout_type=layout.layout_type,
+                reason="llm_abstract",
+                text=layout.text,
+            )
+        elif layout.is_conclusion:
+            add_discarded_layout(
+                summary,
+                layout_id=layout.layout_id,
+                page_num=layout.page_num,
+                layout_type=layout.layout_type,
+                reason="llm_conclusion",
+                text=layout.text,
+            )
         # TODO：这里的section_reference是什么意思？
-        # TODO：考虑添加摘要部分，也需要移除。
         elif section_is_reference(layout.section_path):
             add_discarded_layout(
                 summary,
@@ -487,7 +506,7 @@ def should_log_llm_progress(done: int, total: int) -> bool:
 def enrich_layout_with_llm(layout: OcrLayout, client: Any) -> None:
     payload = client.chat_json(
         system_prompt=(
-            "你是医学指南 OCR 文本清洗助手。判断输入文本是否为正文、明显元信息或参考文献内容，"
+            "你是医学指南 OCR 文本清洗助手。判断输入文本是否为正文、明显元信息、摘要、总结展望或参考文献内容，"
             "并在正文时给出一句简短 action 摘要。只输出 JSON。"
         ),
         user_prompt=json.dumps(
@@ -497,6 +516,8 @@ def enrich_layout_with_llm(layout: OcrLayout, client: Any) -> None:
                 "output_schema": {
                     "is_metadata": "boolean",
                     "is_reference": "boolean",
+                    "is_abstract": "boolean",
+                    "is_conclusion": "boolean",
                     "action_summary": "string or null",
                 },
                 "metadata_examples": [
@@ -508,12 +529,28 @@ def enrich_layout_with_llm(layout: OcrLayout, client: Any) -> None:
                     "页码",
                     "期刊页眉",
                 ],
+                "abstract_examples": [
+                    "摘要",
+                    "Abstract",
+                    "关键词",
+                    "Key words",
+                ],
+                "conclusion_examples": [
+                    "总结",
+                    "结语",
+                    "展望",
+                    "总结与展望",
+                    "Conclusion",
+                    "Future perspectives",
+                ],
             },
             ensure_ascii=False,
         ),
     )
     layout.is_metadata = bool(payload.get("is_metadata"))
     layout.is_reference = bool(payload.get("is_reference"))
+    layout.is_abstract = bool(payload.get("is_abstract"))
+    layout.is_conclusion = bool(payload.get("is_conclusion"))
     action_summary = clean_text(payload.get("action_summary"))
     layout.action_summary = action_summary or None
 
@@ -521,7 +558,13 @@ def enrich_layout_with_llm(layout: OcrLayout, client: Any) -> None:
 def build_units(layouts: Sequence[OcrLayout], *, disease: str, population: str | None) -> list[ClinicalTextUnit]:
     units: list[ClinicalTextUnit] = []
     for layout in layouts:
-        if layout.is_metadata or layout.is_reference or section_is_reference(layout.section_path):
+        if (
+            layout.is_metadata
+            or layout.is_reference
+            or layout.is_abstract
+            or layout.is_conclusion
+            or section_is_reference(layout.section_path)
+        ):
             continue
         units.append(
             ClinicalTextUnit(
@@ -576,12 +619,17 @@ def merged_layout_groups(units: Sequence[ClinicalTextUnit]) -> list[dict[str, An
 
 
 def should_merge(previous: ClinicalTextUnit, current: ClinicalTextUnit) -> bool:
+    # layout merge 条件
+    # 1、两段必须属于同一个 section_path
     if previous.section_path != current.section_path:
         return False
+    # 2、前一段不能已经是完整句子，完整句子判断是末尾是否为句号、问号、冒号等结束标点
     if is_complete_sentence(previous.raw_text):
         return False
+    # 3、当前段不能是新的编号小节
     if NEW_NUMBERED_SECTION_RE.match(current.raw_text):
         return False
+    # 4、不能是参考文献章节
     if section_is_reference(current.section_path):
         return False
     return True
