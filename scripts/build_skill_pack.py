@@ -24,6 +24,12 @@ from skill_engine.hpo_extractor import (
     HPO_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS,
     HpoExtractor,
 )
+from skill_engine.icd_extractor import (
+    DEFAULT_ICD10_EMBEDDINGS_PATH,
+    DEFAULT_ICD10_PATH,
+    ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS,
+    IcdExtractor,
+)
 from skill_engine.llm_client import OpenAICompatibleJsonChatClient, load_llm_config_from_env
 
 NORMALIZE_BRANCH_COUNTS: Counter[str] = Counter()
@@ -391,24 +397,25 @@ def build_routing_profile(
     cards: Sequence[Mapping[str, Any]],
     metadata: Mapping[str, Any],
     *,
-    hpo_extractor: HpoExtractor,
+    feature_extractor: Any,
+    feature_mode: str,
     deepseek_client: Any,
     llm_workers: int = 1,
 ) -> dict[str, Any]:
-    positive_features: dict[str, list[dict[str, Any]]] = {
-        "symptoms": [],
-    }
+    feature_bucket = _feature_bucket_for_mode(feature_mode)
+    positive_features: dict[str, list[dict[str, Any]]] = {feature_bucket: []}
     feature_seen: dict[str, set[str]] = {key: set() for key in positive_features}
-    hpo_features = hpo_extractor.extract_hpo_from_cards(
-        cards,
-        deepseek_client,
+    extracted_features = _extract_features_from_cards(
+        cards=cards,
+        feature_extractor=feature_extractor,
+        feature_mode=feature_mode,
+        deepseek_client=deepseek_client,
         llm_workers=llm_workers,
-        prompt=HPO_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS,
     )
     _add_hpo_positive_features(
         positive_features,
         feature_seen,
-        {"symptoms": hpo_features},
+        {feature_bucket: extracted_features},
     )
 
     return {
@@ -819,7 +826,8 @@ def build_skill_pack(
     taxonomy: Mapping[str, TaxonomyEntry],
     *,
     schema_version: str = "0.3",
-    hpo_extractor: HpoExtractor,
+    feature_extractor: Any,
+    feature_mode: str,
     deepseek_client: Any,
     llm_workers: int = 1,
 ) -> dict[str, Any]:
@@ -830,7 +838,8 @@ def build_skill_pack(
         "routing_profile": build_routing_profile(
             cards,
             metadata,
-            hpo_extractor=hpo_extractor,
+            feature_extractor=feature_extractor,
+            feature_mode=feature_mode,
             deepseek_client=deepseek_client,
             llm_workers=llm_workers,
         ),
@@ -951,6 +960,7 @@ def write_skill_pack(
     out_dir: str | Path,
     *,
     output_package_name: str | None = None,
+    skill_filename: str = "skill.yaml",
     force: bool = False,
     dry_run: bool = False,
 ) -> Path:
@@ -967,9 +977,9 @@ def write_skill_pack(
     target_dir = Path(out_dir)
     if output_package_name:
         target_dir = target_dir / output_package_name
-    skill_path = target_dir / "skill.yaml"
+    skill_path = target_dir / skill_filename
     if skill_path.exists() and not force and not dry_run:
-        raise BuildSkillPackError(f"skill.yaml already exists: {skill_path}; use --force to overwrite")
+        raise BuildSkillPackError(f"{skill_filename} already exists: {skill_path}; use --force to overwrite")
     if dry_run:
         return target_dir
 
@@ -989,11 +999,11 @@ def write_skill_pack(
 
 
 def build_default_hpo_dependencies(
-    hpo_similarity_threshold: float | None = None,
+    similarity_threshold: float | None = None,
 ) -> tuple[HpoExtractor, OpenAICompatibleJsonChatClient]:
     hpo_kwargs: dict[str, Any] = {}
-    if hpo_similarity_threshold is not None:
-        hpo_kwargs["similarity_threshold"] = hpo_similarity_threshold
+    if similarity_threshold is not None:
+        hpo_kwargs["similarity_threshold"] = similarity_threshold
     hpo_extractor = HpoExtractor.from_paths(
         model_path=DEFAULT_MODEL_PATH,
         definition2id_path=DEFAULT_DEFINITION2ID_PATH,
@@ -1002,6 +1012,66 @@ def build_default_hpo_dependencies(
     )
     deepseek_client = OpenAICompatibleJsonChatClient(load_llm_config_from_env())
     return hpo_extractor, deepseek_client
+
+
+def build_default_icd10_dependencies(
+    similarity_threshold: float | None = None,
+) -> tuple[IcdExtractor, OpenAICompatibleJsonChatClient]:
+    icd_kwargs: dict[str, Any] = {}
+    if similarity_threshold is not None:
+        icd_kwargs["similarity_threshold"] = similarity_threshold
+    icd_extractor = IcdExtractor.from_paths(
+        model_path=DEFAULT_MODEL_PATH,
+        icd10_path=DEFAULT_ICD10_PATH,
+        icd10_embeddings_path=DEFAULT_ICD10_EMBEDDINGS_PATH,
+        **icd_kwargs,
+    )
+    deepseek_client = OpenAICompatibleJsonChatClient(load_llm_config_from_env())
+    return icd_extractor, deepseek_client
+
+
+def build_default_feature_dependencies(
+    feature_mode: str,
+    similarity_threshold: float | None = None,
+) -> tuple[Any, OpenAICompatibleJsonChatClient]:
+    if feature_mode == "hpo":
+        return build_default_hpo_dependencies(similarity_threshold)
+    if feature_mode == "icd10":
+        return build_default_icd10_dependencies(similarity_threshold)
+    raise BuildSkillPackError(f"unsupported feature mode: {feature_mode}")
+
+
+def _feature_bucket_for_mode(feature_mode: str) -> str:
+    if feature_mode == "hpo":
+        return "symptoms"
+    if feature_mode == "icd10":
+        return "diagnoses"
+    raise BuildSkillPackError(f"unsupported feature mode: {feature_mode}")
+
+
+def _extract_features_from_cards(
+    *,
+    cards: Sequence[Mapping[str, Any]],
+    feature_extractor: Any,
+    feature_mode: str,
+    deepseek_client: Any,
+    llm_workers: int,
+) -> list[dict[str, Any]]:
+    if feature_mode == "hpo":
+        return feature_extractor.extract_hpo_from_cards(
+            cards,
+            deepseek_client,
+            llm_workers=llm_workers,
+            prompt=HPO_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS,
+        )
+    if feature_mode == "icd10":
+        return feature_extractor.extract_icd_from_cards(
+            cards,
+            deepseek_client,
+            llm_workers=llm_workers,
+            prompt=ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS,
+        )
+    raise BuildSkillPackError(f"unsupported feature mode: {feature_mode}")
 
 
 def log_build_start(index: int, total: int, cards_source: Path) -> None:
@@ -1046,7 +1116,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument(
         "--out-dir",
         default=None,
-        help="Optional output root. Defaults to writing skill.yaml next to each input result.jsonl.",
+        help="Optional output root. Defaults to writing skill_hpo.yaml or skill_icd10.yaml next to each input result.jsonl.",
     )
     parser.add_argument(
         "--skill-schema",
@@ -1063,19 +1133,22 @@ def main(argv: Sequence[str] | None = None) -> int:
         default="configs/subskill_taxonomy.yaml",
         help="Optional subskill taxonomy YAML path.",
     )
+    feature_group = parser.add_mutually_exclusive_group(required=True)
+    feature_group.add_argument("--hpo", action="store_true", help="Use HPO feature extraction.")
+    feature_group.add_argument("--icd10", action="store_true", help="Use ICD10 feature extraction.")
     parser.add_argument("--schema-version", default="0.3", help="Skill schema_version, e.g. 0.3.")
     parser.add_argument(
         "--hpo-summary-output",
         default=None,
-        help="Optional HPO summary JSON path. Defaults to skill_summary.json next to each input JSONL.",
+        help="Optional feature summary JSON path. Defaults to hpo_skill_summary.json or icd10_skill_summary.json next to each input JSONL.",
     )
     parser.add_argument(
         "--llm-workers",
         type=int,
         default=20,
-        help="Concurrent LLM calls for HPO phenotype extraction. Defaults to 20.",
+        help="Concurrent LLM calls for feature extraction. Defaults to 20.",
     )
-    parser.add_argument("--hpo-similarity-threshold", type=_similarity_threshold)
+    parser.add_argument("--similarity-threshold", type=_similarity_threshold)
     parser.add_argument("--force", action="store_true", help="Overwrite existing output files.")
     parser.add_argument("--dry-run", action="store_true", help="Build and validate without writing files.")
     args = parser.parse_args(argv)
@@ -1083,7 +1156,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     try:
         card_sources = discover_cards_sources(args.cards)
         taxonomy = load_taxonomy(args.taxonomy)
-        hpo_extractor, deepseek_client = build_default_hpo_dependencies(args.hpo_similarity_threshold)
+        feature_mode = _feature_mode_from_args(args)
+        skill_filename = _skill_filename_for_mode(feature_mode)
+        feature_extractor, deepseek_client = build_default_feature_dependencies(
+            feature_mode,
+            args.similarity_threshold,
+        )
         results = []
         total_sources = len(card_sources)
         for index, cards_source in enumerate(card_sources, 1):
@@ -1093,16 +1171,25 @@ def main(argv: Sequence[str] | None = None) -> int:
             log_build_step(index, total_sources, f"读取完成: {len(loaded_cards)} 张 card")
             log_build_step(index, total_sources, "校验 recommendation_card schema...")
             cards = validate_cards(loaded_cards, args.card_schema)
-            log_build_step(index, total_sources, f"构建 skill pack，HPO workers={args.llm_workers}...")
+            log_build_step(
+                index,
+                total_sources,
+                f"构建 skill pack，feature={feature_mode}, workers={args.llm_workers}...",
+            )
             skill_dict = build_skill_pack(
                 cards,
                 taxonomy,
                 schema_version=args.schema_version,
-                hpo_extractor=hpo_extractor,
+                feature_extractor=feature_extractor,
+                feature_mode=feature_mode,
                 deepseek_client=deepseek_client,
                 llm_workers=args.llm_workers,
             )
-            hpo_summary_path = _hpo_summary_output_path(cards_source, args.hpo_summary_output)
+            feature_summary_path = _hpo_summary_output_path(
+                cards_source,
+                args.hpo_summary_output,
+                feature_mode=feature_mode,
+            )
             package_name = infer_output_package_name(cards_source) if args.out_dir else None
             output_dir = Path(args.out_dir) if args.out_dir else cards_source.parent
             log_build_step(index, total_sources, "校验 skill pack...")
@@ -1113,28 +1200,30 @@ def main(argv: Sequence[str] | None = None) -> int:
                 output_package_name=package_name,
             )
             validate_skill_schema(skill_dict, args.skill_schema)
-            log_build_step(index, total_sources, "写出 skill.yaml...")
+            log_build_step(index, total_sources, f"写出 {skill_filename}...")
             target_dir = write_skill_pack(
                 skill_dict,
                 cards,
                 output_dir,
                 output_package_name=package_name,
+                skill_filename=skill_filename,
                 force=args.force,
                 dry_run=args.dry_run,
             )
             if not args.dry_run:
-                hpo_extractor.write_last_summary(hpo_summary_path)
+                feature_extractor.write_last_summary(feature_summary_path)
             results.append(
                 {
                     "cards_source": str(cards_source),
+                    "feature_mode": feature_mode,
                     "package_name": package_name or cards_source.parent.name,
                     "skill_id": skill_dict["metadata"]["skill_id"],
                     "card_count": len(cards),
                     "subskill_count": len(skill_dict["subskills"]),
                     "output_dir": str(target_dir),
-                    "skill_yaml": str(target_dir / "skill.yaml"),
+                    "skill_yaml": str(target_dir / skill_filename),
                     "result_jsonl": str(cards_source),
-                    "hpo_summary": str(hpo_summary_path),
+                    "feature_summary": str(feature_summary_path),
                     "schema_validation": "pass",
                 }
             )
@@ -1144,7 +1233,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 cards_source,
                 card_count=len(cards),
                 subskill_count=len(skill_dict["subskills"]),
-                skill_yaml=target_dir / "skill.yaml",
+                skill_yaml=target_dir / skill_filename,
             )
     except BuildSkillPackError as exc:
         print("build_skill_pack: fail", file=sys.stderr)
@@ -1161,10 +1250,31 @@ def main(argv: Sequence[str] | None = None) -> int:
     return 0
 
 
-def _hpo_summary_output_path(cards_source: Path, explicit_path: str | None) -> Path:
+def _hpo_summary_output_path(
+    cards_source: Path,
+    explicit_path: str | None,
+    *,
+    feature_mode: str,
+) -> Path:
     if explicit_path:
         return Path(explicit_path)
-    return cards_source.parent / "skill_summary.json"
+    return cards_source.parent / f"{feature_mode}_skill_summary.json"
+
+
+def _feature_mode_from_args(args: argparse.Namespace) -> str:
+    if args.hpo:
+        return "hpo"
+    if args.icd10:
+        return "icd10"
+    raise BuildSkillPackError("provide exactly one of --hpo or --icd10")
+
+
+def _skill_filename_for_mode(feature_mode: str) -> str:
+    if feature_mode == "hpo":
+        return "skill_hpo.yaml"
+    if feature_mode == "icd10":
+        return "skill_icd10.yaml"
+    raise BuildSkillPackError(f"unsupported feature mode: {feature_mode}")
 
 
 def _similarity_threshold(value: str) -> float:

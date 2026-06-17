@@ -1,5 +1,55 @@
 # Guideline Skill Engine Workflow
 
+## ICD10 数据转换
+
+将医保 ICD10 Excel 第二个 sheet `完整分类与代码` 转换为 JSON：
+
+```powershell
+python scripts/extract_icd10_xlsx_to_json.py
+```
+
+默认输入文件：
+
+```text
+data/ICD10/医保ICD10_v2.0_0122.xlsx
+```
+
+默认输出文件：
+
+```text
+data/ICD10/ICD10.json
+```
+
+输出 JSON 中 key 会转换为英文，value 保持 Excel 原文不变。
+
+## ICD10 向量生成
+
+将 `ICD10.json` 中每一项的 `diagnosis_name` 生成 embedding：
+
+```powershell
+python scripts/build_icd10_embeddings.py
+```
+
+默认输入文件：
+
+```text
+data/ICD10/ICD10.json
+```
+
+默认模型路径：
+
+```text
+data/bge-large-zh-v1.5
+```
+
+默认输出文件：
+
+```text
+data/ICD10/ICD10_embeddings.pt
+```
+
+脚本会自动跳过 `diagnosis_name` 为空的记录。输出 `.pt` 文件为 torch tensor，结构类似 `data/ontology/definition_embeddings.pt`。运行该命令需要当前 Python 环境已安装 `torch` 和 `transformers`。
+
 本项目用于把医学指南 PDF 转为可执行的 guideline skill pack，并通过通用 `SkillEngine` 对病例输入执行 workflow，最终生成符合 schema 的 JSON 输出。
 
 当前主流程：
@@ -104,16 +154,16 @@ data/skills/<指南名>/
 单文件构建示例：
 
 ```powershell
-python scripts/build_skill_pack.py --cards data/skills/中国克罗恩病诊治指南（2023年·广州）/recommendation_card.jsonl --force --hpo-similarity-threshold 0.7
+python scripts/build_skill_pack.py --cards data/skills/中国克罗恩病诊治指南（2023年·广州）/recommendation_card.jsonl --force --similarity-threshold 0.7 --icd10
 ```
 
 批量构建示例：
 
 ```powershell
-python scripts/build_skill_pack.py --cards data/skills --force --hpo-similarity-threshold 0.7
+python scripts/build_skill_pack.py --cards data/skills --force --similarity-threshold 0.7 --icd10
 ```
 
-`--hpo-similarity-threshold` 表示 HPO 匹配相似度门槛值，默认为0.8。
+`--similarity-threshold` 表示特征匹配相似度门槛值，默认为0.8。
 
 ## 4. 运行 SkillEngine
 
@@ -128,10 +178,10 @@ python scripts/build_skill_pack.py --cards data/skills --force --hpo-similarity-
 示例：
 
 ```powershell
-python scripts/run_skill_engine.py --input-text "进镜至回肠末端，回盲瓣变形，回盲瓣口及回肠末端四壁散在形态不规则溃疡，部分呈纵形分布，表面覆大量浓稠白色粘液，回肠末端四壁皱襞纠集，肠腔狭窄，内镜无法通过。于回肠末端溃疡周边活检4块，质软。所见升结肠、横结肠、降结肠、乙状结肠粘膜光滑。距肛门15cm以下直肠四壁散在点状糜烂及浅溃疡，血管纹理模糊。于回盲部、升结肠、横结肠、降结肠、乙状结肠、直肠各活检2块，组织软。" --debug --hpo-similarity-threshold 0.7
+python scripts/run_skill_engine.py --input-text "进镜至回肠末端，回盲瓣变形，回盲瓣口及回肠末端四壁散在形态不规则溃疡，部分呈纵形分布，表面覆大量浓稠白色粘液，回肠末端四壁皱襞纠集，肠腔狭窄，内镜无法通过。于回肠末端溃疡周边活检4块，质软。所见升结肠、横结肠、降结肠、乙状结肠粘膜光滑。距肛门15cm以下直肠四壁散在点状糜烂及浅溃疡，血管纹理模糊。于回盲部、升结肠、横结肠、降结肠、乙状结肠、直肠各活检2块，组织软。" --debug --similarity-threshold 0.7 --icd10
 ```
 
-`--hpo-similarity-threshold` 表示 HPO 匹配相似度门槛值，默认为0.8。
+`--similarity-threshold` 表示特征匹配相似度门槛值，默认为0.8。
 
 ## 输出文件
 

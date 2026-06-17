@@ -20,6 +20,11 @@ from skill_engine.hpo_extractor import (
     DEFAULT_MODEL_PATH,
     HpoExtractor,
 )
+from skill_engine.icd_extractor import (
+    DEFAULT_ICD10_EMBEDDINGS_PATH,
+    DEFAULT_ICD10_PATH,
+    IcdExtractor,
+)
 from skill_engine.llm_client import OpenAICompatibleJsonChatClient, load_deepseek_config_from_env
 from skill_engine.output_builder import build_error_output, build_workflow_output
 from skill_engine.router import route_skills
@@ -34,7 +39,11 @@ def main(argv: list[str] | None = None) -> int:
         sys.stderr.reconfigure(encoding="utf-8")
 
     parser = argparse.ArgumentParser(description="Run a generic guideline SkillEngine workflow.")
-    parser.add_argument("--skills-dir", default="data/skills", help="Directory containing */skill.yaml packs.")
+    parser.add_argument(
+        "--skills-dir",
+        default="data/skills",
+        help="Directory containing */skill_hpo.yaml or */skill_icd10.yaml packs.",
+    )
 
     # 输入来源：文本、文件、JSON 三选一。
     input_group = parser.add_mutually_exclusive_group(required=True)
@@ -42,16 +51,19 @@ def main(argv: list[str] | None = None) -> int:
     input_group.add_argument("--input-file", help="Raw case text file.")
     input_group.add_argument("--case-json", help="Partially or fully structured canonical case JSON.")
 
+    feature_group = parser.add_mutually_exclusive_group(required=True)
+    feature_group.add_argument("--hpo", action="store_true", help="Use HPO feature extraction.")
+    feature_group.add_argument("--icd10", action="store_true", help="Use ICD10 feature extraction.")
     parser.add_argument("--skill-schema", default="schema/skill_pack.schema.json")
     parser.add_argument("--case-schema", default="schema/canonical_case.schema.json")
     parser.add_argument("--output-schema", default="schema/workflow_output.schema.json")
     parser.add_argument("--top-k", type=int, default=5)
     parser.add_argument("--min-score", type=float)
-    parser.add_argument("--hpo-similarity-threshold", type=_similarity_threshold)
+    parser.add_argument("--similarity-threshold", type=_similarity_threshold)
     parser.add_argument(
         "--hpo-summary-output",
         default=None,
-        help="Optional extra HPO summary JSON path. By default, HPO summary is embedded in workflow output.",
+        help="Optional extra feature summary JSON path. By default, feature summary is embedded in workflow output.",
     )
     parser.add_argument("--debug", action="store_true")
     parser.add_argument("--print-canonical-case", action="store_true")
@@ -59,25 +71,36 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         raw_input = _read_raw_input(args)
-        hpo_extractor, deepseek_client = _build_hpo_dependencies(args.hpo_similarity_threshold)
+        feature_mode = _feature_mode_from_args(args)
+        skill_filename = _skill_filename_for_mode(feature_mode)
+        feature_extractor, deepseek_client = _build_feature_dependencies(
+            feature_mode,
+            args.similarity_threshold,
+        )
 
         if args.case_json:
             canonical_case = normalize_case_from_json(
                 load_case_json(_resolve(args.case_json)),
                 raw_input,
                 _resolve(args.case_schema),
-                hpo_extractor=hpo_extractor,
                 deepseek_client=deepseek_client,
+                feature_extractor=feature_extractor,
+                feature_mode=feature_mode,
             )
         else:
             canonical_case = normalize_case(
                 raw_input,
                 _resolve(args.case_schema),
-                hpo_extractor=hpo_extractor,
                 deepseek_client=deepseek_client,
+                feature_extractor=feature_extractor,
+                feature_mode=feature_mode,
             )
 
-        packs, load_errors = load_skill_packs(_resolve(args.skills_dir), _resolve(args.skill_schema))
+        packs, load_errors = load_skill_packs(
+            _resolve(args.skills_dir),
+            _resolve(args.skill_schema),
+            skill_filename=skill_filename,
+        )
         if not packs:
             output = build_error_output(
                 canonical_case=canonical_case,
@@ -114,14 +137,15 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.print_canonical_case:
         print(json.dumps(canonical_case, ensure_ascii=False, indent=2))
-    output["hpo_summary"] = hpo_extractor.get_last_summary()
-    out_path = _default_output_path()
+    summary_key = "hpo_summary" if feature_mode == "hpo" else "icd10_summary"
+    output[summary_key] = feature_extractor.get_last_summary()
+    out_path = _default_output_path(feature_mode)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
     if args.hpo_summary_output:
-        hpo_summary_path = _hpo_summary_output_path(args)
-        hpo_extractor.write_last_summary(hpo_summary_path)
-        print(f"hpo_summary written to {hpo_summary_path}")
+        feature_summary_path = _hpo_summary_output_path(args)
+        feature_extractor.write_last_summary(feature_summary_path)
+        print(f"{summary_key} written to {feature_summary_path}")
     print(f"workflow_output written to {out_path}")
     return 0
 
@@ -142,8 +166,8 @@ def _resolve(path: str | Path) -> Path:
     return value if value.is_absolute() else ROOT / value
 
 
-def _default_output_path() -> Path:
-    filename = datetime.now().strftime("%Y%m%d_%H_%M.json")
+def _default_output_path(feature_mode: str) -> Path:
+    filename = datetime.now().strftime(f"%Y%m%d_%H_%M_{feature_mode}.json")
     return ROOT / "data" / "runs" / filename
 
 
@@ -163,12 +187,39 @@ def _similarity_threshold(value: str) -> float:
     return threshold
 
 
+def _feature_mode_from_args(args: argparse.Namespace) -> str:
+    if args.hpo:
+        return "hpo"
+    if args.icd10:
+        return "icd10"
+    raise ValueError("provide exactly one of --hpo or --icd10")
+
+
+def _skill_filename_for_mode(feature_mode: str) -> str:
+    if feature_mode == "hpo":
+        return "skill_hpo.yaml"
+    if feature_mode == "icd10":
+        return "skill_icd10.yaml"
+    raise ValueError(f"unsupported feature mode: {feature_mode}")
+
+
+def _build_feature_dependencies(
+    feature_mode: str,
+    similarity_threshold: float | None = None,
+) -> tuple[Any, OpenAICompatibleJsonChatClient]:
+    if feature_mode == "hpo":
+        return _build_hpo_dependencies(similarity_threshold)
+    if feature_mode == "icd10":
+        return _build_icd10_dependencies(similarity_threshold)
+    raise ValueError(f"unsupported feature mode: {feature_mode}")
+
+
 def _build_hpo_dependencies(
-    hpo_similarity_threshold: float | None = None,
+    similarity_threshold: float | None = None,
 ) -> tuple[HpoExtractor, OpenAICompatibleJsonChatClient]:
     hpo_kwargs: dict[str, Any] = {}
-    if hpo_similarity_threshold is not None:
-        hpo_kwargs["similarity_threshold"] = hpo_similarity_threshold
+    if similarity_threshold is not None:
+        hpo_kwargs["similarity_threshold"] = similarity_threshold
     hpo_extractor = HpoExtractor.from_paths(
         model_path=DEFAULT_MODEL_PATH,
         definition2id_path=DEFAULT_DEFINITION2ID_PATH,
@@ -177,6 +228,22 @@ def _build_hpo_dependencies(
     )
     deepseek_client = OpenAICompatibleJsonChatClient(load_deepseek_config_from_env())
     return hpo_extractor, deepseek_client
+
+
+def _build_icd10_dependencies(
+    similarity_threshold: float | None = None,
+) -> tuple[IcdExtractor, OpenAICompatibleJsonChatClient]:
+    icd_kwargs: dict[str, Any] = {}
+    if similarity_threshold is not None:
+        icd_kwargs["similarity_threshold"] = similarity_threshold
+    icd_extractor = IcdExtractor.from_paths(
+        model_path=DEFAULT_MODEL_PATH,
+        icd10_path=DEFAULT_ICD10_PATH,
+        icd10_embeddings_path=DEFAULT_ICD10_EMBEDDINGS_PATH,
+        **icd_kwargs,
+    )
+    deepseek_client = OpenAICompatibleJsonChatClient(load_deepseek_config_from_env())
+    return icd_extractor, deepseek_client
 
 
 if __name__ == "__main__":

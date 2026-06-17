@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from .hpo_features import pick_hpo_feature_payload
+from .icd_features import pick_icd_feature_payload
 from .skill_loader import SkillPack
 from .utils import clean_text, flatten_text, is_present, resolve_case_path, text_contains_term
 
@@ -167,6 +168,8 @@ def _load_hpo_code_terms(path: Path = DEFAULT_DEFINITION2ID_PATH) -> dict[str, s
 
 
 def _matched_feature_payload(feature: Mapping[str, Any]) -> dict[str, Any]:
+    if "diagnosis_code" in feature:
+        return pick_icd_feature_payload(feature)
     return pick_hpo_feature_payload(feature)
 
 

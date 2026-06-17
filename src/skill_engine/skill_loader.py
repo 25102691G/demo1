@@ -29,25 +29,30 @@ class SkillPack:
         return CardStore(cards=self.cards, cards_by_id=self.cards_by_id)
 
 
-def discover_skill_dirs(skills_dir: Path) -> list[Path]:
+def discover_skill_dirs(skills_dir: Path, *, skill_filename: str = "skill.yaml") -> list[Path]:
     root = Path(skills_dir)
     if not root.exists():
         return []
-    return sorted(path.parent for path in root.glob("*/skill.yaml") if path.is_file())
+    return sorted(path.parent for path in root.glob(f"*/{skill_filename}") if path.is_file())
 
 
-def load_skill_pack(skill_dir: Path, skill_schema_path: Path) -> SkillPack:
+def load_skill_pack(
+    skill_dir: Path,
+    skill_schema_path: Path,
+    *,
+    skill_filename: str = "skill.yaml",
+) -> SkillPack:
     directory = Path(skill_dir)
-    skill_path = directory / "skill.yaml"
+    skill_path = directory / skill_filename
     if not skill_path.exists():
-        raise SkillLoadError(f"{directory}: missing skill.yaml")
+        raise SkillLoadError(f"{directory}: missing {skill_filename}")
     try:
         with skill_path.open("r", encoding="utf-8-sig") as handle:
             skill = yaml.safe_load(handle)
     except yaml.YAMLError as exc:
         raise SkillLoadError(f"{skill_path}: invalid YAML: {exc}") from exc
     if not isinstance(skill, dict):
-        raise SkillLoadError(f"{skill_path}: skill.yaml must be an object")
+        raise SkillLoadError(f"{skill_path}: {skill_filename} must be an object")
 
     skill_id = clean_text((skill.get("metadata") or {}).get("skill_id")) or directory.name
     try:
@@ -80,18 +85,19 @@ def load_skill_packs(
     skill_schema_path: Path,
     *,
     strict: bool = False,
+    skill_filename: str = "skill.yaml",
 ) -> tuple[list[SkillPack], list[str]]:
     packs: list[SkillPack] = []
     errors: list[str] = []
-    for skill_dir in discover_skill_dirs(Path(skills_dir)):
+    for skill_dir in discover_skill_dirs(Path(skills_dir), skill_filename=skill_filename):
         try:
-            packs.append(load_skill_pack(skill_dir, skill_schema_path))
+            packs.append(load_skill_pack(skill_dir, skill_schema_path, skill_filename=skill_filename))
         except SkillLoadError as exc:
             if strict:
                 raise
             errors.append(str(exc))
     if not packs and not errors:
-        errors.append(f"{skills_dir}: no skill.yaml found")
+        errors.append(f"{skills_dir}: no {skill_filename} found")
     return packs, errors
 
 
@@ -152,4 +158,4 @@ def _validate_cross_references(pack: SkillPack) -> None:
                     )
     if errors:
         message = "\n".join(errors)
-        raise SkillLoadError(f"{pack.skill_id} ({pack.skill_dir / 'skill.yaml'}): {message}")
+        raise SkillLoadError(f"{pack.skill_id} ({pack.skill_dir}): {message}")
