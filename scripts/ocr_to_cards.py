@@ -126,7 +126,7 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--input", type=Path, default=None, help="Input OCR parse_result.json file.")
     parser.add_argument("--input-dir", type=Path, default=None, help="Directory containing *.parse_result.json files.")
     parser.add_argument("--output", type=Path, default=None, help="Output JSONL path.")
-    parser.add_argument("--llm-workers", type=int, default=10, help="Concurrent LLM workers for text layout cleaning.")
+    parser.add_argument("--llm-workers", type=int, default=20, help="Concurrent LLM workers for text layout cleaning.")
     args = parser.parse_args(argv)
     if args.input is None and args.input_dir is None:
         parser.error("one of --input or --input-dir is required")

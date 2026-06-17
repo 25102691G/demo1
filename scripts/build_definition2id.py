@@ -194,8 +194,8 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--input", default=str(DEFAULT_INPUT), help="Input Babelon TSV path.")
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT), help="Output JSON path.")
-    parser.add_argument("--llm-batch-size", type=int, default=50, help="Terms per DeepSeek body_site request.")
-    parser.add_argument("--llm-workers", type=int, default=1, help="Concurrent DeepSeek body_site requests.")
+    parser.add_argument("--llm-batch-size", type=int, default=100, help="Terms per DeepSeek body_site request.")
+    parser.add_argument("--llm-workers", type=int, default=20, help="Concurrent DeepSeek body_site requests.")
     args = parser.parse_args(argv)
 
     input_path = Path(args.input)

@@ -141,7 +141,7 @@ class HpoExtractor:
         cards: Sequence[Mapping[str, Any]],
         deepseek_client: JsonChatClient,
         *,
-        hpo_workers: int = 1,
+        llm_workers: int = 1,
         prompt: str,
     ) -> list[dict[str, Any]]:
         # HPO 提取核心方法：提取recommendation cards
@@ -149,7 +149,7 @@ class HpoExtractor:
             cards,
             hpo_extractor=self,
             deepseek_client=deepseek_client,
-            hpo_workers=hpo_workers,
+            llm_workers=llm_workers,
             prompt=prompt,
         )
         phenotypes = _dedupe_phenotype_items(phenotype_sources)
@@ -336,7 +336,7 @@ def _extract_hpo_phenotype_sources_from_cards(
     *,
     hpo_extractor: HpoExtractor,
     deepseek_client: JsonChatClient,
-    hpo_workers: int,
+    llm_workers: int,
     prompt: str,
 ) -> list[dict[str, str]]:
     candidates = [
@@ -344,7 +344,7 @@ def _extract_hpo_phenotype_sources_from_cards(
         for card in cards
     ]
     total = len(candidates)
-    workers = max(1, int(hpo_workers or 1))
+    workers = max(1, int(llm_workers or 1))
     if workers <= 1 or len(candidates) <= 1:
         phenotype_sources: list[dict[str, str]] = []
         for index, (card_id, text) in enumerate(candidates, start=1):

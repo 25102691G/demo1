@@ -393,7 +393,7 @@ def build_routing_profile(
     *,
     hpo_extractor: HpoExtractor,
     deepseek_client: Any,
-    hpo_workers: int = 1,
+    llm_workers: int = 1,
 ) -> dict[str, Any]:
     positive_features: dict[str, list[dict[str, Any]]] = {
         "symptoms": [],
@@ -402,7 +402,7 @@ def build_routing_profile(
     hpo_features = hpo_extractor.extract_hpo_from_cards(
         cards,
         deepseek_client,
-        hpo_workers=hpo_workers,
+        llm_workers=llm_workers,
         prompt=HPO_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS,
     )
     _add_hpo_positive_features(
@@ -821,7 +821,7 @@ def build_skill_pack(
     schema_version: str = "0.3",
     hpo_extractor: HpoExtractor,
     deepseek_client: Any,
-    hpo_workers: int = 1,
+    llm_workers: int = 1,
 ) -> dict[str, Any]:
     metadata = infer_metadata(cards)
     skill = {
@@ -832,7 +832,7 @@ def build_skill_pack(
             metadata,
             hpo_extractor=hpo_extractor,
             deepseek_client=deepseek_client,
-            hpo_workers=hpo_workers,
+            llm_workers=llm_workers,
         ),
         "knowledge_base": build_knowledge_base(),
         "workflow": build_workflow(),
@@ -1070,10 +1070,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         help="Optional HPO summary JSON path. Defaults to skill_summary.json next to each input JSONL.",
     )
     parser.add_argument(
-        "--hpo-workers",
+        "--llm-workers",
         type=int,
-        default=1,
-        help="Concurrent LLM calls for HPO phenotype extraction. Defaults to 1.",
+        default=20,
+        help="Concurrent LLM calls for HPO phenotype extraction. Defaults to 20.",
     )
     parser.add_argument("--hpo-similarity-threshold", type=_similarity_threshold)
     parser.add_argument("--force", action="store_true", help="Overwrite existing output files.")
@@ -1093,14 +1093,14 @@ def main(argv: Sequence[str] | None = None) -> int:
             log_build_step(index, total_sources, f"读取完成: {len(loaded_cards)} 张 card")
             log_build_step(index, total_sources, "校验 recommendation_card schema...")
             cards = validate_cards(loaded_cards, args.card_schema)
-            log_build_step(index, total_sources, f"构建 skill pack，HPO workers={args.hpo_workers}...")
+            log_build_step(index, total_sources, f"构建 skill pack，HPO workers={args.llm_workers}...")
             skill_dict = build_skill_pack(
                 cards,
                 taxonomy,
                 schema_version=args.schema_version,
                 hpo_extractor=hpo_extractor,
                 deepseek_client=deepseek_client,
-                hpo_workers=args.hpo_workers,
+                llm_workers=args.llm_workers,
             )
             hpo_summary_path = _hpo_summary_output_path(cards_source, args.hpo_summary_output)
             package_name = infer_output_package_name(cards_source) if args.out_dir else None
