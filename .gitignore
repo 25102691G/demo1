@@ -2,6 +2,7 @@
 data/runs
 data/bge-large-zh-v1.5
 data/ICD10/*.pt
+data/skills
 output/
 
 # Python bytecode and caches
