@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import copy
 import json
+from collections.abc import Mapping
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -31,6 +33,18 @@ def validate_json(instance: dict[str, Any], schema: dict[str, Any], *, label: st
     if not errors:
         return
     raise SchemaValidationError(_format_validation_error(errors[0], label=label))
+
+
+def build_required_defaults(schema: Mapping[str, Any]) -> dict[str, Any]:
+    """根据 JSON Schema 的 required 字段生成默认字典。"""
+    properties = schema.get("properties", {})
+    defaults: dict[str, Any] = {}
+
+    for field in schema.get("required", []):
+        field_schema = properties.get(field, {})
+        defaults[field] = copy.deepcopy(field_schema.get("default"))
+
+    return defaults
 
 
 def _format_validation_error(error: ValidationError, *, label: str) -> str:

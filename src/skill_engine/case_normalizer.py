@@ -9,7 +9,7 @@ from typing import Any
 
 from .hpo_extractor import HPO_EXTRACTION_SYSTEM_PROMPT_FROM_CASE, HpoExtractor
 from .llm_client import JsonChatClient
-from .schemas import load_json_schema, validate_json
+from .schemas import build_required_defaults, load_json_schema, validate_json
 from .utils import clean_text
 
 
@@ -21,7 +21,7 @@ def normalize_case(
     deepseek_client: JsonChatClient,
 ) -> dict[str, Any]:
     schema = load_json_schema(Path(schema_path))
-    canonical = _default_case(raw_input)
+    canonical = _default_case(raw_input, schema)
     _apply_hpo_extraction(canonical, raw_input, hpo_extractor, deepseek_client)
     validate_json(canonical, schema, label="canonical_case")
     return canonical
@@ -37,7 +37,7 @@ def normalize_case_from_json(
 ) -> dict[str, Any]:
     schema = load_json_schema(Path(schema_path))
     effective_raw = raw_input or clean_text(data.get("raw_input"))
-    canonical = _default_case(effective_raw)
+    canonical = _default_case(effective_raw, schema)
     _apply_hpo_extraction(canonical, effective_raw, hpo_extractor, deepseek_client)
     _deep_merge(canonical, data)
     canonical["raw_input"] = clean_text(canonical.get("raw_input")) or effective_raw
@@ -53,12 +53,13 @@ def load_case_json(path: Path) -> dict[str, Any]:
     return data
 
 
-def _default_case(raw_input: str) -> dict[str, Any]:
-    return {
-        "case_id": f"case_{uuid.uuid4().hex}",
-        "raw_input": raw_input or "",
-        "symptoms": [],
-    }
+def _default_case(raw_input: str, schema: Mapping[str, Any]) -> dict[str, Any]:
+    canonical = build_required_defaults(schema)
+    canonical["raw_input"] = raw_input or ""
+    if not canonical.get("case_id"):
+        canonical["case_id"] = f"case_{uuid.uuid4().hex}"
+
+    return canonical
 
 
 def _apply_hpo_extraction(
