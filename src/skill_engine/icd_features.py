@@ -8,6 +8,13 @@ from .utils import clean_text
 
 ICD_FEATURE_KEYS = (
     "name",
+    "similarity_score",
+    "status",
+    "icd10_mapping",
+    "hpo_mapping",
+)
+
+ICD10_MAPPING_KEYS = (
     "chapter",
     "chapter_code_range",
     "chapter_name",
@@ -19,27 +26,16 @@ ICD_FEATURE_KEYS = (
     "subcategory_name",
     "diagnosis_code",
     "diagnosis_name",
-    "similarity_score",
-    "status",
 )
 
 
 def build_icd_feature(mapping: Mapping[str, Any]) -> dict[str, Any]:
     return {
         "name": mapping["original_diagnosis"],
-        "chapter": clean_text(mapping.get("chapter")),
-        "chapter_code_range": clean_text(mapping.get("chapter_code_range")),
-        "chapter_name": clean_text(mapping.get("chapter_name")),
-        "section_code_range": clean_text(mapping.get("section_code_range")),
-        "section_name": clean_text(mapping.get("section_name")),
-        "category_code": clean_text(mapping.get("category_code")),
-        "category_name": clean_text(mapping.get("category_name")),
-        "subcategory_code": clean_text(mapping.get("subcategory_code")),
-        "subcategory_name": clean_text(mapping.get("subcategory_name")),
-        "diagnosis_code": clean_text(mapping.get("diagnosis_code")) or None,
-        "diagnosis_name": clean_text(mapping.get("diagnosis_name")) or None,
         "similarity_score": mapping["similarity_score"],
         "status": mapping["status"],
+        "icd10_mapping": _icd10_mapping(mapping),
+        "hpo_mapping": {},
     }
 
 
@@ -48,7 +44,23 @@ def build_mapped_icd_features(mappings: Iterable[Mapping[str, Any]]) -> list[dic
 
 
 def pick_icd_feature_payload(feature: Mapping[str, Any]) -> dict[str, Any]:
-    payload = {key: feature[key] for key in ICD_FEATURE_KEYS if key in feature}
+    if "icd10_mapping" in feature:
+        payload = {key: feature[key] for key in ICD_FEATURE_KEYS if key in feature}
+    else:
+        payload = {
+            "name": clean_text(feature.get("name")),
+            "similarity_score": feature.get("similarity_score"),
+            "status": clean_text(feature.get("status")),
+            "icd10_mapping": _icd10_mapping(feature),
+            "hpo_mapping": {},
+        }
     if "name" not in payload:
         payload["name"] = clean_text(feature.get("name"))
     return payload
+
+
+def _icd10_mapping(mapping: Mapping[str, Any]) -> dict[str, Any]:
+    result = {key: clean_text(mapping.get(key)) for key in ICD10_MAPPING_KEYS}
+    result["diagnosis_code"] = result["diagnosis_code"] or None
+    result["diagnosis_name"] = result["diagnosis_name"] or None
+    return result

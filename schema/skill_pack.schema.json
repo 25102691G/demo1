@@ -212,18 +212,29 @@
           }
         },
         "positive_features": {
-          "type": "object",
-          "properties": {
-            "symptoms": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "symptoms": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "additionalProperties": true
+                }
+              },
+              "additionalProperties": true
+            },
+            {
               "type": "array",
               "items": {
                 "type": "object",
                 "additionalProperties": true
-              },
-              "additionalProperties": true
+              }
             }
-          },
-          "additionalProperties": true
+          ]
         },
         "scoring": {
           "type": "object",

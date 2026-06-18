@@ -306,8 +306,6 @@ def build_routing_profile(
     llm_workers: int = 1,
 ) -> dict[str, Any]:
     feature_bucket = _feature_bucket_for_mode(feature_mode)
-    positive_features: dict[str, list[dict[str, Any]]] = {feature_bucket: []}
-    feature_seen: dict[str, set[str]] = {key: set() for key in positive_features}
     extracted_features = _extract_features_from_cards(
         cards=cards,
         feature_extractor=feature_extractor,
@@ -315,11 +313,18 @@ def build_routing_profile(
         deepseek_client=deepseek_client,
         llm_workers=llm_workers,
     )
-    _add_hpo_positive_features(
-        positive_features,
-        feature_seen,
-        {feature_bucket: extracted_features},
-    )
+    if feature_mode == "icd10":
+        positive_features: list[dict[str, Any]] | dict[str, list[dict[str, Any]]] = (
+            _dedupe_positive_features(extracted_features)
+        )
+    else:
+        positive_features = {feature_bucket: []}
+        feature_seen: dict[str, set[str]] = {key: set() for key in positive_features}
+        _add_hpo_positive_features(
+            positive_features,
+            feature_seen,
+            {feature_bucket: extracted_features},
+        )
 
     return {
         "population": _dedupe_texts(card.get("population") for card in cards),
@@ -1408,6 +1413,23 @@ def _add_hpo_positive_features(
             copied = dict(feature)
             copied["name"] = name
             feature_buckets[bucket].append(copied)
+
+
+def _dedupe_positive_features(features: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    seen: set[str] = set()
+    result: list[dict[str, Any]] = []
+    for feature in features:
+        if not isinstance(feature, Mapping):
+            continue
+        name = _clean_text(feature.get("name"))
+        key = _normalize_key(name)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        copied = dict(feature)
+        copied["name"] = name
+        result.append(copied)
+    return result
 
 
 def _safety_candidate_texts(card: Mapping[str, Any]) -> list[str]:

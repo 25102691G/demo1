@@ -18,8 +18,38 @@
       "default": null
     },
     "raw_input": {
-      "type": "string",
-      "default": null
+      "type": ["string", "object"],
+      "default": null,
+      "required": [
+        "clinical_presentation",
+        "lab_tests",
+        "imaging_tests",
+        "endoscopy",
+        "pathology"
+      ],
+      "properties": {
+        "clinical_presentation": {
+          "type": "string",
+          "default": ""
+        },
+        "lab_tests": {
+          "type": "string",
+          "default": ""
+        },
+        "imaging_tests": {
+          "type": "string",
+          "default": ""
+        },
+        "endoscopy": {
+          "type": "string",
+          "default": ""
+        },
+        "pathology": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "additionalProperties": true
     },
     "name": {
       "type": "string",
@@ -74,6 +104,87 @@
             "type": "string",
             "enum": ["mapped", "unmapped", "unknown"],
             "default": "unknown"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "features": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "required": ["name", "similarity_score", "status", "icd10_mapping", "hpo_mapping"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "default": ""
+          },
+          "similarity_score": {
+            "type": ["number", "null"],
+            "minimum": 0,
+            "maximum": 1,
+            "default": null
+          },
+          "status": {
+            "type": "string",
+            "default": "unknown"
+          },
+          "icd10_mapping": {
+            "type": "object",
+            "default": {},
+            "properties": {
+              "chapter": {
+                "type": "string",
+                "default": ""
+              },
+              "chapter_code_range": {
+                "type": "string",
+                "default": ""
+              },
+              "chapter_name": {
+                "type": "string",
+                "default": ""
+              },
+              "section_code_range": {
+                "type": "string",
+                "default": ""
+              },
+              "section_name": {
+                "type": "string",
+                "default": ""
+              },
+              "category_code": {
+                "type": "string",
+                "default": ""
+              },
+              "category_name": {
+                "type": "string",
+                "default": ""
+              },
+              "subcategory_code": {
+                "type": "string",
+                "default": ""
+              },
+              "subcategory_name": {
+                "type": "string",
+                "default": ""
+              },
+              "diagnosis_code": {
+                "type": ["string", "null"],
+                "default": null
+              },
+              "diagnosis_name": {
+                "type": ["string", "null"],
+                "default": null
+              }
+            },
+            "additionalProperties": true
+          },
+          "hpo_mapping": {
+            "type": "object",
+            "default": {},
+            "additionalProperties": true
           }
         },
         "additionalProperties": true

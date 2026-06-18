@@ -21,10 +21,14 @@ def route_skills(
     *,
     top_k: int | None = None,
     min_score: float | None = None,
+    feature_mode: str = "hpo",
 ) -> list[dict[str, Any]]:
     if top_k is not None and top_k < 1:
         raise ValueError("top_k must be at least 1")
-    candidates = [_score_skill(canonical_case, pack, min_score=min_score) for pack in skill_packs]
+    candidates = [
+        _score_skill(canonical_case, pack, min_score=min_score, feature_mode=feature_mode)
+        for pack in skill_packs
+    ]
     candidates.sort(key=lambda item: item["score"], reverse=True)
     default_top_k = top_k or _default_top_k(skill_packs)
     selected = candidates[:default_top_k]
@@ -38,26 +42,25 @@ def _score_skill(
     pack: SkillPack,
     *,
     min_score: float | None,
+    feature_mode: str,
 ) -> dict[str, Any]:
     routing = pack.skill.get("routing_profile") or {}
     positive_features = routing.get("positive_features") or {}
-    searchable_text = _case_searchable_text(canonical_case)
     matched_features: list[dict[str, Any]] = []
     raw_score = 0.0
 
-    for bucket, features in positive_features.items():
-        for feature in features or []:
-            if not isinstance(feature, Mapping):
-                continue
-            if bucket == "symptoms":
-                matched = _match_symptom_feature(canonical_case, feature)
-            else:
-                matched = _match_feature(searchable_text, feature)
-            if not matched:
-                continue
-            weight = float(feature.get("weight") or 0.2)
-            raw_score += weight
-            matched_features.append(_matched_feature_payload(feature))
+    for feature in _iter_positive_features(positive_features):
+        if feature_mode == "hpo":
+            matched = _match_symptom_feature(canonical_case, feature)
+        elif feature_mode == "icd10":
+            matched = _match_icd10_feature(canonical_case, feature)
+        else:
+            raise ValueError(f"unsupported feature mode: {feature_mode}")
+        if not matched:
+            continue
+        weight = float(feature.get("weight") or 0.2)
+        raw_score += weight
+        matched_features.append(_matched_feature_payload(feature))
 
     penalties: list[str] = []
     # penalty_score = 0.0
@@ -90,11 +93,35 @@ def _score_skill(
     }
 
 
+def _iter_positive_features(positive_features: Any) -> list[Mapping[str, Any]]:
+    if isinstance(positive_features, list):
+        return [feature for feature in positive_features if isinstance(feature, Mapping)]
+    if isinstance(positive_features, Mapping):
+        return [
+            feature
+            for features in positive_features.values()
+            if isinstance(features, list)
+            for feature in features
+            if isinstance(feature, Mapping)
+        ]
+    return []
+
+
 def _case_searchable_text(canonical_case: Mapping[str, Any]) -> str:
-    parts: list[str] = [clean_text(canonical_case.get("raw_input"))]
+    parts: list[str] = [flatten_text(canonical_case.get("raw_input"))]
     parts.extend(clean_text(item.get("name")) for item in canonical_case.get("symptoms") or [])
     parts.extend(clean_text(item.get("name")) for item in canonical_case.get("signs") or [])
     parts.extend(clean_text(item.get("name")) for item in canonical_case.get("diagnoses") or [])
+    for feature in canonical_case.get("features") or []:
+        icd10_mapping = feature.get("icd10_mapping") if isinstance(feature, Mapping) else {}
+        parts.extend(
+            [
+                clean_text(feature.get("name")) if isinstance(feature, Mapping) else "",
+                clean_text(icd10_mapping.get("diagnosis_name")) if isinstance(icd10_mapping, Mapping) else "",
+                clean_text(icd10_mapping.get("category_name")) if isinstance(icd10_mapping, Mapping) else "",
+                clean_text(icd10_mapping.get("section_name")) if isinstance(icd10_mapping, Mapping) else "",
+            ]
+        )
     for lab in (canonical_case.get("labs") or {}).get("items") or []:
         parts.extend([clean_text(lab.get("name")), clean_text(lab.get("source_text"))])
     for imaging in (canonical_case.get("imaging") or {}).get("items") or []:
@@ -130,6 +157,40 @@ def _match_symptom_feature(canonical_case: Mapping[str, Any], feature: Mapping[s
         for symptom in canonical_case.get("symptoms") or []
         if isinstance(symptom, Mapping)
     )
+
+
+def _match_icd10_feature(canonical_case: Mapping[str, Any], feature: Mapping[str, Any]) -> bool:
+    feature_code = _feature_diagnosis_code(feature)
+    if not feature_code:
+        return False
+    return any(
+        clean_text(code) == feature_code
+        for code in _case_diagnosis_codes(canonical_case)
+    )
+
+
+def _feature_diagnosis_code(feature: Mapping[str, Any]) -> str:
+    icd10_mapping = feature.get("icd10_mapping")
+    if isinstance(icd10_mapping, Mapping):
+        return clean_text(icd10_mapping.get("diagnosis_code"))
+    return clean_text(feature.get("diagnosis_code"))
+
+
+def _case_diagnosis_codes(canonical_case: Mapping[str, Any]) -> list[str]:
+    codes: list[str] = []
+    for feature in canonical_case.get("features") or []:
+        if not isinstance(feature, Mapping):
+            continue
+        code = _feature_diagnosis_code(feature)
+        if code:
+            codes.append(code)
+    for diagnosis in canonical_case.get("diagnoses") or []:
+        if not isinstance(diagnosis, Mapping):
+            continue
+        code = _feature_diagnosis_code(diagnosis)
+        if code:
+            codes.append(code)
+    return codes
 
 
 def _hpo_codes_match(case_code: str, feature_code: str) -> bool:
@@ -168,7 +229,7 @@ def _load_hpo_code_terms(path: Path = DEFAULT_DEFINITION2ID_PATH) -> dict[str, s
 
 
 def _matched_feature_payload(feature: Mapping[str, Any]) -> dict[str, Any]:
-    if "diagnosis_code" in feature:
+    if "diagnosis_code" in feature or "icd10_mapping" in feature:
         return pick_icd_feature_payload(feature)
     return pick_hpo_feature_payload(feature)
 

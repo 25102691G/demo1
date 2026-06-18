@@ -303,8 +303,19 @@ def _state_has_high_red_flag(state: dict[str, Any]) -> bool:
 def _has_supported_diagnosis(canonical_case: dict[str, Any]) -> bool:
     return any(
         diagnosis.get("status") in {"confirmed", "highly_suspected", "suspected"}
-        for diagnosis in canonical_case.get("diagnoses") or []
+        for diagnosis in _case_diagnosis_features(canonical_case)
     )
+
+
+def _case_diagnosis_features(canonical_case: dict[str, Any]) -> list[dict[str, Any]]:
+    return [
+        item
+        for item in [
+            *(canonical_case.get("features") or []),
+            *(canonical_case.get("diagnoses") or []),
+        ]
+        if isinstance(item, dict)
+    ]
 
 
 def _error_result(step: dict[str, Any], message: str) -> StepResult:

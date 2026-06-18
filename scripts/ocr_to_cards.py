@@ -19,12 +19,12 @@ if str(SOURCE_ROOT) not in sys.path:
 
 END_PUNCTUATION = "。！？；!?;”）)]"
 NEW_NUMBERED_SECTION_RE = re.compile(r"^\s*\d+[.．、]\s*[^。；;]{1,40}[:：]")
-ALLOWED_POPULATIONS = {"儿童", "青少年", "成人", "老年人", "孕妇", "没有明确人群"}
+ALLOWED_POPULATIONS = {"儿童", "青少年", "成人", "老年人", "孕妇", "普遍适用"}
 POPULATION_FROM_FILENAME_SYSTEM_PROMPT = """你是医学指南文件名解析助手。
 请只根据输入文件名判断该指南适用患者人群。
 只能返回 JSON 对象，且 population 必须是以下值之一：
-儿童、青少年、成人、老年人、孕妇、没有明确人群。
-如果文件名没有明确人群信息，返回 {"population": "没有明确人群"}。"""
+儿童、青少年、成人、老年人、孕妇、普遍适用。
+如果文件名没有明确人群信息，返回 {"population": "普遍适用"}。"""
 ALLOWED_CLINICAL_STAGES = {"诊断评估流程", "治疗流程", "其他流程"}
 CLINICAL_STAGE_SYSTEM_PROMPT = """你是医学指南章节分类助手。
 请只根据输入的 section_path 判断该章节属于哪类临床流程。
@@ -236,7 +236,7 @@ def extract_population_from_filename(
         json.dumps({"filename": filename}, ensure_ascii=False),
     )
     population = normalize_population(clean_text(llm_payload.get("population")))
-    cache[cache_key] = population or "没有明确人群"
+    cache[cache_key] = population or "普遍适用"
     return population
 
 
@@ -854,7 +854,7 @@ def normalize_population(value: str | None) -> str | None:
         return None
     if text in ALLOWED_POPULATIONS:
         return text
-    return "没有明确人群"
+    return "普遍适用"
 
 
 def unit_id(layout_id: str, text: str) -> str:

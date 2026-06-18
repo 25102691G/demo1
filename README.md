@@ -169,16 +169,17 @@ python scripts/build_skill_pack.py --cards data/skills --force --similarity-thre
 
 使用 `scripts/run_skill_engine.py` 输入病例并执行 skill workflow。
 
-支持三种输入方式，必须且只能选择其中一种：
-
-- `--input-text`：直接传入病例文本
-- `--input-file`：读取病例文本文件
-- `--case-json`：读取已经部分结构化的病例 JSON
-
 示例：
 
 ```powershell
-python scripts/run_skill_engine.py --input-text "进镜至回肠末端，回盲瓣变形，回盲瓣口及回肠末端四壁散在形态不规则溃疡，部分呈纵形分布，表面覆大量浓稠白色粘液，回肠末端四壁皱襞纠集，肠腔狭窄，内镜无法通过。于回肠末端溃疡周边活检4块，质软。所见升结肠、横结肠、降结肠、乙状结肠粘膜光滑。距肛门15cm以下直肠四壁散在点状糜烂及浅溃疡，血管纹理模糊。于回盲部、升结肠、横结肠、降结肠、乙状结肠、直肠各活检2块，组织软。" --debug --similarity-threshold 0.7 --icd10
+python scripts/run_skill_engine.py `
+  --name "张三" `
+  --sex "male" `
+  --age 25 `
+  --endoscopy "进镜至回肠末端，回盲瓣变形，回盲瓣口及回肠末端四壁散在形态不规则溃疡，部分呈纵形分布，表面覆大量浓稠白色粘液，回肠末端四壁皱襞纠集，肠腔狭窄，内镜无法通过。于回肠末端溃疡周边活检4块，质软。所见升结肠、横结肠、降结肠、乙状结肠粘膜光滑。距肛门15cm以下直肠四壁散在点状糜烂及浅溃疡，血管纹理模糊。于回盲部、升结肠、横结肠、降结肠、乙状结肠、直肠各活检2块，组织软。" `
+  --debug `
+  --similarity-threshold 0.7 `
+  --icd10
 ```
 
 `--similarity-threshold` 表示特征匹配相似度门槛值，默认为0.8。

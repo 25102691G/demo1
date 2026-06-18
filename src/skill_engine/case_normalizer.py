@@ -105,8 +105,8 @@ def _apply_icd10_extraction(
         deepseek_client,
         ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE,
     )
-    diagnoses = positive_features.get("diagnoses", [])
-    canonical["diagnoses"] = diagnoses if isinstance(diagnoses, list) else []
+    features = positive_features.get("features", [])
+    canonical["features"] = features if isinstance(features, list) else []
 
 
 def _apply_feature_extraction(

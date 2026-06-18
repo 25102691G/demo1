@@ -150,7 +150,7 @@ def _diagnosis_status(
     top_candidates: list[dict[str, Any]],
     selected_skill_outputs: list[dict[str, Any]],
 ) -> str:
-    if any(diagnosis.get("status") == "confirmed" for diagnosis in canonical_case.get("diagnoses") or []):
+    if any(diagnosis.get("status") == "confirmed" for diagnosis in _case_diagnosis_features(canonical_case)):
         return "confirmed"
     if status == "low_confidence":
         return "low_probability"
@@ -163,6 +163,17 @@ def _diagnosis_status(
         if float(top.get("score") or 0) >= float(top.get("strong_candidate_threshold") or 1):
             return "suspected"
     return "candidate"
+
+
+def _case_diagnosis_features(canonical_case: dict[str, Any]) -> list[dict[str, Any]]:
+    return [
+        item
+        for item in [
+            *(canonical_case.get("features") or []),
+            *(canonical_case.get("diagnoses") or []),
+        ]
+        if isinstance(item, dict)
+    ]
 
 
 def _safety(selected_skill_outputs: list[dict[str, Any]]) -> dict[str, Any]:

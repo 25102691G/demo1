@@ -13,7 +13,7 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from skill_engine.case_normalizer import load_case_json, normalize_case, normalize_case_from_json
+from skill_engine.case_normalizer import normalize_case
 from skill_engine.hpo_extractor import (
     DEFAULT_DEFINITION2ID_PATH,
     DEFAULT_DEFINITION_EMBEDDINGS_PATH,
@@ -45,15 +45,28 @@ def main(argv: list[str] | None = None) -> int:
         help="Directory containing */skill_hpo.yaml or */skill_icd10.yaml packs.",
     )
 
-    # 输入来源：文本、文件、JSON 三选一。
-    input_group = parser.add_mutually_exclusive_group(required=True)
-    input_group.add_argument("--input-text", help="Raw case text.")
-    input_group.add_argument("--input-file", help="Raw case text file.")
-    input_group.add_argument("--case-json", help="Partially or fully structured canonical case JSON.")
+    # 病人基本信息：必填。
+    parser.add_argument("--name", required=True, help="姓名。")
+    parser.add_argument(
+        "--sex",
+        choices=("male", "female", "unknown"),
+        required=True,
+        help="性别。",
+    )
+    parser.add_argument("--age", type=int, required=True, help="年龄。")
 
+    # 病人病例信息：五类病例文本至少填写一类。
+    parser.add_argument("--clinical-presentation", help="临床表现。")
+    parser.add_argument("--lab-tests", help="实验室检查。")
+    parser.add_argument("--imaging-tests", help="影像学检查。")
+    parser.add_argument("--endoscopy", help="内镜检查。")
+    parser.add_argument("--pathology", help="病理。")
+
+    # 标准化数据库来源（必填，互斥）：HPO / ICD10
     feature_group = parser.add_mutually_exclusive_group(required=True)
     feature_group.add_argument("--hpo", action="store_true", help="Use HPO feature extraction.")
     feature_group.add_argument("--icd10", action="store_true", help="Use ICD10 feature extraction.")
+
     parser.add_argument("--skill-schema", default="schema/skill_pack.schema.json")
     parser.add_argument("--case-schema", default="schema/canonical_case.schema.json")
     parser.add_argument("--output-schema", default="schema/workflow_output.schema.json")
@@ -70,7 +83,8 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     try:
-        raw_input = _read_raw_input(args)
+        structured_input = _read_structured_input(args)
+        raw_input = _build_raw_input(structured_input)
         feature_mode = _feature_mode_from_args(args)
         skill_filename = _skill_filename_for_mode(feature_mode)
         feature_extractor, deepseek_client = _build_feature_dependencies(
@@ -78,23 +92,15 @@ def main(argv: list[str] | None = None) -> int:
             args.similarity_threshold,
         )
 
-        if args.case_json:
-            canonical_case = normalize_case_from_json(
-                load_case_json(_resolve(args.case_json)),
-                raw_input,
-                _resolve(args.case_schema),
-                deepseek_client=deepseek_client,
-                feature_extractor=feature_extractor,
-                feature_mode=feature_mode,
-            )
-        else:
-            canonical_case = normalize_case(
-                raw_input,
-                _resolve(args.case_schema),
-                deepseek_client=deepseek_client,
-                feature_extractor=feature_extractor,
-                feature_mode=feature_mode,
-            )
+        canonical_case = normalize_case(
+            raw_input,
+            _resolve(args.case_schema),
+            deepseek_client=deepseek_client,
+            feature_extractor=feature_extractor,
+            feature_mode=feature_mode,
+        )
+        canonical_case["raw_input"] = structured_input
+        _apply_basic_case_fields(canonical_case, args)
 
         packs, load_errors = load_skill_packs(
             _resolve(args.skills_dir),
@@ -114,6 +120,7 @@ def main(argv: list[str] | None = None) -> int:
                 packs,
                 top_k=args.top_k,
                 min_score=args.min_score,
+                feature_mode=feature_mode,
             )
             packs_by_id = {pack.skill_id: pack for pack in packs}
             engine = WorkflowEngine()
@@ -150,15 +157,44 @@ def main(argv: list[str] | None = None) -> int:
     return 0
 
 
-def _read_raw_input(args: argparse.Namespace) -> str:
-    if args.input_text:
-        return args.input_text
-    if args.input_file:
-        return _resolve(args.input_file).read_text(encoding="utf-8-sig")
-    if args.case_json:
-        data: dict[str, Any] = load_case_json(_resolve(args.case_json))
-        return str(data.get("raw_input") or "")
-    raise ValueError("provide --input-text, --input-file, or --case-json")
+def _read_structured_input(args: argparse.Namespace) -> dict[str, str]:
+    """读取病人病例结构化输入，至少包含五类病例文本中的一类。"""
+    structured_input = {
+        "clinical_presentation": _clean_arg_text(args.clinical_presentation),
+        "lab_tests": _clean_arg_text(args.lab_tests),
+        "imaging_tests": _clean_arg_text(args.imaging_tests),
+        "endoscopy": _clean_arg_text(args.endoscopy),
+        "pathology": _clean_arg_text(args.pathology),
+    }
+    if not any(structured_input.values()):
+        raise ValueError(
+            "请至少填写一个病例信息参数：--clinical-presentation、--lab-tests、"
+            "--imaging-tests、--endoscopy 或 --pathology"
+        )
+    return structured_input
+
+
+def _build_raw_input(structured_input: dict[str, str]) -> str:
+    labels = {
+        "clinical_presentation": "临床表现",
+        "lab_tests": "实验室检查",
+        "imaging_tests": "影像学检查",
+        "endoscopy": "内镜检查",
+        "pathology": "病理",
+    }
+    return "\n".join(
+        f"{labels[key]}：{value}" for key, value in structured_input.items() if value
+    )
+
+
+def _clean_arg_text(value: str | None) -> str:
+    return str(value or "").strip()
+
+
+def _apply_basic_case_fields(canonical_case: dict[str, Any], args: argparse.Namespace) -> None:
+    canonical_case["name"] = _clean_arg_text(args.name)
+    canonical_case["sex"] = args.sex
+    canonical_case["age"] = args.age
 
 
 def _resolve(path: str | Path) -> Path:

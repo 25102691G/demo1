@@ -149,7 +149,7 @@ class IcdExtractor:
     ) -> dict[str, Any]:
         diagnoses = self.extract_diagnoses(text, deepseek_client, prompt)
         mappings = self.map_diagnoses_to_icd(diagnoses, source_type="case")
-        return {"diagnoses": build_mapped_icd_features(mappings)}
+        return {"features": build_mapped_icd_features(mappings)}
 
     def extract_icd_from_cards(
         self,
@@ -246,7 +246,9 @@ class IcdExtractor:
                 for candidate in candidates
                 if candidate["similarity_score"] >= self.similarity_threshold
             ]
-            selected = _select_section_name_candidate(above_threshold, section_name)
+            selected = above_threshold[0] if above_threshold else None
+            # 暂时关闭 section_name 强匹配逻辑。
+            # selected = _select_section_name_candidate(above_threshold, section_name)
             best_candidate = candidates[0] if candidates else {}
             similarity_score = float(best_candidate.get("similarity_score") or 0.0)
             diagnosis_code = clean_text(best_candidate.get("diagnosis_code")) or None
@@ -266,19 +268,20 @@ class IcdExtractor:
                 )
                 continue
 
-            if selected is None:
-                results.append(
-                    _mapping_result(
-                        diagnosis=diagnosis,
-                        section_name=section_name,
-                        record=best_candidate,
-                        matched_section_name=matched_section_name,
-                        similarity_score=similarity_score,
-                        status="section_name_mismatch",
-                        candidates=candidates,
-                    )
-                )
-                continue
+            # 暂时关闭 section_name 不匹配拦截。
+            # if selected is None:
+            #     results.append(
+            #         _mapping_result(
+            #             diagnosis=diagnosis,
+            #             section_name=section_name,
+            #             record=best_candidate,
+            #             matched_section_name=matched_section_name,
+            #             similarity_score=similarity_score,
+            #             status="section_name_mismatch",
+            #             candidates=candidates,
+            #         )
+            #     )
+            #     continue
 
             diagnosis_code = clean_text(selected.get("diagnosis_code")) or None
             matched_section_name = clean_text(selected.get("section_name"))
