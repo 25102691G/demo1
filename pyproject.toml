@@ -10,9 +10,6 @@ dependencies = [
     "jsonschema>=4",
 ]
 
-[project.scripts]
-guideline-skill = "guideline_skill.cli:main"
-
 [build-system]
 requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"

@@ -11,7 +11,7 @@ SRC_DIR = ROOT_DIR / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from guideline_skill.document.baidu_doc_parser import BaiduDocParserClient, BaiduDocParserConfig
+from pdf_ocr import BaiduDocParserClient, BaiduDocParserConfig
 
 
 def preview_pdf_ocr_file(
