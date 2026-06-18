@@ -314,8 +314,13 @@ def build_routing_profile(
         llm_workers=llm_workers,
     )
     if feature_mode == "icd10":
+        if not isinstance(extracted_features, Mapping):
+            raise BuildSkillPackError("icd10 feature extractor must return feature groups")
         positive_features: list[dict[str, Any]] | dict[str, list[dict[str, Any]]] = (
-            _dedupe_positive_features(extracted_features)
+            _dedupe_positive_features(extracted_features.get("positive_features") or [])
+        )
+        negative_features = _dedupe_positive_features(
+            extracted_features.get("negative_features") or []
         )
     else:
         positive_features = {feature_bucket: []}
@@ -325,10 +330,12 @@ def build_routing_profile(
             feature_seen,
             {feature_bucket: extracted_features},
         )
+        negative_features = []
 
     return {
         "population": _dedupe_texts(card.get("population") for card in cards),
         "positive_features": positive_features,
+        "negative_features": negative_features,
         "scoring": {
             "method": "hybrid_weighted_semantic",
             "normalization": "sum_max_1",
@@ -652,7 +659,8 @@ def build_output_templates() -> dict[str, Any]:
             "audience": "clinician",
             "structure": [
                 "status",
-                "matched_features",
+                "matched_positive_features",
+                "matched_negative_features",
                 "reason",
                 "suggested_next_steps",
                 "disclaimer",
@@ -685,7 +693,8 @@ def build_output_templates() -> dict[str, Any]:
             "audience": "clinician",
             "structure": [
                 "status",
-                "matched_features",
+                "matched_positive_features",
+                "matched_negative_features",
                 "evidence_summary",
                 "missing_information",
                 "used_cards",
@@ -964,7 +973,7 @@ def _extract_features_from_cards(
     feature_mode: str,
     deepseek_client: Any,
     llm_workers: int,
-) -> list[dict[str, Any]]:
+) -> Any:
     if feature_mode == "hpo":
         return feature_extractor.extract_hpo_from_cards(
             cards,

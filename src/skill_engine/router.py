@@ -46,32 +46,24 @@ def _score_skill(
 ) -> dict[str, Any]:
     routing = pack.skill.get("routing_profile") or {}
     positive_features = routing.get("positive_features") or {}
-    matched_features: list[dict[str, Any]] = []
+    negative_features = routing.get("negative_features") or []
+    matched_positive_features: list[dict[str, Any]] = []
     raw_score = 0.0
 
-    for feature in _iter_positive_features(positive_features):
-        if feature_mode == "hpo":
-            matched = _match_symptom_feature(canonical_case, feature)
-        elif feature_mode == "icd10":
-            matched = _match_icd10_feature(canonical_case, feature)
-        else:
-            raise ValueError(f"unsupported feature mode: {feature_mode}")
-        if not matched:
+    for feature in _iter_features(positive_features):
+        if not _match_routing_feature(canonical_case, feature, feature_mode):
             continue
         weight = float(feature.get("weight") or 0.2)
         raw_score += weight
-        matched_features.append(_matched_feature_payload(feature))
+        matched_positive_features.append(_matched_feature_payload(feature))
 
-    penalties: list[str] = []
-    # penalty_score = 0.0
-    # for feature in routing.get("negative_features") or []:
-    #     if not isinstance(feature, Mapping):
-    #         continue
-    #     name = clean_text(feature.get("name"))
-    #     if text_contains_term(searchable_text, name):
-    #         penalty = float(feature.get("penalty") or 0)
-    #         penalty_score += penalty
-    #         penalties.append(name)
+    matched_negative_features: list[dict[str, Any]] = []
+    for feature in _iter_features(negative_features):
+        if not _match_routing_feature(canonical_case, feature, feature_mode):
+            continue
+        weight = float(feature.get("weight") or -0.1)
+        raw_score += weight
+        matched_negative_features.append(_matched_feature_payload(feature))
 
     # score = _normalize_score(raw_score - penalty_score, routing.get("scoring") or {})
     score = raw_score
@@ -83,28 +75,45 @@ def _score_skill(
         "disease_name": disease_name,
         "score": score,
         "rank": 0,
-        "matched_features": matched_features,
-        "negative_features": penalties,
+        "matched_positive_features": matched_positive_features,
+        "matched_negative_features": matched_negative_features,
         "missing_key_evidence": missing_key_evidence,
-        "reasoning_summary": _reasoning_summary(score, threshold, matched_features, penalties),
+        "reasoning_summary": _reasoning_summary(
+            score,
+            threshold,
+            matched_positive_features,
+            matched_negative_features,
+        ),
         "candidate_threshold": threshold,
         "strong_candidate_threshold": _strong_threshold(routing),
         "raw_score": raw_score,
     }
 
 
-def _iter_positive_features(positive_features: Any) -> list[Mapping[str, Any]]:
-    if isinstance(positive_features, list):
-        return [feature for feature in positive_features if isinstance(feature, Mapping)]
-    if isinstance(positive_features, Mapping):
+def _iter_features(features_value: Any) -> list[Mapping[str, Any]]:
+    if isinstance(features_value, list):
+        return [feature for feature in features_value if isinstance(feature, Mapping)]
+    if isinstance(features_value, Mapping):
         return [
             feature
-            for features in positive_features.values()
+            for features in features_value.values()
             if isinstance(features, list)
             for feature in features
             if isinstance(feature, Mapping)
         ]
     return []
+
+
+def _match_routing_feature(
+    canonical_case: Mapping[str, Any],
+    feature: Mapping[str, Any],
+    feature_mode: str,
+) -> bool:
+    if feature_mode == "hpo":
+        return _match_symptom_feature(canonical_case, feature)
+    if feature_mode == "icd10":
+        return _match_icd10_feature(canonical_case, feature)
+    raise ValueError(f"unsupported feature mode: {feature_mode}")
 
 
 def _case_searchable_text(canonical_case: Mapping[str, Any]) -> str:
@@ -281,14 +290,19 @@ def _missing_key_evidence(canonical_case: Mapping[str, Any], pack: SkillPack) ->
 def _reasoning_summary(
     score: float,
     threshold: float,
-    matched_features: list[dict[str, Any]],
-    penalties: list[str],
+    matched_positive_features: list[dict[str, Any]],
+    matched_negative_features: list[dict[str, Any]],
 ) -> str:
-    if not matched_features:
+    if not matched_positive_features:
         return (
             "No declared positive routing features matched; returned as a candidate "
             "only because top-k fallback is enabled."
         )
-    names = ", ".join(feature["name"] for feature in matched_features[:5])
-    penalty_text = f" Penalties: {', '.join(penalties)}." if penalties else ""
+    names = ", ".join(feature["name"] for feature in matched_positive_features[:5])
+    negative_names = [
+        clean_text(feature.get("name"))
+        for feature in matched_negative_features[:5]
+        if clean_text(feature.get("name"))
+    ]
+    penalty_text = f" Penalties: {', '.join(negative_names)}." if negative_names else ""
     return f"Matched declared features: {names}. Score {score:.2f}, candidate threshold {threshold:.2f}.{penalty_text}"

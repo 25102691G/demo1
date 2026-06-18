@@ -54,8 +54,12 @@ def build_workflow_output(
                 {
                     "skill_id": candidate["skill_id"],
                     "score": candidate["score"],
-                    "matched": [item["name"] for item in candidate.get("matched_features", [])],
-                    "penalties": candidate.get("negative_features", []),
+                    "matched_positive_features": [
+                        item["name"] for item in candidate.get("matched_positive_features", [])
+                    ],
+                    "matched_negative_features": [
+                        item["name"] for item in candidate.get("matched_negative_features", [])
+                    ],
                 }
                 for candidate in top_candidates
             ],

@@ -483,8 +483,8 @@
 | `candidateSkill.disease_name` | 候选疾病名称。 |
 | `candidateSkill.score` | 路由匹配分数。 |
 | `candidateSkill.rank` | 候选排序名次。 |
-| `candidateSkill.matched_features` | 命中的正向特征列表。 |
-| `candidateSkill.negative_features` | 命中的负向特征列表。 |
+| `candidateSkill.matched_positive_features` | 命中的正向特征列表。 |
+| `candidateSkill.matched_negative_features` | 命中的负向特征列表。 |
 | `candidateSkill.missing_key_evidence` | 缺失的关键证据。 |
 | `candidateSkill.reasoning_summary` | 路由理由摘要。 |
 | `matchedFeature.name` | 命中特征名称。 |
@@ -516,8 +516,8 @@
 | `source.quote` | 引用原文。 |
 | `routeScore.skill_id` | 被评分技能 ID。 |
 | `routeScore.score` | 路由分数。 |
-| `routeScore.matched` | 命中特征名称列表。 |
-| `routeScore.penalties` | 扣分原因列表。 |
+| `routeScore.matched_positive_features` | 命中的正向特征名称列表。 |
+| `routeScore.matched_negative_features` | 命中的负向特征名称列表。 |
 | `executedStep.step_id` | 已执行步骤 ID。 |
 | `executedStep.type` | 已执行步骤类型。 |
 | `executedStep.status` | 步骤状态，可为完成、跳过、停止或错误。 |

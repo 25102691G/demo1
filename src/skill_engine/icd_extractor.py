@@ -39,6 +39,10 @@ section_name 必须从以下枚举中选择，不允许自由生成：
 
 ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS = """你是一名专攻消化内科与表型提取的医学专家。
 请根据疾病指南片段，仅提取该片段涉及的表型信息，包括症状、体征、实验室异常、影像学异常、内镜异常、病理异常等。
+请将表型信息分为阳性表型和阴性表型：
+阳性表型指片段中确认存在、支持诊断、检查发现异常的表现。
+阴性表型指片段中明确否认、未见、无、排除、不支持的表现。
+不得根据常识或上下文自行推断，必须来自原文明确表述。
 
 每个表型必须输出section_name，用于表示该表型对应的消化系统疾病分类。
 section_name 必须从以下枚举中选择，不允许自由生成：
@@ -56,7 +60,8 @@ section_name 必须从以下枚举中选择，不允许自由生成：
 
 
 只输出提取得到的诊断内容并写为 json，格式如下：
-{"diagnoses": [{"diagnosis": "原文中的表型短语", "section_name": "消化系统疾病分类"}]}。
+{"positive_features": [{"diagnosis": "原文中的阳性表型短语", "section_name": "消化系统疾病分类"}], "negative_features": [{"diagnosis": "原文中的阴性表型短语", "section_name": "消化系统疾病分类"}]}。
+没有对应内容时输出空数组。
 诊断内容请使用中文书写。禁止输出其他任何无关信息。"""
 
 DEFAULT_MODEL_PATH = ROOT / "data" / "bge-large-zh-v1.5"
@@ -158,21 +163,31 @@ class IcdExtractor:
         *,
         llm_workers: int = 1,
         prompt: str,
-    ) -> list[dict[str, Any]]:
-        diagnosis_sources = _extract_icd_diagnosis_sources_from_cards(
+    ) -> dict[str, list[dict[str, Any]]]:
+        diagnosis_source_groups = _extract_icd_diagnosis_sources_from_cards(
             cards,
             icd_extractor=self,
             deepseek_client=deepseek_client,
             llm_workers=llm_workers,
             prompt=prompt,
         )
-        diagnoses = _dedupe_diagnosis_items(diagnosis_sources)
-        mappings = self.map_diagnoses_to_icd(diagnoses, source_type="cards")
-        _attach_card_ids_to_mapping_results(mappings, diagnosis_sources)
-        _attach_card_ids_to_icd_summary(self._last_summary, diagnosis_sources)
-        icd_features = build_mapped_icd_features(mappings)
-        _attach_card_ids_to_icd_features(icd_features, diagnosis_sources)
-        return icd_features
+        positive_features, positive_summary = self._map_card_diagnosis_sources(
+            diagnosis_source_groups["positive_features"],
+            source_type="cards_positive",
+        )
+        negative_features, negative_summary = self._map_card_diagnosis_sources(
+            diagnosis_source_groups["negative_features"],
+            source_type="cards_negative",
+        )
+        self._last_summary = {
+            "source_type": "cards",
+            "positive_features": positive_summary,
+            "negative_features": negative_summary,
+        }
+        return {
+            "positive_features": positive_features,
+            "negative_features": negative_features,
+        }
 
     def extract_diagnoses(
         self,
@@ -187,6 +202,34 @@ class IcdExtractor:
         user_prompt = json.dumps({"clinical_text": text}, ensure_ascii=False)
         payload = deepseek_client.chat_json(prompt, user_prompt)
         return _parse_diagnoses(payload)
+
+    def extract_diagnosis_groups(
+        self,
+        text: str,
+        deepseek_client: JsonChatClient,
+        prompt: str,
+    ) -> dict[str, list[dict[str, str]]]:
+        if not str(prompt or "").strip():
+            raise ValueError("extract_diagnosis_groups requires a non-empty prompt")
+        if not str(text or "").strip():
+            return _empty_diagnosis_groups()
+        user_prompt = json.dumps({"clinical_text": text}, ensure_ascii=False)
+        payload = deepseek_client.chat_json(prompt, user_prompt)
+        return _parse_diagnosis_groups(payload)
+
+    def _map_card_diagnosis_sources(
+        self,
+        diagnosis_sources: Sequence[Mapping[str, Any]],
+        *,
+        source_type: str,
+    ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+        diagnoses = _dedupe_diagnosis_items(diagnosis_sources)
+        mappings = self.map_diagnoses_to_icd(diagnoses, source_type=source_type)
+        _attach_card_ids_to_mapping_results(mappings, diagnosis_sources)
+        _attach_card_ids_to_icd_summary(self._last_summary, diagnosis_sources)
+        icd_features = build_mapped_icd_features(mappings)
+        _attach_card_ids_to_icd_features(icd_features, diagnosis_sources)
+        return icd_features, self.get_last_summary()
 
     def map_diagnoses_to_icd(
         self,
@@ -342,7 +385,7 @@ def _extract_icd_diagnosis_sources_from_cards(
     deepseek_client: JsonChatClient,
     llm_workers: int,
     prompt: str,
-) -> list[dict[str, str]]:
+) -> dict[str, list[dict[str, str]]]:
     candidates = [
         (clean_text(card.get("card_id")), clean_text(card.get("raw_chunk_text")))
         for card in cards
@@ -350,51 +393,61 @@ def _extract_icd_diagnosis_sources_from_cards(
     total = len(candidates)
     workers = max(1, int(llm_workers or 1))
     if workers <= 1 or len(candidates) <= 1:
-        diagnosis_sources: list[dict[str, str]] = []
+        diagnosis_source_groups = _empty_diagnosis_groups()
         for index, (card_id, text) in enumerate(candidates, start=1):
             if card_id:
-                diagnosis_sources.extend(
-                    {
-                        "diagnosis": diagnosis["diagnosis"],
-                        "section_name": clean_text(diagnosis.get("section_name")),
-                        "card_id": card_id,
-                    }
-                    for diagnosis in icd_extractor.extract_diagnoses(
-                        text,
-                        deepseek_client,
-                        prompt,
-                    )
+                extracted_groups = icd_extractor.extract_diagnosis_groups(
+                    text,
+                    deepseek_client,
+                    prompt,
                 )
+                for group_name, diagnoses in extracted_groups.items():
+                    diagnosis_source_groups[group_name].extend(
+                        {
+                            "diagnosis": diagnosis["diagnosis"],
+                            "section_name": clean_text(diagnosis.get("section_name")),
+                            "card_id": card_id,
+                        }
+                        for diagnosis in diagnoses
+                    )
             _log_icd_cards_progress(index, total)
-        return _dedupe_diagnosis_sources(diagnosis_sources)
+        return _dedupe_diagnosis_source_groups(diagnosis_source_groups)
 
     with ThreadPoolExecutor(max_workers=workers) as executor:
         future_to_index = {
             executor.submit(
-                icd_extractor.extract_diagnoses,
+                icd_extractor.extract_diagnosis_groups,
                 text,
                 deepseek_client,
                 prompt,
             ): index
             for index, (_card_id, text) in enumerate(candidates)
         }
-        diagnosis_groups: list[list[dict[str, str]]] = [[] for _ in candidates]
+        diagnosis_groups_by_card = [_empty_diagnosis_groups() for _ in candidates]
         completed = 0
         for future in as_completed(future_to_index):
             index = future_to_index[future]
-            diagnosis_groups[index] = future.result()
+            diagnosis_groups_by_card[index] = future.result()
             completed += 1
             _log_icd_cards_progress(completed, total)
-    return _dedupe_diagnosis_sources(
-        {
-            "diagnosis": diagnosis["diagnosis"],
-            "section_name": clean_text(diagnosis.get("section_name")),
-            "card_id": card_id,
-        }
-        for (card_id, _text), group in zip(candidates, diagnosis_groups, strict=False)
-        if card_id
-        for diagnosis in group
-    )
+    diagnosis_source_groups = _empty_diagnosis_groups()
+    for (card_id, _text), extracted_groups in zip(
+        candidates,
+        diagnosis_groups_by_card,
+        strict=False,
+    ):
+        if not card_id:
+            continue
+        for group_name, diagnoses in extracted_groups.items():
+            diagnosis_source_groups[group_name].extend(
+                {
+                    "diagnosis": diagnosis["diagnosis"],
+                    "section_name": clean_text(diagnosis.get("section_name")),
+                    "card_id": card_id,
+                }
+                for diagnosis in diagnoses
+            )
+    return _dedupe_diagnosis_source_groups(diagnosis_source_groups)
 
 
 def _log_icd_cards_progress(completed: int, total: int) -> None:
@@ -405,7 +458,24 @@ def _log_icd_cards_progress(completed: int, total: int) -> None:
 
 
 def _parse_diagnoses(payload: Mapping[str, Any]) -> list[dict[str, str]]:
-    values = payload.get("diagnoses", [])
+    return _dedupe_diagnosis_items(_parse_diagnosis_items(payload.get("diagnoses", [])))
+
+
+def _parse_diagnosis_groups(payload: Mapping[str, Any]) -> dict[str, list[dict[str, str]]]:
+    groups = {
+        "positive_features": _dedupe_diagnosis_items(
+            _parse_diagnosis_items(payload.get("positive_features", []))
+        ),
+        "negative_features": _dedupe_diagnosis_items(
+            _parse_diagnosis_items(payload.get("negative_features", []))
+        ),
+    }
+    if not groups["positive_features"] and not groups["negative_features"]:
+        groups["positive_features"] = _parse_diagnoses(payload)
+    return groups
+
+
+def _parse_diagnosis_items(values: Any) -> list[dict[str, str]]:
     if not isinstance(values, list):
         return []
 
@@ -430,7 +500,11 @@ def _parse_diagnoses(payload: Mapping[str, Any]) -> list[dict[str, str]]:
                         ),
                     }
                 )
-    return _dedupe_diagnosis_items(diagnoses)
+    return diagnoses
+
+
+def _empty_diagnosis_groups() -> dict[str, list[dict[str, str]]]:
+    return {"positive_features": [], "negative_features": []}
 
 
 def _dedupe_diagnosis_items(values: Sequence[Any]) -> list[dict[str, str]]:
@@ -473,6 +547,15 @@ def _dedupe_diagnosis_sources(values: Iterable[Mapping[str, Any]]) -> list[dict[
             {"diagnosis": diagnosis, "section_name": section_name, "card_id": card_id}
         )
     return deduped
+
+
+def _dedupe_diagnosis_source_groups(
+    groups: Mapping[str, Sequence[Mapping[str, Any]]],
+) -> dict[str, list[dict[str, str]]]:
+    return {
+        "positive_features": _dedupe_diagnosis_sources(groups.get("positive_features") or []),
+        "negative_features": _dedupe_diagnosis_sources(groups.get("negative_features") or []),
+    }
 
 
 def _attach_card_ids_to_icd_features(
@@ -557,9 +640,13 @@ def _icd_candidates(
     candidates: list[dict[str, Any]] = []
     for index, value in zip(indices, values, strict=False):
         candidate = {field: clean_text(records[index].get(field)) for field in ICD_RECORD_FIELDS}
-        candidate["similarity_score"] = float(value)
+        candidate["similarity_score"] = _normalize_similarity_score(value)
         candidates.append(candidate)
     return candidates
+
+
+def _normalize_similarity_score(value: Any) -> float:
+    return max(0.0, min(float(value or 0.0), 1.0))
 
 
 def _select_section_name_candidate(
@@ -623,6 +710,7 @@ def _build_icd_summary(
         key = f"{status}_count"
         if key in counts:
             counts[key] += 1
+    summary_items = [_summary_item(result) for result in results]
 
     return {
         "source_type": source_type,
@@ -631,7 +719,9 @@ def _build_icd_summary(
         "input_count": input_count,
         "deduped_count": deduped_count,
         **counts,
-        "items": [_summary_item(result) for result in results],
+        "items": summary_items,
+        "mapped_items": [item for item in summary_items if item.get("status") == "mapped"],
+        "other_items": [item for item in summary_items if item.get("status") != "mapped"],
     }
 
 

@@ -201,7 +201,7 @@
         "skill_id",
         "disease_name",
         "score",
-        "matched_features",
+        "matched_positive_features",
         "missing_key_evidence"
       ],
       "properties": {
@@ -217,17 +217,18 @@
         "rank": {
           "type": "integer"
         },
-        "matched_features": {
+        "matched_positive_features": {
           "type": "array",
           "items": {
             "type": "object",
             "additionalProperties": true
       }
         },
-        "negative_features": {
+        "matched_negative_features": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "additionalProperties": true
           }
         },
         "missing_key_evidence": {
@@ -380,13 +381,13 @@
         "score": {
           "type": "number"
         },
-        "matched": {
+        "matched_positive_features": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "penalties": {
+        "matched_negative_features": {
           "type": "array",
           "items": {
             "type": "string"
