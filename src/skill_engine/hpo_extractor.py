@@ -53,9 +53,9 @@ body_site 必须从以下枚举中选择，不允许自由生成：
 描述内容请使用中文书写。
 禁止输出其他任何无关信息。"""
 
-DEFAULT_MODEL_PATH = ROOT / "data" / "bge-large-zh-v1.5"
-DEFAULT_DEFINITION2ID_PATH = ROOT / "data" / "ontology" / "definition2id.json"
-DEFAULT_DEFINITION_EMBEDDINGS_PATH = ROOT / "data" / "ontology" / "definition_embeddings.pt"
+DEFAULT_MODEL_PATH = ROOT / "data" / "qwen3-embedding-8b"
+DEFAULT_DEFINITION2ID_PATH = ROOT / "data" / "ontology" / "hpo.json"
+DEFAULT_DEFINITION_EMBEDDINGS_PATH = ROOT / "data" / "ontology" / "hpo_embeddings.pt"
 DEFAULT_HPO_SIMILARITY_THRESHOLD = 0.8
 DEFAULT_HPO_BODY_SITE_TOP_K = 5
 

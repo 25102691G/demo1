@@ -3,6 +3,7 @@ data/runs
 data/bge-large-zh-v1.5
 data/qwen3-embedding-8b
 data/ICD10/*.pt
+data/ontology/hpo_embeddings.pt
 data/skills
 output/
 
