@@ -54,7 +54,8 @@ def _score_skill(
         if not _match_routing_feature(canonical_case, feature, feature_mode):
             continue
         weight = float(feature.get("weight") or 0.2)
-        raw_score += weight
+        similarity_score = float(feature["similarity_score"])
+        raw_score += weight * similarity_score
         matched_positive_features.append(_matched_feature_payload(feature))
 
     matched_negative_features: list[dict[str, Any]] = []
@@ -62,7 +63,8 @@ def _score_skill(
         if not _match_routing_feature(canonical_case, feature, feature_mode):
             continue
         weight = float(feature.get("weight") or -0.1)
-        raw_score += weight
+        similarity_score = float(feature["similarity_score"])
+        raw_score += weight * similarity_score
         matched_negative_features.append(_matched_feature_payload(feature))
 
     # score = _normalize_score(raw_score - penalty_score, routing.get("scoring") or {})
