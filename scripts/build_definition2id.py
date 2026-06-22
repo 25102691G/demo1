@@ -16,7 +16,8 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 DEFAULT_INPUT = ROOT / "data" / "ontology" / "hp-zh.babelon.tsv"
-DEFAULT_OUTPUT = ROOT / "data" / "ontology" / "definition2id.json"
+DEFAULT_OUTPUT = ROOT / "data" / "ontology" / "hpo.json"
+DEFAULT_OUTPUT_WITH_BODY_SITE = ROOT / "data" / "ontology" / "hpo_with_body_site.json"
 LLM_CLIENT_PATH = SRC / "skill_engine" / "llm_client.py"
 _LLM_CLIENT_MODULE: Any | None = None
 BODY_SITES = {
@@ -75,6 +76,10 @@ def build_definition2id(input_path: Path) -> dict[str, list[str]]:
                 subject_ids.append(subject_id)
 
     return definition2id
+
+
+def build_definition2id_without_body_site(definition2id: dict[str, list[str]]) -> dict[str, dict[str, list[str]]]:
+    return {term: {"hpo_ids": hpo_ids} for term, hpo_ids in definition2id.items()}
 
 
 def build_definition2id_with_body_site(
@@ -190,26 +195,38 @@ def main(argv: list[str] | None = None) -> int:
         sys.stderr.reconfigure(encoding="utf-8")
 
     parser = argparse.ArgumentParser(
-        description="Build definition2id.json from HPO Babelon Chinese translations."
+        description="Build definition2id JSON files from HPO Babelon Chinese translations."
     )
     parser.add_argument("--input", default=str(DEFAULT_INPUT), help="Input Babelon TSV path.")
-    parser.add_argument("--output", default=str(DEFAULT_OUTPUT), help="Output JSON path.")
+    parser.add_argument("--output", default=None, help="Output JSON path.")
+    parser.add_argument(
+        "--with-body-site",
+        action="store_true",
+        help="Include body_site in output and use definition2id_with_body_site.json by default.",
+    )
     parser.add_argument("--llm-batch-size", type=int, default=100, help="Terms per DeepSeek body_site request.")
     parser.add_argument("--llm-workers", type=int, default=20, help="Concurrent DeepSeek body_site requests.")
     args = parser.parse_args(argv)
 
     input_path = Path(args.input)
-    output_path = Path(args.output)
+    output_path = Path(
+        args.output
+        or (DEFAULT_OUTPUT_WITH_BODY_SITE if args.with_body_site else DEFAULT_OUTPUT)
+    )
     definition2id = build_definition2id(input_path)
-    definition2id_with_body_site = build_definition2id_with_body_site(
-        definition2id,
-        llm_batch_size=args.llm_batch_size,
-        llm_workers=args.llm_workers,
+    output_data = (
+        build_definition2id_with_body_site(
+            definition2id,
+            llm_batch_size=args.llm_batch_size,
+            llm_workers=args.llm_workers,
+        )
+        if args.with_body_site
+        else build_definition2id_without_body_site(definition2id)
     )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
-        json.dumps(definition2id_with_body_site, ensure_ascii=False, indent=2) + "\n",
+        json.dumps(output_data, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
     print(f"Wrote {len(definition2id)} definitions to {output_path}")
