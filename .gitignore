@@ -1,6 +1,7 @@
 # Project data and generated outputs
 data/runs
 data/bge-large-zh-v1.5
+data/qwen3-embedding-8b
 data/ICD10/*.pt
 data/skills
 output/

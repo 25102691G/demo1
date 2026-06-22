@@ -64,11 +64,14 @@ section_name 必须从以下枚举中选择，不允许自由生成：
 没有对应内容时输出空数组。
 诊断内容请使用中文书写。禁止输出其他任何无关信息。"""
 
-DEFAULT_MODEL_PATH = ROOT / "data" / "bge-large-zh-v1.5"
+DEFAULT_MODEL_PATH = ROOT / "data" / "qwen3-embedding-8b"
 DEFAULT_ICD10_PATH = ROOT / "data" / "ICD10" / "ICD10.json"
 DEFAULT_ICD10_EMBEDDINGS_PATH = ROOT / "data" / "ICD10" / "ICD10_embeddings.pt"
 DEFAULT_ICD_SIMILARITY_THRESHOLD = 0.8
 DEFAULT_ICD_TOP_K = 5
+DEFAULT_ICD_QUERY_INSTRUCTION = (
+    "Given a clinical diagnosis phrase in Chinese, retrieve the matching ICD-10 diagnosis name"
+)
 
 ICD_RECORD_FIELDS = (
     "chapter",
@@ -89,6 +92,7 @@ ICD_RECORD_FIELDS = (
 class IcdResources:
     model: Any
     tokenizer: Any
+    pooling_mode: str
     records: list[dict[str, str]]
     record_embeddings: Any
     record_keys: list[str]
@@ -122,8 +126,13 @@ class IcdExtractor:
     ) -> IcdExtractor:
         torch = _load_torch()
         AutoTokenizer, AutoModel = _load_transformers()
+        model_path = Path(model_path)
+        pooling_mode = _embedding_pooling_mode(model_path)
 
-        tokenizer = AutoTokenizer.from_pretrained(str(model_path), local_files_only=True)
+        tokenizer_kwargs: dict[str, Any] = {"local_files_only": True}
+        if pooling_mode == "last_token":
+            tokenizer_kwargs["padding_side"] = "left"
+        tokenizer = AutoTokenizer.from_pretrained(str(model_path), **tokenizer_kwargs)
         model = AutoModel.from_pretrained(str(model_path), local_files_only=True)
         records = _load_icd10_records(icd10_path)
         record_embeddings = torch.load(str(icd10_embeddings_path), map_location="cpu")
@@ -135,6 +144,7 @@ class IcdExtractor:
         resources = IcdResources(
             model=model,
             tokenizer=tokenizer,
+            pooling_mode=pooling_mode,
             records=records,
             record_embeddings=record_embeddings,
             record_keys=[record["diagnosis_name"] for record in records],
@@ -241,14 +251,13 @@ class IcdExtractor:
         if not diagnosis_items:
             self._last_summary = _empty_icd_summary(source_type=source_type)
             return []
-        cleaned = [item["diagnosis"] for item in diagnosis_items]
-
         torch = _load_torch()
         device = _get_device(torch)
         resources = self.resources
         model = resources.model
         tokenizer = resources.tokenizer
         record_embeddings = resources.record_embeddings
+        cleaned = _embedding_query_texts(diagnosis_items, pooling_mode=resources.pooling_mode)
 
         try:
             model = model.to(device)
@@ -270,13 +279,20 @@ class IcdExtractor:
             ).to(device)
             with torch.no_grad():
                 outputs = model(**inputs)
-            diagnosis_embeddings.append(outputs.last_hidden_state[:, 0, :])
+            batch_embeddings = _pool_embeddings(
+                outputs.last_hidden_state,
+                inputs["attention_mask"],
+                pooling_mode=resources.pooling_mode,
+                torch=torch,
+            )
+            batch_embeddings = torch.nn.functional.normalize(batch_embeddings, p=2, dim=1).float()
+            diagnosis_embeddings.append(batch_embeddings)
 
         query_embeddings = torch.cat(diagnosis_embeddings, 0)
         topk = min(DEFAULT_ICD_TOP_K, len(resources.records))
         topk_indices, topk_values = topk_similarity(query_embeddings, record_embeddings, k=topk)
         topk_indices = topk_indices.cpu().numpy().tolist()
-        topk_values = topk_values.cpu().numpy().tolist()
+        topk_values = topk_values.cpu().float().numpy().tolist()
 
         results: list[dict[str, Any]] = []
         seen_codes: set[str] = set()
@@ -625,11 +641,55 @@ def _card_ids_by_diagnosis(
 
 def topk_similarity(query_embeddings: Any, record_embeddings: Any, *, k: int = 1) -> tuple[Any, Any]:
     torch = _load_torch()
-    query_embeddings = torch.nn.functional.normalize(query_embeddings, p=2, dim=1)
-    record_embeddings = torch.nn.functional.normalize(record_embeddings, p=2, dim=1)
+    query_embeddings = torch.nn.functional.normalize(query_embeddings, p=2, dim=1).float()
+    record_embeddings = torch.nn.functional.normalize(record_embeddings, p=2, dim=1).float()
     similarities = torch.matmul(query_embeddings, record_embeddings.T)
     topk_values, topk_indices = torch.topk(similarities, k, dim=1)
     return topk_indices, topk_values
+
+
+def _embedding_query_texts(
+    diagnosis_items: Sequence[Mapping[str, str]],
+    *,
+    pooling_mode: str,
+) -> list[str]:
+    texts = [item["diagnosis"] for item in diagnosis_items]
+    if pooling_mode != "last_token":
+        return texts
+    return [f"Instruct: {DEFAULT_ICD_QUERY_INSTRUCTION}\nQuery:{text}" for text in texts]
+
+
+def _pool_embeddings(
+    last_hidden_state: Any,
+    attention_mask: Any,
+    *,
+    pooling_mode: str,
+    torch: Any,
+) -> Any:
+    if pooling_mode != "last_token":
+        return last_hidden_state[:, 0, :]
+    left_padding = bool((attention_mask[:, -1].sum() == attention_mask.shape[0]).item())
+    if left_padding:
+        return last_hidden_state[:, -1, :]
+    sequence_lengths = attention_mask.sum(dim=1) - 1
+    batch_size = last_hidden_state.shape[0]
+    return last_hidden_state[torch.arange(batch_size, device=last_hidden_state.device), sequence_lengths]
+
+
+def _embedding_pooling_mode(model_path: Path) -> str:
+    pooling_config_path = model_path / "1_Pooling" / "config.json"
+    if pooling_config_path.exists():
+        with pooling_config_path.open("r", encoding="utf-8") as handle:
+            pooling_config = json.load(handle)
+        if pooling_config.get("pooling_mode_lasttoken") is True:
+            return "last_token"
+    config_path = model_path / "config.json"
+    if config_path.exists():
+        with config_path.open("r", encoding="utf-8") as handle:
+            model_config = json.load(handle)
+        if str(model_config.get("model_type") or "").lower() == "qwen3":
+            return "last_token"
+    return "cls"
 
 
 def _icd_candidates(

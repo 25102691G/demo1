@@ -20,13 +20,14 @@ if str(SRC) not in sys.path:
 from skill_engine.hpo_extractor import (
     DEFAULT_DEFINITION2ID_PATH,
     DEFAULT_DEFINITION_EMBEDDINGS_PATH,
-    DEFAULT_MODEL_PATH,
+    DEFAULT_MODEL_PATH as DEFAULT_HPO_MODEL_PATH,
     HPO_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS,
     HpoExtractor,
 )
 from skill_engine.icd_extractor import (
     DEFAULT_ICD10_EMBEDDINGS_PATH,
     DEFAULT_ICD10_PATH,
+    DEFAULT_MODEL_PATH as DEFAULT_ICD_MODEL_PATH,
     ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS,
     IcdExtractor,
 )
@@ -922,7 +923,7 @@ def build_default_hpo_dependencies(
     if similarity_threshold is not None:
         hpo_kwargs["similarity_threshold"] = similarity_threshold
     hpo_extractor = HpoExtractor.from_paths(
-        model_path=DEFAULT_MODEL_PATH,
+        model_path=DEFAULT_HPO_MODEL_PATH,
         definition2id_path=DEFAULT_DEFINITION2ID_PATH,
         definition_embeddings_path=DEFAULT_DEFINITION_EMBEDDINGS_PATH,
         **hpo_kwargs,
@@ -933,12 +934,13 @@ def build_default_hpo_dependencies(
 
 def build_default_icd10_dependencies(
     similarity_threshold: float | None = None,
+    model_path: str | Path | None = None,
 ) -> tuple[IcdExtractor, OpenAICompatibleJsonChatClient]:
     icd_kwargs: dict[str, Any] = {}
     if similarity_threshold is not None:
         icd_kwargs["similarity_threshold"] = similarity_threshold
     icd_extractor = IcdExtractor.from_paths(
-        model_path=DEFAULT_MODEL_PATH,
+        model_path=model_path or DEFAULT_ICD_MODEL_PATH,
         icd10_path=DEFAULT_ICD10_PATH,
         icd10_embeddings_path=DEFAULT_ICD10_EMBEDDINGS_PATH,
         **icd_kwargs,
@@ -950,11 +952,12 @@ def build_default_icd10_dependencies(
 def build_default_feature_dependencies(
     feature_mode: str,
     similarity_threshold: float | None = None,
+    model_path: str | Path | None = None,
 ) -> tuple[Any, OpenAICompatibleJsonChatClient]:
     if feature_mode == "hpo":
         return build_default_hpo_dependencies(similarity_threshold)
     if feature_mode == "icd10":
-        return build_default_icd10_dependencies(similarity_threshold)
+        return build_default_icd10_dependencies(similarity_threshold, model_path=model_path)
     raise BuildSkillPackError(f"unsupported feature mode: {feature_mode}")
 
 
@@ -1066,6 +1069,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         help="Concurrent LLM calls for feature extraction. Defaults to 20.",
     )
     parser.add_argument("--similarity-threshold", type=_similarity_threshold)
+    parser.add_argument(
+        "--model-path",
+        default=None,
+        help="Optional ICD10 embedding model path. Use the same model that built ICD10_embeddings.pt.",
+    )
     parser.add_argument("--force", action="store_true", help="Overwrite existing output files.")
     parser.add_argument("--dry-run", action="store_true", help="Build and validate without writing files.")
     args = parser.parse_args(argv)
@@ -1078,6 +1086,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         feature_extractor, deepseek_client = build_default_feature_dependencies(
             feature_mode,
             args.similarity_threshold,
+            model_path=args.model_path,
         )
         results = []
         total_sources = len(card_sources)

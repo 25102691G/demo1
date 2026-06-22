@@ -17,12 +17,13 @@ from skill_engine.case_normalizer import normalize_case
 from skill_engine.hpo_extractor import (
     DEFAULT_DEFINITION2ID_PATH,
     DEFAULT_DEFINITION_EMBEDDINGS_PATH,
-    DEFAULT_MODEL_PATH,
+    DEFAULT_MODEL_PATH as DEFAULT_HPO_MODEL_PATH,
     HpoExtractor,
 )
 from skill_engine.icd_extractor import (
     DEFAULT_ICD10_EMBEDDINGS_PATH,
     DEFAULT_ICD10_PATH,
+    DEFAULT_MODEL_PATH as DEFAULT_ICD_MODEL_PATH,
     IcdExtractor,
 )
 from skill_engine.llm_client import OpenAICompatibleJsonChatClient, load_deepseek_config_from_env
@@ -74,6 +75,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--min-score", type=float)
     parser.add_argument("--similarity-threshold", type=_similarity_threshold)
     parser.add_argument(
+        "--model-path",
+        default=None,
+        help="Optional ICD10 embedding model path. Use the same model that built ICD10_embeddings.pt.",
+    )
+    parser.add_argument(
         "--hpo-summary-output",
         default=None,
         help="Optional extra feature summary JSON path. By default, feature summary is embedded in workflow output.",
@@ -90,6 +96,7 @@ def main(argv: list[str] | None = None) -> int:
         feature_extractor, deepseek_client = _build_feature_dependencies(
             feature_mode,
             args.similarity_threshold,
+            model_path=args.model_path,
         )
 
         canonical_case = normalize_case(
@@ -242,11 +249,12 @@ def _skill_filename_for_mode(feature_mode: str) -> str:
 def _build_feature_dependencies(
     feature_mode: str,
     similarity_threshold: float | None = None,
+    model_path: str | Path | None = None,
 ) -> tuple[Any, OpenAICompatibleJsonChatClient]:
     if feature_mode == "hpo":
         return _build_hpo_dependencies(similarity_threshold)
     if feature_mode == "icd10":
-        return _build_icd10_dependencies(similarity_threshold)
+        return _build_icd10_dependencies(similarity_threshold, model_path=model_path)
     raise ValueError(f"unsupported feature mode: {feature_mode}")
 
 
@@ -257,7 +265,7 @@ def _build_hpo_dependencies(
     if similarity_threshold is not None:
         hpo_kwargs["similarity_threshold"] = similarity_threshold
     hpo_extractor = HpoExtractor.from_paths(
-        model_path=DEFAULT_MODEL_PATH,
+        model_path=DEFAULT_HPO_MODEL_PATH,
         definition2id_path=DEFAULT_DEFINITION2ID_PATH,
         definition_embeddings_path=DEFAULT_DEFINITION_EMBEDDINGS_PATH,
         **hpo_kwargs,
@@ -268,12 +276,13 @@ def _build_hpo_dependencies(
 
 def _build_icd10_dependencies(
     similarity_threshold: float | None = None,
+    model_path: str | Path | None = None,
 ) -> tuple[IcdExtractor, OpenAICompatibleJsonChatClient]:
     icd_kwargs: dict[str, Any] = {}
     if similarity_threshold is not None:
         icd_kwargs["similarity_threshold"] = similarity_threshold
     icd_extractor = IcdExtractor.from_paths(
-        model_path=DEFAULT_MODEL_PATH,
+        model_path=model_path or DEFAULT_ICD_MODEL_PATH,
         icd10_path=DEFAULT_ICD10_PATH,
         icd10_embeddings_path=DEFAULT_ICD10_EMBEDDINGS_PATH,
         **icd_kwargs,

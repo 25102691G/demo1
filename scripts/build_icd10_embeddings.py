@@ -10,7 +10,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data" / "ICD10" / "ICD10.json"
 DEFAULT_OUTPUT = ROOT / "data" / "ICD10" / "ICD10_embeddings.pt"
-DEFAULT_MODEL_PATH = ROOT / "data" / "bge-large-zh-v1.5"
+DEFAULT_MODEL_PATH = ROOT / "data" / "qwen3-embedding-8b"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -22,7 +22,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Build ICD10 diagnosis_name embeddings.")
     parser.add_argument("--input", default=str(DEFAULT_INPUT), help="Input ICD10 JSON path.")
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT), help="Output torch tensor path.")
-    parser.add_argument("--model-path", default=str(DEFAULT_MODEL_PATH), help="Local BGE model path.")
+    parser.add_argument("--model-path", default=str(DEFAULT_MODEL_PATH), help="Local embedding model path.")
     parser.add_argument("--batch-size", type=int, default=64, help="Embedding batch size.")
     parser.add_argument("--max-length", type=int, default=128, help="Tokenizer max length.")
     args = parser.parse_args(argv)
@@ -42,7 +42,7 @@ def main(argv: list[str] | None = None) -> int:
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     torch = _load_torch()
-    torch.save(embeddings.cpu(), str(output_path))
+    torch.save(embeddings.cpu().float(), str(output_path))
 
     print(f"Wrote embeddings for {len(diagnosis_names)} ICD10 items to {output_path}")
     return 0
@@ -63,8 +63,12 @@ def build_embeddings(
     torch = _load_torch()
     AutoTokenizer, AutoModel = _load_transformers()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    pooling_mode = _embedding_pooling_mode(model_path)
 
-    tokenizer = AutoTokenizer.from_pretrained(str(model_path), local_files_only=True)
+    tokenizer_kwargs: dict[str, Any] = {"local_files_only": True}
+    if pooling_mode == "last_token":
+        tokenizer_kwargs["padding_side"] = "left"
+    tokenizer = AutoTokenizer.from_pretrained(str(model_path), **tokenizer_kwargs)
     model = AutoModel.from_pretrained(str(model_path), local_files_only=True).to(device)
     model.eval()
 
@@ -80,12 +84,52 @@ def build_embeddings(
         ).to(device)
         with torch.no_grad():
             outputs = model(**inputs)
-        batches.append(outputs.last_hidden_state[:, 0, :].cpu())
+        batch_embeddings = _pool_embeddings(
+            outputs.last_hidden_state,
+            inputs["attention_mask"],
+            pooling_mode=pooling_mode,
+            torch=torch,
+        )
+        batch_embeddings = torch.nn.functional.normalize(batch_embeddings, p=2, dim=1).float()
+        batches.append(batch_embeddings.cpu())
         print(f"Embedded {min(start + batch_size, len(texts))}/{len(texts)}")
 
     if not batches:
         return torch.empty((0, 0))
     return torch.cat(batches, dim=0)
+
+
+def _pool_embeddings(
+    last_hidden_state: Any,
+    attention_mask: Any,
+    *,
+    pooling_mode: str,
+    torch: Any,
+) -> Any:
+    if pooling_mode != "last_token":
+        return last_hidden_state[:, 0, :]
+    left_padding = bool((attention_mask[:, -1].sum() == attention_mask.shape[0]).item())
+    if left_padding:
+        return last_hidden_state[:, -1, :]
+    sequence_lengths = attention_mask.sum(dim=1) - 1
+    batch_size = last_hidden_state.shape[0]
+    return last_hidden_state[torch.arange(batch_size, device=last_hidden_state.device), sequence_lengths]
+
+
+def _embedding_pooling_mode(model_path: Path) -> str:
+    pooling_config_path = model_path / "1_Pooling" / "config.json"
+    if pooling_config_path.exists():
+        with pooling_config_path.open("r", encoding="utf-8") as handle:
+            pooling_config = json.load(handle)
+        if pooling_config.get("pooling_mode_lasttoken") is True:
+            return "last_token"
+    config_path = model_path / "config.json"
+    if config_path.exists():
+        with config_path.open("r", encoding="utf-8") as handle:
+            model_config = json.load(handle)
+        if str(model_config.get("model_type") or "").lower() == "qwen3":
+            return "last_token"
+    return "cls"
 
 
 def _resolve_path(path: str) -> Path:
