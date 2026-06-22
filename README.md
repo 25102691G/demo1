@@ -63,16 +63,19 @@ data/ICD10/ICD10_embeddings.pt
 
 ## 环境准备
 
-建议使用 Python 3.10+。
+建议使用 `uv` 创建 Python 3.11 环境。`.venv` 是本机环境目录，不应提交到 git；新机器 clone 项目后按下面命令重新创建即可。
 
 ```powershell
-pip install -r requirements.txt
+uv venv .venv --python 3.11
+uv pip install --python .\.venv\Scripts\python.exe -r requirements.txt
+uv pip install --python .\.venv\Scripts\python.exe torch --index-url https://download.pytorch.org/whl/cu128
 ```
 
-运行测试：
+验证 Python 与 CUDA 版本：
 
 ```powershell
-pytest
+.\.venv\Scripts\python.exe --version
+.\.venv\Scripts\python.exe -c "import torch; print(torch.__version__); print(torch.version.cuda); print(torch.cuda.is_available())"
 ```
 
 ## 1. OCR 提取 PDF
