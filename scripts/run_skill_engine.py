@@ -105,6 +105,7 @@ def main(argv: list[str] | None = None) -> int:
             deepseek_client=deepseek_client,
             feature_extractor=feature_extractor,
             feature_mode=feature_mode,
+            structured_input=structured_input,
         )
         canonical_case["raw_input"] = structured_input
         _apply_basic_case_fields(canonical_case, args)
@@ -131,11 +132,13 @@ def main(argv: list[str] | None = None) -> int:
             )
             packs_by_id = {pack.skill_id: pack for pack in packs}
             engine = WorkflowEngine()
-            selected_outputs = [
-                engine.run(packs_by_id[candidate["skill_id"]], canonical_case, candidate)
-                for candidate in top_candidates
-                if candidate["skill_id"] in packs_by_id
-            ]
+            selected_outputs = []
+            for candidate in top_candidates:
+                if candidate["skill_id"] not in packs_by_id:
+                    continue
+                selected_outputs.append(
+                    engine.run(packs_by_id[candidate["skill_id"]], canonical_case, candidate)
+                )
             output = build_workflow_output(
                 canonical_case=canonical_case,
                 top_candidates=top_candidates,
@@ -281,12 +284,7 @@ def _build_icd10_dependencies(
     icd_kwargs: dict[str, Any] = {}
     if similarity_threshold is not None:
         icd_kwargs["similarity_threshold"] = similarity_threshold
-    icd_extractor = IcdExtractor.from_paths(
-        model_path=model_path or DEFAULT_ICD_MODEL_PATH,
-        icd10_path=DEFAULT_ICD10_PATH,
-        icd10_embeddings_path=DEFAULT_ICD10_EMBEDDINGS_PATH,
-        **icd_kwargs,
-    )
+    icd_extractor = IcdExtractor.for_extraction_only(**icd_kwargs)
     deepseek_client = OpenAICompatibleJsonChatClient(load_deepseek_config_from_env())
     return icd_extractor, deepseek_client
 

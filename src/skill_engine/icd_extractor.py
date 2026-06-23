@@ -10,7 +10,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 
-from skill_engine.icd_features import build_mapped_icd_features
+from skill_engine.icd_features import build_extracted_icd_features, build_mapped_icd_features
 from skill_engine.llm_client import JsonChatClient
 from skill_engine.utils import clean_text, normalize_key
 
@@ -35,6 +35,36 @@ section_name 必须从以下枚举中选择，不允许自由生成：
 
 只输出提取得到的诊断内容并写为 json，格式如下：
 {"diagnoses": [{"diagnosis": "原文中的表型短语", "section_name": "消化系统疾病分类"}]}。
+诊断内容请使用中文书写。禁止输出其他任何无关信息。"""
+
+ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_CLINICAL_PRESENTATION = """你是一名专攻消化内科与表型提取的医学专家。
+请根据患者临床表现，提取该患者相关的表型信息。
+只输出提取得到的内容并写为 json，格式如下：
+{"diagnoses": [{"diagnosis": "原文中的表型短语"}]}。
+诊断内容请使用中文书写。禁止输出其他任何无关信息。"""
+
+ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_LAB_TESTS = """你是一名专攻消化内科与表型提取的医学专家。
+请根据患者实验室检查结果，提取该患者相关的表型信息。
+只输出提取得到的内容并写为 json，格式如下：
+{"diagnoses": [{"diagnosis": "原文中的表型短语"}]}。
+诊断内容请使用中文书写。禁止输出其他任何无关信息。"""
+
+ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_IMAGING_TESTS = """你是一名专攻消化内科与表型提取的医学专家。
+请根据患者影像学检查结果，提取该患者相关的表型信息。
+只输出提取得到的内容并写为 json，格式如下：
+{"diagnoses": [{"diagnosis": "原文中的表型短语"}]}。
+诊断内容请使用中文书写。禁止输出其他任何无关信息。"""
+
+ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_ENDOSCOPY = """你是一名专攻消化内科与表型提取的医学专家。
+请根据患者内镜检查结果，提取该患者相关的表型信息。
+只输出提取得到的内容并写为 json，格式如下：
+{"diagnoses": [{"diagnosis": "原文中的表型短语"}]}。
+诊断内容请使用中文书写。禁止输出其他任何无关信息。"""
+
+ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_PATHOLOGY = """你是一名专攻消化内科与表型提取的医学专家。
+请根据患者病理检查结果，提取该患者相关的表型信息。
+只输出提取得到的内容并写为 json，格式如下：
+{"diagnoses": [{"diagnosis": "原文中的表型短语"}]}。
 诊断内容请使用中文书写。禁止输出其他任何无关信息。"""
 
 ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS = """你是一名专攻消化内科与表型提取的医学专家。
@@ -70,7 +100,22 @@ DEFAULT_ICD10_EMBEDDINGS_PATH = ROOT / "data" / "ICD10" / "ICD10_embeddings.pt"
 DEFAULT_ICD_SIMILARITY_THRESHOLD = 0.8
 DEFAULT_ICD_TOP_K = 5
 DEFAULT_ICD_QUERY_INSTRUCTION = (
-    "Given a clinical diagnosis phrase in Chinese, retrieve the matching ICD-10 diagnosis name"
+    "Given the clinical presentation of a patient in Chinese"
+)
+DEFAULT_ICD_QUERY_INSTRUCTION_CLINICAL_PRESENTATION = (
+    "Given the clinical presentation of a patient in Chinese"
+)
+DEFAULT_ICD_QUERY_INSTRUCTION_LAB_TESTS = (
+    "Given the lab tests of a patient in Chinese"
+)
+DEFAULT_ICD_QUERY_INSTRUCTION_IMAGING_TESTS = (
+    "Given the imaging tests of a patient in Chinese"
+)
+DEFAULT_ICD_QUERY_INSTRUCTION_ENDOSCOPY = (
+    "Given the endoscopy findings of a patient in Chinese"
+)
+DEFAULT_ICD_QUERY_INSTRUCTION_PATHOLOGY = (
+    "Given the pathology findings of a patient in Chinese"
 )
 
 ICD_RECORD_FIELDS = (
@@ -101,7 +146,7 @@ class IcdResources:
 class IcdExtractor:
     def __init__(
         self,
-        resources: IcdResources,
+        resources: IcdResources | None,
         *,
         similarity_threshold: float = DEFAULT_ICD_SIMILARITY_THRESHOLD,
         batch_size: int = 30,
@@ -112,6 +157,17 @@ class IcdExtractor:
         self.batch_size = batch_size
         self.max_length = max_length
         self._last_summary: dict[str, Any] = _empty_icd_summary()
+
+    @classmethod
+    def for_extraction_only(
+        cls,
+        *,
+        similarity_threshold: float = DEFAULT_ICD_SIMILARITY_THRESHOLD,
+    ) -> IcdExtractor:
+        return cls(
+            None,
+            similarity_threshold=similarity_threshold,
+        )
 
     @classmethod
     def from_paths(
@@ -161,10 +217,34 @@ class IcdExtractor:
         text: str,
         deepseek_client: JsonChatClient,
         prompt: str,
+        diagnosis_stage: str | None = None,
     ) -> dict[str, Any]:
         diagnoses = self.extract_diagnoses(text, deepseek_client, prompt)
+        if diagnosis_stage:
+            diagnoses = [
+                {**diagnosis, "diagnosis_stage": clean_text(diagnosis_stage)}
+                for diagnosis in diagnoses
+            ]
         mappings = self.map_diagnoses_to_icd(diagnoses, source_type="case")
         return {"features": build_mapped_icd_features(mappings)}
+
+    def extract_icd_from_case_stages(
+        self,
+        stage_inputs: Sequence[tuple[str, str, str]],
+        deepseek_client: JsonChatClient,
+    ) -> dict[str, Any]:
+        diagnoses: list[dict[str, str]] = []
+        stage_summaries: list[dict[str, Any]] = []
+        for stage, text, prompt in stage_inputs:
+            stage_diagnoses = self.extract_diagnoses(text, deepseek_client, prompt)
+            stage_diagnoses = [
+                {**diagnosis, "diagnosis_stage": clean_text(stage)}
+                for diagnosis in stage_diagnoses
+            ]
+            diagnoses.extend(stage_diagnoses)
+            stage_summaries.append(_build_extracted_stage_summary(stage, stage_diagnoses))
+        self._last_summary = _merge_extracted_stage_summaries(stage_summaries)
+        return {"features": build_extracted_icd_features(diagnoses)}
 
     def extract_icd_from_cards(
         self,
@@ -251,6 +331,8 @@ class IcdExtractor:
         if not diagnosis_items:
             self._last_summary = _empty_icd_summary(source_type=source_type)
             return []
+        if self.resources is None:
+            raise RuntimeError("ICD mapping requires loaded embedding resources")
         torch = _load_torch()
         device = _get_device(torch)
         resources = self.resources
@@ -299,6 +381,7 @@ class IcdExtractor:
         for index, item in enumerate(diagnosis_items):
             diagnosis = item["diagnosis"]
             section_name = clean_text(item.get("section_name"))
+            diagnosis_stage = clean_text(item.get("diagnosis_stage"))
             candidates = _icd_candidates(topk_indices[index], topk_values[index], resources.records)
             above_threshold = [
                 candidate
@@ -318,6 +401,7 @@ class IcdExtractor:
                     _mapping_result(
                         diagnosis=diagnosis,
                         section_name=section_name,
+                        diagnosis_stage=diagnosis_stage,
                         record=best_candidate,
                         matched_section_name=matched_section_name,
                         similarity_score=similarity_score,
@@ -333,6 +417,7 @@ class IcdExtractor:
             #         _mapping_result(
             #             diagnosis=diagnosis,
             #             section_name=section_name,
+            #             diagnosis_stage=diagnosis_stage,
             #             record=best_candidate,
             #             matched_section_name=matched_section_name,
             #             similarity_score=similarity_score,
@@ -351,6 +436,7 @@ class IcdExtractor:
                     _mapping_result(
                         diagnosis=diagnosis,
                         section_name=section_name,
+                        diagnosis_stage=diagnosis_stage,
                         record=selected,
                         matched_section_name=matched_section_name,
                         similarity_score=similarity_score,
@@ -365,6 +451,7 @@ class IcdExtractor:
                 _mapping_result(
                     diagnosis=diagnosis,
                     section_name=section_name,
+                    diagnosis_stage=diagnosis_stage,
                     record=selected,
                     matched_section_name=matched_section_name,
                     similarity_score=similarity_score,
@@ -524,7 +611,7 @@ def _empty_diagnosis_groups() -> dict[str, list[dict[str, str]]]:
 
 
 def _dedupe_diagnosis_items(values: Sequence[Any]) -> list[dict[str, str]]:
-    seen: set[tuple[str, str]] = set()
+    seen: set[tuple[str, str, str]] = set()
     deduped: list[dict[str, str]] = []
     for value in values:
         if isinstance(value, Mapping):
@@ -537,14 +624,22 @@ def _dedupe_diagnosis_items(values: Sequence[Any]) -> list[dict[str, str]]:
                 or value.get("original_diagnosis")
             )
             section_name = clean_text(value.get("section_name") or value.get("SectionName"))
+            diagnosis_stage = clean_text(value.get("diagnosis_stage"))
         else:
             diagnosis = clean_text(value)
             section_name = ""
-        key = (normalize_key(diagnosis), normalize_key(section_name))
+            diagnosis_stage = ""
+        key = (normalize_key(diagnosis), normalize_key(section_name), diagnosis_stage)
         if not key[0] or key in seen:
             continue
         seen.add(key)
-        deduped.append({"diagnosis": diagnosis, "section_name": section_name})
+        deduped.append(
+            {
+                "diagnosis": diagnosis,
+                "section_name": section_name,
+                "diagnosis_stage": diagnosis_stage,
+            }
+        )
     return deduped
 
 
@@ -732,13 +827,18 @@ def _mapping_result(
     *,
     diagnosis: str,
     section_name: str,
+    diagnosis_stage: str,
     record: Mapping[str, Any],
     matched_section_name: str,
     similarity_score: float,
     status: str,
     candidates: Sequence[Mapping[str, Any]],
 ) -> dict[str, Any]:
-    result: dict[str, Any] = {"original_diagnosis": diagnosis, "section_name": section_name}
+    result: dict[str, Any] = {
+        "original_diagnosis": diagnosis,
+        "section_name": section_name,
+        "diagnosis_stage": diagnosis_stage,
+    }
     for field in ICD_RECORD_FIELDS:
         if field == "section_name":
             continue
@@ -785,10 +885,126 @@ def _build_icd_summary(
     }
 
 
+def _build_extracted_stage_summary(
+    diagnosis_stage: str,
+    diagnoses: Sequence[Mapping[str, Any]],
+) -> dict[str, Any]:
+    items = [
+        {
+            "diagnosis": clean_text(diagnosis.get("diagnosis")),
+            "section_name": clean_text(diagnosis.get("section_name")),
+            "diagnosis_stage": clean_text(diagnosis_stage),
+            "similarity_score": None,
+            "status": "extracted",
+        }
+        for diagnosis in diagnoses
+        if clean_text(diagnosis.get("diagnosis"))
+    ]
+    return {
+        "source_type": "case",
+        "diagnosis_stage": clean_text(diagnosis_stage),
+        "similarity_threshold": None,
+        "top_k": 0,
+        "input_count": len(diagnoses),
+        "deduped_count": len(items),
+        "extracted_count": len(items),
+        "mapped_count": 0,
+        "low_similarity_count": 0,
+        "section_name_mismatch_count": 0,
+        "duplicate_count": 0,
+        "items": items,
+        "extracted_items": items,
+        "mapped_items": [],
+        "other_items": [],
+    }
+
+
+def _merge_extracted_stage_summaries(
+    stage_summaries: Sequence[Mapping[str, Any]],
+) -> dict[str, Any]:
+    if not stage_summaries:
+        summary = _empty_icd_summary(source_type="case")
+        summary["similarity_threshold"] = None
+        summary["top_k"] = 0
+        summary["extracted_count"] = 0
+        summary["extracted_items"] = []
+        summary["stages"] = []
+        return summary
+
+    items: list[dict[str, Any]] = []
+    stages = [dict(summary) for summary in stage_summaries]
+    for summary in stage_summaries:
+        items.extend(
+            dict(item)
+            for item in summary.get("items") or []
+            if isinstance(item, Mapping)
+        )
+
+    return {
+        "source_type": "case",
+        "similarity_threshold": None,
+        "top_k": 0,
+        "input_count": sum(int(summary.get("input_count") or 0) for summary in stage_summaries),
+        "deduped_count": len(items),
+        "extracted_count": len(items),
+        "mapped_count": 0,
+        "low_similarity_count": 0,
+        "section_name_mismatch_count": 0,
+        "duplicate_count": 0,
+        "items": items,
+        "extracted_items": items,
+        "mapped_items": [],
+        "other_items": [],
+        "stages": stages,
+    }
+
+
+def _merge_case_stage_summaries(stage_summaries: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
+    if not stage_summaries:
+        return _empty_icd_summary(source_type="case")
+
+    counts = {
+        "input_count": 0,
+        "deduped_count": 0,
+        "mapped_count": 0,
+        "low_similarity_count": 0,
+        "section_name_mismatch_count": 0,
+        "duplicate_count": 0,
+    }
+    items: list[dict[str, Any]] = []
+    normalized_stage_summaries: list[dict[str, Any]] = []
+    for summary in stage_summaries:
+        summary_copy = dict(summary)
+        normalized_stage_summaries.append(summary_copy)
+        for key in counts:
+            counts[key] += int(summary.get(key) or 0)
+        stage = clean_text(summary.get("diagnosis_stage"))
+        for item in summary.get("items") or []:
+            if not isinstance(item, Mapping):
+                continue
+            item_copy = dict(item)
+            if stage and not clean_text(item_copy.get("diagnosis_stage")):
+                item_copy["diagnosis_stage"] = stage
+            items.append(item_copy)
+
+    merged = {
+        "source_type": "case",
+        "similarity_threshold": stage_summaries[-1].get("similarity_threshold"),
+        "top_k": stage_summaries[-1].get("top_k", DEFAULT_ICD_TOP_K),
+        **counts,
+        "items": items,
+        "mapped_items": [item for item in items if item.get("status") == "mapped"],
+        "other_items": [item for item in items if item.get("status") != "mapped"],
+        "stages": normalized_stage_summaries,
+    }
+    return merged
+
+
 def _summary_item(result: Mapping[str, Any]) -> dict[str, Any]:
     item = {
         "diagnosis": clean_text(result.get("original_diagnosis")),
         "section_name": clean_text(result.get("section_name")),
+        "diagnosis_stage": clean_text(result.get("diagnosis_stage")),
         "matched_section_name": clean_text(result.get("matched_section_name")),
         "similarity_score": result.get("similarity_score"),
         "status": clean_text(result.get("status")),

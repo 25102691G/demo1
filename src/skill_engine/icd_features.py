@@ -8,6 +8,7 @@ from .utils import clean_text
 
 ICD_FEATURE_KEYS = (
     "name",
+    "diagnosis_stage",
     "similarity_score",
     "status",
     "icd10_mapping",
@@ -32,6 +33,7 @@ ICD10_MAPPING_KEYS = (
 def build_icd_feature(mapping: Mapping[str, Any]) -> dict[str, Any]:
     return {
         "name": mapping["original_diagnosis"],
+        "diagnosis_stage": clean_text(mapping.get("diagnosis_stage")),
         "similarity_score": mapping["similarity_score"],
         "status": mapping["status"],
         "icd10_mapping": _icd10_mapping(mapping),
@@ -43,12 +45,34 @@ def build_mapped_icd_features(mappings: Iterable[Mapping[str, Any]]) -> list[dic
     return [build_icd_feature(item) for item in mappings if item.get("status") == "mapped"]
 
 
+def build_extracted_icd_features(diagnoses: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    features: list[dict[str, Any]] = []
+    for diagnosis in diagnoses:
+        name = clean_text(
+            diagnosis.get("diagnosis")
+            or diagnosis.get("name")
+            or diagnosis.get("original_diagnosis")
+        )
+        if not name:
+            continue
+        features.append(
+            {
+                "name": name,
+                "diagnosis_stage": clean_text(diagnosis.get("diagnosis_stage")),
+                "similarity_score": None,
+                "status": "extracted",
+            }
+        )
+    return features
+
+
 def pick_icd_feature_payload(feature: Mapping[str, Any]) -> dict[str, Any]:
     if "icd10_mapping" in feature:
         payload = {key: feature[key] for key in ICD_FEATURE_KEYS if key in feature}
     else:
         payload = {
             "name": clean_text(feature.get("name")),
+            "diagnosis_stage": clean_text(feature.get("diagnosis_stage")),
             "similarity_score": feature.get("similarity_score"),
             "status": clean_text(feature.get("status")),
             "icd10_mapping": _icd10_mapping(feature),

@@ -306,7 +306,6 @@ def build_routing_profile(
     deepseek_client: Any,
     llm_workers: int = 1,
 ) -> dict[str, Any]:
-    feature_bucket = _feature_bucket_for_mode(feature_mode)
     extracted_features = _extract_features_from_cards(
         cards=cards,
         feature_extractor=feature_extractor,
@@ -314,9 +313,9 @@ def build_routing_profile(
         deepseek_client=deepseek_client,
         llm_workers=llm_workers,
     )
-    if feature_mode == "icd10":
+    if feature_mode in {"hpo", "icd10"}:
         if not isinstance(extracted_features, Mapping):
-            raise BuildSkillPackError("icd10 feature extractor must return feature groups")
+            raise BuildSkillPackError(f"{feature_mode} feature extractor must return feature groups")
         positive_features: list[dict[str, Any]] | dict[str, list[dict[str, Any]]] = (
             _dedupe_positive_features(extracted_features.get("positive_features") or [])
         )
@@ -324,14 +323,7 @@ def build_routing_profile(
             extracted_features.get("negative_features") or []
         )
     else:
-        positive_features = {feature_bucket: []}
-        feature_seen: dict[str, set[str]] = {key: set() for key in positive_features}
-        _add_hpo_positive_features(
-            positive_features,
-            feature_seen,
-            {feature_bucket: extracted_features},
-        )
-        negative_features = []
+        raise BuildSkillPackError(f"unsupported feature mode: {feature_mode}")
 
     return {
         "population": _dedupe_texts(card.get("population") for card in cards),
@@ -961,14 +953,6 @@ def build_default_feature_dependencies(
     raise BuildSkillPackError(f"unsupported feature mode: {feature_mode}")
 
 
-def _feature_bucket_for_mode(feature_mode: str) -> str:
-    if feature_mode == "hpo":
-        return "symptoms"
-    if feature_mode == "icd10":
-        return "diagnoses"
-    raise BuildSkillPackError(f"unsupported feature mode: {feature_mode}")
-
-
 def _extract_features_from_cards(
     *,
     cards: Sequence[Mapping[str, Any]],
@@ -1410,27 +1394,6 @@ def _contains_any(text: str, keywords: Iterable[str]) -> bool:
     text_upper = text.upper()
     text_lower = text.lower()
     return any(keyword.upper() in text_upper or keyword.lower() in text_lower for keyword in keywords)
-
-
-def _add_hpo_positive_features(
-    feature_buckets: dict[str, list[dict[str, Any]]],
-    seen: dict[str, set[str]],
-    extracted_features: Mapping[str, Any],
-) -> None:
-    for bucket, features in extracted_features.items():
-        if bucket not in feature_buckets or not isinstance(features, Sequence):
-            continue
-        for feature in features:
-            if not isinstance(feature, Mapping):
-                continue
-            name = _clean_text(feature.get("name"))
-            key = _normalize_key(name)
-            if not key or key in seen[bucket]:
-                continue
-            seen[bucket].add(key)
-            copied = dict(feature)
-            copied["name"] = name
-            feature_buckets[bucket].append(copied)
 
 
 def _dedupe_positive_features(features: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:

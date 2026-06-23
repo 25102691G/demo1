@@ -114,10 +114,21 @@
       "default": [],
       "items": {
         "type": "object",
-        "required": ["name", "similarity_score", "status", "icd10_mapping", "hpo_mapping"],
+        "required": ["name", "diagnosis_stage", "status"],
         "properties": {
           "name": {
             "type": "string",
+            "default": ""
+          },
+          "diagnosis_stage": {
+            "type": "string",
+            "enum": [
+              "clinical_presentation",
+              "lab_tests",
+              "imaging_tests",
+              "endoscopy",
+              "pathology"
+            ],
             "default": ""
           },
           "similarity_score": {

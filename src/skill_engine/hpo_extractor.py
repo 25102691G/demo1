@@ -19,37 +19,18 @@ HPO_EXTRACTION_SYSTEM_PROMPT_FROM_CASE = """你是一名专攻消化内科与表
 请根据患者临床文本，仅提取该患者相关的表型信息，包括症状、体征、实验室异常、影像学异常、内镜异常、病理异常等。
 对照人类表型本体论（HPO）数据库判定对应表型。
 
-每个表型必须输出 body_site，用于表示该表型对应的解剖部位。
-body_site 必须从以下枚举中选择，不允许自由生成：
-
-未知, 不适用, 全身, 腹部,
-口腔, 食管, 胃, 十二指肠,
-小肠, 空肠, 回肠, 回盲部,
-结肠, 直肠, 肛门肛周, 肠道, 胃肠道,
-肝, 胆道, 胰腺, 脾,
-腹膜, 肠系膜, 门静脉系统。
-
 只输出提取得到的表型内容并写为json，格式如下：
-{"phenotypes": [{"phenotype": "原文中的表型短语", "body_site": "枚举中的部位"}]}。
+{"phenotypes": [{"phenotype": "原文中的表型短语"}]}。
 描述内容请使用中文书写。
 禁止输出其他任何无关信息。"""
 
 HPO_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS = """你是一名专攻消化内科与表型提取的医学专家。
-请根据疾病指南片段，仅提取该疾病相关的表型信息，包括症状、体征、实验室异常、影像学异常、内镜异常、病理异常等。
+请根据疾病指南片段，提取该疾病相关的阳性和阴性表型信息，包括症状、体征、实验室异常、影像学异常、内镜异常、病理异常等。
 对照人类表型本体论（HPO）数据库判定对应表型。
 
-每个表型必须输出 body_site，用于表示该表型对应的解剖部位。
-body_site 必须从以下枚举中选择，不允许自由生成：
-
-未知, 不适用, 全身, 腹部,
-口腔, 食管, 胃, 十二指肠,
-小肠, 空肠, 回肠, 回盲部,
-结肠, 直肠, 肛门肛周, 肠道, 胃肠道,
-肝, 胆道, 胰腺, 脾,
-腹膜, 肠系膜, 门静脉系统。
-
 只输出提取得到的表型内容并写为json，格式如下：
-{"phenotypes": [{"phenotype": "原文中的表型短语", "body_site": "枚举中的部位"}]}。
+{"positive_features": [{"phenotype": "原文中的阳性表型短语"}], "negative_features": [{"phenotype": "原文中的阴性表型短语"}]}。
+没有对应内容时输出空数组。
 描述内容请使用中文书写。
 禁止输出其他任何无关信息。"""
 
@@ -57,15 +38,15 @@ DEFAULT_MODEL_PATH = ROOT / "data" / "qwen3-embedding-8b"
 DEFAULT_DEFINITION2ID_PATH = ROOT / "data" / "ontology" / "hpo.json"
 DEFAULT_DEFINITION_EMBEDDINGS_PATH = ROOT / "data" / "ontology" / "hpo_embeddings.pt"
 DEFAULT_HPO_SIMILARITY_THRESHOLD = 0.8
-DEFAULT_HPO_BODY_SITE_TOP_K = 5
+DEFAULT_HPO_TOP_K = 5
 
 
 @dataclass(frozen=True)
 class HpoResources:
     model: Any
     tokenizer: Any
+    pooling_mode: str
     definition2id: dict[str, str]
-    definition_body_sites: dict[str, str]
     definition_embeddings: Any
     definition_keys: list[str]
 
@@ -105,16 +86,21 @@ class HpoExtractor:
     ) -> HpoExtractor:
         torch = _load_torch()
         AutoTokenizer, AutoModel = _load_transformers()
+        model_path = Path(model_path)
+        pooling_mode = _embedding_pooling_mode(model_path)
 
-        tokenizer = AutoTokenizer.from_pretrained(str(model_path), local_files_only=True)
+        tokenizer_kwargs: dict[str, Any] = {"local_files_only": True}
+        if pooling_mode == "last_token":
+            tokenizer_kwargs["padding_side"] = "left"
+        tokenizer = AutoTokenizer.from_pretrained(str(model_path), **tokenizer_kwargs)
         model = AutoModel.from_pretrained(str(model_path), local_files_only=True)
-        definition2id, definition_body_sites = _load_definition2id(definition2id_path)
+        definition2id = _load_definition2id(definition2id_path)
         definition_embeddings = torch.load(str(definition_embeddings_path), map_location="cpu")
         resources = HpoResources(
             model=model,
             tokenizer=tokenizer,
+            pooling_mode=pooling_mode,
             definition2id=definition2id,
-            definition_body_sites=definition_body_sites,
             definition_embeddings=definition_embeddings,
             definition_keys=list(definition2id.keys()),
         )
@@ -143,22 +129,32 @@ class HpoExtractor:
         *,
         llm_workers: int = 1,
         prompt: str,
-    ) -> list[dict[str, Any]]:
+    ) -> dict[str, list[dict[str, Any]]]:
         # HPO 提取核心方法：提取recommendation cards
-        phenotype_sources = _extract_hpo_phenotype_sources_from_cards(
+        phenotype_source_groups = _extract_hpo_phenotype_source_groups_from_cards(
             cards,
             hpo_extractor=self,
             deepseek_client=deepseek_client,
             llm_workers=llm_workers,
             prompt=prompt,
         )
-        phenotypes = _dedupe_phenotype_items(phenotype_sources)
-        mappings = self.map_phenotypes_to_hpo(phenotypes, source_type="cards")
-        _attach_card_ids_to_mapping_results(mappings, phenotype_sources)
-        _attach_card_ids_to_hpo_summary(self._last_summary, phenotype_sources)
-        hpo_features = build_mapped_hpo_features(mappings)
-        _attach_card_ids_to_hpo_features(hpo_features, phenotype_sources)
-        return hpo_features
+        positive_features, positive_summary = self._map_card_phenotype_sources(
+            phenotype_source_groups["positive_features"],
+            source_type="cards_positive",
+        )
+        negative_features, negative_summary = self._map_card_phenotype_sources(
+            phenotype_source_groups["negative_features"],
+            source_type="cards_negative",
+        )
+        self._last_summary = {
+            "source_type": "cards",
+            "positive_features": positive_summary,
+            "negative_features": negative_summary,
+        }
+        return {
+            "positive_features": positive_features,
+            "negative_features": negative_features,
+        }
 
     def extract_phenotypes(
         self,
@@ -173,6 +169,35 @@ class HpoExtractor:
         user_prompt = json.dumps({"clinical_text": text}, ensure_ascii=False)
         payload = deepseek_client.chat_json(prompt, user_prompt)
         return _parse_phenotypes(payload)
+
+    def extract_phenotype_groups(
+        self,
+        text: str,
+        deepseek_client: JsonChatClient,
+        prompt: str,
+    ) -> dict[str, list[dict[str, str]]]:
+        if not str(prompt or "").strip():
+            raise ValueError("extract_phenotype_groups requires a non-empty prompt")
+        if not str(text or "").strip():
+            return {"positive_features": [], "negative_features": []}
+        user_prompt = json.dumps({"clinical_text": text}, ensure_ascii=False)
+        payload = deepseek_client.chat_json(prompt, user_prompt)
+        return _parse_phenotype_groups(payload)
+
+    def _map_card_phenotype_sources(
+        self,
+        phenotype_sources: Sequence[Mapping[str, Any]],
+        *,
+        source_type: str,
+    ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+        phenotypes = _dedupe_phenotype_items(phenotype_sources)
+        mappings = self.map_phenotypes_to_hpo(phenotypes, source_type=source_type)
+        _attach_card_ids_to_mapping_results(mappings, phenotype_sources)
+        summary = self.get_last_summary()
+        _attach_card_ids_to_hpo_summary(summary, phenotype_sources)
+        hpo_features = build_mapped_hpo_features(mappings)
+        _attach_card_ids_to_hpo_features(hpo_features, phenotype_sources)
+        return hpo_features, summary
 
     def map_phenotypes_to_hpo(
         self,
@@ -213,10 +238,17 @@ class HpoExtractor:
             ).to(device)
             with torch.no_grad():
                 outputs = model(**inputs)
-            phenotype_embeddings.append(outputs.last_hidden_state[:, 0, :])
+            batch_embeddings = _pool_embeddings(
+                outputs.last_hidden_state,
+                inputs["attention_mask"],
+                pooling_mode=resources.pooling_mode,
+                torch=torch,
+            )
+            batch_embeddings = torch.nn.functional.normalize(batch_embeddings, p=2, dim=1).float()
+            phenotype_embeddings.append(batch_embeddings)
 
         query_embeddings = torch.cat(phenotype_embeddings, 0)
-        topk = min(DEFAULT_HPO_BODY_SITE_TOP_K, len(resources.definition_keys))
+        topk = min(DEFAULT_HPO_TOP_K, len(resources.definition_keys))
         topk_indices, topk_values = topk_similarity(query_embeddings, definition_embeddings, k=topk)
         topk_indices = topk_indices.cpu().numpy().tolist()
         topk_values = topk_values.cpu().numpy().tolist()
@@ -226,34 +258,27 @@ class HpoExtractor:
         seen_hpo_codes: set[str] = set()
         for index, item in enumerate(phenotype_items):
             phenotype = item["phenotype"]
-            body_site = clean_text(item.get("body_site"))
             candidates = _hpo_candidates(
                 topk_indices[index],
                 topk_values[index],
                 definition_values,
                 resources.definition_keys,
-                resources.definition_body_sites,
             )
             above_threshold = [
                 candidate
                 for candidate in candidates
                 if candidate["similarity_score"] >= self.similarity_threshold
             ]
-            selected = _select_body_site_candidate(above_threshold, body_site)
+            selected = above_threshold[0] if above_threshold else None
             best_candidate = candidates[0] if candidates else {}
             similarity_score = float(best_candidate.get("similarity_score") or 0.0)
-            hpo_code = clean_text(best_candidate.get("hpo_code")) or None
-            hpo_term = clean_text(best_candidate.get("hpo_term")) or None
-            matched_body_site = clean_text(best_candidate.get("matched_body_site"))
 
             if not above_threshold:
                 results.append(
                     _mapping_result(
                         phenotype=phenotype,
-                        body_site=body_site,
                         hpo_code=None,
                         hpo_term=None,
-                        matched_body_site=matched_body_site,
                         similarity_score=similarity_score,
                         status="low_similarity",
                         candidates=candidates,
@@ -261,34 +286,16 @@ class HpoExtractor:
                 )
                 continue
 
-            if selected is None:
-                results.append(
-                    _mapping_result(
-                        phenotype=phenotype,
-                        body_site=body_site,
-                        hpo_code=hpo_code,
-                        hpo_term=hpo_term,
-                        matched_body_site=matched_body_site,
-                        similarity_score=similarity_score,
-                        status="body_site_mismatch",
-                        candidates=candidates,
-                    )
-                )
-                continue
-
             hpo_code = clean_text(selected.get("hpo_code")) or None
             hpo_term = clean_text(selected.get("hpo_term")) or None
-            matched_body_site = clean_text(selected.get("matched_body_site"))
             similarity_score = float(selected.get("similarity_score") or 0.0)
 
             if hpo_code in seen_hpo_codes:
                 results.append(
                     _mapping_result(
                         phenotype=phenotype,
-                        body_site=body_site,
                         hpo_code=hpo_code,
                         hpo_term=hpo_term,
-                        matched_body_site=matched_body_site,
                         similarity_score=similarity_score,
                         status="duplicate",
                         candidates=candidates,
@@ -300,10 +307,8 @@ class HpoExtractor:
             results.append(
                 _mapping_result(
                     phenotype=phenotype,
-                    body_site=body_site,
                     hpo_code=hpo_code,
                     hpo_term=hpo_term,
-                    matched_body_site=matched_body_site,
                     similarity_score=similarity_score,
                     status="mapped",
                     candidates=candidates,
@@ -331,14 +336,14 @@ class HpoExtractor:
         )
 
 
-def _extract_hpo_phenotype_sources_from_cards(
+def _extract_hpo_phenotype_source_groups_from_cards(
     cards: Sequence[Mapping[str, Any]],
     *,
     hpo_extractor: HpoExtractor,
     deepseek_client: JsonChatClient,
     llm_workers: int,
     prompt: str,
-) -> list[dict[str, str]]:
+) -> dict[str, list[dict[str, str]]]:
     candidates = [
         (clean_text(card.get("card_id")), clean_text(card.get("raw_chunk_text")))
         for card in cards
@@ -346,51 +351,42 @@ def _extract_hpo_phenotype_sources_from_cards(
     total = len(candidates)
     workers = max(1, int(llm_workers or 1))
     if workers <= 1 or len(candidates) <= 1:
-        phenotype_sources: list[dict[str, str]] = []
+        phenotype_source_groups = {"positive_features": [], "negative_features": []}
         for index, (card_id, text) in enumerate(candidates, start=1):
             if card_id:
-                phenotype_sources.extend(
-                    {
-                        "phenotype": phenotype["phenotype"],
-                        "body_site": clean_text(phenotype.get("body_site")),
-                        "card_id": card_id,
-                    }
-                    for phenotype in hpo_extractor.extract_phenotypes(
-                        text,
-                        deepseek_client,
-                        prompt,
-                    )
+                extracted_groups = hpo_extractor.extract_phenotype_groups(
+                    text,
+                    deepseek_client,
+                    prompt,
                 )
+                _extend_phenotype_source_groups(phenotype_source_groups, extracted_groups, card_id)
             _log_hpo_cards_progress(index, total)
-        return _dedupe_phenotype_sources(phenotype_sources)
+        return _dedupe_phenotype_source_groups(phenotype_source_groups)
 
     with ThreadPoolExecutor(max_workers=workers) as executor:
         future_to_index = {
             executor.submit(
-                hpo_extractor.extract_phenotypes,
+                hpo_extractor.extract_phenotype_groups,
                 text,
                 deepseek_client,
                 prompt,
             ): index
             for index, (_card_id, text) in enumerate(candidates)
         }
-        phenotype_groups: list[list[dict[str, str]]] = [[] for _ in candidates]
+        phenotype_groups: list[dict[str, list[dict[str, str]]]] = [
+            {"positive_features": [], "negative_features": []} for _ in candidates
+        ]
         completed = 0
         for future in as_completed(future_to_index):
             index = future_to_index[future]
             phenotype_groups[index] = future.result()
             completed += 1
             _log_hpo_cards_progress(completed, total)
-    return _dedupe_phenotype_sources(
-        {
-            "phenotype": phenotype["phenotype"],
-            "body_site": clean_text(phenotype.get("body_site")),
-            "card_id": card_id,
-        }
-        for (card_id, _text), group in zip(candidates, phenotype_groups, strict=False)
-        if card_id
-        for phenotype in group
-    )
+    phenotype_source_groups = {"positive_features": [], "negative_features": []}
+    for (card_id, _text), group in zip(candidates, phenotype_groups, strict=False):
+        if card_id:
+            _extend_phenotype_source_groups(phenotype_source_groups, group, card_id)
+    return _dedupe_phenotype_source_groups(phenotype_source_groups)
 
 
 def _log_hpo_cards_progress(completed: int, total: int) -> None:
@@ -400,18 +396,42 @@ def _log_hpo_cards_progress(completed: int, total: int) -> None:
         print(f"HPO cards progress: {completed}/{total}", flush=True)
 
 
+def _extend_phenotype_source_groups(
+    target: dict[str, list[dict[str, str]]],
+    groups: Mapping[str, Sequence[Mapping[str, Any]]],
+    card_id: str,
+) -> None:
+    for group_name in ("positive_features", "negative_features"):
+        target[group_name].extend(
+            {
+                "phenotype": clean_text(phenotype.get("phenotype")),
+                "card_id": card_id,
+            }
+            for phenotype in groups.get(group_name) or []
+            if isinstance(phenotype, Mapping)
+        )
+
+
+def _dedupe_phenotype_source_groups(
+    groups: Mapping[str, Sequence[Mapping[str, Any]]],
+) -> dict[str, list[dict[str, str]]]:
+    return {
+        "positive_features": _dedupe_phenotype_sources(groups.get("positive_features") or []),
+        "negative_features": _dedupe_phenotype_sources(groups.get("negative_features") or []),
+    }
+
+
 def _dedupe_phenotype_sources(values: Iterable[Mapping[str, Any]]) -> list[dict[str, str]]:
-    seen: set[tuple[str, str, str]] = set()
+    seen: set[tuple[str, str]] = set()
     deduped: list[dict[str, str]] = []
     for value in values:
         phenotype = clean_text(value.get("phenotype"))
-        body_site = clean_text(value.get("body_site"))
         card_id = clean_text(value.get("card_id"))
-        key = (normalize_key(phenotype), normalize_key(body_site), card_id)
-        if not key[0] or not key[2] or key in seen:
+        key = (normalize_key(phenotype), card_id)
+        if not key[0] or not key[1] or key in seen:
             continue
         seen.add(key)
-        deduped.append({"phenotype": phenotype, "body_site": body_site, "card_id": card_id})
+        deduped.append({"phenotype": phenotype, "card_id": card_id})
     return deduped
 
 
@@ -423,19 +443,15 @@ def _attach_card_ids_to_hpo_features(
     seen_by_phenotype: dict[str, set[str]] = defaultdict(set)
     for source in phenotype_sources:
         phenotype = clean_text(source.get("phenotype"))
-        body_site = clean_text(source.get("body_site"))
         card_id = clean_text(source.get("card_id"))
-        key = _phenotype_body_site_key(phenotype, body_site)
+        key = normalize_key(phenotype)
         if not key or not card_id or card_id in seen_by_phenotype[key]:
             continue
         seen_by_phenotype[key].add(card_id)
         sources_by_phenotype[key].append(card_id)
 
     for feature in features:
-        key = _phenotype_body_site_key(
-            clean_text(feature.get("name")),
-            clean_text(feature.get("body_site")),
-        )
+        key = normalize_key(clean_text(feature.get("name")))
         card_ids = sources_by_phenotype.get(key)
         if card_ids:
             feature["card_id"] = list(card_ids)
@@ -448,10 +464,7 @@ def _attach_card_ids_to_mapping_results(
     sources_by_phenotype: dict[str, list[str]] = defaultdict(list)
     seen_by_phenotype: dict[str, set[str]] = defaultdict(set)
     for source in phenotype_sources:
-        key = _phenotype_body_site_key(
-            clean_text(source.get("phenotype")),
-            clean_text(source.get("body_site")),
-        )
+        key = normalize_key(clean_text(source.get("phenotype")))
         card_id = clean_text(source.get("card_id"))
         if not key or not card_id or card_id in seen_by_phenotype[key]:
             continue
@@ -459,10 +472,7 @@ def _attach_card_ids_to_mapping_results(
         sources_by_phenotype[key].append(card_id)
 
     for mapping in mappings:
-        key = _phenotype_body_site_key(
-            clean_text(mapping.get("original_phenotype")),
-            clean_text(mapping.get("body_site")),
-        )
+        key = normalize_key(clean_text(mapping.get("original_phenotype")))
         card_ids = sources_by_phenotype.get(key)
         if card_ids:
             mapping["card_id"] = list(card_ids)
@@ -475,10 +485,7 @@ def _attach_card_ids_to_hpo_summary(
     sources_by_phenotype: dict[str, list[str]] = defaultdict(list)
     seen_by_phenotype: dict[str, set[str]] = defaultdict(set)
     for source in phenotype_sources:
-        key = _phenotype_body_site_key(
-            clean_text(source.get("phenotype")),
-            clean_text(source.get("body_site")),
-        )
+        key = normalize_key(clean_text(source.get("phenotype")))
         card_id = clean_text(source.get("card_id"))
         if not key or not card_id or card_id in seen_by_phenotype[key]:
             continue
@@ -488,10 +495,7 @@ def _attach_card_ids_to_hpo_summary(
     for item in summary.get("items") or []:
         if not isinstance(item, dict):
             continue
-        key = _phenotype_body_site_key(
-            clean_text(item.get("phenotype")),
-            clean_text(item.get("body_site")),
-        )
+        key = normalize_key(clean_text(item.get("phenotype")))
         card_ids = sources_by_phenotype.get(key)
         if card_ids:
             item["card_id"] = list(card_ids)
@@ -499,6 +503,11 @@ def _attach_card_ids_to_hpo_summary(
 
 def topk_similarity(query_embeddings: Any, definition_embeddings: Any, *, k: int = 1) -> tuple[Any, Any]:
     torch = _load_torch()
+    query_embeddings = query_embeddings.float()
+    definition_embeddings = definition_embeddings.to(
+        device=query_embeddings.device,
+        dtype=query_embeddings.dtype,
+    )
     query_embeddings = torch.nn.functional.normalize(query_embeddings, p=2, dim=1)
     definition_embeddings = torch.nn.functional.normalize(definition_embeddings, p=2, dim=1)
     similarities = torch.matmul(query_embeddings, definition_embeddings.T)
@@ -510,25 +519,35 @@ def _parse_phenotypes(payload: Mapping[str, Any]) -> list[dict[str, str]]:
     values = payload.get("phenotypes", [])
     if not isinstance(values, list):
         return []
+    return _parse_phenotype_values(values)
 
+
+def _parse_phenotype_groups(payload: Mapping[str, Any]) -> dict[str, list[dict[str, str]]]:
+    groups = {
+        "positive_features": _parse_phenotype_values(payload.get("positive_features") or []),
+        "negative_features": _parse_phenotype_values(payload.get("negative_features") or []),
+    }
+    if not groups["positive_features"] and not groups["negative_features"]:
+        groups["positive_features"] = _parse_phenotypes(payload)
+    return groups
+
+
+def _parse_phenotype_values(values: Any) -> list[dict[str, str]]:
+    if not isinstance(values, list):
+        return []
     phenotypes: list[dict[str, str]] = []
     for item in values:
         if isinstance(item, str):
-            phenotypes.append({"phenotype": clean_text(item), "body_site": ""})
+            phenotypes.append({"phenotype": clean_text(item)})
         elif isinstance(item, Mapping):
             value = item.get("phenotype") or item.get("Phenotype") or item.get("description")
             if value is not None:
-                phenotypes.append(
-                    {
-                        "phenotype": clean_text(value),
-                        "body_site": clean_text(item.get("body_site") or item.get("BodySite")),
-                    }
-                )
+                phenotypes.append({"phenotype": clean_text(value)})
     return _dedupe_phenotype_items(phenotypes)
 
 
 def _dedupe_phenotype_items(values: Sequence[Any]) -> list[dict[str, str]]:
-    seen: set[tuple[str, str]] = set()
+    seen: set[str] = set()
     deduped: list[dict[str, str]] = []
     for value in values:
         if isinstance(value, Mapping):
@@ -538,15 +557,13 @@ def _dedupe_phenotype_items(values: Sequence[Any]) -> list[dict[str, str]]:
                 or value.get("description")
                 or value.get("original_phenotype")
             )
-            body_site = clean_text(value.get("body_site") or value.get("BodySite"))
         else:
             phenotype = clean_text(value)
-            body_site = ""
-        key = (normalize_key(phenotype), normalize_key(body_site))
-        if not key[0] or key in seen:
+        key = normalize_key(phenotype)
+        if not key or key in seen:
             continue
         seen.add(key)
-        deduped.append({"phenotype": phenotype, "body_site": body_site})
+        deduped.append({"phenotype": phenotype})
     return deduped
 
 
@@ -568,7 +585,6 @@ def _hpo_candidates(
     values: Sequence[float],
     definition_values: Sequence[str],
     definition_keys: Sequence[str],
-    definition_body_sites: Mapping[str, str],
 ) -> list[dict[str, Any]]:
     candidates: list[dict[str, Any]] = []
     for index, value in zip(indices, values, strict=False):
@@ -577,49 +593,25 @@ def _hpo_candidates(
             {
                 "hpo_term": hpo_term,
                 "hpo_code": definition_values[index],
-                "matched_body_site": clean_text(definition_body_sites.get(hpo_term)),
                 "similarity_score": float(value),
             }
         )
     return candidates
 
 
-def _select_body_site_candidate(
-    candidates: Sequence[Mapping[str, Any]],
-    body_site: str,
-) -> Mapping[str, Any] | None:
-    if not clean_text(body_site):
-        return candidates[0] if candidates else None
-    for candidate in candidates:
-        if normalize_key(body_site) == normalize_key(clean_text(candidate.get("matched_body_site"))):
-            return candidate
-    return None
-
-
-def _phenotype_body_site_key(phenotype: str, body_site: str) -> str:
-    phenotype_key = normalize_key(phenotype)
-    if not phenotype_key:
-        return ""
-    return f"{phenotype_key}\0{normalize_key(body_site)}"
-
-
 def _mapping_result(
     *,
     phenotype: str,
-    body_site: str,
     hpo_code: str | None,
     hpo_term: str | None,
-    matched_body_site: str,
     similarity_score: float,
     status: str,
     candidates: Sequence[Mapping[str, Any]],
 ) -> dict[str, Any]:
     return {
         "original_phenotype": phenotype,
-        "body_site": body_site,
         "hpo_code": hpo_code,
         "hpo_term": hpo_term,
-        "matched_body_site": matched_body_site,
         "similarity_score": similarity_score,
         "status": status,
         "candidates": [dict(candidate) for candidate in candidates],
@@ -638,7 +630,6 @@ def _build_hpo_summary(
     counts = {
         "mapped_count": 0,
         "low_similarity_count": 0,
-        "body_site_mismatch_count": 0,
         "duplicate_count": 0,
     }
     for result in results:
@@ -661,10 +652,8 @@ def _build_hpo_summary(
 def _summary_item(result: Mapping[str, Any]) -> dict[str, Any]:
     return {
         "phenotype": clean_text(result.get("original_phenotype")),
-        "body_site": clean_text(result.get("body_site")),
         "matched_term": clean_text(result.get("hpo_term")),
         "hpo_code": clean_text(result.get("hpo_code")),
-        "matched_body_site": clean_text(result.get("matched_body_site")),
         "similarity_score": result.get("similarity_score"),
         "status": clean_text(result.get("status")),
         "top_candidates": [dict(candidate) for candidate in result.get("candidates") or []],
@@ -675,31 +664,28 @@ def _empty_hpo_summary(source_type: str = "unknown") -> dict[str, Any]:
     return {
         "source_type": source_type,
         "similarity_threshold": None,
-        "top_k": DEFAULT_HPO_BODY_SITE_TOP_K,
+        "top_k": DEFAULT_HPO_TOP_K,
         "input_count": 0,
         "deduped_count": 0,
         "mapped_count": 0,
         "low_similarity_count": 0,
-        "body_site_mismatch_count": 0,
         "duplicate_count": 0,
         "items": [],
     }
 
 
-def _load_definition2id(path: str | Path) -> tuple[dict[str, str], dict[str, str]]:
+def _load_definition2id(path: str | Path) -> dict[str, str]:
     with Path(path).open("r", encoding="utf-8-sig") as handle:
         data = json.load(handle)
     if not isinstance(data, dict):
         raise ValueError(f"{path}: definition2id JSON must be an object")
 
     definition2id: dict[str, str] = {}
-    definition_body_sites: dict[str, str] = {}
     for key, value in data.items():
         if isinstance(value, list):
             if not value:
                 continue
             hpo_id = value[0]
-            body_site = ""
         elif isinstance(value, Mapping):
             hpo_ids = value.get("hpo_ids")
             if isinstance(hpo_ids, list):
@@ -708,16 +694,46 @@ def _load_definition2id(path: str | Path) -> tuple[dict[str, str], dict[str, str
                 hpo_id = hpo_ids[0]
             else:
                 hpo_id = value.get("hpo_id") or value.get("id")
-            body_site = clean_text(value.get("body_site"))
         else:
             hpo_id = value
-            body_site = ""
         if hpo_id is None:
             continue
         term = str(key)
         definition2id[term] = str(hpo_id)
-        definition_body_sites[term] = body_site
-    return definition2id, definition_body_sites
+    return definition2id
+
+
+def _pool_embeddings(
+    last_hidden_state: Any,
+    attention_mask: Any,
+    *,
+    pooling_mode: str,
+    torch: Any,
+) -> Any:
+    if pooling_mode != "last_token":
+        return last_hidden_state[:, 0, :]
+    left_padding = bool((attention_mask[:, -1].sum() == attention_mask.shape[0]).item())
+    if left_padding:
+        return last_hidden_state[:, -1, :]
+    sequence_lengths = attention_mask.sum(dim=1) - 1
+    batch_size = last_hidden_state.shape[0]
+    return last_hidden_state[torch.arange(batch_size, device=last_hidden_state.device), sequence_lengths]
+
+
+def _embedding_pooling_mode(model_path: Path) -> str:
+    pooling_config_path = model_path / "1_Pooling" / "config.json"
+    if pooling_config_path.exists():
+        with pooling_config_path.open("r", encoding="utf-8") as handle:
+            pooling_config = json.load(handle)
+        if pooling_config.get("pooling_mode_lasttoken") is True:
+            return "last_token"
+    config_path = model_path / "config.json"
+    if config_path.exists():
+        with config_path.open("r", encoding="utf-8") as handle:
+            model_config = json.load(handle)
+        if str(model_config.get("model_type") or "").lower() == "qwen3":
+            return "last_token"
+    return "cls"
 
 
 def _get_device(torch: Any) -> Any:

@@ -8,6 +8,7 @@ dependencies = [
     "PyYAML>=6",
     "openai>=1",
     "jsonschema>=4",
+    "rapidfuzz>=3",
 ]
 
 [build-system]

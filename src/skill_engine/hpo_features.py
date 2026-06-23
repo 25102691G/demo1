@@ -8,10 +8,8 @@ from .utils import clean_text
 
 HPO_FEATURE_KEYS = (
     "name",
-    "body_site",
     "hpo_code",
     "hpo_term",
-    "matched_body_site",
     "similarity_score",
     "status",
 )
@@ -20,10 +18,8 @@ HPO_FEATURE_KEYS = (
 def build_hpo_feature(mapping: Mapping[str, Any]) -> dict[str, Any]:
     return {
         "name": mapping["original_phenotype"],
-        "body_site": clean_text(mapping.get("body_site")),
         "hpo_code": mapping["hpo_code"],
         "hpo_term": mapping["hpo_term"],
-        "matched_body_site": clean_text(mapping.get("matched_body_site")),
         "similarity_score": mapping["similarity_score"],
         "status": mapping["status"],
     }

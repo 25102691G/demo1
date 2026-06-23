@@ -8,7 +8,15 @@ from pathlib import Path
 from typing import Any
 
 from .hpo_extractor import HPO_EXTRACTION_SYSTEM_PROMPT_FROM_CASE, HpoExtractor
-from .icd_extractor import ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE, IcdExtractor
+from .icd_extractor import (
+    ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE,
+    ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_CLINICAL_PRESENTATION,
+    ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_ENDOSCOPY,
+    ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_IMAGING_TESTS,
+    ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_LAB_TESTS,
+    ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_PATHOLOGY,
+    IcdExtractor,
+)
 from .llm_client import JsonChatClient
 from .schemas import build_required_defaults, load_json_schema, validate_json
 from .utils import clean_text
@@ -22,6 +30,7 @@ def normalize_case(
     hpo_extractor: HpoExtractor | None = None,
     feature_extractor: Any | None = None,
     feature_mode: str = "hpo",
+    structured_input: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     schema = load_json_schema(Path(schema_path))
     canonical = _default_case(raw_input, schema)
@@ -31,6 +40,7 @@ def normalize_case(
         feature_extractor or hpo_extractor,
         deepseek_client,
         feature_mode=feature_mode,
+        structured_input=structured_input,
     )
     validate_json(canonical, schema, label="canonical_case")
     return canonical
@@ -45,6 +55,7 @@ def normalize_case_from_json(
     hpo_extractor: HpoExtractor | None = None,
     feature_extractor: Any | None = None,
     feature_mode: str = "hpo",
+    structured_input: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     schema = load_json_schema(Path(schema_path))
     effective_raw = raw_input or clean_text(data.get("raw_input"))
@@ -55,6 +66,7 @@ def normalize_case_from_json(
         feature_extractor or hpo_extractor,
         deepseek_client,
         feature_mode=feature_mode,
+        structured_input=structured_input or data,
     )
     _deep_merge(canonical, data)
     canonical["raw_input"] = clean_text(canonical.get("raw_input")) or effective_raw
@@ -99,11 +111,12 @@ def _apply_icd10_extraction(
     raw_input: str,
     icd_extractor: IcdExtractor,
     deepseek_client: JsonChatClient,
+    structured_input: Mapping[str, Any] | None = None,
 ) -> None:
-    positive_features = icd_extractor.extract_icd_from_case(
-        raw_input or "",
+    stage_inputs = _iter_icd10_stage_inputs(raw_input, structured_input)
+    positive_features = icd_extractor.extract_icd_from_case_stages(
+        stage_inputs,
         deepseek_client,
-        ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE,
     )
     features = positive_features.get("features", [])
     canonical["features"] = features if isinstance(features, list) else []
@@ -116,6 +129,7 @@ def _apply_feature_extraction(
     deepseek_client: JsonChatClient,
     *,
     feature_mode: str,
+    structured_input: Mapping[str, Any] | None = None,
 ) -> None:
     if feature_mode == "hpo":
         if feature_extractor is None:
@@ -125,9 +139,46 @@ def _apply_feature_extraction(
     if feature_mode == "icd10":
         if feature_extractor is None:
             raise ValueError("icd10 feature extraction requires an extractor")
-        _apply_icd10_extraction(canonical, raw_input, feature_extractor, deepseek_client)
+        _apply_icd10_extraction(
+            canonical,
+            raw_input,
+            feature_extractor,
+            deepseek_client,
+            structured_input=structured_input,
+        )
         return
     raise ValueError(f"unsupported feature mode: {feature_mode}")
+
+
+def _iter_icd10_stage_inputs(
+    raw_input: str,
+    structured_input: Mapping[str, Any] | None,
+) -> list[tuple[str, str, str]]:
+    stage_prompts = [
+        (
+            "clinical_presentation",
+            ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_CLINICAL_PRESENTATION,
+        ),
+        ("lab_tests", ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_LAB_TESTS),
+        ("imaging_tests", ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_IMAGING_TESTS),
+        ("endoscopy", ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_ENDOSCOPY),
+        ("pathology", ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE_PATHOLOGY),
+    ]
+    if not structured_input:
+        return [
+            ("raw_input", raw_input or "", ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE)
+        ] if clean_text(raw_input) else []
+
+    inputs: list[tuple[str, str, str]] = []
+    for stage, prompt in stage_prompts:
+        text = clean_text(structured_input.get(stage))
+        if text:
+            inputs.append((stage, text, prompt))
+    if inputs:
+        return inputs
+    return [
+        ("raw_input", raw_input or "", ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CASE)
+    ] if clean_text(raw_input) else []
 
 
 def _deep_merge(base: dict[str, Any], incoming: Mapping[str, Any]) -> None:

@@ -6,14 +6,28 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
+try:
+    from rapidfuzz import fuzz
+except Exception:
+    fuzz = None
+
+from .hpo_extractor import DEFAULT_DEFINITION2ID_PATH
 from .hpo_features import pick_hpo_feature_payload
+from .icd_extractor import (
+    DEFAULT_MODEL_PATH as DEFAULT_ICD_MODEL_PATH,
+    _embedding_pooling_mode,
+    _load_torch,
+    _load_transformers,
+    _pool_embeddings,
+)
 from .icd_features import pick_icd_feature_payload
 from .skill_loader import SkillPack
-from .utils import clean_text, flatten_text, is_present, resolve_case_path, text_contains_term
+from .utils import clean_text, dedupe_texts, flatten_text, is_present, normalize_key, resolve_case_path, text_contains_term
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_DEFINITION2ID_PATH = ROOT / "data" / "ontology" / "definition2id.json"
+DEFAULT_LITERAL_MATCH_THRESHOLD = 0.8
+DEFAULT_SEMANTIC_MATCH_THRESHOLD = 0.8
 
 def route_skills(
     canonical_case: dict[str, Any],
@@ -25,10 +39,15 @@ def route_skills(
 ) -> list[dict[str, Any]]:
     if top_k is not None and top_k < 1:
         raise ValueError("top_k must be at least 1")
-    candidates = [
-        _score_skill(canonical_case, pack, min_score=min_score, feature_mode=feature_mode)
-        for pack in skill_packs
-    ]
+    candidates = []
+    for index, pack in enumerate(skill_packs, start=1):
+        candidate = _score_skill(
+            canonical_case,
+            pack,
+            min_score=min_score,
+            feature_mode=feature_mode,
+        )
+        candidates.append(candidate)
     candidates.sort(key=lambda item: item["score"], reverse=True)
     default_top_k = top_k or _default_top_k(skill_packs)
     selected = candidates[:default_top_k]
@@ -51,21 +70,23 @@ def _score_skill(
     raw_score = 0.0
 
     for feature in _iter_features(positive_features):
-        if not _match_routing_feature(canonical_case, feature, feature_mode):
+        match = _match_routing_feature(canonical_case, feature, feature_mode)
+        if not match:
             continue
         weight = float(feature.get("weight") or 0.2)
-        similarity_score = float(feature["similarity_score"])
+        similarity_score = float(match["similarity_score"])
         raw_score += weight * similarity_score
-        matched_positive_features.append(_matched_feature_payload(feature))
+        matched_positive_features.append(_matched_feature_payload(feature, match))
 
     matched_negative_features: list[dict[str, Any]] = []
     for feature in _iter_features(negative_features):
-        if not _match_routing_feature(canonical_case, feature, feature_mode):
+        match = _match_routing_feature(canonical_case, feature, feature_mode)
+        if not match:
             continue
         weight = float(feature.get("weight") or -0.1)
-        similarity_score = float(feature["similarity_score"])
+        similarity_score = float(match["similarity_score"])
         raw_score += weight * similarity_score
-        matched_negative_features.append(_matched_feature_payload(feature))
+        matched_negative_features.append(_matched_feature_payload(feature, match))
 
     # score = _normalize_score(raw_score - penalty_score, routing.get("scoring") or {})
     score = raw_score
@@ -110,9 +131,17 @@ def _match_routing_feature(
     canonical_case: Mapping[str, Any],
     feature: Mapping[str, Any],
     feature_mode: str,
-) -> bool:
+) -> dict[str, Any] | None:
     if feature_mode == "hpo":
-        return _match_symptom_feature(canonical_case, feature)
+        if not _match_symptom_feature(canonical_case, feature):
+            return None
+        return _match_result(
+            match_type="hpo_code",
+            similarity_score=float(feature.get("similarity_score") or 1.0),
+            case_feature={},
+            matched_text=clean_text(feature.get("name")),
+            target_text=clean_text(feature.get("name")),
+        )
     if feature_mode == "icd10":
         return _match_icd10_feature(canonical_case, feature)
     raise ValueError(f"unsupported feature mode: {feature_mode}")
@@ -170,14 +199,152 @@ def _match_symptom_feature(canonical_case: Mapping[str, Any], feature: Mapping[s
     )
 
 
-def _match_icd10_feature(canonical_case: Mapping[str, Any], feature: Mapping[str, Any]) -> bool:
-    feature_code = _feature_diagnosis_code(feature)
-    if not feature_code:
-        return False
-    return any(
-        clean_text(code) == feature_code
-        for code in _case_diagnosis_codes(canonical_case)
-    )
+def _match_icd10_feature(
+    canonical_case: Mapping[str, Any],
+    feature: Mapping[str, Any],
+) -> dict[str, Any] | None:
+    case_features = _case_text_features(canonical_case)
+    target_texts = _routing_feature_texts(feature)
+    if not case_features or not target_texts:
+        return None
+
+    exact_match = _exact_text_match(case_features, target_texts)
+    if exact_match:
+        return exact_match
+
+    literal_match = _literal_text_match(case_features, target_texts)
+    if literal_match:
+        return literal_match
+
+    return _semantic_text_match(case_features, target_texts)
+
+
+def _case_text_features(canonical_case: Mapping[str, Any]) -> list[Mapping[str, Any]]:
+    features: list[Mapping[str, Any]] = []
+    for feature in canonical_case.get("features") or []:
+        if not isinstance(feature, Mapping):
+            continue
+        if clean_text(feature.get("name")):
+            features.append(feature)
+    return features
+
+
+def _routing_feature_texts(feature: Mapping[str, Any]) -> list[str]:
+    texts = [clean_text(feature.get("name"))]
+    texts.extend(clean_text(item) for item in feature.get("synonyms") or [])
+    icd10_mapping = feature.get("icd10_mapping")
+    if isinstance(icd10_mapping, Mapping):
+        texts.extend(
+            [
+                clean_text(icd10_mapping.get("diagnosis_name")),
+                clean_text(icd10_mapping.get("category_name")),
+                clean_text(icd10_mapping.get("section_name")),
+            ]
+        )
+    return dedupe_texts(texts)
+
+
+def _exact_text_match(
+    case_features: list[Mapping[str, Any]],
+    target_texts: list[str],
+) -> dict[str, Any] | None:
+    for case_feature in case_features:
+        case_text = clean_text(case_feature.get("name"))
+        case_key = normalize_key(case_text)
+        if not case_key:
+            continue
+        for target_text in target_texts:
+            if case_key == normalize_key(target_text):
+                return _match_result(
+                    match_type="exact",
+                    similarity_score=1.0,
+                    case_feature=case_feature,
+                    matched_text=case_text,
+                    target_text=target_text,
+                )
+    return None
+
+
+def _literal_text_match(
+    case_features: list[Mapping[str, Any]],
+    target_texts: list[str],
+) -> dict[str, Any] | None:
+    best_match: dict[str, Any] | None = None
+    for case_feature in case_features:
+        case_text = clean_text(case_feature.get("name"))
+        if not case_text:
+            continue
+        for target_text in target_texts:
+            score = _literal_similarity(case_text, target_text)
+            if score < DEFAULT_LITERAL_MATCH_THRESHOLD:
+                continue
+            if best_match is None or score > best_match["similarity_score"]:
+                best_match = _match_result(
+                    match_type="literal",
+                    similarity_score=score,
+                    case_feature=case_feature,
+                    matched_text=case_text,
+                    target_text=target_text,
+                )
+    return best_match
+
+
+def _literal_similarity(left: str, right: str) -> float:
+    left_key = normalize_key(left)
+    right_key = normalize_key(right)
+    if not left_key or not right_key:
+        return 0.0
+    contains_score = 0.95 if left_key in right_key or right_key in left_key else 0.0
+    fuzzy_score = 0.0
+    if fuzz is not None:
+        fuzzy_score = float(fuzz.WRatio(left, right) or 0.0) / 100.0
+    return max(contains_score, fuzzy_score)
+
+
+def _semantic_text_match(
+    case_features: list[Mapping[str, Any]],
+    target_texts: list[str],
+) -> dict[str, Any] | None:
+    matcher = _semantic_matcher()
+    if matcher is None:
+        return None
+    best_match: dict[str, Any] | None = None
+    for case_feature in case_features:
+        case_text = clean_text(case_feature.get("name"))
+        if not case_text:
+            continue
+        semantic_match = matcher.best_match(case_text, target_texts)
+        if semantic_match is None:
+            continue
+        target_text, score = semantic_match
+        if score < DEFAULT_SEMANTIC_MATCH_THRESHOLD:
+            continue
+        if best_match is None or score > best_match["similarity_score"]:
+            best_match = _match_result(
+                match_type="semantic",
+                similarity_score=score,
+                case_feature=case_feature,
+                matched_text=case_text,
+                target_text=target_text,
+            )
+    return best_match
+
+
+def _match_result(
+    *,
+    match_type: str,
+    similarity_score: float,
+    case_feature: Mapping[str, Any],
+    matched_text: str,
+    target_text: str,
+) -> dict[str, Any]:
+    return {
+        "match_type": match_type,
+        "similarity_score": max(0.0, min(float(similarity_score), 1.0)),
+        "case_feature": dict(case_feature),
+        "matched_text": matched_text,
+        "target_text": target_text,
+    }
 
 
 def _feature_diagnosis_code(feature: Mapping[str, Any]) -> str:
@@ -202,6 +369,102 @@ def _case_diagnosis_codes(canonical_case: Mapping[str, Any]) -> list[str]:
         if code:
             codes.append(code)
     return codes
+
+
+class _SemanticTextMatcher:
+    def __init__(
+        self,
+        *,
+        model_path: Path = DEFAULT_ICD_MODEL_PATH,
+        batch_size: int = 16,
+        max_length: int = 128,
+    ) -> None:
+        self.model_path = model_path
+        self.batch_size = batch_size
+        self.max_length = max_length
+        self._disabled = False
+        self._torch: Any | None = None
+        self._tokenizer: Any | None = None
+        self._model: Any | None = None
+        self._device: Any | None = None
+        self._pooling_mode = ""
+        self._embedding_cache: dict[tuple[str, ...], Any] = {}
+
+    def best_match(self, query: str, targets: list[str]) -> tuple[str, float] | None:
+        target_texts = dedupe_texts(targets)
+        if not clean_text(query) or not target_texts:
+            return None
+        try:
+            query_embeddings = self._embed([query])
+            target_embeddings = self._embed(target_texts)
+            torch = self._torch
+            similarities = torch.matmul(query_embeddings, target_embeddings.T)
+            values, indices = torch.max(similarities, dim=1)
+            index = int(indices[0].item())
+            score = max(0.0, min(float(values[0].item()), 1.0))
+            return target_texts[index], score
+        except Exception:
+            self._disabled = True
+            return None
+
+    def _embed(self, texts: list[str]) -> Any:
+        key = tuple(texts)
+        if key in self._embedding_cache:
+            return self._embedding_cache[key]
+        self._ensure_loaded()
+        if self._disabled:
+            raise RuntimeError("semantic matcher is unavailable")
+
+        torch = self._torch
+        batches = []
+        for start in range(0, len(texts), self.batch_size):
+            batch = texts[start : start + self.batch_size]
+            inputs = self._tokenizer(
+                batch,
+                padding=True,
+                truncation=True,
+                max_length=self.max_length,
+                return_tensors="pt",
+            ).to(self._device)
+            with torch.no_grad():
+                outputs = self._model(**inputs)
+            batch_embeddings = _pool_embeddings(
+                outputs.last_hidden_state,
+                inputs["attention_mask"],
+                pooling_mode=self._pooling_mode,
+                torch=torch,
+            )
+            batch_embeddings = torch.nn.functional.normalize(batch_embeddings, p=2, dim=1).float()
+            batches.append(batch_embeddings.cpu())
+
+        embeddings = torch.cat(batches, dim=0)
+        self._embedding_cache[key] = embeddings
+        return embeddings
+
+    def _ensure_loaded(self) -> None:
+        if self._disabled:
+            raise RuntimeError("semantic matcher is unavailable")
+        if self._model is not None:
+            return
+        torch = _load_torch()
+        AutoTokenizer, AutoModel = _load_transformers()
+        pooling_mode = _embedding_pooling_mode(self.model_path)
+        tokenizer_kwargs: dict[str, Any] = {"local_files_only": True}
+        if pooling_mode == "last_token":
+            tokenizer_kwargs["padding_side"] = "left"
+        self._device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self._tokenizer = AutoTokenizer.from_pretrained(str(self.model_path), **tokenizer_kwargs)
+        self._model = AutoModel.from_pretrained(str(self.model_path), local_files_only=True).to(
+            self._device
+        )
+        self._model.eval()
+        self._torch = torch
+        self._pooling_mode = pooling_mode
+
+
+@lru_cache(maxsize=1)
+def _semantic_matcher() -> _SemanticTextMatcher | None:
+    return _SemanticTextMatcher()
 
 
 def _hpo_codes_match(case_code: str, feature_code: str) -> bool:
@@ -239,10 +502,24 @@ def _load_hpo_code_terms(path: Path = DEFAULT_DEFINITION2ID_PATH) -> dict[str, s
     return code_terms
 
 
-def _matched_feature_payload(feature: Mapping[str, Any]) -> dict[str, Any]:
+def _matched_feature_payload(
+    feature: Mapping[str, Any],
+    match: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
     if "diagnosis_code" in feature or "icd10_mapping" in feature:
-        return pick_icd_feature_payload(feature)
-    return pick_hpo_feature_payload(feature)
+        payload = pick_icd_feature_payload(feature)
+    else:
+        payload = pick_hpo_feature_payload(feature)
+    if match:
+        payload["similarity_score"] = match.get("similarity_score")
+        payload["match_type"] = clean_text(match.get("match_type"))
+        payload["matched_text"] = clean_text(match.get("matched_text"))
+        payload["target_text"] = clean_text(match.get("target_text"))
+        payload["source_similarity_score"] = feature.get("similarity_score")
+        case_feature = match.get("case_feature")
+        if isinstance(case_feature, Mapping):
+            payload["case_feature"] = dict(case_feature)
+    return payload
 
 
 def _normalize_score(score: float, scoring: Mapping[str, Any]) -> float:
