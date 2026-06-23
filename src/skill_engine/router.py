@@ -69,6 +69,7 @@ def _score_skill(
     routing = pack.skill.get("routing_profile") or {}
     positive_features = routing.get("positive_features") or {}
     negative_features = routing.get("negative_features") or []
+    evidence_mapping = _evidence_mapping(routing)
     matched_positive_features: list[dict[str, Any]] = []
     raw_score = 0.0
 
@@ -83,23 +84,30 @@ def _score_skill(
             continue
         weight = float(feature.get("weight") or 0.2)
         similarity_score = float(match["similarity_score"])
-        raw_score += weight * similarity_score
-        matched_positive_features.append(_matched_feature_payload(feature, match))
+        evidence_quality_score = _feature_evidence_quality_score(feature, evidence_mapping)
+        raw_score += weight * similarity_score * evidence_quality_score
+        matched_payload = _matched_feature_payload(feature, match)
+        matched_payload["evidence_quality_score"] = evidence_quality_score
+        matched_positive_features.append(matched_payload)
 
     matched_negative_features: list[dict[str, Any]] = []
-    for feature in _iter_features(negative_features):
-        match = _match_routing_feature(
-            canonical_case,
-            feature,
-            feature_mode,
-            semantic_resources=semantic_resources,
-        )
-        if not match:
-            continue
-        weight = float(feature.get("weight") or -0.1)
-        similarity_score = float(match["similarity_score"])
-        raw_score += weight * similarity_score
-        matched_negative_features.append(_matched_feature_payload(feature, match))
+    # TODO：阴性症状分数计算方式需要修改（目前会出现skill中无腹痛匹配到case中腹痛，不合理）
+    # for feature in _iter_features(negative_features):
+    #     match = _match_routing_feature(
+    #         canonical_case,
+    #         feature,
+    #         feature_mode,
+    #         semantic_resources=semantic_resources,
+    #     )
+    #     if not match:
+    #         continue
+    #     weight = float(feature.get("weight") or -0.1)
+    #     similarity_score = float(match["similarity_score"])
+    #     evidence_quality_score = _feature_evidence_quality_score(feature, evidence_mapping)
+    #     raw_score += weight * similarity_score * evidence_quality_score
+    #     matched_payload = _matched_feature_payload(feature, match)
+    #     matched_payload["evidence_quality_score"] = evidence_quality_score
+    #     matched_negative_features.append(matched_payload)
 
     # score = _normalize_score(raw_score - penalty_score, routing.get("scoring") or {})
     score = raw_score
@@ -138,6 +146,48 @@ def _iter_features(features_value: Any) -> list[Mapping[str, Any]]:
             if isinstance(feature, Mapping)
         ]
     return []
+
+
+def _evidence_mapping(routing: Mapping[str, Any]) -> Mapping[str, Any]:
+    scoring = routing.get("scoring")
+    if not isinstance(scoring, Mapping):
+        return {}
+    mapping = scoring.get("mapping")
+    return mapping if isinstance(mapping, Mapping) else {}
+
+
+def _feature_evidence_quality_score(
+    feature: Mapping[str, Any],
+    evidence_mapping: Mapping[str, Any],
+    default: float = 0.5,
+) -> float:
+    scores = [
+        score
+        for card_id in _feature_card_ids(feature)
+        if (score := _card_evidence_quality_score(evidence_mapping.get(card_id))) is not None
+    ]
+    return max(scores) if scores else default
+
+
+def _feature_card_ids(feature: Mapping[str, Any]) -> list[str]:
+    value = feature.get("card_id")
+    if isinstance(value, list):
+        return dedupe_texts(clean_text(item) for item in value)
+    card_id_value = clean_text(value)
+    return [card_id_value] if card_id_value else []
+
+
+def _card_evidence_quality_score(evidence: Any) -> float | None:
+    if not isinstance(evidence, Mapping):
+        return None
+    value = evidence.get("evidence_quality_normalized")
+    if value is None:
+        return None
+    try:
+        score = float(value)
+    except (TypeError, ValueError):
+        return None
+    return max(0.0, min(score, 1.0))
 
 
 def _match_routing_feature(

@@ -192,12 +192,9 @@
 
 | 字段名 | 含义 |
 | --- | --- |
-| `evidence_quality_raw` | 原文中的证据质量表述。 |
-| `evidence_quality_normalized` | 标准化证据质量，如 `high`、`moderate`、`low`、`very_low`、`level_1` 至 `level_5`、`not_applicable`、`unknown`。 |
-| `recommendation_strength_raw` | 原文中的推荐强度表述。 |
-| `recommendation_strength_normalized` | 标准化推荐强度，如 `strong`、`weak`、`grade_a`、`grade_b`、`best_practice_statement`、`not_applicable`、`unknown`。 |
-| `consensus_level` | 专家共识水平或投票比例。 |
-| `grading_system` | 使用的证据或推荐评级体系。 |
+| `evidence_quality_raw` | 从原文中提取的证据等级、推荐强度、共识等级、专家共识比例等可信程度表述；没有则为 `null`。 |
+| `evidence_quality_normalized` | 在单个指南的全部 `evidence_quality_raw` 生成后统一标准化得到的 `0.6-1.0` 证据加权系数；无法判断或无显式可信程度时默认 `0.75`。 |
+| `evidence_quality_normalized_info` | `evidence_quality_normalized` 的来源或默认原因，如 `llm_normalized`、`bps_normalized`、`default_no_raw_evidence`、`default_unmapped_raw_evidence`、`default_missing_llm_score`。 |
 
 ### `source_location`
 

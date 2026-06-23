@@ -140,14 +140,14 @@ $env:DEEPSEEK_API_KEY="你的 DeepSeek API Key"
 
 单文件转换：
 
-```powershell
-python scripts/ocr_to_cards.py --input .\data\skills\中国克罗恩病诊治指南（2023年·广州）\中国克罗恩病诊治指南（2023年·广州）.parse_result.json
+```bash
+python scripts/ocr_to_cards.py --input data/skills/中国克罗恩病诊治指南（2023年·广州）/中国克罗恩病诊治指南（2023年·广州）.parse_result.json
 ```
 
 批量转换：
 
-```powershell
-python scripts/ocr_to_cards.py --input-dir .\data\skills
+```bash
+python scripts/ocr_to_cards.py --input-dir data/skills
 ```
 
 `--input` 和 `--input-dir` 必须且只能指定一个。
@@ -173,13 +173,13 @@ data/skills/<指南名>/
 单文件构建示例：
 
 ```powershell
-python scripts/build_skill_pack.py --cards data/skills/中国克罗恩病诊治指南（2023年·广州）/recommendation_card.jsonl --force --similarity-threshold 0.7 --icd10
+python scripts/build_skill_pack.py --cards data/skills/中国克罗恩病诊治指南（2023年·广州）/recommendation_card.jsonl --force --similarity-threshold 0.7 --hpo
 ```
 
 批量构建示例：
 
 ```powershell
-python scripts/build_skill_pack.py --cards data/skills --force --similarity-threshold 0.7 --icd10
+python scripts/build_skill_pack.py --cards data/skills --force --similarity-threshold 0.7 --hpo
 ```
 
 `--similarity-threshold` 表示特征匹配相似度门槛值，默认为0.8。

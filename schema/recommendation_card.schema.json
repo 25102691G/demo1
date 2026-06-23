@@ -80,26 +80,19 @@
       "type": "object",
       "required": [
         "evidence_quality_normalized",
-        "recommendation_strength_normalized"
+        "evidence_quality_normalized_info"
       ],
       "properties": {
         "evidence_quality_raw": {
           "type": ["string", "null"]
         },
         "evidence_quality_normalized": {
-          "type": "number"
+          "type": "number",
+          "minimum": 0.6,
+          "maximum": 1
         },
-        "recommendation_strength_raw": {
-          "type": ["string", "null"]
-        },
-        "recommendation_strength_normalized": {
-          "type": "number"
-        },
-        "consensus_level": {
-          "type": ["string", "number", "null"]
-        },
-        "grading_system": {
-          "type": ["string", "null"]
+        "evidence_quality_normalized_info": {
+          "type": "string"
         }
       },
       "additionalProperties": true

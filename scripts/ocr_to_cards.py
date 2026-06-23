@@ -20,6 +20,13 @@ if str(SOURCE_ROOT) not in sys.path:
 END_PUNCTUATION = "。！？；!?;”）)]"
 NEW_NUMBERED_SECTION_RE = re.compile(r"^\s*\d+[.．、]\s*[^。；;]{1,40}[:：]")
 ALLOWED_POPULATIONS = {"儿童", "青少年", "成人", "老年人", "孕妇", "普遍适用"}
+DEFAULT_EVIDENCE_QUALITY_SCORE = 0.75
+MIN_EVIDENCE_QUALITY_SCORE = 0.6
+EVIDENCE_INFO_NO_RAW = "default_no_raw_evidence"
+EVIDENCE_INFO_UNMAPPED_RAW = "default_unmapped_raw_evidence"
+EVIDENCE_INFO_MISSING_LLM_SCORE = "default_missing_llm_score"
+EVIDENCE_INFO_LLM_NORMALIZED = "llm_normalized"
+EVIDENCE_INFO_BPS_NORMALIZED = "bps_normalized"
 POPULATION_FROM_FILENAME_SYSTEM_PROMPT = """你是医学指南文件名解析助手。
 请只根据输入文件名判断该指南适用患者人群。
 只能返回 JSON 对象，且 population 必须是以下值之一：
@@ -42,6 +49,22 @@ CLINICAL_TASK_SYSTEM_PROMPT = """你是医学指南推荐内容分类助手。
 如果 clinical_stage 是诊断评估流程，clinical_task 只能是以下值之一：初步筛查与临床表现评估、实验室检查、影像学检查、内镜检查、病理、综合诊断。
 如果 clinical_stage 是治疗流程，clinical_task 只能是以下值之一：一般治疗、药物治疗、手术治疗、随访与监测。
 如果无法明确判断，返回未知。
+不要返回解释。"""
+EVIDENCE_QUALITY_RAW_SYSTEM_PROMPT = """你是医学指南证据等级提取助手。
+只能从输入原文中提取内容，不能凭空生成、不能基于医学常识推断。
+提取目标是能表示该片段可信程度的原文表述，包括但不限于证据等级、证据质量、推荐强度、推荐等级、共识等级、专家共识比例或投票比例。
+如果原文没有这类内容，返回 {"evidence_quality_raw": null}。
+如果有多处相关内容，合并为一个简短原文片段，保留原文关键词。
+只能返回 JSON 对象，不要返回解释。"""
+EVIDENCE_QUALITY_NORMALIZATION_SYSTEM_PROMPT = """你是医学指南证据加权系数标准化助手。
+请只根据输入的 evidence_quality_raw 列表，在同一指南内部统一评估证据或推荐可信程度。
+输出 0.6 到 1.0 的数字，1.0 表示该指南内最高可信程度，0.6 表示该指南内最低但仍可作为指南证据使用的可信程度。
+不要输出低于 0.6 的分数。
+相同或等价的原文等级必须给相同分数。
+如果 evidence_quality_raw 中包含 BPS、bps、Bps、(BPS)、（BPS）等大小写或括号变体，视为 best practice statement，evidence_quality_normalized 必须返回 1.0，evidence_quality_normalized_info 返回 bps_normalized。
+如果可以判断可信程度，evidence_quality_normalized_info 返回 llm_normalized。
+如果无法判断可信程度，evidence_quality_normalized 返回 0.75，evidence_quality_normalized_info 返回 default_unmapped_raw_evidence。
+只能返回 JSON 对象，格式为 {"scores":[{"card_id":"...","evidence_quality_normalized":0.85,"evidence_quality_normalized_info":"llm_normalized"}]}。
 不要返回解释。"""
 
 
@@ -172,6 +195,7 @@ def convert_input_file(
         llm_workers=llm_workers,
     )
     cards = build_cards(units, payload, client, clinical_stage_cache, llm_workers)
+    normalize_evidence_quality_scores(cards, client)
     summary["output_cards"] = len(cards)
     summary["discarded_layout_count"] = len(summary["discarded_layouts"])
     summary["discarded_by_reason"] = count_by_key(summary["discarded_layouts"], "reason")
@@ -721,7 +745,8 @@ def build_card(
     client: Any,
 ) -> dict[str, Any]:
     task = clinical_task(clinical_stage_value, unit.raw_text, client=client)
-    return unit_to_card(unit, payload, clinical_stage_value, task)
+    evidence_quality_raw = extract_evidence_quality_raw(unit.raw_text, client=client)
+    return unit_to_card(unit, payload, clinical_stage_value, task, evidence_quality_raw)
 
 
 def unit_to_card(
@@ -729,6 +754,7 @@ def unit_to_card(
     payload: Mapping[str, Any],
     clinical_stage_value: str,
     clinical_task_value: str,
+    evidence_quality_raw: str | None,
 ) -> dict[str, Any]:
     """将 ClinicalTextUnit 转换为 recommendation_card dict，guideline 信息来自 payload"""
     guideline_title = guideline_name(payload)
@@ -753,12 +779,11 @@ def unit_to_card(
         "required_inputs": [],
         "safety_notes": [],
         "evidence": {
-            "evidence_quality_raw": None,
-            "evidence_quality_normalized": 0.5,
-            "recommendation_strength_raw": None,
-            "recommendation_strength_normalized": 0.5,
-            "consensus_level": None,
-            "grading_system": None,
+            "evidence_quality_raw": evidence_quality_raw,
+            "evidence_quality_normalized": DEFAULT_EVIDENCE_QUALITY_SCORE,
+            "evidence_quality_normalized_info": EVIDENCE_INFO_MISSING_LLM_SCORE
+            if evidence_quality_raw
+            else EVIDENCE_INFO_NO_RAW,
         },
         "source_location": {
             "pdf": source_file,
@@ -770,6 +795,100 @@ def unit_to_card(
         "section_path": unit.section_path,
         "source_layout_ids": unit.source_layout_ids,
     }
+
+
+def extract_evidence_quality_raw(raw_text: str, *, client: Any) -> str | None:
+    payload = client.chat_json(
+        EVIDENCE_QUALITY_RAW_SYSTEM_PROMPT,
+        json.dumps(
+            {
+                "raw_text": raw_text,
+                "output_schema": {"evidence_quality_raw": "string or null"},
+            },
+            ensure_ascii=False,
+        ),
+    )
+    evidence_quality_raw = clean_text(payload.get("evidence_quality_raw"))
+    return evidence_quality_raw or None
+
+
+def normalize_evidence_quality_scores(cards: Sequence[dict[str, Any]], client: Any) -> None:
+    items = []
+    for card in cards:
+        evidence = card.get("evidence")
+        if not isinstance(evidence, dict):
+            continue
+        evidence["evidence_quality_normalized"] = DEFAULT_EVIDENCE_QUALITY_SCORE
+        evidence_quality_raw = clean_text(evidence.get("evidence_quality_raw"))
+        if evidence_quality_raw:
+            evidence["evidence_quality_normalized_info"] = EVIDENCE_INFO_MISSING_LLM_SCORE
+            items.append(
+                {
+                    "card_id": clean_text(card.get("card_id")),
+                    "evidence_quality_raw": evidence_quality_raw,
+                }
+            )
+        else:
+            evidence["evidence_quality_normalized_info"] = EVIDENCE_INFO_NO_RAW
+
+    if not items:
+        return
+
+    payload = client.chat_json(
+        EVIDENCE_QUALITY_NORMALIZATION_SYSTEM_PROMPT,
+        json.dumps({"items": items}, ensure_ascii=False),
+    )
+    scores = payload.get("scores")
+    if not isinstance(scores, list):
+        return
+
+    normalized_by_card_id: dict[str, tuple[float, str]] = {}
+    for item in scores:
+        if not isinstance(item, Mapping):
+            continue
+        card_id_value = clean_text(item.get("card_id"))
+        if not card_id_value:
+            continue
+        normalized_score = normalize_optional_score(item.get("evidence_quality_normalized"))
+        normalized_info = clean_text(item.get("evidence_quality_normalized_info"))
+        if normalized_score is None:
+            normalized_by_card_id[card_id_value] = (
+                DEFAULT_EVIDENCE_QUALITY_SCORE,
+                EVIDENCE_INFO_UNMAPPED_RAW,
+            )
+        elif normalized_info == EVIDENCE_INFO_UNMAPPED_RAW:
+            normalized_by_card_id[card_id_value] = (
+                DEFAULT_EVIDENCE_QUALITY_SCORE,
+                EVIDENCE_INFO_UNMAPPED_RAW,
+            )
+        elif normalized_info == EVIDENCE_INFO_BPS_NORMALIZED:
+            normalized_by_card_id[card_id_value] = (normalized_score, EVIDENCE_INFO_BPS_NORMALIZED)
+        else:
+            normalized_by_card_id[card_id_value] = (normalized_score, EVIDENCE_INFO_LLM_NORMALIZED)
+
+    for card in cards:
+        card_id_value = clean_text(card.get("card_id"))
+        if card_id_value not in normalized_by_card_id:
+            continue
+        evidence = card.get("evidence")
+        if isinstance(evidence, dict):
+            normalized_score, normalized_info = normalized_by_card_id[card_id_value]
+            evidence["evidence_quality_normalized"] = normalized_score
+            evidence["evidence_quality_normalized_info"] = normalized_info
+
+
+def normalize_optional_score(value: Any) -> float | None:
+    if value is None:
+        return None
+    try:
+        score = float(value)
+    except (TypeError, ValueError):
+        return None
+    if score < MIN_EVIDENCE_QUALITY_SCORE:
+        return MIN_EVIDENCE_QUALITY_SCORE
+    if score > 1:
+        return 1.0
+    return score
 
 
 def clinical_stage(section_path: Sequence[str], *, client: Any, cache: dict[str, str]) -> str:
