@@ -129,6 +129,9 @@ def main(argv: list[str] | None = None) -> int:
                 top_k=args.top_k,
                 min_score=args.min_score,
                 feature_mode=feature_mode,
+                semantic_resources=getattr(feature_extractor, "resources", None)
+                if feature_mode == "hpo"
+                else None,
             )
             packs_by_id = {pack.skill_id: pack for pack in packs}
             engine = WorkflowEngine()

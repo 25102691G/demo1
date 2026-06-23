@@ -10,7 +10,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 
-from skill_engine.hpo_features import build_mapped_hpo_features
+from skill_engine.hpo_features import build_hpo_features, build_mapped_hpo_features
 from skill_engine.llm_client import JsonChatClient
 from skill_engine.utils import clean_text, normalize_key
 
@@ -120,7 +120,7 @@ class HpoExtractor:
         # HPO 提取核心方法：提取病人case
         phenotypes = self.extract_phenotypes(text, deepseek_client, prompt)
         mappings = self.map_phenotypes_to_hpo(phenotypes, source_type="case")
-        return {"symptoms": build_mapped_hpo_features(mappings)}
+        return {"symptoms": build_hpo_features(mappings)}
 
     def extract_hpo_from_cards(
         self,

@@ -29,6 +29,10 @@ def build_mapped_hpo_features(mappings: Iterable[Mapping[str, Any]]) -> list[dic
     return [build_hpo_feature(item) for item in mappings if item.get("status") == "mapped"]
 
 
+def build_hpo_features(mappings: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    return [build_hpo_feature(item) for item in mappings]
+
+
 def pick_hpo_feature_payload(feature: Mapping[str, Any]) -> dict[str, Any]:
     payload = {key: feature[key] for key in HPO_FEATURE_KEYS if key in feature}
     if "name" not in payload:

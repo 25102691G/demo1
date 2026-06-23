@@ -102,7 +102,7 @@
           },
           "status": {
             "type": "string",
-            "enum": ["mapped", "unmapped", "unknown"],
+            "enum": ["mapped", "low_similarity", "duplicate", "unmapped", "unknown"],
             "default": "unknown"
           }
         },

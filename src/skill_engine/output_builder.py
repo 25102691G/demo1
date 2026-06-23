@@ -55,10 +55,20 @@ def build_workflow_output(
                     "skill_id": candidate["skill_id"],
                     "score": candidate["score"],
                     "matched_positive_features": [
-                        item["name"] for item in candidate.get("matched_positive_features", [])
+                        name
+                        for name in (
+                            _matched_feature_name(item)
+                            for item in candidate.get("matched_positive_features", [])
+                        )
+                        if name
                     ],
                     "matched_negative_features": [
-                        item["name"] for item in candidate.get("matched_negative_features", [])
+                        name
+                        for name in (
+                            _matched_feature_name(item)
+                            for item in candidate.get("matched_negative_features", [])
+                        )
+                        if name
                     ],
                 }
                 for candidate in top_candidates
@@ -285,3 +295,10 @@ def _execution_errors(selected_skill_outputs: list[dict[str, Any]]) -> list[str]
         for error in (output_item.get("result") or {}).get("errors", [])
         if clean_text(error)
     ]
+
+
+def _matched_feature_name(feature: dict[str, Any]) -> str:
+    skill_feature = feature.get("skill_feature")
+    if isinstance(skill_feature, dict):
+        return clean_text(skill_feature.get("name"))
+    return clean_text(feature.get("name"))
