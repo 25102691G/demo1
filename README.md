@@ -63,19 +63,35 @@ data/ICD10/ICD10_embeddings.pt
 
 ## 环境准备
 
-建议使用 `uv` 创建 Python 3.11 环境。`.venv` 是本机环境目录，不应提交到 git；新机器 clone 项目后按下面命令重新创建即可。
+建议使用 `uv` 创建 Python 3.11 环境。`.venv` 是本机环境目录，不应提交到 git。
 
-```powershell
+### 首次 clone 后初始化环境
+
+```bash
 uv venv .venv --python 3.11
-uv pip install --python .\.venv\Scripts\python.exe -r requirements.txt
-uv pip install --python .\.venv\Scripts\python.exe torch --index-url https://download.pytorch.org/whl/cu128
+source .venv/bin/activate
+uv pip install -e .
+```
+
+### 后续使用已有 uv 环境
+
+进入项目目录后激活已有虚拟环境：
+
+```bash
+source .venv/bin/activate
+```
+
+如果 `pyproject.toml` 中的依赖有变化，再重新安装项目依赖：
+
+```bash
+uv pip install -e .
 ```
 
 验证 Python 与 CUDA 版本：
 
-```powershell
-.\.venv\Scripts\python.exe --version
-.\.venv\Scripts\python.exe -c "import torch; print(torch.__version__); print(torch.version.cuda); print(torch.cuda.is_available())"
+```bash
+python --version
+python -c "import torch; print(torch.__version__); print(torch.version.cuda); print(torch.cuda.is_available())"
 ```
 
 ## 1. OCR 提取 PDF
@@ -172,8 +188,7 @@ python scripts/build_skill_pack.py --cards data/skills --force --similarity-thre
 
 使用 `scripts/run_skill_engine.py` 输入病例并执行 skill workflow。
 
-示例：
-
+powershell 示例：
 ```powershell
 python scripts/run_skill_engine.py `
   --name "张三" `
@@ -183,7 +198,20 @@ python scripts/run_skill_engine.py `
   --endoscopy "进镜至回肠末端，回盲瓣变形，回盲瓣口及回肠末端四壁散在形态不规则溃疡，部分呈纵形分布，表面覆大量浓稠白色粘液，回肠末端四壁皱襞纠集，肠腔狭窄，内镜无法通过。于回肠末端溃疡周边活检4块，质软。所见升结肠、横结肠、降结肠、乙状结肠粘膜光滑。距肛门15cm以下直肠四壁散在点状糜烂及浅溃疡，血管纹理模糊。于回盲部、升结肠、横结肠、降结肠、乙状结肠、直肠各活检2块，组织软。" `
   --debug `
   --similarity-threshold 0.8 `
-  --icd10
+  --hpo
+```
+
+bash / Linux 示例：
+```bash/Linux
+python scripts/run_skill_engine.py \
+  --name "张三" \
+  --sex "male" \
+  --age 25 \
+  --clinical-presentation "腹痛" \
+  --endoscopy "进镜至回肠末端，回盲瓣变形，回盲瓣口及回肠末端四壁散在形态不规则溃疡，部分呈纵形分布，表面覆大量浓稠白色粘液，回肠末端四壁皱襞纠集，肠腔狭窄，内镜无法通过。于回肠末端溃疡周边活检4块，质软。所见升结肠、横结肠、降结肠、乙状结肠粘膜光滑。距肛门15cm以下直肠四壁散在点状糜烂及浅溃疡，血管纹理模糊。于回盲部、升结肠、横结肠、降结肠、乙状结肠、直肠各活检2块，组织软。" \
+  --debug \
+  --similarity-threshold 0.8 \
+  --hpo
 ```
 
 `--similarity-threshold` 表示特征匹配相似度门槛值，默认为0.8。
