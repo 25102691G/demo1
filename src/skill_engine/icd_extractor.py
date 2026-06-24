@@ -100,7 +100,7 @@ DEFAULT_ICD10_EMBEDDINGS_PATH = ROOT / "data" / "ICD10" / "ICD10_embeddings.pt"
 DEFAULT_ICD_SIMILARITY_THRESHOLD = 0.8
 DEFAULT_ICD_TOP_K = 5
 DEFAULT_ICD_QUERY_INSTRUCTION = (
-    "Given the clinical presentation of a patient in Chinese"
+    "Given a Chinese guideline title or disease-related document title, identify the closest ICD-10 diagnosis name."
 )
 DEFAULT_ICD_QUERY_INSTRUCTION_CLINICAL_PRESENTATION = (
     "Given the clinical presentation of a patient in Chinese"

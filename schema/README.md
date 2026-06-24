@@ -235,15 +235,10 @@
 | `disease_code` | 疾病编码集合。 |
 | `icd10` | ICD-10 疾病编码。 |
 | `icd11` | ICD-11 疾病编码。 |
-| `disease_aliases` | 疾病别名列表。 |
 | `body_system` | 所属身体系统。 |
 | `specialty` | 相关医学专科。 |
 | `guideline` | 技能包依据的指南信息。 |
-| `target_users` | 目标用户群体。 |
-| `intended_use` | 预期用途列表。 |
-| `scope` | 技能适用范围。 |
 | `out_of_scope` | 不适用范围。 |
-| `disclaimer` | 免责声明。 |
 
 ### `metadata.guideline`
 

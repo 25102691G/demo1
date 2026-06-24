@@ -23,12 +23,7 @@
       "required": [
         "skill_id",
         "disease_name",
-        "disease_aliases",
-        "guideline",
-        "target_users",
-        "intended_use",
-        "scope",
-        "disclaimer"
+        "guideline"
       ],
       "properties": {
         "skill_id": {
@@ -121,7 +116,7 @@
           "type": "string"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": true
     },
     "runtime": {
       "type": "object",
