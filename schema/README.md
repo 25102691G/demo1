@@ -301,15 +301,15 @@
 
 | 字段名 | 含义 |
 | --- | --- |
-| `初步筛查与临床表现评估` | 初步筛查、临床表现和症状体征关注点。 |
 | `实验室检查` | 实验室检查项目和异常关注点。 |
 | `影像学检查` | 影像学检查项目和影像表现关注点。 |
 | `内镜检查` | 内镜检查项目和内镜表现关注点。 |
 | `病理` | 病理检查项目和病理表现关注点。 |
 | `综合诊断` | 综合诊断判断依据和诊断整合关注点。 |
+| `examination` | 原文明确提到需要做的检查；完全相同文本会合并。 |
+| `source_cards` | 该检查来源的 recommendation cards。 |
 | `card_id` | 来源 recommendation card ID。 |
 | `recommendation_label` | 来源推荐标签。 |
-| `examinations` | 原文明确提到需要做的检查。 |
 | `key_symptoms` | 原文明确提到需要重点关注的症状或体征。 |
 | `attention_points` | 其他诊断评估关注点。 |
 
@@ -463,8 +463,7 @@
 | `missing_medical_examinations` | 按当前候选 skill 的 `medical_examinations` 与病例 raw 字段做 embedding 匹配后，病例中未体现的检查项目。 |
 | `clinical_task` | 缺失检查所属诊断评估任务，如实验室检查、影像学检查。 |
 | `examination` | skill 建议但病例 raw 中未匹配到的检查项目。 |
-| `source_card_id` | 该检查建议来源 recommendation card ID。 |
-| `recommendation_label` | 来源推荐标签。 |
+| `source_cards` | 该检查建议来源的 recommendation cards。 |
 | `matched_case_field` | 与该检查最相近的病例 raw 字段，未匹配时可为空。 |
 | `similarity_score` | 最佳 embedding 相似度。 |
 | `reason` | 判定为未做或未体现的原因说明。 |

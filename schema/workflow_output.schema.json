@@ -259,11 +259,11 @@
         "examination": {
           "type": "string"
         },
-        "source_card_id": {
-          "type": "string"
-        },
-        "recommendation_label": {
-          "type": ["string", "null"]
+        "source_cards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/missingMedicalExaminationSourceCard"
+          }
         },
         "matched_case_field": {
           "type": ["string", "null"]
@@ -273,6 +273,19 @@
         },
         "reason": {
           "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "missingMedicalExaminationSourceCard": {
+      "type": "object",
+      "required": ["card_id"],
+      "properties": {
+        "card_id": {
+          "type": "string"
+        },
+        "recommendation_label": {
+          "type": ["string", "null"]
         }
       },
       "additionalProperties": true

@@ -96,7 +96,6 @@ EMERGENCY_KEYWORDS = (
 DIFFERENTIAL_KEYWORDS = ("鉴别", "排除", "区别", "需排除")
 MEDICAL_EXAMINATION_STAGE = "诊断评估流程"
 MEDICAL_EXAMINATION_TASKS = (
-    "初步筛查与临床表现评估",
     "实验室检查",
     "影像学检查",
     "内镜检查",
@@ -420,19 +419,38 @@ def build_medical_examinations(
             for future in as_completed(future_to_index):
                 extracted_by_index[future_to_index[future]] = future.result()
 
+    grouped: dict[str, dict[str, dict[str, Any]]] = {task: {} for task in MEDICAL_EXAMINATION_TASKS}
     for card, extracted in zip(candidates, extracted_by_index, strict=False):
-        if not any(extracted.values()):
-            continue
         task = _clean_text(card.get("clinical_task"))
-        result[task].append(
-            {
-                "card_id": _clean_text(card.get("card_id")),
-                "recommendation_label": _clean_text(card.get("recommendation_label")) or None,
-                "examinations": extracted["examinations"],
-                "key_symptoms": extracted["key_symptoms"],
-                "attention_points": extracted["attention_points"],
-            }
-        )
+        if task not in grouped:
+            continue
+        source_card = {
+            "card_id": _clean_text(card.get("card_id")),
+            "recommendation_label": _clean_text(card.get("recommendation_label")) or None,
+        }
+        for examination in extracted["examinations"]:
+            examination_text = _clean_text(examination)
+            if not examination_text:
+                continue
+            item = grouped[task].setdefault(
+                examination_text,
+                {
+                    "examination": examination_text,
+                    "source_cards": [],
+                    "key_symptoms": [],
+                    "attention_points": [],
+                },
+            )
+            if source_card["card_id"] and source_card not in item["source_cards"]:
+                item["source_cards"].append(dict(source_card))
+            item["key_symptoms"] = _dedupe_texts(
+                [*item["key_symptoms"], *extracted["key_symptoms"]]
+            )
+            item["attention_points"] = _dedupe_texts(
+                [*item["attention_points"], *extracted["attention_points"]]
+            )
+    for task, items_by_examination in grouped.items():
+        result[task] = list(items_by_examination.values())
     return result
 
 
@@ -564,7 +582,6 @@ def build_subskills(
 
 def build_workflow(cards: Sequence[Mapping[str, Any]] | None = None) -> dict[str, Any]:
     diagnostic_tasks = [
-        "初步筛查与临床表现评估",
         "实验室检查",
         "影像学检查",
         "内镜检查",
@@ -1047,6 +1064,10 @@ def write_skill_pack(
     except ImportError as exc:
         raise BuildSkillPackError("PyYAML is required to write skill.yaml. Install PyYAML.") from exc
 
+    class NoAliasSafeDumper(yaml.SafeDumper):
+        def ignore_aliases(self, data: Any) -> bool:
+            return True
+
     skill_id = _clean_text(_require_mapping(skill_dict.get("metadata"), "metadata").get("skill_id"))
     if not skill_id:
         raise BuildSkillPackError("metadata.skill_id must not be empty")
@@ -1063,9 +1084,10 @@ def write_skill_pack(
     target_dir.mkdir(parents=True, exist_ok=True)
 
     with skill_path.open("w", encoding="utf-8", newline="\n") as handle:
-        yaml.safe_dump(
+        yaml.dump(
             dict(skill_dict),
             handle,
+            Dumper=NoAliasSafeDumper,
             allow_unicode=True,
             sort_keys=False,
             indent=2,

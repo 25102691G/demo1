@@ -30,7 +30,6 @@ DEFAULT_LITERAL_MATCH_THRESHOLD = 0.8
 DEFAULT_SEMANTIC_MATCH_THRESHOLD = 0.8
 DEFAULT_MEDICAL_EXAMINATION_MATCH_THRESHOLD = 0.75
 MEDICAL_EXAMINATION_CASE_FIELDS = {
-    "初步筛查与临床表现评估": ("clinical_presentation", "raw_input"),
     "实验室检查": ("lab_tests", "raw_input"),
     "影像学检查": ("imaging_tests", "raw_input"),
     "内镜检查": ("endoscopy", "raw_input"),
@@ -871,30 +870,30 @@ def _missing_medical_examinations(
             if not isinstance(item, Mapping):
                 continue
             context_texts = _medical_examination_context_texts(item)
-            for examination in _medical_examination_names(item):
-                query_text = " ".join([examination, *context_texts]).strip()
-                best_field, best_score = _best_medical_examination_case_match(
-                    query_text,
-                    comparable_case_texts,
-                    matcher,
-                )
-                if best_score >= DEFAULT_MEDICAL_EXAMINATION_MATCH_THRESHOLD:
-                    continue
-                card_id = clean_text(item.get("card_id"))
-                key = (task, examination, card_id)
-                if key in seen:
-                    continue
-                seen.add(key)
-                missing.append(
-                    {
-                        "clinical_task": task,
-                        "examination": examination,
-                        "source_card_id": card_id,
-                        "recommendation_label": clean_text(item.get("recommendation_label")) or None,
-                        "matched_case_field": best_field,
-                        "similarity_score": round(best_score, 4),
-                        "reason": "skill 中建议该检查，但 canonical_case.raw 中未匹配到相近内容",
-                    }
+            examination = _medical_examination_name(item)
+            if not examination:
+                continue
+            query_text = " ".join([examination, *context_texts]).strip()
+            best_field, best_score = _best_medical_examination_case_match(
+                query_text,
+                comparable_case_texts,
+                matcher,
+            )
+            if best_score >= DEFAULT_MEDICAL_EXAMINATION_MATCH_THRESHOLD:
+                continue
+            key = (task, examination, _source_cards_key(item.get("source_cards")))
+            if key in seen:
+                continue
+            seen.add(key)
+            missing.append(
+                {
+                    "clinical_task": task,
+                    "examination": examination,
+                    "source_cards": _medical_examination_source_cards(item),
+                    "matched_case_field": best_field,
+                    "similarity_score": round(best_score, 4),
+                    "reason": "skill 中建议该检查，但 canonical_case.raw 中未匹配到相近内容",
+                }
                 )
     return missing
 
@@ -921,11 +920,36 @@ def _case_medical_examination_texts(canonical_case: Mapping[str, Any]) -> dict[s
     return result
 
 
-def _medical_examination_names(item: Mapping[str, Any]) -> list[str]:
-    return dedupe_texts(
-        clean_text(value)
-        for value in item.get("examinations") or []
-        if clean_text(value)
+def _medical_examination_name(item: Mapping[str, Any]) -> str:
+    return clean_text(item.get("examination"))
+
+
+def _medical_examination_source_cards(item: Mapping[str, Any]) -> list[dict[str, Any]]:
+    source_cards = []
+    for source in item.get("source_cards") or []:
+        if not isinstance(source, Mapping):
+            continue
+        card_id = clean_text(source.get("card_id"))
+        if not card_id:
+            continue
+        source_cards.append(
+            {
+                "card_id": card_id,
+                "recommendation_label": clean_text(source.get("recommendation_label")) or None,
+            }
+        )
+    return source_cards
+
+
+def _source_cards_key(value: Any) -> str:
+    if not isinstance(value, list):
+        return ""
+    return "|".join(
+        dedupe_texts(
+            clean_text(source.get("card_id"))
+            for source in value
+            if isinstance(source, Mapping) and clean_text(source.get("card_id"))
+        )
     )
 
 

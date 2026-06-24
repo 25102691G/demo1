@@ -284,7 +284,6 @@
     "medical_examinations": {
       "type": "object",
       "required": [
-        "初步筛查与临床表现评估",
         "实验室检查",
         "影像学检查",
         "内镜检查",
@@ -292,9 +291,6 @@
         "综合诊断"
       ],
       "properties": {
-        "初步筛查与临床表现评估": {
-          "$ref": "#/$defs/medicalExaminationItems"
-        },
         "实验室检查": {
           "$ref": "#/$defs/medicalExaminationItems"
         },
@@ -484,18 +480,15 @@
     },
     "medicalExaminationItem": {
       "type": "object",
-      "required": ["card_id", "examinations", "key_symptoms", "attention_points"],
+      "required": ["examination", "source_cards", "key_symptoms", "attention_points"],
       "properties": {
-        "card_id": {
+        "examination": {
           "type": "string"
         },
-        "recommendation_label": {
-          "type": ["string", "null"]
-        },
-        "examinations": {
+        "source_cards": {
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/medicalExaminationSourceCard"
           }
         },
         "key_symptoms": {
@@ -509,6 +502,19 @@
           "items": {
             "type": "string"
           }
+        }
+      },
+      "additionalProperties": false
+    },
+    "medicalExaminationSourceCard": {
+      "type": "object",
+      "required": ["card_id"],
+      "properties": {
+        "card_id": {
+          "type": "string"
+        },
+        "recommendation_label": {
+          "type": ["string", "null"]
         }
       },
       "additionalProperties": false
