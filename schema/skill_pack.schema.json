@@ -7,6 +7,7 @@
     "schema_version",
     "metadata",
     "routing_profile",
+    "medical_examinations",
     "knowledge_base",
     "workflow",
     "safety_constraints",
@@ -280,6 +281,38 @@
       },
       "additionalProperties": true
     },
+    "medical_examinations": {
+      "type": "object",
+      "required": [
+        "初步筛查与临床表现评估",
+        "实验室检查",
+        "影像学检查",
+        "内镜检查",
+        "病理",
+        "综合诊断"
+      ],
+      "properties": {
+        "初步筛查与临床表现评估": {
+          "$ref": "#/$defs/medicalExaminationItems"
+        },
+        "实验室检查": {
+          "$ref": "#/$defs/medicalExaminationItems"
+        },
+        "影像学检查": {
+          "$ref": "#/$defs/medicalExaminationItems"
+        },
+        "内镜检查": {
+          "$ref": "#/$defs/medicalExaminationItems"
+        },
+        "病理": {
+          "$ref": "#/$defs/medicalExaminationItems"
+        },
+        "综合诊断": {
+          "$ref": "#/$defs/medicalExaminationItems"
+        }
+      },
+      "additionalProperties": false
+    },
     "knowledge_base": {
       "type": "object",
       "required": ["cards_path", "card_schema_ref", "retrieval"],
@@ -443,6 +476,43 @@
     }
   },
   "$defs": {
+    "medicalExaminationItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/medicalExaminationItem"
+      }
+    },
+    "medicalExaminationItem": {
+      "type": "object",
+      "required": ["card_id", "examinations", "key_symptoms", "attention_points"],
+      "properties": {
+        "card_id": {
+          "type": "string"
+        },
+        "recommendation_label": {
+          "type": ["string", "null"]
+        },
+        "examinations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "key_symptoms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attention_points": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "workflowStep": {
       "type": "object",
       "required": ["step_id", "type", "transitions"],

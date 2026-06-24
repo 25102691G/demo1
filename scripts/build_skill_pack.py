@@ -7,6 +7,7 @@ import re
 import sys
 import unicodedata
 from collections import Counter, OrderedDict, defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
@@ -93,6 +94,22 @@ EMERGENCY_KEYWORDS = (
     "紧急",
 )
 DIFFERENTIAL_KEYWORDS = ("鉴别", "排除", "区别", "需排除")
+MEDICAL_EXAMINATION_STAGE = "诊断评估流程"
+MEDICAL_EXAMINATION_TASKS = (
+    "初步筛查与临床表现评估",
+    "实验室检查",
+    "影像学检查",
+    "内镜检查",
+    "病理",
+    "综合诊断",
+)
+MEDICAL_EXAMINATION_SYSTEM_PROMPT = """你是一名专攻消化内科指南结构化的医学专家。
+请根据疾病指南片段，提取该片段明确提到的诊断评估内容，包括需要做的医学检查、重点关注症状体征、实验室/影像/内镜/病理关注点、综合诊断判断依据。
+不得根据常识或上下文自行推断，必须来自原文明确表述。
+
+只输出 JSON 对象，格式如下：
+{"examinations":["需要做的检查"],"key_symptoms":["重点关注症状或体征"],"attention_points":["其他诊断关注点"]}。
+没有对应内容时输出空数组。内容请使用中文书写。禁止输出其他任何无关信息。"""
 
 
 def load_jsonl(path: str | Path) -> list[LoadedCard]:
@@ -346,6 +363,8 @@ def build_routing_profile(
         negative_features = _dedupe_positive_features(
             extracted_features.get("negative_features") or []
         )
+        _attach_clinical_sources(positive_features, cards)
+        _attach_clinical_sources(negative_features, cards)
     else:
         raise BuildSkillPackError(f"unsupported feature mode: {feature_mode}")
 
@@ -366,6 +385,75 @@ def build_routing_profile(
             "mapping": _build_card_evidence_mapping(cards),
         },
     }
+
+def build_medical_examinations(
+    cards: Sequence[Mapping[str, Any]],
+    deepseek_client: Any,
+    *,
+    llm_workers: int = 1,
+) -> dict[str, list[dict[str, Any]]]:
+    result: dict[str, list[dict[str, Any]]] = {task: [] for task in MEDICAL_EXAMINATION_TASKS}
+    candidates = [
+        card
+        for card in cards
+        if _clean_text(card.get("clinical_stage")) == MEDICAL_EXAMINATION_STAGE
+        and _clean_text(card.get("clinical_task")) in result
+        and _clean_text(card.get("raw_chunk_text"))
+    ]
+    if not candidates:
+        return result
+
+    workers = max(1, int(llm_workers or 1))
+    extracted_by_index: list[dict[str, list[str]]] = [
+        {"examinations": [], "key_symptoms": [], "attention_points": []}
+        for _ in candidates
+    ]
+    if workers <= 1 or len(candidates) <= 1:
+        for index, card in enumerate(candidates):
+            extracted_by_index[index] = extract_medical_examination_item(card, deepseek_client)
+    else:
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            future_to_index = {
+                executor.submit(extract_medical_examination_item, card, deepseek_client): index
+                for index, card in enumerate(candidates)
+            }
+            for future in as_completed(future_to_index):
+                extracted_by_index[future_to_index[future]] = future.result()
+
+    for card, extracted in zip(candidates, extracted_by_index, strict=False):
+        if not any(extracted.values()):
+            continue
+        task = _clean_text(card.get("clinical_task"))
+        result[task].append(
+            {
+                "card_id": _clean_text(card.get("card_id")),
+                "recommendation_label": _clean_text(card.get("recommendation_label")) or None,
+                "examinations": extracted["examinations"],
+                "key_symptoms": extracted["key_symptoms"],
+                "attention_points": extracted["attention_points"],
+            }
+        )
+    return result
+
+
+def extract_medical_examination_item(
+    card: Mapping[str, Any],
+    deepseek_client: Any,
+) -> dict[str, list[str]]:
+    user_prompt = json.dumps(
+        {
+            "clinical_task": _clean_text(card.get("clinical_task")),
+            "raw_chunk_text": _clean_text(card.get("raw_chunk_text")),
+        },
+        ensure_ascii=False,
+    )
+    payload = deepseek_client.chat_json(MEDICAL_EXAMINATION_SYSTEM_PROMPT, user_prompt)
+    return {
+        "examinations": _dedupe_texts(_as_text_list(payload.get("examinations"))),
+        "key_symptoms": _dedupe_texts(_as_text_list(payload.get("key_symptoms"))),
+        "attention_points": _dedupe_texts(_as_text_list(payload.get("attention_points"))),
+    }
+
 
 def _build_card_evidence_mapping(cards: Sequence[Mapping[str, Any]]) -> dict[str, dict[str, Any]]:
     mapping: dict[str, dict[str, Any]] = {}
@@ -826,6 +914,11 @@ def build_skill_pack(
             feature_extractor=feature_extractor,
             feature_mode=feature_mode,
             deepseek_client=deepseek_client,
+            llm_workers=llm_workers,
+        ),
+        "medical_examinations": build_medical_examinations(
+            cards,
+            deepseek_client,
             llm_workers=llm_workers,
         ),
         "knowledge_base": build_knowledge_base(),
@@ -1530,6 +1623,41 @@ def _dedupe_positive_features(features: Sequence[Mapping[str, Any]]) -> list[dic
         copied["name"] = name
         result.append(copied)
     return result
+
+
+def _attach_clinical_sources(
+    features: Sequence[dict[str, Any]],
+    cards: Sequence[Mapping[str, Any]],
+) -> None:
+    card_index = {
+        _clean_text(card.get("card_id")): card
+        for card in cards
+        if _clean_text(card.get("card_id"))
+    }
+    for feature in features:
+        sources: list[dict[str, str]] = []
+        seen: set[tuple[str, str, str]] = set()
+        for card_id in _as_text_list(feature.get("card_id")):
+            card = card_index.get(card_id)
+            if card is None:
+                continue
+            clinical_stage = _clean_text(card.get("clinical_stage"))
+            clinical_task = _clean_text(card.get("clinical_task"))
+            if not clinical_stage and not clinical_task:
+                continue
+            key = (card_id, clinical_stage, clinical_task)
+            if key in seen:
+                continue
+            seen.add(key)
+            sources.append(
+                {
+                    "card_id": card_id,
+                    "clinical_stage": clinical_stage,
+                    "clinical_task": clinical_task,
+                }
+            )
+        if sources:
+            feature["clinical_sources"] = sources
 
 
 def _safety_candidate_texts(card: Mapping[str, Any]) -> list[str]:

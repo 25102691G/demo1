@@ -219,6 +219,7 @@
 | `runtime` | 技能运行时配置。 |
 | `case_schema` | 输入病例 schema 和字段映射配置。 |
 | `routing_profile` | 疾病路由和候选技能匹配配置。 |
+| `medical_examinations` | 诊断评估流程中各类医学检查和关注点。 |
 | `knowledge_base` | 指南推荐卡和检索索引配置。 |
 | `workflow` | 技能执行工作流。 |
 | `subskills` | 旧格式兼容字段；新生成技能包不再输出。 |
@@ -285,6 +286,7 @@
 | `abbreviations` | 疾病缩写。 |
 | `positive_features` | 支持匹配该疾病的阳性特征集合。 |
 | `negative_features` | 降低匹配分或提示其他疾病的阴性特征。 |
+| `clinical_sources` | 阳性或阴性特征来源的 recommendation card 及其 `clinical_stage` / `clinical_task`。 |
 | `red_flags` | 路由阶段识别的危险信号。 |
 | `scoring` | 路由评分配置。 |
 | `symptoms` | 症状类阳性特征。 |
@@ -294,6 +296,22 @@
 | `endoscopy` | 内镜类阳性特征。 |
 | `pathology` | 病理类阳性特征。 |
 | `findings` | 其他发现类阳性特征。 |
+
+### `medical_examinations`
+
+| 字段名 | 含义 |
+| --- | --- |
+| `初步筛查与临床表现评估` | 初步筛查、临床表现和症状体征关注点。 |
+| `实验室检查` | 实验室检查项目和异常关注点。 |
+| `影像学检查` | 影像学检查项目和影像表现关注点。 |
+| `内镜检查` | 内镜检查项目和内镜表现关注点。 |
+| `病理` | 病理检查项目和病理表现关注点。 |
+| `综合诊断` | 综合诊断判断依据和诊断整合关注点。 |
+| `card_id` | 来源 recommendation card ID。 |
+| `recommendation_label` | 来源推荐标签。 |
+| `examinations` | 原文明确提到需要做的检查。 |
+| `key_symptoms` | 原文明确提到需要重点关注的症状或体征。 |
+| `attention_points` | 其他诊断评估关注点。 |
 
 ### `scoring`
 
@@ -430,6 +448,26 @@
 | `safety` | 安全检查结果。 |
 | `citations` | 引用来源列表。 |
 | `debug_trace` | 调试追踪信息。 |
+
+### `top_candidates`
+
+| 字段名 | 含义 |
+| --- | --- |
+| `skill_id` | 候选技能 ID。 |
+| `disease_name` | 候选技能对应疾病或指南名称。 |
+| `score` | 路由匹配得分。 |
+| `rank` | 候选排序。 |
+| `matched_positive_features` | 已匹配的阳性特征证据。 |
+| `matched_negative_features` | 已匹配的阴性特征证据。 |
+| `missing_key_evidence` | 旧版 subskill input requirements 判断出的缺失关键信息。 |
+| `missing_medical_examinations` | 按当前候选 skill 的 `medical_examinations` 与病例 raw 字段做 embedding 匹配后，病例中未体现的检查项目。 |
+| `clinical_task` | 缺失检查所属诊断评估任务，如实验室检查、影像学检查。 |
+| `examination` | skill 建议但病例 raw 中未匹配到的检查项目。 |
+| `source_card_id` | 该检查建议来源 recommendation card ID。 |
+| `recommendation_label` | 来源推荐标签。 |
+| `matched_case_field` | 与该检查最相近的病例 raw 字段，未匹配时可为空。 |
+| `similarity_score` | 最佳 embedding 相似度。 |
+| `reason` | 判定为未做或未体现的原因说明。 |
 
 ### `final_response`
 

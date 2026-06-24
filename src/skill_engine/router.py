@@ -28,6 +28,22 @@ from .utils import clean_text, dedupe_texts, flatten_text, is_present, normalize
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_LITERAL_MATCH_THRESHOLD = 0.8
 DEFAULT_SEMANTIC_MATCH_THRESHOLD = 0.8
+DEFAULT_MEDICAL_EXAMINATION_MATCH_THRESHOLD = 0.75
+MEDICAL_EXAMINATION_CASE_FIELDS = {
+    "初步筛查与临床表现评估": ("clinical_presentation", "raw_input"),
+    "实验室检查": ("lab_tests", "raw_input"),
+    "影像学检查": ("imaging_tests", "raw_input"),
+    "内镜检查": ("endoscopy", "raw_input"),
+    "病理": ("pathology", "raw_input"),
+    "综合诊断": (
+        "clinical_presentation",
+        "lab_tests",
+        "imaging_tests",
+        "endoscopy",
+        "pathology",
+        "raw_input",
+    ),
+}
 
 def route_skills(
     canonical_case: dict[str, Any],
@@ -113,6 +129,11 @@ def _score_skill(
     score = raw_score
     threshold = _candidate_threshold(routing, min_score=min_score)
     missing_key_evidence = _missing_key_evidence(canonical_case, pack)
+    missing_medical_examinations = _missing_medical_examinations(
+        canonical_case,
+        pack,
+        semantic_resources=semantic_resources,
+    )
     disease_name = pack.disease_name or clean_text((routing.get("disease_identity") or {}).get("primary_name"))
     return {
         "skill_id": pack.skill_id,
@@ -122,6 +143,7 @@ def _score_skill(
         "matched_positive_features": matched_positive_features,
         "matched_negative_features": matched_negative_features,
         "missing_key_evidence": missing_key_evidence,
+        "missing_medical_examinations": missing_medical_examinations,
         "reasoning_summary": _reasoning_summary(
             score,
             threshold,
@@ -815,6 +837,121 @@ def _missing_key_evidence(canonical_case: Mapping[str, Any], pack: SkillPack) ->
             if path and not is_present(resolve_case_path(canonical_case, path)):
                 missing.append(label)
     return missing
+
+
+def _missing_medical_examinations(
+    canonical_case: Mapping[str, Any],
+    pack: SkillPack,
+    *,
+    semantic_resources: Any | None,
+) -> list[dict[str, Any]]:
+    medical_examinations = pack.skill.get("medical_examinations")
+    if not isinstance(medical_examinations, Mapping):
+        return []
+    matcher = _hpo_semantic_matcher(semantic_resources) if semantic_resources is not None else _semantic_matcher()
+    if matcher is None:
+        return []
+
+    case_texts = _case_medical_examination_texts(canonical_case)
+    missing: list[dict[str, Any]] = []
+    seen: set[tuple[str, str, str]] = set()
+    for clinical_task, raw_items in medical_examinations.items():
+        task = clean_text(clinical_task)
+        if task not in MEDICAL_EXAMINATION_CASE_FIELDS or not isinstance(raw_items, list):
+            continue
+        comparable_case_texts = [
+            item
+            for item in (
+                case_texts.get(field)
+                for field in MEDICAL_EXAMINATION_CASE_FIELDS[task]
+            )
+            if item["text"]
+        ]
+        for item in raw_items:
+            if not isinstance(item, Mapping):
+                continue
+            context_texts = _medical_examination_context_texts(item)
+            for examination in _medical_examination_names(item):
+                query_text = " ".join([examination, *context_texts]).strip()
+                best_field, best_score = _best_medical_examination_case_match(
+                    query_text,
+                    comparable_case_texts,
+                    matcher,
+                )
+                if best_score >= DEFAULT_MEDICAL_EXAMINATION_MATCH_THRESHOLD:
+                    continue
+                card_id = clean_text(item.get("card_id"))
+                key = (task, examination, card_id)
+                if key in seen:
+                    continue
+                seen.add(key)
+                missing.append(
+                    {
+                        "clinical_task": task,
+                        "examination": examination,
+                        "source_card_id": card_id,
+                        "recommendation_label": clean_text(item.get("recommendation_label")) or None,
+                        "matched_case_field": best_field,
+                        "similarity_score": round(best_score, 4),
+                        "reason": "skill 中建议该检查，但 canonical_case.raw 中未匹配到相近内容",
+                    }
+                )
+    return missing
+
+
+def _case_medical_examination_texts(canonical_case: Mapping[str, Any]) -> dict[str, dict[str, str]]:
+    raw_input = canonical_case.get("raw_input")
+    raw_values = raw_input if isinstance(raw_input, Mapping) else {}
+    result: dict[str, dict[str, str]] = {}
+    for field in (
+        "clinical_presentation",
+        "lab_tests",
+        "imaging_tests",
+        "endoscopy",
+        "pathology",
+    ):
+        result[field] = {
+            "field": field,
+            "text": clean_text(raw_values.get(field)) or clean_text(canonical_case.get(field)),
+        }
+    result["raw_input"] = {
+        "field": "raw_input",
+        "text": flatten_text(raw_input),
+    }
+    return result
+
+
+def _medical_examination_names(item: Mapping[str, Any]) -> list[str]:
+    return dedupe_texts(
+        clean_text(value)
+        for value in item.get("examinations") or []
+        if clean_text(value)
+    )
+
+
+def _medical_examination_context_texts(item: Mapping[str, Any]) -> list[str]:
+    texts: list[str] = []
+    for field in ("key_symptoms", "attention_points"):
+        texts.extend(clean_text(value) for value in item.get(field) or [] if clean_text(value))
+    return dedupe_texts(texts)
+
+
+def _best_medical_examination_case_match(
+    query_text: str,
+    case_texts: list[dict[str, str]],
+    matcher: Any,
+) -> tuple[str | None, float]:
+    best_field: str | None = None
+    best_score = 0.0
+    for case_text in case_texts:
+        semantic_match = matcher.best_match(case_text["text"], [query_text])
+        if semantic_match is None:
+            continue
+        _target, score = semantic_match
+        if score > best_score:
+            best_score = score
+            best_field = case_text["field"]
+    return best_field, best_score
 
 
 def _reasoning_summary(

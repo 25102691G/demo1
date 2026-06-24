@@ -107,14 +107,14 @@ $env:BAIDU_SECRET_KEY="你的百度 Secret Key"
 
 单文档提取：
 
-```powershell
-python scripts/preview_pdf_ocr.py --input .\data\skills\肠结核的诊断与治疗\肠结核的诊断与治疗.pdf
+```bash
+python scripts/preview_pdf_ocr.py --input /data/skills/肠结核的诊断与治疗/肠结核的诊断与治疗.pdf
 ```
 
 批量提取：
 
-```powershell
-python scripts/preview_pdf_ocr.py --input-dir .\data\skills
+```bash
+python scripts/preview_pdf_ocr.py --input-dir /data/skills
 ```
 
 `--input` 和 `--input-dir` 必须且只能指定一个。`--input-dir` 会递归扫描目录下所有 `.pdf` 文件。
@@ -141,7 +141,7 @@ $env:DEEPSEEK_API_KEY="你的 DeepSeek API Key"
 单文件转换：
 
 ```bash
-python scripts/ocr_to_cards.py --input data/skills/中国克罗恩病诊治指南（2023年·广州）/中国克罗恩病诊治指南（2023年·广州）.parse_result.json
+python scripts/ocr_to_cards.py --input data/skills/肠结核的诊断与治疗/肠结核的诊断与治疗.parse_result.json
 ```
 
 批量转换：
@@ -172,13 +172,13 @@ data/skills/<指南名>/
 
 单文件构建示例：
 
-```powershell
-python scripts/build_skill_pack.py --cards data/skills/中国克罗恩病诊治指南（2023年·广州）/recommendation_card.jsonl --force --similarity-threshold 0.7 --hpo
+```bash
+python scripts/build_skill_pack.py --cards data/skills/肠结核的诊断与治疗//recommendation_card.jsonl --force --similarity-threshold 0.7 --hpo
 ```
 
 批量构建示例：
 
-```powershell
+```bash
 python scripts/build_skill_pack.py --cards data/skills --force --similarity-threshold 0.7 --hpo
 ```
 
@@ -188,21 +188,7 @@ python scripts/build_skill_pack.py --cards data/skills --force --similarity-thre
 
 使用 `scripts/run_skill_engine.py` 输入病例并执行 skill workflow。
 
-powershell 示例：
-```powershell
-python scripts/run_skill_engine.py `
-  --name "张三" `
-  --sex "male" `
-  --age 25 `
-  --clinical-presentation "腹痛" `
-  --endoscopy "进镜至回肠末端，回盲瓣变形，回盲瓣口及回肠末端四壁散在形态不规则溃疡，部分呈纵形分布，表面覆大量浓稠白色粘液，回肠末端四壁皱襞纠集，肠腔狭窄，内镜无法通过。于回肠末端溃疡周边活检4块，质软。所见升结肠、横结肠、降结肠、乙状结肠粘膜光滑。距肛门15cm以下直肠四壁散在点状糜烂及浅溃疡，血管纹理模糊。于回盲部、升结肠、横结肠、降结肠、乙状结肠、直肠各活检2块，组织软。" `
-  --debug `
-  --similarity-threshold 0.8 `
-  --hpo
-```
-
-bash / Linux 示例：
-```bash/Linux
+```bash
 python scripts/run_skill_engine.py \
   --name "张三" \
   --sex "male" \

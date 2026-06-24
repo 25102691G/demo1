@@ -237,7 +237,41 @@
             "type": "string"
           }
         },
+        "missing_medical_examinations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/missingMedicalExamination"
+          }
+        },
         "reasoning_summary": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "missingMedicalExamination": {
+      "type": "object",
+      "required": ["clinical_task", "examination", "similarity_score", "reason"],
+      "properties": {
+        "clinical_task": {
+          "type": "string"
+        },
+        "examination": {
+          "type": "string"
+        },
+        "source_card_id": {
+          "type": "string"
+        },
+        "recommendation_label": {
+          "type": ["string", "null"]
+        },
+        "matched_case_field": {
+          "type": ["string", "null"]
+        },
+        "similarity_score": {
+          "type": "number"
+        },
+        "reason": {
           "type": "string"
         }
       },
