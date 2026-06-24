@@ -450,7 +450,37 @@ def build_subskills(
     return subskills
 
 
-def build_workflow() -> dict[str, Any]:
+def build_workflow(cards: Sequence[Mapping[str, Any]] | None = None) -> dict[str, Any]:
+    diagnostic_tasks = [
+        "初步筛查与临床表现评估",
+        "实验室检查",
+        "影像学检查",
+        "内镜检查",
+        "病理",
+        "综合诊断",
+    ]
+    staging_tasks = ["影像学检查", "内镜检查", "病理", "综合诊断"]
+    management_tasks = ["一般治疗", "药物治疗", "手术治疗"]
+    diagnostic_filter = {
+        "clinical_stage": "诊断评估流程",
+        "clinical_task": diagnostic_tasks,
+    }
+    differential_filter = {
+        "clinical_stage": "诊断评估流程",
+        "clinical_task": ["综合诊断"],
+    }
+    staging_filter = {
+        "clinical_stage": "诊断评估流程",
+        "clinical_task": staging_tasks,
+    }
+    management_filter = {
+        "clinical_stage": "治疗流程",
+        "clinical_task": management_tasks,
+    }
+    monitoring_filter = {
+        "clinical_stage": "治疗流程",
+        "clinical_task": ["随访与监测"],
+    }
     return {
         "workflow_version": "0.1",
         "entrypoint": "triage",
@@ -466,7 +496,6 @@ def build_workflow() -> dict[str, Any]:
                 "description": "Check emergency red flags and routing suitability.",
                 "config": {
                     "red_flags_ref": "routing_profile.red_flags",
-                    "subskill_ref": "initial_triage",
                 },
                 "transitions": [
                     {"when": {"op": "exists", "path": "result.red_flags"}, "to": "emergency_safety"},
@@ -481,7 +510,12 @@ def build_workflow() -> dict[str, Any]:
                 "step_id": "diagnostic_evidence_check",
                 "type": "evidence_check",
                 "description": "Check diagnostic evidence and missing required information.",
-                "config": {"subskill_ref": "diagnostic_integration"},
+                "config": {
+                    "card_filter": diagnostic_filter,
+                    "input_requirements": _build_input_requirements(
+                        _cards_matching_filter(cards or [], diagnostic_filter)
+                    ),
+                },
                 "transitions": [
                     {
                         "when": {"op": "exists", "path": "result.missing_required_evidence"},
@@ -494,7 +528,12 @@ def build_workflow() -> dict[str, Any]:
                 "step_id": "differential_check",
                 "type": "differential_check",
                 "description": "Check important differential diagnoses.",
-                "config": {"subskill_ref": "differential_diagnosis"},
+                "config": {
+                    "card_filter": differential_filter,
+                    "input_requirements": _build_input_requirements(
+                        _cards_matching_filter(cards or [], differential_filter)
+                    ),
+                },
                 "transitions": [
                     {
                         "when": {"op": "exists", "path": "result.differential_warnings"},
@@ -507,7 +546,12 @@ def build_workflow() -> dict[str, Any]:
                 "step_id": "staging_assessment",
                 "type": "evidence_check",
                 "description": "Assess staging, severity, complications, or risk profile.",
-                "config": {"subskill_ref": "staging_assessment"},
+                "config": {
+                    "card_filter": staging_filter,
+                    "input_requirements": _build_input_requirements(
+                        _cards_matching_filter(cards or [], staging_filter)
+                    ),
+                },
                 "transitions": [{"when": {"op": "default"}, "to": "management_gate"}],
             },
             {
@@ -529,7 +573,13 @@ def build_workflow() -> dict[str, Any]:
                 "step_id": "management_plan_generation",
                 "type": "plan_generation",
                 "description": "Generate guideline-based management plan.",
-                "config": {"subskill_ref": "management_plan"},
+                "config": {
+                    "card_filter": management_filter,
+                    "monitoring_card_filter": monitoring_filter,
+                    "input_requirements": _build_input_requirements(
+                        _cards_matching_filter(cards or [], management_filter)
+                    ),
+                },
                 "transitions": [{"when": {"op": "default"}, "to": "final_output"}],
             },
             {
@@ -754,8 +804,7 @@ def build_skill_pack(
             llm_workers=llm_workers,
         ),
         "knowledge_base": build_knowledge_base(),
-        "workflow": build_workflow(),
-        "subskills": build_subskills(cards, taxonomy),
+        "workflow": build_workflow(cards),
         "safety_constraints": build_safety_constraints(cards),
         "output_templates": build_output_templates(),
         "validation": build_validation_block(),
@@ -803,8 +852,8 @@ def validate_cross_references(
         errors.append(f"workflow.entrypoint {entrypoint!r} does not exist in workflow.steps")
 
     subskills = skill_dict.get("subskills") or []
-    if not isinstance(subskills, Sequence) or not subskills:
-        errors.append("subskills must contain at least one subskill")
+    if not isinstance(subskills, Sequence):
+        errors.append("subskills must be a list when present")
         subskills = []
     subskill_ids = {
         _clean_text(subskill.get("subskill_id"))
@@ -993,12 +1042,10 @@ def log_build_done(
     cards_source: Path,
     *,
     card_count: int,
-    subskill_count: int,
     skill_yaml: Path,
 ) -> None:
     print(
-        f"[{index}/{total}] 完成: {cards_source}，{card_count} 张 card，"
-        f"{subskill_count} 个 subskill，输出 {skill_yaml}",
+        f"[{index}/{total}] 完成: {cards_source}，{card_count} 张 card，输出 {skill_yaml}",
         flush=True,
     )
 
@@ -1129,7 +1176,6 @@ def main(argv: Sequence[str] | None = None) -> int:
                     "package_name": package_name or cards_source.parent.name,
                     "skill_id": skill_dict["metadata"]["skill_id"],
                     "card_count": len(cards),
-                    "subskill_count": len(skill_dict["subskills"]),
                     "output_dir": str(target_dir),
                     "skill_yaml": str(target_dir / skill_filename),
                     "result_jsonl": str(cards_source),
@@ -1142,7 +1188,6 @@ def main(argv: Sequence[str] | None = None) -> int:
                 total_sources,
                 cards_source,
                 card_count=len(cards),
-                subskill_count=len(skill_dict["subskills"]),
                 skill_yaml=target_dir / skill_filename,
             )
     except BuildSkillPackError as exc:
@@ -1498,6 +1543,26 @@ def _build_input_requirements(cards: Sequence[Mapping[str, Any]]) -> dict[str, A
             seen.add(key)
             items.append(required_input)
     return {"required_for_high_confidence": items}
+
+
+def _cards_matching_filter(
+    cards: Sequence[Mapping[str, Any]],
+    card_filter: Mapping[str, Any],
+) -> list[Mapping[str, Any]]:
+    return [card for card in cards if _card_matches_filter(card, card_filter)]
+
+
+def _card_matches_filter(card: Mapping[str, Any], card_filter: Mapping[str, Any]) -> bool:
+    for field, expected in card_filter.items():
+        if field in {"limit", "top_k"}:
+            continue
+        actual = _clean_text(card.get(field))
+        expected_values = _as_text_list(expected)
+        if not expected_values:
+            continue
+        if actual not in expected_values:
+            return False
+    return True
 
 
 def _as_required_inputs(value: Any) -> list[dict[str, str]]:

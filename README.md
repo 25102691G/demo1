@@ -221,14 +221,14 @@ python scripts/run_skill_engine.py \
 `data/skills/<指南名>/skill.yaml`
 
 - skill pack 的声明式配置
-- 包含 metadata、routing_profile、workflow、subskills、output_templates 等
+- 包含 metadata、routing_profile、workflow、output_templates 等
 - 不内嵌全部推荐卡片正文，只引用同目录 `result.jsonl`
 
 `data/skills/<指南名>/result.jsonl`
 
 - recommendation cards
 - 每行一个 card
-- workflow 执行时按 card_id 引用
+- workflow 可按 `clinical_stage` / `clinical_task` 过滤引用，也兼容按 card_id 引用
 
 `data/runs/YYYYMMDD_HH_MM.json`
 

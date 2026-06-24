@@ -221,7 +221,7 @@
 | `routing_profile` | 疾病路由和候选技能匹配配置。 |
 | `knowledge_base` | 指南推荐卡和检索索引配置。 |
 | `workflow` | 技能执行工作流。 |
-| `subskills` | 可执行子技能列表。 |
+| `subskills` | 旧格式兼容字段；新生成技能包不再输出。 |
 | `safety_constraints` | 安全约束和急症处理规则。 |
 | `output_templates` | 不同输出模板定义。 |
 | `validation` | 校验、测试和人工审核策略。 |
@@ -388,7 +388,7 @@
 | `workflowStep.step_id` | 工作流步骤 ID。 |
 | `workflowStep.type` | 步骤类型，如安全分诊、证据检查、鉴别诊断、方案生成。 |
 | `workflowStep.description` | 步骤说明。 |
-| `workflowStep.config` | 步骤配置。 |
+| `workflowStep.config` | 步骤配置，可通过 `card_filter` 按 recommendation card 的 `clinical_stage` / `clinical_task` 筛选卡片，通过 `input_requirements` 声明缺失信息检查，也兼容 `subskill_ref`。 |
 | `workflowStep.transitions` | 步骤转移规则。 |
 | `transition.when` | 转移条件。 |
 | `transition.to` | 目标步骤 ID。 |
@@ -397,7 +397,7 @@
 | `condition.left` | 条件左值。 |
 | `condition.right` | 条件右值。 |
 | `condition.right_ref` | 条件右值引用路径。 |
-| `subskill.subskill_id` | 子技能唯一标识。 |
+| `subskill.subskill_id` | 旧格式兼容字段，子技能唯一标识。 |
 | `subskill.name` | 子技能名称。 |
 | `subskill.type` | 子技能类型。 |
 | `subskill.description` | 子技能说明。 |

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -37,6 +38,12 @@ class CardStore:
             *as_text_list(selection.get("optional")),
         ]
         selected = [self.cards_by_id[card_id] for card_id in ids if card_id in self.cards_by_id]
+        if limit is not None and limit > 0:
+            selected = selected[:limit]
+        return selected
+
+    def select_by_filter(self, card_filter: Mapping[str, Any], *, limit: int | None = None) -> list[dict[str, Any]]:
+        selected = [card for card in self.cards if _matches_card_filter(card, card_filter)]
         if limit is not None and limit > 0:
             selected = selected[:limit]
         return selected
@@ -82,3 +89,18 @@ def card_to_recommendation(card: dict[str, Any]) -> str:
         clean_text(card.get("action") or card.get("statement_text") or card.get("clinical_task")),
         limit=320,
     )
+
+
+def _matches_card_filter(card: dict[str, Any], card_filter: Mapping[str, Any]) -> bool:
+    if not card_filter:
+        return True
+    for field, expected in card_filter.items():
+        if field in {"limit", "top_k"}:
+            continue
+        actual = clean_text(card.get(field))
+        expected_values = as_text_list(expected)
+        if not expected_values:
+            continue
+        if actual not in expected_values:
+            return False
+    return True

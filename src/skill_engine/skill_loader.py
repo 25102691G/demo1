@@ -112,6 +112,8 @@ def _validate_cross_references(pack: SkillPack) -> None:
         errors.append(f"workflow.entrypoint {entrypoint!r} does not exist")
 
     subskills = skill.get("subskills") or []
+    if not isinstance(subskills, list):
+        subskills = []
     subskill_ids = {
         clean_text(subskill.get("subskill_id")) for subskill in subskills if isinstance(subskill, dict)
     }

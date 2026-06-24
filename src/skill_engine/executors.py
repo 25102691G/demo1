@@ -106,10 +106,9 @@ def _execute_evidence_check(step: dict[str, Any], context: ExecutionContext) -> 
     subskill, error = _subskill_from_step(step, context.skill_pack)
     if error:
         return _error_result(step, error)
-    assert subskill is not None
 
-    missing = _missing_requirements(context.canonical_case, subskill)
-    cards = context.skill_pack.card_store.select_for_subskill(subskill, limit=_card_limit(context.skill_pack))
+    missing = _missing_requirements(context.canonical_case, step, subskill)
+    cards = _cards_for_step(step, context.skill_pack, subskill)
     supporting = [card_to_evidence_snippet(card) for card in cards if card_to_evidence_snippet(card)]
     used_cards = [clean_text(card.get("card_id")) for card in cards]
     recommended_next_steps = [
@@ -145,7 +144,7 @@ def _execute_differential_check(step: dict[str, Any], context: ExecutionContext)
         for item in (context.skill_pack.skill.get("routing_profile") or {}).get("must_differentiate") or []
         if clean_text(item.get("disease_name"))
     ]
-    cards = context.skill_pack.card_store.select_for_subskill(subskill, limit=_card_limit(context.skill_pack)) if subskill else []
+    cards = _cards_for_step(step, context.skill_pack, subskill)
     data = {
         "differentials_to_consider": differentials,
         "differential_warnings": [],
@@ -189,12 +188,17 @@ def _execute_plan_generation(step: dict[str, Any], context: ExecutionContext) ->
     subskill, error = _subskill_from_step(step, context.skill_pack)
     if error:
         return _error_result(step, error)
-    assert subskill is not None
-    cards = context.skill_pack.card_store.select_for_subskill(subskill, limit=_card_limit(context.skill_pack))
+    cards = _cards_for_step(step, context.skill_pack, subskill)
     recommendations = [card_to_recommendation(card) for card in cards if card_to_recommendation(card)]
     used_cards = [clean_text(card.get("card_id")) for card in cards]
 
     monitoring_cards = _cards_for_named_subskill(context.skill_pack, "monitoring_follow_up")
+    monitoring_filter = (step.get("config") or {}).get("monitoring_card_filter")
+    if isinstance(monitoring_filter, dict):
+        monitoring_cards = context.skill_pack.card_store.select_by_filter(
+            monitoring_filter,
+            limit=_card_limit(context.skill_pack),
+        )
     monitoring = [card_to_recommendation(card) for card in monitoring_cards if card_to_recommendation(card)]
     used_cards.extend(clean_text(card.get("card_id")) for card in monitoring_cards)
     safety_notes = [
@@ -219,8 +223,7 @@ def _execute_card_retrieval(step: dict[str, Any], context: ExecutionContext) -> 
     subskill, error = _subskill_from_step(step, context.skill_pack)
     if error:
         return _error_result(step, error)
-    assert subskill is not None
-    cards = context.skill_pack.card_store.select_for_subskill(subskill, limit=_card_limit(context.skill_pack))
+    cards = _cards_for_step(step, context.skill_pack, subskill)
     data = {
         "used_cards": [clean_text(card.get("card_id")) for card in cards],
         "evidence_snippets": [card_to_evidence_snippet(card) for card in cards],
@@ -268,9 +271,18 @@ def _subskill_from_step(
     return None, f"step {clean_text(step.get('step_id'))!r} references missing subskill {subskill_ref!r}"
 
 
-def _missing_requirements(canonical_case: dict[str, Any], subskill: dict[str, Any]) -> list[dict[str, str]]:
+def _missing_requirements(
+    canonical_case: dict[str, Any],
+    step: dict[str, Any],
+    subskill: dict[str, Any] | None,
+) -> list[dict[str, str]]:
     missing: list[dict[str, str]] = []
-    requirements = (subskill.get("input_requirements") or {}).get("required_for_high_confidence") or []
+    input_requirements = (step.get("config") or {}).get("input_requirements")
+    if not isinstance(input_requirements, dict) and subskill:
+        input_requirements = subskill.get("input_requirements")
+    if not isinstance(input_requirements, dict):
+        input_requirements = {}
+    requirements = input_requirements.get("required_for_high_confidence") or []
     for requirement in requirements:
         if not isinstance(requirement, dict):
             continue
@@ -287,6 +299,37 @@ def _card_limit(skill_pack: SkillPack) -> int:
         return max(1, int(retrieval.get("default_top_k") or 8))
     except (TypeError, ValueError):
         return 8
+
+
+def _cards_for_step(
+    step: dict[str, Any],
+    skill_pack: SkillPack,
+    subskill: dict[str, Any] | None,
+) -> list[dict[str, Any]]:
+    config = step.get("config") or {}
+    card_filter = config.get("card_filter")
+    limit = _step_card_limit(step, skill_pack)
+    if isinstance(card_filter, dict):
+        return skill_pack.card_store.select_by_filter(card_filter, limit=limit)
+    if subskill:
+        return skill_pack.card_store.select_for_subskill(subskill, limit=limit)
+    return []
+
+
+def _step_card_limit(step: dict[str, Any], skill_pack: SkillPack) -> int:
+    config = step.get("config") or {}
+    card_filter = config.get("card_filter")
+    for value in (
+        config.get("top_k"),
+        card_filter.get("top_k") if isinstance(card_filter, dict) else None,
+        card_filter.get("limit") if isinstance(card_filter, dict) else None,
+    ):
+        try:
+            if value is not None:
+                return max(1, int(value))
+        except (TypeError, ValueError):
+            continue
+    return _card_limit(skill_pack)
 
 
 def _cards_for_named_subskill(skill_pack: SkillPack, subskill_id: str) -> list[dict[str, Any]]:

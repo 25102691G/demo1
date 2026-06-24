@@ -9,7 +9,6 @@
     "routing_profile",
     "knowledge_base",
     "workflow",
-    "subskills",
     "safety_constraints",
     "output_templates",
     "validation"
