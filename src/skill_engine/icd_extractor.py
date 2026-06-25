@@ -490,7 +490,7 @@ def _extract_icd_diagnosis_sources_from_cards(
     prompt: str,
 ) -> dict[str, list[dict[str, str]]]:
     candidates = [
-        (clean_text(card.get("card_id")), clean_text(card.get("raw_chunk_text")))
+        (clean_text(card.get("card_id")), _card_raw_chunk_text(card))
         for card in cards
     ]
     total = len(candidates)
@@ -1015,6 +1015,13 @@ def _summary_item(result: Mapping[str, Any]) -> dict[str, Any]:
         item[field] = clean_text(result.get(field))
     item["top_candidates"] = [dict(candidate) for candidate in result.get("candidates") or []]
     return item
+
+
+def _card_raw_chunk_text(card: Mapping[str, Any]) -> str:
+    source_location = card.get("source_location")
+    if not isinstance(source_location, Mapping):
+        return ""
+    return clean_text(source_location.get("raw_chunk_text"))
 
 
 def _empty_icd_summary(source_type: str = "unknown") -> dict[str, Any]:

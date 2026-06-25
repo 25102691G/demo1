@@ -67,7 +67,8 @@ def load_skill_pack(
     except CardStoreError as exc:
         raise SkillLoadError(f"{skill_id} ({cards_path}): {exc}") from exc
 
-    disease_name = clean_text((skill.get("metadata") or {}).get("disease_name"))
+    metadata = skill.get("metadata") or {}
+    disease_name = clean_text(metadata.get("disease")) or clean_text(metadata.get("disease_name"))
     pack = SkillPack(
         skill_dir=directory,
         skill=skill,

@@ -30,10 +30,7 @@ from skill_engine.icd_extractor import (
     DEFAULT_ICD10_PATH,
     DEFAULT_MODEL_PATH as DEFAULT_ICD_MODEL_PATH,
     ICD_EXTRACTION_SYSTEM_PROMPT_FROM_CARDS,
-    IcdResources,
     IcdExtractor,
-    _load_icd10_records,
-    _load_torch,
 )
 from skill_engine.llm_client import OpenAICompatibleJsonChatClient, load_llm_config_from_env
 
@@ -209,14 +206,10 @@ def validate_cards(
 def normalize_card_payload(payload: Mapping[str, Any]) -> dict[str, Any]:
     return dict(payload)
 
-def infer_metadata(
-    cards: Sequence[Mapping[str, Any]],
-    *,
-    metadata_icd_extractor: IcdExtractor | None = None,
-) -> dict[str, Any]:
-    fallback_disease_name = _most_common_non_empty(_clean_text(card.get("disease")) for card in cards)
-    if not fallback_disease_name:
-        fallback_disease_name = "unknown disease"
+def infer_metadata(cards: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
+    disease = _most_common_non_empty(_clean_text(card.get("disease")) for card in cards)
+    if not disease:
+        disease = "unknown disease"
 
     guideline_name = _most_common_non_empty(
         _first_text(
@@ -228,7 +221,7 @@ def infer_metadata(
         for card in cards
     )
     if not guideline_name:
-        guideline_name = f"{disease_name} guideline"
+        guideline_name = f"{disease} guideline"
 
     source_pdf = _most_common_non_empty(
         _first_text(
@@ -244,16 +237,11 @@ def infer_metadata(
 
     version = _extract_year(guideline_name) or _extract_year(source_pdf) or "unknown"
     publication_year = _extract_publication_year(guideline_name, source_pdf, version)
-    disease_query = _metadata_disease_query(guideline_name, source_pdf, fallback_disease_name)
-    disease_name = (
-        _resolve_metadata_disease_name(disease_query, metadata_icd_extractor)
-        or fallback_disease_name
-    )
-    skill_id = slugify_skill_id(disease_name, guideline_name, version, source_pdf)
+    skill_id = slugify_skill_id(disease, guideline_name, version, source_pdf)
 
     return {
         "skill_id": skill_id,
-        "disease_name": disease_name,
+        "disease": disease,
         "guideline": {
             "name": guideline_name,
             "version": version,
@@ -295,36 +283,6 @@ def slugify_skill_id(
     if slug and re.search(r"[a-z]", slug):
         return slug[:96].strip("_") or _hashed_skill_id(source_text)
     return _hashed_skill_id(source_text or disease_name)
-
-
-def _metadata_disease_query(guideline_name: str, source_pdf: str, fallback_disease_name: str) -> str:
-    source_stem = Path(source_pdf).stem if source_pdf and source_pdf != "unknown" else ""
-    guideline_stem = Path(guideline_name).stem if guideline_name else ""
-    return _clean_text(source_stem or guideline_stem or fallback_disease_name)
-
-
-def _resolve_metadata_disease_name(
-    disease_query: str,
-    metadata_icd_extractor: IcdExtractor | None,
-) -> str | None:
-    query = _clean_text(disease_query)
-    if not query or metadata_icd_extractor is None:
-        return None
-    try:
-        mappings = metadata_icd_extractor.map_diagnoses_to_icd(
-            [{"diagnosis": query}],
-            source_type="metadata",
-        )
-    except Exception as exc:
-        print(
-            f"metadata disease_name ICD10 embedding failed for {query!r}: {exc}",
-            file=sys.stderr,
-            flush=True,
-        )
-        return None
-    if not mappings:
-        return None
-    return _clean_text(mappings[0].get("diagnosis_name")) or None
 
 
 def infer_output_package_name(cards_path: str | Path) -> str:
@@ -397,7 +355,7 @@ def build_medical_examinations(
         for card in cards
         if _clean_text(card.get("clinical_stage")) == MEDICAL_EXAMINATION_STAGE
         and _clean_text(card.get("clinical_task")) in result
-        and _clean_text(card.get("raw_chunk_text"))
+        and _clean_text(_path_value(card, "source_location.raw_chunk_text"))
     ]
     if not candidates:
         return result
@@ -461,7 +419,7 @@ def extract_medical_examination_item(
     user_prompt = json.dumps(
         {
             "clinical_task": _clean_text(card.get("clinical_task")),
-            "raw_chunk_text": _clean_text(card.get("raw_chunk_text")),
+            "raw_chunk_text": _clean_text(_path_value(card, "source_location.raw_chunk_text")),
         },
         ensure_ascii=False,
     )
@@ -918,10 +876,9 @@ def build_skill_pack(
     feature_extractor: Any,
     feature_mode: str,
     deepseek_client: Any,
-    metadata_icd_extractor: IcdExtractor | None = None,
     llm_workers: int = 1,
 ) -> dict[str, Any]:
-    metadata = infer_metadata(cards, metadata_icd_extractor=metadata_icd_extractor)
+    metadata = infer_metadata(cards)
     skill = {
         "schema_version": schema_version,
         "metadata": metadata,
@@ -1130,42 +1087,6 @@ def build_default_icd10_dependencies(
     return icd_extractor, deepseek_client
 
 
-def build_metadata_icd_extractor(
-    feature_extractor: Any,
-    *,
-    feature_mode: str,
-    model_path: str | Path | None = None,
-) -> IcdExtractor:
-    if feature_mode == "icd10" and isinstance(feature_extractor, IcdExtractor):
-        return feature_extractor
-    if feature_mode == "hpo" and isinstance(feature_extractor, HpoExtractor):
-        torch = _load_torch()
-        resources = feature_extractor.resources
-        records = _load_icd10_records(DEFAULT_ICD10_PATH)
-        record_embeddings = torch.load(str(DEFAULT_ICD10_EMBEDDINGS_PATH), map_location="cpu")
-        if int(record_embeddings.shape[0]) != len(records):
-            raise BuildSkillPackError(
-                f"{DEFAULT_ICD10_EMBEDDINGS_PATH}: embedding row count "
-                f"{int(record_embeddings.shape[0])} does not match ICD10 record count {len(records)}"
-            )
-        icd_resources = IcdResources(
-            model=resources.model,
-            tokenizer=resources.tokenizer,
-            pooling_mode=resources.pooling_mode,
-            records=records,
-            record_embeddings=record_embeddings,
-            record_keys=[record["diagnosis_name"] for record in records],
-        )
-        return IcdExtractor(icd_resources, similarity_threshold=0.0, batch_size=1)
-    return IcdExtractor.from_paths(
-        model_path=model_path or DEFAULT_ICD_MODEL_PATH,
-        icd10_path=DEFAULT_ICD10_PATH,
-        icd10_embeddings_path=DEFAULT_ICD10_EMBEDDINGS_PATH,
-        similarity_threshold=0.0,
-        batch_size=1,
-    )
-
-
 def build_default_feature_dependencies(
     feature_mode: str,
     similarity_threshold: float | None = None,
@@ -1295,11 +1216,6 @@ def main(argv: Sequence[str] | None = None) -> int:
             args.similarity_threshold,
             model_path=args.model_path,
         )
-        metadata_icd_extractor = build_metadata_icd_extractor(
-            feature_extractor,
-            feature_mode=feature_mode,
-            model_path=args.model_path,
-        )
         results = []
         total_sources = len(card_sources)
         for index, cards_source in enumerate(card_sources, 1):
@@ -1321,7 +1237,6 @@ def main(argv: Sequence[str] | None = None) -> int:
                 feature_extractor=feature_extractor,
                 feature_mode=feature_mode,
                 deepseek_client=deepseek_client,
-                metadata_icd_extractor=metadata_icd_extractor,
                 llm_workers=args.llm_workers,
             )
             feature_summary_path = _hpo_summary_output_path(

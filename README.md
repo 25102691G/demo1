@@ -50,6 +50,20 @@ data/ICD10/ICD10_embeddings.pt
 
 脚本会自动跳过 `diagnosis_name` 为空的记录。输出 `.pt` 文件为 torch tensor，结构类似 `data/ontology/definition_embeddings.pt`。运行该命令需要当前 Python 环境已安装 `torch` 和 `transformers`。
 
+## HPO 向量生成
+
+将 `data/ontology/hpo.json` 生成对应的 HPO embedding：
+
+```bash
+python scripts/build_embeddings.py --input data/ontology/hpo.json
+```
+
+默认输出文件：
+
+```text
+data/ontology/hpo_embeddings.pt
+```
+
 本项目用于把医学指南 PDF 转为可执行的 guideline skill pack，并通过通用 `SkillEngine` 对病例输入执行 workflow，最终生成符合 schema 的 JSON 输出。
 
 当前主流程：
@@ -152,7 +166,7 @@ python scripts/ocr_to_cards.py --input-dir data/skills
 
 `--input` 和 `--input-dir` 必须且只能指定一个。
 
-脚本还会在每个输入文件所在目录生成 `summary.json`，记录原始 layouts 数量、各 type 数量、被丢弃的 layout 明细和发生合并的 layout 组。输出的每行都是一个 `recommendation_card`，并保留 `section_path` 和 `source_layout_ids` 便于后续溯源。
+脚本还会在每个输入文件所在目录生成 `recommendation_card_summary.json`，记录原始 layouts 数量、各 type 数量、被丢弃的 layout 明细、被丢弃的 unit 明细和发生合并的 layout 组。输出的每行都是一个 `recommendation_card`，并保留 `section_path` 和 `source_location.source_span` 便于后续溯源。
 
 ## 3. recommendation_card 到 skill.yaml
 

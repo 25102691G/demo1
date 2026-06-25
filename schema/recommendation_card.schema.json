@@ -4,22 +4,16 @@
   "title": "Recommendation Card Schema",
   "type": "object",
   "required": [
-    "record_type",
     "card_id",
     "source_statement_id",
     "disease",
     "guideline",
     "clinical_stage",
-    "raw_chunk_text",
     "action",
     "evidence",
     "source_location"
   ],
   "properties": {
-    "record_type": {
-      "type": "string",
-      "const": "recommendation_card"
-    },
     "card_id": {
       "type": "string"
     },
@@ -57,9 +51,6 @@
     },
     "condition": {
       "type": ["string", "null"]
-    },
-    "raw_chunk_text": {
-      "type": "string"
     },
     "action": {
       "type": "string"
@@ -99,7 +90,7 @@
     },
     "source_location": {
       "type": "object",
-      "required": ["page_start", "page_end"],
+      "required": ["page_start", "page_end", "raw_chunk_text"],
       "properties": {
         "pdf": {
           "type": "string"
@@ -112,7 +103,7 @@
           "type": "integer",
           "minimum": 1
         },
-        "quote": {
+        "raw_chunk_text": {
           "type": "string"
         },
         "source_span": {

@@ -164,7 +164,6 @@
 
 | 字段名 | 含义 |
 | --- | --- |
-| `record_type` | 记录类型，固定为 `recommendation_card`。 |
 | `card_id` | 推荐卡唯一标识。 |
 | `source_statement_id` | 原指南推荐语句或声明的标识。 |
 | `disease` | 推荐意见适用疾病。 |
@@ -173,7 +172,6 @@
 | `clinical_task` | 临床任务，如诊断、评估、治疗、随访。 |
 | `population` | 推荐适用人群。 |
 | `condition` | 触发该推荐的条件或病情上下文。 |
-| `raw_chunk_text` | PDF 文本清洗并分块后，该推荐对应的完整原始分块文本。 |
 | `action` | 推荐执行的操作。 |
 | `required_inputs` | 应用推荐前需要的输入信息。 |
 | `safety_notes` | 安全注意事项。 |
@@ -203,7 +201,7 @@
 | `pdf` | 来源 PDF 文件名或路径。 |
 | `page_start` | 引文起始页码。 |
 | `page_end` | 引文结束页码。 |
-| `quote` | 原文引用。 |
+| `raw_chunk_text` | PDF 文本清洗并分块后，该推荐对应的完整原始分块文本。 |
 | `source_span` | 原文范围、段落或字符跨度标识。 |
 
 ## skill_pack.schema.json
@@ -232,7 +230,7 @@
 | 字段名 | 含义 |
 | --- | --- |
 | `skill_id` | 技能包唯一标识。 |
-| `disease_name` | 疾病标准名称。 |
+| `disease` | 疾病标准名称，与 `recommendation_card.disease` 保持一致。 |
 | `disease_code` | 疾病编码集合。 |
 | `icd10` | ICD-10 疾病编码。 |
 | `icd11` | ICD-11 疾病编码。 |

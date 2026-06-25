@@ -16,6 +16,13 @@ SOURCE_ROOT = Path(__file__).resolve().parents[1] / "src"
 if str(SOURCE_ROOT) not in sys.path:
     sys.path.insert(0, str(SOURCE_ROOT))
 
+from skill_engine.icd_extractor import (
+    DEFAULT_ICD10_EMBEDDINGS_PATH,
+    DEFAULT_ICD10_PATH,
+    DEFAULT_MODEL_PATH as DEFAULT_ICD_MODEL_PATH,
+    IcdExtractor,
+)
+
 
 END_PUNCTUATION = "。！？；!?;”）)]"
 NEW_NUMBERED_SECTION_RE = re.compile(r"^\s*\d+[.．、]\s*[^。；;]{1,40}[:：]")
@@ -68,6 +75,10 @@ EVIDENCE_QUALITY_NORMALIZATION_SYSTEM_PROMPT = """你是医学指南证据加权
 不要返回解释。"""
 
 
+class OcrToCardsError(ValueError):
+    """OCR 转 recommendation_card 失败。"""
+
+
 @dataclass(slots=True)
 class OcrLayout:
     layout_id: str
@@ -102,6 +113,7 @@ def main(argv: Sequence[str] | None = None) -> None:
     args = parse_args(argv)
     input_paths = collect_input_paths(args.input, args.input_dir)
     client = build_llm_client()
+    metadata_icd_extractor = build_metadata_icd_extractor(args.model_path)
     population_cache: dict[str, str] = {}
     clinical_stage_cache: dict[str, str] = {}
     total_inputs = len(input_paths)
@@ -115,6 +127,7 @@ def main(argv: Sequence[str] | None = None) -> None:
                 client,
                 population_cache,
                 clinical_stage_cache,
+                metadata_icd_extractor,
                 args.llm_workers,
             )
             cards.extend(file_cards)
@@ -133,6 +146,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             client,
             population_cache,
             clinical_stage_cache,
+            metadata_icd_extractor,
             args.llm_workers,
         )
         output_path = default_output_path(input_path)
@@ -150,6 +164,11 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--input-dir", type=Path, default=None, help="Directory containing *.parse_result.json files.")
     parser.add_argument("--output", type=Path, default=None, help="Output JSONL path.")
     parser.add_argument("--llm-workers", type=int, default=20, help="Concurrent LLM workers for text layout cleaning.")
+    parser.add_argument(
+        "--model-path",
+        default=None,
+        help="Optional ICD10 embedding model path. Use the same model that built ICD10_embeddings.pt.",
+    )
     args = parser.parse_args(argv)
     if args.input is None and args.input_dir is None:
         parser.error("one of --input or --input-dir is required")
@@ -180,6 +199,7 @@ def convert_input_file(
     client: Any,
     population_cache: dict[str, str],
     clinical_stage_cache: dict[str, str],
+    metadata_icd_extractor: IcdExtractor,
     llm_workers: int,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     """读取单个 OCR parse_result.json 文件，转换为 recommendation_card 列表和处理 summary"""
@@ -192,13 +212,16 @@ def convert_input_file(
         client=client,
         population=population,
         summary=summary,
+        metadata_icd_extractor=metadata_icd_extractor,
         llm_workers=llm_workers,
     )
-    cards = build_cards(units, payload, client, clinical_stage_cache, llm_workers)
+    cards = build_cards(units, payload, client, clinical_stage_cache, summary, llm_workers)
     normalize_evidence_quality_scores(cards, client)
     summary["output_cards"] = len(cards)
     summary["discarded_layout_count"] = len(summary["discarded_layouts"])
     summary["discarded_by_reason"] = count_by_key(summary["discarded_layouts"], "reason")
+    summary["discarded_unit_count"] = len(summary["discarded_units"])
+    summary["discarded_units_by_reason"] = count_by_key(summary["discarded_units"], "reason")
     return cards, summary
 
 
@@ -207,7 +230,7 @@ def default_output_path(input_path: Path) -> Path:
 
 
 def default_summary_path(input_path: Path) -> Path:
-    return input_path.parent / "ocr_summary.json"
+    return input_path.parent / "recommendation_card_summary.json"
 
 
 def log_file_start(index: int, total: int, input_path: Path) -> None:
@@ -333,6 +356,9 @@ def create_summary(input_path: Path, payload: Mapping[str, Any]) -> dict[str, An
         "discarded_layout_count": 0,
         "discarded_by_reason": {},
         "discarded_layouts": [],
+        "discarded_unit_count": 0,
+        "discarded_units_by_reason": {},
+        "discarded_units": [],
         "merged_layout_groups": [],
         "output_cards": 0,
     }
@@ -361,6 +387,30 @@ def add_discarded_layout(
     )
 
 
+def add_discarded_unit(
+    summary: dict[str, Any],
+    *,
+    unit: ClinicalTextUnit,
+    reason: str,
+    clinical_stage_value: str,
+) -> None:
+    discarded = summary.get("discarded_units")
+    if not isinstance(discarded, list):
+        return
+    discarded.append(
+        {
+            "unit_id": unit.unit_id,
+            "page_start": unit.page_start,
+            "page_end": unit.page_end,
+            "section_path": unit.section_path,
+            "source_layout_ids": unit.source_layout_ids,
+            "reason": reason,
+            "clinical_stage": clinical_stage_value,
+            "text_preview": preview_text(unit.raw_text),
+        }
+    )
+
+
 def count_by_key(items: Sequence[Mapping[str, Any]], key: str) -> dict[str, int]:
     counts: dict[str, int] = {}
     for item in items:
@@ -376,6 +426,7 @@ def parse_ocr_payload(
     client: Any,
     population: str | None,
     summary: dict[str, Any],
+    metadata_icd_extractor: IcdExtractor,
     llm_workers: int,
 ) -> list[ClinicalTextUnit]:
     """从 OCR parse_result.json 中提取文本布局，清洗过滤后构建 ClinicalTextUnit 列表"""
@@ -384,6 +435,16 @@ def parse_ocr_payload(
     ordered_layouts = sort_reading_order(layouts, payload)
     text_layouts = [layout for layout in ordered_layouts if layout.layout_type == "text" and layout.text]
     enrich_layouts_with_llm(text_layouts, client, llm_workers)
+    discard_layouts(text_layouts, summary)
+
+    disease = resolve_disease(payload, input_path, metadata_icd_extractor)
+    units = build_units(text_layouts, disease=disease, population=population)
+    merged_units = merge_units(units)
+    summary["merged_layout_groups"] = merged_layout_groups(merged_units)
+    return merged_units
+
+
+def discard_layouts(text_layouts: Sequence[OcrLayout], summary: dict[str, Any]) -> None:
     for layout in text_layouts:
         if layout.is_metadata:
             add_discarded_layout(
@@ -430,12 +491,6 @@ def parse_ocr_payload(
                 reason="section_reference",
                 text=layout.text,
             )
-
-    disease = infer_disease(payload, input_path)
-    units = build_units(text_layouts, disease=disease, population=population)
-    merged_units = merge_units(units)
-    summary["merged_layout_groups"] = merged_layout_groups(merged_units)
-    return merged_units
 
 
 def extract_layouts(payload: Mapping[str, Any], summary: dict[str, Any]) -> dict[str, OcrLayout]:
@@ -701,20 +756,25 @@ def build_cards(
     payload: Mapping[str, Any],
     client: Any,
     clinical_stage_cache: dict[str, str],
+    summary: dict[str, Any],
     llm_workers: int,
 ) -> list[dict[str, Any]]:
     card_units = [unit for unit in units if not section_is_reference(unit.section_path)]
-    total = len(card_units)
+    if not card_units:
+        log_card_progress(0, 0)
+        return []
+
+    staged_units = [
+        (unit, clinical_stage(unit.section_path, client=client, cache=clinical_stage_cache))
+        for unit in card_units
+    ]
+    staged_units = discard_units(staged_units, summary)
+    total = len(staged_units)
     if total == 0:
         log_card_progress(0, 0)
         return []
 
     log_card_progress(0, total)
-    staged_units = [
-        (unit, clinical_stage(unit.section_path, client=client, cache=clinical_stage_cache))
-        for unit in card_units
-    ]
-
     if llm_workers <= 1 or total <= 1:
         cards: list[dict[str, Any]] = []
         for index, (unit, stage) in enumerate(staged_units, 1):
@@ -736,6 +796,24 @@ def build_cards(
                 log_card_progress(done, total)
 
     return [card for card in cards_by_index if card is not None]
+
+
+def discard_units(
+    staged_units: Sequence[tuple[ClinicalTextUnit, str]],
+    summary: dict[str, Any],
+) -> list[tuple[ClinicalTextUnit, str]]:
+    kept_units: list[tuple[ClinicalTextUnit, str]] = []
+    for unit, stage in staged_units:
+        if stage == "其他流程":
+            add_discarded_unit(
+                summary,
+                unit=unit,
+                reason="clinical_stage_other",
+                clinical_stage_value=stage,
+            )
+            continue
+        kept_units.append((unit, stage))
+    return kept_units
 
 
 def build_card(
@@ -761,7 +839,6 @@ def unit_to_card(
     source_file = source_file_name(payload)
     raw_text = unit.raw_text
     return {
-        "record_type": "recommendation_card",
         "card_id": card_id(unit),
         "source_statement_id": unit.unit_id,
         "disease": unit.disease,
@@ -774,7 +851,6 @@ def unit_to_card(
         "clinical_task": clinical_task_value,
         "population": unit.population,
         "condition": None,
-        "raw_chunk_text": raw_text,
         "action": unit.action_summary or raw_text,
         "required_inputs": [],
         "safety_notes": [],
@@ -789,11 +865,10 @@ def unit_to_card(
             "pdf": source_file,
             "page_start": unit.page_start,
             "page_end": unit.page_end,
-            "quote": raw_text,
+            "raw_chunk_text": raw_text,
             "source_span": ",".join(unit.source_layout_ids) or None,
         },
         "section_path": unit.section_path,
-        "source_layout_ids": unit.source_layout_ids,
     }
 
 
@@ -951,12 +1026,42 @@ def join_text(left: str, right: str) -> str:
     return left.rstrip() + right.lstrip()
 
 
-def infer_disease(payload: Mapping[str, Any], input_path: Path) -> str:
-    name = clean_text(payload.get("disease")) or guideline_name(payload) or input_path.stem
+def build_metadata_icd_extractor(model_path: str | Path | None = None) -> IcdExtractor:
+    return IcdExtractor.from_paths(
+        model_path=model_path or DEFAULT_ICD_MODEL_PATH,
+        icd10_path=DEFAULT_ICD10_PATH,
+        icd10_embeddings_path=DEFAULT_ICD10_EMBEDDINGS_PATH,
+        similarity_threshold=0.0,
+        batch_size=1,
+    )
+
+
+def resolve_disease(
+    payload: Mapping[str, Any],
+    input_path: Path,
+    metadata_icd_extractor: IcdExtractor,
+) -> str:
+    query = metadata_disease_query(payload, input_path)
+    mappings = metadata_icd_extractor.map_diagnoses_to_icd(
+        [{"diagnosis": query}],
+        source_type="metadata",
+    )
+    if not mappings:
+        raise OcrToCardsError(f"{input_path}: ICD10 metadata disease mapping failed for {query!r}")
+    disease = clean_text(mappings[0].get("diagnosis_name"))
+    if not disease:
+        raise OcrToCardsError(f"{input_path}: ICD10 metadata disease mapping returned empty diagnosis_name for {query!r}")
+    return disease
+
+
+def metadata_disease_query(payload: Mapping[str, Any], input_path: Path) -> str:
+    name = guideline_name(payload) or input_path.stem
     name = re.sub(r"\.parse_result$", "", name)
     name = re.sub(r"\.(pdf|json)$", "", name, flags=re.IGNORECASE)
-    name = re.sub(r"(诊治指南|指南|共识|专家共识|诊断与治疗|诊疗规范)$", "", name)
-    return name.strip(" -_") or "unknown"
+    name = name.strip(" -_")
+    if not name:
+        raise OcrToCardsError(f"{input_path}: cannot infer metadata disease query")
+    return name
 
 
 def guideline_name(payload: Mapping[str, Any]) -> str:
