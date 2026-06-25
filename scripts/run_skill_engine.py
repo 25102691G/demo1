@@ -84,6 +84,11 @@ def main(argv: list[str] | None = None) -> int:
         default=None,
         help="Optional extra feature summary JSON path. By default, feature summary is embedded in workflow output.",
     )
+    parser.add_argument(
+        "--output",
+        default=None,
+        help="Optional workflow output JSON path. Defaults to data/runs/<timestamp>_<feature_mode>.json.",
+    )
     parser.add_argument("--debug", action="store_true")
     parser.add_argument("--print-canonical-case", action="store_true")
     args = parser.parse_args(argv)
@@ -159,7 +164,7 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(canonical_case, ensure_ascii=False, indent=2))
     summary_key = "hpo_summary" if feature_mode == "hpo" else "icd10_summary"
     output[summary_key] = feature_extractor.get_last_summary()
-    out_path = _default_output_path(feature_mode)
+    out_path = _workflow_output_path(args, feature_mode)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
     if args.hpo_summary_output:
@@ -218,6 +223,12 @@ def _resolve(path: str | Path) -> Path:
 def _default_output_path(feature_mode: str) -> Path:
     filename = datetime.now().strftime(f"%Y%m%d_%H_%M_{feature_mode}.json")
     return ROOT / "data" / "runs" / filename
+
+
+def _workflow_output_path(args: argparse.Namespace, feature_mode: str) -> Path:
+    if args.output:
+        return _resolve(args.output)
+    return _default_output_path(feature_mode)
 
 
 def _hpo_summary_output_path(args: argparse.Namespace) -> Path:

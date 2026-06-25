@@ -211,10 +211,42 @@ python scripts/run_skill_engine.py \
   --endoscopy "进镜至回肠末端，回盲瓣变形，回盲瓣口及回肠末端四壁散在形态不规则溃疡，部分呈纵形分布，表面覆大量浓稠白色粘液，回肠末端四壁皱襞纠集，肠腔狭窄，内镜无法通过。于回肠末端溃疡周边活检4块，质软。所见升结肠、横结肠、降结肠、乙状结肠粘膜光滑。距肛门15cm以下直肠四壁散在点状糜烂及浅溃疡，血管纹理模糊。于回盲部、升结肠、横结肠、降结肠、乙状结肠、直肠各活检2块，组织软。" \
   --debug \
   --similarity-threshold 0.8 \
+  --output output/zhangsan_hpo.json \
   --hpo
 ```
 
 `--similarity-threshold` 表示特征匹配相似度门槛值，默认为0.8。
+
+### 批量运行病例数据集
+
+病例数据集放在 `test/patients/`，每个病人一个 JSON 文件：
+
+```json
+{
+  "case_id": "case_001",
+  "name": "张三",
+  "sex": "male",
+  "age": 25,
+  "clinical_presentation": "腹痛",
+  "lab_tests": "",
+  "imaging_tests": "",
+  "endoscopy": "内镜检查文本",
+  "pathology": ""
+}
+```
+
+批量运行：
+
+```bash
+python test/run_batch.py \
+  --patients-dir test/patients \
+  --output-dir test/outputs \
+  --debug \
+  --similarity-threshold 0.8 \
+  --hpo
+```
+
+每个病人的 workflow 输出会单独写入 `test/outputs/`。
 
 ## 输出文件
 
@@ -230,7 +262,7 @@ python scripts/run_skill_engine.py \
 - 每行一个 card
 - workflow 可按 `clinical_stage` / `clinical_task` 过滤引用，也兼容按 card_id 引用
 
-`data/runs/YYYYMMDD_HH_MM.json`
+`data/runs/YYYYMMDD_HH_MM_hpo.json` 或 `--output` 指定的 JSON 文件
 
 - SkillEngine 的最终输出
 - 符合 `schema/workflow_output.schema.json`
