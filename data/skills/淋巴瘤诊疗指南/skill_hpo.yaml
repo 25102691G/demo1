@@ -1,0 +1,1841 @@
+schema_version: '0.3'
+metadata:
+  skill_id: 淋巴瘤诊疗指南
+  disease: B-细胞淋巴瘤
+  guideline:
+    name: 淋巴瘤诊疗指南.pdf
+    version: unknown
+    source_pdf: 淋巴瘤诊疗指南.pdf
+    publication_year: null
+    language: zh-CN
+routing_profile:
+  population:
+  - 普遍适用
+  positive_features:
+  - name: 不明原因的发热
+    hpo_code: HP:0001955
+    hpo_term: 不明原因的发热
+    similarity_score: 0.9998720288276672
+    status: mapped
+    card_id:
+    - ocr_card_9aa83656cb74
+    clinical_sources:
+    - card_id: ocr_card_9aa83656cb74
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 盗汗
+    hpo_code: HP:0030166
+    hpo_term: 盗汗
+    similarity_score: 0.9998854398727417
+    status: mapped
+    card_id:
+    - ocr_card_9aa83656cb74
+    - ocr_card_24eae6993be8
+    clinical_sources:
+    - card_id: ocr_card_9aa83656cb74
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_24eae6993be8
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 体重下降
+    hpo_code: HP:0004325
+    hpo_term: 体重下降
+    similarity_score: 0.9999075531959534
+    status: mapped
+    card_id:
+    - ocr_card_9aa83656cb74
+    clinical_sources:
+    - card_id: ocr_card_9aa83656cb74
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 皮肤瘙痒
+    hpo_code: HP:0000989
+    hpo_term: 瘙痒
+    similarity_score: 0.8725570440292358
+    status: mapped
+    card_id:
+    - ocr_card_9aa83656cb74
+    - ocr_card_24eae6993be8
+    clinical_sources:
+    - card_id: ocr_card_9aa83656cb74
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_24eae6993be8
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 乏力
+    hpo_code: HP:0012378
+    hpo_term: 疲乏
+    similarity_score: 0.9175167083740234
+    status: mapped
+    card_id:
+    - ocr_card_9aa83656cb74
+    - ocr_card_24eae6993be8
+    clinical_sources:
+    - card_id: ocr_card_9aa83656cb74
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_24eae6993be8
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 无痛性的进行性淋巴结肿大
+    hpo_code: HP:0008940
+    hpo_term: 全身性淋巴结肿大
+    similarity_score: 0.8478713035583496
+    status: mapped
+    card_id:
+    - ocr_card_9aa83656cb74
+    clinical_sources:
+    - card_id: ocr_card_9aa83656cb74
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: t（8;14）易位
+    hpo_code: HP:0004848
+    hpo_term: Ph染色体阳性急性淋巴细胞白血病
+    similarity_score: 0.8176577091217041
+    status: mapped
+    card_id:
+    - ocr_card_d18af43a9dc0
+    clinical_sources:
+    - card_id: ocr_card_d18af43a9dc0
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: t（2;8）易位
+    hpo_code: HP:0010998
+    hpo_term: 姐妹染色单体自发性交换的易发性增高
+    similarity_score: 0.8077938556671143
+    status: mapped
+    card_id:
+    - ocr_card_d18af43a9dc0
+    clinical_sources:
+    - card_id: ocr_card_d18af43a9dc0
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: MYC（8q24）重排
+    hpo_code: HP:0032577
+    hpo_term: 克隆性T细胞受体重排
+    similarity_score: 0.7618772387504578
+    status: mapped
+    card_id:
+    - ocr_card_d18af43a9dc0
+    clinical_sources:
+    - card_id: ocr_card_d18af43a9dc0
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: BCL2（18q21）重排
+    hpo_code: HP:0430092
+    hpo_term: BCL2表达
+    similarity_score: 0.8039585947990417
+    status: mapped
+    card_id:
+    - ocr_card_d18af43a9dc0
+    clinical_sources:
+    - card_id: ocr_card_d18af43a9dc0
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: BCL6（3q27）重排
+    hpo_code: HP:0430093
+    hpo_term: BCL6表达
+    similarity_score: 0.8350710272789001
+    status: mapped
+    card_id:
+    - ocr_card_d18af43a9dc0
+    clinical_sources:
+    - card_id: ocr_card_d18af43a9dc0
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: ISRT结内病变
+    hpo_code: HP:0020251
+    hpo_term: 淋巴结外套层形态异常
+    similarity_score: 0.7098604440689087
+    status: mapped
+    card_id:
+    - ocr_card_7d353e318835
+    clinical_sources:
+    - card_id: ocr_card_7d353e318835
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
+  - name: 化疗敏感的霍奇金淋巴瘤和非霍奇金淋巴瘤
+    hpo_code: HP:0012189
+    hpo_term: 霍奇金淋巴瘤
+    similarity_score: 0.8754864931106567
+    status: mapped
+    card_id:
+    - ocr_card_7d353e318835
+    clinical_sources:
+    - card_id: ocr_card_7d353e318835
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
+  - name: 初诊时累及的淋巴结
+    hpo_code: HP:0020238
+    hpo_term: 淋巴细胞向淋巴结包膜外扩散
+    similarity_score: 0.796847939491272
+    status: mapped
+    card_id:
+    - ocr_card_7d353e318835
+    clinical_sources:
+    - card_id: ocr_card_7d353e318835
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
+  - name: 胃受累
+    hpo_code: HP:0005263
+    hpo_term: 胃炎
+    similarity_score: 0.8135266304016113
+    status: mapped
+    card_id:
+    - ocr_card_b6bcfed45f22
+    clinical_sources:
+    - card_id: ocr_card_b6bcfed45f22
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
+  - name: 唾液腺受累
+    hpo_code: HP:0010286
+    hpo_term: 唾液腺形态异常
+    similarity_score: 0.8869185447692871
+    status: mapped
+    card_id:
+    - ocr_card_b6bcfed45f22
+    clinical_sources:
+    - card_id: ocr_card_b6bcfed45f22
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
+  - name: 甲状腺受累
+    hpo_code: HP:0100646
+    hpo_term: 甲状腺炎
+    similarity_score: 0.8489806056022644
+    status: mapped
+    card_id:
+    - ocr_card_b6bcfed45f22
+    clinical_sources:
+    - card_id: ocr_card_b6bcfed45f22
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
+  - name: 淋巴结肿大
+    hpo_code: HP:0002716
+    hpo_term: 淋巴结肿大
+    similarity_score: 0.9998639225959778
+    status: mapped
+    card_id:
+    - ocr_card_24eae6993be8
+    clinical_sources:
+    - card_id: ocr_card_24eae6993be8
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 颈部淋巴结受累
+    hpo_code: HP:0025289
+    hpo_term: 颈部淋巴结病变
+    similarity_score: 0.9354254007339478
+    status: mapped
+    card_id:
+    - ocr_card_24eae6993be8
+    clinical_sources:
+    - card_id: ocr_card_24eae6993be8
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 纵隔淋巴结受累
+    hpo_code: HP:0100721
+    hpo_term: 纵膈淋巴结病
+    similarity_score: 0.907401442527771
+    status: mapped
+    card_id:
+    - ocr_card_24eae6993be8
+    clinical_sources:
+    - card_id: ocr_card_24eae6993be8
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 脾受累
+    hpo_code: HP:0001744
+    hpo_term: 脾肿大
+    similarity_score: 0.871379017829895
+    status: mapped
+    card_id:
+    - ocr_card_24eae6993be8
+    clinical_sources:
+    - card_id: ocr_card_24eae6993be8
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 肝受累
+    hpo_code: HP:0001392
+    hpo_term: 肝脏异常
+    similarity_score: 0.8754934072494507
+    status: mapped
+    card_id:
+    - ocr_card_24eae6993be8
+    clinical_sources:
+    - card_id: ocr_card_24eae6993be8
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 骨髓受累
+    hpo_code: HP:6000154
+    hpo_term: 骨髓肉芽肿
+    similarity_score: 0.8440811634063721
+    status: mapped
+    card_id:
+    - ocr_card_24eae6993be8
+    clinical_sources:
+    - card_id: ocr_card_24eae6993be8
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 体重减轻
+    hpo_code: HP:0001824
+    hpo_term: 体重减轻
+    similarity_score: 0.999894917011261
+    status: mapped
+    card_id:
+    - ocr_card_24eae6993be8
+    clinical_sources:
+    - card_id: ocr_card_24eae6993be8
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 皮疹
+    hpo_code: HP:0000988
+    hpo_term: 皮疹
+    similarity_score: 0.9998918771743774
+    status: mapped
+    card_id:
+    - ocr_card_24eae6993be8
+    clinical_sources:
+    - card_id: ocr_card_24eae6993be8
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 正常组织结构破坏
+    hpo_code: HP:0033126
+    hpo_term: 皮肤坏死
+    similarity_score: 0.7025200128555298
+    status: mapped
+    card_id:
+    - ocr_card_3272419070c5
+    clinical_sources:
+    - card_id: ocr_card_3272419070c5
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: 炎症细胞背景中散在异型大细胞
+    hpo_code: HP:0032127
+    hpo_term: 浆母细胞比例异常
+    similarity_score: 0.7645424604415894
+    status: mapped
+    card_id:
+    - ocr_card_3272419070c5
+    clinical_sources:
+    - card_id: ocr_card_3272419070c5
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: 里-施（Reed-Sternberg，R-S）细胞
+    hpo_code: HP:0020277
+    hpo_term: 霍奇金形态细胞
+    similarity_score: 0.8511838912963867
+    status: mapped
+    card_id:
+    - ocr_card_3272419070c5
+    clinical_sources:
+    - card_id: ocr_card_3272419070c5
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: 镜影细胞
+    hpo_code: HP:0003651
+    hpo_term: 泡沫细胞
+    similarity_score: 0.7301748394966125
+    status: mapped
+    card_id:
+    - ocr_card_3272419070c5
+    clinical_sources:
+    - card_id: ocr_card_3272419070c5
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: LP细胞
+    hpo_code: HP:6000893
+    hpo_term: 戈谢细胞
+    similarity_score: 0.7457019686698914
+    status: mapped
+    card_id:
+    - ocr_card_3272419070c5
+    clinical_sources:
+    - card_id: ocr_card_3272419070c5
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: 细胞核大、折叠，似爆米花样
+    hpo_code: HP:0100494
+    hpo_term: 肥大细胞形态异常
+    similarity_score: 0.7614495754241943
+    status: mapped
+    card_id:
+    - ocr_card_3272419070c5
+    clinical_sources:
+    - card_id: ocr_card_3272419070c5
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: 爆米花细胞
+    hpo_code: HP:6000871
+    hpo_term: 爆米花样钙化
+    similarity_score: 0.705791711807251
+    status: mapped
+    card_id:
+    - ocr_card_3272419070c5
+    clinical_sources:
+    - card_id: ocr_card_3272419070c5
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: 核仁小、多个、嗜碱性
+    hpo_code: HP:0003653
+    hpo_term: 细胞异染
+    similarity_score: 0.7518013715744019
+    status: mapped
+    card_id:
+    - ocr_card_3272419070c5
+    clinical_sources:
+    - card_id: ocr_card_3272419070c5
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: LP肿瘤细胞被程序性死亡蛋白1（PD-1）阳性的T细胞环绕
+    hpo_code: HP:0500265
+    hpo_term: CD8阳性的终末效应性α-β T细胞比例增高
+    similarity_score: 0.7334434986114502
+    status: mapped
+    card_id:
+    - ocr_card_3272419070c5
+    clinical_sources:
+    - card_id: ocr_card_3272419070c5
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: CD30（+）
+    hpo_code: HP:0430102
+    hpo_term: CD20表达
+    similarity_score: 0.842897891998291
+    status: mapped
+    card_id:
+    - ocr_card_fa28a8389c89
+    clinical_sources:
+    - card_id: ocr_card_fa28a8389c89
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: PAX5 弱（+）
+    hpo_code: HP:0020295
+    hpo_term: PAX5表达
+    similarity_score: 0.8402537703514099
+    status: mapped
+    card_id:
+    - ocr_card_fa28a8389c89
+    clinical_sources:
+    - card_id: ocr_card_fa28a8389c89
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: MUM1（+）
+    hpo_code: HP:0020290
+    hpo_term: CD79a表达
+    similarity_score: 0.7720276117324829
+    status: mapped
+    card_id:
+    - ocr_card_fa28a8389c89
+    clinical_sources:
+    - card_id: ocr_card_fa28a8389c89
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: CD45（+）
+    hpo_code: HP:0430098
+    hpo_term: CD45表达
+    similarity_score: 0.9368400573730469
+    status: mapped
+    card_id:
+    - ocr_card_fa28a8389c89
+    clinical_sources:
+    - card_id: ocr_card_fa28a8389c89
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: OCT2（+）
+    hpo_code: HP:0030618
+    hpo_term: OCT 测量法中心凹厚度增加
+    similarity_score: 0.8201828598976135
+    status: mapped
+    card_id:
+    - ocr_card_fa28a8389c89
+    clinical_sources:
+    - card_id: ocr_card_fa28a8389c89
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: 骨髓有核细胞增生活跃或明显活跃
+    hpo_code: HP:0031020
+    hpo_term: 骨髓细胞过多
+    similarity_score: 0.8745624423027039
+    status: mapped
+    card_id:
+    - ocr_card_a413a7bf75b7
+    clinical_sources:
+    - card_id: ocr_card_a413a7bf75b7
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: 嗜酸粒细胞增多
+    hpo_code: HP:0020064
+    hpo_term: 嗜酸性粒细胞计数异常
+    similarity_score: 0.9385179281234741
+    status: mapped
+    card_id:
+    - ocr_card_a413a7bf75b7
+    clinical_sources:
+    - card_id: ocr_card_a413a7bf75b7
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: 骨髓中找到 R-S 细胞
+    hpo_code: HP:0004333
+    hpo_term: 骨髓泡沫细胞
+    similarity_score: 0.7635193467140198
+    status: mapped
+    card_id:
+    - ocr_card_a413a7bf75b7
+    clinical_sources:
+    - card_id: ocr_card_a413a7bf75b7
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: 惰性病程
+    hpo_code: HP:0011008
+    hpo_term: 疾病进展的时限性
+    similarity_score: 0.7889043092727661
+    status: mapped
+    card_id:
+    - ocr_card_f3fdb926bf38
+    clinical_sources:
+    - card_id: ocr_card_f3fdb926bf38
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  - name: 偶见的晚复发
+    hpo_code: HP:0025303
+    hpo_term: 不规则复发的
+    similarity_score: 0.845293402671814
+    status: mapped
+    card_id:
+    - ocr_card_f3fdb926bf38
+    clinical_sources:
+    - card_id: ocr_card_f3fdb926bf38
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  - name: 潜在的转化为大B细胞淋巴瘤
+    hpo_code: HP:0012191
+    hpo_term: B细胞淋巴瘤
+    similarity_score: 0.7880045175552368
+    status: mapped
+    card_id:
+    - ocr_card_f3fdb926bf38
+    clinical_sources:
+    - card_id: ocr_card_f3fdb926bf38
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  - name: 有大肿块
+    hpo_code: HP:0025760
+    hpo_term: 固定肿块
+    similarity_score: 0.7989128828048706
+    status: mapped
+    card_id:
+    - ocr_card_aa41788b5b4d
+    clinical_sources:
+    - card_id: ocr_card_aa41788b5b4d
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  - name: 活检结果阳性
+    hpo_code: HP:0025532
+    hpo_term: 针刺反应阳性
+    similarity_score: 0.7823604345321655
+    status: mapped
+    card_id:
+    - ocr_card_85511530fd85
+    clinical_sources:
+    - card_id: ocr_card_85511530fd85
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  - name: 白蛋白＜40g/L
+    hpo_code: HP:0003073
+    hpo_term: 低蛋白血症
+    similarity_score: 0.8663543462753296
+    status: mapped
+    card_id:
+    - ocr_card_656eed12fe21
+    clinical_sources:
+    - card_id: ocr_card_656eed12fe21
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+  - name: 血红蛋白＜105g/L
+    hpo_code: HP:0020062
+    hpo_term: 血红蛋白浓度减低
+    similarity_score: 0.8662723302841187
+    status: mapped
+    card_id:
+    - ocr_card_656eed12fe21
+    clinical_sources:
+    - card_id: ocr_card_656eed12fe21
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+  - name: 男性
+    hpo_code: HP:0001475
+    hpo_term: 男性限性表达
+    similarity_score: 0.7275751829147339
+    status: mapped
+    card_id:
+    - ocr_card_656eed12fe21
+    clinical_sources:
+    - card_id: ocr_card_656eed12fe21
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+  - name: 年龄≥45 岁
+    hpo_code: HP:0003596
+    hpo_term: 中年期发病
+    similarity_score: 0.7406471967697144
+    status: mapped
+    card_id:
+    - ocr_card_656eed12fe21
+    clinical_sources:
+    - card_id: ocr_card_656eed12fe21
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+  - name: 白细胞≥15×109/L
+    hpo_code: HP:0001974
+    hpo_term: 白细胞增多症
+    similarity_score: 0.8446723818778992
+    status: mapped
+    card_id:
+    - ocr_card_656eed12fe21
+    clinical_sources:
+    - card_id: ocr_card_656eed12fe21
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+  - name: 淋巴细胞占白细胞比例＜8%和/或计数＜0.6×109/L
+    hpo_code: HP:0001888
+    hpo_term: 淋巴细胞减少症
+    similarity_score: 0.8537078499794006
+    status: mapped
+    card_id:
+    - ocr_card_656eed12fe21
+    clinical_sources:
+    - card_id: ocr_card_656eed12fe21
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+  - name: PET-CT评估结果阳性
+    hpo_code: HP:6001100
+    hpo_term: 血清淀粉样蛋白P闪烁显像阳性
+    similarity_score: 0.7339943647384644
+    status: mapped
+    card_id:
+    - ocr_card_85fbaa5383af
+    clinical_sources:
+    - card_id: ocr_card_85fbaa5383af
+      clinical_stage: 诊断评估流程
+      clinical_task: 影像学检查
+  - name: 中枢神经系统受累
+    hpo_code: HP:0002529
+    hpo_term: 中枢神经系统神经元损失
+    similarity_score: 0.8360085487365723
+    status: mapped
+    card_id:
+    - ocr_card_6becfa659c20
+    clinical_sources:
+    - card_id: ocr_card_6becfa659c20
+      clinical_stage: 治疗流程
+      clinical_task: 随访与监测
+  - name: 达到CR的时间长
+    hpo_code: HP:0025297
+    hpo_term: 延长的
+    similarity_score: 0.7771860361099243
+    status: mapped
+    card_id:
+    - ocr_card_6becfa659c20
+    clinical_sources:
+    - card_id: ocr_card_6becfa659c20
+      clinical_stage: 治疗流程
+      clinical_task: 随访与监测
+  - name: 诱导化疗结束后有残存病变
+    hpo_code: HP:0020174
+    hpo_term: 药物治疗应答无能
+    similarity_score: 0.7155762910842896
+    status: mapped
+    card_id:
+    - ocr_card_6becfa659c20
+    clinical_sources:
+    - card_id: ocr_card_6becfa659c20
+      clinical_stage: 治疗流程
+      clinical_task: 随访与监测
+  - name: 亚二倍体（＜44条染色体）
+    hpo_code: HP:0031411
+    hpo_term: 染色体形态异常
+    similarity_score: 0.8058508038520813
+    status: mapped
+    card_id:
+    - ocr_card_6becfa659c20
+    clinical_sources:
+    - card_id: ocr_card_6becfa659c20
+      clinical_stage: 治疗流程
+      clinical_task: 随访与监测
+  - name: IKZF1基因变异
+    hpo_code: HP:0003220
+    hpo_term: 染色体稳定性异常
+    similarity_score: 0.7275318503379822
+    status: mapped
+    card_id:
+    - ocr_card_6becfa659c20
+    clinical_sources:
+    - card_id: ocr_card_6becfa659c20
+      clinical_stage: 治疗流程
+      clinical_task: 随访与监测
+  - name: 年龄＞60 岁
+    hpo_code: HP:0003584
+    hpo_term: 老年期发病
+    similarity_score: 0.797629714012146
+    status: mapped
+    card_id:
+    - ocr_card_6e99b6179a1e
+    clinical_sources:
+    - card_id: ocr_card_6e99b6179a1e
+      clinical_stage: 治疗流程
+      clinical_task: 随访与监测
+  - name: LDH 增高
+    hpo_code: HP:0025435
+    hpo_term: 乳酸脱氢酶活性增高
+    similarity_score: 0.9278883934020996
+    status: mapped
+    card_id:
+    - ocr_card_6e99b6179a1e
+    clinical_sources:
+    - card_id: ocr_card_6e99b6179a1e
+      clinical_stage: 治疗流程
+      clinical_task: 随访与监测
+  - name: 单克隆丙种球蛋白病
+    hpo_code: HP:0005508
+    hpo_term: 单克隆IgM血症
+    similarity_score: 0.9111152291297913
+    status: mapped
+    card_id:
+    - ocr_card_1f937c1430fb
+    clinical_sources:
+    - card_id: ocr_card_1f937c1430fb
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+  - name: IgM型
+    hpo_code: HP:0410243
+    hpo_term: 循环IgM水平异常
+    similarity_score: 0.7904535531997681
+    status: mapped
+    card_id:
+    - ocr_card_1f937c1430fb
+    clinical_sources:
+    - card_id: ocr_card_1f937c1430fb
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+  - name: 重度蚊虫叮咬性过敏症
+    hpo_code: HP:0410339
+    hpo_term: 昆虫叮咬过敏
+    similarity_score: 0.7889888882637024
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 成人 T 细胞白血病/淋巴瘤
+    hpo_code: HP:0005517
+    hpo_term: T细胞淋巴瘤/白血病
+    similarity_score: 0.933586597442627
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 结外 NK/T 细胞淋巴瘤，鼻型
+    hpo_code: HP:0012539
+    hpo_term: 非霍奇金淋巴瘤
+    similarity_score: 0.7950954437255859
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 肠病相关 T 细胞淋巴瘤
+    hpo_code: HP:0012190
+    hpo_term: T细胞淋巴瘤
+    similarity_score: 0.8778412342071533
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 胃肠道惰性 T 细胞淋巴组织增殖性疾病
+    hpo_code: HP:6000251
+    hpo_term: 小肠上皮内淋巴细胞增多症
+    similarity_score: 0.8337842226028442
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 皮下脂膜炎样 T 细胞淋巴瘤
+    hpo_code: HP:0034403
+    hpo_term: 皮下脂膜炎样T细胞淋巴瘤
+    similarity_score: 0.9893686175346375
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 蕈样真菌病
+    hpo_code: HP:0012192
+    hpo_term: 皮肤T细胞淋巴瘤
+    similarity_score: 0.8624270558357239
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 塞扎里综合征
+    hpo_code: HP:0000558
+    hpo_term: Rieger综合征
+    similarity_score: 0.8488836288452148
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 淋巴瘤样丘疹病
+    hpo_code: HP:0031549
+    hpo_term: 皮肤淋巴细胞瘤
+    similarity_score: 0.8770889043807983
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 原发皮肤间变性大细胞淋巴瘤
+    hpo_code: HP:0012193
+    hpo_term: 间变性大细胞淋巴瘤
+    similarity_score: 0.8865925073623657
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 儿童 EBV 阳性 T 细胞和 NK 细胞淋巴增殖性疾病
+    hpo_code: HP:0020072
+    hpo_term: 持续性EBV病毒血症
+    similarity_score: 0.7553957104682922
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: T/NK 细胞型慢性活动性 EBV 感染，系统型
+    hpo_code: HP:0032204
+    hpo_term: 慢性活动性EB病毒感染
+    similarity_score: 0.8675347566604614
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 种痘水疱病样淋巴组织增殖性疾病
+    hpo_code: HP:0032381
+    hpo_term: 牛痘样水疱
+    similarity_score: 0.8144436478614807
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 滤泡性 T 细胞淋巴瘤
+    hpo_code: HP:0033125
+    hpo_term: 滤泡淋巴瘤
+    similarity_score: 0.9431023597717285
+    status: mapped
+    card_id:
+    - ocr_card_98b9b1c1b270
+    clinical_sources:
+    - card_id: ocr_card_98b9b1c1b270
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  - name: 滤泡辅助 T 细胞表型
+    hpo_code: HP:0410394
+    hpo_term: 效应记忆性CD4+的α-β T细胞比例增高
+    similarity_score: 0.7367954850196838
+    status: mapped
+    card_id:
+    - ocr_card_369813d55ff9
+    clinical_sources:
+    - card_id: ocr_card_369813d55ff9
+      clinical_stage: 治疗流程
+      clinical_task: 未知
+  negative_features:
+  - name: 全身骨显像缺乏特征性改变
+    hpo_code: HP:6001022
+    hpo_term: 骨显像摄取增加
+    similarity_score: 0.8528923988342285
+    status: mapped
+    card_id:
+    - ocr_card_8b3a20b70433
+    clinical_sources:
+    - card_id: ocr_card_8b3a20b70433
+      clinical_stage: 诊断评估流程
+      clinical_task: 影像学检查
+  - name: 无淋巴结受累
+    hpo_code: HP:0033581
+    hpo_term: 感染时周围淋巴结缺失
+    similarity_score: 0.7724084854125977
+    status: mapped
+    card_id:
+    - ocr_card_b6bcfed45f22
+    clinical_sources:
+    - card_id: ocr_card_b6bcfed45f22
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
+  - name: CD45（-）
+    hpo_code: HP:0430098
+    hpo_term: CD45表达
+    similarity_score: 0.8775558471679688
+    status: mapped
+    card_id:
+    - ocr_card_fa28a8389c89
+    clinical_sources:
+    - card_id: ocr_card_fa28a8389c89
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: CD20（-）或弱（+）
+    hpo_code: HP:0430102
+    hpo_term: CD20表达
+    similarity_score: 0.8742584586143494
+    status: mapped
+    card_id:
+    - ocr_card_fa28a8389c89
+    clinical_sources:
+    - card_id: ocr_card_fa28a8389c89
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: 不伴有纵隔受侵
+    hpo_code: HP:0033828
+    hpo_term: 中纵膈肿块
+    similarity_score: 0.7385518550872803
+    status: mapped
+    card_id:
+    - ocr_card_f3fdb926bf38
+    clinical_sources:
+    - card_id: ocr_card_f3fdb926bf38
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  - name: 不伴有结外受侵
+    hpo_code: HP:0020237
+    hpo_term: 淋巴细胞侵袭淋巴结包膜
+    similarity_score: 0.7660566568374634
+    status: mapped
+    card_id:
+    - ocr_card_f3fdb926bf38
+    clinical_sources:
+    - card_id: ocr_card_f3fdb926bf38
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  - name: 不伴有大肿块
+    hpo_code: HP:0025761
+    hpo_term: 无痛性肿块
+    similarity_score: 0.7764163017272949
+    status: mapped
+    card_id:
+    - ocr_card_f3fdb926bf38
+    clinical_sources:
+    - card_id: ocr_card_f3fdb926bf38
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  - name: 无 B 症状
+    hpo_code: HP:4000144
+    hpo_term: 最近既往病史
+    similarity_score: 0.7268617153167725
+    status: mapped
+    card_id:
+    - ocr_card_aa41788b5b4d
+    clinical_sources:
+    - card_id: ocr_card_aa41788b5b4d
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  - name: 活检结果阴性
+    hpo_code: HP:0020229
+    hpo_term: 淋巴结生物样本异常
+    similarity_score: 0.7243746519088745
+    status: mapped
+    card_id:
+    - ocr_card_85511530fd85
+    clinical_sources:
+    - card_id: ocr_card_85511530fd85
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  - name: 活检阴性
+    hpo_code: HP:0033805
+    hpo_term: 非坏死性肉芽肿
+    similarity_score: 0.7240250706672668
+    status: mapped
+    card_id:
+    - ocr_card_3ab5c67f4cd7
+    clinical_sources:
+    - card_id: ocr_card_3ab5c67f4cd7
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  scoring:
+    method: hybrid_weighted_semantic
+    normalization: sum_max_1
+    thresholds:
+      candidate: 0.35
+      strong_candidate: 0.6
+      very_likely: 0.8
+    top_k_default: 5
+    safety_override: true
+    mapping:
+      ocr_card_a7c2645dee0c:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_9aa83656cb74:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_fbc2f16af2a7:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_d6fd5f4138e1:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_062b3131aa8b:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_cd7e380c0334:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_04c27106b658:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_fb314ed10904:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_dca8600a4336:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_8b3a20b70433:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_bdb9af3b9cbe:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_002e92ce99a4:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_e793c3398915:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_2a87dcde2325:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_abf5e8e31b25:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_a9e7b23396a3:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_d18af43a9dc0:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_378b2ce0b916:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_4c9697b75eae:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_6ae97c547744:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_9b82649b33c0:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_72cc7f79e9ab:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_404935b9260f:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_7d353e318835:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_b6bcfed45f22:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_d49271f35fc6:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_5c2be2cfbd0a:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_b190a14c441c:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_e90e3262c28e:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_cd2aba4d2325:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_24eae6993be8:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_94da08d2c3d3:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_3272419070c5:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_fa28a8389c89:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_a413a7bf75b7:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_f3fdb926bf38:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_aa41788b5b4d:
+        evidence_quality_raw: 首选 ISRT；推荐化疗+利妥昔单抗+ISRT；可以选择观察随诊。
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_unmapped_raw_evidence
+      ocr_card_02aa55ae0ca0:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_fe0aa3e0afb4:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_85511530fd85:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_6d5927ed834f:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_3ab5c67f4cd7:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_c14ab01dfc89:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_6b9a1ccdb512:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_b262c88ecda9:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_af9376158cfe:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_707411399442:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_656eed12fe21:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_85fbaa5383af:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_351541e08098:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_6becfa659c20:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_3afda055d6e1:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_fc3f0d6e125b:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_1281c2a975af:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_2cb9203544ae:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_6e99b6179a1e:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_135ce3a462e7:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_7449953c6110:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_897a37c5ed39:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_60e6321fcb9c:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_1f937c1430fb:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_5095f7892c5b:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_98b9b1c1b270:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_369813d55ff9:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_614c2431e65b:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_f1f6227fee1d:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_6d63d557f8ea:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_a331609644af:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_03332e93e605:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
+medical_examinations:
+  实验室检查:
+  - examination: 血常规
+    source_cards:
+    - card_id: ocr_card_d6fd5f4138e1
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 肝肾功能
+    source_cards:
+    - card_id: ocr_card_d6fd5f4138e1
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 乳酸脱氢酶(LDH)
+    source_cards:
+    - card_id: ocr_card_d6fd5f4138e1
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: β2微球蛋白
+    source_cards:
+    - card_id: ocr_card_d6fd5f4138e1
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 红细胞沉降率
+    source_cards:
+    - card_id: ocr_card_d6fd5f4138e1
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 乙型肝炎病毒检测
+    source_cards:
+    - card_id: ocr_card_d6fd5f4138e1
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 丙型肝炎病毒检测
+    source_cards:
+    - card_id: ocr_card_d6fd5f4138e1
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 人类免疫缺陷病毒检测
+    source_cards:
+    - card_id: ocr_card_d6fd5f4138e1
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 骨髓穿刺细胞学和/或活检
+    source_cards:
+    - card_id: ocr_card_d6fd5f4138e1
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 腰椎穿刺（脑脊液生化、常规和细胞学等检查）
+    source_cards:
+    - card_id: ocr_card_d6fd5f4138e1
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 外周血EB病毒DNA滴度检测
+    source_cards:
+    - card_id: ocr_card_d6fd5f4138e1
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 幽门螺杆菌检查
+    source_cards:
+    - card_id: ocr_card_d6fd5f4138e1
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  影像学检查:
+  - examination: CT
+    source_cards:
+    - card_id: ocr_card_062b3131aa8b
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: MRI
+    source_cards:
+    - card_id: ocr_card_062b3131aa8b
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 正电子发射计算机体层成像(PET-CT)
+    source_cards:
+    - card_id: ocr_card_062b3131aa8b
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 超声
+    source_cards:
+    - card_id: ocr_card_062b3131aa8b
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 内镜
+    source_cards:
+    - card_id: ocr_card_062b3131aa8b
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 增强CT
+    source_cards:
+    - card_id: ocr_card_cd7e380c0334
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - 对于无碘对比剂禁忌证的患者，应尽可能采用增强CT
+  - examination: MRI检查
+    source_cards:
+    - card_id: ocr_card_04c27106b658
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: PET-CT
+    source_cards:
+    - card_id: ocr_card_fb314ed10904
+      recommendation_label: null
+    - card_id: ocr_card_85fbaa5383af
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - 化疗2-3周期后PET-CT评估阴性预后较好
+  - examination: 超声检查
+    source_cards:
+    - card_id: ocr_card_dca8600a4336
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - 超声一般不用于淋巴瘤的分期诊断
+    - 在浅表淋巴结切除活检时，选取超声检测声像图异常的淋巴结有助于提高活检准确性
+    - 对于腹盆腔实质性器官的评估，超声可作为CT和MRI的补充，尤其是不能行增强CT检查时
+  - examination: 超声引导下穿刺活检
+    source_cards:
+    - card_id: ocr_card_dca8600a4336
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - 超声一般不用于淋巴瘤的分期诊断
+    - 在浅表淋巴结切除活检时，选取超声检测声像图异常的淋巴结有助于提高活检准确性
+    - 对于腹盆腔实质性器官的评估，超声可作为CT和MRI的补充，尤其是不能行增强CT检查时
+  - examination: 实验室检查
+    source_cards:
+    - card_id: ocr_card_8b3a20b70433
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 其他影像学检查
+    source_cards:
+    - card_id: ocr_card_8b3a20b70433
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 骨扫描（99mTc-MDP）
+    source_cards:
+    - card_id: ocr_card_bdb9af3b9cbe
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: CT检查
+    source_cards:
+    - card_id: ocr_card_bdb9af3b9cbe
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  内镜检查: []
+  病理:
+  - examination: 活检
+    source_cards:
+    - card_id: ocr_card_002e92ce99a4
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - 明确病理
+  - examination: 病理学检查
+    source_cards:
+    - card_id: ocr_card_e793c3398915
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - 应尽可能切除完整淋巴结
+    - 浅表淋巴结病灶应尽量选择颈部、锁骨上和腋窝淋巴结
+    - 粗针穿刺仅用于无法有效安全获得切除或切取组织的患者
+    - 初次诊断首选切除或切取病变组织
+    - 复发患者若无法获得切除或切取组织可通过粗针穿刺诊断
+  - examination: 形态学
+    source_cards:
+    - card_id: ocr_card_2a87dcde2325
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 免疫组织化学
+    source_cards:
+    - card_id: ocr_card_2a87dcde2325
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 流式细胞术
+    source_cards:
+    - card_id: ocr_card_2a87dcde2325
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 遗传学和分子生物学技术
+    source_cards:
+    - card_id: ocr_card_2a87dcde2325
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 免疫组化检查
+    source_cards:
+    - card_id: ocr_card_a9e7b23396a3
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - 鉴别淋巴瘤细胞的免疫表型
+    - 判断肿瘤细胞的分化及成熟程度
+    - 进行不同病理亚型的鉴别诊断
+  - examination: 荧光原位杂交（FISH）检测
+    source_cards:
+    - card_id: ocr_card_d18af43a9dc0
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - 伯基特淋巴瘤相关的 t（8;14）易位以及 t（2;8）或 t（8;22）易位
+    - 滤泡性淋巴瘤相关的 t（14;18）易位
+    - 黏膜相关淋巴组织结外边缘区淋巴瘤相关的 t（11;18）易位
+    - 套细胞淋巴瘤相关的 t（11;14）易位
+    - 双打击或三打击高级别 B 细胞淋巴瘤相关的 MYC（8q24）、BCL2（18q21）和 BCL6（3q27）重排
+  - examination: 淋巴细胞受体基因单克隆性重排
+    source_cards:
+    - card_id: ocr_card_378b2ce0b916
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 二代测序
+    source_cards:
+    - card_id: ocr_card_4c9697b75eae
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 流式细胞技术
+    source_cards:
+    - card_id: ocr_card_4c9697b75eae
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: IHC标记物检测（CD45, CD20, CD15, CD30, PAX5, CD3, MUM1, Ki-67指数, EBER）
+    source_cards:
+    - card_id: ocr_card_fa28a8389c89
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - cHL常表现为CD30(+)、CD15(+)/(-)、PAX5弱(+)、MUM1(+)、CD45(-)、CD20(-)/弱(+)、CD3(-)，部分病例EBER(+)
+    - NLPHL表现为CD20(+)、CD79a(+)、BCL6(+)、CD45(+)、CD3(-)、CD15(-)、CD30(-)、BOB1(+)、OCT2(+)、EBER(-)
+    - 鉴别诊断时需增加相应标记物（如间变大细胞淋巴瘤或弥漫大B细胞淋巴瘤等）
+  - examination: 骨髓穿刺涂片
+    source_cards:
+    - card_id: ocr_card_a413a7bf75b7
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - 骨髓穿刺涂片找到R-S细胞阳性率仅3%左右，骨髓活检可提高到9%~22%
+  - examination: 骨髓活检
+    source_cards:
+    - card_id: ocr_card_a413a7bf75b7
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - 骨髓穿刺涂片找到R-S细胞阳性率仅3%左右，骨髓活检可提高到9%~22%
+  综合诊断:
+  - examination: 实验室检查
+    source_cards:
+    - card_id: ocr_card_a7c2645dee0c
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 影像学检查
+    source_cards:
+    - card_id: ocr_card_a7c2645dee0c
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 病理学检查
+    source_cards:
+    - card_id: ocr_card_a7c2645dee0c
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: EB病毒DNA检测
+    source_cards:
+    - card_id: ocr_card_03332e93e605
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+knowledge_base:
+  cards_path: recommendation_card.jsonl
+  card_schema_ref: schema/recommendation_card.schema.json
+  retrieval:
+    default_mode: hybrid
+    modes:
+    - by_recommendation_id
+    - semantic
+    - metadata_filter
+    - hybrid
+    default_top_k: 8
+    citation_required: true
+workflow:
+  workflow_version: '0.1'
+  entrypoint: triage
+  global_policies:
+    stop_on_emergency: true
+    require_citations: true
+    no_prescription: true
+  steps:
+  - step_id: triage
+    type: safety_triage
+    description: Check emergency red flags and routing suitability.
+    config:
+      red_flags_ref: routing_profile.red_flags
+    transitions:
+    - when:
+        op: exists
+        path: result.red_flags
+      to: emergency_safety
+    - when:
+        op: gte
+        left: context.route_score
+        right: 0.35
+      to: diagnostic_evidence_check
+    - when:
+        op: default
+      to: low_probability_output
+  - step_id: diagnostic_evidence_check
+    type: evidence_check
+    description: Check diagnostic evidence and missing required information.
+    config:
+      card_filter:
+        clinical_stage: 诊断评估流程
+        clinical_task:
+        - 实验室检查
+        - 影像学检查
+        - 内镜检查
+        - 病理
+        - 综合诊断
+      input_requirements:
+        required_for_high_confidence: []
+    transitions:
+    - when:
+        op: exists
+        path: result.missing_required_evidence
+      to: missing_diagnostic_information_output
+    - when:
+        op: default
+      to: differential_check
+  - step_id: differential_check
+    type: differential_check
+    description: Check important differential diagnoses.
+    config:
+      card_filter:
+        clinical_stage: 诊断评估流程
+        clinical_task:
+        - 综合诊断
+      input_requirements:
+        required_for_high_confidence: []
+    transitions:
+    - when:
+        op: exists
+        path: result.differential_warnings
+      to: differential_needed_output
+    - when:
+        op: default
+      to: staging_assessment
+  - step_id: staging_assessment
+    type: evidence_check
+    description: Assess staging, severity, complications, or risk profile.
+    config:
+      card_filter:
+        clinical_stage: 诊断评估流程
+        clinical_task:
+        - 影像学检查
+        - 内镜检查
+        - 病理
+        - 综合诊断
+      input_requirements:
+        required_for_high_confidence: []
+    transitions:
+    - when:
+        op: default
+      to: management_gate
+  - step_id: management_gate
+    type: management_gate
+    description: Decide whether management plan generation is allowed.
+    config:
+      diagnosis_required_policy: safety_constraints.treatment_policy.diagnosis_required
+    transitions:
+    - when:
+        op: eq
+        left: result.allow_management_plan
+        right: true
+      to: management_plan_generation
+    - when:
+        op: default
+      to: candidate_summary_output
+  - step_id: management_plan_generation
+    type: plan_generation
+    description: Generate guideline-based management plan.
+    config:
+      card_filter:
+        clinical_stage: 治疗流程
+        clinical_task:
+        - 一般治疗
+        - 药物治疗
+        - 手术治疗
+      monitoring_card_filter:
+        clinical_stage: 治疗流程
+        clinical_task:
+        - 随访与监测
+      input_requirements:
+        required_for_high_confidence: []
+    transitions:
+    - when:
+        op: default
+      to: final_output
+  - step_id: emergency_safety
+    type: terminal_output
+    description: Emergency safety output.
+    config:
+      output_template: emergency_safety
+    transitions: []
+  - step_id: low_probability_output
+    type: terminal_output
+    description: Low probability output.
+    config:
+      output_template: low_probability
+    transitions: []
+  - step_id: missing_diagnostic_information_output
+    type: terminal_output
+    description: Missing diagnostic information output.
+    config:
+      output_template: missing_information
+    transitions: []
+  - step_id: differential_needed_output
+    type: terminal_output
+    description: Differential diagnosis needed output.
+    config:
+      output_template: differential_needed
+    transitions: []
+  - step_id: candidate_summary_output
+    type: terminal_output
+    description: Candidate disease summary output.
+    config:
+      output_template: candidate_summary
+    transitions: []
+  - step_id: final_output
+    type: terminal_output
+    description: Final guideline-based output.
+    config:
+      output_template: final_recommendation
+    transitions: []
+safety_constraints:
+  safety_version: '0.1'
+  general:
+  - id: no_diagnosis_replacement
+    rule: This skill pack supports guideline-based information organization and does not replace clinician diagnosis.
+    severity: high
+  - id: no_prescription
+    rule: Do not provide prescriptions or individualized drug dosing without qualified physician review.
+    severity: high
+  - id: emergency_referral
+    rule: If emergency red flags are present, recommend urgent medical evaluation.
+    severity: critical
+  treatment_policy:
+    diagnosis_required: confirmed_or_high_confidence
+    allow_general_management_advice: true
+    allow_specific_drug_dosing: false
+    allow_prescription: false
+    require_physician_review: true
+  emergency_policy:
+    trigger_from:
+    - routing_profile.red_flags
+    - safety_constraints.general
+    output_template: emergency_safety
+    stop_workflow: true
+output_templates:
+  emergency_safety:
+    audience: clinician
+    structure:
+    - status
+    - red_flags
+    - urgent_action
+    - disclaimer
+  low_probability:
+    audience: clinician
+    structure:
+    - status
+    - matched_positive_features
+    - matched_negative_features
+    - reason
+    - suggested_next_steps
+    - disclaimer
+  missing_information:
+    audience: clinician
+    structure:
+    - status
+    - missing_information
+    - recommended_next_steps
+    - used_cards
+    - citations
+    - disclaimer
+  differential_needed:
+    audience: clinician
+    structure:
+    - status
+    - differential_diagnoses
+    - key_distinguishing_features
+    - recommended_next_steps
+    - used_cards
+    - citations
+    - disclaimer
+  candidate_summary:
+    audience: clinician
+    structure:
+    - status
+    - matched_positive_features
+    - matched_negative_features
+    - evidence_summary
+    - missing_information
+    - used_cards
+    - citations
+    - disclaimer
+  final_recommendation:
+    audience: clinician
+    structure:
+    - status
+    - evidence_summary
+    - guideline_recommendations
+    - management_considerations
+    - monitoring_plan
+    - used_cards
+    - citations
+    - disclaimer
+validation:
+  required_checks:
+  - skill_pack_schema_validation
+  - card_schema_validation
+  - card_id_uniqueness
+  - workflow_transition_targets_exist
+  - workflow_subskill_refs_exist
+  - output_templates_exist
+  - selected_card_ids_exist
+  review_policy:
+    requires_human_review: true
+    reviewer_role: clinician_or_guideline_curator
+    notes: Automatically generated from result.jsonl; clinical review is required before production use.
+  test_cases_path: tests/fixtures/skill_pack_cases.jsonl

@@ -1,0 +1,330 @@
+{
+  "input_file": "data/skills/肠结核的诊断与治疗/肠结核的诊断与治疗.parse_result.json",
+  "guideline_title": "肠结核的诊断与治疗.pdf",
+  "source_file": "肠结核的诊断与治疗.pdf",
+  "total_layouts": 58,
+  "layouts_by_type": {
+    "head_tail": 4,
+    "text": 22,
+    "title": 5,
+    "reference": 27
+  },
+  "discarded_layout_count": 37,
+  "discarded_by_reason": {
+    "type_not_supported": 31,
+    "llm_metadata": 6
+  },
+  "discarded_layouts": [
+    {
+      "layout_id": "9SSdaY-layout-1",
+      "page_num": 1,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华结直肠疾病电子杂志2015年第4卷第2期Chin JColorec Dis(Electronic Edition),2015,Vol.4,No.2"
+    },
+    {
+      "layout_id": "9SSdaY-layout-2",
+      "page_num": 1,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·177·"
+    },
+    {
+      "layout_id": "9SSdaY-layout-19",
+      "page_num": 1,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "作者单位：150086哈尔滨医科大学附属第二医院哈尔滨医科大学大肠癌研究所"
+    },
+    {
+      "layout_id": "9SSdaY-layout-21",
+      "page_num": 2,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·178·"
+    },
+    {
+      "layout_id": "9SSdaY-layout-22",
+      "page_num": 2,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华结直肠疾病电子杂志2015年第4卷第2期Chin JColorec Dis(Electronic Edition),2015,Vol.4,No.2"
+    },
+    {
+      "layout_id": "9SSdaY-layout-30",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "Organization,2014."
+    },
+    {
+      "layout_id": "9SSdaY-layout-31",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[2]刘景亮，金锋，张强。肠结核的诊断与治疗体会。中华实用诊断与治疗杂志，2009,23(2)：205-206。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-32",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[3]许小江，周丹，余庆祥。86例肠结核临床分析。河北医学，2010,16(5):552-554."
+    },
+    {
+      "layout_id": "9SSdaY-layout-33",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[4]文采。肠结核临床诊治分析。中外医学研究，2011,9(1)：27-28."
+    },
+    {
+      "layout_id": "9SSdaY-layout-34",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[5]程洁，张晓微，周瑛，等。94例肠结核诊断和治疗的临床分析。临床肺科杂志，2012,17(3)：463-464。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-35",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[6]李鹏飞，陈岩，所剑。肠结核诊断及其外科手术方法探讨。中国防痨杂志，2013,35(10)：827-830。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-36",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[7]Lee YJ, Yang SK, Byeon JS, et al. Analysis of colonoscopicfindingsin the differential diagnosis between intestinaltub..."
+    },
+    {
+      "layout_id": "9SSdaY-layout-37",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[8]黄海，罗艺，甘辉，等。血清-腹水白蛋白梯度和腹水ADA、CA125在结核性腹膜炎诊治中的临床价值。临床消化病杂志，2014,26(3)：163-166。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-38",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[9]Riquelme, Arnoldo, Calvo, et al. Value of adenosine deaminase(ADA)in asciticfluid for the diagnosis of tubercu lous p..."
+    },
+    {
+      "layout_id": "9SSdaY-layout-39",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[10]余日胜，童斌斌，李蓉芬。肠结核的影像学诊断。中华结核和呼吸杂志，2001,24(7)：404-406。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-40",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[11]马红霞，张喆，郭佑民。腹部结核的CT表现与鉴别。中国防痨杂志，2012,34(1)：45-52。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-41",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[12]和肠结核鉴别诊断中的价值。中华消化内镜杂志，2002,19(1):9-12."
+    },
+    {
+      "layout_id": "9SSdaY-layout-42",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[13]黄秀江。肠结核的内镜特点及临床分析。西藏医药杂志，2006,27(2):13-14."
+    },
+    {
+      "layout_id": "9SSdaY-layout-43",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[14]潘霞，张钢志。肠结核与克罗恩病的临床、内镜及病理的对比研究。中国现代医生，2011,49(35)：49-51。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-44",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[15]周中银，罗和生，丁一娟。克罗恩病与肠结核鉴别诊断方法的评价。中国实用内科杂志，2005,25(3)：247-248。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-45",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[16]杨丹球。Crohn病与肠结核的临床及病理鉴别诊断要点。临床误诊误治，2010,23(6)：570-571。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-46",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[17]毛华，丘文丹。克罗恩病与肠结核临床、内镜及病理特征对比分析。胃肠病学和肝病学杂志，2014,23(1)：75-77。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-47",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[18]叶润生，陆继春，郑光明。43例肠结核的回顾性分析。华西医学杂志，2003,18(4)：554。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-48",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[19]李伟华，邵彩儿。内镜活检病理诊断肠结核7例分析。临床与实验病理学杂志，2005,21(5)：575-576。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-49",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[20]王小军。腹腔镜探查对不明原因腹痛的诊断及治疗价值分析。临床和实验医学杂志，2013,12(11)：879-880。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-50",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[21]周东雷，郑成竹，胡旭光，等。腹腔镜对不明原因腹水诊断价值研究。中国实用外科杂志，2007,27(8)：627-629。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-51",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[22]谢安庆，周晓俊，毛忠琦，等。应用腹腔镜探查对诊断腹腔肿块的意义。江苏医药，2011,37(13)：1592-1593。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-52",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[23]World Health Organization. Essential prevention and careinterventions for adults and adolescents living with HIVinre..."
+    },
+    {
+      "layout_id": "9SSdaY-layout-53",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[24]Menzies D, Benedetti A, Paydar A, et al. Effect of duration andintermittency of rifampin on tuberculosis treatment o..."
+    },
+    {
+      "layout_id": "9SSdaY-layout-57",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[1] WHO. Global Tuberculosis Control Report. Geneva: World Health"
+    },
+    {
+      "layout_id": "9SSdaY-layout-58",
+      "page_num": 2,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "金英虎，王锡山。肠结核的诊断与治疗[J/CD].中华结直肠疾病电子杂志，2015,4(2)：177-178。"
+    },
+    {
+      "layout_id": "9SSdaY-layout-5",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "金英虎王锡山"
+    },
+    {
+      "layout_id": "9SSdaY-layout-18",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "DOI:10.3877/cma.j.issn.2095-3224.2015.02.15"
+    },
+    {
+      "layout_id": "9SSdaY-layout-20",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "通讯作者：王锡山，Email:wxshan1208@126.com"
+    },
+    {
+      "layout_id": "9SSdaY-layout-3",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "·综述·"
+    },
+    {
+      "layout_id": "9SSdaY-layout-54",
+      "page_num": 2,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "(收稿日期：2014-12-29)"
+    },
+    {
+      "layout_id": "9SSdaY-layout-55",
+      "page_num": 2,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "(本文编辑：马天翼)"
+    }
+  ],
+  "discarded_unit_count": 2,
+  "discarded_units_by_reason": {
+    "clinical_stage_other": 2
+  },
+  "discarded_units": [
+    {
+      "unit_id": "clinical_text_unit_347c3d2aba7b",
+      "page_start": 1,
+      "page_end": 1,
+      "section_path": [
+        "肠结核的诊断与治疗"
+      ],
+      "source_layout_ids": [
+        "9SSdaY-layout-6"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "结核病严重影响人民健康，是我国重点防治疾病之一。它是由结核分枝杆菌引起的传染性疾病，几乎所有的人体组织、器官均可发病。近20年来，结核病死灰复燃，在全球流行与传播呈持续蔓延之势。2013年世界卫生组织统计中国结核病年新发病人数约为82万，其..."
+    },
+    {
+      "unit_id": "clinical_text_unit_f5e34ee75f47",
+      "page_start": 1,
+      "page_end": 1,
+      "section_path": [
+        "肠结核的诊断与治疗",
+        "一、病因"
+      ],
+      "source_layout_ids": [
+        "9SSdaY-layout-8"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "肠结核主要是由结核分枝杆菌感染肠道而引起的特异性的慢性传染性疾病，是肺外结核中较常见的一种。感染途径主要有三种，(1)肠道感染：多数由开放性肺结核患者，吞咽含有结核分枝杆菌的痰液，使肠道感染结核菌。也可能是通过与肺结核患者共进饮食，未采取消..."
+    }
+  ],
+  "merged_layout_groups": [
+    {
+      "unit_id": "clinical_text_unit_80fd8915bd8b",
+      "page_start": 1,
+      "page_end": 1,
+      "section_path": [
+        "肠结核的诊断与治疗",
+        "二、诊断"
+      ],
+      "source_layout_ids": [
+        "9SSdaY-layout-11",
+        "9SSdaY-layout-12"
+      ],
+      "raw_text_preview": "2.实验室检查：(1)结核菌素试验：结核菌素通常指旧结核菌素(OT)和结核菌纯蛋白衍生物(PPD),常用于结核病流行病学调查、结核菌感染情况监测、卡介苗接种前试验、结核病辅助诊断，自20世纪90年代以来我国主要采用PPD试验。PPD试验阳性..."
+    }
+  ],
+  "output_cards": 13
+}

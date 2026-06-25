@@ -187,7 +187,7 @@ data/skills/<指南名>/
 单文件构建示例：
 
 ```bash
-python scripts/build_skill_pack.py --cards data/skills/肠结核的诊断与治疗//recommendation_card.jsonl --force --similarity-threshold 0.7 --hpo
+python scripts/build_skill_pack.py --cards data/skills/肠结核的诊断与治疗/recommendation_card.jsonl --force --similarity-threshold 0.7 --hpo
 ```
 
 批量构建示例：

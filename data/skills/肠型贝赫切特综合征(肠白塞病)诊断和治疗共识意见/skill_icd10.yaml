@@ -1,0 +1,2430 @@
+schema_version: '0.3'
+metadata:
+  skill_id: pdf_unknown
+  disease_name: 肠型贝赫切特综合征(肠白塞病)诊断和治疗共识意见
+  disease_aliases:
+  - 肠型贝赫切特综合征(肠白塞病)诊断和治疗共识意见
+  guideline:
+    name: 肠型贝赫切特综合征(肠白塞病)诊断和治疗共识意见.pdf
+    version: unknown
+    source_pdf: 肠型贝赫切特综合征(肠白塞病)诊断和治疗共识意见.pdf
+    publication_year: null
+    language: zh-CN
+  target_users:
+  - clinicians
+  - clinical decision support developers
+  intended_use:
+  - guideline-based clinical decision support
+  - recommendation retrieval
+  - structured guideline workflow execution
+  scope: This skill pack is generated from recommendation cards in the input result.jsonl and supports guideline retrieval, evidence checking, and management recommendation drafting.
+  disclaimer: 本工具仅用于指南知识组织和临床决策支持，不替代医生诊断、处方或急诊处理。
+routing_profile:
+  population:
+  - 没有明确人群
+  positive_features:
+  - name: 典型肠道溃疡
+    similarity_score: 0.7748279571533203
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K63
+      category_name: 肠的其他疾病
+      subcategory_code: K63.3
+      subcategory_name: 肠溃疡
+      diagnosis_code: K63.304
+      diagnosis_name: 原发性小肠溃疡
+    hpo_mapping: {}
+  - name: 肠穿孔
+    similarity_score: 0.8496538996696472
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K63
+      category_name: 肠的其他疾病
+      subcategory_code: K63.1
+      subcategory_name: 肠穿孔（非创伤性）
+      diagnosis_code: K63.102
+      diagnosis_name: 回肠穿孔
+    hpo_mapping: {}
+  - name: 腹痛
+    similarity_score: 0.7284241914749146
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R10-R19
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: R10
+      category_name: 腹部和盆腔痛
+      subcategory_code: R10.0
+      subcategory_name: 急腹症
+      diagnosis_code: R10.000
+      diagnosis_name: 急腹症
+    hpo_mapping: {}
+  - name: 腹泻
+    similarity_score: 0.7710770964622498
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A00-A09
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: A09
+      category_name: 其他传染性和未特指病因的胃肠炎和结肠炎
+      subcategory_code: A09.0
+      subcategory_name: 其他和未特指传染性病因的胃肠炎和结肠炎
+      diagnosis_code: A09.004
+      diagnosis_name: 感染性腹泻
+    hpo_mapping: {}
+  - name: 腹痛多位于右下腹
+    similarity_score: 0.7545891404151917
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K57
+      category_name: 肠憩室病
+      subcategory_code: K57.3
+      subcategory_name: 大肠憩室病不伴有穿孔或脓肿
+      diagnosis_code: K57.305
+      diagnosis_name: 盲肠憩室炎
+    hpo_mapping: {}
+  - name: 粪便多呈糊状
+    similarity_score: 0.7430225014686584
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K52
+      category_name: 其他非感染性胃肠炎和结肠炎
+      subcategory_code: K52.3
+      subcategory_name: 未定型结肠炎
+      diagnosis_code: K52.300
+      diagnosis_name: 未定型结肠炎
+    hpo_mapping: {}
+  - name: 血便
+    similarity_score: 0.7606427669525146
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K90-K93
+      section_name: 肠的其他疾病
+      category_code: K92
+      category_name: 消化系统的其他疾病
+      subcategory_code: K92.2
+      subcategory_name: 未特指的胃肠出血
+      diagnosis_code: K92.206
+      diagnosis_name: 结肠出血
+    hpo_mapping: {}
+  - name: 恶心呕吐
+    similarity_score: 0.7578631043434143
+    status: mapped
+    icd10_mapping:
+      chapter: '5'
+      chapter_code_range: F00-F99
+      chapter_name: 精神和行为障碍
+      section_code_range: F50-F59
+      section_name: 肠的其他疾病
+      category_code: F50
+      category_name: 进食障碍
+      subcategory_code: F50.5
+      subcategory_name: 与其他心理紊乱有关的呕吐
+      diagnosis_code: F50.502
+      diagnosis_name: 神经性呕吐
+    hpo_mapping: {}
+  - name: 贫血
+    similarity_score: 0.7747577428817749
+    status: mapped
+    icd10_mapping:
+      chapter: '3'
+      chapter_code_range: D50-D89
+      chapter_name: 血液及造血器官疾病和涉及免疫机制的某些疾患
+      section_code_range: D50-D53
+      section_name: 肠的其他疾病
+      category_code: D53
+      category_name: 其他营养性贫血
+      subcategory_code: D53.9
+      subcategory_name: 未特指的营养性贫血
+      diagnosis_code: D53.901
+      diagnosis_name: 慢性单纯性贫血
+    hpo_mapping: {}
+  - name: 乏力
+    similarity_score: 0.7471230030059814
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R50-R69
+      section_name: 肠的其他疾病
+      category_code: R53
+      category_name: 不适和疲劳
+      subcategory_code: ''
+      subcategory_name: ''
+      diagnosis_code: R53.x00x006
+      diagnosis_name: 慢性虚弱
+    hpo_mapping: {}
+  - name: 体质量下降
+    similarity_score: 0.7345286011695862
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R50-R69
+      section_name: 肠的其他疾病
+      category_code: R63
+      category_name: 有关食物和液体摄取的症状和体征
+      subcategory_code: R63.4
+      subcategory_name: 异常的体重减轻
+      diagnosis_code: R63.400
+      diagnosis_name: 异常的体重减轻
+    hpo_mapping: {}
+  - name: 病变累及回盲部
+    similarity_score: 0.7869385480880737
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K50
+      category_name: 克罗恩病[局限性肠炎]
+      subcategory_code: K50.0
+      subcategory_name: 小肠克罗恩病
+      diagnosis_code: K50.002
+      diagnosis_name: 回肠克罗恩病
+    hpo_mapping: {}
+  - name: 发热
+    similarity_score: 0.7573919296264648
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: B99-B99
+      section_name: 肠的其他疾病
+      category_code: B99
+      category_name: 其他和未特指的传染病
+      subcategory_code: ''
+      subcategory_name: ''
+      diagnosis_code: B99.x01
+      diagnosis_name: 感染性发热
+    hpo_mapping: {}
+  - name: 复发性口腔溃疡
+    similarity_score: 0.8271699547767639
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K00-K14
+      section_name: 肠的其他疾病
+      category_code: K12
+      category_name: 口炎和有关损害
+      subcategory_code: K12.0
+      subcategory_name: 复发性口腔阿弗他溃疡
+      diagnosis_code: K12.000
+      diagnosis_name: 复发性口腔阿弗他溃疡
+    hpo_mapping: {}
+  - name: 生殖器溃疡
+    similarity_score: 0.7996971011161804
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A50-A64
+      section_name: 肠的其他疾病
+      category_code: A57
+      category_name: 软下疳
+      subcategory_code: ''
+      subcategory_name: ''
+      diagnosis_code: A57.x00
+      diagnosis_name: 软下疳
+    hpo_mapping: {}
+  - name: 眼部病变
+    similarity_score: 0.7923299670219421
+    status: mapped
+    icd10_mapping:
+      chapter: '7'
+      chapter_code_range: H00-H59
+      chapter_name: 眼和附器疾病
+      section_code_range: H43-H45
+      section_name: 肠的其他疾病
+      category_code: H44
+      category_name: 眼球疾患
+      subcategory_code: H44.3
+      subcategory_name: 眼球的其他变性性疾患
+      diagnosis_code: H44.300
+      diagnosis_name: 眼球的其他变性性疾患
+    hpo_mapping: {}
+  - name: 皮肤病变
+    similarity_score: 0.7325991988182068
+    status: mapped
+    icd10_mapping:
+      chapter: '12'
+      chapter_code_range: L00-L99
+      chapter_name: 皮肤和皮下组织疾病
+      section_code_range: L00-L08
+      section_name: 肠的其他疾病
+      category_code: L08
+      category_name: 皮肤和皮下组织其他局部感染
+      subcategory_code: L08.0
+      subcategory_name: 脓皮病
+      diagnosis_code: L08.000
+      diagnosis_name: 脓皮病
+    hpo_mapping: {}
+  - name: 关节炎
+    similarity_score: 0.7463385462760925
+    status: mapped
+    icd10_mapping:
+      chapter: '13'
+      chapter_code_range: M00-M99
+      chapter_name: 肌肉骨骼系统和结缔组织疾病
+      section_code_range: M15-M19
+      section_name: 肠的其他疾病
+      category_code: M19
+      category_name: 其他关节病
+      subcategory_code: M19.0
+      subcategory_name: 其他关节的原发性关节病
+      diagnosis_code: M19.001
+      diagnosis_name: 原发性关节病
+    hpo_mapping: {}
+  - name: 血管损害
+    similarity_score: 0.7453159093856812
+    status: mapped
+    icd10_mapping:
+      chapter: '19'
+      chapter_code_range: S00-T98
+      chapter_name: 损伤、中毒和外因的某些其他后果
+      section_code_range: T00-T07
+      section_name: 肠的其他疾病
+      category_code: T06
+      category_name: 累及身体多个部位的其他损伤，不可归类在他处者
+      subcategory_code: T06.3
+      subcategory_name: 累及身体多个部位的血管损伤
+      diagnosis_code: T06.300
+      diagnosis_name: 累及身体多个部位的血管损伤
+    hpo_mapping: {}
+  - name: 血液系统疾病
+    similarity_score: 0.7270364165306091
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: C81-C96
+      section_name: 肠的其他疾病
+      category_code: C94
+      category_name: 特指细胞类型的其他白血病
+      subcategory_code: C94.0
+      subcategory_name: 急性红白血病
+      diagnosis_code: C94.000x001
+      diagnosis_name: 急性红白血病（M6型）
+    hpo_mapping: {}
+  - name: 皮肤脓疱丘疹性病变
+    similarity_score: 0.7887709736824036
+    status: mapped
+    icd10_mapping:
+      chapter: '12'
+      chapter_code_range: L00-L99
+      chapter_name: 皮肤和皮下组织疾病
+      section_code_range: L00-L08
+      section_name: 肠的其他疾病
+      category_code: L01
+      category_name: 脓疱病
+      subcategory_code: L01.0
+      subcategory_name: 脓疱病[任何器官][任何部位]
+      diagnosis_code: L01.003
+      diagnosis_name: 单纯性脓疱病
+    hpo_mapping: {}
+  - name: 神经系统受累
+    similarity_score: 0.746380090713501
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: D37-D48
+      section_name: 肠的其他疾病
+      category_code: D48
+      category_name: 其他和未特指部位的动态未定或动态未知的肿瘤
+      subcategory_code: D48.9
+      subcategory_name: 未特指的动态未定或动态未知的肿瘤
+      diagnosis_code: D48.907+G13.0*
+      diagnosis_name: 神经系统副肿瘤综合征
+    hpo_mapping: {}
+  - name: 消化道出血
+    similarity_score: 0.814368486404419
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K90-K93
+      section_name: 肠的其他疾病
+      category_code: K92
+      category_name: 消化系统的其他疾病
+      subcategory_code: K92.2
+      subcategory_name: 未特指的胃肠出血
+      diagnosis_code: K92.208
+      diagnosis_name: 上消化道出血
+    hpo_mapping: {}
+  - name: 肠瘘
+    similarity_score: 0.8676381707191467
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K63
+      category_name: 肠的其他疾病
+      subcategory_code: K63.2
+      subcategory_name: 肠瘘
+      diagnosis_code: K63.200
+      diagnosis_name: 肠瘘
+    hpo_mapping: {}
+  - name: 腹腔脓肿
+    similarity_score: 0.8356518745422363
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K65-K67
+      section_name: 肠的其他疾病
+      category_code: K65
+      category_name: 腹膜炎
+      subcategory_code: K65.0
+      subcategory_name: 急性腹膜炎
+      diagnosis_code: K65.004
+      diagnosis_name: 腹膜脓肿
+    hpo_mapping: {}
+  - name: 血栓栓塞
+    similarity_score: 0.8042203783988953
+    status: mapped
+    icd10_mapping:
+      chapter: '9'
+      chapter_code_range: I00-I99
+      chapter_name: 循环系统疾病
+      section_code_range: I80-I89
+      section_name: 肠的其他疾病
+      category_code: I82
+      category_name: 其他静脉栓塞和血栓形成
+      subcategory_code: I82.9
+      subcategory_name: 未特指的静脉栓塞和血栓形成
+      diagnosis_code: I82.900x004
+      diagnosis_name: 静脉血栓栓塞症
+    hpo_mapping: {}
+  - name: 急性下消化道出血
+    similarity_score: 0.7641240358352661
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K90-K93
+      section_name: 肠的其他疾病
+      category_code: K92
+      category_name: 消化系统的其他疾病
+      subcategory_code: K92.2
+      subcategory_name: 未特指的胃肠出血
+      diagnosis_code: K92.209
+      diagnosis_name: 下消化道出血
+    hpo_mapping: {}
+  - name: 肛瘘
+    similarity_score: 0.822272777557373
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K60
+      category_name: 肛门及直肠区的裂和瘘
+      subcategory_code: K60.5
+      subcategory_name: 肛门直肠瘘
+      diagnosis_code: K60.500
+      diagnosis_name: 肛门直肠瘘
+    hpo_mapping: {}
+  - name: 肠道慢性缺血性病变
+    similarity_score: 0.8360620737075806
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K55
+      category_name: 肠血管疾患
+      subcategory_code: K55.1
+      subcategory_name: 肠慢性血管疾患
+      diagnosis_code: K55.100x001
+      diagnosis_name: 肠道慢性缺血性综合征
+    hpo_mapping: {}
+  - name: 肠狭窄
+    similarity_score: 0.8421834707260132
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K56
+      category_name: 麻痹性肠梗阻和不伴有疝的肠梗阻
+      subcategory_code: K56.6
+      subcategory_name: 其他和未特指的肠梗阻
+      diagnosis_code: K56.601
+      diagnosis_name: 肠狭窄
+    hpo_mapping: {}
+  - name: 针刺试验阳性
+    similarity_score: 0.7711005806922913
+    status: mapped
+    icd10_mapping:
+      chapter: '21'
+      chapter_code_range: Z00-Z99
+      chapter_name: 影响健康状态和与保健机构接触的因素
+      section_code_range: Z00-Z13
+      section_name: 肠的其他疾病
+      category_code: Z01
+      category_name: 无主诉或诊断报告的人接受的其他特殊检查和调查
+      subcategory_code: Z01.5
+      subcategory_name: 诊断性皮肤试验和致敏试验
+      diagnosis_code: Z01.500
+      diagnosis_name: 诊断性皮肤试验和致敏试验
+    hpo_mapping: {}
+  - name: HLA-B51等位基因频率增高
+    similarity_score: 0.7281057238578796
+    status: mapped
+    icd10_mapping:
+      chapter: '13'
+      chapter_code_range: M00-M99
+      chapter_name: 肌肉骨骼系统和结缔组织疾病
+      section_code_range: M30-M36
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: M35
+      category_name: 结缔组织的其他系统性受累
+      subcategory_code: M35.2
+      subcategory_name: 贝赫切特[贝切特]病
+      diagnosis_code: M35.201
+      diagnosis_name: 贝赫切特病性关节炎
+    hpo_mapping: {}
+  - name: 圆形或类圆形的深溃疡
+    similarity_score: 0.7805109620094299
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K20-K31
+      section_name: 肠的其他疾病
+      category_code: K25
+      category_name: 胃溃疡
+      subcategory_code: K25.0
+      subcategory_name: 胃溃疡:急性，伴有出血
+      diagnosis_code: K25.001
+      diagnosis_name: 迪厄拉富瓦溃疡
+    hpo_mapping: {}
+  - name: 溃疡底部相对平坦
+    similarity_score: 0.7130659222602844
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K20-K31
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: K28
+      category_name: 胃空肠溃疡
+      subcategory_code: K28.9
+      subcategory_name: 胃空肠溃疡：慢性或未特指的，不伴有出血或穿孔
+      diagnosis_code: K28.900
+      diagnosis_name: 急性或慢性胃空肠溃疡不伴有出血或穿孔
+    hpo_mapping: {}
+  - name: 多发溃疡
+    similarity_score: 0.7957856059074402
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K20-K31
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: K27
+      category_name: 部位未特指的消化性溃疡
+      subcategory_code: K27.5
+      subcategory_name: 部位未特指的消化性溃疡:慢性或未特指的，伴有穿孔
+      diagnosis_code: K27.500x001
+      diagnosis_name: 多发性溃疡伴穿孔
+    hpo_mapping: {}
+  - name: 小肠受累
+    similarity_score: 0.8475387692451477
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K50
+      category_name: 克罗恩病[局限性肠炎]
+      subcategory_code: K50.0
+      subcategory_name: 小肠克罗恩病
+      diagnosis_code: K50.000
+      diagnosis_name: 小肠克罗恩病
+    hpo_mapping: {}
+  - name: 空肠受累
+    similarity_score: 0.8473074436187744
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K50
+      category_name: 克罗恩病[局限性肠炎]
+      subcategory_code: K50.0
+      subcategory_name: 小肠克罗恩病
+      diagnosis_code: K50.001
+      diagnosis_name: 空肠克罗恩病
+    hpo_mapping: {}
+  - name: 内镜黏膜活检和手术病理发现血管炎
+    similarity_score: 0.7361348271369934
+    status: mapped
+    icd10_mapping:
+      chapter: '13'
+      chapter_code_range: M00-M99
+      chapter_name: 肌肉骨骼系统和结缔组织疾病
+      section_code_range: M30-M36
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: M30
+      category_name: 结节性多动脉炎和有关情况
+      subcategory_code: M30.1
+      subcategory_name: 多动脉炎伴有肺受累[丘格-斯特劳斯]
+      diagnosis_code: M30.100x001
+      diagnosis_name: 嗜酸性肉芽肿性血管炎
+    hpo_mapping: {}
+  - name: 小血管和中等大小血管炎
+    similarity_score: 0.764977753162384
+    status: mapped
+    icd10_mapping:
+      chapter: '13'
+      chapter_code_range: M00-M99
+      chapter_name: 肌肉骨骼系统和结缔组织疾病
+      section_code_range: M30-M36
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: M31
+      category_name: 其他坏死性血管病
+      subcategory_code: M31.8
+      subcategory_name: 其他特指的坏死性血管病
+      diagnosis_code: M31.802
+      diagnosis_name: ANCA相关性血管炎
+    hpo_mapping: {}
+  - name: 淋巴细胞围绕血管浸润
+    similarity_score: 0.7810978293418884
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: C81-C96
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: C86
+      category_name: 其他特指类型T/NK细胞淋巴瘤
+      subcategory_code: C86.3
+      subcategory_name: 皮下血管炎样T细胞淋巴瘤
+      diagnosis_code: C86.300
+      diagnosis_name: 皮下血管炎样T细胞淋巴瘤
+    hpo_mapping: {}
+  - name: 大量中性粒细胞浸润
+    similarity_score: 0.7220093607902527
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: D37-D48
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: D47
+      category_name: 淋巴、造血和有关组织动态未定或动态未知的其他肿瘤
+      subcategory_code: D47.1
+      subcategory_name: 慢性骨髓增生性疾病
+      diagnosis_code: D47.101
+      diagnosis_name: 慢性中性粒细胞白血病
+    hpo_mapping: {}
+  - name: 血管炎
+    similarity_score: 0.8311397433280945
+    status: mapped
+    icd10_mapping:
+      chapter: '13'
+      chapter_code_range: M00-M99
+      chapter_name: 肌肉骨骼系统和结缔组织疾病
+      section_code_range: M30-M36
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: M31
+      category_name: 其他坏死性血管病
+      subcategory_code: M31.8
+      subcategory_name: 其他特指的坏死性血管病
+      diagnosis_code: M31.804
+      diagnosis_name: 系统性血管炎
+    hpo_mapping: {}
+  - name: 具有白塞病相关典型肠道溃疡
+    similarity_score: 0.768311083316803
+    status: mapped
+    icd10_mapping:
+      chapter: '13'
+      chapter_code_range: M00-M99
+      chapter_name: 肌肉骨骼系统和结缔组织疾病
+      section_code_range: M30-M36
+      section_name: 肠的其他疾病
+      category_code: M35
+      category_name: 结缔组织的其他系统性受累
+      subcategory_code: M35.2
+      subcategory_name: 贝赫切特[贝切特]病
+      diagnosis_code: M35.202+N77.8*
+      diagnosis_name: 贝赫切特病性外阴溃疡
+    hpo_mapping: {}
+  - name: 口腔溃疡
+    similarity_score: 0.8082728385925293
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K00-K14
+      section_name: 口腔、涎腺和颌疾病
+      category_code: K12
+      category_name: 口炎和有关损害
+      subcategory_code: K12.1
+      subcategory_name: 其他形式的口炎
+      diagnosis_code: K12.107
+      diagnosis_name: 溃疡性口炎
+    hpo_mapping: {}
+  - name: 眼部病变（前葡萄膜炎、后葡萄膜炎或视网膜血管炎）
+    similarity_score: 0.8159562349319458
+    status: mapped
+    icd10_mapping:
+      chapter: '7'
+      chapter_code_range: H00-H59
+      chapter_name: 眼和附器疾病
+      section_code_range: H30-H36
+      section_name: 消化系统的其他疾病
+      category_code: H35
+      category_name: 其他视网膜疾患
+      subcategory_code: H35.0
+      subcategory_name: 背景性视网膜病变和视网膜血管改变
+      diagnosis_code: H35.008
+      diagnosis_name: 视网膜血管炎
+    hpo_mapping: {}
+  - name: 皮肤病变（结节性红斑、假性毛囊炎、皮肤溃疡）
+    similarity_score: 0.7398129105567932
+    status: mapped
+    icd10_mapping:
+      chapter: '12'
+      chapter_code_range: L00-L99
+      chapter_name: 皮肤和皮下组织疾病
+      section_code_range: L50-L54
+      section_name: 消化系统的其他疾病
+      category_code: L52
+      category_name: 结节性红斑
+      subcategory_code: ''
+      subcategory_name: ''
+      diagnosis_code: L52.x00
+      diagnosis_name: 结节性红斑
+    hpo_mapping: {}
+  - name: 中枢神经系统受累和血管病变（动脉血栓形成、大静脉血栓、静脉炎或浅静脉炎）
+    similarity_score: 0.74097740650177
+    status: mapped
+    icd10_mapping:
+      chapter: '9'
+      chapter_code_range: I00-I99
+      chapter_name: 循环系统疾病
+      section_code_range: I70-I79
+      section_name: 消化系统的其他疾病
+      category_code: I77
+      category_name: 动脉和小动脉的其他疾患
+      subcategory_code: I77.6
+      subcategory_name: 未特指的动脉炎
+      diagnosis_code: I77.600x016
+      diagnosis_name: 中枢神经系统血管炎
+    hpo_mapping: {}
+  - name: 典型肠道病变：溃疡边缘清晰、呈圆形或类圆形深溃疡、火山口样溃疡
+    similarity_score: 0.7531581521034241
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K50
+      category_name: 克罗恩病[局限性肠炎]
+      subcategory_code: K50.0
+      subcategory_name: 小肠克罗恩病
+      diagnosis_code: K50.000x005
+      diagnosis_name: 十二指肠克罗恩病
+    hpo_mapping: {}
+  - name: 神经系统病变
+    similarity_score: 0.7484025359153748
+    status: mapped
+    icd10_mapping:
+      chapter: '6'
+      chapter_code_range: G00-G99
+      chapter_name: 神经系统疾病
+      section_code_range: G30-G32
+      section_name: 消化系统的其他疾病
+      category_code: G31
+      category_name: 神经系统的其他变性性疾病，不可归类在他处者
+      subcategory_code: G31.8
+      subcategory_name: 神经系统其他特指的变性性疾病
+      diagnosis_code: G31.800
+      diagnosis_name: 神经系统其他特指的变性疾病
+    hpo_mapping: {}
+  - name: 骨髓异常增生综合征
+    similarity_score: 0.8488960266113281
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: D37-D48
+      section_name: 消化系统的其他疾病
+      category_code: D46
+      category_name: 骨髓增生异常综合征
+      subcategory_code: D46.7
+      subcategory_name: 其他骨髓增生异常综合征
+      diagnosis_code: D46.700x006
+      diagnosis_name: 不能分型的骨髓异常增生综合征
+    hpo_mapping: {}
+  - name: 呼吸系统病变
+    similarity_score: 0.718745768070221
+    status: mapped
+    icd10_mapping:
+      chapter: '10'
+      chapter_code_range: J00-J99
+      chapter_name: 呼吸系统疾病
+      section_code_range: J40-J47
+      section_name: 消化系统的其他疾病
+      category_code: J44
+      category_name: 其他慢性阻塞性肺病
+      subcategory_code: J44.0
+      subcategory_name: 慢性阻塞性肺病伴有急性下呼吸道感染
+      diagnosis_code: J44.000
+      diagnosis_name: 慢性阻塞性肺病伴有急性下呼吸道感染
+    hpo_mapping: {}
+  - name: 肠出血
+    similarity_score: 0.8067448735237122
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K90-K93
+      section_name: 肠的其他疾病
+      category_code: K92
+      category_name: 消化系统的其他疾病
+      subcategory_code: K92.2
+      subcategory_name: 未特指的胃肠出血
+      diagnosis_code: K92.204
+      diagnosis_name: 肠出血
+    hpo_mapping: {}
+  - name: 肠梗阻
+    similarity_score: 0.8233804702758789
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K56
+      category_name: 麻痹性肠梗阻和不伴有疝的肠梗阻
+      subcategory_code: K56.6
+      subcategory_name: 其他和未特指的肠梗阻
+      diagnosis_code: K56.604
+      diagnosis_name: 机械性肠梗阻
+    hpo_mapping: {}
+  - name: 深溃疡
+    similarity_score: 0.8045968413352966
+    status: mapped
+    icd10_mapping:
+      chapter: '12'
+      chapter_code_range: L00-L99
+      chapter_name: 皮肤和皮下组织疾病
+      section_code_range: L80-L99
+      section_name: 肠的其他疾病
+      category_code: L98
+      category_name: 皮肤和皮下组织的其他疾患，不可归类在他处者
+      subcategory_code: L98.4
+      subcategory_name: 皮肤慢性溃疡，不可归类在他处者
+      diagnosis_code: L98.400
+      diagnosis_name: 皮肤慢性溃疡，不可归类在他处者
+    hpo_mapping: {}
+  - name: 如有肠腔狭窄，通常不伴上游肠管扩张
+    similarity_score: 0.7598127722740173
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K56
+      category_name: 麻痹性肠梗阻和不伴有疝的肠梗阻
+      subcategory_code: K56.6
+      subcategory_name: 其他和未特指的肠梗阻
+      diagnosis_code: K56.602
+      diagnosis_name: 乙状结肠狭窄
+    hpo_mapping: {}
+  - name: 同一部位活检提示溃疡与大致正常的黏膜组织并存
+    similarity_score: 0.7256824374198914
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K20-K31
+      section_name: 肠的其他疾病
+      category_code: K27
+      category_name: 部位未特指的消化性溃疡
+      subcategory_code: K27.4
+      subcategory_name: 部位未特指的消化性溃疡:慢性或未特指的，伴有出血
+      diagnosis_code: K27.400x001
+      diagnosis_name: 多发性溃疡伴出血
+    hpo_mapping: {}
+  - name: 肠壁增厚和强化
+    similarity_score: 0.7174752950668335
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K52
+      category_name: 其他非感染性胃肠炎和结肠炎
+      subcategory_code: K52.9
+      subcategory_name: 未特指的非感染性胃肠炎和结肠炎
+      diagnosis_code: K52.914
+      diagnosis_name: 肠炎性包块
+    hpo_mapping: {}
+  - name: 血清抗酿酒酵母菌抗体阳性
+    similarity_score: 0.748633861541748
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A30-A49
+      section_name: 肠的其他疾病
+      category_code: A41
+      category_name: 其他脓毒症
+      subcategory_code: A41.8
+      subcategory_name: 其他特指的脓毒症
+      diagnosis_code: A41.802
+      diagnosis_name: 类酵母菌脓毒症
+    hpo_mapping: {}
+  - name: 皮肤病变（毛囊炎或痤疮样皮损）
+    similarity_score: 0.7550665736198425
+    status: mapped
+    icd10_mapping:
+      chapter: '12'
+      chapter_code_range: L00-L99
+      chapter_name: 皮肤和皮下组织疾病
+      section_code_range: L00-L08
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: L01
+      category_name: 脓疱病
+      subcategory_code: L01.0
+      subcategory_name: 脓疱病[任何器官][任何部位]
+      diagnosis_code: L01.005
+      diagnosis_name: 毛囊性脓疱病
+    hpo_mapping: {}
+  - name: 肛周病变
+    similarity_score: 0.7462470531463623
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: D37-D48
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: D48
+      category_name: 其他和未特指部位的动态未定或动态未知的肿瘤
+      subcategory_code: D48.5
+      subcategory_name: 皮肤动态未定或动态未知的肿瘤
+      diagnosis_code: D48.512
+      diagnosis_name: 肛周皮肤动态未定肿瘤
+    hpo_mapping: {}
+  - name: 炎症性息肉
+    similarity_score: 0.8526092171669006
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: K51
+      category_name: 溃疡性结肠炎
+      subcategory_code: K51.4
+      subcategory_name: 炎性息肉
+      diagnosis_code: K51.400
+      diagnosis_name: 炎性息肉
+    hpo_mapping: {}
+  - name: 肠系膜侧肠壁病变较对侧更严重
+    similarity_score: 0.7384265661239624
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: C45-C49
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: C48
+      category_name: 腹膜后腔和腹膜恶性肿瘤
+      subcategory_code: C48.1
+      subcategory_name: 腹膜特指部位的恶性肿瘤
+      diagnosis_code: C48.101
+      diagnosis_name: 肠系膜恶性肿瘤
+    hpo_mapping: {}
+  - name: 部分病例可出现肠系膜脂肪增生或脂肪爬行征
+    similarity_score: 0.7231681942939758
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K90-K93
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: K90
+      category_name: 肠吸收不良
+      subcategory_code: K90.4
+      subcategory_name: 不耐受引起的吸收不良，不可归类在他处者
+      diagnosis_code: K90.400x003
+      diagnosis_name: 肠原性脂肪代谢障碍
+    hpo_mapping: {}
+  - name: 上皮样肉芽肿
+    similarity_score: 0.7126241326332092
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: C81-C96
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: C96
+      category_name: 淋巴、造血和有关组织其他和未特指的恶性肿瘤
+      subcategory_code: C96.6
+      subcategory_name: 单病灶的朗格汉斯组织细胞增多症
+      diagnosis_code: C96.601
+      diagnosis_name: 嗜酸细胞性肉芽肿
+    hpo_mapping: {}
+  - name: ESR增高
+    similarity_score: 0.7234257459640503
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R70-R79
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: R70
+      category_name: 红细胞沉降率升高和血浆粘滞度异常
+      subcategory_code: R70.0
+      subcategory_name: 红细胞沉降率升高
+      diagnosis_code: R70.000
+      diagnosis_name: 红细胞沉降率升高
+    hpo_mapping: {}
+  - name: 内镜下溃疡活动程度
+    similarity_score: 0.7038483023643494
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K20-K31
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: K27
+      category_name: 部位未特指的消化性溃疡
+      subcategory_code: K27.3
+      subcategory_name: 部位未特指的消化性溃疡:急性，不伴有出血或穿孔
+      diagnosis_code: K27.300
+      diagnosis_name: 急性消化性溃疡不伴有出血和穿孔
+    hpo_mapping: {}
+  - name: 克罗恩病患者粪钙卫蛋白与内镜疾病活动度评分相关
+    similarity_score: 0.709412693977356
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: K50
+      category_name: 克罗恩病[局限性肠炎]
+      subcategory_code: K50.9
+      subcategory_name: 未特指的克罗恩病
+      diagnosis_code: K50.900
+      diagnosis_name: 克罗恩病
+    hpo_mapping: {}
+  - name: 肠内症状
+    similarity_score: 0.7576996684074402
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K58
+      category_name: 肠易激综合征
+      subcategory_code: K58.8
+      subcategory_name: 其他和未特指的肠易激综合征
+      diagnosis_code: K58.801
+      diagnosis_name: 肠易激综合征
+    hpo_mapping: {}
+  - name: 狭窄
+    similarity_score: 0.7390184998512268
+    status: mapped
+    icd10_mapping:
+      chapter: '13'
+      chapter_code_range: M00-M99
+      chapter_name: 肌肉骨骼系统和结缔组织疾病
+      section_code_range: M45-M49
+      section_name: 肠的其他疾病
+      category_code: M48
+      category_name: 其他脊椎病
+      subcategory_code: M48.0
+      subcategory_name: 椎管狭窄
+      diagnosis_code: M48.000
+      diagnosis_name: 椎管狭窄
+    hpo_mapping: {}
+  - name: 瘘管
+    similarity_score: 0.8187122344970703
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K63
+      category_name: 肠的其他疾病
+      subcategory_code: K63.2
+      subcategory_name: 肠瘘
+      diagnosis_code: K63.200x003
+      diagnosis_name: 盲管瘘
+    hpo_mapping: {}
+  - name: 出血
+    similarity_score: 0.8009073138237
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R50-R69
+      section_name: 肠的其他疾病
+      category_code: R58
+      category_name: 出血，不可归类在他处者
+      subcategory_code: ''
+      subcategory_name: ''
+      diagnosis_code: R58.x00
+      diagnosis_name: 出血，不可归类在他处者
+    hpo_mapping: {}
+  - name: 穿孔
+    similarity_score: 0.8481419682502747
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K20-K31
+      section_name: 肠的其他疾病
+      category_code: K31
+      category_name: 胃和十二指肠的其他疾病
+      subcategory_code: K31.8
+      subcategory_name: 胃和十二指肠其他特指的疾病
+      diagnosis_code: K31.800x806
+      diagnosis_name: 十二指肠穿孔
+    hpo_mapping: {}
+  - name: 严重狭窄致肠梗阻
+    similarity_score: 0.8394853472709656
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K56
+      category_name: 麻痹性肠梗阻和不伴有疝的肠梗阻
+      subcategory_code: K56.2
+      subcategory_name: 肠扭转
+      diagnosis_code: K56.201
+      diagnosis_name: 绞窄性肠梗阻
+    hpo_mapping: {}
+  - name: 消化道大出血
+    similarity_score: 0.832994818687439
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K90-K93
+      section_name: 肠的其他疾病
+      category_code: K92
+      category_name: 消化系统的其他疾病
+      subcategory_code: K92.2
+      subcategory_name: 未特指的胃肠出血
+      diagnosis_code: K92.207
+      diagnosis_name: 急性上消化道出血
+    hpo_mapping: {}
+  - name: 药物治疗反应差
+    similarity_score: 0.7470517158508301
+    status: mapped
+    icd10_mapping:
+      chapter: '22'
+      chapter_code_range: U00-U85
+      chapter_name: 用于特殊目的的编码
+      section_code_range: U82-U85
+      section_name: 肠的其他疾病
+      category_code: U84
+      category_name: 对其他抗菌药耐药
+      subcategory_code: U84.9
+      subcategory_name: 对未特指的抗菌药物耐药
+      diagnosis_code: U84.901
+      diagnosis_name: 药物抵抗
+    hpo_mapping: {}
+  - name: 因肠瘘等肠道并发症生活质量低下
+    similarity_score: 0.7444204688072205
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K63
+      category_name: 肠的其他疾病
+      subcategory_code: K63.2
+      subcategory_name: 肠瘘
+      diagnosis_code: K63.204
+      diagnosis_name: 结肠瘘
+    hpo_mapping: {}
+  - name: 中重度、激素依赖或对抗TNF-α单抗无应答的肠白塞病
+    similarity_score: 0.7213216423988342
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: K50
+      category_name: 克罗恩病[局限性肠炎]
+      subcategory_code: K50.8
+      subcategory_name: 其他的克罗恩病
+      diagnosis_code: K50.800x001
+      diagnosis_name: 大肠和小肠克罗恩病
+    hpo_mapping: {}
+  - name: 糖皮质激素依赖
+    similarity_score: 0.8097711205482483
+    status: mapped
+    icd10_mapping:
+      chapter: '4'
+      chapter_code_range: E00-E90
+      chapter_name: 内分泌、营养和代谢疾病
+      section_code_range: E20-E35
+      section_name: 肠的其他疾病
+      category_code: E24
+      category_name: 库欣综合征[皮质醇增多症]
+      subcategory_code: E24.8
+      subcategory_name: 其他库欣综合征
+      diagnosis_code: E24.801
+      diagnosis_name: 糖皮质激素过度敏感综合征
+    hpo_mapping: {}
+  - name: 营养不良
+    similarity_score: 0.8259137272834778
+    status: mapped
+    icd10_mapping:
+      chapter: '4'
+      chapter_code_range: E00-E90
+      chapter_name: 内分泌、营养和代谢疾病
+      section_code_range: E40-E46
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: E46
+      category_name: 未特指的蛋白质-能量营养不良
+      subcategory_code: ''
+      subcategory_name: ''
+      diagnosis_code: E46.x00
+      diagnosis_name: 蛋白质-能量营养不良
+    hpo_mapping: {}
+  - name: 口腔病变
+    similarity_score: 0.7776165008544922
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K00-K14
+      section_name: 口腔、涎腺和颌疾病
+      category_code: K12
+      category_name: 口炎和有关损害
+      subcategory_code: K12.3
+      subcategory_name: 口腔粘膜炎（溃疡性）
+      diagnosis_code: K12.300
+      diagnosis_name: 口腔黏膜炎（溃疡）
+    hpo_mapping: {}
+  - name: 上消化道病变
+    similarity_score: 0.7413661479949951
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K20-K31
+      section_name: 食管、胃和十二指肠疾病
+      category_code: K31
+      category_name: 胃和十二指肠的其他疾病
+      subcategory_code: K31.9
+      subcategory_name: 胃和十二指肠未特指的疾病
+      diagnosis_code: K31.905
+      diagnosis_name: 胃黏膜病变
+    hpo_mapping: {}
+  - name: 疾病活动度高
+    similarity_score: 0.7027443647384644
+    status: mapped
+    icd10_mapping:
+      chapter: '13'
+      chapter_code_range: M00-M99
+      chapter_name: 肌肉骨骼系统和结缔组织疾病
+      section_code_range: M05-M14
+      section_name: 肠的其他疾病
+      category_code: M06
+      category_name: 其他类风湿性关节炎
+      subcategory_code: M06.1
+      subcategory_name: 成年型斯蒂尔病
+      diagnosis_code: M06.100
+      diagnosis_name: 成年型斯蒂尔病
+    hpo_mapping: {}
+  - name: 合并感染
+    similarity_score: 0.7332290410995483
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A30-A49
+      section_name: 肠的其他疾病
+      category_code: A49
+      category_name: 未特指部位的细菌性感染
+      subcategory_code: A49.9
+      subcategory_name: 未特指的细菌性感染
+      diagnosis_code: A49.902
+      diagnosis_name: 革兰阴性杆菌感染
+    hpo_mapping: {}
+  - name: 合并口腔、皮肤、关节肌肉、眼、血管、心脏、肺及神经系统等器官受累
+    similarity_score: 0.7793225049972534
+    status: mapped
+    icd10_mapping:
+      chapter: '13'
+      chapter_code_range: M00-M99
+      chapter_name: 肌肉骨骼系统和结缔组织疾病
+      section_code_range: M30-M36
+      section_name: 肠的其他疾病
+      category_code: M32
+      category_name: 系统性红斑狼疮
+      subcategory_code: M32.9
+      subcategory_name: 未特指的系统性红斑狼疮
+      diagnosis_code: M32.900
+      diagnosis_name: 系统性红斑狼疮
+    hpo_mapping: {}
+  negative_features:
+  - name: 缺乏非干酪样肉芽肿
+    similarity_score: 0.7246138453483582
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A30-A49
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: A31
+      category_name: 其他分枝杆菌感染
+      subcategory_code: A31.9
+      subcategory_name: 未特指的分枝杆菌感染
+      diagnosis_code: A31.900
+      diagnosis_name: 分枝杆菌感染
+    hpo_mapping: {}
+  - name: 较少直肠肛管受累
+    similarity_score: 0.7909332513809204
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: K50
+      category_name: 克罗恩病[局限性肠炎]
+      subcategory_code: K50.1
+      subcategory_name: 大肠克罗恩病
+      diagnosis_code: K50.103
+      diagnosis_name: 直肠克罗恩病
+    hpo_mapping: {}
+  - name: 较少发生肛瘘
+    similarity_score: 0.7349416613578796
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: K60
+      category_name: 肛门及直肠区的裂和瘘
+      subcategory_code: K60.5
+      subcategory_name: 肛门直肠瘘
+      diagnosis_code: K60.500
+      diagnosis_name: 肛门直肠瘘
+    hpo_mapping: {}
+  - name: 无临床症状
+    similarity_score: 0.7258063554763794
+    status: mapped
+    icd10_mapping:
+      chapter: '21'
+      chapter_code_range: Z00-Z99
+      chapter_name: 影响健康状态和与保健机构接触的因素
+      section_code_range: Z20-Z29
+      section_name: 肠的其他疾病
+      category_code: Z21
+      category_name: 无症状的人类免疫缺陷病毒[HIV]感染状态
+      subcategory_code: ''
+      subcategory_name: ''
+      diagnosis_code: Z21.x00x001
+      diagnosis_name: 无症状人类免疫缺陷病毒阳性
+    hpo_mapping: {}
+  scoring:
+    method: hybrid_weighted_semantic
+    normalization: sum_max_1
+    thresholds:
+      candidate: 0.35
+      strong_candidate: 0.6
+      very_likely: 0.8
+    top_k_default: 5
+    safety_override: true
+    mapping:
+      ocr_card_61f0c0df36ba:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_c5402896324e:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_7f375a861851:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_50d85757bdef:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_a7440aa83a4c:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_e66a9020d916:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_6dd6b6daabed:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_303f000a3167:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_c11c8ed02fe1:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_69e9304e5d77:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_118dfaa2852f:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_3b43460257e7:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_b56d7d6dc8c3:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_32d4ee459189:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_0277256cbccb:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_7c99a45352a5:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_42c3f8a11e29:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_251a60bdb86a:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_4e5a05163ec7:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_04669514147c:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_8d2744a857c1:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_30174c585892:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_f54ddc677613:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_6273a0633b92:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_93c6513cb4ef:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_e62b9bd10637:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_549144ffa8be:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_f44a24915b45:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_83f43a9b47e6:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_d700842a7672:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_702dae659a7b:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_c6355bdb1297:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_09a50052783b:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_ae460cad29d7:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_a185a331f895:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_612fb0507627:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_396b9c790b07:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_630b35f9a45a:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_9cb115059fe1:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_101616bc690c:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_ff6731d30fd9:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_7bf3a3bb0367:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_4029ce87bdc9:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_367c5ebbf479:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_6fafb61ce2e0:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_1fcc26b3e9dc:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_1eebe30e2100:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_86f6401aeba5:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_415ee2cadd57:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_85046002dac9:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_d8910538afe1:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_74e8afbc30d8:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_721afa0537d8:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_423d942f57d2:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_adbcc7ac2858:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_c4bd4d947c6b:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_bed5c5ba6965:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_3c02fec5d579:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_c1f6a9d265d1:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_c08d7b7be426:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_e31c8f642e0e:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_c46a8ea25aae:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_2bf81e262a01:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_3a061d7d6595:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_f7867b863969:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_67e28e121bbb:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_93b4247ce7cb:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_1b44da1f6885:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_ea1ed4d64dd2:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_363cedd0536b:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_f7a19a9db051:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_9514ac2064c9:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_1ec303cba169:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_e8411013fa3a:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_2d3ae7435c92:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_5614a4d6feb0:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_ed345797b1c7:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_5eaa3de3a9e5:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_1e4fcace597c:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_f2e730cf88e0:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_1e45980a69de:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_b9c161b62e3b:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_3b8238b2544f:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_de63b25fef54:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_e9695230696b:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_674577f5f4b7:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_0c6b6ab8ee9c:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+knowledge_base:
+  cards_path: recommendation_card.jsonl
+  card_schema_ref: schema/recommendation_card.schema.json
+  retrieval:
+    default_mode: hybrid
+    modes:
+    - by_recommendation_id
+    - semantic
+    - metadata_filter
+    - hybrid
+    default_top_k: 8
+    citation_required: true
+workflow:
+  workflow_version: '0.1'
+  entrypoint: triage
+  global_policies:
+    stop_on_emergency: true
+    require_citations: true
+    no_prescription: true
+  steps:
+  - step_id: triage
+    type: safety_triage
+    description: Check emergency red flags and routing suitability.
+    config:
+      red_flags_ref: routing_profile.red_flags
+      subskill_ref: initial_triage
+    transitions:
+    - when:
+        op: exists
+        path: result.red_flags
+      to: emergency_safety
+    - when:
+        op: gte
+        left: context.route_score
+        right: 0.35
+      to: diagnostic_evidence_check
+    - when:
+        op: default
+      to: low_probability_output
+  - step_id: diagnostic_evidence_check
+    type: evidence_check
+    description: Check diagnostic evidence and missing required information.
+    config:
+      subskill_ref: diagnostic_integration
+    transitions:
+    - when:
+        op: exists
+        path: result.missing_required_evidence
+      to: missing_diagnostic_information_output
+    - when:
+        op: default
+      to: differential_check
+  - step_id: differential_check
+    type: differential_check
+    description: Check important differential diagnoses.
+    config:
+      subskill_ref: differential_diagnosis
+    transitions:
+    - when:
+        op: exists
+        path: result.differential_warnings
+      to: differential_needed_output
+    - when:
+        op: default
+      to: staging_assessment
+  - step_id: staging_assessment
+    type: evidence_check
+    description: Assess staging, severity, complications, or risk profile.
+    config:
+      subskill_ref: staging_assessment
+    transitions:
+    - when:
+        op: default
+      to: management_gate
+  - step_id: management_gate
+    type: management_gate
+    description: Decide whether management plan generation is allowed.
+    config:
+      diagnosis_required_policy: safety_constraints.treatment_policy.diagnosis_required
+    transitions:
+    - when:
+        op: eq
+        left: result.allow_management_plan
+        right: true
+      to: management_plan_generation
+    - when:
+        op: default
+      to: candidate_summary_output
+  - step_id: management_plan_generation
+    type: plan_generation
+    description: Generate guideline-based management plan.
+    config:
+      subskill_ref: management_plan
+    transitions:
+    - when:
+        op: default
+      to: final_output
+  - step_id: emergency_safety
+    type: terminal_output
+    description: Emergency safety output.
+    config:
+      output_template: emergency_safety
+    transitions: []
+  - step_id: low_probability_output
+    type: terminal_output
+    description: Low probability output.
+    config:
+      output_template: low_probability
+    transitions: []
+  - step_id: missing_diagnostic_information_output
+    type: terminal_output
+    description: Missing diagnostic information output.
+    config:
+      output_template: missing_information
+    transitions: []
+  - step_id: differential_needed_output
+    type: terminal_output
+    description: Differential diagnosis needed output.
+    config:
+      output_template: differential_needed
+    transitions: []
+  - step_id: candidate_summary_output
+    type: terminal_output
+    description: Candidate disease summary output.
+    config:
+      output_template: candidate_summary
+    transitions: []
+  - step_id: final_output
+    type: terminal_output
+    description: Final guideline-based output.
+    config:
+      output_template: final_recommendation
+    transitions: []
+subskills:
+- subskill_id: initial_triage
+  name: Initial triage
+  type: safety_triage
+  input_requirements:
+    required_for_high_confidence: []
+  card_selection:
+    mode: by_recommendation_id
+    required: []
+    optional:
+    - ocr_card_de63b25fef54
+  output_schema_ref: schemas/output.schema.json
+- subskill_id: diagnostic_integration
+  name: Diagnostic integration
+  type: evidence_check
+  input_requirements:
+    required_for_high_confidence: []
+  card_selection:
+    mode: by_recommendation_id
+    required: []
+    optional:
+    - ocr_card_c5402896324e
+    - ocr_card_50d85757bdef
+    - ocr_card_0277256cbccb
+    - ocr_card_7c99a45352a5
+    - ocr_card_251a60bdb86a
+    - ocr_card_8d2744a857c1
+    - ocr_card_30174c585892
+    - ocr_card_f54ddc677613
+    - ocr_card_93c6513cb4ef
+    - ocr_card_e62b9bd10637
+    - ocr_card_549144ffa8be
+    - ocr_card_f44a24915b45
+    - ocr_card_83f43a9b47e6
+    - ocr_card_d700842a7672
+    - ocr_card_09a50052783b
+    - ocr_card_396b9c790b07
+    - ocr_card_630b35f9a45a
+    - ocr_card_9cb115059fe1
+    - ocr_card_101616bc690c
+    - ocr_card_415ee2cadd57
+    - ocr_card_85046002dac9
+    - ocr_card_d8910538afe1
+    - ocr_card_0c6b6ab8ee9c
+  output_schema_ref: schemas/output.schema.json
+- subskill_id: differential_diagnosis
+  name: Differential diagnosis
+  type: differential_check
+  input_requirements:
+    required_for_high_confidence: []
+  card_selection:
+    mode: by_recommendation_id
+    required: []
+    optional: []
+  output_schema_ref: schemas/output.schema.json
+- subskill_id: staging_assessment
+  name: Staging and assessment
+  type: evidence_check
+  input_requirements:
+    required_for_high_confidence: []
+  card_selection:
+    mode: by_recommendation_id
+    required: []
+    optional:
+    - ocr_card_3b43460257e7
+    - ocr_card_ff6731d30fd9
+    - ocr_card_7bf3a3bb0367
+    - ocr_card_4029ce87bdc9
+    - ocr_card_367c5ebbf479
+    - ocr_card_6fafb61ce2e0
+    - ocr_card_1fcc26b3e9dc
+    - ocr_card_1eebe30e2100
+    - ocr_card_74e8afbc30d8
+    - ocr_card_c4bd4d947c6b
+  output_schema_ref: schemas/output.schema.json
+- subskill_id: management_plan
+  name: Management plan
+  type: plan_generation
+  input_requirements:
+    required_for_high_confidence: []
+  card_selection:
+    mode: by_recommendation_id
+    required: []
+    optional:
+    - ocr_card_721afa0537d8
+    - ocr_card_423d942f57d2
+    - ocr_card_adbcc7ac2858
+    - ocr_card_bed5c5ba6965
+    - ocr_card_3c02fec5d579
+    - ocr_card_c1f6a9d265d1
+    - ocr_card_c08d7b7be426
+    - ocr_card_c46a8ea25aae
+    - ocr_card_2bf81e262a01
+    - ocr_card_67e28e121bbb
+    - ocr_card_1b44da1f6885
+    - ocr_card_ea1ed4d64dd2
+    - ocr_card_f7a19a9db051
+    - ocr_card_9514ac2064c9
+    - ocr_card_e8411013fa3a
+    - ocr_card_5eaa3de3a9e5
+    - ocr_card_f2e730cf88e0
+    - ocr_card_1e45980a69de
+    - ocr_card_b9c161b62e3b
+    - ocr_card_3b8238b2544f
+    - ocr_card_e9695230696b
+  output_schema_ref: schemas/output.schema.json
+- subskill_id: general_guideline_support
+  name: General guideline support
+  type: card_retrieval
+  input_requirements:
+    required_for_high_confidence: []
+  card_selection:
+    mode: by_recommendation_id
+    required: []
+    optional:
+    - ocr_card_61f0c0df36ba
+    - ocr_card_7f375a861851
+    - ocr_card_a7440aa83a4c
+    - ocr_card_e66a9020d916
+    - ocr_card_6dd6b6daabed
+    - ocr_card_303f000a3167
+    - ocr_card_c11c8ed02fe1
+    - ocr_card_69e9304e5d77
+    - ocr_card_118dfaa2852f
+    - ocr_card_b56d7d6dc8c3
+    - ocr_card_32d4ee459189
+    - ocr_card_42c3f8a11e29
+    - ocr_card_4e5a05163ec7
+    - ocr_card_04669514147c
+    - ocr_card_6273a0633b92
+    - ocr_card_702dae659a7b
+    - ocr_card_c6355bdb1297
+    - ocr_card_ae460cad29d7
+    - ocr_card_a185a331f895
+    - ocr_card_612fb0507627
+    - ocr_card_86f6401aeba5
+    - ocr_card_e31c8f642e0e
+    - ocr_card_3a061d7d6595
+    - ocr_card_f7867b863969
+    - ocr_card_93b4247ce7cb
+    - ocr_card_363cedd0536b
+    - ocr_card_1ec303cba169
+    - ocr_card_2d3ae7435c92
+    - ocr_card_5614a4d6feb0
+    - ocr_card_ed345797b1c7
+    - ocr_card_1e4fcace597c
+    - ocr_card_674577f5f4b7
+  output_schema_ref: schemas/output.schema.json
+safety_constraints:
+  safety_version: '0.1'
+  general:
+  - id: no_diagnosis_replacement
+    rule: This skill pack supports guideline-based information organization and does not replace clinician diagnosis.
+    severity: high
+  - id: no_prescription
+    rule: Do not provide prescriptions or individualized drug dosing without qualified physician review.
+    severity: high
+  - id: emergency_referral
+    rule: If emergency red flags are present, recommend urgent medical evaluation.
+    severity: critical
+  treatment_policy:
+    diagnosis_required: confirmed_or_high_confidence
+    allow_general_management_advice: true
+    allow_specific_drug_dosing: false
+    allow_prescription: false
+    require_physician_review: true
+  emergency_policy:
+    trigger_from:
+    - routing_profile.red_flags
+    - safety_constraints.general
+    output_template: emergency_safety
+    stop_workflow: true
+output_templates:
+  emergency_safety:
+    audience: clinician
+    structure:
+    - status
+    - red_flags
+    - urgent_action
+    - disclaimer
+  low_probability:
+    audience: clinician
+    structure:
+    - status
+    - matched_positive_features
+    - matched_negative_features
+    - reason
+    - suggested_next_steps
+    - disclaimer
+  missing_information:
+    audience: clinician
+    structure:
+    - status
+    - missing_information
+    - recommended_next_steps
+    - used_cards
+    - citations
+    - disclaimer
+  differential_needed:
+    audience: clinician
+    structure:
+    - status
+    - differential_diagnoses
+    - key_distinguishing_features
+    - recommended_next_steps
+    - used_cards
+    - citations
+    - disclaimer
+  candidate_summary:
+    audience: clinician
+    structure:
+    - status
+    - matched_positive_features
+    - matched_negative_features
+    - evidence_summary
+    - missing_information
+    - used_cards
+    - citations
+    - disclaimer
+  final_recommendation:
+    audience: clinician
+    structure:
+    - status
+    - evidence_summary
+    - guideline_recommendations
+    - management_considerations
+    - monitoring_plan
+    - used_cards
+    - citations
+    - disclaimer
+validation:
+  required_checks:
+  - skill_pack_schema_validation
+  - card_schema_validation
+  - card_id_uniqueness
+  - workflow_transition_targets_exist
+  - workflow_subskill_refs_exist
+  - output_templates_exist
+  - selected_card_ids_exist
+  review_policy:
+    requires_human_review: true
+    reviewer_role: clinician_or_guideline_curator
+    notes: Automatically generated from result.jsonl; clinical review is required before production use.
+  test_cases_path: tests/fixtures/skill_pack_cases.jsonl

@@ -1,0 +1,5582 @@
+{
+  "source_type": "cards",
+  "positive_features": {
+    "source_type": "cards_positive",
+    "similarity_threshold": 0.7,
+    "top_k": 5,
+    "input_count": 130,
+    "deduped_count": 130,
+    "mapped_count": 78,
+    "low_similarity_count": 12,
+    "duplicate_count": 40,
+    "items": [
+      {
+        "phenotype": "不明原因的发热",
+        "matched_term": "不明原因的发热",
+        "hpo_code": "HP:0001955",
+        "similarity_score": 0.9998720288276672,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "不明原因的发热",
+            "hpo_code": "HP:0001955",
+            "similarity_score": 0.9998720288276672
+          },
+          {
+            "hpo_term": "非周期性反复发热",
+            "hpo_code": "HP:0032324",
+            "similarity_score": 0.8281697630882263
+          },
+          {
+            "hpo_term": "持续性发热",
+            "hpo_code": "HP:0033399",
+            "similarity_score": 0.8268756866455078
+          },
+          {
+            "hpo_term": "阵发性发热",
+            "hpo_code": "HP:0001954",
+            "similarity_score": 0.8034955263137817
+          },
+          {
+            "hpo_term": "周期性发热",
+            "hpo_code": "HP:0032323",
+            "similarity_score": 0.7925625443458557
+          }
+        ],
+        "card_id": [
+          "ocr_card_9aa83656cb74"
+        ]
+      },
+      {
+        "phenotype": "盗汗",
+        "matched_term": "盗汗",
+        "hpo_code": "HP:0030166",
+        "similarity_score": 0.9998854398727417,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "盗汗",
+            "hpo_code": "HP:0030166",
+            "similarity_score": 0.9998854398727417
+          },
+          {
+            "hpo_term": "多汗症",
+            "hpo_code": "HP:0000975",
+            "similarity_score": 0.8095659613609314
+          },
+          {
+            "hpo_term": "排汗调控异常",
+            "hpo_code": "HP:0012333",
+            "similarity_score": 0.7828651070594788
+          },
+          {
+            "hpo_term": "发作性多汗症",
+            "hpo_code": "HP:0001069",
+            "similarity_score": 0.7662451863288879
+          },
+          {
+            "hpo_term": "少汗/多汗症",
+            "hpo_code": "HP:0007550",
+            "similarity_score": 0.7627807259559631
+          }
+        ],
+        "card_id": [
+          "ocr_card_9aa83656cb74",
+          "ocr_card_24eae6993be8"
+        ]
+      },
+      {
+        "phenotype": "体重下降",
+        "matched_term": "体重下降",
+        "hpo_code": "HP:0004325",
+        "similarity_score": 0.9999075531959534,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "体重下降",
+            "hpo_code": "HP:0004325",
+            "similarity_score": 0.9999075531959534
+          },
+          {
+            "hpo_term": "体重减轻",
+            "hpo_code": "HP:0001824",
+            "similarity_score": 0.9766279458999634
+          },
+          {
+            "hpo_term": "体重指数下降",
+            "hpo_code": "HP:0045082",
+            "similarity_score": 0.9321509599685669
+          },
+          {
+            "hpo_term": "体重增加",
+            "hpo_code": "HP:0004324",
+            "similarity_score": 0.8003146648406982
+          },
+          {
+            "hpo_term": "体重异常",
+            "hpo_code": "HP:0004323",
+            "similarity_score": 0.7937663197517395
+          }
+        ],
+        "card_id": [
+          "ocr_card_9aa83656cb74"
+        ]
+      },
+      {
+        "phenotype": "皮肤瘙痒",
+        "matched_term": "瘙痒",
+        "hpo_code": "HP:0000989",
+        "similarity_score": 0.8725570440292358,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "瘙痒",
+            "hpo_code": "HP:0000989",
+            "similarity_score": 0.8725570440292358
+          },
+          {
+            "hpo_term": "手部瘙痒",
+            "hpo_code": "HP:0030899",
+            "similarity_score": 0.8116018176078796
+          },
+          {
+            "hpo_term": "皮疹",
+            "hpo_code": "HP:0000988",
+            "similarity_score": 0.7875984311103821
+          },
+          {
+            "hpo_term": "皮肤炎症反应",
+            "hpo_code": "HP:0011123",
+            "similarity_score": 0.7835822105407715
+          },
+          {
+            "hpo_term": "皮肤异常",
+            "hpo_code": "HP:0000951",
+            "similarity_score": 0.7737054228782654
+          }
+        ],
+        "card_id": [
+          "ocr_card_9aa83656cb74",
+          "ocr_card_24eae6993be8"
+        ]
+      },
+      {
+        "phenotype": "乏力",
+        "matched_term": "疲乏",
+        "hpo_code": "HP:0012378",
+        "similarity_score": 0.9175167083740234,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "疲乏",
+            "hpo_code": "HP:0012378",
+            "similarity_score": 0.9175167083740234
+          },
+          {
+            "hpo_term": "虚弱",
+            "hpo_code": "HP:0025406",
+            "similarity_score": 0.8706473112106323
+          },
+          {
+            "hpo_term": "全身乏力不适",
+            "hpo_code": "HP:0033834",
+            "similarity_score": 0.8192245960235596
+          },
+          {
+            "hpo_term": "慢性疲劳",
+            "hpo_code": "HP:0012432",
+            "similarity_score": 0.8171403408050537
+          },
+          {
+            "hpo_term": "困倦",
+            "hpo_code": "HP:0002329",
+            "similarity_score": 0.8109015226364136
+          }
+        ],
+        "card_id": [
+          "ocr_card_9aa83656cb74",
+          "ocr_card_24eae6993be8"
+        ]
+      },
+      {
+        "phenotype": "无痛性的进行性淋巴结肿大",
+        "matched_term": "全身性淋巴结肿大",
+        "hpo_code": "HP:0008940",
+        "similarity_score": 0.8478713035583496,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "全身性淋巴结肿大",
+            "hpo_code": "HP:0008940",
+            "similarity_score": 0.8478713035583496
+          },
+          {
+            "hpo_term": "淋巴结肿大",
+            "hpo_code": "HP:0002716",
+            "similarity_score": 0.820022463798523
+          },
+          {
+            "hpo_term": "颌下淋巴结肿大",
+            "hpo_code": "HP:0033176",
+            "similarity_score": 0.7929894924163818
+          },
+          {
+            "hpo_term": "慢性非感染性淋巴结肿大",
+            "hpo_code": "HP:0002730",
+            "similarity_score": 0.7900146842002869
+          },
+          {
+            "hpo_term": "锁骨上淋巴结肿大",
+            "hpo_code": "HP:0034750",
+            "similarity_score": 0.7877894043922424
+          }
+        ],
+        "card_id": [
+          "ocr_card_9aa83656cb74"
+        ]
+      },
+      {
+        "phenotype": "t（8;14）易位",
+        "matched_term": "Ph染色体阳性急性淋巴细胞白血病",
+        "hpo_code": "HP:0004848",
+        "similarity_score": 0.8176577091217041,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "Ph染色体阳性急性淋巴细胞白血病",
+            "hpo_code": "HP:0004848",
+            "similarity_score": 0.8176577091217041
+          },
+          {
+            "hpo_term": "T细胞急性淋巴细胞白血病",
+            "hpo_code": "HP:0006727",
+            "similarity_score": 0.797589898109436
+          },
+          {
+            "hpo_term": "急性B淋巴细胞白血病",
+            "hpo_code": "HP:0004812",
+            "similarity_score": 0.7769511938095093
+          },
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.7712696194648743
+          },
+          {
+            "hpo_term": "淋巴结细胞CD19表达水平异常",
+            "hpo_code": "HP:0020287",
+            "similarity_score": 0.7602511048316956
+          }
+        ],
+        "card_id": [
+          "ocr_card_d18af43a9dc0"
+        ]
+      },
+      {
+        "phenotype": "t（2;8）易位",
+        "matched_term": "姐妹染色单体自发性交换的易发性增高",
+        "hpo_code": "HP:0010998",
+        "similarity_score": 0.8077938556671143,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "姐妹染色单体自发性交换的易发性增高",
+            "hpo_code": "HP:0010998",
+            "similarity_score": 0.8077938556671143
+          },
+          {
+            "hpo_term": "染色体形态异常",
+            "hpo_code": "HP:0031411",
+            "similarity_score": 0.7968758344650269
+          },
+          {
+            "hpo_term": "染色体稳定性异常",
+            "hpo_code": "HP:0003220",
+            "similarity_score": 0.7900087833404541
+          },
+          {
+            "hpo_term": "姐妹染色单体过早分离",
+            "hpo_code": "HP:0200024",
+            "similarity_score": 0.7790714502334595
+          },
+          {
+            "hpo_term": "染色体分离异常",
+            "hpo_code": "HP:0002916",
+            "similarity_score": 0.7716635465621948
+          }
+        ],
+        "card_id": [
+          "ocr_card_d18af43a9dc0"
+        ]
+      },
+      {
+        "phenotype": "t（8;22）易位",
+        "matched_term": "Ph染色体阳性急性淋巴细胞白血病",
+        "hpo_code": "HP:0004848",
+        "similarity_score": 0.8121020197868347,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "Ph染色体阳性急性淋巴细胞白血病",
+            "hpo_code": "HP:0004848",
+            "similarity_score": 0.8121020197868347
+          },
+          {
+            "hpo_term": "姐妹染色单体自发性交换的易发性增高",
+            "hpo_code": "HP:0010998",
+            "similarity_score": 0.7702402472496033
+          },
+          {
+            "hpo_term": "染色体稳定性异常",
+            "hpo_code": "HP:0003220",
+            "similarity_score": 0.7689043283462524
+          },
+          {
+            "hpo_term": "骨髓染色体的核内多倍性检查",
+            "hpo_code": "HP:0003352",
+            "similarity_score": 0.766213595867157
+          },
+          {
+            "hpo_term": "染色体形态异常",
+            "hpo_code": "HP:0031411",
+            "similarity_score": 0.7523679733276367
+          }
+        ],
+        "card_id": [
+          "ocr_card_d18af43a9dc0"
+        ]
+      },
+      {
+        "phenotype": "t（14;18）易位",
+        "matched_term": "姐妹染色单体自发性交换的易发性增高",
+        "hpo_code": "HP:0010998",
+        "similarity_score": 0.7941306829452515,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "姐妹染色单体自发性交换的易发性增高",
+            "hpo_code": "HP:0010998",
+            "similarity_score": 0.7941306829452515
+          },
+          {
+            "hpo_term": "染色体稳定性异常",
+            "hpo_code": "HP:0003220",
+            "similarity_score": 0.7847726941108704
+          },
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.7648963928222656
+          },
+          {
+            "hpo_term": "染色体凝缩异常",
+            "hpo_code": "HP:0011019",
+            "similarity_score": 0.7585891485214233
+          },
+          {
+            "hpo_term": "染色体形态异常",
+            "hpo_code": "HP:0031411",
+            "similarity_score": 0.7582953572273254
+          }
+        ],
+        "card_id": [
+          "ocr_card_d18af43a9dc0"
+        ]
+      },
+      {
+        "phenotype": "t（11;18）易位",
+        "matched_term": "姐妹染色单体自发性交换的易发性增高",
+        "hpo_code": "HP:0010998",
+        "similarity_score": 0.7830912470817566,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "姐妹染色单体自发性交换的易发性增高",
+            "hpo_code": "HP:0010998",
+            "similarity_score": 0.7830912470817566
+          },
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.7746764421463013
+          },
+          {
+            "hpo_term": "染色体稳定性异常",
+            "hpo_code": "HP:0003220",
+            "similarity_score": 0.7713990211486816
+          },
+          {
+            "hpo_term": "Ph染色体阳性急性淋巴细胞白血病",
+            "hpo_code": "HP:0004848",
+            "similarity_score": 0.7695117592811584
+          },
+          {
+            "hpo_term": "骨髓染色体的核内多倍性检查",
+            "hpo_code": "HP:0003352",
+            "similarity_score": 0.7682538032531738
+          }
+        ],
+        "card_id": [
+          "ocr_card_d18af43a9dc0"
+        ]
+      },
+      {
+        "phenotype": "t（11;14）易位",
+        "matched_term": "Ph染色体阳性急性淋巴细胞白血病",
+        "hpo_code": "HP:0004848",
+        "similarity_score": 0.8035449981689453,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "Ph染色体阳性急性淋巴细胞白血病",
+            "hpo_code": "HP:0004848",
+            "similarity_score": 0.8035449981689453
+          },
+          {
+            "hpo_term": "骨髓染色体的核内多倍性检查",
+            "hpo_code": "HP:0003352",
+            "similarity_score": 0.784957766532898
+          },
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.7835043668746948
+          },
+          {
+            "hpo_term": "姐妹染色单体自发性交换的易发性增高",
+            "hpo_code": "HP:0010998",
+            "similarity_score": 0.7727059125900269
+          },
+          {
+            "hpo_term": "染色体稳定性异常",
+            "hpo_code": "HP:0003220",
+            "similarity_score": 0.7658824920654297
+          }
+        ],
+        "card_id": [
+          "ocr_card_d18af43a9dc0"
+        ]
+      },
+      {
+        "phenotype": "MYC（8q24）重排",
+        "matched_term": "克隆性T细胞受体重排",
+        "hpo_code": "HP:0032577",
+        "similarity_score": 0.7618772387504578,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.7618772387504578
+          },
+          {
+            "hpo_term": "染色体稳定性异常",
+            "hpo_code": "HP:0003220",
+            "similarity_score": 0.760547399520874
+          },
+          {
+            "hpo_term": "姐妹染色单体自发性交换的易发性增高",
+            "hpo_code": "HP:0010998",
+            "similarity_score": 0.7530890703201294
+          },
+          {
+            "hpo_term": "染色体凝缩异常",
+            "hpo_code": "HP:0011019",
+            "similarity_score": 0.7329539060592651
+          },
+          {
+            "hpo_term": "染色体形态异常",
+            "hpo_code": "HP:0031411",
+            "similarity_score": 0.7321494817733765
+          }
+        ],
+        "card_id": [
+          "ocr_card_d18af43a9dc0"
+        ]
+      },
+      {
+        "phenotype": "BCL2（18q21）重排",
+        "matched_term": "BCL2表达",
+        "hpo_code": "HP:0430092",
+        "similarity_score": 0.8039585947990417,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "BCL2表达",
+            "hpo_code": "HP:0430092",
+            "similarity_score": 0.8039585947990417
+          },
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.7722181081771851
+          },
+          {
+            "hpo_term": "BCL6表达",
+            "hpo_code": "HP:0430093",
+            "similarity_score": 0.7656421661376953
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达水平异常",
+            "hpo_code": "HP:0020289",
+            "similarity_score": 0.7577236890792847
+          },
+          {
+            "hpo_term": "CD79a表达",
+            "hpo_code": "HP:0020290",
+            "similarity_score": 0.7413545250892639
+          }
+        ],
+        "card_id": [
+          "ocr_card_d18af43a9dc0"
+        ]
+      },
+      {
+        "phenotype": "BCL6（3q27）重排",
+        "matched_term": "BCL6表达",
+        "hpo_code": "HP:0430093",
+        "similarity_score": 0.8350710272789001,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "BCL6表达",
+            "hpo_code": "HP:0430093",
+            "similarity_score": 0.8350710272789001
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达水平异常",
+            "hpo_code": "HP:0020289",
+            "similarity_score": 0.7892500758171082
+          },
+          {
+            "hpo_term": "CD79a表达",
+            "hpo_code": "HP:0020290",
+            "similarity_score": 0.7873548865318298
+          },
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.7857406139373779
+          },
+          {
+            "hpo_term": "淋巴结细胞CD19表达水平异常",
+            "hpo_code": "HP:0020287",
+            "similarity_score": 0.7731019258499146
+          }
+        ],
+        "card_id": [
+          "ocr_card_d18af43a9dc0"
+        ]
+      },
+      {
+        "phenotype": "淋巴细胞受体基因单克隆性重排",
+        "matched_term": "克隆性T细胞受体重排",
+        "hpo_code": "HP:0032577",
+        "similarity_score": 0.8867225050926208,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.8867225050926208
+          },
+          {
+            "hpo_term": "淋巴结细胞CD19表达水平异常",
+            "hpo_code": "HP:0020287",
+            "similarity_score": 0.8804450631141663
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达水平异常",
+            "hpo_code": "HP:0020289",
+            "similarity_score": 0.8663048148155212
+          },
+          {
+            "hpo_term": "T细胞受体重排删除环水平减低",
+            "hpo_code": "HP:0031545",
+            "similarity_score": 0.8607415556907654
+          },
+          {
+            "hpo_term": "淋巴结细胞B细胞标志物表达异常",
+            "hpo_code": "HP:0020288",
+            "similarity_score": 0.852828860282898
+          }
+        ],
+        "card_id": [
+          "ocr_card_378b2ce0b916"
+        ]
+      },
+      {
+        "phenotype": "ISRT结内病变",
+        "matched_term": "淋巴结外套层形态异常",
+        "hpo_code": "HP:0020251",
+        "similarity_score": 0.7098604440689087,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "淋巴结外套层形态异常",
+            "hpo_code": "HP:0020251",
+            "similarity_score": 0.7098604440689087
+          },
+          {
+            "hpo_term": "淋巴结细胞抗原表达异常",
+            "hpo_code": "HP:0020233",
+            "similarity_score": 0.7065051794052124
+          },
+          {
+            "hpo_term": "结节性淋巴结结构模糊",
+            "hpo_code": "HP:0020236",
+            "similarity_score": 0.7030181884765625
+          },
+          {
+            "hpo_term": "淋巴结边缘或套区形态异常",
+            "hpo_code": "HP:0020249",
+            "similarity_score": 0.7028923034667969
+          },
+          {
+            "hpo_term": "淋巴结边缘区形态异常",
+            "hpo_code": "HP:0020250",
+            "similarity_score": 0.7024998664855957
+          }
+        ],
+        "card_id": [
+          "ocr_card_7d353e318835"
+        ]
+      },
+      {
+        "phenotype": "化疗敏感的霍奇金淋巴瘤和非霍奇金淋巴瘤",
+        "matched_term": "霍奇金淋巴瘤",
+        "hpo_code": "HP:0012189",
+        "similarity_score": 0.8754864931106567,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "霍奇金淋巴瘤",
+            "hpo_code": "HP:0012189",
+            "similarity_score": 0.8754864931106567
+          },
+          {
+            "hpo_term": "非霍奇金淋巴瘤",
+            "hpo_code": "HP:0012539",
+            "similarity_score": 0.8500944375991821
+          },
+          {
+            "hpo_term": "Burkitt淋巴瘤",
+            "hpo_code": "HP:0030080",
+            "similarity_score": 0.8228732347488403
+          },
+          {
+            "hpo_term": "淋巴瘤",
+            "hpo_code": "HP:0002665",
+            "similarity_score": 0.8207735419273376
+          },
+          {
+            "hpo_term": "B细胞淋巴瘤",
+            "hpo_code": "HP:0012191",
+            "similarity_score": 0.8194576501846313
+          }
+        ],
+        "card_id": [
+          "ocr_card_7d353e318835"
+        ]
+      },
+      {
+        "phenotype": "初诊时累及的淋巴结",
+        "matched_term": "淋巴细胞向淋巴结包膜外扩散",
+        "hpo_code": "HP:0020238",
+        "similarity_score": 0.796847939491272,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "淋巴细胞向淋巴结包膜外扩散",
+            "hpo_code": "HP:0020238",
+            "similarity_score": 0.796847939491272
+          },
+          {
+            "hpo_term": "淋巴细胞侵袭淋巴结包膜",
+            "hpo_code": "HP:0020237",
+            "similarity_score": 0.7968074679374695
+          },
+          {
+            "hpo_term": "淋巴结结构消失",
+            "hpo_code": "HP:0020235",
+            "similarity_score": 0.7944347262382507
+          },
+          {
+            "hpo_term": "感染时周围淋巴结缺失",
+            "hpo_code": "HP:0033581",
+            "similarity_score": 0.7937126159667969
+          },
+          {
+            "hpo_term": "淋巴结边缘区形态异常",
+            "hpo_code": "HP:0020250",
+            "similarity_score": 0.7936543226242065
+          }
+        ],
+        "card_id": [
+          "ocr_card_7d353e318835"
+        ]
+      },
+      {
+        "phenotype": "全部化疗前或活检前的所有可疑肿瘤累及区域",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6109914779663086,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "据解剖部位的肿瘤分类",
+            "hpo_code": "HP:0011793",
+            "similarity_score": 0.6109914779663086
+          },
+          {
+            "hpo_term": "淋巴结边缘或套区形态异常",
+            "hpo_code": "HP:0020249",
+            "similarity_score": 0.5978351831436157
+          },
+          {
+            "hpo_term": "肿瘤组织学",
+            "hpo_code": "HP:0011792",
+            "similarity_score": 0.5972137451171875
+          },
+          {
+            "hpo_term": "淋巴结边缘区形态异常",
+            "hpo_code": "HP:0020250",
+            "similarity_score": 0.5953021049499512
+          },
+          {
+            "hpo_term": "放射治疗史",
+            "hpo_code": "HP:6000181",
+            "similarity_score": 0.592930793762207
+          }
+        ],
+        "card_id": [
+          "ocr_card_7d353e318835"
+        ]
+      },
+      {
+        "phenotype": "结外病变",
+        "matched_term": "淋巴细胞向淋巴结包膜外扩散",
+        "hpo_code": "HP:0020238",
+        "similarity_score": 0.7700392603874207,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "淋巴细胞向淋巴结包膜外扩散",
+            "hpo_code": "HP:0020238",
+            "similarity_score": 0.7700392603874207
+          },
+          {
+            "hpo_term": "淋巴结细胞抗原表达异常",
+            "hpo_code": "HP:0020233",
+            "similarity_score": 0.7455307245254517
+          },
+          {
+            "hpo_term": "淋巴结结构消失",
+            "hpo_code": "HP:0020235",
+            "similarity_score": 0.7373005151748657
+          },
+          {
+            "hpo_term": "淋巴结边缘区形态异常",
+            "hpo_code": "HP:0020250",
+            "similarity_score": 0.7335565090179443
+          },
+          {
+            "hpo_term": "淋巴细胞侵袭淋巴结包膜",
+            "hpo_code": "HP:0020237",
+            "similarity_score": 0.7331638932228088
+          }
+        ],
+        "card_id": [
+          "ocr_card_b6bcfed45f22"
+        ]
+      },
+      {
+        "phenotype": "胃受累",
+        "matched_term": "胃炎",
+        "hpo_code": "HP:0005263",
+        "similarity_score": 0.8135266304016113,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "胃炎",
+            "hpo_code": "HP:0005263",
+            "similarity_score": 0.8135266304016113
+          },
+          {
+            "hpo_term": "胃肠道异常",
+            "hpo_code": "HP:0011024",
+            "similarity_score": 0.8039785623550415
+          },
+          {
+            "hpo_term": "胃肠道炎症",
+            "hpo_code": "HP:0004386",
+            "similarity_score": 0.8016912937164307
+          },
+          {
+            "hpo_term": "胃溃疡",
+            "hpo_code": "HP:0002592",
+            "similarity_score": 0.7960759997367859
+          },
+          {
+            "hpo_term": "胃形态异常",
+            "hpo_code": "HP:0002577",
+            "similarity_score": 0.7900007963180542
+          }
+        ],
+        "card_id": [
+          "ocr_card_b6bcfed45f22"
+        ]
+      },
+      {
+        "phenotype": "唾液腺受累",
+        "matched_term": "唾液腺形态异常",
+        "hpo_code": "HP:0010286",
+        "similarity_score": 0.8869185447692871,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "唾液腺形态异常",
+            "hpo_code": "HP:0010286",
+            "similarity_score": 0.8869185447692871
+          },
+          {
+            "hpo_term": "涎腺炎",
+            "hpo_code": "HP:0031281",
+            "similarity_score": 0.8819727301597595
+          },
+          {
+            "hpo_term": "颌下腺异常",
+            "hpo_code": "HP:0010287",
+            "similarity_score": 0.8613713383674622
+          },
+          {
+            "hpo_term": "唾液腺肿瘤",
+            "hpo_code": "HP:0100684",
+            "similarity_score": 0.8518992066383362
+          },
+          {
+            "hpo_term": "舌下腺异常",
+            "hpo_code": "HP:0010288",
+            "similarity_score": 0.8303840756416321
+          }
+        ],
+        "card_id": [
+          "ocr_card_b6bcfed45f22"
+        ]
+      },
+      {
+        "phenotype": "甲状腺受累",
+        "matched_term": "甲状腺炎",
+        "hpo_code": "HP:0100646",
+        "similarity_score": 0.8489806056022644,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "甲状腺炎",
+            "hpo_code": "HP:0100646",
+            "similarity_score": 0.8489806056022644
+          },
+          {
+            "hpo_term": "甲状腺生理功能异常",
+            "hpo_code": "HP:0002926",
+            "similarity_score": 0.8356876969337463
+          },
+          {
+            "hpo_term": "甲状腺异常",
+            "hpo_code": "HP:0000820",
+            "similarity_score": 0.8355093598365784
+          },
+          {
+            "hpo_term": "甲状腺肿",
+            "hpo_code": "HP:0000853",
+            "similarity_score": 0.8200211524963379
+          },
+          {
+            "hpo_term": "组织碘甲腺原氨酸脱碘酶Ⅱ活性降低",
+            "hpo_code": "HP:6000719",
+            "similarity_score": 0.7958343029022217
+          }
+        ],
+        "card_id": [
+          "ocr_card_b6bcfed45f22"
+        ]
+      },
+      {
+        "phenotype": "淋巴结肿大",
+        "matched_term": "淋巴结肿大",
+        "hpo_code": "HP:0002716",
+        "similarity_score": 0.9998639225959778,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "淋巴结肿大",
+            "hpo_code": "HP:0002716",
+            "similarity_score": 0.9998639225959778
+          },
+          {
+            "hpo_term": "淋巴结炎",
+            "hpo_code": "HP:0002840",
+            "similarity_score": 0.9169505834579468
+          },
+          {
+            "hpo_term": "淋巴结节增生",
+            "hpo_code": "HP:0032203",
+            "similarity_score": 0.9066781997680664
+          },
+          {
+            "hpo_term": "颌下淋巴结肿大",
+            "hpo_code": "HP:0033176",
+            "similarity_score": 0.900140643119812
+          },
+          {
+            "hpo_term": "淋巴结数目增加",
+            "hpo_code": "HP:0032536",
+            "similarity_score": 0.8961397409439087
+          }
+        ],
+        "card_id": [
+          "ocr_card_24eae6993be8"
+        ]
+      },
+      {
+        "phenotype": "颈部淋巴结受累",
+        "matched_term": "颈部淋巴结病变",
+        "hpo_code": "HP:0025289",
+        "similarity_score": 0.9354254007339478,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "颈部淋巴结病变",
+            "hpo_code": "HP:0025289",
+            "similarity_score": 0.9354254007339478
+          },
+          {
+            "hpo_term": "锁骨上淋巴结肿大",
+            "hpo_code": "HP:0034750",
+            "similarity_score": 0.8601762056350708
+          },
+          {
+            "hpo_term": "淋巴结形态异常",
+            "hpo_code": "HP:0002733",
+            "similarity_score": 0.8587318062782288
+          },
+          {
+            "hpo_term": "淋巴结肿大",
+            "hpo_code": "HP:0002716",
+            "similarity_score": 0.8544842004776001
+          },
+          {
+            "hpo_term": "颌下淋巴结肿大",
+            "hpo_code": "HP:0033176",
+            "similarity_score": 0.8509052395820618
+          }
+        ],
+        "card_id": [
+          "ocr_card_24eae6993be8"
+        ]
+      },
+      {
+        "phenotype": "纵隔淋巴结受累",
+        "matched_term": "纵膈淋巴结病",
+        "hpo_code": "HP:0100721",
+        "similarity_score": 0.907401442527771,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "纵膈淋巴结病",
+            "hpo_code": "HP:0100721",
+            "similarity_score": 0.907401442527771
+          },
+          {
+            "hpo_term": "纵隔淋巴结钙化",
+            "hpo_code": "HP:6001018",
+            "similarity_score": 0.8223599195480347
+          },
+          {
+            "hpo_term": "纵膈肿块",
+            "hpo_code": "HP:0033823",
+            "similarity_score": 0.8176429271697998
+          },
+          {
+            "hpo_term": "淋巴细胞侵袭淋巴结包膜",
+            "hpo_code": "HP:0020237",
+            "similarity_score": 0.8100937604904175
+          },
+          {
+            "hpo_term": "淋巴细胞向淋巴结包膜外扩散",
+            "hpo_code": "HP:0020238",
+            "similarity_score": 0.8094507455825806
+          }
+        ],
+        "card_id": [
+          "ocr_card_24eae6993be8"
+        ]
+      },
+      {
+        "phenotype": "脾受累",
+        "matched_term": "脾肿大",
+        "hpo_code": "HP:0001744",
+        "similarity_score": 0.871379017829895,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "脾肿大",
+            "hpo_code": "HP:0001744",
+            "similarity_score": 0.871379017829895
+          },
+          {
+            "hpo_term": "脾脏异常",
+            "hpo_code": "HP:0001743",
+            "similarity_score": 0.8631779551506042
+          },
+          {
+            "hpo_term": "脾脏生理功能异常",
+            "hpo_code": "HP:0025409",
+            "similarity_score": 0.8552079200744629
+          },
+          {
+            "hpo_term": "脾脏形态异常",
+            "hpo_code": "HP:0025408",
+            "similarity_score": 0.8508059978485107
+          },
+          {
+            "hpo_term": "脾脏脓肿",
+            "hpo_code": "HP:0025059",
+            "similarity_score": 0.8301270008087158
+          }
+        ],
+        "card_id": [
+          "ocr_card_24eae6993be8"
+        ]
+      },
+      {
+        "phenotype": "肝受累",
+        "matched_term": "肝脏异常",
+        "hpo_code": "HP:0001392",
+        "similarity_score": 0.8754934072494507,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "肝脏异常",
+            "hpo_code": "HP:0001392",
+            "similarity_score": 0.8754934072494507
+          },
+          {
+            "hpo_term": "肝脏肿大",
+            "hpo_code": "HP:0002240",
+            "similarity_score": 0.860615074634552
+          },
+          {
+            "hpo_term": "肝脏生理异常",
+            "hpo_code": "HP:0031865",
+            "similarity_score": 0.8503865003585815
+          },
+          {
+            "hpo_term": "肝脏形态异常",
+            "hpo_code": "HP:0410042",
+            "similarity_score": 0.8338066935539246
+          },
+          {
+            "hpo_term": "肝炎",
+            "hpo_code": "HP:0012115",
+            "similarity_score": 0.8312540650367737
+          }
+        ],
+        "card_id": [
+          "ocr_card_24eae6993be8"
+        ]
+      },
+      {
+        "phenotype": "骨髓受累",
+        "matched_term": "骨髓肉芽肿",
+        "hpo_code": "HP:6000154",
+        "similarity_score": 0.8440811634063721,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "骨髓肉芽肿",
+            "hpo_code": "HP:6000154",
+            "similarity_score": 0.8440811634063721
+          },
+          {
+            "hpo_term": "骨髓炎",
+            "hpo_code": "HP:0002754",
+            "similarity_score": 0.8228576183319092
+          },
+          {
+            "hpo_term": "骨髓基质细胞异常",
+            "hpo_code": "HP:0012129",
+            "similarity_score": 0.8110131025314331
+          },
+          {
+            "hpo_term": "骨髓噬血现象",
+            "hpo_code": "HP:6000980",
+            "similarity_score": 0.7990784049034119
+          },
+          {
+            "hpo_term": "骨显像摄取增加",
+            "hpo_code": "HP:6001022",
+            "similarity_score": 0.7987006306648254
+          }
+        ],
+        "card_id": [
+          "ocr_card_24eae6993be8"
+        ]
+      },
+      {
+        "phenotype": "不明原因发热",
+        "matched_term": "不明原因的发热",
+        "hpo_code": "HP:0001955",
+        "similarity_score": 0.9719039797782898,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "不明原因的发热",
+            "hpo_code": "HP:0001955",
+            "similarity_score": 0.9719039797782898
+          },
+          {
+            "hpo_term": "非周期性反复发热",
+            "hpo_code": "HP:0032324",
+            "similarity_score": 0.8183611631393433
+          },
+          {
+            "hpo_term": "持续性发热",
+            "hpo_code": "HP:0033399",
+            "similarity_score": 0.8114622831344604
+          },
+          {
+            "hpo_term": "发热",
+            "hpo_code": "HP:0001945",
+            "similarity_score": 0.7959564924240112
+          },
+          {
+            "hpo_term": "阵发性发热",
+            "hpo_code": "HP:0001954",
+            "similarity_score": 0.7924164533615112
+          }
+        ],
+        "card_id": [
+          "ocr_card_24eae6993be8"
+        ]
+      },
+      {
+        "phenotype": "体重减轻",
+        "matched_term": "体重减轻",
+        "hpo_code": "HP:0001824",
+        "similarity_score": 0.999894917011261,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "体重减轻",
+            "hpo_code": "HP:0001824",
+            "similarity_score": 0.999894917011261
+          },
+          {
+            "hpo_term": "体重下降",
+            "hpo_code": "HP:0004325",
+            "similarity_score": 0.9773184061050415
+          },
+          {
+            "hpo_term": "体重指数下降",
+            "hpo_code": "HP:0045082",
+            "similarity_score": 0.905433714389801
+          },
+          {
+            "hpo_term": "体重增加",
+            "hpo_code": "HP:0004324",
+            "similarity_score": 0.8241881132125854
+          },
+          {
+            "hpo_term": "体重异常",
+            "hpo_code": "HP:0004323",
+            "similarity_score": 0.7922224402427673
+          }
+        ],
+        "card_id": [
+          "ocr_card_24eae6993be8"
+        ]
+      },
+      {
+        "phenotype": "皮疹",
+        "matched_term": "皮疹",
+        "hpo_code": "HP:0000988",
+        "similarity_score": 0.9998918771743774,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "皮疹",
+            "hpo_code": "HP:0000988",
+            "similarity_score": 0.9998918771743774
+          },
+          {
+            "hpo_term": "皮损",
+            "hpo_code": "HP:0032674",
+            "similarity_score": 0.8919432163238525
+          },
+          {
+            "hpo_term": "斑疹",
+            "hpo_code": "HP:0012733",
+            "similarity_score": 0.8505612015724182
+          },
+          {
+            "hpo_term": "斑丘疹样皮疹",
+            "hpo_code": "HP:0040186",
+            "similarity_score": 0.8243758082389832
+          },
+          {
+            "hpo_term": "皮肤斑块",
+            "hpo_code": "HP:0200035",
+            "similarity_score": 0.8191900253295898
+          }
+        ],
+        "card_id": [
+          "ocr_card_24eae6993be8"
+        ]
+      },
+      {
+        "phenotype": "正常组织结构破坏",
+        "matched_term": "皮肤坏死",
+        "hpo_code": "HP:0033126",
+        "similarity_score": 0.7025200128555298,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "皮肤坏死",
+            "hpo_code": "HP:0033126",
+            "similarity_score": 0.7025200128555298
+          },
+          {
+            "hpo_term": "组织代谢物浓度异常",
+            "hpo_code": "HP:0032243",
+            "similarity_score": 0.6886621117591858
+          },
+          {
+            "hpo_term": "体壁的异常",
+            "hpo_code": "HP:0001574",
+            "similarity_score": 0.6882166862487793
+          },
+          {
+            "hpo_term": "软骨破坏",
+            "hpo_code": "HP:0100773",
+            "similarity_score": 0.6877515912055969
+          },
+          {
+            "hpo_term": "穿通纤维形态异常",
+            "hpo_code": "HP:0100685",
+            "similarity_score": 0.6831881403923035
+          }
+        ],
+        "card_id": [
+          "ocr_card_3272419070c5"
+        ]
+      },
+      {
+        "phenotype": "炎症细胞背景中散在异型大细胞",
+        "matched_term": "浆母细胞比例异常",
+        "hpo_code": "HP:0032127",
+        "similarity_score": 0.7645424604415894,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "浆母细胞比例异常",
+            "hpo_code": "HP:0032127",
+            "similarity_score": 0.7645424604415894
+          },
+          {
+            "hpo_term": "淋巴细胞形态异常",
+            "hpo_code": "HP:0004332",
+            "similarity_score": 0.7606937289237976
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达水平异常",
+            "hpo_code": "HP:0020289",
+            "similarity_score": 0.7586876749992371
+          },
+          {
+            "hpo_term": "浆母细胞比例增高",
+            "hpo_code": "HP:0032128",
+            "similarity_score": 0.7556906938552856
+          },
+          {
+            "hpo_term": "淋巴结细胞CD19表达水平异常",
+            "hpo_code": "HP:0020287",
+            "similarity_score": 0.7523599863052368
+          }
+        ],
+        "card_id": [
+          "ocr_card_3272419070c5"
+        ]
+      },
+      {
+        "phenotype": "里-施（Reed-Sternberg，R-S）细胞",
+        "matched_term": "霍奇金形态细胞",
+        "hpo_code": "HP:0020277",
+        "similarity_score": 0.8511838912963867,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "霍奇金形态细胞",
+            "hpo_code": "HP:0020277",
+            "similarity_score": 0.8511838912963867
+          },
+          {
+            "hpo_term": "戈谢细胞",
+            "hpo_code": "HP:6000893",
+            "similarity_score": 0.8011825680732727
+          },
+          {
+            "hpo_term": "B细胞形态异常",
+            "hpo_code": "HP:0002846",
+            "similarity_score": 0.7651376128196716
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达水平异常",
+            "hpo_code": "HP:0020289",
+            "similarity_score": 0.7564135789871216
+          },
+          {
+            "hpo_term": "簇状淋巴结上皮样组织细胞",
+            "hpo_code": "HP:0020241",
+            "similarity_score": 0.745487630367279
+          }
+        ],
+        "card_id": [
+          "ocr_card_3272419070c5"
+        ]
+      },
+      {
+        "phenotype": "变异型 R-S 细胞",
+        "matched_term": "霍奇金形态细胞",
+        "hpo_code": "HP:0020277",
+        "similarity_score": 0.8109535574913025,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "霍奇金形态细胞",
+            "hpo_code": "HP:0020277",
+            "similarity_score": 0.8109535574913025
+          },
+          {
+            "hpo_term": "B细胞形态异常",
+            "hpo_code": "HP:0002846",
+            "similarity_score": 0.7528023719787598
+          },
+          {
+            "hpo_term": "间变性大细胞淋巴瘤",
+            "hpo_code": "HP:0012193",
+            "similarity_score": 0.7493277192115784
+          },
+          {
+            "hpo_term": "戈谢细胞",
+            "hpo_code": "HP:6000893",
+            "similarity_score": 0.7471058368682861
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达水平异常",
+            "hpo_code": "HP:0020289",
+            "similarity_score": 0.7373346090316772
+          }
+        ],
+        "card_id": [
+          "ocr_card_3272419070c5"
+        ]
+      },
+      {
+        "phenotype": "典型 R-S 细胞为双核或多核巨细胞，核仁嗜酸性，大而明显，细胞质丰富",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6422463655471802,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "霍奇金形态细胞",
+            "hpo_code": "HP:0020277",
+            "similarity_score": 0.6422463655471802
+          },
+          {
+            "hpo_term": "戈谢细胞",
+            "hpo_code": "HP:6000893",
+            "similarity_score": 0.6090284585952759
+          },
+          {
+            "hpo_term": "巨噬细胞形态异常",
+            "hpo_code": "HP:0004311",
+            "similarity_score": 0.6069538593292236
+          },
+          {
+            "hpo_term": "巨嗜中性粒细胞颗粒",
+            "hpo_code": "HP:0032499",
+            "similarity_score": 0.6011433601379395
+          },
+          {
+            "hpo_term": "多核成红血细胞",
+            "hpo_code": "HP:0034278",
+            "similarity_score": 0.5805010199546814
+          }
+        ],
+        "card_id": [
+          "ocr_card_3272419070c5"
+        ]
+      },
+      {
+        "phenotype": "镜影细胞",
+        "matched_term": "泡沫细胞",
+        "hpo_code": "HP:0003651",
+        "similarity_score": 0.7301748394966125,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "泡沫细胞",
+            "hpo_code": "HP:0003651",
+            "similarity_score": 0.7301748394966125
+          },
+          {
+            "hpo_term": "霍奇金形态细胞",
+            "hpo_code": "HP:0020277",
+            "similarity_score": 0.7227798700332642
+          },
+          {
+            "hpo_term": "咬痕细胞",
+            "hpo_code": "HP:0020122",
+            "similarity_score": 0.7166683673858643
+          },
+          {
+            "hpo_term": "足细胞髓鞘样",
+            "hpo_code": "HP:0033265",
+            "similarity_score": 0.7015036344528198
+          },
+          {
+            "hpo_term": "戈谢细胞",
+            "hpo_code": "HP:6000893",
+            "similarity_score": 0.6991144418716431
+          }
+        ],
+        "card_id": [
+          "ocr_card_3272419070c5"
+        ]
+      },
+      {
+        "phenotype": "LP细胞",
+        "matched_term": "戈谢细胞",
+        "hpo_code": "HP:6000893",
+        "similarity_score": 0.7457019686698914,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "戈谢细胞",
+            "hpo_code": "HP:6000893",
+            "similarity_score": 0.7457019686698914
+          },
+          {
+            "hpo_term": "淋巴细胞表面CD43表达降低",
+            "hpo_code": "HP:0001983",
+            "similarity_score": 0.7420238852500916
+          },
+          {
+            "hpo_term": "淋巴细胞白血病",
+            "hpo_code": "HP:0005526",
+            "similarity_score": 0.7393260598182678
+          },
+          {
+            "hpo_term": "泡沫细胞",
+            "hpo_code": "HP:0003651",
+            "similarity_score": 0.73671555519104
+          },
+          {
+            "hpo_term": "霍奇金形态细胞",
+            "hpo_code": "HP:0020277",
+            "similarity_score": 0.732870876789093
+          }
+        ],
+        "card_id": [
+          "ocr_card_3272419070c5"
+        ]
+      },
+      {
+        "phenotype": "细胞核大、折叠，似爆米花样",
+        "matched_term": "肥大细胞形态异常",
+        "hpo_code": "HP:0100494",
+        "similarity_score": 0.7614495754241943,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "肥大细胞形态异常",
+            "hpo_code": "HP:0100494",
+            "similarity_score": 0.7614495754241943
+          },
+          {
+            "hpo_term": "淋巴细胞形态异常",
+            "hpo_code": "HP:0004332",
+            "similarity_score": 0.7574418783187866
+          },
+          {
+            "hpo_term": "巨核细胞核分叶过多",
+            "hpo_code": "HP:0031388",
+            "similarity_score": 0.7566073536872864
+          },
+          {
+            "hpo_term": "α颗粒内容物异常",
+            "hpo_code": "HP:0012527",
+            "similarity_score": 0.7536724805831909
+          },
+          {
+            "hpo_term": "巨核细胞核分叶过少",
+            "hpo_code": "HP:0031385",
+            "similarity_score": 0.7497437596321106
+          }
+        ],
+        "card_id": [
+          "ocr_card_3272419070c5"
+        ]
+      },
+      {
+        "phenotype": "爆米花细胞",
+        "matched_term": "爆米花样钙化",
+        "hpo_code": "HP:6000871",
+        "similarity_score": 0.705791711807251,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "爆米花样钙化",
+            "hpo_code": "HP:6000871",
+            "similarity_score": 0.705791711807251
+          },
+          {
+            "hpo_term": "泡沫细胞",
+            "hpo_code": "HP:0003651",
+            "similarity_score": 0.7056196928024292
+          },
+          {
+            "hpo_term": "咬痕细胞",
+            "hpo_code": "HP:0020122",
+            "similarity_score": 0.6389355659484863
+          },
+          {
+            "hpo_term": "爆裂眼",
+            "hpo_code": "HP:0000557",
+            "similarity_score": 0.6304947137832642
+          },
+          {
+            "hpo_term": "洋葱球形成",
+            "hpo_code": "HP:0003383",
+            "similarity_score": 0.6215147376060486
+          }
+        ],
+        "card_id": [
+          "ocr_card_3272419070c5"
+        ]
+      },
+      {
+        "phenotype": "核仁小、多个、嗜碱性",
+        "matched_term": "细胞异染",
+        "hpo_code": "HP:0003653",
+        "similarity_score": 0.7518013715744019,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "细胞异染",
+            "hpo_code": "HP:0003653",
+            "similarity_score": 0.7518013715744019
+          },
+          {
+            "hpo_term": "肾小管上皮细胞多核化",
+            "hpo_code": "HP:0032601",
+            "similarity_score": 0.7439128160476685
+          },
+          {
+            "hpo_term": "中性粒细胞核裂",
+            "hpo_code": "HP:0041043",
+            "similarity_score": 0.7425240874290466
+          },
+          {
+            "hpo_term": "抗核仁组织区抗体阳性",
+            "hpo_code": "HP:0034083",
+            "similarity_score": 0.7390922904014587
+          },
+          {
+            "hpo_term": "细分散的淋巴结淋巴细胞染色质",
+            "hpo_code": "HP:0020281",
+            "similarity_score": 0.7382610440254211
+          }
+        ],
+        "card_id": [
+          "ocr_card_3272419070c5"
+        ]
+      },
+      {
+        "phenotype": "LP肿瘤细胞被程序性死亡蛋白1（PD-1）阳性的T细胞环绕",
+        "matched_term": "CD8阳性的终末效应性α-β T细胞比例增高",
+        "hpo_code": "HP:0500265",
+        "similarity_score": 0.7334434986114502,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "CD8阳性的终末效应性α-β T细胞比例增高",
+            "hpo_code": "HP:0500265",
+            "similarity_score": 0.7334434986114502
+          },
+          {
+            "hpo_term": "CD4阳性T细胞中T细胞ZAP-70蛋白表达降低",
+            "hpo_code": "HP:6001096",
+            "similarity_score": 0.7213097214698792
+          },
+          {
+            "hpo_term": "初始CD8 T 细胞比例增高",
+            "hpo_code": "HP:0410376",
+            "similarity_score": 0.7190285921096802
+          },
+          {
+            "hpo_term": "CD8阳性的终末效应性α-β T细胞比例减低",
+            "hpo_code": "HP:0500266",
+            "similarity_score": 0.7138153910636902
+          },
+          {
+            "hpo_term": "效应记忆性CD8+的α-β T细胞比例减低",
+            "hpo_code": "HP:0410390",
+            "similarity_score": 0.7136002779006958
+          }
+        ],
+        "card_id": [
+          "ocr_card_3272419070c5"
+        ]
+      },
+      {
+        "phenotype": "CD30（+）",
+        "matched_term": "CD20表达",
+        "hpo_code": "HP:0430102",
+        "similarity_score": 0.842897891998291,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "CD20表达",
+            "hpo_code": "HP:0430102",
+            "similarity_score": 0.842897891998291
+          },
+          {
+            "hpo_term": "CD23表达",
+            "hpo_code": "HP:0430096",
+            "similarity_score": 0.8344718217849731
+          },
+          {
+            "hpo_term": "CD79a表达",
+            "hpo_code": "HP:0020290",
+            "similarity_score": 0.8323690891265869
+          },
+          {
+            "hpo_term": "CD5表达",
+            "hpo_code": "HP:0430094",
+            "similarity_score": 0.8184183835983276
+          },
+          {
+            "hpo_term": "CD45表达",
+            "hpo_code": "HP:0430098",
+            "similarity_score": 0.8147854208946228
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "PAX5 弱（+）",
+        "matched_term": "PAX5表达",
+        "hpo_code": "HP:0020295",
+        "similarity_score": 0.8402537703514099,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "PAX5表达",
+            "hpo_code": "HP:0020295",
+            "similarity_score": 0.8402537703514099
+          },
+          {
+            "hpo_term": "CD5表达",
+            "hpo_code": "HP:0430094",
+            "similarity_score": 0.7384198307991028
+          },
+          {
+            "hpo_term": "CD45表达",
+            "hpo_code": "HP:0430098",
+            "similarity_score": 0.7233776450157166
+          },
+          {
+            "hpo_term": "CD79a表达",
+            "hpo_code": "HP:0020290",
+            "similarity_score": 0.7197990417480469
+          },
+          {
+            "hpo_term": "CD19表达",
+            "hpo_code": "HP:0430101",
+            "similarity_score": 0.7103534936904907
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "MUM1（+）",
+        "matched_term": "CD79a表达",
+        "hpo_code": "HP:0020290",
+        "similarity_score": 0.7720276117324829,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "CD79a表达",
+            "hpo_code": "HP:0020290",
+            "similarity_score": 0.7720276117324829
+          },
+          {
+            "hpo_term": "CD20表达",
+            "hpo_code": "HP:0430102",
+            "similarity_score": 0.7714902758598328
+          },
+          {
+            "hpo_term": "BCL6表达",
+            "hpo_code": "HP:0430093",
+            "similarity_score": 0.76774662733078
+          },
+          {
+            "hpo_term": "抗p53抗体阳性",
+            "hpo_code": "HP:0034107",
+            "similarity_score": 0.7647293210029602
+          },
+          {
+            "hpo_term": "CD10表达",
+            "hpo_code": "HP:0430095",
+            "similarity_score": 0.763644814491272
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "EBER（+）",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6541315317153931,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "Epsilon 波",
+            "hpo_code": "HP:0034304",
+            "similarity_score": 0.6541315317153931
+          },
+          {
+            "hpo_term": "FMC7表达",
+            "hpo_code": "HP:0430100",
+            "similarity_score": 0.6529026031494141
+          },
+          {
+            "hpo_term": "抗EB病毒特异性抗体阳性",
+            "hpo_code": "HP:0430064",
+            "similarity_score": 0.6456189751625061
+          },
+          {
+            "hpo_term": "KCO升高",
+            "hpo_code": "HP:0033373",
+            "similarity_score": 0.6433626413345337
+          },
+          {
+            "hpo_term": "血液EBV单斑试验阳性",
+            "hpo_code": "HP:6000923",
+            "similarity_score": 0.6430143117904663
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "CD20（+）",
+        "matched_term": "CD20表达",
+        "hpo_code": "HP:0430102",
+        "similarity_score": 0.9450091123580933,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "CD20表达",
+            "hpo_code": "HP:0430102",
+            "similarity_score": 0.9450091123580933
+          },
+          {
+            "hpo_term": "CD79a表达",
+            "hpo_code": "HP:0020290",
+            "similarity_score": 0.8985152244567871
+          },
+          {
+            "hpo_term": "CD19表达",
+            "hpo_code": "HP:0430101",
+            "similarity_score": 0.8846367597579956
+          },
+          {
+            "hpo_term": "CD23表达",
+            "hpo_code": "HP:0430096",
+            "similarity_score": 0.8672114610671997
+          },
+          {
+            "hpo_term": "CD5表达",
+            "hpo_code": "HP:0430094",
+            "similarity_score": 0.8551867604255676
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "CD79a（+）",
+        "matched_term": "CD79a表达",
+        "hpo_code": "HP:0020290",
+        "similarity_score": 0.9473703503608704,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "CD79a表达",
+            "hpo_code": "HP:0020290",
+            "similarity_score": 0.9473703503608704
+          },
+          {
+            "hpo_term": "CD20表达",
+            "hpo_code": "HP:0430102",
+            "similarity_score": 0.8543961048126221
+          },
+          {
+            "hpo_term": "CD19表达",
+            "hpo_code": "HP:0430101",
+            "similarity_score": 0.8475958108901978
+          },
+          {
+            "hpo_term": "CD23表达",
+            "hpo_code": "HP:0430096",
+            "similarity_score": 0.8274661302566528
+          },
+          {
+            "hpo_term": "CD5表达",
+            "hpo_code": "HP:0430094",
+            "similarity_score": 0.818778395652771
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "BCL6（+）",
+        "matched_term": "BCL6表达",
+        "hpo_code": "HP:0430093",
+        "similarity_score": 0.941510796546936,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "BCL6表达",
+            "hpo_code": "HP:0430093",
+            "similarity_score": 0.941510796546936
+          },
+          {
+            "hpo_term": "BCL2表达",
+            "hpo_code": "HP:0430092",
+            "similarity_score": 0.8644709587097168
+          },
+          {
+            "hpo_term": "CD79a表达",
+            "hpo_code": "HP:0020290",
+            "similarity_score": 0.8610676527023315
+          },
+          {
+            "hpo_term": "CD20表达",
+            "hpo_code": "HP:0430102",
+            "similarity_score": 0.8448755145072937
+          },
+          {
+            "hpo_term": "CD23表达",
+            "hpo_code": "HP:0430096",
+            "similarity_score": 0.8146151900291443
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "CD45（+）",
+        "matched_term": "CD45表达",
+        "hpo_code": "HP:0430098",
+        "similarity_score": 0.9368400573730469,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "CD45表达",
+            "hpo_code": "HP:0430098",
+            "similarity_score": 0.9368400573730469
+          },
+          {
+            "hpo_term": "CD5表达",
+            "hpo_code": "HP:0430094",
+            "similarity_score": 0.8772878050804138
+          },
+          {
+            "hpo_term": "CD19表达",
+            "hpo_code": "HP:0430101",
+            "similarity_score": 0.8394701480865479
+          },
+          {
+            "hpo_term": "CD38表达",
+            "hpo_code": "HP:0430097",
+            "similarity_score": 0.8347228169441223
+          },
+          {
+            "hpo_term": "CD10表达",
+            "hpo_code": "HP:0430095",
+            "similarity_score": 0.8248063325881958
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "BOB1（+）",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6760233640670776,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "J波",
+            "hpo_code": "HP:0012272",
+            "similarity_score": 0.6760233640670776
+          },
+          {
+            "hpo_term": "抗H2B抗体阳性",
+            "hpo_code": "HP:0033576",
+            "similarity_score": 0.6661561727523804
+          },
+          {
+            "hpo_term": "抗B23抗体阳性",
+            "hpo_code": "HP:0034089",
+            "similarity_score": 0.6651545166969299
+          },
+          {
+            "hpo_term": "血型",
+            "hpo_code": "HP:0032223",
+            "similarity_score": 0.6629596948623657
+          },
+          {
+            "hpo_term": "博氏线",
+            "hpo_code": "HP:0041093",
+            "similarity_score": 0.6620727181434631
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "OCT2（+）",
+        "matched_term": "OCT 测量法中心凹厚度增加",
+        "hpo_code": "HP:0030618",
+        "similarity_score": 0.8201828598976135,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "OCT 测量法中心凹厚度增加",
+            "hpo_code": "HP:0030618",
+            "similarity_score": 0.8201828598976135
+          },
+          {
+            "hpo_term": "OCT 测量法黄斑区中心凹光感受器外段损失",
+            "hpo_code": "HP:0030615",
+            "similarity_score": 0.8169188499450684
+          },
+          {
+            "hpo_term": "OCT 测量法中心凹厚度减小",
+            "hpo_code": "HP:0030619",
+            "similarity_score": 0.8151332139968872
+          },
+          {
+            "hpo_term": "OCT 测量法黄斑区视网膜厚度异常",
+            "hpo_code": "HP:0030606",
+            "similarity_score": 0.806441068649292
+          },
+          {
+            "hpo_term": "OCT 测量法黄斑区中心凹内层视网膜损失",
+            "hpo_code": "HP:0030621",
+            "similarity_score": 0.8057585954666138
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "骨髓有核细胞增生活跃或明显活跃",
+        "matched_term": "骨髓细胞过多",
+        "hpo_code": "HP:0031020",
+        "similarity_score": 0.8745624423027039,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "骨髓细胞过多",
+            "hpo_code": "HP:0031020",
+            "similarity_score": 0.8745624423027039
+          },
+          {
+            "hpo_term": "骨髓细胞形态异常",
+            "hpo_code": "HP:0005561",
+            "similarity_score": 0.8464298248291016
+          },
+          {
+            "hpo_term": "骨髓细胞形态学异常",
+            "hpo_code": "HP:0020047",
+            "similarity_score": 0.8459005355834961
+          },
+          {
+            "hpo_term": "骨髓中多系细胞异常",
+            "hpo_code": "HP:0012145",
+            "similarity_score": 0.841642439365387
+          },
+          {
+            "hpo_term": "血液髓细胞计数增高",
+            "hpo_code": "HP:0032237",
+            "similarity_score": 0.8230330944061279
+          }
+        ],
+        "card_id": [
+          "ocr_card_a413a7bf75b7"
+        ]
+      },
+      {
+        "phenotype": "嗜酸粒细胞增多",
+        "matched_term": "嗜酸性粒细胞计数异常",
+        "hpo_code": "HP:0020064",
+        "similarity_score": 0.9385179281234741,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "嗜酸性粒细胞计数异常",
+            "hpo_code": "HP:0020064",
+            "similarity_score": 0.9385179281234741
+          },
+          {
+            "hpo_term": "嗜碱性粒细胞计数增高",
+            "hpo_code": "HP:0031807",
+            "similarity_score": 0.9090350270271301
+          },
+          {
+            "hpo_term": "嗜酸性粒细胞增多症",
+            "hpo_code": "HP:0001880",
+            "similarity_score": 0.90851891040802
+          },
+          {
+            "hpo_term": "嗜酸性粒细胞形态异常",
+            "hpo_code": "HP:0001879",
+            "similarity_score": 0.9044635891914368
+          },
+          {
+            "hpo_term": "嗜酸性粒细胞分叶过多",
+            "hpo_code": "HP:0034253",
+            "similarity_score": 0.9017574191093445
+          }
+        ],
+        "card_id": [
+          "ocr_card_a413a7bf75b7"
+        ]
+      },
+      {
+        "phenotype": "骨髓中找到 R-S 细胞",
+        "matched_term": "骨髓泡沫细胞",
+        "hpo_code": "HP:0004333",
+        "similarity_score": 0.7635193467140198,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "骨髓泡沫细胞",
+            "hpo_code": "HP:0004333",
+            "similarity_score": 0.7635193467140198
+          },
+          {
+            "hpo_term": "霍奇金形态细胞",
+            "hpo_code": "HP:0020277",
+            "similarity_score": 0.7402334213256836
+          },
+          {
+            "hpo_term": "骨髓中多系细胞异常",
+            "hpo_code": "HP:0012145",
+            "similarity_score": 0.7316329479217529
+          },
+          {
+            "hpo_term": "戈谢细胞",
+            "hpo_code": "HP:6000893",
+            "similarity_score": 0.7251104116439819
+          },
+          {
+            "hpo_term": "骨髓髓细胞空泡形成",
+            "hpo_code": "HP:0034636",
+            "similarity_score": 0.72509765625
+          }
+        ],
+        "card_id": [
+          "ocr_card_a413a7bf75b7"
+        ]
+      },
+      {
+        "phenotype": "惰性病程",
+        "matched_term": "疾病进展的时限性",
+        "hpo_code": "HP:0011008",
+        "similarity_score": 0.7889043092727661,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "疾病进展的时限性",
+            "hpo_code": "HP:0011008",
+            "similarity_score": 0.7889043092727661
+          },
+          {
+            "hpo_term": "非进行性",
+            "hpo_code": "HP:0003680",
+            "similarity_score": 0.7718397378921509
+          },
+          {
+            "hpo_term": "缓慢进展",
+            "hpo_code": "HP:0003677",
+            "similarity_score": 0.7685989737510681
+          },
+          {
+            "hpo_term": "临床病程",
+            "hpo_code": "HP:0031797",
+            "similarity_score": 0.7593004107475281
+          },
+          {
+            "hpo_term": "慢性",
+            "hpo_code": "HP:0011010",
+            "similarity_score": 0.7515312433242798
+          }
+        ],
+        "card_id": [
+          "ocr_card_f3fdb926bf38"
+        ]
+      },
+      {
+        "phenotype": "偶见的晚复发",
+        "matched_term": "不规则复发的",
+        "hpo_code": "HP:0025303",
+        "similarity_score": 0.845293402671814,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "不规则复发的",
+            "hpo_code": "HP:0025303",
+            "similarity_score": 0.845293402671814
+          },
+          {
+            "hpo_term": "复发性",
+            "hpo_code": "HP:0031796",
+            "similarity_score": 0.8053159713745117
+          },
+          {
+            "hpo_term": "反复感染",
+            "hpo_code": "HP:0002719",
+            "similarity_score": 0.735373318195343
+          },
+          {
+            "hpo_term": "疾病进展的时限性",
+            "hpo_code": "HP:0011008",
+            "similarity_score": 0.7187730669975281
+          },
+          {
+            "hpo_term": "反复病毒感染",
+            "hpo_code": "HP:0004429",
+            "similarity_score": 0.7102041244506836
+          }
+        ],
+        "card_id": [
+          "ocr_card_f3fdb926bf38"
+        ]
+      },
+      {
+        "phenotype": "潜在的转化为大B细胞淋巴瘤",
+        "matched_term": "B细胞淋巴瘤",
+        "hpo_code": "HP:0012191",
+        "similarity_score": 0.7880045175552368,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "B细胞淋巴瘤",
+            "hpo_code": "HP:0012191",
+            "similarity_score": 0.7880045175552368
+          },
+          {
+            "hpo_term": "间变性大细胞淋巴瘤",
+            "hpo_code": "HP:0012193",
+            "similarity_score": 0.7869261503219604
+          },
+          {
+            "hpo_term": "淋巴结细胞B细胞标志物表达异常",
+            "hpo_code": "HP:0020288",
+            "similarity_score": 0.7848111987113953
+          },
+          {
+            "hpo_term": "淋巴瘤",
+            "hpo_code": "HP:0002665",
+            "similarity_score": 0.7724262475967407
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达水平异常",
+            "hpo_code": "HP:0020289",
+            "similarity_score": 0.7722780704498291
+          }
+        ],
+        "card_id": [
+          "ocr_card_f3fdb926bf38"
+        ]
+      },
+      {
+        "phenotype": "早期患者预后很好",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6812924146652222,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "疾病缓解",
+            "hpo_code": "HP:0034382",
+            "similarity_score": 0.6812924146652222
+          },
+          {
+            "hpo_term": "疾病进展的时限性",
+            "hpo_code": "HP:0011008",
+            "similarity_score": 0.6792254447937012
+          },
+          {
+            "hpo_term": "发热缓解",
+            "hpo_code": "HP:0025256",
+            "similarity_score": 0.643677830696106
+          },
+          {
+            "hpo_term": "急性期反应",
+            "hpo_code": "HP:0033331",
+            "similarity_score": 0.6420020461082458
+          },
+          {
+            "hpo_term": "慢性",
+            "hpo_code": "HP:0011010",
+            "similarity_score": 0.6405324935913086
+          }
+        ],
+        "card_id": [
+          "ocr_card_f3fdb926bf38"
+        ]
+      },
+      {
+        "phenotype": "晚期、年龄≥45岁、低血红蛋白和B症状与预后不良相关",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6254194974899292,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "重型B淋巴细胞减少症",
+            "hpo_code": "HP:0005365",
+            "similarity_score": 0.6254194974899292
+          },
+          {
+            "hpo_term": "淋巴结细胞CD19表达水平异常",
+            "hpo_code": "HP:0020287",
+            "similarity_score": 0.6130759119987488
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达水平异常",
+            "hpo_code": "HP:0020289",
+            "similarity_score": 0.6121728420257568
+          },
+          {
+            "hpo_term": "未成熟 B 细胞比例异常",
+            "hpo_code": "HP:0030376",
+            "similarity_score": 0.611297607421875
+          },
+          {
+            "hpo_term": "难治性贫血",
+            "hpo_code": "HP:0005505",
+            "similarity_score": 0.6072186231613159
+          }
+        ],
+        "card_id": [
+          "ocr_card_f3fdb926bf38"
+        ]
+      },
+      {
+        "phenotype": "肿瘤细胞表达CD20抗原",
+        "matched_term": "CD20表达",
+        "hpo_code": "HP:0430102",
+        "similarity_score": 0.9035166501998901,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "CD20表达",
+            "hpo_code": "HP:0430102",
+            "similarity_score": 0.9035166501998901
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达水平异常",
+            "hpo_code": "HP:0020289",
+            "similarity_score": 0.8650021553039551
+          },
+          {
+            "hpo_term": "CD19表达",
+            "hpo_code": "HP:0430101",
+            "similarity_score": 0.8591241836547852
+          },
+          {
+            "hpo_term": "CD79a表达",
+            "hpo_code": "HP:0020290",
+            "similarity_score": 0.8516634106636047
+          },
+          {
+            "hpo_term": "淋巴结细胞CD19表达水平异常",
+            "hpo_code": "HP:0020287",
+            "similarity_score": 0.8429787158966064
+          }
+        ],
+        "card_id": [
+          "ocr_card_f3fdb926bf38"
+        ]
+      },
+      {
+        "phenotype": "有大肿块",
+        "matched_term": "固定肿块",
+        "hpo_code": "HP:0025760",
+        "similarity_score": 0.7989128828048706,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "固定肿块",
+            "hpo_code": "HP:0025760",
+            "similarity_score": 0.7989128828048706
+          },
+          {
+            "hpo_term": "无痛性肿块",
+            "hpo_code": "HP:0025761",
+            "similarity_score": 0.7685457468032837
+          },
+          {
+            "hpo_term": "活动性肿块",
+            "hpo_code": "HP:0025759",
+            "similarity_score": 0.7634001970291138
+          },
+          {
+            "hpo_term": "乳腺肿块",
+            "hpo_code": "HP:0032408",
+            "similarity_score": 0.7427293062210083
+          },
+          {
+            "hpo_term": "侧腹肿块",
+            "hpo_code": "HP:6000363",
+            "similarity_score": 0.737978994846344
+          }
+        ],
+        "card_id": [
+          "ocr_card_aa41788b5b4d"
+        ]
+      },
+      {
+        "phenotype": "B症状",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6186563968658447,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "B血型",
+            "hpo_code": "HP:0032440",
+            "similarity_score": 0.6186563968658447
+          },
+          {
+            "hpo_term": "亚急性",
+            "hpo_code": "HP:0011011",
+            "similarity_score": 0.6067031025886536
+          },
+          {
+            "hpo_term": "类别转换型记忆性 B 细胞比例增高",
+            "hpo_code": "HP:0030387",
+            "similarity_score": 0.6059548854827881
+          },
+          {
+            "hpo_term": "过渡性 B 细胞比例增高",
+            "hpo_code": "HP:0030381",
+            "similarity_score": 0.6040660738945007
+          },
+          {
+            "hpo_term": "类别转换型记忆性 B 细胞比例减低",
+            "hpo_code": "HP:0030388",
+            "similarity_score": 0.6017918586730957
+          }
+        ],
+        "card_id": [
+          "ocr_card_aa41788b5b4d"
+        ]
+      },
+      {
+        "phenotype": "惰性病程特征",
+        "matched_term": "疾病进展的时限性",
+        "hpo_code": "HP:0011008",
+        "similarity_score": 0.7689852118492126,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "疾病进展的时限性",
+            "hpo_code": "HP:0011008",
+            "similarity_score": 0.7689852118492126
+          },
+          {
+            "hpo_term": "临床病程",
+            "hpo_code": "HP:0031797",
+            "similarity_score": 0.7420240640640259
+          },
+          {
+            "hpo_term": "进行性/渐进性",
+            "hpo_code": "HP:0003676",
+            "similarity_score": 0.7372688055038452
+          },
+          {
+            "hpo_term": "非进行性",
+            "hpo_code": "HP:0003680",
+            "similarity_score": 0.7288550734519958
+          },
+          {
+            "hpo_term": "缓慢进展",
+            "hpo_code": "HP:0003677",
+            "similarity_score": 0.7284985780715942
+          }
+        ],
+        "card_id": [
+          "ocr_card_aa41788b5b4d"
+        ]
+      },
+      {
+        "phenotype": "Deauville评分5分",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6346579790115356,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "CD25+肥大细胞比例增高",
+            "hpo_code": "HP:0031408",
+            "similarity_score": 0.6346579790115356
+          },
+          {
+            "hpo_term": "HLA-DR阳性T细胞比例多",
+            "hpo_code": "HP:0002853",
+            "similarity_score": 0.6284952759742737
+          },
+          {
+            "hpo_term": "低APGAR评分",
+            "hpo_code": "HP:0030917",
+            "similarity_score": 0.6259017586708069
+          },
+          {
+            "hpo_term": "10分钟APGAR评分5分",
+            "hpo_code": "HP:0033473",
+            "similarity_score": 0.6238222122192383
+          },
+          {
+            "hpo_term": "中度血管炎",
+            "hpo_code": "HP:6000658",
+            "similarity_score": 0.621475338935852
+          }
+        ],
+        "card_id": [
+          "ocr_card_85511530fd85"
+        ]
+      },
+      {
+        "phenotype": "活检结果阳性",
+        "matched_term": "针刺反应阳性",
+        "hpo_code": "HP:0025532",
+        "similarity_score": 0.7823604345321655,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "针刺反应阳性",
+            "hpo_code": "HP:0025532",
+            "similarity_score": 0.7823604345321655
+          },
+          {
+            "hpo_term": "抗H3抗体阳性",
+            "hpo_code": "HP:0033574",
+            "similarity_score": 0.7737426161766052
+          },
+          {
+            "hpo_term": "抗p53抗体阳性",
+            "hpo_code": "HP:0034107",
+            "similarity_score": 0.7707973122596741
+          },
+          {
+            "hpo_term": "抗H2B抗体阳性",
+            "hpo_code": "HP:0033576",
+            "similarity_score": 0.7575304508209229
+          },
+          {
+            "hpo_term": "组织包囊芽殖酵母试验阳性",
+            "hpo_code": "HP:6000964",
+            "similarity_score": 0.7543044090270996
+          }
+        ],
+        "card_id": [
+          "ocr_card_85511530fd85"
+        ]
+      },
+      {
+        "phenotype": "大肿块",
+        "matched_term": "固定肿块",
+        "hpo_code": "HP:0025760",
+        "similarity_score": 0.8017956018447876,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "固定肿块",
+            "hpo_code": "HP:0025760",
+            "similarity_score": 0.8017956018447876
+          },
+          {
+            "hpo_term": "活动性肿块",
+            "hpo_code": "HP:0025759",
+            "similarity_score": 0.7709094285964966
+          },
+          {
+            "hpo_term": "无痛性肿块",
+            "hpo_code": "HP:0025761",
+            "similarity_score": 0.7583936452865601
+          },
+          {
+            "hpo_term": "橡胶样肿块",
+            "hpo_code": "HP:0025765",
+            "similarity_score": 0.7392508387565613
+          },
+          {
+            "hpo_term": "颞部肿块",
+            "hpo_code": "HP:0032569",
+            "similarity_score": 0.7337485551834106
+          }
+        ],
+        "card_id": [
+          "ocr_card_6d5927ed834f"
+        ]
+      },
+      {
+        "phenotype": "Deauville 评分 4～5 分",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.5993121862411499,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "低APGAR评分",
+            "hpo_code": "HP:0030917",
+            "similarity_score": 0.5993121862411499
+          },
+          {
+            "hpo_term": "10分钟APGAR评分5分",
+            "hpo_code": "HP:0033473",
+            "similarity_score": 0.5911837816238403
+          },
+          {
+            "hpo_term": "10分钟APGAR评分4分",
+            "hpo_code": "HP:0033472",
+            "similarity_score": 0.5889305472373962
+          },
+          {
+            "hpo_term": "5分钟APGAR评分5分",
+            "hpo_code": "HP:0030925",
+            "similarity_score": 0.583905816078186
+          },
+          {
+            "hpo_term": "10分钟APGAR评分3分",
+            "hpo_code": "HP:0033471",
+            "similarity_score": 0.5832427740097046
+          }
+        ],
+        "card_id": [
+          "ocr_card_3ab5c67f4cd7"
+        ]
+      },
+      {
+        "phenotype": "活检阳性",
+        "matched_term": "针刺反应阳性",
+        "hpo_code": "HP:0025532",
+        "similarity_score": 0.7771275639533997,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "针刺反应阳性",
+            "hpo_code": "HP:0025532",
+            "similarity_score": 0.7771275639533997
+          },
+          {
+            "hpo_term": "抗p53抗体阳性",
+            "hpo_code": "HP:0034107",
+            "similarity_score": 0.7661267518997192
+          },
+          {
+            "hpo_term": "抗H3抗体阳性",
+            "hpo_code": "HP:0033574",
+            "similarity_score": 0.7591825723648071
+          },
+          {
+            "hpo_term": "抗H2B抗体阳性",
+            "hpo_code": "HP:0033576",
+            "similarity_score": 0.7483982443809509
+          },
+          {
+            "hpo_term": "骨探针试验阳性",
+            "hpo_code": "HP:6001105",
+            "similarity_score": 0.7428484559059143
+          }
+        ],
+        "card_id": [
+          "ocr_card_3ab5c67f4cd7"
+        ]
+      },
+      {
+        "phenotype": "白蛋白＜40g/L",
+        "matched_term": "低蛋白血症",
+        "hpo_code": "HP:0003073",
+        "similarity_score": 0.8663543462753296,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "低蛋白血症",
+            "hpo_code": "HP:0003073",
+            "similarity_score": 0.8663543462753296
+          },
+          {
+            "hpo_term": "循环前白蛋白浓度异常",
+            "hpo_code": "HP:0033450",
+            "similarity_score": 0.8547416925430298
+          },
+          {
+            "hpo_term": "循环前白蛋白水平降低",
+            "hpo_code": "HP:0031085",
+            "similarity_score": 0.8473196625709534
+          },
+          {
+            "hpo_term": "循环前白蛋白浓度升高",
+            "hpo_code": "HP:0033451",
+            "similarity_score": 0.8297709226608276
+          },
+          {
+            "hpo_term": "血清白蛋白水平异常",
+            "hpo_code": "HP:0012116",
+            "similarity_score": 0.821541428565979
+          }
+        ],
+        "card_id": [
+          "ocr_card_656eed12fe21"
+        ]
+      },
+      {
+        "phenotype": "血红蛋白＜105g/L",
+        "matched_term": "血红蛋白浓度减低",
+        "hpo_code": "HP:0020062",
+        "similarity_score": 0.8662723302841187,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "血红蛋白浓度减低",
+            "hpo_code": "HP:0020062",
+            "similarity_score": 0.8662723302841187
+          },
+          {
+            "hpo_term": "血红蛋白A减低",
+            "hpo_code": "HP:0011905",
+            "similarity_score": 0.8575018644332886
+          },
+          {
+            "hpo_term": "红细胞压积减低",
+            "hpo_code": "HP:0031851",
+            "similarity_score": 0.8321110010147095
+          },
+          {
+            "hpo_term": "血红蛋白H",
+            "hpo_code": "HP:0011903",
+            "similarity_score": 0.8250225782394409
+          },
+          {
+            "hpo_term": "血红蛋白异常",
+            "hpo_code": "HP:0011902",
+            "similarity_score": 0.8229430317878723
+          }
+        ],
+        "card_id": [
+          "ocr_card_656eed12fe21"
+        ]
+      },
+      {
+        "phenotype": "男性",
+        "matched_term": "男性限性表达",
+        "hpo_code": "HP:0001475",
+        "similarity_score": 0.7275751829147339,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "男性限性表达",
+            "hpo_code": "HP:0001475",
+            "similarity_score": 0.7275751829147339
+          },
+          {
+            "hpo_term": "男性性欲低下",
+            "hpo_code": "HP:0040306",
+            "similarity_score": 0.6765287518501282
+          },
+          {
+            "hpo_term": "男性性功能障碍",
+            "hpo_code": "HP:0040307",
+            "similarity_score": 0.6734992265701294
+          },
+          {
+            "hpo_term": "男性假两性畸形",
+            "hpo_code": "HP:0000037",
+            "similarity_score": 0.6646451354026794
+          },
+          {
+            "hpo_term": "男性不育",
+            "hpo_code": "HP:0003251",
+            "similarity_score": 0.6604219675064087
+          }
+        ],
+        "card_id": [
+          "ocr_card_656eed12fe21"
+        ]
+      },
+      {
+        "phenotype": "年龄≥45 岁",
+        "matched_term": "中年期发病",
+        "hpo_code": "HP:0003596",
+        "similarity_score": 0.7406471967697144,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "中年期发病",
+            "hpo_code": "HP:0003596",
+            "similarity_score": 0.7406471967697144
+          },
+          {
+            "hpo_term": "老年期发病",
+            "hpo_code": "HP:0003584",
+            "similarity_score": 0.7288166284561157
+          },
+          {
+            "hpo_term": "成年期发病",
+            "hpo_code": "HP:0003581",
+            "similarity_score": 0.7140048146247864
+          },
+          {
+            "hpo_term": "绝经后发病",
+            "hpo_code": "HP:6000315",
+            "similarity_score": 0.7043901681900024
+          },
+          {
+            "hpo_term": "死亡年龄",
+            "hpo_code": "HP:0011420",
+            "similarity_score": 0.7021999955177307
+          }
+        ],
+        "card_id": [
+          "ocr_card_656eed12fe21"
+        ]
+      },
+      {
+        "phenotype": "Ⅳ期病变",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6912769079208374,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "IV型动脉粥样硬化病变",
+            "hpo_code": "HP:0002635",
+            "similarity_score": 0.6912769079208374
+          },
+          {
+            "hpo_term": "疾病进展的时限性",
+            "hpo_code": "HP:0011008",
+            "similarity_score": 0.6807154417037964
+          },
+          {
+            "hpo_term": "慢性肾病4期",
+            "hpo_code": "HP:0012626",
+            "similarity_score": 0.6677907109260559
+          },
+          {
+            "hpo_term": "近端至远端进展",
+            "hpo_code": "HP:6000305",
+            "similarity_score": 0.6565808653831482
+          },
+          {
+            "hpo_term": "印戒征",
+            "hpo_code": "HP:0032175",
+            "similarity_score": 0.6437623500823975
+          }
+        ],
+        "card_id": [
+          "ocr_card_656eed12fe21"
+        ]
+      },
+      {
+        "phenotype": "白细胞≥15×109/L",
+        "matched_term": "白细胞增多症",
+        "hpo_code": "HP:0001974",
+        "similarity_score": 0.8446723818778992,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "白细胞增多症",
+            "hpo_code": "HP:0001974",
+            "similarity_score": 0.8446723818778992
+          },
+          {
+            "hpo_term": "循环白细胞介素15水平升高",
+            "hpo_code": "HP:6000439",
+            "similarity_score": 0.8230582475662231
+          },
+          {
+            "hpo_term": "白细胞形态异常",
+            "hpo_code": "HP:0001881",
+            "similarity_score": 0.8169740438461304
+          },
+          {
+            "hpo_term": "白细胞计数异常",
+            "hpo_code": "HP:0011893",
+            "similarity_score": 0.8111212253570557
+          },
+          {
+            "hpo_term": "循环白细胞介素8水平升高",
+            "hpo_code": "HP:0033178",
+            "similarity_score": 0.8052471876144409
+          }
+        ],
+        "card_id": [
+          "ocr_card_656eed12fe21"
+        ]
+      },
+      {
+        "phenotype": "淋巴细胞占白细胞比例＜8%和/或计数＜0.6×109/L",
+        "matched_term": "淋巴细胞减少症",
+        "hpo_code": "HP:0001888",
+        "similarity_score": 0.8537078499794006,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "淋巴细胞减少症",
+            "hpo_code": "HP:0001888",
+            "similarity_score": 0.8537078499794006
+          },
+          {
+            "hpo_term": "CD3+T细胞比例减低",
+            "hpo_code": "HP:0045080",
+            "similarity_score": 0.8467403054237366
+          },
+          {
+            "hpo_term": "血白细胞介素12水平降低",
+            "hpo_code": "HP:6000487",
+            "similarity_score": 0.8388811349868774
+          },
+          {
+            "hpo_term": "CD8 + T细胞数目减低",
+            "hpo_code": "HP:0005415",
+            "similarity_score": 0.837597668170929
+          },
+          {
+            "hpo_term": "感染相关淋巴细胞减少",
+            "hpo_code": "HP:4000034",
+            "similarity_score": 0.8319803476333618
+          }
+        ],
+        "card_id": [
+          "ocr_card_656eed12fe21"
+        ]
+      },
+      {
+        "phenotype": "PET-CT评估结果阳性",
+        "matched_term": "血清淀粉样蛋白P闪烁显像阳性",
+        "hpo_code": "HP:6001100",
+        "similarity_score": 0.7339943647384644,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "血清淀粉样蛋白P闪烁显像阳性",
+            "hpo_code": "HP:6001100",
+            "similarity_score": 0.7339943647384644
+          },
+          {
+            "hpo_term": "抗p53抗体阳性",
+            "hpo_code": "HP:0034107",
+            "similarity_score": 0.7048445343971252
+          },
+          {
+            "hpo_term": "脑部正电子发射断层扫描异常",
+            "hpo_code": "HP:0012657",
+            "similarity_score": 0.6952204704284668
+          },
+          {
+            "hpo_term": "脑FDG正电子发射断层扫描异常",
+            "hpo_code": "HP:0012658",
+            "similarity_score": 0.691530704498291
+          },
+          {
+            "hpo_term": "血浆/血清可替宁试验阳性",
+            "hpo_code": "HP:0410208",
+            "similarity_score": 0.6767701506614685
+          }
+        ],
+        "card_id": [
+          "ocr_card_85fbaa5383af"
+        ]
+      },
+      {
+        "phenotype": "白细胞高",
+        "matched_term": "白细胞增多症",
+        "hpo_code": "HP:0001974",
+        "similarity_score": 0.8432150483131409,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "白细胞增多症",
+            "hpo_code": "HP:0001974",
+            "similarity_score": 0.8432150483131409
+          },
+          {
+            "hpo_term": "白细胞计数异常",
+            "hpo_code": "HP:0011893",
+            "similarity_score": 0.8235448002815247
+          },
+          {
+            "hpo_term": "白细胞生理异常",
+            "hpo_code": "HP:0033796",
+            "similarity_score": 0.8235095739364624
+          },
+          {
+            "hpo_term": "白细胞形态异常",
+            "hpo_code": "HP:0001881",
+            "similarity_score": 0.7938042879104614
+          },
+          {
+            "hpo_term": "单核细胞计数异常",
+            "hpo_code": "HP:0012310",
+            "similarity_score": 0.7800284624099731
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "中枢神经系统受累",
+        "matched_term": "中枢神经系统神经元损失",
+        "hpo_code": "HP:0002529",
+        "similarity_score": 0.8360085487365723,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "中枢神经系统神经元损失",
+            "hpo_code": "HP:0002529",
+            "similarity_score": 0.8360085487365723
+          },
+          {
+            "hpo_term": "中枢性运动功能异常",
+            "hpo_code": "HP:0011442",
+            "similarity_score": 0.8127831816673279
+          },
+          {
+            "hpo_term": "中枢神经系统的形态异常",
+            "hpo_code": "HP:0002011",
+            "similarity_score": 0.8061313629150391
+          },
+          {
+            "hpo_term": "中枢神经系统电生理异常",
+            "hpo_code": "HP:0030178",
+            "similarity_score": 0.8047007322311401
+          },
+          {
+            "hpo_term": "中枢神经系统变性",
+            "hpo_code": "HP:0007009",
+            "similarity_score": 0.8042240738868713
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "达到CR的时间长",
+        "matched_term": "延长的",
+        "hpo_code": "HP:0025297",
+        "similarity_score": 0.7771860361099243,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "延长的",
+            "hpo_code": "HP:0025297",
+            "similarity_score": 0.7771860361099243
+          },
+          {
+            "hpo_term": "1秒率下降",
+            "hpo_code": "HP:0030877",
+            "similarity_score": 0.7572283744812012
+          },
+          {
+            "hpo_term": "疾病进展的时限性",
+            "hpo_code": "HP:0011008",
+            "similarity_score": 0.7570502758026123
+          },
+          {
+            "hpo_term": "慢性",
+            "hpo_code": "HP:0011010",
+            "similarity_score": 0.7117534875869751
+          },
+          {
+            "hpo_term": "协调不能",
+            "hpo_code": "HP:0010869",
+            "similarity_score": 0.704804539680481
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "诱导化疗结束后有残存病变",
+        "matched_term": "药物治疗应答无能",
+        "hpo_code": "HP:0020174",
+        "similarity_score": 0.7155762910842896,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "药物治疗应答无能",
+            "hpo_code": "HP:0020174",
+            "similarity_score": 0.7155762910842896
+          },
+          {
+            "hpo_term": "循环癌胚抗原水平升高",
+            "hpo_code": "HP:0031029",
+            "similarity_score": 0.6992372870445251
+          },
+          {
+            "hpo_term": "淋巴细胞向淋巴结包膜外扩散",
+            "hpo_code": "HP:0020238",
+            "similarity_score": 0.6937188506126404
+          },
+          {
+            "hpo_term": "循环白介素2浓度增高",
+            "hpo_code": "HP:0034489",
+            "similarity_score": 0.6900239586830139
+          },
+          {
+            "hpo_term": "淋巴细胞侵袭淋巴结包膜",
+            "hpo_code": "HP:0020237",
+            "similarity_score": 0.6830536127090454
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "亚二倍体（＜44条染色体）",
+        "matched_term": "染色体形态异常",
+        "hpo_code": "HP:0031411",
+        "similarity_score": 0.8058508038520813,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "染色体形态异常",
+            "hpo_code": "HP:0031411",
+            "similarity_score": 0.8058508038520813
+          },
+          {
+            "hpo_term": "染色体分离异常",
+            "hpo_code": "HP:0002916",
+            "similarity_score": 0.7942920923233032
+          },
+          {
+            "hpo_term": "染色体凝缩异常",
+            "hpo_code": "HP:0011019",
+            "similarity_score": 0.784649670124054
+          },
+          {
+            "hpo_term": "姐妹染色单体过早分离",
+            "hpo_code": "HP:0200024",
+            "similarity_score": 0.7740464210510254
+          },
+          {
+            "hpo_term": "染色体稳定性异常",
+            "hpo_code": "HP:0003220",
+            "similarity_score": 0.7704607248306274
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "t（9;22）（q34;q11.2）:BCR-ABL1",
+        "matched_term": "Ph染色体阳性急性淋巴细胞白血病",
+        "hpo_code": "HP:0004848",
+        "similarity_score": 0.8162014484405518,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "Ph染色体阳性急性淋巴细胞白血病",
+            "hpo_code": "HP:0004848",
+            "similarity_score": 0.8162014484405518
+          },
+          {
+            "hpo_term": "骨髓染色体的核内多倍性检查",
+            "hpo_code": "HP:0003352",
+            "similarity_score": 0.7408257126808167
+          },
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.7149164080619812
+          },
+          {
+            "hpo_term": "染色体形态异常",
+            "hpo_code": "HP:0031411",
+            "similarity_score": 0.7142088413238525
+          },
+          {
+            "hpo_term": "CD19表达",
+            "hpo_code": "HP:0430101",
+            "similarity_score": 0.7100149393081665
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "BCR-ABL1样（Ph样）",
+        "matched_term": "Ph染色体阳性急性淋巴细胞白血病",
+        "hpo_code": "HP:0004848",
+        "similarity_score": 0.82035893201828,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "Ph染色体阳性急性淋巴细胞白血病",
+            "hpo_code": "HP:0004848",
+            "similarity_score": 0.82035893201828
+          },
+          {
+            "hpo_term": "急性B淋巴细胞白血病",
+            "hpo_code": "HP:0004812",
+            "similarity_score": 0.7653018832206726
+          },
+          {
+            "hpo_term": "T细胞急性淋巴细胞白血病",
+            "hpo_code": "HP:0006727",
+            "similarity_score": 0.7440292835235596
+          },
+          {
+            "hpo_term": "慢性粒细胞白血病",
+            "hpo_code": "HP:0005506",
+            "similarity_score": 0.7287071347236633
+          },
+          {
+            "hpo_term": "急性双表型白血病",
+            "hpo_code": "HP:0005531",
+            "similarity_score": 0.7263340950012207
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "KMT2A重排（t[4;11]）",
+        "matched_term": "Ph染色体阳性急性淋巴细胞白血病",
+        "hpo_code": "HP:0004848",
+        "similarity_score": 0.7749143838882446,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "Ph染色体阳性急性淋巴细胞白血病",
+            "hpo_code": "HP:0004848",
+            "similarity_score": 0.7749143838882446
+          },
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.7473028302192688
+          },
+          {
+            "hpo_term": "染色体稳定性异常",
+            "hpo_code": "HP:0003220",
+            "similarity_score": 0.7166893482208252
+          },
+          {
+            "hpo_term": "骨髓染色体的核内多倍性检查",
+            "hpo_code": "HP:0003352",
+            "similarity_score": 0.7156997919082642
+          },
+          {
+            "hpo_term": "急性B淋巴细胞白血病",
+            "hpo_code": "HP:0004812",
+            "similarity_score": 0.71524578332901
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "t（v;14q32）/IgH",
+        "matched_term": "克隆性T细胞受体重排",
+        "hpo_code": "HP:0032577",
+        "similarity_score": 0.776631772518158,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.776631772518158
+          },
+          {
+            "hpo_term": "Ph染色体阳性急性淋巴细胞白血病",
+            "hpo_code": "HP:0004848",
+            "similarity_score": 0.772536039352417
+          },
+          {
+            "hpo_term": "套细胞非典型性",
+            "hpo_code": "HP:0020270",
+            "similarity_score": 0.771690845489502
+          },
+          {
+            "hpo_term": "淋巴结细胞CD19表达水平异常",
+            "hpo_code": "HP:0020287",
+            "similarity_score": 0.761375367641449
+          },
+          {
+            "hpo_term": "CD79a表达",
+            "hpo_code": "HP:0020290",
+            "similarity_score": 0.7607104778289795
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "t（17;19）:TCF3-HLF融合",
+        "matched_term": "Ph染色体阳性急性淋巴细胞白血病",
+        "hpo_code": "HP:0004848",
+        "similarity_score": 0.7326817512512207,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "Ph染色体阳性急性淋巴细胞白血病",
+            "hpo_code": "HP:0004848",
+            "similarity_score": 0.7326817512512207
+          },
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.7195899486541748
+          },
+          {
+            "hpo_term": "T细胞急性淋巴细胞白血病",
+            "hpo_code": "HP:0006727",
+            "similarity_score": 0.7181265354156494
+          },
+          {
+            "hpo_term": "T细胞受体重排删除环水平减低",
+            "hpo_code": "HP:0031545",
+            "similarity_score": 0.6952968239784241
+          },
+          {
+            "hpo_term": "青少年型粒单核细胞白血病",
+            "hpo_code": "HP:0012209",
+            "similarity_score": 0.6929266452789307
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "复杂核型（≥5条染色体异常）",
+        "matched_term": "染色体形态异常",
+        "hpo_code": "HP:0031411",
+        "similarity_score": 0.828729510307312,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "染色体形态异常",
+            "hpo_code": "HP:0031411",
+            "similarity_score": 0.828729510307312
+          },
+          {
+            "hpo_term": "染色体凝缩异常",
+            "hpo_code": "HP:0011019",
+            "similarity_score": 0.7687556743621826
+          },
+          {
+            "hpo_term": "染色体分离异常",
+            "hpo_code": "HP:0002916",
+            "similarity_score": 0.7677019834518433
+          },
+          {
+            "hpo_term": "染色体稳定性异常",
+            "hpo_code": "HP:0003220",
+            "similarity_score": 0.7641494274139404
+          },
+          {
+            "hpo_term": "骨髓染色体的核内多倍性检查",
+            "hpo_code": "HP:0003352",
+            "similarity_score": 0.7619519233703613
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "IKZF1基因变异",
+        "matched_term": "染色体稳定性异常",
+        "hpo_code": "HP:0003220",
+        "similarity_score": 0.7275318503379822,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "染色体稳定性异常",
+            "hpo_code": "HP:0003220",
+            "similarity_score": 0.7275318503379822
+          },
+          {
+            "hpo_term": "淋巴细胞表面标志物异常表达",
+            "hpo_code": "HP:0031383",
+            "similarity_score": 0.7245776057243347
+          },
+          {
+            "hpo_term": "Ph染色体阳性急性淋巴细胞白血病",
+            "hpo_code": "HP:0004848",
+            "similarity_score": 0.724425196647644
+          },
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.72086501121521
+          },
+          {
+            "hpo_term": "粒系前体细胞数量异常",
+            "hpo_code": "HP:0012137",
+            "similarity_score": 0.7177312970161438
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "21号染色体内扩增（iAMP21）",
+        "matched_term": "染色体形态异常",
+        "hpo_code": "HP:0031411",
+        "similarity_score": 0.8231937885284424,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "染色体形态异常",
+            "hpo_code": "HP:0031411",
+            "similarity_score": 0.8231937885284424
+          },
+          {
+            "hpo_term": "染色体凝缩异常",
+            "hpo_code": "HP:0011019",
+            "similarity_score": 0.8186646699905396
+          },
+          {
+            "hpo_term": "染色体稳定性异常",
+            "hpo_code": "HP:0003220",
+            "similarity_score": 0.8171833157539368
+          },
+          {
+            "hpo_term": "姐妹染色单体自发性交换的易发性增高",
+            "hpo_code": "HP:0010998",
+            "similarity_score": 0.8091028928756714
+          },
+          {
+            "hpo_term": "染色体分离异常",
+            "hpo_code": "HP:0002916",
+            "similarity_score": 0.8002507090568542
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "t（12;21）（p13;q22）:ETV6-RUNX1",
+        "matched_term": "Ph染色体阳性急性淋巴细胞白血病",
+        "hpo_code": "HP:0004848",
+        "similarity_score": 0.7926082015037537,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "Ph染色体阳性急性淋巴细胞白血病",
+            "hpo_code": "HP:0004848",
+            "similarity_score": 0.7926082015037537
+          },
+          {
+            "hpo_term": "骨髓染色体的核内多倍性检查",
+            "hpo_code": "HP:0003352",
+            "similarity_score": 0.7402085065841675
+          },
+          {
+            "hpo_term": "T细胞急性淋巴细胞白血病",
+            "hpo_code": "HP:0006727",
+            "similarity_score": 0.7198948264122009
+          },
+          {
+            "hpo_term": "克隆性T细胞受体重排",
+            "hpo_code": "HP:0032577",
+            "similarity_score": 0.7194663882255554
+          },
+          {
+            "hpo_term": "急性B淋巴细胞白血病",
+            "hpo_code": "HP:0004812",
+            "similarity_score": 0.706758439540863
+          }
+        ],
+        "card_id": [
+          "ocr_card_6becfa659c20"
+        ]
+      },
+      {
+        "phenotype": "具有染色体4、10和17三倍体",
+        "matched_term": "染色体形态异常",
+        "hpo_code": "HP:0031411",
+        "similarity_score": 0.7921077013015747,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "染色体形态异常",
+            "hpo_code": "HP:0031411",
+            "similarity_score": 0.7921077013015747
+          },
+          {
+            "hpo_term": "染色体分离异常",
+            "hpo_code": "HP:0002916",
+            "similarity_score": 0.7790527939796448
+          },
+          {
+            "hpo_term": "染色体凝缩异常",
+            "hpo_code": "HP:0011019",
+            "similarity_score": 0.7628973126411438
+          },
+          {
+            "hpo_term": "姐妹染色单体自发性交换的易发性增高",
+            "hpo_code": "HP:0010998",
+            "similarity_score": 0.7585026025772095
+          },
+          {
+            "hpo_term": "染色体稳定性异常",
+            "hpo_code": "HP:0003220",
+            "similarity_score": 0.7487548589706421
+          }
+        ],
+        "card_id": [
+          "ocr_card_3afda055d6e1"
+        ]
+      },
+      {
+        "phenotype": "年龄＞60 岁",
+        "matched_term": "老年期发病",
+        "hpo_code": "HP:0003584",
+        "similarity_score": 0.797629714012146,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "老年期发病",
+            "hpo_code": "HP:0003584",
+            "similarity_score": 0.797629714012146
+          },
+          {
+            "hpo_term": "死亡年龄",
+            "hpo_code": "HP:0011420",
+            "similarity_score": 0.7494458556175232
+          },
+          {
+            "hpo_term": "以与年龄相关的疾病发作为典型",
+            "hpo_code": "HP:0003831",
+            "similarity_score": 0.7015632390975952
+          },
+          {
+            "hpo_term": "中年期发病",
+            "hpo_code": "HP:0003596",
+            "similarity_score": 0.6915440559387207
+          },
+          {
+            "hpo_term": "成年期发病",
+            "hpo_code": "HP:0003581",
+            "similarity_score": 0.6911217570304871
+          }
+        ],
+        "card_id": [
+          "ocr_card_6e99b6179a1e"
+        ]
+      },
+      {
+        "phenotype": "LDH 增高",
+        "matched_term": "乳酸脱氢酶活性增高",
+        "hpo_code": "HP:0025435",
+        "similarity_score": 0.9278883934020996,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "乳酸脱氢酶活性增高",
+            "hpo_code": "HP:0025435",
+            "similarity_score": 0.9278883934020996
+          },
+          {
+            "hpo_term": "循环乳酸脱氢酶水平异常",
+            "hpo_code": "HP:0045040",
+            "similarity_score": 0.8511137366294861
+          },
+          {
+            "hpo_term": "血清肌酸磷酸激酶升高",
+            "hpo_code": "HP:0003236",
+            "similarity_score": 0.8287705183029175
+          },
+          {
+            "hpo_term": "RV/TLC升高",
+            "hpo_code": "HP:0033240",
+            "similarity_score": 0.8270941972732544
+          },
+          {
+            "hpo_term": "血液肌酸激酶MB亚型增加",
+            "hpo_code": "HP:0032232",
+            "similarity_score": 0.8138563632965088
+          }
+        ],
+        "card_id": [
+          "ocr_card_6e99b6179a1e"
+        ]
+      },
+      {
+        "phenotype": "ECOG PS 评分≥2",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6545885801315308,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "疾病进展的时限性",
+            "hpo_code": "HP:0011008",
+            "similarity_score": 0.6545885801315308
+          },
+          {
+            "hpo_term": "α/β合成比减低",
+            "hpo_code": "HP:0011907",
+            "similarity_score": 0.6476861238479614
+          },
+          {
+            "hpo_term": "蒽环类药物治疗史",
+            "hpo_code": "HP:6000019",
+            "similarity_score": 0.6410000324249268
+          },
+          {
+            "hpo_term": "药物治疗应答无能",
+            "hpo_code": "HP:0020174",
+            "similarity_score": 0.6361426115036011
+          },
+          {
+            "hpo_term": "非小细胞肺癌",
+            "hpo_code": "HP:0030358",
+            "similarity_score": 0.6263610124588013
+          }
+        ],
+        "card_id": [
+          "ocr_card_6e99b6179a1e"
+        ]
+      },
+      {
+        "phenotype": "骨髓受侵",
+        "matched_term": "骨髓肉芽肿",
+        "hpo_code": "HP:6000154",
+        "similarity_score": 0.8547102212905884,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "骨髓肉芽肿",
+            "hpo_code": "HP:6000154",
+            "similarity_score": 0.8547102212905884
+          },
+          {
+            "hpo_term": "骨髓炎",
+            "hpo_code": "HP:0002754",
+            "similarity_score": 0.837119460105896
+          },
+          {
+            "hpo_term": "骨髓基质细胞异常",
+            "hpo_code": "HP:0012129",
+            "similarity_score": 0.814460813999176
+          },
+          {
+            "hpo_term": "骨髓噬血现象",
+            "hpo_code": "HP:6000980",
+            "similarity_score": 0.806054949760437
+          },
+          {
+            "hpo_term": "骨显像摄取增加",
+            "hpo_code": "HP:6001022",
+            "similarity_score": 0.8040893077850342
+          }
+        ],
+        "card_id": [
+          "ocr_card_6e99b6179a1e"
+        ]
+      },
+      {
+        "phenotype": "单克隆丙种球蛋白病",
+        "matched_term": "单克隆IgM血症",
+        "hpo_code": "HP:0005508",
+        "similarity_score": 0.9111152291297913,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "单克隆IgM血症",
+            "hpo_code": "HP:0005508",
+            "similarity_score": 0.9111152291297913
+          },
+          {
+            "hpo_term": "浆细胞增多症",
+            "hpo_code": "HP:0030150",
+            "similarity_score": 0.8976818323135376
+          },
+          {
+            "hpo_term": "IgM重链副蛋白血症",
+            "hpo_code": "HP:0020196",
+            "similarity_score": 0.8973907232284546
+          },
+          {
+            "hpo_term": "重链副蛋白血症",
+            "hpo_code": "HP:0031049",
+            "similarity_score": 0.8928583264350891
+          },
+          {
+            "hpo_term": "副蛋白血症",
+            "hpo_code": "HP:0031047",
+            "similarity_score": 0.8922073841094971
+          }
+        ],
+        "card_id": [
+          "ocr_card_1f937c1430fb"
+        ]
+      },
+      {
+        "phenotype": "IgM型",
+        "matched_term": "循环IgM水平异常",
+        "hpo_code": "HP:0410243",
+        "similarity_score": 0.7904535531997681,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "循环IgM水平异常",
+            "hpo_code": "HP:0410243",
+            "similarity_score": 0.7904535531997681
+          },
+          {
+            "hpo_term": "IgM重链副蛋白血症",
+            "hpo_code": "HP:0020196",
+            "similarity_score": 0.787415087223053
+          },
+          {
+            "hpo_term": "循环IgM水平升高",
+            "hpo_code": "HP:0003496",
+            "similarity_score": 0.7700179219245911
+          },
+          {
+            "hpo_term": "单克隆IgM血症",
+            "hpo_code": "HP:0005508",
+            "similarity_score": 0.7693498134613037
+          },
+          {
+            "hpo_term": "IgM抗体多克隆性增高",
+            "hpo_code": "HP:0003459",
+            "similarity_score": 0.7664542198181152
+          }
+        ],
+        "card_id": [
+          "ocr_card_1f937c1430fb"
+        ]
+      },
+      {
+        "phenotype": "重度蚊虫叮咬性过敏症",
+        "matched_term": "昆虫叮咬过敏",
+        "hpo_code": "HP:0410339",
+        "similarity_score": 0.7889888882637024,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "昆虫叮咬过敏",
+            "hpo_code": "HP:0410339",
+            "similarity_score": 0.7889888882637024
+          },
+          {
+            "hpo_term": "昆虫过敏",
+            "hpo_code": "HP:0410335",
+            "similarity_score": 0.7673498392105103
+          },
+          {
+            "hpo_term": "抗昆虫IgE抗体升高",
+            "hpo_code": "HP:0410235",
+            "similarity_score": 0.7594943642616272
+          },
+          {
+            "hpo_term": "近期昆虫叮咬史",
+            "hpo_code": "HP:0020139",
+            "similarity_score": 0.7399166226387024
+          },
+          {
+            "hpo_term": "毒液过敏",
+            "hpo_code": "HP:0410336",
+            "similarity_score": 0.7329437732696533
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "成人 T 细胞白血病/淋巴瘤",
+        "matched_term": "T细胞淋巴瘤/白血病",
+        "hpo_code": "HP:0005517",
+        "similarity_score": 0.933586597442627,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.933586597442627
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.916589081287384
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.909562349319458
+          },
+          {
+            "hpo_term": "T细胞急性淋巴细胞白血病",
+            "hpo_code": "HP:0006727",
+            "similarity_score": 0.8960311412811279
+          },
+          {
+            "hpo_term": "皮肤T细胞淋巴瘤",
+            "hpo_code": "HP:0012192",
+            "similarity_score": 0.8275262713432312
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "结外 NK/T 细胞淋巴瘤，鼻型",
+        "matched_term": "非霍奇金淋巴瘤",
+        "hpo_code": "HP:0012539",
+        "similarity_score": 0.7950954437255859,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "非霍奇金淋巴瘤",
+            "hpo_code": "HP:0012539",
+            "similarity_score": 0.7950954437255859
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.7938962578773499
+          },
+          {
+            "hpo_term": "间变性大细胞淋巴瘤",
+            "hpo_code": "HP:0012193",
+            "similarity_score": 0.7814130187034607
+          },
+          {
+            "hpo_term": "CD56高/低表达自然杀伤细胞异常分布",
+            "hpo_code": "HP:0031410",
+            "similarity_score": 0.7751365900039673
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.773687481880188
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "肠道 T 细胞淋巴瘤肠病相关 T 细胞淋巴瘤肠型性嗜上皮肠道 T 细胞淋巴瘤肠道细胞淋巴瘤，非特指型",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6637071967124939,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "小肠上皮内淋巴细胞增多症",
+            "hpo_code": "HP:6000251",
+            "similarity_score": 0.6637071967124939
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.6548883318901062
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.6534581780433655
+          },
+          {
+            "hpo_term": "小肠淋巴浆细胞浸润",
+            "hpo_code": "HP:0034550",
+            "similarity_score": 0.6298185586929321
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.6223638653755188
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "肠病相关 T 细胞淋巴瘤",
+        "matched_term": "T细胞淋巴瘤",
+        "hpo_code": "HP:0012190",
+        "similarity_score": 0.8778412342071533,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8778412342071533
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.8659185171127319
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.8514633774757385
+          },
+          {
+            "hpo_term": "间变性大细胞淋巴瘤",
+            "hpo_code": "HP:0012193",
+            "similarity_score": 0.8218374848365784
+          },
+          {
+            "hpo_term": "B细胞淋巴瘤",
+            "hpo_code": "HP:0012191",
+            "similarity_score": 0.8164277076721191
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "单型性嗜上皮肠道 T 细胞淋巴瘤",
+        "matched_term": "T细胞淋巴瘤",
+        "hpo_code": "HP:0012190",
+        "similarity_score": 0.8395352363586426,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8395352363586426
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.8370307683944702
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.8261916637420654
+          },
+          {
+            "hpo_term": "间变性大细胞淋巴瘤",
+            "hpo_code": "HP:0012193",
+            "similarity_score": 0.7933163642883301
+          },
+          {
+            "hpo_term": "皮下脂膜炎样T细胞淋巴瘤",
+            "hpo_code": "HP:0034403",
+            "similarity_score": 0.7924953699111938
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "胃肠道惰性 T 细胞淋巴组织增殖性疾病",
+        "matched_term": "小肠上皮内淋巴细胞增多症",
+        "hpo_code": "HP:6000251",
+        "similarity_score": 0.8337842226028442,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "小肠上皮内淋巴细胞增多症",
+            "hpo_code": "HP:6000251",
+            "similarity_score": 0.8337842226028442
+          },
+          {
+            "hpo_term": "胃肠道肉芽肿病",
+            "hpo_code": "HP:0034841",
+            "similarity_score": 0.8267499208450317
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.8233022689819336
+          },
+          {
+            "hpo_term": "小肠淋巴浆细胞浸润",
+            "hpo_code": "HP:0034550",
+            "similarity_score": 0.7976430654525757
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.7897325158119202
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "肝脾 T 细胞淋巴瘤",
+        "matched_term": "T细胞淋巴瘤",
+        "hpo_code": "HP:0012190",
+        "similarity_score": 0.8757253289222717,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8757253289222717
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.8724201321601868
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.8674241304397583
+          },
+          {
+            "hpo_term": "皮下脂膜炎样T细胞淋巴瘤",
+            "hpo_code": "HP:0034403",
+            "similarity_score": 0.8259573578834534
+          },
+          {
+            "hpo_term": "间变性大细胞淋巴瘤",
+            "hpo_code": "HP:0012193",
+            "similarity_score": 0.8231338262557983
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "皮下脂膜炎样 T 细胞淋巴瘤",
+        "matched_term": "皮下脂膜炎样T细胞淋巴瘤",
+        "hpo_code": "HP:0034403",
+        "similarity_score": 0.9893686175346375,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "皮下脂膜炎样T细胞淋巴瘤",
+            "hpo_code": "HP:0034403",
+            "similarity_score": 0.9893686175346375
+          },
+          {
+            "hpo_term": "皮肤T细胞淋巴瘤",
+            "hpo_code": "HP:0012192",
+            "similarity_score": 0.8450472950935364
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.8345785140991211
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8274459838867188
+          },
+          {
+            "hpo_term": "皮肤淋巴细胞瘤",
+            "hpo_code": "HP:0031549",
+            "similarity_score": 0.8233677744865417
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "蕈样真菌病",
+        "matched_term": "皮肤T细胞淋巴瘤",
+        "hpo_code": "HP:0012192",
+        "similarity_score": 0.8624270558357239,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "皮肤T细胞淋巴瘤",
+            "hpo_code": "HP:0012192",
+            "similarity_score": 0.8624270558357239
+          },
+          {
+            "hpo_term": "皮肤淋巴细胞瘤",
+            "hpo_code": "HP:0031549",
+            "similarity_score": 0.8351160883903503
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8010252118110657
+          },
+          {
+            "hpo_term": "卡波西肉瘤",
+            "hpo_code": "HP:0100726",
+            "similarity_score": 0.795547604560852
+          },
+          {
+            "hpo_term": "Majocchi肉芽肿",
+            "hpo_code": "HP:0032517",
+            "similarity_score": 0.7851197123527527
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "塞扎里综合征",
+        "matched_term": "Rieger综合征",
+        "hpo_code": "HP:0000558",
+        "similarity_score": 0.8488836288452148,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "Rieger综合征",
+            "hpo_code": "HP:0000558",
+            "similarity_score": 0.8488836288452148
+          },
+          {
+            "hpo_term": "Collier氏症",
+            "hpo_code": "HP:0500045",
+            "similarity_score": 0.7921977043151855
+          },
+          {
+            "hpo_term": "Peters 综合征",
+            "hpo_code": "HP:0000659",
+            "similarity_score": 0.7889668941497803
+          },
+          {
+            "hpo_term": "全身性自身炎症",
+            "hpo_code": "HP:0033428",
+            "similarity_score": 0.782802402973175
+          },
+          {
+            "hpo_term": "硬皮病",
+            "hpo_code": "HP:0100324",
+            "similarity_score": 0.7685210108757019
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "原发皮肤 CD30 阳性的 T 细胞淋巴增殖性疾病",
+        "matched_term": "皮肤T细胞淋巴瘤",
+        "hpo_code": "HP:0012192",
+        "similarity_score": 0.7816346883773804,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "皮肤T细胞淋巴瘤",
+            "hpo_code": "HP:0012192",
+            "similarity_score": 0.7816346883773804
+          },
+          {
+            "hpo_term": "皮下脂膜炎样T细胞淋巴瘤",
+            "hpo_code": "HP:0034403",
+            "similarity_score": 0.7549679279327393
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.7521870732307434
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.7500340938568115
+          },
+          {
+            "hpo_term": "淋巴瘤细胞在毛囊中的定植",
+            "hpo_code": "HP:0020244",
+            "similarity_score": 0.7462894916534424
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "淋巴瘤样丘疹病",
+        "matched_term": "皮肤淋巴细胞瘤",
+        "hpo_code": "HP:0031549",
+        "similarity_score": 0.8770889043807983,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "皮肤淋巴细胞瘤",
+            "hpo_code": "HP:0031549",
+            "similarity_score": 0.8770889043807983
+          },
+          {
+            "hpo_term": "皮肤T细胞淋巴瘤",
+            "hpo_code": "HP:0012192",
+            "similarity_score": 0.851874589920044
+          },
+          {
+            "hpo_term": "淋巴瘤",
+            "hpo_code": "HP:0002665",
+            "similarity_score": 0.8449536561965942
+          },
+          {
+            "hpo_term": "皮下脂膜炎样T细胞淋巴瘤",
+            "hpo_code": "HP:0034403",
+            "similarity_score": 0.8381831049919128
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8312718868255615
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "原发皮肤间变性大细胞淋巴瘤",
+        "matched_term": "间变性大细胞淋巴瘤",
+        "hpo_code": "HP:0012193",
+        "similarity_score": 0.8865925073623657,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "间变性大细胞淋巴瘤",
+            "hpo_code": "HP:0012193",
+            "similarity_score": 0.8865925073623657
+          },
+          {
+            "hpo_term": "皮肤T细胞淋巴瘤",
+            "hpo_code": "HP:0012192",
+            "similarity_score": 0.8816702365875244
+          },
+          {
+            "hpo_term": "皮肤淋巴细胞瘤",
+            "hpo_code": "HP:0031549",
+            "similarity_score": 0.849499523639679
+          },
+          {
+            "hpo_term": "皮下脂膜炎样T细胞淋巴瘤",
+            "hpo_code": "HP:0034403",
+            "similarity_score": 0.8433471918106079
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8194584846496582
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "原发性皮肤外周 T 细胞淋巴瘤，罕见亚型",
+        "matched_term": "皮肤T细胞淋巴瘤",
+        "hpo_code": "HP:0012192",
+        "similarity_score": 0.86263108253479,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "皮肤T细胞淋巴瘤",
+            "hpo_code": "HP:0012192",
+            "similarity_score": 0.86263108253479
+          },
+          {
+            "hpo_term": "皮下脂膜炎样T细胞淋巴瘤",
+            "hpo_code": "HP:0034403",
+            "similarity_score": 0.8529932498931885
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.814561665058136
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8145437240600586
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.8088757991790771
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "外周 T 细胞淋巴瘤，非特指型",
+        "matched_term": "T细胞淋巴瘤",
+        "hpo_code": "HP:0012190",
+        "similarity_score": 0.8697896003723145,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8697896003723145
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.8638600707054138
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.8623749017715454
+          },
+          {
+            "hpo_term": "间变性大细胞淋巴瘤",
+            "hpo_code": "HP:0012193",
+            "similarity_score": 0.8357049226760864
+          },
+          {
+            "hpo_term": "皮下脂膜炎样T细胞淋巴瘤",
+            "hpo_code": "HP:0034403",
+            "similarity_score": 0.829192042350769
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "儿童 EBV 阳性 T 细胞和 NK 细胞淋巴增殖性疾病",
+        "matched_term": "持续性EBV病毒血症",
+        "hpo_code": "HP:0020072",
+        "similarity_score": 0.7553957104682922,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "持续性EBV病毒血症",
+            "hpo_code": "HP:0020072",
+            "similarity_score": 0.7553957104682922
+          },
+          {
+            "hpo_term": "淋巴结细胞CD19表达水平异常",
+            "hpo_code": "HP:0020287",
+            "similarity_score": 0.7483336329460144
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达水平异常",
+            "hpo_code": "HP:0020289",
+            "similarity_score": 0.7375866174697876
+          },
+          {
+            "hpo_term": "淋巴细胞异常增殖",
+            "hpo_code": "HP:0031378",
+            "similarity_score": 0.7269086837768555
+          },
+          {
+            "hpo_term": "CD8阳性的终末效应性α-β T细胞比例增高",
+            "hpo_code": "HP:0500265",
+            "similarity_score": 0.7261483073234558
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "儿童系统性 EBV 阳性的 T 细胞淋巴瘤",
+        "matched_term": "T细胞淋巴瘤",
+        "hpo_code": "HP:0012190",
+        "similarity_score": 0.8239814043045044,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8239814043045044
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.8229199647903442
+          },
+          {
+            "hpo_term": "Burkitt淋巴瘤",
+            "hpo_code": "HP:0030080",
+            "similarity_score": 0.7983390092849731
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.7949684262275696
+          },
+          {
+            "hpo_term": "淋巴结细胞CD19表达水平异常",
+            "hpo_code": "HP:0020287",
+            "similarity_score": 0.7772361040115356
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "T/NK 细胞型慢性活动性 EBV 感染，系统型",
+        "matched_term": "慢性活动性EB病毒感染",
+        "hpo_code": "HP:0032204",
+        "similarity_score": 0.8675347566604614,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "慢性活动性EB病毒感染",
+            "hpo_code": "HP:0032204",
+            "similarity_score": 0.8675347566604614
+          },
+          {
+            "hpo_term": "持续性EBV病毒血症",
+            "hpo_code": "HP:0020072",
+            "similarity_score": 0.8548147082328796
+          },
+          {
+            "hpo_term": "抗EB病毒特异性抗体阳性",
+            "hpo_code": "HP:0430064",
+            "similarity_score": 0.8448307514190674
+          },
+          {
+            "hpo_term": "重症EB病毒感染",
+            "hpo_code": "HP:0031693",
+            "similarity_score": 0.7904071807861328
+          },
+          {
+            "hpo_term": "血液EBV单斑试验阳性",
+            "hpo_code": "HP:6000923",
+            "similarity_score": 0.7895142436027527
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "种痘水疱病样淋巴组织增殖性疾病",
+        "matched_term": "牛痘样水疱",
+        "hpo_code": "HP:0032381",
+        "similarity_score": 0.8144436478614807,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "牛痘样水疱",
+            "hpo_code": "HP:0032381",
+            "similarity_score": 0.8144436478614807
+          },
+          {
+            "hpo_term": "多形性水疱疹",
+            "hpo_code": "HP:0033699",
+            "similarity_score": 0.8020147085189819
+          },
+          {
+            "hpo_term": "皮肤淋巴细胞瘤",
+            "hpo_code": "HP:0031549",
+            "similarity_score": 0.7934527397155762
+          },
+          {
+            "hpo_term": "疱疹样水泡",
+            "hpo_code": "HP:0031448",
+            "similarity_score": 0.7817461490631104
+          },
+          {
+            "hpo_term": "播散性传染性软疣",
+            "hpo_code": "HP:0032185",
+            "similarity_score": 0.7719970345497131
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "原发于皮肤的γ/δT 细胞淋巴瘤",
+        "matched_term": "皮肤T细胞淋巴瘤",
+        "hpo_code": "HP:0012192",
+        "similarity_score": 0.8434493541717529,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "皮肤T细胞淋巴瘤",
+            "hpo_code": "HP:0012192",
+            "similarity_score": 0.8434493541717529
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8366668224334717
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.8285651803016663
+          },
+          {
+            "hpo_term": "皮下脂膜炎样T细胞淋巴瘤",
+            "hpo_code": "HP:0034403",
+            "similarity_score": 0.806696355342865
+          },
+          {
+            "hpo_term": "皮肤淋巴细胞瘤",
+            "hpo_code": "HP:0031549",
+            "similarity_score": 0.8065488338470459
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "原发皮肤 CD8 阳性的侵袭性亲表皮细胞毒性 T 细胞淋巴瘤",
+        "matched_term": "皮肤T细胞淋巴瘤",
+        "hpo_code": "HP:0012192",
+        "similarity_score": 0.7801154851913452,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "皮肤T细胞淋巴瘤",
+            "hpo_code": "HP:0012192",
+            "similarity_score": 0.7801154851913452
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.7537000179290771
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.7468143105506897
+          },
+          {
+            "hpo_term": "CD8阳性的终末效应性α-β T细胞比例异常",
+            "hpo_code": "HP:0020177",
+            "similarity_score": 0.7421967387199402
+          },
+          {
+            "hpo_term": "CD8 阳性的记忆 性α-βT 细胞比例增高",
+            "hpo_code": "HP:0410392",
+            "similarity_score": 0.7355602979660034
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "原发皮肤肢端 CD8 阳性的 T 细胞淋巴瘤",
+        "matched_term": "皮肤T细胞淋巴瘤",
+        "hpo_code": "HP:0012192",
+        "similarity_score": 0.8287631273269653,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "皮肤T细胞淋巴瘤",
+            "hpo_code": "HP:0012192",
+            "similarity_score": 0.8287631273269653
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.7999347448348999
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.797636866569519
+          },
+          {
+            "hpo_term": "皮下脂膜炎样T细胞淋巴瘤",
+            "hpo_code": "HP:0034403",
+            "similarity_score": 0.7958948016166687
+          },
+          {
+            "hpo_term": "皮肤淋巴细胞瘤",
+            "hpo_code": "HP:0031549",
+            "similarity_score": 0.782850980758667
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "原发于皮肤 CD4 阳性小/中 T 细胞淋巴增殖性疾病",
+        "matched_term": "皮肤T细胞淋巴瘤",
+        "hpo_code": "HP:0012192",
+        "similarity_score": 0.8322879672050476,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "皮肤T细胞淋巴瘤",
+            "hpo_code": "HP:0012192",
+            "similarity_score": 0.8322879672050476
+          },
+          {
+            "hpo_term": "皮下脂膜炎样T细胞淋巴瘤",
+            "hpo_code": "HP:0034403",
+            "similarity_score": 0.8067805767059326
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.8007546067237854
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.7962431907653809
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.7915931344032288
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "血管免疫母细胞 T 细胞淋巴瘤和其他 T 滤泡辅助细胞来源的淋巴结淋巴瘤",
+        "matched_term": "T细胞淋巴瘤/白血病",
+        "hpo_code": "HP:0005517",
+        "similarity_score": 0.7090566158294678,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.7090566158294678
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.7079302668571472
+          },
+          {
+            "hpo_term": "淋巴瘤细胞在毛囊中的定植",
+            "hpo_code": "HP:0020244",
+            "similarity_score": 0.6489232182502747
+          },
+          {
+            "hpo_term": "B细胞淋巴瘤",
+            "hpo_code": "HP:0012191",
+            "similarity_score": 0.6488666534423828
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.6487222909927368
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "血管免疫母细胞性 T 细胞淋巴瘤",
+        "matched_term": "T细胞淋巴瘤",
+        "hpo_code": "HP:0012190",
+        "similarity_score": 0.8886562585830688,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8886562585830688
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.8804638385772705
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.86533123254776
+          },
+          {
+            "hpo_term": "间变性大细胞淋巴瘤",
+            "hpo_code": "HP:0012193",
+            "similarity_score": 0.8571066856384277
+          },
+          {
+            "hpo_term": "皮下脂膜炎样T细胞淋巴瘤",
+            "hpo_code": "HP:0034403",
+            "similarity_score": 0.8385692834854126
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "滤泡性 T 细胞淋巴瘤",
+        "matched_term": "滤泡淋巴瘤",
+        "hpo_code": "HP:0033125",
+        "similarity_score": 0.9431023597717285,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "滤泡淋巴瘤",
+            "hpo_code": "HP:0033125",
+            "similarity_score": 0.9431023597717285
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.9225860834121704
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.8929884433746338
+          },
+          {
+            "hpo_term": "B细胞淋巴瘤",
+            "hpo_code": "HP:0012191",
+            "similarity_score": 0.8906493782997131
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.8746200203895569
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "间变性大细胞淋巴瘤，ALK 阳性",
+        "matched_term": "间变性大细胞淋巴瘤",
+        "hpo_code": "HP:0012193",
+        "similarity_score": 0.9152783751487732,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "间变性大细胞淋巴瘤",
+            "hpo_code": "HP:0012193",
+            "similarity_score": 0.9152783751487732
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8089540600776672
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.8087894320487976
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.8023247122764587
+          },
+          {
+            "hpo_term": "B细胞淋巴瘤",
+            "hpo_code": "HP:0012191",
+            "similarity_score": 0.785990297794342
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "间变性大细胞淋巴瘤，ALK 阴性",
+        "matched_term": "间变性大细胞淋巴瘤",
+        "hpo_code": "HP:0012193",
+        "similarity_score": 0.9049010872840881,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "间变性大细胞淋巴瘤",
+            "hpo_code": "HP:0012193",
+            "similarity_score": 0.9049010872840881
+          },
+          {
+            "hpo_term": "慢性T淋巴细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005539",
+            "similarity_score": 0.8097777366638184
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达增加",
+            "hpo_code": "HP:0020291",
+            "similarity_score": 0.8010707497596741
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤",
+            "hpo_code": "HP:0012190",
+            "similarity_score": 0.8008977174758911
+          },
+          {
+            "hpo_term": "T细胞淋巴瘤/白血病",
+            "hpo_code": "HP:0005517",
+            "similarity_score": 0.7954459190368652
+          }
+        ],
+        "card_id": [
+          "ocr_card_98b9b1c1b270"
+        ]
+      },
+      {
+        "phenotype": "滤泡辅助 T 细胞表型",
+        "matched_term": "效应记忆性CD4+的α-β T细胞比例增高",
+        "hpo_code": "HP:0410394",
+        "similarity_score": 0.7367954850196838,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "效应记忆性CD4+的α-β T细胞比例增高",
+            "hpo_code": "HP:0410394",
+            "similarity_score": 0.7367954850196838
+          },
+          {
+            "hpo_term": "CD4和CD8双阴性的α-β 调节性 T 细胞比例增高",
+            "hpo_code": "HP:0002851",
+            "similarity_score": 0.7341156005859375
+          },
+          {
+            "hpo_term": "CD4+CD25+调节性T细胞比例异常",
+            "hpo_code": "HP:0020111",
+            "similarity_score": 0.7323014736175537
+          },
+          {
+            "hpo_term": "效应记忆性CD8+的α-β T细胞比例异常",
+            "hpo_code": "HP:0410383",
+            "similarity_score": 0.7206984758377075
+          },
+          {
+            "hpo_term": "CD4 阳性、阳性 CD25 调节性 T 细胞计数增多",
+            "hpo_code": "HP:0030337",
+            "similarity_score": 0.7189663052558899
+          }
+        ],
+        "card_id": [
+          "ocr_card_369813d55ff9"
+        ]
+      }
+    ]
+  },
+  "negative_features": {
+    "source_type": "cards_negative",
+    "similarity_threshold": 0.7,
+    "top_k": 5,
+    "input_count": 20,
+    "deduped_count": 20,
+    "mapped_count": 10,
+    "low_similarity_count": 6,
+    "duplicate_count": 4,
+    "items": [
+      {
+        "phenotype": "全身骨显像缺乏特征性改变",
+        "matched_term": "骨显像摄取增加",
+        "hpo_code": "HP:6001022",
+        "similarity_score": 0.8528923988342285,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "骨显像摄取增加",
+            "hpo_code": "HP:6001022",
+            "similarity_score": 0.8528923988342285
+          },
+          {
+            "hpo_term": "破骨细胞计数异常",
+            "hpo_code": "HP:0030327",
+            "similarity_score": 0.7575144171714783
+          },
+          {
+            "hpo_term": "骨探针试验阳性",
+            "hpo_code": "HP:6001105",
+            "similarity_score": 0.7572734951972961
+          },
+          {
+            "hpo_term": "破骨细胞计数减少",
+            "hpo_code": "HP:0030328",
+            "similarity_score": 0.7568830847740173
+          },
+          {
+            "hpo_term": "骨源性碱性磷酸酶升高",
+            "hpo_code": "HP:0010639",
+            "similarity_score": 0.756023108959198
+          }
+        ],
+        "card_id": [
+          "ocr_card_8b3a20b70433"
+        ]
+      },
+      {
+        "phenotype": "邻近未受侵的正常组织（如肺、骨、肌肉、肾脏等）",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6439633369445801,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "异位胸腺组织",
+            "hpo_code": "HP:0010517",
+            "similarity_score": 0.6439633369445801
+          },
+          {
+            "hpo_term": "据解剖部位的肿瘤分类",
+            "hpo_code": "HP:0011793",
+            "similarity_score": 0.6364409923553467
+          },
+          {
+            "hpo_term": "肿瘤组织学",
+            "hpo_code": "HP:0011792",
+            "similarity_score": 0.6318566799163818
+          },
+          {
+            "hpo_term": "肺部肿瘤",
+            "hpo_code": "HP:0100526",
+            "similarity_score": 0.6246112585067749
+          },
+          {
+            "hpo_term": "呼吸系统肿瘤",
+            "hpo_code": "HP:0100606",
+            "similarity_score": 0.6231292486190796
+          }
+        ],
+        "card_id": [
+          "ocr_card_7d353e318835"
+        ]
+      },
+      {
+        "phenotype": "无淋巴结受累",
+        "matched_term": "感染时周围淋巴结缺失",
+        "hpo_code": "HP:0033581",
+        "similarity_score": 0.7724084854125977,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "感染时周围淋巴结缺失",
+            "hpo_code": "HP:0033581",
+            "similarity_score": 0.7724084854125977
+          },
+          {
+            "hpo_term": "淋巴细胞侵袭淋巴结包膜",
+            "hpo_code": "HP:0020237",
+            "similarity_score": 0.7681267857551575
+          },
+          {
+            "hpo_term": "淋巴结结构消失",
+            "hpo_code": "HP:0020235",
+            "similarity_score": 0.7670161724090576
+          },
+          {
+            "hpo_term": "淋巴细胞向淋巴结包膜外扩散",
+            "hpo_code": "HP:0020238",
+            "similarity_score": 0.7584237456321716
+          },
+          {
+            "hpo_term": "淋巴结边缘区形态异常",
+            "hpo_code": "HP:0020250",
+            "similarity_score": 0.7431703805923462
+          }
+        ],
+        "card_id": [
+          "ocr_card_b6bcfed45f22"
+        ]
+      },
+      {
+        "phenotype": "CD45（-）",
+        "matched_term": "CD45表达",
+        "hpo_code": "HP:0430098",
+        "similarity_score": 0.8775558471679688,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "CD45表达",
+            "hpo_code": "HP:0430098",
+            "similarity_score": 0.8775558471679688
+          },
+          {
+            "hpo_term": "CD5表达",
+            "hpo_code": "HP:0430094",
+            "similarity_score": 0.8239090442657471
+          },
+          {
+            "hpo_term": "CD38表达",
+            "hpo_code": "HP:0430097",
+            "similarity_score": 0.7855361104011536
+          },
+          {
+            "hpo_term": "CD19表达",
+            "hpo_code": "HP:0430101",
+            "similarity_score": 0.7850468158721924
+          },
+          {
+            "hpo_term": "CD10表达",
+            "hpo_code": "HP:0430095",
+            "similarity_score": 0.776249349117279
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "CD20（-）或弱（+）",
+        "matched_term": "CD20表达",
+        "hpo_code": "HP:0430102",
+        "similarity_score": 0.8742584586143494,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "CD20表达",
+            "hpo_code": "HP:0430102",
+            "similarity_score": 0.8742584586143494
+          },
+          {
+            "hpo_term": "CD79a表达",
+            "hpo_code": "HP:0020290",
+            "similarity_score": 0.8456100225448608
+          },
+          {
+            "hpo_term": "CD19表达",
+            "hpo_code": "HP:0430101",
+            "similarity_score": 0.842519998550415
+          },
+          {
+            "hpo_term": "CD45表达",
+            "hpo_code": "HP:0430098",
+            "similarity_score": 0.826796293258667
+          },
+          {
+            "hpo_term": "CD23表达",
+            "hpo_code": "HP:0430096",
+            "similarity_score": 0.8173099160194397
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "CD3（-）",
+        "matched_term": "CD45表达",
+        "hpo_code": "HP:0430098",
+        "similarity_score": 0.8108423948287964,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "CD45表达",
+            "hpo_code": "HP:0430098",
+            "similarity_score": 0.8108423948287964
+          },
+          {
+            "hpo_term": "CD8 + T细胞缺乏",
+            "hpo_code": "HP:0005422",
+            "similarity_score": 0.7994120717048645
+          },
+          {
+            "hpo_term": "CD38表达",
+            "hpo_code": "HP:0430097",
+            "similarity_score": 0.7979066371917725
+          },
+          {
+            "hpo_term": "CD5表达",
+            "hpo_code": "HP:0430094",
+            "similarity_score": 0.796613335609436
+          },
+          {
+            "hpo_term": "淋巴细胞表面CD43表达降低",
+            "hpo_code": "HP:0001983",
+            "similarity_score": 0.7920355796813965
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "CD15（-）",
+        "matched_term": "CD45表达",
+        "hpo_code": "HP:0430098",
+        "similarity_score": 0.8038744926452637,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "CD45表达",
+            "hpo_code": "HP:0430098",
+            "similarity_score": 0.8038744926452637
+          },
+          {
+            "hpo_term": "CD10表达",
+            "hpo_code": "HP:0430095",
+            "similarity_score": 0.7878780961036682
+          },
+          {
+            "hpo_term": "CD5表达",
+            "hpo_code": "HP:0430094",
+            "similarity_score": 0.7835158109664917
+          },
+          {
+            "hpo_term": "CD19表达",
+            "hpo_code": "HP:0430101",
+            "similarity_score": 0.7776838541030884
+          },
+          {
+            "hpo_term": "CD38表达",
+            "hpo_code": "HP:0430097",
+            "similarity_score": 0.7589696645736694
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "CD30（-）",
+        "matched_term": "CD45表达",
+        "hpo_code": "HP:0430098",
+        "similarity_score": 0.7987157702445984,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "CD45表达",
+            "hpo_code": "HP:0430098",
+            "similarity_score": 0.7987157702445984
+          },
+          {
+            "hpo_term": "CD20表达",
+            "hpo_code": "HP:0430102",
+            "similarity_score": 0.7912335991859436
+          },
+          {
+            "hpo_term": "CD23表达",
+            "hpo_code": "HP:0430096",
+            "similarity_score": 0.7897144556045532
+          },
+          {
+            "hpo_term": "CD5表达",
+            "hpo_code": "HP:0430094",
+            "similarity_score": 0.7874121069908142
+          },
+          {
+            "hpo_term": "CD79a表达",
+            "hpo_code": "HP:0020290",
+            "similarity_score": 0.7852457165718079
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "EBER（-）",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6459729671478271,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "Epsilon 波",
+            "hpo_code": "HP:0034304",
+            "similarity_score": 0.6459729671478271
+          },
+          {
+            "hpo_term": "无耳声发射",
+            "hpo_code": "HP:6000182",
+            "similarity_score": 0.6284041404724121
+          },
+          {
+            "hpo_term": "KCO降低",
+            "hpo_code": "HP:0033374",
+            "similarity_score": 0.625727653503418
+          },
+          {
+            "hpo_term": "排除的",
+            "hpo_code": "HP:0040285",
+            "similarity_score": 0.6254746913909912
+          },
+          {
+            "hpo_term": "J波",
+            "hpo_code": "HP:0012272",
+            "similarity_score": 0.6239862442016602
+          }
+        ],
+        "card_id": [
+          "ocr_card_fa28a8389c89"
+        ]
+      },
+      {
+        "phenotype": "不伴有B症状",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6848418712615967,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "淋巴结细胞CD20表达降低",
+            "hpo_code": "HP:0020292",
+            "similarity_score": 0.6848418712615967
+          },
+          {
+            "hpo_term": "淋巴结细胞B细胞标志物表达异常",
+            "hpo_code": "HP:0020288",
+            "similarity_score": 0.6792519688606262
+          },
+          {
+            "hpo_term": "淋巴结细胞CD19表达降低",
+            "hpo_code": "HP:0020293",
+            "similarity_score": 0.6759593486785889
+          },
+          {
+            "hpo_term": "最近既往病史",
+            "hpo_code": "HP:4000144",
+            "similarity_score": 0.6730740070343018
+          },
+          {
+            "hpo_term": "边缘区 B 细胞比例减低",
+            "hpo_code": "HP:0030384",
+            "similarity_score": 0.6722981929779053
+          }
+        ],
+        "card_id": [
+          "ocr_card_f3fdb926bf38"
+        ]
+      },
+      {
+        "phenotype": "不伴有纵隔受侵",
+        "matched_term": "中纵膈肿块",
+        "hpo_code": "HP:0033828",
+        "similarity_score": 0.7385518550872803,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "中纵膈肿块",
+            "hpo_code": "HP:0033828",
+            "similarity_score": 0.7385518550872803
+          },
+          {
+            "hpo_term": "下纵膈肿块",
+            "hpo_code": "HP:0033826",
+            "similarity_score": 0.7344644665718079
+          },
+          {
+            "hpo_term": "纵膈淋巴结病",
+            "hpo_code": "HP:0100721",
+            "similarity_score": 0.7317584156990051
+          },
+          {
+            "hpo_term": "前纵膈肿块",
+            "hpo_code": "HP:0033827",
+            "similarity_score": 0.7256520986557007
+          },
+          {
+            "hpo_term": "纵膈肿块",
+            "hpo_code": "HP:0033823",
+            "similarity_score": 0.7248520851135254
+          }
+        ],
+        "card_id": [
+          "ocr_card_f3fdb926bf38"
+        ]
+      },
+      {
+        "phenotype": "不伴有结外受侵",
+        "matched_term": "淋巴细胞侵袭淋巴结包膜",
+        "hpo_code": "HP:0020237",
+        "similarity_score": 0.7660566568374634,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "淋巴细胞侵袭淋巴结包膜",
+            "hpo_code": "HP:0020237",
+            "similarity_score": 0.7660566568374634
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达降低",
+            "hpo_code": "HP:0020292",
+            "similarity_score": 0.7427945733070374
+          },
+          {
+            "hpo_term": "淋巴细胞向淋巴结包膜外扩散",
+            "hpo_code": "HP:0020238",
+            "similarity_score": 0.7394694089889526
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达增加",
+            "hpo_code": "HP:0020291",
+            "similarity_score": 0.7285981178283691
+          },
+          {
+            "hpo_term": "淋巴结细胞CD19表达降低",
+            "hpo_code": "HP:0020293",
+            "similarity_score": 0.726660430431366
+          }
+        ],
+        "card_id": [
+          "ocr_card_f3fdb926bf38"
+        ]
+      },
+      {
+        "phenotype": "不伴有大肿块",
+        "matched_term": "无痛性肿块",
+        "hpo_code": "HP:0025761",
+        "similarity_score": 0.7764163017272949,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "无痛性肿块",
+            "hpo_code": "HP:0025761",
+            "similarity_score": 0.7764163017272949
+          },
+          {
+            "hpo_term": "固定肿块",
+            "hpo_code": "HP:0025760",
+            "similarity_score": 0.7161595821380615
+          },
+          {
+            "hpo_term": "侧腹肿块",
+            "hpo_code": "HP:6000363",
+            "similarity_score": 0.7019178867340088
+          },
+          {
+            "hpo_term": "感染时周围淋巴结缺失",
+            "hpo_code": "HP:0033581",
+            "similarity_score": 0.694118320941925
+          },
+          {
+            "hpo_term": "乳腺肿块",
+            "hpo_code": "HP:0032408",
+            "similarity_score": 0.6925011277198792
+          }
+        ],
+        "card_id": [
+          "ocr_card_f3fdb926bf38"
+        ]
+      },
+      {
+        "phenotype": "无大肿块",
+        "matched_term": "无痛性肿块",
+        "hpo_code": "HP:0025761",
+        "similarity_score": 0.7807210087776184,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "无痛性肿块",
+            "hpo_code": "HP:0025761",
+            "similarity_score": 0.7807210087776184
+          },
+          {
+            "hpo_term": "固定肿块",
+            "hpo_code": "HP:0025760",
+            "similarity_score": 0.7385916113853455
+          },
+          {
+            "hpo_term": "侧腹肿块",
+            "hpo_code": "HP:6000363",
+            "similarity_score": 0.7156437635421753
+          },
+          {
+            "hpo_term": "淋巴结形态异常",
+            "hpo_code": "HP:0002733",
+            "similarity_score": 0.706328272819519
+          },
+          {
+            "hpo_term": "活动性肿块",
+            "hpo_code": "HP:0025759",
+            "similarity_score": 0.703241765499115
+          }
+        ],
+        "card_id": [
+          "ocr_card_aa41788b5b4d",
+          "ocr_card_85511530fd85"
+        ]
+      },
+      {
+        "phenotype": "无 B 症状",
+        "matched_term": "最近既往病史",
+        "hpo_code": "HP:4000144",
+        "similarity_score": 0.7268617153167725,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "最近既往病史",
+            "hpo_code": "HP:4000144",
+            "similarity_score": 0.7268617153167725
+          },
+          {
+            "hpo_term": "无β脂蛋白血症",
+            "hpo_code": "HP:0008181",
+            "similarity_score": 0.6949489116668701
+          },
+          {
+            "hpo_term": "血液B 细胞缺失",
+            "hpo_code": "HP:0030252",
+            "similarity_score": 0.6829845905303955
+          },
+          {
+            "hpo_term": "无脾",
+            "hpo_code": "HP:0001746",
+            "similarity_score": 0.6750040650367737
+          },
+          {
+            "hpo_term": "异常的不发热",
+            "hpo_code": "HP:0033104",
+            "similarity_score": 0.6707751750946045
+          }
+        ],
+        "card_id": [
+          "ocr_card_aa41788b5b4d"
+        ]
+      },
+      {
+        "phenotype": "无症状",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6836866140365601,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "无症状高氨血症",
+            "hpo_code": "HP:0008162",
+            "similarity_score": 0.6836866140365601
+          },
+          {
+            "hpo_term": "最近既往病史",
+            "hpo_code": "HP:4000144",
+            "similarity_score": 0.6739020347595215
+          },
+          {
+            "hpo_term": "异常的不发热",
+            "hpo_code": "HP:0033104",
+            "similarity_score": 0.6720376014709473
+          },
+          {
+            "hpo_term": "无痛性肿块",
+            "hpo_code": "HP:0025761",
+            "similarity_score": 0.6643421053886414
+          },
+          {
+            "hpo_term": "无脉",
+            "hpo_code": "HP:0032554",
+            "similarity_score": 0.6575026512145996
+          }
+        ],
+        "card_id": [
+          "ocr_card_aa41788b5b4d"
+        ]
+      },
+      {
+        "phenotype": "Deauville评分1～3分",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6792714595794678,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "CD25+肥大细胞比例增高",
+            "hpo_code": "HP:0031408",
+            "similarity_score": 0.6792714595794678
+          },
+          {
+            "hpo_term": "HLA-DR阳性T细胞比例多",
+            "hpo_code": "HP:0002853",
+            "similarity_score": 0.6791099309921265
+          },
+          {
+            "hpo_term": "中度血管炎",
+            "hpo_code": "HP:6000658",
+            "similarity_score": 0.6617430448532104
+          },
+          {
+            "hpo_term": "抗FGFR3抗体阳性",
+            "hpo_code": "HP:5000008",
+            "similarity_score": 0.6579009890556335
+          },
+          {
+            "hpo_term": "血液IgG4持续性（接近）缺乏",
+            "hpo_code": "HP:0041059",
+            "similarity_score": 0.6553863286972046
+          }
+        ],
+        "card_id": [
+          "ocr_card_85511530fd85",
+          "ocr_card_3ab5c67f4cd7"
+        ]
+      },
+      {
+        "phenotype": "活检结果阴性",
+        "matched_term": "淋巴结生物样本异常",
+        "hpo_code": "HP:0020229",
+        "similarity_score": 0.7243746519088745,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "淋巴结生物样本异常",
+            "hpo_code": "HP:0020229",
+            "similarity_score": 0.7243746519088745
+          },
+          {
+            "hpo_term": "针刺反应阳性",
+            "hpo_code": "HP:0025532",
+            "similarity_score": 0.7133723497390747
+          },
+          {
+            "hpo_term": "非坏死性肉芽肿",
+            "hpo_code": "HP:0033805",
+            "similarity_score": 0.7126561403274536
+          },
+          {
+            "hpo_term": "四氮唑蓝（NBT）还原试验阴性",
+            "hpo_code": "HP:0003203",
+            "similarity_score": 0.7118765115737915
+          },
+          {
+            "hpo_term": "血液IgG4持续性（接近）缺乏",
+            "hpo_code": "HP:0041059",
+            "similarity_score": 0.7041829228401184
+          }
+        ],
+        "card_id": [
+          "ocr_card_85511530fd85"
+        ]
+      },
+      {
+        "phenotype": "活检阴性",
+        "matched_term": "非坏死性肉芽肿",
+        "hpo_code": "HP:0033805",
+        "similarity_score": 0.7240250706672668,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "非坏死性肉芽肿",
+            "hpo_code": "HP:0033805",
+            "similarity_score": 0.7240250706672668
+          },
+          {
+            "hpo_term": "淋巴结生物样本异常",
+            "hpo_code": "HP:0020229",
+            "similarity_score": 0.7184077501296997
+          },
+          {
+            "hpo_term": "四氮唑蓝（NBT）还原试验阴性",
+            "hpo_code": "HP:0003203",
+            "similarity_score": 0.7132909893989563
+          },
+          {
+            "hpo_term": "针刺反应阳性",
+            "hpo_code": "HP:0025532",
+            "similarity_score": 0.7064931392669678
+          },
+          {
+            "hpo_term": "淋巴结细胞抗原表达异常",
+            "hpo_code": "HP:0020233",
+            "similarity_score": 0.7024523019790649
+          }
+        ],
+        "card_id": [
+          "ocr_card_3ab5c67f4cd7"
+        ]
+      },
+      {
+        "phenotype": "PET-CT评估结果阴性",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6894468665122986,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "抗p53抗体阳性",
+            "hpo_code": "HP:0034107",
+            "similarity_score": 0.6894468665122986
+          },
+          {
+            "hpo_term": "血清淀粉样蛋白P闪烁显像阳性",
+            "hpo_code": "HP:6001100",
+            "similarity_score": 0.6864151358604431
+          },
+          {
+            "hpo_term": "血液IgG4持续性（接近）缺乏",
+            "hpo_code": "HP:0041059",
+            "similarity_score": 0.6770438551902771
+          },
+          {
+            "hpo_term": "淋巴结细胞CD20表达降低",
+            "hpo_code": "HP:0020292",
+            "similarity_score": 0.6698174476623535
+          },
+          {
+            "hpo_term": "淋巴结细胞CD19表达降低",
+            "hpo_code": "HP:0020293",
+            "similarity_score": 0.6666986346244812
+          }
+        ],
+        "card_id": [
+          "ocr_card_85fbaa5383af"
+        ]
+      }
+    ]
+  }
+}

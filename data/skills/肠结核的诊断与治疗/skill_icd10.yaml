@@ -1,0 +1,1502 @@
+schema_version: '0.3'
+metadata:
+  skill_id: pdf_unknown
+  disease_name: 肠结核的
+  disease_aliases:
+  - 肠结核的
+  guideline:
+    name: 肠结核的诊断与治疗.pdf
+    version: unknown
+    source_pdf: 肠结核的诊断与治疗.pdf
+    publication_year: null
+    language: zh-CN
+  target_users:
+  - clinicians
+  - clinical decision support developers
+  intended_use:
+  - guideline-based clinical decision support
+  - recommendation retrieval
+  - structured guideline workflow execution
+  scope: This skill pack is generated from recommendation cards in the input result.jsonl and supports guideline retrieval, evidence checking, and management recommendation drafting.
+  disclaimer: 本工具仅用于指南知识组织和临床决策支持，不替代医生诊断、处方或急诊处理。
+routing_profile:
+  population:
+  - 没有明确人群
+  positive_features:
+  - name: 腹部包块（常位于右下腹，位置较深，质地硬，表面不平，有压痛，相对固定）
+    similarity_score: 0.7164365649223328
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K35-K38
+      section_name: 肠的其他疾病
+      category_code: K38
+      category_name: 阑尾的其他疾病
+      subcategory_code: K38.8
+      subcategory_name: 阑尾其他特指的疾病
+      diagnosis_code: K38.802
+      diagnosis_name: 阑尾囊肿
+    hpo_mapping: {}
+  - name: 腹泻
+    similarity_score: 0.7689312696456909
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A00-A09
+      section_name: 肠的其他疾病
+      category_code: A09
+      category_name: 其他传染性和未特指病因的胃肠炎和结肠炎
+      subcategory_code: A09.0
+      subcategory_name: 其他和未特指传染性病因的胃肠炎和结肠炎
+      diagnosis_code: A09.004
+      diagnosis_name: 感染性腹泻
+    hpo_mapping: {}
+  - name: 腹泻与便秘交替
+    similarity_score: 0.7496455311775208
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K52
+      category_name: 其他非感染性胃肠炎和结肠炎
+      subcategory_code: K52.9
+      subcategory_name: 未特指的非感染性胃肠炎和结肠炎
+      diagnosis_code: K52.910
+      diagnosis_name: 慢性结肠炎
+    hpo_mapping: {}
+  - name: 便秘
+    similarity_score: 0.7278085350990295
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K59
+      category_name: 其他功能性肠疾患
+      subcategory_code: K59.0
+      subcategory_name: 便秘
+      diagnosis_code: K59.003
+      diagnosis_name: 慢传输型便秘
+    hpo_mapping: {}
+  - name: 便血
+    similarity_score: 0.7471161484718323
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K90-K93
+      section_name: 肠的其他疾病
+      category_code: K92
+      category_name: 消化系统的其他疾病
+      subcategory_code: K92.2
+      subcategory_name: 未特指的胃肠出血
+      diagnosis_code: K92.206
+      diagnosis_name: 结肠出血
+    hpo_mapping: {}
+  - name: 月经紊乱
+    similarity_score: 0.7786921262741089
+    status: mapped
+    icd10_mapping:
+      chapter: '14'
+      chapter_code_range: N00-N99
+      chapter_name: 泌尿生殖系统疾病
+      section_code_range: N80-N98
+      section_name: 肠的其他疾病
+      category_code: N93
+      category_name: 其他异常的子宫和阴道出血
+      subcategory_code: N93.8
+      subcategory_name: 其他特指的异常的子宫和阴道出血
+      diagnosis_code: N93.801
+      diagnosis_name: 功能障碍性子宫出血
+    hpo_mapping: {}
+  - name: 低热、盗汗、乏力、纳差、体重下降
+    similarity_score: 0.7485212087631226
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A15-A19
+      section_name: 肠的其他疾病
+      category_code: A16
+      category_name: 呼吸道结核，未经细菌学或组织学所证实
+      subcategory_code: A16.9
+      subcategory_name: 未特指的呼吸道结核，未提及细菌学或组织学的证实
+      diagnosis_code: A16.900x001
+      diagnosis_name: 结核病
+    hpo_mapping: {}
+  - name: 肠鸣音亢进
+    similarity_score: 0.8609154224395752
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R10-R19
+      section_name: 肠的其他疾病
+      category_code: R19
+      category_name: 累及消化系统和腹部的其他症状和体征
+      subcategory_code: R19.1
+      subcategory_name: 异常肠鸣音
+      diagnosis_code: R19.100x001
+      diagnosis_name: 肠鸣音亢进
+    hpo_mapping: {}
+  - name: 肠型
+    similarity_score: 0.7289221286773682
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K56
+      category_name: 麻痹性肠梗阻和不伴有疝的肠梗阻
+      subcategory_code: K56.1
+      subcategory_name: 肠套叠
+      diagnosis_code: K56.101
+      diagnosis_name: 结肠套叠
+    hpo_mapping: {}
+  - name: 腹部压痛及反跳痛
+    similarity_score: 0.8362836241722107
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K65-K67
+      section_name: 肠的其他疾病
+      category_code: K65
+      category_name: 腹膜炎
+      subcategory_code: K65.0
+      subcategory_name: 急性腹膜炎
+      diagnosis_code: K65.000
+      diagnosis_name: 急性腹膜炎
+    hpo_mapping: {}
+  - name: 腹水
+    similarity_score: 0.8253602385520935
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R10-R19
+      section_name: 肠的其他疾病
+      category_code: R18
+      category_name: 腹水
+      subcategory_code: ''
+      subcategory_name: ''
+      diagnosis_code: R18.x00
+      diagnosis_name: 腹水
+    hpo_mapping: {}
+  - name: PPD试验阳性
+    similarity_score: 0.8117373585700989
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R70-R79
+      section_name: 肠的其他疾病
+      category_code: R76
+      category_name: 其他血清免疫学异常所见
+      subcategory_code: R76.1
+      subcategory_name: 结核菌素试验的异常反应
+      diagnosis_code: R76.100
+      diagnosis_name: 结核菌素试验的异常反应
+    hpo_mapping: {}
+  - name: 痰培养阳性
+    similarity_score: 0.7352389693260193
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A15-A19
+      section_name: 肠的其他疾病
+      category_code: A15
+      category_name: 呼吸道结核，经细菌学和组织学证实
+      subcategory_code: A15.1
+      subcategory_name: 肺结核,仅经痰培养所证实
+      diagnosis_code: A15.100x001
+      diagnosis_name: 肺结核（仅痰培养证实）
+    hpo_mapping: {}
+  - name: 腹水呈草绿色
+    similarity_score: 0.7460408806800842
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K65-K67
+      section_name: 腹膜疾病
+      category_code: K65
+      category_name: 腹膜炎
+      subcategory_code: K65.9
+      subcategory_name: 未特指的腹膜炎
+      diagnosis_code: K65.906
+      diagnosis_name: 原发性腹膜炎
+    hpo_mapping: {}
+  - name: 腹水呈淡血性
+    similarity_score: 0.8397189378738403
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R10-R19
+      section_name: 腹膜疾病
+      category_code: R18
+      category_name: 腹水
+      subcategory_code: ''
+      subcategory_name: ''
+      diagnosis_code: R18.x00x003
+      diagnosis_name: 血性腹水
+    hpo_mapping: {}
+  - name: 腹水呈乳糜样
+    similarity_score: 0.8987982869148254
+    status: mapped
+    icd10_mapping:
+      chapter: '9'
+      chapter_code_range: I00-I99
+      chapter_name: 循环系统疾病
+      section_code_range: I80-I89
+      section_name: 腹膜疾病
+      category_code: I89
+      category_name: 淋巴管和淋巴结的其他非感染性疾患
+      subcategory_code: I89.8
+      subcategory_name: 淋巴管和淋巴结其他特指的非感染性疾患
+      diagnosis_code: I89.800x006
+      diagnosis_name: 乳糜性腹水
+    hpo_mapping: {}
+  - name: 腹水性质为渗出液
+    similarity_score: 0.7667943239212036
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: C76-C80
+      section_name: 腹膜疾病
+      category_code: C78
+      category_name: 呼吸和消化器官的继发性恶性肿瘤
+      subcategory_code: C78.6
+      subcategory_name: 腹膜后和腹膜继发性恶性肿瘤
+      diagnosis_code: C78.604
+      diagnosis_name: 恶性腹水
+    hpo_mapping: {}
+  - name: 腹水ADA>40U/L
+    similarity_score: 0.8072039484977722
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A15-A19
+      section_name: 腹膜疾病
+      category_code: A18
+      category_name: 其他器官的结核
+      subcategory_code: A18.3
+      subcategory_name: 肠、腹膜和肠系膜淋巴结的结核
+      diagnosis_code: A18.314+K67.3*
+      diagnosis_name: 结核性腹膜炎
+    hpo_mapping: {}
+  - name: 血沉加快
+    similarity_score: 0.7652685046195984
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R70-R79
+      section_name: 肠的其他疾病
+      category_code: R70
+      category_name: 红细胞沉降率升高和血浆粘滞度异常
+      subcategory_code: R70.0
+      subcategory_name: 红细胞沉降率升高
+      diagnosis_code: R70.000
+      diagnosis_name: 红细胞沉降率升高
+    hpo_mapping: {}
+  - name: 贫血
+    similarity_score: 0.7736088633537292
+    status: mapped
+    icd10_mapping:
+      chapter: '3'
+      chapter_code_range: D50-D89
+      chapter_name: 血液及造血器官疾病和涉及免疫机制的某些疾患
+      section_code_range: D50-D53
+      section_name: 肠的其他疾病
+      category_code: D53
+      category_name: 其他营养性贫血
+      subcategory_code: D53.9
+      subcategory_name: 未特指的营养性贫血
+      diagnosis_code: D53.901
+      diagnosis_name: 慢性单纯性贫血
+    hpo_mapping: {}
+  - name: 可见活动性或陈旧性肠外结核病灶
+    similarity_score: 0.815779983997345
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: B90-B94
+      section_name: 肠的其他疾病
+      category_code: B90
+      category_name: 结核病后遗症
+      subcategory_code: B90.8
+      subcategory_name: 其他器官结核的后遗症
+      diagnosis_code: B90.800x004
+      diagnosis_name: 陈旧性肠结核
+    hpo_mapping: {}
+  - name: 多发大小不等溃疡
+    similarity_score: 0.7821633219718933
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K00-K14
+      section_name: 肠的其他疾病
+      category_code: K12
+      category_name: 口炎和有关损害
+      subcategory_code: K12.1
+      subcategory_name: 其他形式的口炎
+      diagnosis_code: K12.107
+      diagnosis_name: 溃疡性口炎
+    hpo_mapping: {}
+  - name: 粘膜集中
+    similarity_score: 0.7045179009437561
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K00-K14
+      section_name: 肠的其他疾病
+      category_code: K13
+      category_name: 唇及口腔粘膜的其他疾病
+      subcategory_code: K13.7
+      subcategory_name: 口腔粘膜其他和未特指的损害
+      diagnosis_code: K13.704
+      diagnosis_name: 口腔黏蛋白沉积症
+    hpo_mapping: {}
+  - name: 肠腔狭窄
+    similarity_score: 0.8275170922279358
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K56
+      category_name: 麻痹性肠梗阻和不伴有疝的肠梗阻
+      subcategory_code: K56.6
+      subcategory_name: 其他和未特指的肠梗阻
+      diagnosis_code: K56.601
+      diagnosis_name: 肠狭窄
+    hpo_mapping: {}
+  - name: 结肠袋变浅消失
+    similarity_score: 0.7688994407653809
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K59
+      category_name: 其他功能性肠疾患
+      subcategory_code: K59.3
+      subcategory_name: 巨结肠，不可归类在他处者
+      diagnosis_code: K59.301
+      diagnosis_name: 结肠扩张
+    hpo_mapping: {}
+  - name: 肠道痉挛激惹征象
+    similarity_score: 0.7604827880859375
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K56
+      category_name: 麻痹性肠梗阻和不伴有疝的肠梗阻
+      subcategory_code: K56.6
+      subcategory_name: 其他和未特指的肠梗阻
+      diagnosis_code: K56.600x005
+      diagnosis_name: 痉挛性肠梗阻
+    hpo_mapping: {}
+  - name: 多段肠管破坏，跳跃征
+    similarity_score: 0.7411701679229736
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K50
+      category_name: 克罗恩病[局限性肠炎]
+      subcategory_code: K50.1
+      subcategory_name: 大肠克罗恩病
+      diagnosis_code: K50.102
+      diagnosis_name: 结肠克罗恩病
+    hpo_mapping: {}
+  - name: 盲升结肠变形缩短
+    similarity_score: 0.7312203049659729
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K56
+      category_name: 麻痹性肠梗阻和不伴有疝的肠梗阻
+      subcategory_code: K56.6
+      subcategory_name: 其他和未特指的肠梗阻
+      diagnosis_code: K56.602
+      diagnosis_name: 乙状结肠狭窄
+    hpo_mapping: {}
+  - name: 回盲瓣增厚
+    similarity_score: 0.7685079574584961
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K52
+      category_name: 其他非感染性胃肠炎和结肠炎
+      subcategory_code: K52.9
+      subcategory_name: 未特指的非感染性胃肠炎和结肠炎
+      diagnosis_code: K52.903
+      diagnosis_name: 非感染性回盲部炎症
+    hpo_mapping: {}
+  - name: 回肠末端狭窄
+    similarity_score: 0.8048394322395325
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K50
+      category_name: 克罗恩病[局限性肠炎]
+      subcategory_code: K50.0
+      subcategory_name: 小肠克罗恩病
+      diagnosis_code: K50.000x001
+      diagnosis_name: 末端性回肠炎
+    hpo_mapping: {}
+  - name: 粘膜破坏
+    similarity_score: 0.7492165565490723
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: C00-C14
+      section_name: 肠的其他疾病
+      category_code: C06
+      category_name: 口其他和未特指部位的恶性肿瘤
+      subcategory_code: C06.9
+      subcategory_name: 未特指的口恶性肿瘤
+      diagnosis_code: C06.902
+      diagnosis_name: 口腔黏膜恶性肿瘤
+    hpo_mapping: {}
+  - name: 回肠末端与盲肠排列成一直线，一字征
+    similarity_score: 0.7687732577323914
+    status: mapped
+    icd10_mapping:
+      chapter: '17'
+      chapter_code_range: Q00-Q99
+      chapter_name: 先天性畸形、变形和染色体异常
+      section_code_range: Q38-Q45
+      section_name: 肠的其他疾病
+      category_code: Q43
+      category_name: 肠的其他先天性畸形
+      subcategory_code: Q43.8
+      subcategory_name: 肠的其他特指先天性畸形
+      diagnosis_code: Q43.806
+      diagnosis_name: 盲肠异位
+    hpo_mapping: {}
+  - name: 盲肠内侧偏心性增厚
+    similarity_score: 0.7812120318412781
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K50
+      category_name: 克罗恩病[局限性肠炎]
+      subcategory_code: K50.1
+      subcategory_name: 大肠克罗恩病
+      diagnosis_code: K50.104
+      diagnosis_name: 肉芽肿性盲肠炎
+    hpo_mapping: {}
+  - name: 肠道跳跃性改变
+    similarity_score: 0.7091019749641418
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K52
+      category_name: 其他非感染性胃肠炎和结肠炎
+      subcategory_code: K52.8
+      subcategory_name: 其他特指的非感染性胃肠炎和结肠炎
+      diagnosis_code: K52.801
+      diagnosis_name: 胶原性结肠炎
+    hpo_mapping: {}
+  - name: 增强后均匀强化
+    similarity_score: 0.7111985087394714
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: D10-D36
+      section_name: 肠的其他疾病
+      category_code: D33
+      category_name: 脑和中枢神经系统其他部位的良性肿瘤
+      subcategory_code: D33.2
+      subcategory_name: 脑未特指的良性肿瘤
+      diagnosis_code: D33.200x001
+      diagnosis_name: 颅内良性肿瘤
+    hpo_mapping: {}
+  - name: 腹内肠外结核
+    similarity_score: 0.800041675567627
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A15-A19
+      section_name: 肠的其他疾病
+      category_code: A18
+      category_name: 其他器官的结核
+      subcategory_code: A18.3
+      subcategory_name: 肠、腹膜和肠系膜淋巴结的结核
+      diagnosis_code: A18.303+K93.0*
+      diagnosis_name: 肠结核
+    hpo_mapping: {}
+  - name: 环形或多环状强化的肿大淋巴结
+    similarity_score: 0.7400761842727661
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R50-R69
+      section_name: 肠的其他疾病
+      category_code: R59
+      category_name: 淋巴结增大
+      subcategory_code: R59.1
+      subcategory_name: 全身性淋巴结增大
+      diagnosis_code: R59.100x002
+      diagnosis_name: 淋巴结病
+    hpo_mapping: {}
+  - name: 钙化性淋巴结
+    similarity_score: 0.7837048768997192
+    status: mapped
+    icd10_mapping:
+      chapter: '9'
+      chapter_code_range: I00-I99
+      chapter_name: 循环系统疾病
+      section_code_range: I80-I89
+      section_name: 肠的其他疾病
+      category_code: I89
+      category_name: 淋巴管和淋巴结的其他非感染性疾患
+      subcategory_code: I89.8
+      subcategory_name: 淋巴管和淋巴结其他特指的非感染性疾患
+      diagnosis_code: I89.806
+      diagnosis_name: 淋巴结钙化
+    hpo_mapping: {}
+  - name: 炎症型：粘膜充血水肿、血管纹理模糊，可见点状或片状糜烂灶，表面附黄白色粘稠渗出物或霜样白苔
+    similarity_score: 0.7221107482910156
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K00-K14
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: K12
+      category_name: 口炎和有关损害
+      subcategory_code: K12.1
+      subcategory_name: 其他形式的口炎
+      diagnosis_code: K12.100x013
+      diagnosis_name: 糜烂性口炎
+    hpo_mapping: {}
+  - name: 增生型：增生性结节，呈铺路石样改变，大的可形成不规则肿物样隆起，质地脆、色红、触之易出血
+    similarity_score: 0.709467887878418
+    status: mapped
+    icd10_mapping:
+      chapter: '12'
+      chapter_code_range: L00-L99
+      chapter_name: 皮肤和皮下组织疾病
+      section_code_range: L80-L99
+      section_name: 非感染性小肠炎和结肠炎
+      category_code: L98
+      category_name: 皮肤和皮下组织的其他疾患，不可归类在他处者
+      subcategory_code: L98.8
+      subcategory_name: 皮肤和皮下组织其他特指的疾患
+      diagnosis_code: L98.800x021
+      diagnosis_name: 丘疹性血管增生
+    hpo_mapping: {}
+  - name: 溃疡形成且较深
+    similarity_score: 0.7556627988815308
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K20-K31
+      section_name: 肠的其他疾病
+      category_code: K27
+      category_name: 部位未特指的消化性溃疡
+      subcategory_code: K27.5
+      subcategory_name: 部位未特指的消化性溃疡:慢性或未特指的，伴有穿孔
+      diagnosis_code: K27.500x001
+      diagnosis_name: 多发性溃疡伴穿孔
+    hpo_mapping: {}
+  - name: 粘膜肌层的破坏
+    similarity_score: 0.7155060172080994
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K20-K31
+      section_name: 肠的其他疾病
+      category_code: K31
+      category_name: 胃和十二指肠的其他疾病
+      subcategory_code: K31.9
+      subcategory_name: 胃和十二指肠未特指的疾病
+      diagnosis_code: K31.905
+      diagnosis_name: 胃黏膜病变
+    hpo_mapping: {}
+  - name: 结核结节（干酪样肉芽肿）
+    similarity_score: 0.7466080188751221
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A15-A19
+      section_name: 肠的其他疾病
+      category_code: A16
+      category_name: 呼吸道结核，未经细菌学或组织学所证实
+      subcategory_code: A16.2
+      subcategory_name: 肺结核，未提及细菌学或组织学的证实
+      diagnosis_code: A16.200x007
+      diagnosis_name: 结节型肺结核
+    hpo_mapping: {}
+  - name: 抗酸染色可找到阳性杆菌
+    similarity_score: 0.7793117165565491
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A30-A49
+      section_name: 肠的其他疾病
+      category_code: A31
+      category_name: 其他分枝杆菌感染
+      subcategory_code: A31.9
+      subcategory_name: 未特指的分枝杆菌感染
+      diagnosis_code: A31.900x001
+      diagnosis_name: 分枝杆菌病
+    hpo_mapping: {}
+  - name: 不明原因的腹痛
+    similarity_score: 0.7324457168579102
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R10-R19
+      section_name: 消化系统的其他疾病
+      category_code: R10
+      category_name: 腹部和盆腔痛
+      subcategory_code: R10.4
+      subcategory_name: 其他和未特指的腹痛
+      diagnosis_code: R10.400x002
+      diagnosis_name: 功能性腹痛
+    hpo_mapping: {}
+  - name: 诊断困难的腹部包块
+    similarity_score: 0.7429240942001343
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: D37-D48
+      section_name: 消化系统的其他疾病
+      category_code: D48
+      category_name: 其他和未特指部位的动态未定或动态未知的肿瘤
+      subcategory_code: D48.4
+      subcategory_name: 腹膜动态未定或动态未知的肿瘤
+      diagnosis_code: D48.400
+      diagnosis_name: 腹膜动态未定或动态未知的肿瘤
+    hpo_mapping: {}
+  - name: 腹痛
+    similarity_score: 0.7287018895149231
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R10-R19
+      section_name: 肠的其他疾病
+      category_code: R10
+      category_name: 腹部和盆腔痛
+      subcategory_code: R10.0
+      subcategory_name: 急腹症
+      diagnosis_code: R10.000
+      diagnosis_name: 急腹症
+    hpo_mapping: {}
+  - name: 腹泻与便秘
+    similarity_score: 0.7583593726158142
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K58
+      category_name: 肠易激综合征
+      subcategory_code: K58.3
+      subcategory_name: 混合型肠易激综合征[IBS-M]
+      diagnosis_code: K58.300
+      diagnosis_name: 混合型肠易激综合征[IBS-M]
+    hpo_mapping: {}
+  - name: 腹部包块
+    similarity_score: 0.8124762177467346
+    status: mapped
+    icd10_mapping:
+      chapter: '18'
+      chapter_code_range: R00-R99
+      chapter_name: 症状、体征和临床与实验室异常所见，不可归类在他处者
+      section_code_range: R10-R19
+      section_name: 肠的其他疾病
+      category_code: R19
+      category_name: 累及消化系统和腹部的其他症状和体征
+      subcategory_code: R19.0
+      subcategory_name: 腹腔内和盆腔的肿胀、肿物和肿块
+      diagnosis_code: R19.001
+      diagnosis_name: 腹部肿物
+    hpo_mapping: {}
+  - name: 轻度贫血
+    similarity_score: 0.826856791973114
+    status: mapped
+    icd10_mapping:
+      chapter: '3'
+      chapter_code_range: D50-D89
+      chapter_name: 血液及造血器官疾病和涉及免疫机制的某些疾患
+      section_code_range: D60-D64
+      section_name: 肠的其他疾病
+      category_code: D64
+      category_name: 其他贫血
+      subcategory_code: D64.9
+      subcategory_name: 未特指的贫血
+      diagnosis_code: D64.901
+      diagnosis_name: 轻度贫血
+    hpo_mapping: {}
+  - name: X线钡餐造影或结肠双对比造影显示肠管激惹征
+    similarity_score: 0.7895289063453674
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K58
+      category_name: 肠易激综合征
+      subcategory_code: K58.8
+      subcategory_name: 其他和未特指的肠易激综合征
+      diagnosis_code: K58.801
+      diagnosis_name: 肠易激综合征
+    hpo_mapping: {}
+  - name: X线钡餐造影或结肠双对比造影显示充盈缺损
+    similarity_score: 0.8035454750061035
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K63
+      category_name: 肠的其他疾病
+      subcategory_code: K63.9
+      subcategory_name: 肠未特指的疾病
+      diagnosis_code: K63.900x001
+      diagnosis_name: 结肠肿物
+    hpo_mapping: {}
+  - name: CT显示肠壁环形增厚
+    similarity_score: 0.7362567782402039
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K50
+      category_name: 克罗恩病[局限性肠炎]
+      subcategory_code: K50.0
+      subcategory_name: 小肠克罗恩病
+      diagnosis_code: K50.002
+      diagnosis_name: 回肠克罗恩病
+    hpo_mapping: {}
+  - name: 纤维结肠镜下可见肠道炎症
+    similarity_score: 0.7830247282981873
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K50-K52
+      section_name: 肠的其他疾病
+      category_code: K51
+      category_name: 溃疡性结肠炎
+      subcategory_code: K51.9
+      subcategory_name: 未特指的溃疡性结肠炎
+      diagnosis_code: K51.900
+      diagnosis_name: 溃疡性结肠炎
+    hpo_mapping: {}
+  - name: 纤维结肠镜下可见增生性病变，增生性结节呈铺路石样改变
+    similarity_score: 0.7870338559150696
+    status: mapped
+    icd10_mapping:
+      chapter: '2'
+      chapter_code_range: C00-D48
+      chapter_name: 肿瘤
+      section_code_range: D10-D36
+      section_name: 肠的其他疾病
+      category_code: D12
+      category_name: 结肠、直肠、肛门和肛管良性肿瘤
+      subcategory_code: D12.6
+      subcategory_name: 未特指的结肠良性肿瘤
+      diagnosis_code: D12.602
+      diagnosis_name: 结肠腺瘤样息肉病
+    hpo_mapping: {}
+  - name: 纤维结肠镜下可见大的增生性结节形成不规则肿物样隆起
+    similarity_score: 0.7984033823013306
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K63
+      category_name: 肠的其他疾病
+      subcategory_code: K63.8
+      subcategory_name: 肠其他特指的疾病
+      diagnosis_code: K63.818
+      diagnosis_name: 大肠不典型增生
+    hpo_mapping: {}
+  - name: 病理组织学检查见结核结节
+    similarity_score: 0.8076815009117126
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A15-A19
+      section_name: 肠的其他疾病
+      category_code: A15
+      category_name: 呼吸道结核，经细菌学和组织学证实
+      subcategory_code: A15.2
+      subcategory_name: 肺结核，经组织学所证实
+      diagnosis_code: A15.200x001
+      diagnosis_name: 肺结核（组织学证实）
+    hpo_mapping: {}
+  - name: 抗酸染色发现结核杆菌
+    similarity_score: 0.7688373327255249
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A15-A19
+      section_name: 肠的其他疾病
+      category_code: A15
+      category_name: 呼吸道结核，经细菌学和组织学证实
+      subcategory_code: A15.0
+      subcategory_name: 肺结核，经显微镜下痰检查证实，伴有或不伴有痰培养
+      diagnosis_code: A15.000x001
+      diagnosis_name: 肺结核（显微镜检证实）
+    hpo_mapping: {}
+  - name: 完全性肠梗阻
+    similarity_score: 0.8872858881950378
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K56
+      category_name: 麻痹性肠梗阻和不伴有疝的肠梗阻
+      subcategory_code: K56.7
+      subcategory_name: 未特指的肠梗阻
+      diagnosis_code: K56.700x003
+      diagnosis_name: 完全性肠梗阻
+    hpo_mapping: {}
+  - name: 急性肠穿孔
+    similarity_score: 0.8054060339927673
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K63
+      category_name: 肠的其他疾病
+      subcategory_code: K63.1
+      subcategory_name: 肠穿孔（非创伤性）
+      diagnosis_code: K63.102
+      diagnosis_name: 回肠穿孔
+    hpo_mapping: {}
+  - name: 慢性肠穿孔瘘管形成
+    similarity_score: 0.7509133815765381
+    status: mapped
+    icd10_mapping:
+      chapter: '11'
+      chapter_code_range: K00-K93
+      chapter_name: 消化系统疾病
+      section_code_range: K55-K64
+      section_name: 肠的其他疾病
+      category_code: K63
+      category_name: 肠的其他疾病
+      subcategory_code: K63.2
+      subcategory_name: 肠瘘
+      diagnosis_code: K63.204
+      diagnosis_name: 结肠瘘
+    hpo_mapping: {}
+  - name: 肠道大量出血
+    similarity_score: 0.8053262233734131
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A00-A09
+      section_name: 肠的其他疾病
+      category_code: A09
+      category_name: 其他传染性和未特指病因的胃肠炎和结肠炎
+      subcategory_code: A09.0
+      subcategory_name: 其他和未特指传染性病因的胃肠炎和结肠炎
+      diagnosis_code: A09.000x006
+      diagnosis_name: 出血性结肠炎
+    hpo_mapping: {}
+  - name: 反复发作的慢性肠梗阻
+    similarity_score: 0.7884765267372131
+    status: mapped
+    icd10_mapping:
+      chapter: '4'
+      chapter_code_range: E00-E90
+      chapter_name: 内分泌、营养和代谢疾病
+      section_code_range: E70-E90
+      section_name: 肠的其他疾病
+      category_code: E84
+      category_name: 囊性纤维化病
+      subcategory_code: E84.1
+      subcategory_name: 囊性纤维化病伴有肠表现
+      diagnosis_code: E84.102
+      diagnosis_name: 远端肠梗阻综合症
+    hpo_mapping: {}
+  - name: 营养障碍
+    similarity_score: 0.7611677646636963
+    status: mapped
+    icd10_mapping:
+      chapter: '4'
+      chapter_code_range: E00-E90
+      chapter_name: 内分泌、营养和代谢疾病
+      section_code_range: E40-E46
+      section_name: 肠的其他疾病
+      category_code: E46
+      category_name: 未特指的蛋白质-能量营养不良
+      subcategory_code: ''
+      subcategory_name: ''
+      diagnosis_code: E46.x00
+      diagnosis_name: 蛋白质-能量营养不良
+    hpo_mapping: {}
+  negative_features:
+  - name: PPD试验阴性
+    similarity_score: 0.7405778169631958
+    status: mapped
+    icd10_mapping:
+      chapter: '1'
+      chapter_code_range: A00-B99
+      chapter_name: 某些传染病和寄生虫病
+      section_code_range: A15-A19
+      section_name: 肠的其他疾病
+      category_code: A16
+      category_name: 呼吸道结核，未经细菌学或组织学所证实
+      subcategory_code: A16.0
+      subcategory_name: 肺结核，细菌学和组织学检查为阴性
+      diagnosis_code: A16.000
+      diagnosis_name: 肺结核，细菌学和组织学检查为阴性
+    hpo_mapping: {}
+  scoring:
+    method: hybrid_weighted_semantic
+    normalization: sum_max_1
+    thresholds:
+      candidate: 0.35
+      strong_candidate: 0.6
+      very_likely: 0.8
+    top_k_default: 5
+    safety_override: true
+    mapping:
+      ocr_card_6f18813a7344:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_19c735e2df4c:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_92f6e7d015d8:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_4329bc4974e6:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_9d5bbf64453f:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_d18eecfb38a4:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_59f340759d2a:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_5512f41dcf58:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_c06590140e51:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_cda2487e0cd4:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_2dbd4473fa74:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_c619a9e770b8:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_9046253299ba:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_ffc0239bece1:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_862cfced44da:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_0d015af4b70b:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+      ocr_card_4d9d708c2da3:
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.5
+        recommendation_strength_raw: null
+        recommendation_strength_normalized: 0.5
+        consensus_level: null
+        grading_system: null
+knowledge_base:
+  cards_path: recommendation_card.jsonl
+  card_schema_ref: schema/recommendation_card.schema.json
+  retrieval:
+    default_mode: hybrid
+    modes:
+    - by_recommendation_id
+    - semantic
+    - metadata_filter
+    - hybrid
+    default_top_k: 8
+    citation_required: true
+workflow:
+  workflow_version: '0.1'
+  entrypoint: triage
+  global_policies:
+    stop_on_emergency: true
+    require_citations: true
+    no_prescription: true
+  steps:
+  - step_id: triage
+    type: safety_triage
+    description: Check emergency red flags and routing suitability.
+    config:
+      red_flags_ref: routing_profile.red_flags
+      subskill_ref: initial_triage
+    transitions:
+    - when:
+        op: exists
+        path: result.red_flags
+      to: emergency_safety
+    - when:
+        op: gte
+        left: context.route_score
+        right: 0.35
+      to: diagnostic_evidence_check
+    - when:
+        op: default
+      to: low_probability_output
+  - step_id: diagnostic_evidence_check
+    type: evidence_check
+    description: Check diagnostic evidence and missing required information.
+    config:
+      subskill_ref: diagnostic_integration
+    transitions:
+    - when:
+        op: exists
+        path: result.missing_required_evidence
+      to: missing_diagnostic_information_output
+    - when:
+        op: default
+      to: differential_check
+  - step_id: differential_check
+    type: differential_check
+    description: Check important differential diagnoses.
+    config:
+      subskill_ref: differential_diagnosis
+    transitions:
+    - when:
+        op: exists
+        path: result.differential_warnings
+      to: differential_needed_output
+    - when:
+        op: default
+      to: staging_assessment
+  - step_id: staging_assessment
+    type: evidence_check
+    description: Assess staging, severity, complications, or risk profile.
+    config:
+      subskill_ref: staging_assessment
+    transitions:
+    - when:
+        op: default
+      to: management_gate
+  - step_id: management_gate
+    type: management_gate
+    description: Decide whether management plan generation is allowed.
+    config:
+      diagnosis_required_policy: safety_constraints.treatment_policy.diagnosis_required
+    transitions:
+    - when:
+        op: eq
+        left: result.allow_management_plan
+        right: true
+      to: management_plan_generation
+    - when:
+        op: default
+      to: candidate_summary_output
+  - step_id: management_plan_generation
+    type: plan_generation
+    description: Generate guideline-based management plan.
+    config:
+      subskill_ref: management_plan
+    transitions:
+    - when:
+        op: default
+      to: final_output
+  - step_id: emergency_safety
+    type: terminal_output
+    description: Emergency safety output.
+    config:
+      output_template: emergency_safety
+    transitions: []
+  - step_id: low_probability_output
+    type: terminal_output
+    description: Low probability output.
+    config:
+      output_template: low_probability
+    transitions: []
+  - step_id: missing_diagnostic_information_output
+    type: terminal_output
+    description: Missing diagnostic information output.
+    config:
+      output_template: missing_information
+    transitions: []
+  - step_id: differential_needed_output
+    type: terminal_output
+    description: Differential diagnosis needed output.
+    config:
+      output_template: differential_needed
+    transitions: []
+  - step_id: candidate_summary_output
+    type: terminal_output
+    description: Candidate disease summary output.
+    config:
+      output_template: candidate_summary
+    transitions: []
+  - step_id: final_output
+    type: terminal_output
+    description: Final guideline-based output.
+    config:
+      output_template: final_recommendation
+    transitions: []
+subskills:
+- subskill_id: initial_triage
+  name: Initial triage
+  type: safety_triage
+  input_requirements:
+    required_for_high_confidence: []
+  card_selection:
+    mode: by_recommendation_id
+    required: []
+    optional: []
+  output_schema_ref: schemas/output.schema.json
+- subskill_id: diagnostic_integration
+  name: Diagnostic integration
+  type: evidence_check
+  input_requirements:
+    required_for_high_confidence: []
+  card_selection:
+    mode: by_recommendation_id
+    required: []
+    optional:
+    - ocr_card_92f6e7d015d8
+    - ocr_card_4329bc4974e6
+    - ocr_card_d18eecfb38a4
+    - ocr_card_59f340759d2a
+    - ocr_card_5512f41dcf58
+    - ocr_card_c06590140e51
+    - ocr_card_cda2487e0cd4
+    - ocr_card_2dbd4473fa74
+    - ocr_card_c619a9e770b8
+  output_schema_ref: schemas/output.schema.json
+- subskill_id: differential_diagnosis
+  name: Differential diagnosis
+  type: differential_check
+  input_requirements:
+    required_for_high_confidence: []
+  card_selection:
+    mode: by_recommendation_id
+    required: []
+    optional: []
+  output_schema_ref: schemas/output.schema.json
+- subskill_id: staging_assessment
+  name: Staging and assessment
+  type: evidence_check
+  input_requirements:
+    required_for_high_confidence: []
+  card_selection:
+    mode: by_recommendation_id
+    required: []
+    optional: []
+  output_schema_ref: schemas/output.schema.json
+- subskill_id: management_plan
+  name: Management plan
+  type: plan_generation
+  input_requirements:
+    required_for_high_confidence: []
+  card_selection:
+    mode: by_recommendation_id
+    required: []
+    optional:
+    - ocr_card_9046253299ba
+    - ocr_card_ffc0239bece1
+    - ocr_card_862cfced44da
+    - ocr_card_0d015af4b70b
+    - ocr_card_4d9d708c2da3
+  output_schema_ref: schemas/output.schema.json
+- subskill_id: general_guideline_support
+  name: General guideline support
+  type: card_retrieval
+  input_requirements:
+    required_for_high_confidence: []
+  card_selection:
+    mode: by_recommendation_id
+    required: []
+    optional:
+    - ocr_card_6f18813a7344
+    - ocr_card_19c735e2df4c
+    - ocr_card_9d5bbf64453f
+  output_schema_ref: schemas/output.schema.json
+safety_constraints:
+  safety_version: '0.1'
+  general:
+  - id: no_diagnosis_replacement
+    rule: This skill pack supports guideline-based information organization and does not replace clinician diagnosis.
+    severity: high
+  - id: no_prescription
+    rule: Do not provide prescriptions or individualized drug dosing without qualified physician review.
+    severity: high
+  - id: emergency_referral
+    rule: If emergency red flags are present, recommend urgent medical evaluation.
+    severity: critical
+  treatment_policy:
+    diagnosis_required: confirmed_or_high_confidence
+    allow_general_management_advice: true
+    allow_specific_drug_dosing: false
+    allow_prescription: false
+    require_physician_review: true
+  emergency_policy:
+    trigger_from:
+    - routing_profile.red_flags
+    - safety_constraints.general
+    output_template: emergency_safety
+    stop_workflow: true
+output_templates:
+  emergency_safety:
+    audience: clinician
+    structure:
+    - status
+    - red_flags
+    - urgent_action
+    - disclaimer
+  low_probability:
+    audience: clinician
+    structure:
+    - status
+    - matched_positive_features
+    - matched_negative_features
+    - reason
+    - suggested_next_steps
+    - disclaimer
+  missing_information:
+    audience: clinician
+    structure:
+    - status
+    - missing_information
+    - recommended_next_steps
+    - used_cards
+    - citations
+    - disclaimer
+  differential_needed:
+    audience: clinician
+    structure:
+    - status
+    - differential_diagnoses
+    - key_distinguishing_features
+    - recommended_next_steps
+    - used_cards
+    - citations
+    - disclaimer
+  candidate_summary:
+    audience: clinician
+    structure:
+    - status
+    - matched_positive_features
+    - matched_negative_features
+    - evidence_summary
+    - missing_information
+    - used_cards
+    - citations
+    - disclaimer
+  final_recommendation:
+    audience: clinician
+    structure:
+    - status
+    - evidence_summary
+    - guideline_recommendations
+    - management_considerations
+    - monitoring_plan
+    - used_cards
+    - citations
+    - disclaimer
+validation:
+  required_checks:
+  - skill_pack_schema_validation
+  - card_schema_validation
+  - card_id_uniqueness
+  - workflow_transition_targets_exist
+  - workflow_subskill_refs_exist
+  - output_templates_exist
+  - selected_card_ids_exist
+  review_policy:
+    requires_human_review: true
+    reviewer_role: clinician_or_guideline_curator
+    notes: Automatically generated from result.jsonl; clinical review is required before production use.
+  test_cases_path: tests/fixtures/skill_pack_cases.jsonl

@@ -1,0 +1,4169 @@
+{
+  "input_file": "data/skills/中国克罗恩病诊治指南（2023年·广州）/中国克罗恩病诊治指南（2023年·广州）.parse_result.json",
+  "guideline_title": "中国克罗恩病诊治指南（2023年·广州）.pdf",
+  "source_file": "中国克罗恩病诊治指南（2023年·广州）.pdf",
+  "total_layouts": 697,
+  "layouts_by_type": {
+    "head_tail": 66,
+    "text": 233,
+    "title": 26,
+    "image": 2,
+    "table": 5,
+    "hand_sign": 1,
+    "reference": 364
+  },
+  "discarded_layout_count": 477,
+  "discarded_by_reason": {
+    "type_not_supported": 438,
+    "llm_metadata": 28,
+    "llm_abstract": 4,
+    "llm_conclusion": 6,
+    "llm_reference": 1
+  },
+  "discarded_layouts": [
+    {
+      "layout_id": "3gSEHT-layout-1",
+      "page_num": 1,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-100-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-2",
+      "page_num": 1,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-20",
+      "page_num": 2,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin J Dig, February 2024， Vol.44, No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-21",
+      "page_num": 2,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-101-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-36",
+      "page_num": 3,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-102-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-37",
+      "page_num": 3,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-39",
+      "page_num": 3,
+      "type": "image",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "3gSEHT-layout-42",
+      "page_num": 3,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "3gSEHT-layout-43",
+      "page_num": 3,
+      "type": "hand_sign",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "3gSEHT-layout-50",
+      "page_num": 4,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin J Dig, February 2024， Vol.44, No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-51",
+      "page_num": 4,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-103-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-64",
+      "page_num": 5,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-104-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-65",
+      "page_num": 5,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-78",
+      "page_num": 6,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin J Dig, February 2024， Vol.44, No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-79",
+      "page_num": 6,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-105-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-93",
+      "page_num": 7,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-106-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-94",
+      "page_num": 7,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-100",
+      "page_num": 7,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "3gSEHT-layout-105",
+      "page_num": 7,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "3gSEHT-layout-108",
+      "page_num": 7,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "3gSEHT-layout-114",
+      "page_num": 7,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "3gSEHT-layout-116",
+      "page_num": 8,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin J Dig, February 2024， Vol.44, No. 2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-117",
+      "page_num": 8,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "—107—"
+    },
+    {
+      "layout_id": "3gSEHT-layout-133",
+      "page_num": 9,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "—108—"
+    },
+    {
+      "layout_id": "3gSEHT-layout-134",
+      "page_num": 9,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-149",
+      "page_num": 10,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-150",
+      "page_num": 10,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-109-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-161",
+      "page_num": 11,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-110-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-162",
+      "page_num": 11,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-177",
+      "page_num": 12,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-178",
+      "page_num": 12,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-111-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-189",
+      "page_num": 13,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-112-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-190",
+      "page_num": 13,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-202",
+      "page_num": 14,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin J Dig, February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-203",
+      "page_num": 14,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-113-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-220",
+      "page_num": 15,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-114-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-221",
+      "page_num": 15,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-233",
+      "page_num": 16,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-234",
+      "page_num": 16,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-115-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-247",
+      "page_num": 17,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-116-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-248",
+      "page_num": 17,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-261",
+      "page_num": 18,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-262",
+      "page_num": 18,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-117-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-271",
+      "page_num": 18,
+      "type": "image",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "3gSEHT-layout-273",
+      "page_num": 19,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "—118-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-274",
+      "page_num": 19,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-285",
+      "page_num": 20,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-286",
+      "page_num": 20,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-119-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-288",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[1] GBD 2017 Inflammatory Bowel Disease Collaborators. The global,regional, and national burden of inflammatory bowel di..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-289",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[2] Adamina M, Bonovas S, Raine T, et al. ECCO guidelines ontherapeutics in Crohn's disease:surgical treatment[J]. J Cro..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-290",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[3] Kucharzik T,Ellul P,Greuter T,et al. ECCO guidelines on theprevention, diagnosis, and management of infections ininf..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-291",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[4] Maaser C,Sturm A, Vavricka SR,et al. ECCO-ESGAR guidelinefor diagnostic assessment in IBD part 1： initial diagnosis,..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-292",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[ 5] Sturm A, Maaser C,Calabrese E, et al. ECCO-ESGAR guideline fordiagnostic assessment in IBD part 2： IBD scores and g..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-293",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[6] Lichtenstein GR, Loftus EV, Isaacs KL, et al. ACG clinicalguideline:management of Crohn's disease in adults[J]. Am J..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-294",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[7]中华医学会消化病学分会炎症性肠病学组。炎症性肠病诊断与治疗的共识意见(2018年，北京)[J].中华消化杂志，2018，38(5):292-311. DOI:10.3760/cma. j. issn. 0254-1432.2018。0..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-295",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[8] Chinese Society of Inflammatory Bowel Disease. 2023 Chineseguidelines for diagnosis and treatment of Crohn's disease..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-296",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[9] OCEBM Levels of Evidence Working Group. Oxford Centre forEvidence-based Medicine 2011 levels of evidence[EB/OL].(201..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-297",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[10] Balshem H, Helfand M, Schunemann HJ, et al. GRADEguidelines:3. Rating the quality of evidence[J]. J ClinEpidemiol,2..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-298",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[11] Andrews JC, Schnemann HJ, Oxman AD, et al. GRADEguidelines: 15。 Going from evidence to recommendation-determinants..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-299",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[12] Rogler G, Singh A, Kavanaugh A, et al. Extraintestinalmanifestations of inflammatory bowel disease: current concept..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-300",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[13] Bernstein CN, Fried M, Krabshuis JH, et al. World"
+    },
+    {
+      "layout_id": "3gSEHT-layout-301",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "Gastroenterology Organization Practice Guidelines for the diagnosisand management of IBD in 2010[J]. Inflamm Bowel Dis,..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-302",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[14] von Roon AC, Karamountzos L, Purkayastha S, et al. Diagnosticprecision of fecal calprotectin for inflammatory bowel..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-303",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[15] Menees SB, Powell C, Kurlander J, et al. A meta-analysis of theutility of C-reactive protein, erythrocyte sedimenta..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-304",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[16] van Rheenen PF, van de Vijver E, Fidler V. Faecal calprotectin forscreening of patients with suspected inflammatory..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-305",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[17] Schoepfer AM, Beglinger C, Straumann A, et al. Fecalcalprotectin correlates more closely with the simple endoscopic..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-306",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[18] Wright EK, Kamm MA, de Cruz P, et al. Measurement of fecalcalprotectin improves monitoring and detection of recurre..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-307",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[19] Ferreiro-Iglesias R, Barreiro-de Acosta M, Otero Santiago M, et al.Fecal calprotectin as predictor of relapse in pa..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-308",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "20] Molander P, Farkkila M, Ristimaki A, et al. Does fecal calprotectinpredict short-term relapse after stopping TNFα-bl..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-309",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[21] Kopylov U, Yung DE, Engel T, et al. Fecal calprotectin for theprediction of small-bowel Crohn's disease by capsule..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-310",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[22] Colombel JF, Reinisch W, Mantzaris GJ,et al. Randomised clinicaltrial: deep remission in biologic and immunomodulat..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-311",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[23] Colombel JF, Rutgeerts PJ, Sandborn WJ, et al. Adalimumabinduces deep remission inpatients with Crohn's disease[J]...."
+    },
+    {
+      "layout_id": "3gSEHT-layout-312",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[24] Daperno M, Castiglione F, de Ridder L, et al. Results of the 2ndpart Scientific Workshop of the ECCO. Ⅱ： measures a..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-313",
+      "page_num": 21,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-120-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-314",
+      "page_num": 21,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-315",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[25] Narula N,Pray C, Wong E,et al. Categorising endoscopic severityof Crohn's disease using the modified multiplier SES..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-316",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[26] Bachour SP,Shah RS,Lyu R,et al. Mild neoterminal ileal post-operative recurrence of Crohn's disease conveys higher..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-317",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[27] Annunziata ML, Caviglia R, Papparella LG, et al. Uppergastrointestinal involvement of Crohn's disease: a prospectiv..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-318",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[28] Lenaerts C, Roy CC, Vaillancourt M, et al. High incidence ofupper gastrointestinal tract involvement in children wi..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-319",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[29] Turner D,Griffiths AM. Esophageal, gastric, and duodenalmanifestations of IBD and the role of upper endoscopy in IB..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-320",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[30] Ledder O, Church P, Cytter-Kuint R, et al. A simple endoscopicscore modified for the upper gastrointestinal tract i..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-321",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[31]中华医学会消化病学分会炎症性肠病学组病理分组，叶子茵，肖书渊，等。中国炎症性肠病病理诊断专家指导意见[J].中华炎性肠病杂志，2021,5(1)：5-20。DOI:10.3760/cma.j.cn101480-20200731-00..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-322",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[32] Rutgeerts P,Onette E,Vantrappen G,et al. Crohn's disease of thestomach and duodenum: a clinical study with emphasis..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-323",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[33] Dionisio PM, Gurudu SR, Leighton JA, et al. Capsule endoscopyhas a significantly higher diagnostic yield in patient..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-324",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[34] Kopylov U, Yung DE, Engel T, et al. Diagnostic yield of capsuleendoscopy versus magnetic resonance enterography and..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-325",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[35] Hall B, Holleran G, Costigan D, et al. Capsule endoscopy: highnegative predictive value in the long term despite a..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-326",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[36] Mow WS, Lo SK,Targan SR, et al. Initial experience with wirelesscapsule enteroscopy in the diagnosis and management..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-327",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[37] Liao Z, Gao R, Xu C, et al. Indications and detection,"
+    },
+    {
+      "layout_id": "3gSEHT-layout-328",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "completion, and retention rates of small-bowel capsule endoscopy:a systematic review[J]. Gastrointest Endosc,2010,71(2):..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-329",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[38] Cheon JH, Kim YS, Lee IS, et al. Can we predict spontaneouscapsule passage after retention? A nationwide study to e..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-330",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[39] Yadav A, Heigh RI, Hara AK, et al. Performance of the patencycapsule compared with nonenteroclysis radiologic exami..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-331",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[40] Nemeth A, Kopylov U, Koulaouzidis A,et al. Use of patencycapsule in patients with established Crohn's disease [J].E..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-332",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[41]Bettenworth D, Bokemeyer A, Baker M, et al. Assessment ofCrohn's disease-associated small bowel strictures and fibro..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-333",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[42] Schulz C, Monkemuller K, Salheiser M, et al. Double-balloonenteroscopy in the diagnosis of suspected isolated Crohn..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-334",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[43] Navaneethan U, Vargo JJ, Menon KV, et al. Impact of balloon-assisted enteroscopy on the diagnosis and management of..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-335",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[44] Jang HJ, Choi MH, Eun CS,et al. Clinical usefulness of doubleballoon enteroscopy in suspected Crohn's disease: the..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-336",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[45] Manes G, Imbesi V, Ardizzone S, et al. Use of double-balloonenteroscopy in the management of patients with Crohn's..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-337",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[46] Arulanandan A, Dulai PS, Singh S,et al. Systematic review: safetyof balloon assisted enteroscopy in Crohn's disease..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-338",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[47] Samuel S, Bruining DH, Loftus EV Jr,et al. Endoscopic skippingof the distal terminal ileum in Crohn's disease can l..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-339",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[48] Rimola J, Torres J, Kumar S,et al. Recent advances in clinicalpractice: advances in cross-sectional imaging in infl..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-340",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "Greenup AJ, Bressler B, Rosenfeld G. Medical imaging in smallbowel Crohn's disease-computer tomography enterography,magn..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-341",
+      "page_num": 22,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-342",
+      "page_num": 22,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-121-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-343",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "1261. DOI:10. 1097/MIB.0000000000000727."
+    },
+    {
+      "layout_id": "3gSEHT-layout-344",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[50] Siddiki HA,Fidler JL, Fletcher JG, et al. Prospective comparisonof state-of-the-art MR enterography and CT enterogr..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-345",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[51] Church PC,Turner D, Feldman BM, et al. Systematic review withmeta-analysis: magnetic resonance enterography signs f..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-346",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[52] Schwartz DA, Loftus EV Jr,Tremaine WJ,et al. The natural historyof fistulizing Crohn's disease in Olmsted County, M..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-347",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[53] Beaugerie L, Seksik P, Nion-Larmurier I, et al. Predictors ofCrohn's disease[J]. Gastroenterology,2006,130(3):650-6..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-348",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[54] Ng SC, Plamondon S, Gupta A, et al. Prospective evaluation ofanti-tumor necrosis factor therapy guided by magnetic..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-349",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[55] Schwartz DA, Wiersema MJ, Dudiak KM,et al. A comparison ofendoscopic ultrasound, magnetic resonance imaging, and ex..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-350",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[56] Buchanan GN, Halligan S, Bartram CI, et al. Clinicalexamination, endosonography, and MR imaging in preoperativeasse..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-351",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[57] Calabrese E, Maaser C,Zorzi F,et al. Bowel ultrasonography in themanagement of Crohn's disease: a review with recom..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-352",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[58] Panés J,Bouzas R,Chaparro M,et al. Systematic review: the use ofultrasonography, computed tomography and magnetic r..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-353",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[59] Kucharzik T, Wittig BM, Helwig U, et al. Use of intestinalultrasound to monitor Crohn' s disease activity [J]. Clin..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-354",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[60] Moreno N, Ripollés T, Paredes JM, et al. Usefulness ofabdominal ultrasonography in the analysis of endoscopic activ..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-355",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[61] Ripollés T, Paredes JM, Martínez-Perez MJ, et al.Ultrasonographic changes at 12 weeks of anti-TNF drugs predict1-ye..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-356",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "disease: a multicenter study[J]. Inflamm Bowel Dis,2016,22(10):2465-2473.DOI:10.1097/MIB.0000000000000882."
+    },
+    {
+      "layout_id": "3gSEHT-layout-357",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[62] Taylor SA, Mallett S, Bhatnagar G, et al. Diagnostic accuracy ofmagnetic resonance enterography and small bowel ult..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-358",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[63] He Y,Zhu Z, Chen Y,et al. Development and validation of a noveldiagnostic nomogram to differentiate between intesti..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-359",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[64] Yang H, Zhang H, Liu W, et al. Computed tomographyenterography increases the ability of endoscopy to differentiateC..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-360",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "65]中华医学会消化病学分会炎症性肠病学组，杨红，何瑶，等。肠型贝赫切特综合征（肠白塞病）诊断和治疗共识意见[J].中华消化杂志，2022,42(10)：649-658。DOI:10.3760/cma.j.cn311367-20220702..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-361",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[66] Yang H,Zhang H,Liu W,et al. Differential diagnosis of Crohn'sdisease and ulcerative primary intestinal lymphoma: a..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-362",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[67] Silverberg MS, SatsangiJ, Ahmad T, et al. Toward an integratedclinical, molecular and serological classification of..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-363",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[68] Levine A,Griffiths A, Markowitz J,et al. Pediatric modification ofthe Montreal classification for inflammatory bowe..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-364",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[69] Peyrin-Biroulet L, Loftus EV Jr, Colombel JF,et al. Long-termcomplications, extraintestinal manifestations, and mor..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-365",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[70] Wijnands AM, de Jong ME, Lutgens M, et al. Prognostic factors foradvanced colorectal neoplasia in inflammatory bowe..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-366",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[71] Peyrin-Biroulet L, Loftus EV Jr, Colombel JF,et al. The naturalhistory of adult Crohn's disease in population-based..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-367",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[72] Thia KT, Sandborn WJ, Harmsen WS, et al. Risk factorsassociated with progression to intestinal complications of Cro..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-368",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[73] Duricova D, Fumery M, Annese V, et al. The natural history ofCrohn's disease in children: a review of population-ba..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-369",
+      "page_num": 23,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-122-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-370",
+      "page_num": 23,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-371",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[J]. Eur J Gastroenterol Hepatol,2017,29(2):125-134. DOI:10.1097/MEG.0000000000000761."
+    },
+    {
+      "layout_id": "3gSEHT-layout-372",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[74] Torres J, Caprioli F, Katsanos KH, et al. Predicting outcomes tooptimize disease management in inflammatory bowel d..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-373",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[75] Gisbert JP, Marín AC, Chaparro M. Systematic review: factorsassociated with relapse of inflammatory bowel disease a..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-374",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[76] Kuenzig ME, Lee SM, Eksteen B, et al. Smoking influences theneed for surgery inpatients with the inflammatory bowel..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-375",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[77] Lazarev M, Huang C, Bitton A, et al. Relationship betweenproximal Crohn's disease location and disease behavior and..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-376",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[78] Greenstein AJ,Lachman P,Sachar DB,et al. Perforating and non-perforating indications for repeated operations in Cro..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-377",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[79] Mueller MH, Geis M, Glatzle J, et al. Risk of fecal diversion incomplicated perianal Crohn's disease[J]. J Gastroin..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-378",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[80] Rieder F, Zimmermann EM,Remzi FH,et al. Crohn's diseasecomplicated by strictures: a systematic review[J]. Gut,2013,..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-379",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[81] Peyrin-Biroulet L, Sandborn W, Sands BE, et al. Selectingtherapeutic targets in inflammatory bowel disease(STRIDE):..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-380",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[82] Turner D, Ricciuto A, Lewis A,et al. STRIDE-Ⅱ： an update onthe selecting therapeutic targets in inflammatory bowel..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-381",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[83] Colombel JF, D'haens G, Lee WJ, et al. Outcomes and strategiesto support a treat-to-target approach in inflammatory..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-382",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[84] Targan SR, Hanauer SB, van Deventer SJ, et al. A short-term studyof chimeric monoclonal antibody cA2 to tumor necro..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-383",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[85] Hanauer SB, Feagan BG, Lichtenstein GR, et al. Maintenanceinfliximab for Crohn's disease: the ACCENT I randomised t..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-384",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[86]Hanauer SB, Sandborn WJ, Rutgeerts P, et al. Human anti-tumornecrosis factor monoclonal antibody (adalimumab) in Cro..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-385",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[87] Sandborn WJ, Rutgeerts P,Enns R, et al. Adalimumab inductiontherapy for Crohn disease previously treated with infli..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-386",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[88] Modigliani R, Mary JY, Simon JF, et al. Clinical, biological, andendoscopic picture of attacks of Crohn's disease...."
+    },
+    {
+      "layout_id": "3gSEHT-layout-387",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "89] Cellier C, Sahmoud T, Froguel E, et al. Correlations betweenclinical activity, endoscopic severity, and biological p..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-388",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[90] Peyrin- Biroulet L, Reinisch W, Colombel JF, et al. Clinicaldisease activity, C-reactive protein normalisation and..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-389",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[91] Colombel JF, Sandborn WJ, Reinisch W, et al. Infliximab,azathioprine,or combination therapy for Crohn's disease[J]...."
+    },
+    {
+      "layout_id": "3gSEHT-layout-390",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[92] Rutgeerts P, van Assche G, Sandborn WJ, et al. Adalimumabinduces and maintains mucosal healing in patients with Cro..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-391",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[93] Allen PB, Bonovas S, Danese S, et al. Evolving primary andsecondary endpoints in randomized controlled trials leadi..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-392",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[94] Danese S, Sandborn WJ, Colombel JF, et al. Endoscopic,radiologic, and histologic healing with vedolizumab in patien..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-393",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[95] Froslie KF, Jahnsen J, Moum BA, et al. Mucosal healing ininflammatory bowel disease: results from a Norwegian popul..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-394",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[96] Klenske E, Bojarski C, Waldner M, et al. Targeting mucosalhealing in Crohn's disease: what the clinician needs to k..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-395",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[97] Geyl S, Guillo L, Laurent V, et al. Transmural healing as atherapeutic goal in Crohn's disease: a systematic review..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-396",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[98] Bryant RV, Winer S, Travis SPL, et al. Systematic review:"
+    },
+    {
+      "layout_id": "3gSEHT-layout-397",
+      "page_num": 24,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-398",
+      "page_num": 24,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-123-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-399",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "histological remission in inflammatory bowel disease. Is `complete'remission the new treatment paradigm? An IOIBD initia..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-400",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[99] Christensen B,Erlich J,Gibson PR,et al. Histologic healing is morestrongly associated with clinical outcomes in ile..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-401",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[100] Colombel JF,Narula N,Peyrin-Biroulet L. Management strategiesto improve outcomes of patients with inflammatory bow..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-402",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[101] Benchimol EI, Seow CH, Steinhart AH, et al. Traditionalcorticosteroids for induction of remission in Crohn's disea..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-403",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[102] Faubion WA Jr, Loftus EV Jr, Harmsen WS, et al. The naturalhistory of corticosteroid therapy for inflammatory bowe..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-404",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[103]D'Haens G, Baert F, van Assche G, et al. Early combinedimmunosuppression or conventional management in patients wit..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-405",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[104]Schreiber S, Colombel JF, Bloomfield R, et al. Increasedresponse and remission rates in short-duration Crohn's dise..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-406",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[105] Schreiber S, Reinisch W,Colombel JF, et al. Subgroup analysis ofthe placebo-controlled CHARM trial: increased remi..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-407",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[106] Lémann M,Mary JY,Duclos B,et al. Infliximab plus azathioprinefor steroid-dependent Crohn's disease patients: a ran..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-408",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[107] Schreiber S,Khaliq-Kareemi M, Lawrance IC, et al. Maintenancetherapy with certolizumab pegol for Crohn's disease[J..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-409",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[108] Colombel JF, Sandborn WJ, Rutgeerts P, et al. Adalimumab formaintenance of clinical response and remission in pati..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-410",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[109] Schnitzler F, Seitz T, Tillack-Schreiber C, et al. Early start ofinfliximab in Crohn's disease increases rates of..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-411",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[110] Khanna R, Bressler B, Levesque BG, et al. Early combined"
+    },
+    {
+      "layout_id": "3gSEHT-layout-412",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "immunosuppression for the management of Crohn's disease(REACT): a cluster randomised controlled trial[J]. Lancet,2015,38..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-413",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[111]Summers RW, Switz DM, Sessions JT Jr, et al. Nationalcooperative Crohn's disease study: results of drug treatment[J..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-414",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[112] Yang YX, Lichtenstein GR. Corticosteroids in Crohn's disease[J]. Am J Gastroenterol,2002,97(4):803-823. DOI:10.111..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-415",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[113]Ford AC, Bernstein CN, Khan KJ, et al. Glucocorticosteroidtherapy in inflammatory bowel disease: systematic review..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-416",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[114] Malchow H, Ewe K, Brandes JW, et al. European CooperativeCrohn's Disease Study(ECCDS): results of drug treatment[J..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-417",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[115] Rezaie A, Kuenzig ME, Benchimol EI, et al. Budesonide forinduction of remission in Crohn's disease[J/OL]. Cochrane..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-418",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[116]Thomsen O0, Cortot A, Jewell D, et al. A comparison ofbudesonide and mesalamine for active Crohn's disease.Internat..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-419",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[117] Yokoyama T,Ohta A, Motoya S, et al. Efficacy and safety of oralbudesonide in patients with active Crohn's disease..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-420",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[118] Hanauer SB, Stromberg U. Oral Pentasa in the treatment of activeCrohn's disease: a meta-analysis of double-blind,..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-421",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[119]Lim WC, Wang Y, MacDonald JK, et al. Aminosalicylates forinduction of remission or response in Crohn's disease[J/OL..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-422",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[120] Safroneeva E, Vavricka SR, Fournier N, et al. Impact of the earlyuse of immunomodulators or TNF antagonists on bow..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-423",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[121] Ungaro RC, Aggarwal S, Topaloglu O, et al. Systematic review andmeta-analysis: efficacy and safety of early biolog..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-424",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[122] Reves J, Mascarenhas A,Temido MJ,et al. Early intervention withbiological therapy in Crohn's disease: how early is..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-425",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[123] Akobeng AK, Zachos M. Tumor necrosis factor-alpha antibody for"
+    },
+    {
+      "layout_id": "3gSEHT-layout-426",
+      "page_num": 25,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-124-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-427",
+      "page_num": 25,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-428",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "induction of remission in Crohn's disease [J/OL]. CochraneDatabase Syst Rev, 2003(4)： CD003574(2003-10-20)[2024-01-07].h..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-429",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[124]Hyams J, Crandall W, Kugathasan S, et al. Induction andmaintenance infliximab therapy for the treatment of moderate..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-430",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[125] Yin J, Li Y, Chen Y, et al. Adalimumab for induction ofremission in patients with Crohn's disease: a systematic re..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-431",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[126] Singh S, Murad MH, Fumery M, et al. Comparative efficacy andsafety of biologic therapies for moderate-to-severe Cr..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-432",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[127] Wu KC, Ran ZH, Gao X, et al. Adalimumab induction andmaintenance therapy achieve clinical remission and response i..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-433",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[128] Chen B, Gao X, Zhong J,et al. Efficacy and safety of adalimumabin Chinese patients with moderately to severely act..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-434",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[129] Feagan BG, McDonald JW, Panaccione R, et al. Methotrexate incombination with infliximab is no more effective than..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-435",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[130] Qiu Y, Mao R, Chen BL,et al. Effects of combination therapy withimmunomodulators on trough levels and antibodies a..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-436",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[131]Torres J, Bonovas S, Doherty G, et al. ECCO guidelines ontherapeutics in Crohn's disease: medical treatment[J]. J C..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-437",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[132] Ran Z, Wu K, Matsuoka K, et al. Asian Organization for Crohn'sand Colitis and Asia Pacific Association of Gastroen..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-438",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[133] Feuerstein JD, Ho EY, Shmidt E, et al. AGA clinical practiceguidelines on the medical management of moderate to se..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-439",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[134] Nakase H, Uchino M, Shinzaki S,et al. Evidence-based clinicalpractice guidelines for inflammatory bowel disease 20..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-440",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[135] Panaccione R, Steinhart AH, Bressler B, et al. CanadianAssociation of Gastroenterology clinical practice guideline..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-441",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "management of luminal Crohn's disease [J]. J Can AssocGastroenterol,2019,2(3):e1-e34. DOI:10. 1093/jcag/gwz019."
+    },
+    {
+      "layout_id": "3gSEHT-layout-442",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[136] Macaluso FS, Papi C, Orlando A, et al. Use of biologics for themanagement of Crohn's disease: IG-IBD clinical guid..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-443",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[137]Koh SJ, Hong SN, Park SK, et al. Korean clinical practiceguidelines on biologics for moderate to severe Crohn's dis..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-444",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[138]Smith MA, Irving PM, Marinaki AM, et al. Review article:malignancy on thiopurine treatment with special reference t..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-445",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[139]Scott FI, Vajravelu RK, Bewtra M, et al. The benefit-to-riskbalance of combining infliximab with azathioprine varie..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-446",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[140] Osterman MT, Haynes K, Delzell E,et al. Effectiveness and safetyof immunomodulators with anti-tumor necrosis facto..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-447",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[141] Kotlyar DS, Osterman MT, Diamond RH, et al. A systematicreview of factors that contribute to hepatosplenic T-cell..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-448",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[142] Beaugerie L, Brousse N, Bouvier AM,et al. Lymphoproliferativedisorders in patients receiving thiopurines for infla..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-449",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[143] Dart RJ, Irving PM. Optimising use of thiopurines in inflammatorybowel disease[J]. Expert Rev Clin Immunol,2017,13..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-450",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[144]Kopylov U, Al-Taweel T, Yaghoobi M,et al. Adalimumabmonotherapy versus combination therapy with immunomodulators in..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-451",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[145] Matsumoto T, Motoya S, Watanabe K, et al. Adalimumabmonotherapy and a combination with azathioprine for Crohn'sdis..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-452",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[146] Roblin X, Williet N, Boschetti G, et al. Addition of azathioprine tothe switch of anti-TNF in patients with IBD in..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-453",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[147] Sandborn WJ, Feagan BG, Rutgeerts P, et al. Vedolizumab asinduction and maintenance therapy for Crohn's disease[J]..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-454",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[148] Sands BE, Feagan BG, Rutgeerts P, et al. Effects of vedolizumab"
+    },
+    {
+      "layout_id": "3gSEHT-layout-455",
+      "page_num": 26,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-456",
+      "page_num": 26,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-125-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-457",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "induction therapy for patients with Crohn's disease in whom tumornecrosis factor antagonist treatment failed[J]. Gastroe..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-458",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[149] Dulai PS, Boland BS,Singh S,et al. Development and validationof a scoring system to predict outcomes of vedolizuma..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-459",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[150] Dulai PS, Amiot A, Peyrin-Biroulet L, et al. A clinical decisionsupport tool may help to optimise vedolizumab ther..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-460",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[151] Feagan BG, Sandborn WJ, Gasink C, et al. Ustekinumab asinduction and maintenance therapy for Crohn's disease[J]. N..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-461",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[152]Zhou H, Wang F, Wan J, et al. Systematic review and meta-analysis of observational studies on the effectiveness and..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-462",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[153] Cao Q,Chen C,Gao X,et al. Real-world short-term effectivenessof ustekinumab in Crohn's disease: results from a mul..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-463",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[154]Sands BE, Irving PM, Hoops T, et al. Ustekinumab versusadalimumab for induction and maintenance therapy in biologic..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-464",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[155] Biemans VBC, van der Meulen-de Jong AE, van der Woude CJ,etal. Ustekinumab for Crohn's disease: results of the ICC..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-465",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[156]Yzet C, Diouf M, Singh S, et al. No benefit of concomitantimmunomodulator therapy on efficacy of biologics that are..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-466",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[157] Loftus EV Jr, Panés J, Lacerda AP, et al. Upadacitinib inductionand maintenance therapy for Crohn's disease[J]. N..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-467",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[158] Dziechciarz P, Horvath A,Shamir R, et al. Meta-analysis: enteralnutrition in active Crohn's disease in children[J]..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-468",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[159] Gorard DA, Hunt JB, Payne-James JJ, et al. Initial response andsubsequent course of Crohn's disease treated with e..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-469",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[160]González-Huix F, de León R, Fernández-Banares F, et al.Polymeric enteral diets as primary treatment of active Crohn..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-470",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[161] Narula N, Dhillon A, Zhang D, et al. Enteral nutritional therapyfor induction of remission in Crohn's disease[J/OL..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-471",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[162] Wall CL, Gearry RB,Day AS. Treatment of active Crohn's diseasewith exclusive and partial enteral nutrition: a pilo..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-472",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[163]Xu Y, Guo Z, Cao L,et al. Isolated colonic Crohn's disease isassociated with a reduced response to exclusive entera..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-473",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[164] Takagi S, Utsunomiya K, Kuriyama S,et al. Effectiveness of an 'halfelemental diet' as maintenance therapy for Croh..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-474",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[165] Steinhart AH, Ewe K, Griffiths AM, et al. Corticosteroids formaintenance of remission in Crohn's disease[J/OL]. Co..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-475",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[166]Sieber A, Aberra FN, Bonhomme B, et al. Influence ofcorticosteroid use on short- and long- term outcomes of biologi..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-476",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[167] Chande N, Patton PH, Tsoulis DJ, et al. Azathioprine or6-mercaptopurine for maintenance of remission in Crohn's di..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-477",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[168]Gjuladin-Hellon T, Iheozor-Ejiofor Z, Gordon M, et al.Azathioprine and 6-mercaptopurine for maintenance of surgical..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-478",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[169] Stournaras E, Qian W, Pappas A, et al. Thiopurine monotherapy iseffective in ulcerative colitis but significantly..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-479",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[170] Chao K, Wang X,Cao Q,et al. Combined detection of NUDT15variants could highly predict thiopurine-induced leukopeni..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-480",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[171]Patel V, Wang Y, MacDonald JK, et al. Methotrexate formaintenance of remission in Crohn's disease[J]. CochraneDatab..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-481",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[172] Panaccione R, Colombel JF, Sandborn WJ, et al. Adalimumabmaintains remission of Crohn's disease after up to 4 year..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-482",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[173]Loftus EV, Reinisch W, Panaccione R, et al. Adalimumabeffectiveness up to six years in adalimumab-narve patients wi..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-483",
+      "page_num": 27,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-126-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-484",
+      "page_num": 27,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-485",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "Crohn's disease: results of the PYRAMID registry[J]. InflammBowel Dis,2019,25(9):1522-1531. DOI:10. 1093/ibd/izz008."
+    },
+    {
+      "layout_id": "3gSEHT-layout-486",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[174] Peyrin-Biroulet L, Deltenre P, de Suray N,et al. Efficacy and safety oftumor necrosis factor antagonists in Crohn'..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-487",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[175] Baert F, Noman M, Vermeire S, et al. Influence ofimmunogenicity on the long-term efficacy of infliximab in Crohn's..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-488",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[176] Vermeire S, Noman M, van Assche G, et al. Effectiveness ofconcomitant immunosuppressive therapy in suppressing the..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-489",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[177] Vermeire S, D'Haens G, Baert F, et al. Efficacy and safety ofsubcutaneous vedolizumab in patients with moderately..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-490",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[178] Chandar AK, Singh S, Murad MH, et al. Efficacy and safety ofnatalizumab and vedolizumab for the management of Croh..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-491",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[179] Lin L,Liu X, Wang D, et al. Efficacy and safety of antiintegrinantibody for inflammatory bowel disease: a systemat..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-492",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[180] Schreiber S, Dignass A, Peyrin-Biroulet L,et al. Systematic reviewwith meta-analysis: real-world effectiveness and..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-493",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[181] Attauabi M,Madsen GR, Bendtsen F,et al. Vedolizumab as the firstline of biologic therapy for ulcerative colitis an..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-494",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[182] Engel T, Ungar B, Yung DE, et al. Vedolizumab in IBD-lessonsfrom real-world experience; a systematic review and po..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-495",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[183] Onali S, Pugliese D, Caprioli FA, et al. An objective comparison ofvedolizumab and ustekinumab effectiveness in Cr..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-496",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[184] Lenti MV, Dolby V, Clark T, et al. A propensity score-matched,real-world comparison of ustekinumab us vedolizumab..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-497",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[185] Kim J, Yoon H, Kim N, et al. Clinical outcomes and responsepredictors of vedolizumab induction treatment for Korea..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-498",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "KASID prospective multicenter cohort study[J]. Inflamm BowelDis,2021,27(12):1931-1941. DOI:10. 1093/ibd/izaa361."
+    },
+    {
+      "layout_id": "3gSEHT-layout-499",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[186] Kopylov U, Verstockt B, Biedermann L, et al. Effectiveness andsafety of vedolizumab in anti-TNF-narve patients wit..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-500",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[187] Macaluso FS, Ventimiglia M, Orlando A. Effectiveness and safetyof vedolizumab in inflammatory bowel disease: a com..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-501",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[188] Sands BE, Sandborn WJ, van Assche G,et al. Vedolizumab asinduction and maintenance therapy for Crohn's disease in..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-502",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[189] Vermeire S, Loftus EV Jr, Colombel JF, et al. Long-term efficacyof vedolizumab for Crohn's disease[J]. J Crohns Co..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-503",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[190] Hanauer SB, Sandborn WJ, Feagan BG, et al. IM-UNITI: three-year efficacy, safety, and immunogenicity of ustekinuma..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-504",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[191] Sandborn WJ, Rebuck R, Wang Y, et al. Five-year efficacy andsafety of ustekinumab treatment in Crohn's disease: th..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-505",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[192] Engel T, Yung DE, Ma C, et al. Effectiveness and safety ofustekinumab for Crohn's disease; systematic review and p..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-506",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[193] Li K, Friedman JR, Chan D, et al. Effects of ustekinumab onhistologic disease activity in patients with Crohn's di..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-507",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[194] Kucharzik T, Wilkens R, D'Agostino MA, et al. Early ultrasoundresponse and progressive transmural remission after..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-508",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[195]Casas-Deza D, Lamuela-Calvo LJ, Gomollon F, et al.Effectiveness and safety of ustekinumab in elderly patients withC..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-509",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[196]Thomas PWA, van Caem M, West RL, et al. Long-termeffectiveness and safety of ustekinumab in Crohn's disease: aprosp..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-510",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[197]He Y, Mao R, Chen F, et al. Thalidomide induces clinicalremission and mucosal healing in adults with active Crohn's..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-511",
+      "page_num": 27,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[198] Li T,Qiu Y,Li X,et al. Thalidomide combined with azathioprineas induction and maintenance therapy for azathioprine..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-512",
+      "page_num": 28,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-513",
+      "page_num": 28,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-127-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-514",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "izx085."
+    },
+    {
+      "layout_id": "3gSEHT-layout-515",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "Crohn's disease patients[J/OL]. Front Med(Lausanne),2020,7:557986(2020-11-06)[2024-01-07]. https:/doi.org/10.3389/fmed.2..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-516",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[199]徐舒，祖晓满，冯瑞，等。沙利度胺治疗难治性克罗恩病的长期疗效及安全性分析[J].中华内科杂志，2020,59(6)：445-450.DOI:10.3760/cma.j.cn112138-20191206-00800."
+    },
+    {
+      "layout_id": "3gSEHT-layout-517",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[200] Peng X, Lin ZW, Zhang M, et al. The efficacy and safety ofthalidomide in the treatment of refractory Crohn's disea..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-518",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[201] Ehrenpreis ED, Kane SV, Cohen LB, et al. Thalidomide therapyfor patients with refractory Crohn's disease: an open-..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-519",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[202]Qiu T, Li H, Sun T, et al. Thalidomide as a treatment forinflammatory bowel disease in children and adolescents: as..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-520",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[203] Ruemmele FM, Veres G,Kolho KL,et al. Consensus guidelines ofECCO/ ESPGHAN on the medical management of pediatricCr..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-521",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[204]中华医学会儿科学分会消化学组，中华医学会儿科学分会临床营养学组。儿童炎症性肠病诊断和治疗专家共识[J].中华儿科杂志，2019,57(7)：501-507。DOI:10.3760/cma.j.issn.0578-1310.2019..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-522",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[205]Wang L, Xue A, Zheng C, et al. Long-term outcomes ofthalidomide in pediatric Crohn's disease[J]. J GastroenterolHep..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-523",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[206] Lan N, Stocchi L, Ashburn JH, et al. Outcomes of endoscopicballoon dilation vs surgical resection for primary ileo..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-524",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[207] Bettenworth D, Gustavsson A, Atreja A, et al. A pooled analysis ofefficacy, safety, and long-term outcome of endos..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-525",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[208] Gustavsson A, Magnuson A, Blomberg B, et al. Smoking is a riskfactor for recurrence of intestinal stricture after..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-526",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[209] Yamamoto H, Yano T, Araki A,et al. Guidelines for endoscopicballoon dilation in treating Crohn's disease-associate..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-527",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[210] Lan N,Shen B. Endoscopic Stricturotomy with needle knife in thetreatment of strictures from inflammatory bowel dis..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-528",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[211] Lan N, Shen B. Endoscopic stricturotomy versus balloon dilation inthe treatment of anastomotic strictures in Crohn..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-529",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[212] Wasmann KA, de Groof EJ, Stellingwerf ME, et al. Treatment ofperianal fistulas in Crohn's disease, seton versus an..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-530",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[213] Meima-van Praag EM, Becker M, van Rijn KL,et al. Short-termanti-TNF therapy with surgical closure versus anti-TNF..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-531",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[214] Yassin NA, Askari A, Warusavitarne J,et al. Systematic review:the combined surgical and medical treatment of fistu..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-532",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[215]Thia KT, Mahadevan U, Feagan BG, et al. Ciprofloxacin ormetronidazole for the treatment of perianal fistulas in pat..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-533",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[216] Dewint P, Hansen BE, Verhey E, et al. Adalimumab combinedwith ciprofloxacin is superior to adalimumab monotherapy..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-534",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[217]Present DH, Rutgeerts P, Targan S, et al. Infliximab for thetreatment of fistulas in patients with Crohn's disease[..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-535",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[218]Sands BE, Anderson FH, Bernstein CN, et al. Infliximabmaintenance therapy for fistulizing Crohn's disease[J]. N Eng..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-536",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[219] Yarur AJ, Kanagala V,Stein DJ, et al. Higher infliximab troughlevels are associated with perianal fistula healing..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-537",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[220] Davidov Y, Ungar B, Bar-Yoseph H,et al. Association of inductioninfliximab levels with clinical response in perian..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-538",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[221] Strik AS, Lowenberg M,Buskens CJ,et al. Higher anti-TNF serumlevels are associated with perianal fistula closure i..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-539",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[222] Colombel JF, Schwartz DA, Sandborn WJ, et al. Adalimumab forthe treatment of fistulas in patients with Crohn's dis..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-540",
+      "page_num": 28,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[223]Lichtiger S, Binion DG, Wolf DC, et al. The CHOICE trial:adalimumab demonstrates safety, fistula healing, improved..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-541",
+      "page_num": 29,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-128-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-542",
+      "page_num": 29,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-543",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[224] Sands BE, Gasink C, Jacobstein D, et al. Fistula healing in pivotalstudies of ustekinumab in Crohn's disease[J]. G..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-544",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[225] Chapuis-Biron C, Kirchgesner J, Pariente B, et al. Ustekinumabfor perianal Crohn's disease: the BioLAP multicenter..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-545",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[226] Attauabi M, Burisch J, Seidelin JB. Efficacy of ustekinumab foractive perianal fistulizing Crohn's disease: a syst..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-546",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[227] Feagan BG,Schwartz D, Danese S, et al. Efficacy of vedolizumabin fistulising Crohn's disease: exploratory analyses..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-547",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[228]Schwartz DA, Peyrin-Biroulet L, Lasch K, et al. Efficacy andsafety of 2 vedolizumab intravenous regimens for perian..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-548",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[229] Ayoub F, Odenwald M, Micic D, et al. Vedolizumab for perianalfistulizing Crohn's disease: systematic review and me..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-549",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[230] Gajendran M,Loganathan P,Catinella AP,et al. A comprehensivereview and update on Crohn's disease[J]. Dis Mon,2018,..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-550",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[231] Toh JW, Stewart P, Rickard MJ,et al. Indications and surgicaloptions for small bowel, large bowel and perianal Cro..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-551",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[232] Kuehn F, Nixdorf M, Klar E. The role of surgery in Crohn'sdisease: single center experience from 2005-2014[J].Gast..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-552",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[233] Atreja A, Patel SS, Collmbel JF, et al. Validation of simplifiedstricture severity score(4s) to predict the need f..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-553",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[234] Kosmidis C, Anthimidis G. Emergency and elective surgery forsmall bowel Crohn's disease[J]. Tech Coloproctol,2011,..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-554",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[235] Poritz LS, Gagliano GA, McLeod RS, et al. Surgical managementof entero and colocutaneous fistulae in Crohn's disea..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-555",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[236]Strong S, Steele SR, Boutrous M, et al. Clinical practice guidelinefor the surgical management of Crohn's disease[J..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-556",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[237] Belaiche J,van Kemseke C, Louis E. Use of the enteroscope forcolo-ileoscopy: low yield in unexplained lower gastro..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-557",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[238] Ponsioen CY, de Groof EJ, Eshuis EJ, et al. Laparoscopicileocaecal resection versus infliximab for terminal ileiti..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-558",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[239] Patel KV, Darakhshan AA, Griffin N, et al. Patient optimization forsurgery relating to Crohn's disease [J]. Nat Re..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-559",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[240] Weimann A,Braga M,Carli F,et al. ESPEN practical guideline:clinical nutrition in surgery[J]. Clin Nutr,2021,40(7):..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-560",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[241] Bischoff SC, Escher J, Hebuterne X, et al. ESPEN guideline:clinical nutrition in inflammatory bowel disease[J]. Nu..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-561",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "242]Grass F, Pache B, Martin D, et al. Preoperative nutritionalconditioning of Crohn's patients: systematic review of cu..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-562",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[243] Zerbib P, Koriche D, Truant S,et al. Pre-operative management isassociated with low rate of post-operative morbidi..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-563",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[244] Brennan GT, Ha I, Hogan C, et al. Does preoperative enteralorparenteral nutrition reduce postoperative complicatio..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-564",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "245] Jacobson S. Early postoperative complications in patients withCrohn's disease given and not given preoperative tota..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-565",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[246] Stoner PL, Kamel A, Ayoub F, et al. Perioperative care of patientswith inflammatory bowel disease: focus on nutrit..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-566",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[247] El-Hussuna A, Iesalnieks I, Horesh N, et al. The effect of pre-operative optimization on post-operative outcome in..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-567",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[248] Heerasing N, Thompson B, Hendy P, et al. Exclusive enteralnutrition provides an effective bridge to safer interval..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-568",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[249] Bischoff SC,Bager P, Escher J,et al. ESPEN guideline on clinicalnutrition in inflammatory bowel disease[J]. Clin N..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-569",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[250]Lightner AL. Perioperative management of biologic andimmunosuppressive medications in patients with Crohn's disease..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-570",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[251] Aberra FN, Lewis JD, Hass D, et al. Corticosteroids andimmunomodulators: postoperative infectious complication ris..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-571",
+      "page_num": 29,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[252] Nguyen GC, Elnahas A, Jackson TD. The impact of preoperativesteroid use on short-term outcomes following surgery f..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-572",
+      "page_num": 30,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-573",
+      "page_num": 30,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-129-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-574",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "628.DOI:10.1016/s1542-3565(05)00154-0."
+    },
+    {
+      "layout_id": "3gSEHT-layout-575",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "inflammatory bowel disease[J]. J Crohns Colitis,2014,8(12):1661-1667. DOI:10.1016/j.crohns.2014.07.007."
+    },
+    {
+      "layout_id": "3gSEHT-layout-576",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[253] Huang W, Tang Y, Nong L, et al. Risk factors for postoperativeintra- abdominal septic complications after surgery..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-577",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[254]Zaghiyan K, Melmed GY, Berel D, et al. A prospective,randomized, noninferiority trial of steroid dosing after major..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-578",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[255] Johnston WF, Stafford C, Francone TD, et al. What is the risk ofanastomotic leak after repeat intestinal resection..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-579",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[256]McKenna NP, Habermann EB, Glasgow AE,et al. Intra-abdominal sepsis after ileocolic resection in Crohn's disease: th..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-580",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[257] Tzivanakis A, Singh JC, Guy RJ, et al. Influence of risk factors onthe safety of ileocolic anastomosis in Crohn's..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-581",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[258]Colombel JF, Loftus EV Jr, Tremaine WJ, et al. Earlypostoperative complications are not increased in patients withC..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-582",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[259] Myrelid P, Olaison G, Sjodahl R, et al. Thiopurine therapy isassociated with postoperative intra-abdominal septic..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-583",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[260] Cira K, Weber MC, Wilhelm D, et al. The effect of anti-tumornecrosis factor-alpha therapy within 12 weeks prior to..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-584",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[261] Law CC, Bell C, Koh D, et al. Risk of postoperative infectiouscomplications from medical therapies in inflammatory..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-585",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[262] Cohen BL, Fleshner P, Kane SV, et al. Prospective cohort study toinvestigate the safety of preoperative tumor necr..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-586",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[263] Abd El Aziz MA, Abdalla S, Calini G, et al. Postoperative safetyprofile of minimally invasive ileocolonic resectio..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-587",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[264] Irving PM, Pasi KJ, Rampton DS. Thrombosis and inflammatorybowel disease[J]. Clin Gastroenterol Hepatol,2005,3(7):..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-588",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[265] Merrill A, Millham F. Increased risk of postoperative deep veinthrombosis and pulmonary embolism in patients with..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-589",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[266] Bryant RV, Jairath V, Curry N, et al. Thrombosis in inflammatorybowel disease: are we tailoring prophylaxis to tho..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-590",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[267] Wallaert JB, de Martino RR, Marsicovetere PS, et al. Venousthromboembolism after surgery for inflammatory bowel di..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-591",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[268] Hanzel J, Drobne D. Contemporary management of postoperativeCrohn's disease after ileocolonic resection[J/OL]. J C..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-592",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[269] Tandon P,Malhi G, Abdali D,et al. Active margins,plexitis, andgranulomas increase postoperative Crohn's recurrence..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-593",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[270] Dasharathy SS, Limketkai BN, Sauk JS. What's new in thepostoperative management of Crohn's disease? [J]. Dig Dis S..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-594",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "271] Allocca M, Landi R, Bonovas S, et al. Effectiveness ofmesalazine, thiopurines and tumour necrosis factor antagonist..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-595",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[272] Valibouze C, Desreumaux P,Zerbib P. Post-surgical recurrence ofCrohn's disease: situational analysis and future pr..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-596",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[273] Burr NE, Hall B, Hamlin PJ,et al. Systematic review and networkmeta-analysis of medical therapies to prevent recur..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-597",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[274]Rutgeerts P, Hiele M, Geboes K, et al. Controlled trial ofmetronidazole treatment for prevention of Crohn's recurre..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-598",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[275] Rutgeerts P, van Assche G, Vermeire S, et al. Ornidazole forprophylaxis of postoperative Crohn's disease recurrenc..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-599",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[276]Lee KE, Cantrell S,Shen B, et al. Post-operative prevention andmonitoring of Crohn's disease recurrence[J/OL]. Gast..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-600",
+      "page_num": 30,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[277] Chatu S, Subramanian V, Saxena S, et al. The role of thiopurinesin reducing the need for surgical resection in Cro..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-601",
+      "page_num": 31,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-130-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-602",
+      "page_num": 31,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-603",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "2014,109(1):23-34.DOI:10.1038/ajg.2013.402."
+    },
+    {
+      "layout_id": "3gSEHT-layout-604",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[278]Glick LR, Sossenheimer PH, Ollech JE, et al. Low-dosemetronidazole is associated with a decreased rate of endoscopi..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-605",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[279] Regueiro M,Kip KE, Baidoo L, et al. Postoperative therapy withinfliximab prevents long-term Crohn's disease recurr..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-606",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[280]de Cruz P, Kamm MA, Hamilton AL, et al. Crohn's diseasemanagement after intestinal resection: a randomised trial[J]..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-607",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[281]D'Haens GR, Vermeire S, van Assche G, et al. Therapy ofmetronidazole with azathioprine to prevent postoperative rec..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-608",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[282] Beelen EMJ,Nieboer D, Arkenbosch JHC,et al. Risk predictionand comparative efficacy of anti- TNF vs thiopurines, f..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-609",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[283] Axelrad JE, Li T, Bachour SP, et al. Early initiation of antitumornecrosis factor therapy reduces postoperative re..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-610",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[284] Regueiro M, Schraut W, Baidoo L, et al. Infliximab preventsCrohn's disease recurrence after ileal resection [J].Ga..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-611",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[285] Regueiro M, Feagan BG, Zou B, et al. Infliximab reducesendoscopic, but not clinical, recurrence of Crohn's disease..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-612",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[286] Qiu Y, Mao R, Chen BL, et al. Systematic review with meta-analysis of prospective studies: anti-tumour necrosis fa..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-613",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[287] Liu C,Li N, Zhan S, et al. Anti -TNFα agents in preventing thepostoperative recurrence of Crohn's disease: do they..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-614",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[288] Gisbert JP, Chaparro M. Anti-TNF agents and new biologicalagents(vedolizumab and ustekinumab) in the prevention an..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-615",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[289] Canete F, Manosa M, Casanova MJ, et al. Adalimumab orinfliximab for the prevention of early postoperative recurren..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-616",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[290] Gangwani MK, Nawras M, Aziz M, et al. Comparing adalimumaband infliximab in the prevention of postoperative recurr..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-617",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[291] Barnes EL, Lightner AL, Regueiro M. Perioperative andpostoperative management of patients with Crohn's disease and..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-618",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[292]Manosa M, Fernandez-Clotet A, Nos P, et al. Ustekinumab andvedolizumab for the prevention of postoperative recurren..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-619",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[293]Yanai H, Kagramanova A, Knyazev O, et al. Endoscopicpostoperative recurrence in Crohn's disease after curative ileo..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-620",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[294] Rutgeerts P, Geboes K, Vantrappen G, et al. Natural history ofrecurrent Crohn's disease at the ileocolonic anastom..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-621",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[295] Swoger JM, Regueiro M. Evaluation for postoperative recurrence ofCrohn disease[J]. Gastroenterol Clin North Am,201..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-622",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "296]de Cruz P, Hamilton AL, Burrell KJ, et al. Endoscopic predictionof Crohn's disease postoperative recurrence[J]. Infl..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-623",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[297] Rispo A, Imperatore N, Testa A, et al. Diagnostic accuracy ofultrasonography in the detection of postsurgical recu..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-624",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[298] Mao R, Gao X, Zhu ZH, et al. CT enterography in evaluatingpostoperative recurrence of Crohn's disease after ileoco..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-625",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[299] Sailer J, Peloschek P, Reinisch W,et al. Anastomotic recurrenceof Crohn's disease after ileocolic resection: compa..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-626",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[300] Yang SK, Hong M, Baek J, et al. A common missense variant inNUDT15 confers susceptibility to thiopurine-induced le..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-627",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[301] Kakuta Y, Naito T, Onodera M, et al. NUDT15 R139C causesthiopurine-induced early severe hair loss and leukopenia i..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-628",
+      "page_num": 31,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[302]Schaeffeler E, Jaeger SU, Klumpp V,et al. Impact of NUDT15genetics on severe thiopurine-related hematotoxicity in p..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-629",
+      "page_num": 32,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-630",
+      "page_num": 32,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-131-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-631",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[303] Sutiman N, Chen S, Ling KL, et al. Predictive role of NUDT15variants on thiopurine-induced myelotoxicity in Asian..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-632",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[304] Chao K, Huang Y,Zhu X, et al. Randomised clinical trial: doseoptimising strategy by NUDT15 genotyping reduces leuc..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-633",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[305] Osterman MT,Kundu R,Lichtenstein GR, et al. Association of 6-thioguanine nucleotide levels and inflammatory bowel..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-634",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[306] Feuerstein JD, Nguyen GC, Kupfer SS, et al. AmericanGastroenterological Association Institute Guideline on therape..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-635",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[307] Syversen SW, Jorgensen KK, Goll GL, et al. Effect of therapeuticdrug monitoring us standard therapy during mainten..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-636",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[308] Syversen SW, Goll GL, Jorgensen KK, et al. Effect of therapeuticdrug monitoring vs standard therapy during inflixi..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-637",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[309] Vande Casteele N, Ferrante M, van Assche G, et al. Troughconcentrations of infliximab guide dosing for patients wi..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-638",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[310] Steenholdt C, Brynskov J, Thomsen O0, et al. Individualisedtherapy is more cost-effective than dose intensificatio..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-639",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[311] Sethi S, Dias S, Kumar A, et al. Meta-analysis: the efficacy oftherapeutic drug monitoring of anti-TNF-therapy in..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-640",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[312]Lutgens MW, van Oijen MG, van der Heijden GJ, et al.Declining risk of colorectal cancer in inflammatory bowel disea..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-641",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[313] Olén O, Erichsen R, Sachs MC, et al. Colorectal cancer in Crohn'sdisease: a Scandinavian population-based cohort s..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-642",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[314] Duricova D, Pedersen N, Elkjaer M, et al. Overall and cause-specific mortality in Crohn's disease: a meta-analysis..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-643",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[315] Magro F, Doherty G, Peyrin-Biroulet L, et al. ECCO position"
+    },
+    {
+      "layout_id": "3gSEHT-layout-644",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "paper: harmonization of the approach to ulcerative colitishistopathology[J]. J Crohns Colitis,2020,14(11):1503-1511.DOI:..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-645",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[316] Gordon H, Biancone L, Fiorino G, et al. ECCO guidelines oninflammatory bowel disease and malignancies [J]. J Crohn..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-646",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[317] Laukoetter MG, Mennigen R, Hannig CM, et al. Intestinal cancerrisk in Crohn's disease: a meta-analysis[J]. J Gastr..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-647",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[318] Wan Q, Zhao R, Xia L, et al. Inflammatory bowel disease and riskof gastric, small bowel and colorectal cancer: a m..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-648",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[319] Baars JE, Kuipers EJ, Dijkstra G, et al. Malignant transformationof perianal and enterocutaneous fistulas is rare:..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-649",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[320] Slesser AA, Bhangu A, Bower M, et al. A systematic review of analsquamous cell carcinoma in inflammatory bowel dis..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-650",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[321] Mijac DD,Jankovié GL, Jorga J,et al. Nutritional status in patientswith active inflammatory bowel disease: prevale..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-651",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[322] Massironi S, Rossi RE, Cavalcoli FA, et al. Nutritionaldeficiencies in inflammatory bowel disease: therapeutic app..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-652",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[323]中华医学会肠内肠外营养学分会，中国医药教育协会炎症性肠病专业委员会。中国炎症性肠病营养诊疗共识[J/CD].中华消化病与影像杂志（电子版），2021,11(1)：8-15。DOI:10.3877/cma.j.issn.2095-2..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-653",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[324] Cederholm T,Jensen GL, Correia M, et al. GLIM criteria for thediagnosis of malnutrition: a consensus report from t..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-654",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[325] Bisgaard TH, Allin KH,Keefer L,et al. Depression and anxiety ininflammatory bowel disease: epidemiology, mechanism..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-655",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[326]Riggott C, Mikocka-Walus A, Gracie DJ, et al. Efficacy ofpsychological therapies in people with inflammatory bowel..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-656",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[327] Barberio B,Zamani M, Black CJ,et al. Prevalence of symptoms ofanxiety and depression in patients with inflammatory..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-657",
+      "page_num": 32,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[328] Ananthakrishnan AN, Gainer VS, Perez RG,et al. Psychiatric co-morbidity is associated with increased risk of surge..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-658",
+      "page_num": 33,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "-132-"
+    },
+    {
+      "layout_id": "3gSEHT-layout-659",
+      "page_num": 33,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华消化杂志2024年2月第44卷第2期Chin JDig,February 2024，Vol.44,No.2"
+    },
+    {
+      "layout_id": "3gSEHT-layout-660",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "07]. https:/doi.org/10.1016/j.autrev.2021.102832."
+    },
+    {
+      "layout_id": "3gSEHT-layout-661",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[329] Fairbrass KM, Lovatt J, Barberio B, et al. Bidirectional brain-gutaxis effects influence mood and prognosis in IBD..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-662",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[338]Chapman TP, Gomes CF, Louis E, et al. De-escalation ofimmunomodulator and biological therapy in inflammatory boweld..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-663",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[330]Szigethy E, Youk AO, Gonzalez-Heydrich J, et al. Effect of 2psychotherapies on depression and disease activity in p..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-664",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[339]克罗恩病肛瘘共识专家组。克罗恩病肛瘘诊断与治疗的专家共识意见[J].中华炎性肠病杂志，2019,3(2)：105-110。DOI: 10.3760/cma.j. issn.2096-367X.2019.02.001."
+    },
+    {
+      "layout_id": "3gSEHT-layout-665",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[331] Frolkis AD, Dykeman J, Negron ME, et al. Risk of surgery forinflammatory bowel diseases has decreased over time: a..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-666",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[340]李毅。《炎症性肠病外科治疗专家共识》解读：克罗恩病的外科治疗[J].结直肠肛门外科，2020,26(6)：644-646。DOI:10.19668/j. cnki.issn1674-0491.2020.06.002."
+    },
+    {
+      "layout_id": "3gSEHT-layout-667",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[332] El Ouali S, Click B, Holubar SD, et al. Natural history,diagnosis and treatment approach to fibrostenosing Crohn's..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-668",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[341] Feagan BG, Schreiber S, Afzali A, et al. Ozanimod as a novel oralsmall molecule therapy for the treatment of Crohn..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-669",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[333]Lamb CA, Kennedy NA, Raine T, et al. British Society ofGastroenterology consensus guidelines on the management ofin..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-670",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[342] Feagan BG, Sandborn WJ, Danese S, et al. Ozanimod inductiontherapy for patients with moderate to severe Crohn's di..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-671",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[334] van Rheenen PF, Aloi M, Assa A, et al. The medicalmanagement of paediatric Crohn's disease: an ECCO-ESPGHANguideli..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-672",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[343] Ferrante M, Panaccione R, Baert F, et al. Risankizumab asmaintenance therapy for moderately to severely active Cro..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-673",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[335] Panés J,Garcia-Olmo D,van Assche G,et al. Expanded allogeneicadipose-derived mesenchymal stem cells(Cx601)for comp..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-674",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[344]Sands BE, Chen J, Feagan BG, et al. Efficacy and safety ofMEDI2070, an antibody against interleukin 23， in patients..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-675",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[336] Danese S, Solitano V, Jairath V, et al. The future of drugdevelopment for inflammatory bowel disease: the need to..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-676",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[345] Sandborn WJ, D'Haens GR, Reinisch W,et al. Guselkumab forthe treatment of Crohn's disease: induction results from..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-677",
+      "page_num": 33,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[337] Privitera G, Pugliese D, Onali S, et al. Combination therapy ininflammatory bowel disease: from traditional immuno..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-5",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "中华医学会消化病学分会炎症性肠病学组中国炎症性肠病诊疗质量控制评估中心通信作者：陈旻湖，中山大学附属第一医院消化内科，广州510080，Email:chenminhu@mail.sysu.edu.cn,电话：020-87755766；吴开春..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-6",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "【引用本文】中文：中华医学会消化病学分会炎症性肠病学组，中国炎症性肠病诊疗质量控制评估中心。中国克罗恩病诊治指南(2023年·广州)[J].中华消化杂志，2024,44(2)：100-132。DOI:10.3760/cma.j. cn311..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-7",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_abstract",
+      "text_preview": "【摘要】克罗恩病(CD)病情复杂，涉及多个学科，规范化诊疗对提高CD的疗效及改善预后非常重要。近年来我国在CD领域的基础及临床研究取得丰硕成果，加上新的诊疗理念、新的治疗药物不断应用于临床，使更新CD诊疗共识意见、为广大临床工作者提供基于最..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-8",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_abstract",
+      "text_preview": "【关键词】 克罗恩病；指南；ＧＲＡＤＥ 分级；德尔菲法"
+    },
+    {
+      "layout_id": "3gSEHT-layout-9",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "基金项目：国家重点研发项目(2023YFC2507300);广东省重点领域研发计划(2023B1111040003)"
+    },
+    {
+      "layout_id": "3gSEHT-layout-10",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "DOI:10.3760/cma.j.cn311367-20240109-00010"
+    },
+    {
+      "layout_id": "3gSEHT-layout-11",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "Chinese clinical practice guideline on the management of Crohn's disease(2023, Guangzhou)"
+    },
+    {
+      "layout_id": "3gSEHT-layout-12",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "Inflammatory Bowel Disease Group of Chinese Society of Gastroenterology of Chinese Medical Association,Inflammatory Bowe..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-13",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "Corresponding author: Chen Minhu, Department of Gastroenterology, the First Affiliated Hospital, Sun Yat-senUniversity,..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-14",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_abstract",
+      "text_preview": "【Abstract】 Crohn's disease(CD)is a complex condition spanning multiple disciplines. Standardizeddiagnostics and treatmen..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-15",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_abstract",
+      "text_preview": "【Key words】 Crohn's disease; Guideline; GRADE; Delphi technique"
+    },
+    {
+      "layout_id": "3gSEHT-layout-16",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "Fund program: National $\\mathrm { K e y }$ Research and Development Program(2023YFC2507300); GuangdongProvincial Key Are..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-17",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "DOI:10.3760/cma.j.cn311367-20240109-00010"
+    },
+    {
+      "layout_id": "3gSEHT-layout-3",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "·共识与指南·"
+    },
+    {
+      "layout_id": "3gSEHT-layout-26",
+      "page_num": 2,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "3.利益冲突声明与资金资助：指南专家组成员均被要求填写利益冲突表，声明利益冲突。所有专家均声明不存在利益冲突。"
+    },
+    {
+      "layout_id": "3gSEHT-layout-279",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "尽管近年CD的治疗药物取得很大进展，但仍无法突破治疗的“天花板”，内镜下有效率通常在$4 0 \\% \\sim 6 0 \\%$。除了目前已有的生物制剂及小分子药物外，采用多靶点药物及联合治疗难治性CD、粪菌移植、干细胞注射治疗、探索新的治疗靶..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-280",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "未来，基于现代生物学的多组学研究，将有助于临床工作者对CD的发病机制有更深的理解，并应用于疾病分型、疾病进展及药物疗效预测，从而提高疗效，降低并发症发生率，改善患者的预后。"
+    },
+    {
+      "layout_id": "3gSEHT-layout-281",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "利益冲突 专家组所有成员声明不存在利益冲突"
+    },
+    {
+      "layout_id": "3gSEHT-layout-282",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "起草小组专家（按姓氏汉语拼音排序）：曹倩（浙江大学医学院附属邵逸夫医院消化内科)，陈旻湖（中山大学附属第一医院消化内科），高翔（中山大学附属第六医院消化内科），何瑶（中山大学附属第一医院消化内科)，冉志华（上海健康医学院附属周浦医院消化内科..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-283",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "夏君（宁波诺丁汉大学GRADE中心）专家组成员（按姓氏汉语拼音排序）：曹倩（浙江大学医学院附属邵逸夫医院消化内科)，陈旻湖（中山大学附属第一医院消化内科），陈宁（北京大学人民医院消化内科），陈焰（浙江大学医学院附属第二医院消化内科)，董卫国..."
+    },
+    {
+      "layout_id": "3gSEHT-layout-284",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "秘书组成员（按姓氏汉语拼音排序）：晁康（中山大学附属第六医院消化内科)，简易成（上海健康医学院附属周浦医院消化内科），林斯楠（中山大学附属第一医院消化内科），柳婧（浙江大学医学院附属邵逸夫医院消化内科)，赵赛（上海道田循证科技有限公司）"
+    },
+    {
+      "layout_id": "3gSEHT-layout-287",
+      "page_num": 20,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "参考文献"
+    },
+    {
+      "layout_id": "3gSEHT-layout-682",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "陈"
+    },
+    {
+      "layout_id": "3gSEHT-layout-683",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "陈胜良"
+    },
+    {
+      "layout_id": "3gSEHT-layout-684",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "杜奕奇"
+    },
+    {
+      "layout_id": "3gSEHT-layout-689",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "梁"
+    },
+    {
+      "layout_id": "3gSEHT-layout-690",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "林"
+    },
+    {
+      "layout_id": "3gSEHT-layout-691",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "彭丽华"
+    },
+    {
+      "layout_id": "3gSEHT-layout-696",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "闫秀娥 红 张"
+    },
+    {
+      "layout_id": "3gSEHT-layout-697",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "中平学金杂志社版权所有违者必究"
+    },
+    {
+      "layout_id": "3gSEHT-layout-678",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "(收稿日期：2024-01-09)"
+    },
+    {
+      "layout_id": "3gSEHT-layout-679",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "(本文编辑：陆祎)"
+    },
+    {
+      "layout_id": "3gSEHT-layout-680",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "《中华消化杂志》第十届编辑委员会通讯编委组成名单"
+    },
+    {
+      "layout_id": "3gSEHT-layout-681",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "（以下名单按姓氏汉语拼音排序）"
+    },
+    {
+      "layout_id": "3gSEHT-layout-688",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "李"
+    },
+    {
+      "layout_id": "3gSEHT-layout-692",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "王拥军"
+    },
+    {
+      "layout_id": "3gSEHT-layout-694",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "肖英莲"
+    },
+    {
+      "layout_id": "3gSEHT-layout-695",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "许树长"
+    },
+    {
+      "layout_id": "3gSEHT-layout-693",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "吴东"
+    }
+  ],
+  "discarded_unit_count": 23,
+  "discarded_units_by_reason": {
+    "clinical_stage_other": 23
+  },
+  "discarded_units": [
+    {
+      "unit_id": "clinical_text_unit_c31fd61a9baf",
+      "page_start": 1,
+      "page_end": 2,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-18",
+        "3gSEHT-layout-19",
+        "3gSEHT-layout-22"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "炎症性肠病(inflammatory bowel disease,IBD)病情复杂，规范化诊疗对提高治疗效果非常重要。我国于1978、1993、2001、2007、2012和2018年分别制定了IBD诊断和治疗的共识意见，极大地规范和提高了..."
+    },
+    {
+      "unit_id": "clinical_text_unit_4bf203aad000",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-24"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "1.指南范围目标用户和适用人群：本指南由中华医学会消化病学分会炎症性肠病学组专家发起制订。由宁波诺丁汉 GRADE 中心提供方法学指导。该指南目标用户是从事IBD诊疗工作的临床医师及护士，指南的适用人群为中国CD患者。"
+    },
+    {
+      "unit_id": "clinical_text_unit_291fbf48fe28",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-25"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "2.指南工作组：指南工作组成员来自中华医学会消化病学分会炎症性肠病学组、中国炎症性肠病诊疗质量控制评估中心(Inflammatory Bowel DiseaseQuality Control Center of China,IBDQCC)及..."
+    },
+    {
+      "unit_id": "clinical_text_unit_0e61e4958c8d",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-27"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "4.推荐意见的确定：本指南推荐意见由临床专家组结合CD诊治的临床需求，通过共识会议法筛选和确定。"
+    },
+    {
+      "unit_id": "clinical_text_unit_c3887bace7f4",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-28"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "5.证据质量评价：指南工作组在PubMed、Embase、Cochrane Library、中国知网数据库实施了证据检索。采用《牛津循证医学中心证据分级2011版》[Oxford Center for Evidence-Based Medi..."
+    },
+    {
+      "unit_id": "clinical_text_unit_822bd942df3e",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-29",
+        "3gSEHT-layout-30"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "6.形成推荐意见：推荐意见形成时参考推荐分级的评估、制定与评价(grading of recommendationsassessment,development and evaluation,GRADE)分级系统对推荐意见进行分级。GRAD..."
+    },
+    {
+      "unit_id": "clinical_text_unit_73e9440f714a",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-31"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "7.指南传播、实施与更新：指南将通过学术期刊、线上或线下学术会议宣讲和解读、新媒体推文等多种途径传播，促进指南推荐意见在临床实施。计划在2年内，评估最新研究证据情况和临床需求，必要时进行更新。"
+    },
+    {
+      "unit_id": "clinical_text_unit_f3576035b587",
+      "page_start": 16,
+      "page_end": 16,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-236"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐理由：CD术后复发的危险因素包括吸烟、诊断时年龄较轻、既往肠道手术史、穿透性疾病、肛周病变、广泛小肠疾病（累及肠道长度$\\geqslant$$5 0 \\mathrm { c m } ) ^ { [ 2 6 8 ] }$。切除时的组织学特..."
+    },
+    {
+      "unit_id": "clinical_text_unit_e05528d3b445",
+      "page_start": 16,
+      "page_end": 16,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-237"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "美沙拉嗪在预防CD术后复发方面的疗效有限，一项 meta分析表明，美沙拉嗪组术后12个月的内镜缓解率并未高于安慰剂组[273]。甲硝唑和奥硝唑已被证明有助于预防术后临床和内镜下复发[274-275]°，但耐受性差和长期使用的不良反应限制了咪..."
+    },
+    {
+      "unit_id": "clinical_text_unit_81a1cfe1c510",
+      "page_start": 16,
+      "page_end": 16,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-238"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐意见37：硫嘌呤类药物能够有效预防CD术后的临床和内镜下复发。（证据等级：2，推荐强度：弱)"
+    },
+    {
+      "unit_id": "clinical_text_unit_d56c2e81a522",
+      "page_start": 16,
+      "page_end": 16,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-239"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐理由：硫嘌呤类药物是CD治疗中常用的免疫抑制药物，包括硫唑嘌呤和6-MP。目前的研究显示硫嘌呤类药物能够有效预防CD术后的临床和内镜下复发[271,277]，同时联合甲硝唑效果更佳[271,278]。硫嘌呤类药物的疗效优于美沙拉嗪但逊于..."
+    },
+    {
+      "unit_id": "clinical_text_unit_7bd7e73090a4",
+      "page_start": 16,
+      "page_end": 16,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-240"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "一项预防术后复发的RCT研究将81例伴≥1个高危因素的CD术后患者随机分为观察组和对照组，观察组为甲硝唑(3个月)+硫唑嘌呤(12个月)组，对照组为甲硝唑(3个月)+安慰剂(12个月)组，随访1年发现甲硝唑+硫唑嘌呤组的内镜复发率显著低于甲..."
+    },
+    {
+      "unit_id": "clinical_text_unit_6fd37c4a0e60",
+      "page_start": 16,
+      "page_end": 16,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-241"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐意见38：生物制剂可有效预防及治疗术后CD复发，可使用术前有效生物制剂在术后继续治疗。（证据等级：2，推荐强度：强）"
+    },
+    {
+      "unit_id": "clinical_text_unit_c2d1287bbb4a",
+      "page_start": 16,
+      "page_end": 16,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-242",
+        "3gSEHT-layout-243"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐理由：IFX预防及治疗CD术后复发的作用已被广泛研究，可降低内镜下及组织学复发率[276,283-284]，疗效优于安慰剂、美沙拉嗪和硫嘌呤类药物。一项RCT研究显示接受IFX治疗的患者1年内镜复发率为9.1%，显著低于安慰剂组的84...."
+    },
+    {
+      "unit_id": "clinical_text_unit_75391e3b20f5",
+      "page_start": 16,
+      "page_end": 16,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-244"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "VDZ和UST通常用于抗TNF制剂治疗失败或有抗TNF制剂药物禁忌证的CD术后患者[291]。一项西班牙ENEIDA数据库的研究纳入的病例中80%为具有至少一项复发高危因素的CD患者，结果显示，CD术后3个月接受UST和VDZ治疗，在手术后..."
+    },
+    {
+      "unit_id": "clinical_text_unit_6ec5e1d603b6",
+      "page_start": 16,
+      "page_end": 16,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-245"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐意见39：推荐CD患者术后6个月或出现症状时复查内镜，以评估是否复发。如果不能耐受内镜检查，使用 FC 联合 $\\mathrm { C T E } / \\mathrm { M R E }$ 替代评估。(证据等级：2，推荐强度：强)"
+    },
+    {
+      "unit_id": "clinical_text_unit_fa0548294929",
+      "page_start": 16,
+      "page_end": 16,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-246"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐理由：CD术后1年内镜检查的患者中，CD的复发率为$7 2 \\% ^ { [ 2 9 4 ] }$。内镜下复发通常先于临床症状，因此内镜检查被认为是CD术后复发的诊断金标准[295]。术后6个月内镜检查时吻合口溃疡深度和溃疡环周范围与术..."
+    },
+    {
+      "unit_id": "clinical_text_unit_9efb8901ebac",
+      "page_start": 17,
+      "page_end": 17,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-249"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "早期结肠镜检查和针对内镜下复发的逐级治疗，比 单独使用常规药物治疗更能预防ＣＤ 术后复发［280］。"
+    },
+    {
+      "unit_id": "clinical_text_unit_45f2634a41e2",
+      "page_start": 17,
+      "page_end": 17,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-250"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "如不能耐受内镜检查，可用其他替代评估方法， 如ＦＣ、肠道超声、ＣＴＥ、ＭＲＥ 等。"
+    },
+    {
+      "unit_id": "clinical_text_unit_d412db2bb615",
+      "page_start": 17,
+      "page_end": 17,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-251"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "前瞻性临床试验结果显示FC检测因具有足够的灵敏度，可用于监测肠切除术后CD复发，其预测值可用于识别最有可能复发的患者，同时FC水平还可用于监测CD复发患者对治疗的反应[18]。"
+    },
+    {
+      "unit_id": "clinical_text_unit_72304943bf30",
+      "page_start": 17,
+      "page_end": 17,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-252"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "肠道超声在检测CD术后复发方面具有较好的灵敏度和特异度，并且与回肠结肠镜有很好的相关性[57]。一项系统综述和meta分析发现，肠道超声在检测术后复发方面的灵敏度为0.94，特异度为0.84;肠壁厚度$\\geqslant 5 . 5 \\ma..."
+    },
+    {
+      "unit_id": "clinical_text_unit_646cd542c809",
+      "page_start": 17,
+      "page_end": 17,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-253"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "CTE是评估CD患者回结肠切除术后复发的可靠方法，CTE可以作为内镜检查的一个重要的补充工具来评估CD的术后病程[298]。MRE对评估CD回结肠切除术后复发具有同样价值[299]。"
+    },
+    {
+      "unit_id": "clinical_text_unit_b4833706ee02",
+      "page_start": 33,
+      "page_end": 33,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "七、展望"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-685",
+        "3gSEHT-layout-686",
+        "3gSEHT-layout-687"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "季蒯小玲李"
+    }
+  ],
+  "merged_layout_groups": [
+    {
+      "unit_id": "clinical_text_unit_c31fd61a9baf",
+      "page_start": 1,
+      "page_end": 2,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-18",
+        "3gSEHT-layout-19",
+        "3gSEHT-layout-22"
+      ],
+      "raw_text_preview": "炎症性肠病(inflammatory bowel disease,IBD)病情复杂，规范化诊疗对提高治疗效果非常重要。我国于1978、1993、2001、2007、2012和2018年分别制定了IBD诊断和治疗的共识意见，极大地规范和提高了..."
+    },
+    {
+      "unit_id": "clinical_text_unit_822bd942df3e",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-29",
+        "3gSEHT-layout-30"
+      ],
+      "raw_text_preview": "6.形成推荐意见：推荐意见形成时参考推荐分级的评估、制定与评价(grading of recommendationsassessment,development and evaluation,GRADE)分级系统对推荐意见进行分级。GRAD..."
+    },
+    {
+      "unit_id": "clinical_text_unit_f651fa6ccedf",
+      "page_start": 3,
+      "page_end": 3,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "二、诊断及评估"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-40",
+        "3gSEHT-layout-44"
+      ],
+      "raw_text_preview": "注：\"因研究间不一致性或绝对效应量非常小，证据级别可考虑研究质量、精确度、间接性而降级，也可考虑效应量显著或非常显著而升级；\"系统评价普遍地优于单个临床研究CD肠道炎症的影像学检查包括CT小肠成像(CT enterography,CTE)、..."
+    },
+    {
+      "unit_id": "clinical_text_unit_b4bcb359dae6",
+      "page_start": 3,
+      "page_end": 3,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "二、诊断及评估"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-46",
+        "3gSEHT-layout-47"
+      ],
+      "raw_text_preview": "对于CD诊断最重要的病理特点包括透壁性、节段性分布的慢性炎症，并引起相应肠壁的上皮及间质结构改变、小肉芽肿形成等。常见黏膜结构改变包括小肠绒毛增粗、变短，隐窝结构改变，小肠幽门腺化生等；常见间质结构改变包括固有肌层增厚，固有肌层与黏膜肌层融..."
+    },
+    {
+      "unit_id": "clinical_text_unit_61aebfd566bf",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "二、诊断及评估"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-58",
+        "3gSEHT-layout-59"
+      ],
+      "raw_text_preview": "在启动治疗后，结肠镜可见病变者后续可以通过结肠镜评估疗效，目前结肠镜评估的准确时间点仍缺乏高质量证据。来自SONIC研究的数据分析发现26周内镜下黏膜愈合可预测50周无激素缓解[22]，来自EXTEND研究的数据分析发现12周结肠镜下黏膜愈..."
+    },
+    {
+      "unit_id": "clinical_text_unit_f546737027d3",
+      "page_start": 4,
+      "page_end": 5,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "二、诊断及评估"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-63",
+        "3gSEHT-layout-66"
+      ],
+      "raw_text_preview": "CD患者上消化道受累症状无特异性，可表现为恶心、呕吐、食欲不佳、吞咽困难、吞咽疼痛、口腔阿弗他样溃疡等。胃十二指肠镜下可见黏膜结节样改变、阿弗他样或线状溃疡、胃窦增厚、十二指肠狭窄[29]。目前针对上消化道受累并无统一的可量化的内镜评价体系..."
+    },
+    {
+      "unit_id": "clinical_text_unit_54d41a8dcf76",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "二、诊断及评估"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-71",
+        "3gSEHT-layout-72"
+      ],
+      "raw_text_preview": "进行胶囊内镜检查前需评估滞留风险，目前评估 方式主要包括探路胶囊及影像学检查。探路胶囊是一种大小、形状与标准胶囊内镜相似的可降解胶囊，通过患者吞服后排出时间判断滞留风险，但目前国内普及率低；没有证据表明在低风险人群中使用探路胶囊可进一步降低..."
+    },
+    {
+      "unit_id": "clinical_text_unit_cffe643c6c77",
+      "page_start": 5,
+      "page_end": 6,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "二、诊断及评估"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-77",
+        "3gSEHT-layout-80"
+      ],
+      "raw_text_preview": "推荐理由：CD累及小肠概率较高，结肠镜无法观察到除末端回肠以外的小肠病变[，且肠瘘、狭窄等并发症也难以通过内镜进行评估。CTE或MRE可以观察肠道病变部位、范围，并且评估是否存在肠瘘、狭窄等并发症，以及肠外并发症[48]。因此，有条件的医疗..."
+    },
+    {
+      "unit_id": "clinical_text_unit_985d4ba26084",
+      "page_start": 6,
+      "page_end": 6,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "二、诊断及评估"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-85",
+        "3gSEHT-layout-86"
+      ],
+      "raw_text_preview": "推荐理由：经腹肠道超声可快速、直观地评估肠道厚度、肠壁血流信号及肠道动力，探查范围囊括除直肠和部分近端空肠外的所有肠道[5，并且对小肠狭窄、肠瘘等并发症的评估有较好的灵敏度与特异度[58]。对疑诊CD者，肠道超声对病变检出的灵敏度、特异度分..."
+    },
+    {
+      "unit_id": "clinical_text_unit_955155a6b2c0",
+      "page_start": 6,
+      "page_end": 7,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "二、诊断及评估"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-92",
+        "3gSEHT-layout-95"
+      ],
+      "raw_text_preview": "肠淋巴瘤：临床表现包括消化道出血、腹痛、腹 泻、体重下降、腹部包块、肠梗阻等。影像学可见肠壁轻度而均一性的强化表现“]。确诊需靠组织病理学检查。多数淋巴瘤疾病进展较快，及时的内镜下活检或必要时手术探查以取得病理诊断是本病诊治的关键。"
+    },
+    {
+      "unit_id": "clinical_text_unit_c9b6965f25c1",
+      "page_start": 7,
+      "page_end": 7,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "二、诊断及评估"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-101",
+        "3gSEHT-layout-102",
+        "3gSEHT-layout-103"
+      ],
+      "raw_text_preview": "注：L4可与L1、L2、L3同时存在，B1随着时间推移可发展为B2或B3,p可与B1、B2、B3同时存在CD疾病活动度主要分为临床疾病活动度和内镜下疾病活动度，目前没有用于评价疾病活动度的金标准。常用的临床疾病活动度评分主要指CDAI,以及..."
+    },
+    {
+      "unit_id": "clinical_text_unit_80512bf48b16",
+      "page_start": 7,
+      "page_end": 7,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "二、诊断及评估"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-106",
+        "3gSEHT-layout-109",
+        "3gSEHT-layout-110"
+      ],
+      "raw_text_preview": "注：\"肠外表现/并发症包括关节痛、虹膜炎、结节性红斑、坏疽性脓皮病、口腔阿弗他溃疡、肛裂、新瘘管、脓肿等；总分$\\leqslant 4$分为缓解期，5~7分为轻度活动期，8~16分为中度活动期，$> 1 6$分为重度活动期。“-”为该项评分..."
+    },
+    {
+      "unit_id": "clinical_text_unit_176cdce17aaf",
+      "page_start": 7,
+      "page_end": 8,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "二、诊断及评估"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-115",
+        "3gSEHT-layout-118"
+      ],
+      "raw_text_preview": "注：“各单项评分需对5个肠段分别记分，5个肠段包括直肠、降结肠及乙状结肠、横结肠（含脾曲）、升结肠（含回盲部及肝曲）、回肠；对每个肠段的评估需在至少长10cm的范围进行，方认定为有效探查，如遇手术切除、肠道狭窄而内镜无法通过、结肠镜操作技术..."
+    },
+    {
+      "unit_id": "clinical_text_unit_465a833d11cd",
+      "page_start": 8,
+      "page_end": 8,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "三、治疗"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-126",
+        "3gSEHT-layout-127"
+      ],
+      "raw_text_preview": "推荐理由：“达标治疗”(treat-to-target)是当前CD治疗普遍采用的策略[8182]\"，即预先设定治疗目标，随后开始治疗，定期评估是否达到预设的治疗目标，如未达标则调整治疗策略，直到最终达到预设目标。CD治疗是否达标的评价需综合..."
+    },
+    {
+      "unit_id": "clinical_text_unit_e20e704cbd13",
+      "page_start": 8,
+      "page_end": 9,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "三、治疗"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-132",
+        "3gSEHT-layout-135"
+      ],
+      "raw_text_preview": "推荐理由：CD的治疗策略可分为“升阶梯”及“降阶梯”治疗，前者采用糖皮质激素、免疫抑制剂(硫嘌呤类药物、甲氨蝶呤等)、生物制剂逐步上阶梯的策略；后者首选生物制剂诱导及维持缓解，或生物制剂诱导缓解后使用免疫抑制剂维持缓解的策略。目前的观点多认..."
+    },
+    {
+      "unit_id": "clinical_text_unit_95bda3fb4748",
+      "page_start": 9,
+      "page_end": 9,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "三、治疗",
+        "2,推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-142",
+        "3gSEHT-layout-143"
+      ],
+      "raw_text_preview": "推荐意见16：对于伴有高危因素或传统药物治疗失败的轻度活动期ＣＤ，可考虑使用生物制剂进 行诱导缓解治疗。（证据等级：2，推荐强度：强）"
+    },
+    {
+      "unit_id": "clinical_text_unit_fdeef2bb9d3d",
+      "page_start": 9,
+      "page_end": 10,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "三、治疗",
+        "2,推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-148",
+        "3gSEHT-layout-151"
+      ],
+      "raw_text_preview": "推荐理由：英夫利西单抗(infliximab,IFX)是我国首个获批用于活动期CD诱导治疗的生物制剂。1997年 Targan 等[84]\"的临床研究结果表明，IFX诱导治疗成人中重度活动性CD的4周临床应答率为81%,高于安慰剂组的$1..."
+    },
+    {
+      "unit_id": "clinical_text_unit_8d83b28c1134",
+      "page_start": 10,
+      "page_end": 10,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "三、治疗",
+        "2,推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-155",
+        "3gSEHT-layout-156"
+      ],
+      "raw_text_preview": "推荐理由：一项meta分析显示，ADA联合免疫抑制剂治疗CD诱导期(3个月)疗效显著优于单药治疗，但在治疗12个月时两组差异无统计学意义[144]。一项开放标签RCT研究(DIAMOND研究)比较了ADA联合硫唑嘌呤与ADA单药治疗CD的疗..."
+    },
+    {
+      "unit_id": "clinical_text_unit_50e8955c3a29",
+      "page_start": 10,
+      "page_end": 11,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "三、治疗",
+        "2,推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-160",
+        "3gSEHT-layout-163"
+      ],
+      "raw_text_preview": "推荐理由：UST治疗中重度活动性CD疗效及安全性的Ⅲ期临床 RCT研究包括UNIT-1及UNIT-2。在UNIT-1中，抗TNF原发性失应答的患者接受UST治疗第3、8周的临床缓解率均高于安慰剂组(第3周：12.9%比5.7%，$P < 0..."
+    },
+    {
+      "unit_id": "clinical_text_unit_407176505a9c",
+      "page_start": 11,
+      "page_end": 11,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "三、治疗",
+        "2,推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-167",
+        "3gSEHT-layout-168"
+      ],
+      "raw_text_preview": "推荐理由：EEN可作为儿童及青少年轻度活动性CD诱导缓解的一线治疗。一项评估EEN治疗儿童活动性CD的meta分析研究结果提示，EEN对儿童活动性CD的诱导缓解率可达80%，与系统性糖皮质激素诱导缓解率相当。此外，EEN还具有纠正营养不良和..."
+    },
+    {
+      "unit_id": "clinical_text_unit_a55faac92df2",
+      "page_start": 11,
+      "page_end": 12,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "三、治疗",
+        "推荐意见25：硫嘌呤类药物及甲氨蝶呤可用于 ＣＤ 的维持治疗（证据等级：1，推荐强度：强）"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-176",
+        "3gSEHT-layout-179"
+      ],
+      "raw_text_preview": "推荐理由：一项包含489例受试者的meta分析显示，硫唑嘌呤在维持缓解方面明显优于安慰剂[167]。一篇纳入10项RCT共928例受试者的meta分析显示，硫唑嘌呤和6-巯基嘌呤(6-mercaptopurine,6-MP)在维持CD患者术..."
+    },
+    {
+      "unit_id": "clinical_text_unit_9da830c6ea03",
+      "page_start": 12,
+      "page_end": 12,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "三、治疗",
+        "推荐意见25：硫嘌呤类药物及甲氨蝶呤可用于 ＣＤ 的维持治疗（证据等级：1，推荐强度：强）"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-183",
+        "3gSEHT-layout-184"
+      ],
+      "raw_text_preview": "由于抗TNF制剂存在免疫原性和失应答的风险，建议联合使用免疫抑制剂以减少IFX抗药抗体的产生[175-176]。一项双盲RCT研究(SONIC)表明，相较于IFX单药治疗，IFX联用硫唑嘌呤在治疗第26周的无激素临床缓解率达56.8%，显著..."
+    },
+    {
+      "unit_id": "clinical_text_unit_e8c2be8bb047",
+      "page_start": 13,
+      "page_end": 13,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "四、ＣＤ 合并肛周病变／ 瘘管型ＣＤ 处理原则"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-197",
+        "3gSEHT-layout-198"
+      ],
+      "raw_text_preview": "推荐意见29：合并肛周脓肿或复杂型肛瘘，需 内外科联合评估及治疗。（证据等级：2，推荐强推荐理由：一项多中心RCT研究(PISA)比较了挂线引流、抗TNF治疗及抗TNF治疗后外科闭合瘘口3种方式治疗CD肛瘘的疗效差异。PISA研究原计划纳入..."
+    },
+    {
+      "unit_id": "clinical_text_unit_19e72a8ebc9b",
+      "page_start": 13,
+      "page_end": 14,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "推荐意见30：不推荐单用抗生素及硫嘌呤类药物治疗CD合并肛瘘。（证据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-201",
+        "3gSEHT-layout-204"
+      ],
+      "raw_text_preview": "推荐理由：仅有一项小样本的RCT研究比较了安慰剂与抗生素（环丙沙星或甲硝唑）治疗肛瘘的疗效，环丙沙星组、甲硝唑组和安慰剂组第10周的肛瘘缓解率分别是2/10、0/7和1/8，第10周的肛瘘应答率分别是4/10、1/7和1/8，差异无统计学意..."
+    },
+    {
+      "unit_id": "clinical_text_unit_08f5df8feab3",
+      "page_start": 14,
+      "page_end": 14,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "推荐意见32：建议ＡＤＡ、ＵＳＴ 用于ＣＤ 合并肛 瘘的治疗。（证据等级：2，推荐强度：强）"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-211",
+        "3gSEHT-layout-212"
+      ],
+      "raw_text_preview": "目前没有RCT直接评估UST治疗CD肛瘘的疗效。在对CERTIFI 和$\\mathrm { U N I T I } 1 / 2$研究数据进行事后亚组分析结果显示，基线合并活动性肛瘘的CD患者共150例，UST组的8周瘘管愈合率为24.7%，..."
+    },
+    {
+      "unit_id": "clinical_text_unit_f6fffebae089",
+      "page_start": 14,
+      "page_end": 15,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "五、ＣＤ 围手术期管理及预防术后复发"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-219",
+        "3gSEHT-layout-222"
+      ],
+      "raw_text_preview": "另外，内科治疗无效的CD患者也需要酌情考虑手术治疗[234]。腹腔镜下切除回肠末端狭窄、纤维化疾病和疾病活动的回肠末端$( < 4 0 \\mathrm { c m } )$是较好的治疗选择，其益处和风险可与药物治疗相媲美[2]。一项来自欧洲..."
+    },
+    {
+      "unit_id": "clinical_text_unit_7b5245633f8e",
+      "page_start": 15,
+      "page_end": 15,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "五、ＣＤ 围手术期管理及预防术后复发"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-227",
+        "3gSEHT-layout-228"
+      ],
+      "raw_text_preview": "回顾性研究表明，在多重风险因素（糖皮质激素、免疫抑制剂及生物制剂联合治疗和多次手术切除)的背景下，患者发生腹腔内脓毒症的风险显著增加，在这些情况下，应考虑行保护性造口术[255-256]。一项前瞻性研究表明，糖皮质激素的使用和术前脓肿与CD..."
+    },
+    {
+      "unit_id": "clinical_text_unit_c2d1287bbb4a",
+      "page_start": 16,
+      "page_end": 16,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-242",
+        "3gSEHT-layout-243"
+      ],
+      "raw_text_preview": "推荐理由：IFX预防及治疗CD术后复发的作用已被广泛研究，可降低内镜下及组织学复发率[276,283-284]，疗效优于安慰剂、美沙拉嗪和硫嘌呤类药物。一项RCT研究显示接受IFX治疗的患者1年内镜复发率为9.1%，显著低于安慰剂组的84...."
+    },
+    {
+      "unit_id": "clinical_text_unit_3918cd976fd7",
+      "page_start": 17,
+      "page_end": 18,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "六、治疗监测及患者管理",
+        "6-TGN是硫嘌呤类药物发挥治疗作用的主要活性代谢产物，一项系统综述提示CD缓解期患者"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-260",
+        "3gSEHT-layout-263"
+      ],
+      "raw_text_preview": "推荐理由：IFX 治疗药物监测(therapeutic drugmonitoring,TDM)包括药物浓度监测及抗 IFX 抗体(antibodies to infliximab,ATI)监测[306]。TDM 方式分为主动TDM 和被动..."
+    },
+    {
+      "unit_id": "clinical_text_unit_fb60e5ad314f",
+      "page_start": 18,
+      "page_end": 18,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "六、治疗监测及患者管理",
+        "6-TGN是硫嘌呤类药物发挥治疗作用的主要活性代谢产物，一项系统综述提示CD缓解期患者"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-266",
+        "3gSEHT-layout-267"
+      ],
+      "raw_text_preview": "一项 meta分析显示，CD小肠癌的发病率为30/10万人年[317]。CD患者小肠癌的发生率为正常人群的10倍[318]。CD相关小肠癌多为腺癌，多见于空肠下段和回肠，且与穿透和狭窄型疾病行为、既往手术史及病程相关。目前尚无明确证据支持对..."
+    },
+    {
+      "unit_id": "clinical_text_unit_b4833706ee02",
+      "page_start": 33,
+      "page_end": 33,
+      "section_path": [
+        "中国克罗恩病诊治指南(2023年·广州)",
+        "七、展望"
+      ],
+      "source_layout_ids": [
+        "3gSEHT-layout-685",
+        "3gSEHT-layout-686",
+        "3gSEHT-layout-687"
+      ],
+      "raw_text_preview": "季蒯小玲李"
+    }
+  ],
+  "output_cards": 136
+}

@@ -512,6 +512,7 @@ def extract_layouts(payload: Mapping[str, Any], summary: dict[str, Any]) -> dict
             layout_type = clean_text(raw_layout.get("type"))
             layout_id = clean_text(raw_layout.get("layout_id")) or f"page-{page_num}-layout-{layout_index + 1}"
             text = clean_text(raw_layout.get("text"))
+            # TODO： 目前只支持 title 和 text 类型，其他类型暂时丢弃
             if layout_type not in {"title", "text"}:
                 add_discarded_layout(
                     summary,

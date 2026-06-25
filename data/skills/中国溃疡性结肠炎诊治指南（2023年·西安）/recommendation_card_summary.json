@@ -1,0 +1,4196 @@
+{
+  "input_file": "data/skills/中国溃疡性结肠炎诊治指南（2023年·西安）/中国溃疡性结肠炎诊治指南（2023年·西安）.parse_result.json",
+  "guideline_title": "中国溃疡性结肠炎诊治指南（2023年·西安）.pdf",
+  "source_file": "中国溃疡性结肠炎诊治指南（2023年·西安）.pdf",
+  "total_layouts": 685,
+  "layouts_by_type": {
+    "head_tail": 69,
+    "text": 313,
+    "title": 37,
+    "table": 9,
+    "footnote": 1,
+    "reference": 256
+  },
+  "discarded_layout_count": 456,
+  "discarded_by_reason": {
+    "type_not_supported": 335,
+    "llm_metadata": 77,
+    "llm_abstract": 4,
+    "llm_conclusion": 5,
+    "llm_reference": 35
+  },
+  "discarded_layouts": [
+    {
+      "layout_id": "4524aZ-layout-1",
+      "page_num": 1,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文） 年 月第 卷第 期 ， ， ， 2024 1 8 1 Chin J Inflamm Bowel Dis January 2024 Vol.8 No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-2",
+      "page_num": 1,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· · 33"
+    },
+    {
+      "layout_id": "4524aZ-layout-23",
+      "page_num": 1,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "IBD"
+    },
+    {
+      "layout_id": "4524aZ-layout-24",
+      "page_num": 1,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "2018"
+    },
+    {
+      "layout_id": "4524aZ-layout-25",
+      "page_num": 2,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·34·"
+    },
+    {
+      "layout_id": "4524aZ-layout-26",
+      "page_num": 2,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-38",
+      "page_num": 2,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "4524aZ-layout-39",
+      "page_num": 2,
+      "type": "footnote",
+      "reason": "type_not_supported",
+      "text_preview": "注：a因研究间不一致性或绝对效应量非常小，证据级别可考虑研究质量、精确度、间接性而降级，也可考虑效应量显著或非常显著而升 级；b系统评价普遍地优于单个临床研究"
+    },
+    {
+      "layout_id": "4524aZ-layout-40",
+      "page_num": 3,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-41",
+      "page_num": 3,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·35·"
+    },
+    {
+      "layout_id": "4524aZ-layout-43",
+      "page_num": 3,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "4524aZ-layout-58",
+      "page_num": 4,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·36·"
+    },
+    {
+      "layout_id": "4524aZ-layout-59",
+      "page_num": 4,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-77",
+      "page_num": 4,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "4524aZ-layout-78",
+      "page_num": 4,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华备学金杂志社"
+    },
+    {
+      "layout_id": "4524aZ-layout-79",
+      "page_num": 5,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-80",
+      "page_num": 5,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "4524aZ-layout-82",
+      "page_num": 5,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "4524aZ-layout-98",
+      "page_num": 5,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "4524aZ-layout-102",
+      "page_num": 5,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "4524aZ-layout-103",
+      "page_num": 6,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·38·"
+    },
+    {
+      "layout_id": "4524aZ-layout-104",
+      "page_num": 6,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-106",
+      "page_num": 6,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "4524aZ-layout-111",
+      "page_num": 6,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "4524aZ-layout-113",
+      "page_num": 6,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "4524aZ-layout-125",
+      "page_num": 7,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-126",
+      "page_num": 7,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "4524aZ-layout-149",
+      "page_num": 8,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "4524aZ-layout-150",
+      "page_num": 8,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-168",
+      "page_num": 9,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-169",
+      "page_num": 9,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·41·"
+    },
+    {
+      "layout_id": "4524aZ-layout-185",
+      "page_num": 10,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "4524aZ-layout-186",
+      "page_num": 10,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-201",
+      "page_num": 11,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-202",
+      "page_num": 11,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·43·"
+    },
+    {
+      "layout_id": "4524aZ-layout-218",
+      "page_num": 12,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·44·"
+    },
+    {
+      "layout_id": "4524aZ-layout-219",
+      "page_num": 12,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-232",
+      "page_num": 13,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文） 年 月第 卷第 期 ， ， ， 2024 1 8 1 Chin J Inflamm Bowel Dis January 2024 Vol.8 No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-233",
+      "page_num": 13,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· · 45"
+    },
+    {
+      "layout_id": "4524aZ-layout-254",
+      "page_num": 14,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·46·"
+    },
+    {
+      "layout_id": "4524aZ-layout-255",
+      "page_num": 14,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-272",
+      "page_num": 15,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文） 年 月第 卷第 期 ， ， ， 2024 1 8 1 Chin J Inflamm Bowel Dis January 2024 Vol.8"
+    },
+    {
+      "layout_id": "4524aZ-layout-273",
+      "page_num": 15,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-274",
+      "page_num": 15,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "4524aZ-layout-275",
+      "page_num": 15,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "47"
+    },
+    {
+      "layout_id": "4524aZ-layout-289",
+      "page_num": 15,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 1 Raine T Bonovas S Burisch J et al. ECCO Guidelines on ： ［ ］ therapeutics in ulcerative colitis medical treat..."
+    },
+    {
+      "layout_id": "4524aZ-layout-291",
+      "page_num": 15,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 2 Maaser C Sturm A Vavricka SR et al. ECCO ⁃ ESGAR ： guideline for diagnostic assessment in IBD part 1 initial ，..."
+    },
+    {
+      "layout_id": "4524aZ-layout-292",
+      "page_num": 15,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 3 Sturm A Maaser C Calabrese E et al. ECCO ⁃ ESGAR ： guideline for diagnostic assessment in IBD part 2 IBD sco..."
+    },
+    {
+      "layout_id": "4524aZ-layout-293",
+      "page_num": 15,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 4 Rubin DT Ananthakrishnan AN Siegel CA et al. ACG clinical ： ［ ］ ， guideline ulcerative colitis in adults J A..."
+    },
+    {
+      "layout_id": "4524aZ-layout-295",
+      "page_num": 15,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 5 Ko CW Singh S Feuerstein JD et al. AGA clinical practice guidelines on the management of mild ⁃ to ⁃ moderat..."
+    },
+    {
+      "layout_id": "4524aZ-layout-296",
+      "page_num": 16,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "4524aZ-layout-297",
+      "page_num": 16,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "48"
+    },
+    {
+      "layout_id": "4524aZ-layout-298",
+      "page_num": 16,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文） 年 月第 卷第 期 ， ， ， 2024 1 8 1 Chin J Inflamm Bowel Dis January 2024 Vol.8 No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-299",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 6 Feuerstein JD Isaacs KL Schneider Y et al. AGA clinical practice guidelines on the management of moderate to..."
+    },
+    {
+      "layout_id": "4524aZ-layout-300",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 7 Lamb CA Kennedy NA Raine T et al. British Society of Gastroenterology consensus guidelines on the management..."
+    },
+    {
+      "layout_id": "4524aZ-layout-301",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ 中华医学会消化病学分会炎症性肠病学组 炎症性肠病诊断 8 与治疗的共识意见（ 年，北京）［ ］ 中华炎性肠病杂志（中 2018 J 英文）， ， （ ）： ： 2018 2 3 173⁃190. DOI 10.3760/cma.j...."
+    },
+    {
+      "layout_id": "4524aZ-layout-302",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ 中华医学会消化病学分会炎症性肠病学组 炎症性肠病外科 9 治疗专家共识［ ］ 中华炎性肠病杂志（中英文）， ， （ ）： J 2020 4 3 ： 180⁃199. DOI 10.3760/cma.j.cn101480⁃202006..."
+    },
+    {
+      "layout_id": "4524aZ-layout-303",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ 中华医学会消化病学分会炎症性肠病学组，中华医学会肠外 10 与肠内营养学分会胃肠病与营养协作组 炎症性肠病营养支 持治疗专家共识（第二版）［ ］ 中华炎性肠病杂志（中英文）， J ， （ ）： ： 2018 2 3 154⁃172...."
+    },
+    {
+      "layout_id": "4524aZ-layout-304",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "， Inflammatory Bowel Disease Group Chinese Society of ， ； Gastroenterology Chinese Medical Association Gastroenterology..."
+    },
+    {
+      "layout_id": "4524aZ-layout-305",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ 中国炎症性肠病诊疗质控评估中心，中华医学会消化病学分 11 会炎症性肠病学组 生物制剂治疗炎症性肠病专家建议意见 ［ ］ 中华炎性肠病杂志（中英文）， ， （ ）： ： J 2021 5 3 193⁃206. DOI 10.3760..."
+    },
+    {
+      "layout_id": "4524aZ-layout-306",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "； Inflammatory Bowel Disease Quality Control Center of China ， Inflammatory Bowel Disease Group Chinese Society of ， Gas..."
+    },
+    {
+      "layout_id": "4524aZ-layout-308",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ 梁洁，周禾，杨红，等 炎症性肠病多学科团队诊疗模式的共识 12 意见［ ］ 中华炎性肠病杂志（中英文）， ， （ ）： J 2021 5 4 276⁃283. ： DOI 10.3760/cma.j.cn101480⁃20210701⁃..."
+    },
+    {
+      "layout_id": "4524aZ-layout-309",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "， ， ， Liang J Zhou H Yang H et al. Expert consensus on the diagnosis and treatment model of inflammatory bowel disease ［..."
+    },
+    {
+      "layout_id": "4524aZ-layout-310",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ 中华医学会消化病学分会炎症性肠病学组病理分组，叶子茵， 13 肖书渊，等 中国炎症性肠病病理诊断专家指导意见［ ］ 中华 J 炎性肠病杂志（中英文）， ， （ ）： ： 2021 5 1 5⁃20. DOI 10.3760/cma...."
+    },
+    {
+      "layout_id": "4524aZ-layout-312",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ 中华医学会消化病学分会炎症性肠病学组 炎症性肠病妊娠 14 期管理的专家共识意见［ ］ 中华炎性肠病杂志（中英文）， J ， （ ）： ： 2019 3 4 284 ⁃ 295. DOI 10.3760 / cma. j. issn..."
+    },
+    {
+      "layout_id": "4524aZ-layout-314",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ 中华医学会儿科学分会消化学组，中华医学会儿科学分会临 15 床营养学组 儿童炎症性肠病诊断和治疗专家共识［ ］ 中华 J 儿科杂志， ， （ ）： ： 2019 57 7 501⁃507. DOI 10.3760/cma.j.iss..."
+    },
+    {
+      "layout_id": "4524aZ-layout-315",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， 16 Rao SS Holdsworth CD Read NW. Symptoms and stool patterns ［ ］ ， ， （ ）： in patients with ulcerative colitis J Gu..."
+    },
+    {
+      "layout_id": "4524aZ-layout-316",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 17 Seo M Okada M Maeda K et al. Correlation between endoscopic ［ ］ severity and the clinical activity index in..."
+    },
+    {
+      "layout_id": "4524aZ-layout-318",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 18 Ozin Y Kilic MZ Nadir I et al. Clinical features of ulcerative ［ ］ colitis and Crohn ′ s disease in Turkey..."
+    },
+    {
+      "layout_id": "4524aZ-layout-319",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 19 Park SM Han DS Yang SK et al. Clinical features of ulcerative ［ ］ ， ， （ ）： colitis in Korea J Korean J Inte..."
+    },
+    {
+      "layout_id": "4524aZ-layout-320",
+      "page_num": 16,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 20 Shao S Huang M Zhang H et al. A retrospective analysis of clinical features and treatment of the inflammatory..."
+    },
+    {
+      "layout_id": "4524aZ-layout-323",
+      "page_num": 17,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-324",
+      "page_num": 17,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·49·"
+    },
+    {
+      "layout_id": "4524aZ-layout-325",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "2147/JIR.S353329."
+    },
+    {
+      "layout_id": "4524aZ-layout-326",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[21] Wang Y, Ouyang Q, APDW 2004 Chinese IBD working group.Ulcerative colitis in China: retrospective analysis of 3100ho..."
+    },
+    {
+      "layout_id": "4524aZ-layout-327",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[22] Baumgart DC, Sandborn WJ. Inflammatory bowel disease:clinical aspects and established and evolving therapies [J].La..."
+    },
+    {
+      "layout_id": "4524aZ-layout-328",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[23] Chow DK, Leong RW, Tsoi KK, et al. Long-term follow-up ofulcerative colitis in the Chinese population[J]. Am J Gast..."
+    },
+    {
+      "layout_id": "4524aZ-layout-329",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[24] Rogler G, Singh A, Kavanaugh A, et al. Extraintestinalmanifestations of inflammatory bowel disease: current concept..."
+    },
+    {
+      "layout_id": "4524aZ-layout-330",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[25] Vavricka SR, Brun L, Ballabeni P, et al. Frequency and riskfactors for extraintestinal manifestations in the Swissi..."
+    },
+    {
+      "layout_id": "4524aZ-layout-331",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[26] Murthy SK, Robertson McCurdy AB, Carrier M, et al. Venousthromboembolic events in inflammatory bowel diseases: a re..."
+    },
+    {
+      "layout_id": "4524aZ-layout-332",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[27] Danese S, Papa A, Saibeni S, et al. Inflammation andcoagulation in inflammatory bowel disease: the clot thickens [J..."
+    },
+    {
+      "layout_id": "4524aZ-layout-333",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[28] Langhorst J, Elsenbruch S, Koelzer J, et al. Noninvasivemarkers in the assessment of intestinal inflammation ininfl..."
+    },
+    {
+      "layout_id": "4524aZ-layout-334",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[29] Mak WY, Buisson A, Andersen MJ Jr, et al. Fecal calprotectinin assessing endoscopic and histological remission in p..."
+    },
+    {
+      "layout_id": "4524aZ-layout-335",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[30] Sonoyama H, Kawashima K, Ishihara S, et al. Capabilities offecal calprotectin and blood biomarkers as surrogate end..."
+    },
+    {
+      "layout_id": "4524aZ-layout-336",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[31] Bertani L, Blandizzi C, Mumolo MG, et al. Fecal calprotectinpredicts mucosal healing in patients with ulcerative co..."
+    },
+    {
+      "layout_id": "4524aZ-layout-337",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[32] Reese GE, Constantinides VA, Simillis C, et al. Diagnostic pre-cision of anti-Saccharomyces cerevisiae antibodies a..."
+    },
+    {
+      "layout_id": "4524aZ-layout-338",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "antineutrophil cytoplasmic antibodies in inflammatory bowel dis-ease[J]. Am J Gastroenterol, 2006,101(10)： 2410-2422。 DO..."
+    },
+    {
+      "layout_id": "4524aZ-layout-339",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[33] Zhang S, Luo J, Li J, et al. Retrospective evaluation of theclinical utility of serological biomarkers in Chinese p..."
+    },
+    {
+      "layout_id": "4524aZ-layout-340",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[34]唐颢，谭蓓，沈冰冰，等。不同血清学标志物在炎症性肠病中的诊断价值以及与疾病表型的关联分析[J].中华医学杂志，2022,102(47):3743-3748.DOI:10.3760/cma.j.cn112137-20220418-00..."
+    },
+    {
+      "layout_id": "4524aZ-layout-341",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "Tang H, Tan B, Shen BB, et al. Diagnostic value of differentserological markers and correlation analysis with diseasephe..."
+    },
+    {
+      "layout_id": "4524aZ-layout-342",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "Danese S, Fiocchi C. Ulcerative colitis[J]. N Engl J Med,2011,365(18):1713-1725.DOI:10.1056/NEJMra1102942."
+    },
+    {
+      "layout_id": "4524aZ-layout-343",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[36] Feakins RM. Inflammatory bowel disease biopsies: updatedBritish Society of Gastroenterology reporting guidelines[J]..."
+    },
+    {
+      "layout_id": "4524aZ-layout-344",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[37] Park SH, Yang SK, Park SK, et al. Atypical distribution ofinflammation in newly diagnosed ulcerative colitis is not..."
+    },
+    {
+      "layout_id": "4524aZ-layout-345",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[38] Kim B, Barnett JL, Kleer CG, et al. Endoscopic and histologicalpatchiness in treated ulcerative colitis [J]. Am J G..."
+    },
+    {
+      "layout_id": "4524aZ-layout-346",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[39] Odze R, Antonioli D, Peppercorn M, et al. Effect of topical 5-aminosalicylic acid(5-ASA) therapy on rectal mucosal..."
+    },
+    {
+      "layout_id": "4524aZ-layout-347",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[40] Abdelrazeq AS, Wilson TR, Leitch DL, et al. leitis inulcerative colitis: Is it a backwash?[J]. Dis Colon Rectum, 20..."
+    },
+    {
+      "layout_id": "4524aZ-layout-348",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[41] Tontini GE, Rath T, Neumann H. Advanced gastrointestinalendoscopic imaging for inflammatory bowel diseases[J]. Worl..."
+    },
+    {
+      "layout_id": "4524aZ-layout-349",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[42] Buchner AM. Confocal laser endomicroscopy in the evaluation ofinflammatory bowel disease [J]. Inflamm Bowel Dis,201..."
+    },
+    {
+      "layout_id": "4524aZ-layout-350",
+      "page_num": 17,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "Rahmi G, Coron E, Perrod G, et al. Probe-based confocal laserendomicroscopy for in vivo assessment of histological heali..."
+    },
+    {
+      "layout_id": "4524aZ-layout-351",
+      "page_num": 18,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "4524aZ-layout-352",
+      "page_num": 18,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "50"
+    },
+    {
+      "layout_id": "4524aZ-layout-353",
+      "page_num": 18,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文） 年 月第 卷第 期 ， ， ， 2024 1 8 1 Chin J Inflamm Bowel Dis January 2024 Vol.8 No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-354",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 44 Fumery M Pineton de Chambrun G Stefanescu C et al. Detection of dysplasia or cancer in 3.5% of patients wit..."
+    },
+    {
+      "layout_id": "4524aZ-layout-355",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， 45 Schumacher G Sandstedt B Kollberg B. A prospective study of first attacks of inflammatory bowel disease and i..."
+    },
+    {
+      "layout_id": "4524aZ-layout-356",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ 王玉芳，魏兵，欧阳钦，等 溃疡性结肠炎与感染性结肠炎临 46 床和病理比较分析［ ］ 临床内科杂志， ， （ ）： J 2004 21 2 88 ⁃ 90. ： DOI 10.3969/j.issn.1001⁃9057.2004.0..."
+    },
+    {
+      "layout_id": "4524aZ-layout-357",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 47 Seo TH Kim JH Ko SY et al. Cytomegalovirus colitis in ： ［ ］ immunocompetent patients a clinical and endosco..."
+    },
+    {
+      "layout_id": "4524aZ-layout-358",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 48 Mourad FH Hashash JG Kariyawasam VC et al. Ulcerative ： ［ ］ colitis and cytomegalovirus infection from A to..."
+    },
+    {
+      "layout_id": "4524aZ-layout-359",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 49 Satsangi J Silverberg MS Vermeire S et al. The Montreal ： ， classification of inflammatory bowel disease co..."
+    },
+    {
+      "layout_id": "4524aZ-layout-360",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ； 50 Truelove SC Witts LJ. Cortisone in ulcerative colitis final ［ ］ ， ， （ ）： report on a therapeutic trial J Br M..."
+    },
+    {
+      "layout_id": "4524aZ-layout-361",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 51 Lobatón T Bessissow T de Hertogh G et al. The Modified （ ）： Mayo Endoscopic Score MMES a new index for the..."
+    },
+    {
+      "layout_id": "4524aZ-layout-362",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 52 Rutgeerts P Sandborn WJ Feagan BG et al. Infliximab for ［ ］ induction and maintenance therapy for ulcerativ..."
+    },
+    {
+      "layout_id": "4524aZ-layout-363",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， 53 Schroeder KW Tremaine WJ Ilstrup DM. Coated oral 5 ⁃ aminosalicylic acid therapy for mildly to moderately act..."
+    },
+    {
+      "layout_id": "4524aZ-layout-364",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 54 Travis SP Schnell D Krzeski P et al. Developing an ： instrument to assess the endoscopic severity of ulcera..."
+    },
+    {
+      "layout_id": "4524aZ-layout-365",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ 中华医学会消化病学分会炎症性肠病学组 中国消化内镜技 55 术诊断与治疗炎症性肠病的专家指导意见［ ］ 中华炎性肠病 J 杂志（中英文）， ， （ ）： ： 2020 4 4 283 ⁃ 291. DOI 10.3760 / cma..."
+    },
+    {
+      "layout_id": "4524aZ-layout-366",
+      "page_num": 18,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "101480⁃20200914⁃00103."
+    },
+    {
+      "layout_id": "4524aZ-layout-367",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "， Inflammatory Bowel Disease Group Chinese Society of ， Gastroenterology Chinese Medical Association. Experts guideline..."
+    },
+    {
+      "layout_id": "4524aZ-layout-369",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 56 Viscido A Valvano M Stefanelli G et al. Systematic review ： and meta⁃analysis the advantage of endoscopic May..."
+    },
+    {
+      "layout_id": "4524aZ-layout-372",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 57 D′ Haens G Sandborn WJ Feagan BG et al. A review of activity indices and efficacy end points for clinical tri..."
+    },
+    {
+      "layout_id": "4524aZ-layout-373",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， ： 58 Jukic A Bakiri L Wagner EF et al. Calprotectin from ［ ］ ， ， （ ）： biomarker to biological function J Gut 2..."
+    },
+    {
+      "layout_id": "4524aZ-layout-374",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 59 Parente F Molteni M Marino B et al. Bowel ultrasound and ［ ］ ， ， （ ）： mucosal healing in ulcerative colitis..."
+    },
+    {
+      "layout_id": "4524aZ-layout-376",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 60 de Voogd F van Wassenaer EA Mookhoek A et al. Intestinal ultrasound is accurate to determine endoscopic respo..."
+    },
+    {
+      "layout_id": "4524aZ-layout-377",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， ： 61 Turner D Ricciuto A Lewis A et al. STRIDE⁃ II an update on the selecting therapeutic targets in inflammat..."
+    },
+    {
+      "layout_id": "4524aZ-layout-378",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 62 Peyrin ⁃ Biroulet L Sandborn W Sands BE et al. Selecting （ ）： therapeutic targets in inflammatory bowel dis..."
+    },
+    {
+      "layout_id": "4524aZ-layout-380",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 63 Colombel JF D′ Haens G Lee WJ et al. Outcomes and strategies to support a treat ⁃ to ⁃ target approach in i..."
+    },
+    {
+      "layout_id": "4524aZ-layout-382",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 64 Bouguen G Levesque BG Pola S et al. Feasibility of endoscopic assessment and treating to target to achieve mu..."
+    },
+    {
+      "layout_id": "4524aZ-layout-385",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 65 Orlando A Guglielmi FW Cottone M et al. Clinical implications of mucosal healing in the management of patient..."
+    },
+    {
+      "layout_id": "4524aZ-layout-387",
+      "page_num": 18,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， 66 Atreya R Neurath MF. Current and future targets for mucosal ［ ］ ， ， healing in inflammatory bowel disease J Visc..."
+    },
+    {
+      "layout_id": "4524aZ-layout-388",
+      "page_num": 19,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文） 年 月第 卷第 期 ， ， ， 2024 1 8 1 Chin J Inflamm Bowel Dis January 2024 Vol.8 No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-389",
+      "page_num": 19,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· · 51"
+    },
+    {
+      "layout_id": "4524aZ-layout-390",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 67 Shah SC Colombel JF Sands BE et al. Mucosal healing is associated with improved long ⁃ term outcomes of pat..."
+    },
+    {
+      "layout_id": "4524aZ-layout-391",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 68 Kanazawa M Takahashi F Tominaga K et al. Relationship between endoscopic mucosal healing and histologic inf..."
+    },
+    {
+      "layout_id": "4524aZ-layout-393",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 69 Colombel JF Rutgeerts P Reinisch W et al. Early mucosal healing with infliximab is associated with improved..."
+    },
+    {
+      "layout_id": "4524aZ-layout-394",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 70 Yokoyama K Kobayashi K Mukae M et al. Clinical study of the relation between mucosal healing and long ⁃ ter..."
+    },
+    {
+      "layout_id": "4524aZ-layout-395",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 71 Nakarai A Kato J Hiraoka S et al. Prognosis of ulcerative colitis differs between patients with complete an..."
+    },
+    {
+      "layout_id": "4524aZ-layout-396",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 72 Barreiro ⁃ de Acosta M Vallejo N de la Iglesia D et al. Evaluation of the risk of relapse in ulcerative col..."
+    },
+    {
+      "layout_id": "4524aZ-layout-398",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 73 Bryant RV Burger DC Delo J et al. Beyond endoscopic ： mucosal healing in UC histological remission better p..."
+    },
+    {
+      "layout_id": "4524aZ-layout-400",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 74 Lobatón T Bessissow T Ruiz⁃Cerulla A et al. Prognostic value of histological activity in patients with ulce..."
+    },
+    {
+      "layout_id": "4524aZ-layout-401",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 75 Seong G Song JH Kim JE et al. Histologic activity and steroid use history are risk factors of clinical rela..."
+    },
+    {
+      "layout_id": "4524aZ-layout-402",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 76 Magro F Lopes J Borralho P et al. Comparison of the Nancy ： index with continuous Geboesscore histological..."
+    },
+    {
+      "layout_id": "4524aZ-layout-403",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， 77 Feagan BG Macdonald JK. Oral 5 ⁃ aminosalicylic acid for ［ ］ induction of remission in ulcerative colitis J Coc..."
+    },
+    {
+      "layout_id": "4524aZ-layout-408",
+      "page_num": 19,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "78 Wang Y Parker CE Bhanji T et al. Oral 5⁃aminosalicylic acid"
+    },
+    {
+      "layout_id": "4524aZ-layout-409",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ for induction of remission in ulcerative colitis J Cochrane ， ， （ ）： ： Database Syst Rev 2016 4 4 CD000543. DOI 10.1..."
+    },
+    {
+      "layout_id": "4524aZ-layout-411",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 79 Ford AC Achkar JP Khan KJ et al. Efficacy of 5 ⁃ ： aminosalicylates in ulcerative colitis systematic review..."
+    },
+    {
+      "layout_id": "4524aZ-layout-412",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 80 Hanauer SB Sandborn WJ Dallaire C et al. Delayed ⁃ release （ ） oral mesalamine 4.8 g / day 800 mg tablets c..."
+    },
+    {
+      "layout_id": "4524aZ-layout-414",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 81 Hanauer SB Sandborn WJ Kornbluth A et al. Delayed⁃release （ ） oral mesalamine at 4.8 g/day 800 mg tablet fo..."
+    },
+    {
+      "layout_id": "4524aZ-layout-416",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 82 Marshall JK Thabane M Steinhart AH et al. Rectal 5 ⁃ aminosalicylic acid for induction of remission in ulcera..."
+    },
+    {
+      "layout_id": "4524aZ-layout-417",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 83 van Bodegraven AA Boer RO Lourens J et al. Distribution of ［ ］ mesalazine enemas in active and quiescent ul..."
+    },
+    {
+      "layout_id": "4524aZ-layout-420",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 84 Römkens TE Kampschreur MT Drenth JP et al. High mucosal ： healing rates in 5 ⁃ASA⁃ treated ulcerative colitis..."
+    },
+    {
+      "layout_id": "4524aZ-layout-422",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， 85 Lamet M. A multicenter randomized study to evaluate the efficacy and safety of mesalamine suppositories 1 g at be..."
+    },
+    {
+      "layout_id": "4524aZ-layout-424",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 86 Safdi M deMicco M Sninsky C et al. A double ⁃ blind comparison of oral versus rectal mesalamine versus combin..."
+    },
+    {
+      "layout_id": "4524aZ-layout-426",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， ， 87 Barberio B Segal JP Quraishi MN et al. Efficacy of oral ， ， topical or combined oral and topical 5 ⁃ aminos..."
+    },
+    {
+      "layout_id": "4524aZ-layout-427",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 88 Naganuma M Aoyama N Suzuki Y et al. Twice ⁃ daily budesonide 2 ⁃ mg foam induces complete mucosal healing i..."
+    },
+    {
+      "layout_id": "4524aZ-layout-429",
+      "page_num": 19,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 89 Hanauer SB Robinson M Pruitt R et al. Budesonide enema for ， ： the treatment of active distal ulcerative coli..."
+    },
+    {
+      "layout_id": "4524aZ-layout-430",
+      "page_num": 20,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "4524aZ-layout-431",
+      "page_num": 20,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "52"
+    },
+    {
+      "layout_id": "4524aZ-layout-432",
+      "page_num": 20,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文） 年 月第 卷第 期 ， ， ， 2024 1 8 1 Chin J Inflamm Bowel Dis January 2024 Vol.8 No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-433",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "， ， （ ）： ： Gastroenterology 1998 115 3 525⁃532. DOI 10.1016/s0016⁃ （ ） 5085 98 70131⁃3."
+    },
+    {
+      "layout_id": "4524aZ-layout-434",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 90 Sandborn WJ Bosworth B Zakko S et al. Budesonide foam induces remission in patients with mild to moderate u..."
+    },
+    {
+      "layout_id": "4524aZ-layout-435",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 91 Mulder CJ Fockens P Meijer JW et al. Beclomethasone （ ） （ ） dipropionate 3 mg versus 5 ⁃ aminosalicylic aci..."
+    },
+    {
+      "layout_id": "4524aZ-layout-436",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 92 Gross V Bar ⁃ Meir S Lavy A et al. Budesonide foam versus budesonide enema in active ulcerative proctitis a..."
+    },
+    {
+      "layout_id": "4524aZ-layout-437",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ 韦日娜，孙平良，耿曙光，等 中药灌肠治疗溃疡性结肠炎的 93 研 究 进 展［ ］ 湖 南 中 医 杂 志 ， ， （ ）： ： J 2019 35 2 149 ⁃ 151. DOI 10.16808/j.cnki.issn1002..."
+    },
+    {
+      "layout_id": "4524aZ-layout-438",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， 94 Feagan BG Chande N MacDonald JK. Are there any differences in the efficacy and safety of different formulatio..."
+    },
+    {
+      "layout_id": "4524aZ-layout-439",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 95 Ford AC Bernstein CN Khan KJ et al. Glucocorticosteroid ： therapy in inflammatory bowel disease systematic..."
+    },
+    {
+      "layout_id": "4524aZ-layout-440",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 96 Singh S Murad MH Fumery M et al. First ⁃ and second ⁃ line pharmacotherapies for patients with moderate to..."
+    },
+    {
+      "layout_id": "4524aZ-layout-441",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 97 Lichtenstein GR Kamm MA Boddu P et al. Effect of once ⁃ or （ ） twice ⁃ daily MMX mesalamine SPD476 for the..."
+    },
+    {
+      "layout_id": "4524aZ-layout-442",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， ， 98 Kamm MA Sandborn WJ Gassull M et al. Once ⁃ daily high ⁃ ［ ］ concentration MMX mesalamine in active ulcer..."
+    },
+    {
+      "layout_id": "4524aZ-layout-444",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 99 Lai YM Yao WY He Y et al. Adsorptive granulocyte and ： monocyte apheresis in the treatment of ulcerative co..."
+    },
+    {
+      "layout_id": "4524aZ-layout-445",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 100 Zhu M Xu X Nie F et al. The efficacy and safety of selective"
+    },
+    {
+      "layout_id": "4524aZ-layout-446",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "： leukocytapheresis in the treatment of ulcerative colitis a meta ⁃ ［ ］ ， ， （ ）： ： analysis J Int J Colorectal Dis 2011..."
+    },
+    {
+      "layout_id": "4524aZ-layout-447",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］王潇璐，姚海强，万瑾毅 中药 肠道菌群互作效应在溃疡性 101 - 结肠炎治疗中的作用［ ］ 世界中医药， ， （ ）： J 2023 18 1 132⁃136. ： DOI 10.3969/j.issn.1673⁃7202.2023.0..."
+    },
+    {
+      "layout_id": "4524aZ-layout-448",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， ： 102 Shen H Zhang S Zhao W et al. Randomised clinical trial efficacy and safety of Qing ⁃ Chang ⁃ Hua ⁃ Shi g..."
+    },
+    {
+      "layout_id": "4524aZ-layout-449",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］沈洪，张声生，王垂杰，等 中药分期序贯治疗轻中度溃疡性 103 结肠炎 例疗效观察［ ］ 中医杂志， ， （ ）： 111 J 2011 52 13 1108 ⁃ ： 1111. DOI 10.13288/j.11⁃2166/r.2011..."
+    },
+    {
+      "layout_id": "4524aZ-layout-450",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］沈洪，张声生，王垂杰，等 中药分期序贯治疗轻中度溃疡性 104 结肠炎临床观察［ ］ 中华中医药杂志， ， （ ）： J 2012 27 7 1788 ⁃ 1791. ， ， ， Shen H Zhang SS Wang CJ et..."
+    },
+    {
+      "layout_id": "4524aZ-layout-451",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］中华中医药学会脾胃病分会 溃疡性结肠炎中医诊疗专家共 105 识意见（ ）［ ］ 中华中医药杂志， ， （ ）： 2017 J 2017 32 8 3585⁃3589. Spleen and Stomach Disease Branc..."
+    },
+    {
+      "layout_id": "4524aZ-layout-452",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 106 Moayyedi P Surette MG Kim PT et al. Fecal microbiota transplantation induces remission in patients with ac..."
+    },
+    {
+      "layout_id": "4524aZ-layout-453",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 107 Rossen NG Fuentes S van der Spek MJ et al. Findings from a randomized controlled trial of fecal transplant..."
+    },
+    {
+      "layout_id": "4524aZ-layout-454",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 108 Paramsothy S Kamm MA Kaakoush NO et al. Multidonor intensive faecal microbiota transplantation for active..."
+    },
+    {
+      "layout_id": "4524aZ-layout-455",
+      "page_num": 20,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 109 Turner D Walsh CM Steinhart AH et al. Response to"
+    },
+    {
+      "layout_id": "4524aZ-layout-458",
+      "page_num": 21,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文） 年 月第 卷第 期 ， ， ， 2024 1 8 1 Chin J Inflamm Bowel Dis January 2024 Vol.8 No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-459",
+      "page_num": 21,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· · 53"
+    },
+    {
+      "layout_id": "4524aZ-layout-460",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "： corticosteroids in severe ulcerative colitis a systematic review of ［ ］ the literature and a meta ⁃ regression J Clin..."
+    },
+    {
+      "layout_id": "4524aZ-layout-461",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， 110 Rosenberg W Ireland A Jewell DP. High ⁃ dose methylprednisolone in the treatment of active ulcerative coliti..."
+    },
+    {
+      "layout_id": "4524aZ-layout-462",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 111 Baron JH Connell AM Kanaghinis TG et al. Out ⁃ patient treatment of ulcerative colitis. Comparison between..."
+    },
+    {
+      "layout_id": "4524aZ-layout-463",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 112 Coates E Wickramasekera N Barr A et al. Patient preferences and current practice for adults with steroid ⁃..."
+    },
+    {
+      "layout_id": "4524aZ-layout-465",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 113 Ardizzone S Maconi G Russo A et al. Randomised controlled trial of azathioprine and 5 ⁃ aminosalicylic aci..."
+    },
+    {
+      "layout_id": "4524aZ-layout-467",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 114 Chebli LA Chaves LD Pimentel FF et al. Azathioprine maintains long ⁃ term steroid ⁃ free remission through..."
+    },
+    {
+      "layout_id": "4524aZ-layout-468",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 115 Shi HY Chan FK Leung WK et al. Low ⁃ dose azathioprine is effective in maintaining remission in steroid⁃de..."
+    },
+    {
+      "layout_id": "4524aZ-layout-469",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 116 Armuzzi A Pugliese D Danese S et al. Infliximab in steroid ⁃ ： dependent ulcerative colitis effectiveness..."
+    },
+    {
+      "layout_id": "4524aZ-layout-470",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 117 Armuzzi A Pugliese D Danese S et al. Long⁃term combination therapy with infliximab plus azathioprine predi..."
+    },
+    {
+      "layout_id": "4524aZ-layout-471",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 118 Feagan BG Rutgeerts P Sands BE et al. Vedolizumab as ［ ］ induction and maintenance therapy for ulcerative..."
+    },
+    {
+      "layout_id": "4524aZ-layout-473",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］陈白莉，钱家鸣，吴开春，等 英夫利西治疗活动性溃疡性结肠 119 炎疗效与安全性的临床研究［ ］ 中华炎性肠病杂志（中英 J 文）， ， （ ）： ： 2017 1 1 20 ⁃ 23. DOI 10.3760 / cma. j. iss..."
+    },
+    {
+      "layout_id": "4524aZ-layout-474",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 120 Narula N Wong E Marshall JK et al. Comparative efficacy for ［ ］ infliximab vs vedolizumab in biologic naiv..."
+    },
+    {
+      "layout_id": "4524aZ-layout-475",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "， ， （ ）： ： Clin Gastroenterol Hepatol 2022 20 7 1588 ⁃ 1597. e3. DOI 10.1016/j.cgh.2021.07.038."
+    },
+    {
+      "layout_id": "4524aZ-layout-476",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 121 Sands BE Peyrin ⁃Biroulet L Loftus EV Jr et al. Vedolizumab ［ ］ versus adalimumab for moderate ⁃ to ⁃ seve..."
+    },
+    {
+      "layout_id": "4524aZ-layout-479",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 122 Hibi T Kamae I Pinton P et al. Efficacy of biologic therapies for biologic ⁃ naïve Japanese patients with mo..."
+    },
+    {
+      "layout_id": "4524aZ-layout-481",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 123 Lu X Jarrett J Sadler S et al. Comparative efficacy of advanced treatments in biologic ⁃ naïve or biologic..."
+    },
+    {
+      "layout_id": "4524aZ-layout-482",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 124 Motoya S Watanabe K Ogata H et al. Vedolizumab in ： ， ， Japanese patients with ulcerative colitis a phase..."
+    },
+    {
+      "layout_id": "4524aZ-layout-483",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 125 Narula N Peerani F Meserve J et al. Vedolizumab for ： ulcerative colitis treatment outcomes from the VICTO..."
+    },
+    {
+      "layout_id": "4524aZ-layout-484",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 126 Danese S Vermeire S Zhou W et al. Upadacitinib as induction and maintenance therapy for moderately to seve..."
+    },
+    {
+      "layout_id": "4524aZ-layout-486",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， ， 127 Ruffolo C Scarpa M Bassi N. Infliximab azathioprine or ［ ］ ， combination therapy for Crohn ′ s disease J N..."
+    },
+    {
+      "layout_id": "4524aZ-layout-489",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 128 Panaccione R Ghosh S Middleton S et al. Combination therapy with infliximab and azathioprine is superior to..."
+    },
+    {
+      "layout_id": "4524aZ-layout-492",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， ， 129 Panccione R Ghosh S Middleton S et al. Infliximab ， azathioprine or infliximab + azathioprine for treatmen..."
+    },
+    {
+      "layout_id": "4524aZ-layout-494",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 130 Baert F Noman M Vermeire S et al. Influence of immunogenicity on the long⁃term efficacy of infliximab in Cro..."
+    },
+    {
+      "layout_id": "4524aZ-layout-497",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 131 Lichtenstein GR Feagan BG Cohen RD et al. Drug therapies ： and the risk of malignancy in Crohn ′ s disease r..."
+    },
+    {
+      "layout_id": "4524aZ-layout-498",
+      "page_num": 21,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 132 Beaugerie L Brousse N Bouvier AM et al. Lymphoproliferative disorders in patients receiving thiopurines fo..."
+    },
+    {
+      "layout_id": "4524aZ-layout-499",
+      "page_num": 22,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "4524aZ-layout-500",
+      "page_num": 22,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "54"
+    },
+    {
+      "layout_id": "4524aZ-layout-501",
+      "page_num": 22,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文） 年 月第 卷第 期 ， ， ， 2024 1 8 1 Chin J Inflamm Bowel Dis January 2024 Vol.8 No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-502",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "： ［ ］ ， disease a prospective observational cohort study J Lancet ， （ ）： ： （ ） 2009 374 9701 1617 ⁃ 1625. DOI 10.1016 /..."
+    },
+    {
+      "layout_id": "4524aZ-layout-504",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 133 Kucharzik T Ellul P Greuter T et al. ECCO guidelines on the ， ， prevention diagnosis and management of inf..."
+    },
+    {
+      "layout_id": "4524aZ-layout-505",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 134 Cao Q Zhu Q Shang Y et al. Thiopurine methyltransferase gene polymorphisms in Chinese patients with inflam..."
+    },
+    {
+      "layout_id": "4524aZ-layout-507",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 135 Chao K Wang X Cao Q et al. Combined detection of NUDT15 variants could highly predict thiopurine ⁃ induced..."
+    },
+    {
+      "layout_id": "4524aZ-layout-508",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 136 Fumery M Singh S Dulai PS et al. Natural history of adult ： ulcerative colitis in population⁃based cohorts..."
+    },
+    {
+      "layout_id": "4524aZ-layout-509",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 137 Dias CC Rodrigues PP da Costa ⁃ Pereira A et al. Clinical ： predictors of colectomy in patients with ulcer..."
+    },
+    {
+      "layout_id": "4524aZ-layout-510",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 138 Torres J Caprioli F Katsanos KH et al. Predicting outcomes to ［ ］ optimize disease management in inflammat..."
+    },
+    {
+      "layout_id": "4524aZ-layout-511",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 139 Lynch RW Churchhouse AM Protheroe A et al. Predicting ： outcome in acute severe ulcerative colitis compari..."
+    },
+    {
+      "layout_id": "4524aZ-layout-512",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 140 Su J Li M He L et al. Comparison of the efficacy and safety of （ ） adalimumab Humira and the adalimumab bi..."
+    },
+    {
+      "layout_id": "4524aZ-layout-513",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， ， 141 Yu C Zhang F Ding Y et al. A randomized double ⁃ blind phaseⅢ study to demonstrate the clinical similari..."
+    },
+    {
+      "layout_id": "4524aZ-layout-514",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 142 Liu Y Liu S Liu L et al. Fine comparison of the efficacy and safety between GB242 and infliximab in patien..."
+    },
+    {
+      "layout_id": "4524aZ-layout-515",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 143 Ye H Liu S Xu J et al. Efficacy and safety of CMAB008 compared with innovator infliximab in patients with..."
+    },
+    {
+      "layout_id": "4524aZ-layout-516",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "： severe rheumatoid arthritis receiving concomitant methotrexate a ， ， ， randomized double⁃blind multi⁃center phaseⅢ non..."
+    },
+    {
+      "layout_id": "4524aZ-layout-518",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 144 Molnár T Farkas K Nyári T et al. Response to first intravenous steroid therapy determines the subsequent r..."
+    },
+    {
+      "layout_id": "4524aZ-layout-520",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 145 Romano C Syed S Valenti S et al. Management of acute severe ［ ］ colitis in children with ulcerative colitis..."
+    },
+    {
+      "layout_id": "4524aZ-layout-521",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 146 Lynch RW Lowe D Protheroe A et al. Outcomes of rescue ： therapy in acute severe ulcerative colitis data fr..."
+    },
+    {
+      "layout_id": "4524aZ-layout-522",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ［ ］ 147 Jakobovits SL Travis SP. Management of acute severe colitis J ， ， （ ）： ： Br Med Bull 2005 75 / 76 1 131 ⁃..."
+    },
+    {
+      "layout_id": "4524aZ-layout-524",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ？ 148 Osei ⁃ Bimpong A Meek JH Lewis SM. ESR or CRP A ［ ］ ， ， （ ）： comparison of their clinical utility J Hematolo..."
+    },
+    {
+      "layout_id": "4524aZ-layout-525",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， 149 Croft A Lord A Radford ⁃ Smith G. Markers of systemic ： inflammation in acute attacks of ulcerative colitis Wh..."
+    },
+    {
+      "layout_id": "4524aZ-layout-526",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 150 Navaneethan U Kochhar G Phull H et al. Severe disease on endoscopy and steroid use increase the risk for bow..."
+    },
+    {
+      "layout_id": "4524aZ-layout-527",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 151 Schoepfer AM Trummler M Seeholzer P et al. Discriminating ： IBD from IBS comparison of the test performance..."
+    },
+    {
+      "layout_id": "4524aZ-layout-528",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 152 Schoepfer AM Beglinger C Straumann A et al. Ulcerative ： colitis correlation of the Rachmilewitz endoscopic..."
+    },
+    {
+      "layout_id": "4524aZ-layout-530",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 153 Minami M Ohta M Ohkura T et al. Cytomegalovirus infection in severe ulcerative colitis patients undergoing c..."
+    },
+    {
+      "layout_id": "4524aZ-layout-531",
+      "page_num": 22,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 154 Matsuoka K Iwao Y Mori T et al. Cytomegalovirus is frequently reactivated and disappears without antiviral..."
+    },
+    {
+      "layout_id": "4524aZ-layout-539",
+      "page_num": 23,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文） 年 月第 卷第 期 ， ， ， 2024 1 8 1 Chin J Inflamm Bowel Dis January 2024 Vol.8"
+    },
+    {
+      "layout_id": "4524aZ-layout-540",
+      "page_num": 23,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-541",
+      "page_num": 23,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "4524aZ-layout-542",
+      "page_num": 23,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "55"
+    },
+    {
+      "layout_id": "4524aZ-layout-543",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， 155 Doherty GA Cheifetz AS. Management of acute severe ulcerative ［ ］ ， ， （ ）： colitis J Expert Rev Gastroenterol..."
+    },
+    {
+      "layout_id": "4524aZ-layout-544",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， 156 Hansen LK. The role of T cell potassium channels KV1.3 and ， ［ ］ KCa3.1 in the inflammatory cascade in ulcerat..."
+    },
+    {
+      "layout_id": "4524aZ-layout-545",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ： 157 Seah D de Cruz P. Review article the practical management of ［ ］ ， acute severe ulcerative colitis J Aliment..."
+    },
+    {
+      "layout_id": "4524aZ-layout-546",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 158 Yang H Zhou W Lv H et al. The association between CMV viremia or endoscopic features and histopathological..."
+    },
+    {
+      "layout_id": "4524aZ-layout-547",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 159 Venkat PG Nguyen NH Luo J et al. Impact of recurrent Clostridioides difficile hospitalization for on longi..."
+    },
+    {
+      "layout_id": "4524aZ-layout-548",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， Clostridium 160 Navaneethan U Mukewar S Venkatesh PG et al. difficile infection is associated with worse long..."
+    },
+    {
+      "layout_id": "4524aZ-layout-549",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 161 Murthy SK Steinhart AH Tinmouth J et al. Impact of Clostridium difficile colitis on 5 ⁃ year health outcom..."
+    },
+    {
+      "layout_id": "4524aZ-layout-550",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 162 Takeuchi K Smale S Premchand P et al. Prevalence and mechanism of nonsteroidal anti ⁃ inflammatory drug ⁃..."
+    },
+    {
+      "layout_id": "4524aZ-layout-551",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 163 Lichtenstein GR Feagan BG Cohen RD et al. Serious infection ： and mortality in patients with Crohn ′ s dis..."
+    },
+    {
+      "layout_id": "4524aZ-layout-552",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 164 Colombel JF Sands BE Rutgeerts P et al. The safety of ［ ］ ， vedolizumab for ulcerative colitis and Crohn ′..."
+    },
+    {
+      "layout_id": "4524aZ-layout-553",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 165 Singh S Allegretti JR Siddique SM et al. AGA technical review on the management of moderate to severe ulce..."
+    },
+    {
+      "layout_id": "4524aZ-layout-554",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 166 Mantzaris GJ Archavlis E Christoforidis P et al. A prospective randomized controlled trial of oral ciprofl..."
+    },
+    {
+      "layout_id": "4524aZ-layout-555",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， 167 Chapman RW Selby WS Jewell DP. Controlled trial of intravenous metronidazole as an adjunct to corticosteroid..."
+    },
+    {
+      "layout_id": "4524aZ-layout-560",
+      "page_num": 23,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "168 Burke DA Axon AT Clayden SA et al. The efficacy of"
+    },
+    {
+      "layout_id": "4524aZ-layout-561",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ tobramycin in the treatment of ulcerative colitis J Aliment ， ， （ ）： ： Pharmacol Ther 1990 4 2 123 ⁃ 129. DOI 10.111..."
+    },
+    {
+      "layout_id": "4524aZ-layout-562",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 169 Scoville EA Konijeti GG Nguyen DD et al. Venous ： thromboembolism in patients with inflammatory bowel diseas..."
+    },
+    {
+      "layout_id": "4524aZ-layout-563",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， 170 Bernstein CN Nugent Z Singh H. Persistently high rate of ： venous thromboembolic disease in inflammatory bow..."
+    },
+    {
+      "layout_id": "4524aZ-layout-564",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 171 Lv X Gao X Liu J et al. Immune ⁃ mediated inflammatory ： diseases and risk of venous thromboembolism a Men..."
+    },
+    {
+      "layout_id": "4524aZ-layout-566",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］柳婧，高翔，陈烨，等 中国炎症性肠病患者深静脉血栓情况 172 调查：一项全国多中心回顾性研究［ ］ 中华炎性肠病杂志（中 J 英 文）， ， （ ）： ： 2017 1 1 24 ⁃ 28. DOI 10.3760 / cma. j...."
+    },
+    {
+      "layout_id": "4524aZ-layout-567",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， 173 Grainge MJ West J Card TR. Venous thromboembolism during ： active disease and remission in inflammatory bowe..."
+    },
+    {
+      "layout_id": "4524aZ-layout-569",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 174 Papay P Miehsler W Tilg H et al. Clinical presentation of ［ ］ venous thromboembolism in inflammatory bowel d..."
+    },
+    {
+      "layout_id": "4524aZ-layout-571",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 175 McCurdy JD Kuenzig ME Smith G et al. Risk of venous thromboembolism after hospital discharge in patients wit..."
+    },
+    {
+      "layout_id": "4524aZ-layout-573",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 176 Harvey PR Coupland B Mytton J et al. Venous thromboembolism following discharge from hospital in patients ［..."
+    },
+    {
+      "layout_id": "4524aZ-layout-574",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 177 Andrade AR Barros LL Azevedo MFC et al. Risk of ［ ］ thrombosis and mortality in inflammatory bowel disease J..."
+    },
+    {
+      "layout_id": "4524aZ-layout-576",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 178 Ananthakrishnan AN Cagan A Gainer VS et al. Thromboprophylaxis is associated with reduced post ⁃ hospitali..."
+    },
+    {
+      "layout_id": "4524aZ-layout-577",
+      "page_num": 23,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 179 Olivera PA Zuily S Kotze PG et al. International consensus on the prevention of venous and arterial thromb..."
+    },
+    {
+      "layout_id": "4524aZ-layout-584",
+      "page_num": 24,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·56·"
+    },
+    {
+      "layout_id": "4524aZ-layout-585",
+      "page_num": 24,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-586",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "patients with inflammatory bowel disease [J]. Nat RevGastroenterol Hepatol, 2021,18(12)： 857-873。 DOI:10.1038/s41575-021..."
+    },
+    {
+      "layout_id": "4524aZ-layout-587",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[180]Spinelli A, Bonovas S, Burisch J, et al. ECCO guidelines ontherapeutics in ulcerative colitis: surgical treatment[J..."
+    },
+    {
+      "layout_id": "4524aZ-layout-588",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[181]Truelove SC, Witts LJ. Cortisone in ulcerative colitis;preliminary report on a therapeutic trial[J]. Br Med J, 1954..."
+    },
+    {
+      "layout_id": "4524aZ-layout-589",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[182]Singh H, Nugent Z, Yu BN, et al. Higher incidence ofClostridium difficile infection among individuals withinflammat..."
+    },
+    {
+      "layout_id": "4524aZ-layout-590",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[183]Johnson S, Louie TJ, Gerding DN, et al. Vancomycin,metronidazole, or tolevamer for Clostridium difficile infection:..."
+    },
+    {
+      "layout_id": "4524aZ-layout-591",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[184]Zar FA, Bakkanagari SR, Moorthi KM, et al. A comparison ofvancomycin and metronidazole for the treatment of Clostri..."
+    },
+    {
+      "layout_id": "4524aZ-layout-592",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[185]Louie TJ, Miller MA, Mullane KM, et al. Fidaxomicin versusvancomycin for Clostridium difficile infection[J]. N Engl..."
+    },
+    {
+      "layout_id": "4524aZ-layout-593",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[186]Cornely OA, Crook DW, Esposito R, et al. Fidaxomicin versusvancomycin for infection with Clostridium difficile in E..."
+    },
+    {
+      "layout_id": "4524aZ-layout-594",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[187]McDonald LC, Gerding DN, Johnson S, et al. Clinical practiceguidelines for Clostridium difficile infection in adult..."
+    },
+    {
+      "layout_id": "4524aZ-layout-595",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[188]Rokas KE, Johnson JW, Beardsley JR, et al. The addition ofintravenous metronidazole to oral vancomycin is associate..."
+    },
+    {
+      "layout_id": "4524aZ-layout-596",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[189]Sehgal K, Cifu AS, Khanna S. Treatment of Clostridioidesdifficile infection [J]. JAMA, 2022， 328(9)： 881-882。DOI:10..."
+    },
+    {
+      "layout_id": "4524aZ-layout-597",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[190]Cornely OA, Miller MA, Louie TJ, et al. Treatment of firstrecurrence of Clostridium difficile infection: fidaxomici..."
+    },
+    {
+      "layout_id": "4524aZ-layout-598",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[191]Tariq R, Pardi DS, Bartlett MG, et al. Low cure rates incontrolled trials of fecal microbiota transplantation for r..."
+    },
+    {
+      "layout_id": "4524aZ-layout-599",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "10.1093/cid/ciy721."
+    },
+    {
+      "layout_id": "4524aZ-layout-600",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[192]Chen T, Zhou Q, Zhang D, et al. Effect of faecal microbiotatransplantation for treatment of Clostridium difficile i..."
+    },
+    {
+      "layout_id": "4524aZ-layout-601",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[193]Wilcox MH, Gerding DN, Poxton IR, et al. Bezlotoxumab forprevention of recurrent Clostridium difficile infection[J]..."
+    },
+    {
+      "layout_id": "4524aZ-layout-602",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[194]Fakhreddine AY, Frenette CT, Konijeti GG. A practical reviewof cytomegalovirus in gastroenterology and hepatology [..."
+    },
+    {
+      "layout_id": "4524aZ-layout-603",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[195]Tandon P, James P, Cordeiro E, et al. Diagnostic accuracy ofblood-based tests and histopathology for cytomegaloviru..."
+    },
+    {
+      "layout_id": "4524aZ-layout-604",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[196]Travis SP, Farrant JM, Ricketts C, et al. Predicting outcome insevere ulcerative colitis [J]. Gut, 1996,38(6)： 905-..."
+    },
+    {
+      "layout_id": "4524aZ-layout-605",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[197]Ho GT, Mowat C, Goddard CJ, et al. Predicting the outcome ofsevere ulcerative colitis: development of a novel risk..."
+    },
+    {
+      "layout_id": "4524aZ-layout-606",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[198] Randall J, Singh B, Warren BF, et al. Delayed surgery for acutesevere colitis is associated with increased risk of..."
+    },
+    {
+      "layout_id": "4524aZ-layout-607",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[199] Bernstein CN, Ng SC, Lakatos PL, et al. A review of mortalityand surgery in ulcerative colitis: milestones of the..."
+    },
+    {
+      "layout_id": "4524aZ-layout-608",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[200]Jarnerot G, Hertervig E, Friis-Liby I, et al. Infliximab as rescuetherapy in severe to moderately severe ulcerative..."
+    },
+    {
+      "layout_id": "4524aZ-layout-609",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[201]Laharie D, Bourreille A, Branche J, et al. Ciclosporin versusinfliximab in patients with severe ulcerative colitis..."
+    },
+    {
+      "layout_id": "4524aZ-layout-610",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[202]Williams JG, Alam MF, Alrubaiy L, et al. Infliximab versusciclosporin for steroid-resistant acute severe ulcerative..."
+    },
+    {
+      "layout_id": "4524aZ-layout-611",
+      "page_num": 24,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[203]Narula N, Marshall JK, Colombel JF, et al. Systematic reviewand meta-analysis: infliximab or cyclosporine as rescue..."
+    },
+    {
+      "layout_id": "4524aZ-layout-612",
+      "page_num": 25,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文） 年 月第 卷第 期 ， ， ， 2024 1 8 1 Chin J Inflamm Bowel Dis January 2024 Vol.8 No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-613",
+      "page_num": 25,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "4524aZ-layout-614",
+      "page_num": 25,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "57"
+    },
+    {
+      "layout_id": "4524aZ-layout-615",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "， ， （ ）： ： Am J Gastroenterol 2016 111 4 477⁃491. DOI 10.1038/ajg. 2016.7."
+    },
+    {
+      "layout_id": "4524aZ-layout-617",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 204 Lichtiger S Present DH Kornbluth A et al. Cyclosporine in ［ ］ severe ulcerative colitis refractory to steroi..."
+    },
+    {
+      "layout_id": "4524aZ-layout-618",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， ， 205 Ogata H Kato J Hirai F et al. Double ⁃ blind placebo ⁃ （ ） controlled trial of oral tacrolimus FK506 in..."
+    },
+    {
+      "layout_id": "4524aZ-layout-619",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 206 Berinstein JA Sheehan JL Dias M et al. Tofacitinib for biologic⁃ experienced hospitalized patients with ac..."
+    },
+    {
+      "layout_id": "4524aZ-layout-620",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 207 Sandborn WJ Panés J Sands BE et al. Venous thromboembolic events in the tofacitinib ulcerative colitis cli..."
+    },
+    {
+      "layout_id": "4524aZ-layout-621",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 208 Dinesen LC Walsh AJ Protic MN et al. The pattern and ［ ］ ， ， （ ）： outcome of acute severe colitis J J Croh..."
+    },
+    {
+      "layout_id": "4524aZ-layout-622",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 209 Aratari A Papi C Clemente V et al. Colectomy rate in acute ［ ］ ， severe ulcerative colitis in the inflixim..."
+    },
+    {
+      "layout_id": "4524aZ-layout-623",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 210 Jain S Kedia S Sethi T et al. Predictors of long⁃term outcomes ： in patients with acute severe colitis a n..."
+    },
+    {
+      "layout_id": "4524aZ-layout-624",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 211 Roberts SE Williams JG Yeates D et al. Mortality in patients with and without colectomy admitted to hospit..."
+    },
+    {
+      "layout_id": "4524aZ-layout-625",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 212 Singh S Al ⁃ Darmaki A Frolkis AD et al. Postoperative ： mortality among patients with inflammatory bowel..."
+    },
+    {
+      "layout_id": "4524aZ-layout-626",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 213 Pal S Sahni P Pande GK et al. Outcome following emergency surgery for refractory severe ulcerative colitis..."
+    },
+    {
+      "layout_id": "4524aZ-layout-627",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 214 Saha SK Panwar R Kumar A et al. Early colectomy in steroid⁃ refractory acute severe ulcerative colitis imp..."
+    },
+    {
+      "layout_id": "4524aZ-layout-628",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ： 215 Gan SI Beck PL. A new look at toxic megacolon an update and ， ， ， review of incidence etiology pathogenesis..."
+    },
+    {
+      "layout_id": "4524aZ-layout-629",
+      "page_num": 25,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "10.1111/j.1572⁃0241.2003.07696.x."
+    },
+    {
+      "layout_id": "4524aZ-layout-630",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 216 Magro F Gionchetti P Eliakim R et al. Third European Evidence ⁃ based consensus on diagnosis and managemen..."
+    },
+    {
+      "layout_id": "4524aZ-layout-632",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 217 Marshall JK Thabane M Steinhart AH et al. Rectal 5 ⁃ aminosalicylic acid for maintenance of remission in ulc..."
+    },
+    {
+      "layout_id": "4524aZ-layout-633",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "［ ］ ， ， ， 218 Murray A Nguyen TM Parker CE et al. Oral 5⁃ aminosalicylic ［ ］ acid for maintenance of remission in ulcera..."
+    },
+    {
+      "layout_id": "4524aZ-layout-635",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 219 Ferretti F Cannatelli R Monico MC et al. An update on current pharmacotherapeutic options for the treatment..."
+    },
+    {
+      "layout_id": "4524aZ-layout-637",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， 220 Gisbert JP González ⁃ Lama Y Maté J. 5 ⁃ Aminosalicylates and ： renal function in inflammatory bowel disease a..."
+    },
+    {
+      "layout_id": "4524aZ-layout-640",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， 221 Veloso PM Machado R Nobre C. Mesalazine and inflammatory bowel disease ⁃ from well ⁃ established therapies to..."
+    },
+    {
+      "layout_id": "4524aZ-layout-642",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 222 Bonovas S Fiorino G Lytras T et al. Systematic review with ： meta ⁃ analysis use of 5 ⁃ aminosalicylates and..."
+    },
+    {
+      "layout_id": "4524aZ-layout-644",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 223 Kane SV Cohen RD Aikens JE et al. Prevalence of nonadherence with maintenance mesalamine in quiescent ［ ］ ，..."
+    },
+    {
+      "layout_id": "4524aZ-layout-646",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， 224 Feagan BG MacDonald JK. Once daily oral mesalamine compared to conventional dosing for induction and maintenance..."
+    },
+    {
+      "layout_id": "4524aZ-layout-648",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］ ， ， ， 225 Paoluzi OA Iacopini F Pica R et al. Comparison of two （ ） different daily dosages 2.4 vs. 1.2 g of oral mesa..."
+    },
+    {
+      "layout_id": "4524aZ-layout-650",
+      "page_num": 25,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "］舒慧君，杨红，王征，等 沙利度胺治疗成人难治性溃疡性结 226 肠炎 例疗效分析［ ］ 中国实用内科杂志， ， （ ）： 11 J 2018 38 3 223⁃ ： 226. DOI 10.19538/j.nk2018030112. ，..."
+    },
+    {
+      "layout_id": "4524aZ-layout-651",
+      "page_num": 26,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·58"
+    },
+    {
+      "layout_id": "4524aZ-layout-652",
+      "page_num": 26,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中华炎性肠病杂志（中英文）2024年1月第8卷第1期Chin JInflamm Bowel Dis,January 2024，Vol.8,No.1"
+    },
+    {
+      "layout_id": "4524aZ-layout-653",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "10.19538/j.nk2018030112."
+    },
+    {
+      "layout_id": "4524aZ-layout-654",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[227]Louis E, Paridaens K, Al Awadhi S, et al. Modelling thebenefits of an optimised treatment strategy for 5-ASA in mil..."
+    },
+    {
+      "layout_id": "4524aZ-layout-655",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[228]Pineton de Chambrun G, Blanc P, Peyrin-Biroulet L. Currentevidence supporting mucosal healing and deep remission as..."
+    },
+    {
+      "layout_id": "4524aZ-layout-656",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[229]Fukuda T, Naganuma M, Sugimoto S, et al. Efficacy oftherapeutic intervention for patients with an ulcerative coliti..."
+    },
+    {
+      "layout_id": "4524aZ-layout-657",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[230]Sands BE, Sandborn WJ, Panaccione R, et al. Ustekinumab asinduction and maintenance therapy for ulcerative colitis..."
+    },
+    {
+      "layout_id": "4524aZ-layout-658",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[231]Rutter MD, Saunders BP, Wilkinson KH, et al. Cancersurveillance in longstanding ulcerative colitis: endoscopicappea..."
+    },
+    {
+      "layout_id": "4524aZ-layout-659",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[232]Lim CH, Dixon MF, Vail A, et al. Ten year follow up ofulcerative colitis patients with and without low grade dyspla..."
+    },
+    {
+      "layout_id": "4524aZ-layout-660",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[233]Bessissow T, Dulai PS, Restellini S, et al. Comparison of"
+    },
+    {
+      "layout_id": "4524aZ-layout-661",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "endoscopic dysplasia detection techniques in patients withulcerative colitis: a systematic review and network meta-analy..."
+    },
+    {
+      "layout_id": "4524aZ-layout-662",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[234]Eaden J, Abrams K, McKay H, et al. Inter-observer variationbetween general and specialist gastrointestinal patholog..."
+    },
+    {
+      "layout_id": "4524aZ-layout-663",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[235]Dixon MF, Brown LJ, Gilmour HM, et al. Observer variationin the assessment of dysplasia in ulcerative colitis [J].H..."
+    },
+    {
+      "layout_id": "4524aZ-layout-664",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[236]Wanders LK, Dekker E, Pullens B, et al. Cancer risk afterresection of polypoid dysplasia in patients with longstand..."
+    },
+    {
+      "layout_id": "4524aZ-layout-665",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[237]Laine L, Kaltenbach T, Barkun A, et al. SCENIC internationalconsensus statement on surveillance and management ofdy..."
+    },
+    {
+      "layout_id": "4524aZ-layout-666",
+      "page_num": 26,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[238]Thomas T, Abrams KA, Robinson RJ, et al. Meta-analysis:cancer risk of low-grade dysplasia in chronic ulcerative col..."
+    },
+    {
+      "layout_id": "4524aZ-layout-684",
+      "page_num": 26,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "中平酱学金杂志社Chinese Medical Association Publishing House版权所有违者必売"
+    },
+    {
+      "layout_id": "4524aZ-layout-5",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "中华医学会消化病学分会炎症性肠病学组 中国炎症性肠病诊疗质量控制评估中心 通 信 作 者 ：吴 开 春 ，空 军 军 医 大 学 西 京 医 院 消 化 病 医 院 ，西 安 ， ： 710032 Email ；陈 旻 湖 ，中 山 大 学..."
+    },
+    {
+      "layout_id": "4524aZ-layout-6",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_abstract",
+      "text_preview": "【摘要】 溃疡性结肠炎（ ）病情反复持久，涉及多个 UC 学科，规范化诊疗对提高 的疗效及改善预后非常重要。 UC 近年来我国在 的基础及临床研究取得诸多进展，加上新 UC 的诊疗理念、新的治疗药物不断应用于临床，有必要更新 UC 诊疗共识..."
+    },
+    {
+      "layout_id": "4524aZ-layout-7",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_abstract",
+      "text_preview": "【关键词】 溃疡性结肠炎； 指南； 分级； GRADE 德尔菲法"
+    },
+    {
+      "layout_id": "4524aZ-layout-9",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "基金项目：国家重点研发项目（ ）；广东 2023YFC2507300 省重点领域研发计划（ ）；上海市志愿服务 2023B1111040003 公益基金会教育基金［沪志愿基（ ）专项第 号］"
+    },
+    {
+      "layout_id": "4524aZ-layout-10",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "2023"
+    },
+    {
+      "layout_id": "4524aZ-layout-11",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "58"
+    },
+    {
+      "layout_id": "4524aZ-layout-13",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "： DOI 10.3760/cma.j.cn101480⁃20240123⁃00017"
+    },
+    {
+      "layout_id": "4524aZ-layout-16",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "Inflammatory Bowel Disease Group，Chinese Society of Gastroenterology，Chinese Medical Association；Inflammatory Bowel Dise..."
+    },
+    {
+      "layout_id": "4524aZ-layout-19",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "Corresponding authors：Wu Kaichun，Hospital of Digestive Disease，Air Force Medical University，Xi ′ an 710032，China， Email：..."
+    },
+    {
+      "layout_id": "4524aZ-layout-20",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_abstract",
+      "text_preview": "【Abstract】 （ ） Ulcerative colitis UC is a chronic and prolonged condition spanning multiple disciplines. Standardized di..."
+    },
+    {
+      "layout_id": "4524aZ-layout-3",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "·指南与共识·"
+    },
+    {
+      "layout_id": "4524aZ-layout-12",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_abstract",
+      "text_preview": "【Key words】 ； ； ； Ulcerative colitis Guideline GRADE Delphi technique"
+    },
+    {
+      "layout_id": "4524aZ-layout-15",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "Fund program： National Key Research and Development （ ）； Program 2023YFC2507300 Guangdong Provincial Key Area （ ） ； Rese..."
+    },
+    {
+      "layout_id": "4524aZ-layout-17",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "Education Fund 2023 No.58"
+    },
+    {
+      "layout_id": "4524aZ-layout-18",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "： DOI 10.3760/cma.j.cn101480⁃20240123⁃00017"
+    },
+    {
+      "layout_id": "4524aZ-layout-33",
+      "page_num": 2,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "利益冲突声明与基金资助：参与指南制定所有专家均填写利益冲突表，声明利益冲突。本指南由上海市志愿服务公 益基金会及中国健康促进基金会的教育基金提供资金资助。"
+    },
+    {
+      "layout_id": "4524aZ-layout-271",
+      "page_num": 14,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "UC的治疗经历了几个阶段的演变，首先是内科保守治疗与手术治疗之间的争执，随着对UC发病机制的深入研究，人们逐渐认识到药物治疗是UC治疗的主要方式。20世纪30年代引入氨基水杨酸制剂，50年代引入糖皮质激素，60年代引入免疫抑制剂，UC的死亡..."
+    },
+    {
+      "layout_id": "4524aZ-layout-276",
+      "page_num": 15,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "个共识意见和临床应用中，单用免疫抑制剂维持 缓解有 UC 逐步淡化的趋势，多建议与生物制剂联合应用。但我们需要 清醒地认识到，单用免疫抑制剂在 维持治疗中的循证证 UC 据较强，因此仍不失为有效的治疗手段。"
+    },
+    {
+      "layout_id": "4524aZ-layout-277",
+      "page_num": 15,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "年 被批准用于 治疗，开启了 治疗的生物 2005 IFX UC UC 制剂和小分子制剂时代， 、阿达木单抗、 、乌司奴单 IFX VDZ 抗、托法替布、乌帕替尼等药物展现了良好的疗效。本共识 意见对这些药物有所介绍。随着对药物疗效和安全性..."
+    },
+    {
+      "layout_id": "4524aZ-layout-278",
+      "page_num": 15,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "治疗 的新型药物也不断涌现，其中针对白细胞介素 UC 23 这一 致病通路中重要细胞因子靶点的，就已有 种单抗 UC 3 药物（ 、 、 ）被美国食品和 guselkumab risankizumab mirikizumab 药 品 监 督..."
+    },
+    {
+      "layout_id": "4524aZ-layout-280",
+      "page_num": 15,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "总之，目前可选择治疗 的药物越来越多，但鉴于 UC UC 病情变化大，易于合并感染、血栓、癌变风险等的复杂性，在 药物的选择方面建议仔细考量，权衡利弊，纳入药物经济学 因素综合判断，合理选择恰当药物，使患者利益最大化。未 来期待国内 的诊断..."
+    },
+    {
+      "layout_id": "4524aZ-layout-283",
+      "page_num": 15,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "梁洁（空军军医大学西京医院消化病医院）、钱家鸣（中国医学科学 院 北京协和医学院 北京协和医院消化内科）、王玉芳（四川大学 华西医院消化内科）、吴开春（空军军医大学西京医院消化病医院）、 夏君（宁波诺丁汉大学 中心）、杨红（中国医学科学院..."
+    },
+    {
+      "layout_id": "4524aZ-layout-284",
+      "page_num": 15,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "专家组成员："
+    },
+    {
+      "layout_id": "4524aZ-layout-285",
+      "page_num": 15,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "曹倩（浙江大学医学院附属邵逸夫医院消化内科）、陈旻湖（中山大 学附属第一医院消化内科）、陈宁（北京大学人民医院消化内科）、陈 焰（浙江大学医学院附属第二医院消化内科）、董卫国（武汉大学人 民医院消化内科）、窦艳（解放军总医院消化内科）、杜奕..."
+    },
+    {
+      "layout_id": "4524aZ-layout-286",
+      "page_num": 15,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "瑾（中山大学附属第八医院消化内科）、李军（北京大学第三医院消 化内科）、李俊霞（北京大学第一医院消化内科）、李延青（山东大学 齐鲁医院消化内科）、李毅（解放军东部战区总医院普通外科）、李玥 （中国医学科学院 北京协和医学院 北京协和医院消化..."
+    },
+    {
+      "layout_id": "4524aZ-layout-287",
+      "page_num": 15,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "利益声明 所有作者均声明不存在利益冲突"
+    },
+    {
+      "layout_id": "4524aZ-layout-288",
+      "page_num": 15,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "参 考 文 献"
+    },
+    {
+      "layout_id": "4524aZ-layout-290",
+      "page_num": 15,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-294",
+      "page_num": 15,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "2019 114 3 384⁃413. DOI 10.14309/ajg.0000000000000152."
+    },
+    {
+      "layout_id": "4524aZ-layout-307",
+      "page_num": 16,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-311",
+      "page_num": 16,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "20200731⁃00086."
+    },
+    {
+      "layout_id": "4524aZ-layout-313",
+      "page_num": 16,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "3760/cma.j.issn.2096⁃367X.2019.04.003."
+    },
+    {
+      "layout_id": "4524aZ-layout-321",
+      "page_num": 16,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-317",
+      "page_num": 16,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "j.1572⁃0241.1998.00607.x."
+    },
+    {
+      "layout_id": "4524aZ-layout-322",
+      "page_num": 16,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-368",
+      "page_num": 18,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-370",
+      "page_num": 18,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "2022 22 1 92. DOI 10.1186/s12876⁃022⁃02157⁃5."
+    },
+    {
+      "layout_id": "4524aZ-layout-371",
+      "page_num": 18,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-379",
+      "page_num": 18,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "2015.233."
+    },
+    {
+      "layout_id": "4524aZ-layout-381",
+      "page_num": 18,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-383",
+      "page_num": 18,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "2 231⁃239. DOI 10.1097/01.MIB.0000437985.00190.aa."
+    },
+    {
+      "layout_id": "4524aZ-layout-384",
+      "page_num": 18,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-392",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "DOI 10.1055/a⁃0869⁃7619."
+    },
+    {
+      "layout_id": "4524aZ-layout-397",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "10.1093/ecco⁃jcc/jjv158."
+    },
+    {
+      "layout_id": "4524aZ-layout-399",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "309598."
+    },
+    {
+      "layout_id": "4524aZ-layout-405",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "，"
+    },
+    {
+      "layout_id": "4524aZ-layout-406",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "，"
+    },
+    {
+      "layout_id": "4524aZ-layout-410",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "1858.CD000543.pub4."
+    },
+    {
+      "layout_id": "4524aZ-layout-413",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "862917."
+    },
+    {
+      "layout_id": "4524aZ-layout-418",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "j.0953⁃0673.1996.00327.x."
+    },
+    {
+      "layout_id": "4524aZ-layout-423",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-425",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-428",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-443",
+      "page_num": 20,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "2006.10.011."
+    },
+    {
+      "layout_id": "4524aZ-layout-457",
+      "page_num": 20,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-464",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "Assess 2022 26 41 1⁃118. DOI 10.3310/RHXR5192."
+    },
+    {
+      "layout_id": "4524aZ-layout-466",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "53. DOI 10.1136/gut.2005.068809."
+    },
+    {
+      "layout_id": "4524aZ-layout-472",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-477",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "NEJMoa1905725."
+    },
+    {
+      "layout_id": "4524aZ-layout-478",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-480",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "2021 19 1 53⁃61. DOI 10.5217/ir.2019.09146."
+    },
+    {
+      "layout_id": "4524aZ-layout-485",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-487",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "2010 363 11 1086⁃1087. DOI 10.1056/NEJMc1005805."
+    },
+    {
+      "layout_id": "4524aZ-layout-488",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-490",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "gastro.2013.10.052."
+    },
+    {
+      "layout_id": "4524aZ-layout-491",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-493",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-495",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "10.1056/NEJMoa020888."
+    },
+    {
+      "layout_id": "4524aZ-layout-503",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "61302⁃7."
+    },
+    {
+      "layout_id": "4524aZ-layout-506",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "000205268."
+    },
+    {
+      "layout_id": "4524aZ-layout-517",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "s40744⁃023⁃00544⁃2."
+    },
+    {
+      "layout_id": "4524aZ-layout-519",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "Dis 2011 20 4 359⁃363."
+    },
+    {
+      "layout_id": "4524aZ-layout-532",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-533",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-534",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-535",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-536",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-537",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-529",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "1858. DOI 10.1002/ibd.20986."
+    },
+    {
+      "layout_id": "4524aZ-layout-538",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-556",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［ ］"
+    },
+    {
+      "layout_id": "4524aZ-layout-557",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "，"
+    },
+    {
+      "layout_id": "4524aZ-layout-558",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "，"
+    },
+    {
+      "layout_id": "4524aZ-layout-559",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "，"
+    },
+    {
+      "layout_id": "4524aZ-layout-565",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "DOI 10.3389/fimmu.2022.1042751."
+    },
+    {
+      "layout_id": "4524aZ-layout-579",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-568",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "10.1016/S0140⁃6736 09 61963⁃2."
+    },
+    {
+      "layout_id": "4524aZ-layout-580",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-570",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "crohns.2012.10.008."
+    },
+    {
+      "layout_id": "4524aZ-layout-572",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "ibd/izaa002."
+    },
+    {
+      "layout_id": "4524aZ-layout-582",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-583",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-575",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "018⁃0013⁃8."
+    },
+    {
+      "layout_id": "4524aZ-layout-616",
+      "page_num": 25,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-631",
+      "page_num": 25,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-634",
+      "page_num": 25,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-636",
+      "page_num": 25,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-638",
+      "page_num": 25,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "ibd.20099."
+    },
+    {
+      "layout_id": "4524aZ-layout-639",
+      "page_num": 25,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-641",
+      "page_num": 25,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-643",
+      "page_num": 25,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-645",
+      "page_num": 25,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-647",
+      "page_num": 25,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-649",
+      "page_num": 25,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-672",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "陈敏（空军军医大学附属西京医院）"
+    },
+    {
+      "layout_id": "4524aZ-layout-673",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "陈敏（武汉大学中南医院）"
+    },
+    {
+      "layout_id": "4524aZ-layout-674",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "胡静（安徽医科大学第一附属医院）"
+    },
+    {
+      "layout_id": "4524aZ-layout-675",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "姜支农（浙江大学医学院附属邵逸夫医院）"
+    },
+    {
+      "layout_id": "4524aZ-layout-676",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "李毅（解放军东部战区总医院）"
+    },
+    {
+      "layout_id": "4524aZ-layout-677",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "庞智（南京医科大学附属苏州医院）"
+    },
+    {
+      "layout_id": "4524aZ-layout-678",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "谭蓓（中国医学科学院北京协和医学院北京协和医院）"
+    },
+    {
+      "layout_id": "4524aZ-layout-679",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "张盛洪（中山大学附属第一医院）"
+    },
+    {
+      "layout_id": "4524aZ-layout-680",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "赵新鲜（上海交通大学医学院附属仁济医院）"
+    },
+    {
+      "layout_id": "4524aZ-layout-681",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "周伟（浙江大学医学院附属邵逸夫医院）"
+    },
+    {
+      "layout_id": "4524aZ-layout-682",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "在此，《中华炎性肠病杂志》对参与2023年度审稿工作的各位专家表示衷心的感谢！"
+    },
+    {
+      "layout_id": "4524aZ-layout-667",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "(收稿日期：2024-01-23)"
+    },
+    {
+      "layout_id": "4524aZ-layout-668",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "（本文编辑：周静 古敏怡）"
+    },
+    {
+      "layout_id": "4524aZ-layout-669",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "·读者·作者·编者·"
+    },
+    {
+      "layout_id": "4524aZ-layout-671",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "为了感谢广大审稿专家的辛勤工作，弘扬其严谨求实的工作作风、认真负责的工作态度，《中华炎性肠病杂志》根据2023年度各审稿专家的审稿数量、审稿质量和审稿时效评选出优秀审稿人10名。获奖名单如下（按姓氏拼音字母顺序排列）："
+    },
+    {
+      "layout_id": "4524aZ-layout-683",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "《中华炎性肠病杂志》编辑部"
+    },
+    {
+      "layout_id": "4524aZ-layout-685",
+      "page_num": 26,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "2024年1月15日"
+    }
+  ],
+  "discarded_unit_count": 35,
+  "discarded_units_by_reason": {
+    "clinical_stage_other": 35
+  },
+  "discarded_units": [
+    {
+      "unit_id": "clinical_text_unit_716ac11dd257",
+      "page_start": 1,
+      "page_end": 1,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-8"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "， integration of novel diagnostic and therapeutic paradigms new ， treatment modalities have necessitated the update of c..."
+    },
+    {
+      "unit_id": "clinical_text_unit_48ad695c7b64",
+      "page_start": 1,
+      "page_end": 1,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "Chinese clinical practice guideline on the management of ulcerative colitis（2023，Xi ′ an)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-21"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "我 国 的 诊 治 共 识 意 见 在 规 范 和 提 高 炎 症 性 肠 病 （ ， ）临床诊治水平方面的作用 inflammatory bowel disease IBD 不言而喻。随着对 认识的加深，我国临床和基础研究更 IBD 趋标..."
+    },
+    {
+      "unit_id": "clinical_text_unit_b39d4fc01dba",
+      "page_start": 1,
+      "page_end": 1,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "Chinese clinical practice guideline on the management of ulcerative colitis（2023，Xi ′ an)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-22"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "本指南主要是针对成人 的诊断和内科治疗的最新 IBD 推荐意见， 的外科治疗［ ］、营养支持治疗［ ］、生物制剂治 9 10 IBD 疗［ ］、多学科诊疗模式［ ］、病理诊断［ ］、妊娠期管理［ ］及儿童 11 12 13 14 ］的问题已..."
+    },
+    {
+      "unit_id": "clinical_text_unit_5d639c161e81",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "Chinese clinical practice guideline on the management of ulcerative colitis（2023，Xi ′ an)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-27"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "本文是 的指南部分。"
+    },
+    {
+      "unit_id": "clinical_text_unit_08b290bc47ad",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "Chinese clinical practice guideline on the management of ulcerative colitis（2023，Xi ′ an)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-28"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "UC诊断和治疗指南分为诊断、评估、治疗目标和治疗四大部分，其中治疗内容又根据疾病严重程度和阶段不同对轻中度、中重度、急重度UC及维持治疗进行分述，以期从临床实践流程和重点的角度突出本指南的实用价值。"
+    },
+    {
+      "unit_id": "clinical_text_unit_3060f2d2f12e",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-31"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "1.指南范围目标用户和适用人群：本指南由中华医学会消化病学分会炎症性肠病学组发起制订，由宁波诺丁汉大学GRADE中心提供方法学指导。本指南目标用户是从事IBD相关工作的医师、护士，适用人群为中国UC患者。"
+    },
+    {
+      "unit_id": "clinical_text_unit_8fab4ba7010d",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-32"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "2.指南工作组：指南工作组成员由中华医学会消化病学分会炎症性肠病学组和宁波诺丁汉大学GRADE中心的专家组成，具体名单见后文。"
+    },
+    {
+      "unit_id": "clinical_text_unit_e1e5336a2099",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-34"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "4.临床问题的确定：本指南临床问题由临床核心专家组结合UC诊治的临床需求提出，通过共识会议法筛选和确定。"
+    },
+    {
+      "unit_id": "clinical_text_unit_0296513fd878",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-35",
+        "4524aZ-layout-30"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "5.证据质量评价：指南工作组在PubMed、Embase、Cochrane Library、CNKI数据库实施了证据检索。采用《牛津循证医学中心证据分级2011版》[Oxford Center for Evidence-Based Medi..."
+    },
+    {
+      "unit_id": "clinical_text_unit_d53611d2fcf9",
+      "page_start": 2,
+      "page_end": 3,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-36",
+        "4524aZ-layout-44"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "6.形成推荐意见：推荐意见形成时参考推荐分级的评估、制定与评价(grading of recommendations assessment,development and evaluation,GRADE)对推荐意见进行分级。GRADE提倡..."
+    },
+    {
+      "unit_id": "clinical_text_unit_c6e696045cf8",
+      "page_start": 3,
+      "page_end": 3,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-45"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "7.指南传播、实施与更新：指南将通过学术期刊、线上或线下学术会议宣讲和解读、新媒体推文等多种途径传播，促进指南推荐意见在临床实施。计划在2年内，评估最新研究证据情况和临床需求，必要时进行更新。"
+    },
+    {
+      "unit_id": "clinical_text_unit_ab038dadfdce",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-61"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐理由：结肠镜检查并黏膜活检是UC诊断的主要依据。常规要求结肠镜检查达回盲部并进末端回肠10~15cm全面观察。结肠镜下UC病变多从直肠开始，呈连续性、弥漫性分布，病变多较表浅。建议多段、多点进行活检，应在每个肠段（包括回肠和直肠）至少取..."
+    },
+    {
+      "unit_id": "clinical_text_unit_071edc122a00",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-62"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "虽然UC没有特异的组织学特征，但结合基底浆细胞增多、隐窝萎缩扭曲和黏液减少等改变可提示UC诊断36。病程长或治疗后的UC患者炎症可表现为不均匀分布。结肠镜检查和黏膜活检的特征表现详见表3。"
+    },
+    {
+      "unit_id": "clinical_text_unit_e43dbe82cf17",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-63"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐意见5：对于有诊断困难者（直肠豁免、倒灌性回肠炎、症状不典型)，应在回结肠镜检查的基础上考虑加做小肠及上消化道检查。（证据等级：5，推荐强度：强）"
+    },
+    {
+      "unit_id": "clinical_text_unit_ae309af92975",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-64"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐理由：大于3%的UC患者报道有直肠豁免③”。在经过局部治疗的UC患者中更常见，也可表现为散在灶性炎症33。高达20%的广泛结肠炎患者可发生倒灌性回肠炎。若出现病变不累及直肠（未经药物治疗者）、倒灌性回肠炎以及其他难以与CD鉴别的情况时，..."
+    },
+    {
+      "unit_id": "clinical_text_unit_e44ee596e96b",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-65"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐意见6：在进行结肠镜检查时可结合内镜下黏膜染色技术、放大内镜技术，有条件者可考虑选用共聚焦内镜检查。（证据等级：2，推荐强度：弱）"
+    },
+    {
+      "unit_id": "clinical_text_unit_5ef34ad13f38",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-66"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐理由：内镜下黏膜染色技术能提高内镜对黏膜病变的识别能力，结合放大、共聚焦内镜技术通过对黏膜微细结构的观察和病变特征的判别，有助于UC的诊断。"
+    },
+    {
+      "unit_id": "clinical_text_unit_0c0f5b60f7cd",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-67"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐意见7：对于UC合并结肠狭窄患者，应对狭窄部位进行仔细的诊断性检查以排除恶性肿瘤。（证据等级：5，推荐强度：弱)"
+    },
+    {
+      "unit_id": "clinical_text_unit_c19f73ea9c55",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-68",
+        "4524aZ-layout-69"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐理由：在一项293例接受结肠狭窄手术的IBD患者的回顾性研究中，39例为UC合并结肠狭窄患者，其中10%(4/39)有不典型增生或癌变，包括低级别不典型增生1例(2.5%),高级别不典型增生1例(2.5%)，癌变2例$( 5 \\% )..."
+    },
+    {
+      "unit_id": "clinical_text_unit_79f6a2322d7a",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-70"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐意见8：重度活动性UC患者可常规行腹部X线片或腹部CT了解结肠情况。为诊断和鉴别诊断，可行不做常规肠道准备的直肠乙状结肠有限检查和活检，操作应轻柔，少注气。(BPS)"
+    },
+    {
+      "unit_id": "clinical_text_unit_9335ee88fb8a",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-71"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "实施建议：重症UC患者容易并发中毒性巨结肠，甚至发生穿孔，故需注意重度活动性UC患者检查的特殊性，可常规行腹部X线或腹部CT了解结肠扩张情况。避免全结肠镜检查，可行不做常规肠道准备的直肠乙状结肠有限检查和活检，操作应轻柔，少注气。有条件的医..."
+    },
+    {
+      "unit_id": "clinical_text_unit_44c5ad165dc0",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-72"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "UC影像学上表现为结肠壁连续、对称、均匀、轻度的增厚及浆膜面光滑的特点，是非常有价值的鉴别诊断征象，明显有别于CD等其他疾病引起的肠壁改变。UC早期黏膜受累，影像学上可无异常表现，随着疾病的进展可显示黏膜面有多发的小溃疡和炎性息肉，部分还可..."
+    },
+    {
+      "unit_id": "clinical_text_unit_1698129eb12f",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-73"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐意见9：诊断UC需要排除其他原因引起的肠道炎症或损伤，如感染性肠炎、阿米巴肠病、肠道血吸虫病、药物性肠病及结肠CD等。（证据等级：3，推荐强度：强）"
+    },
+    {
+      "unit_id": "clinical_text_unit_042cd40651c5",
+      "page_start": 4,
+      "page_end": 5,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-74",
+        "4524aZ-layout-75",
+        "4524aZ-layout-83"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐理由：UC诊断需要排除其他原因引起的肠道炎症或损伤，常常需要鉴别的疾病如下：急性细菌感染性肠炎[4546：由志贺菌、空肠弯曲杆菌、沙门菌、产气单胞菌、大肠埃希菌、耶尔森菌等细菌感染引起。常有流行病学特点（如不洁食物史或疫区接触史），急性..."
+    },
+    {
+      "unit_id": "clinical_text_unit_c8035598e605",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-84"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "阿米巴肠病：有流行病学特征，果酱样粪便，结肠镜下见溃疡较深、边缘潜行，间以外观正常的黏膜。确诊有赖于从粪便或组织中找到病原体，非流行区患者血清阿米巴抗体阳性有助于诊断。高度疑诊病例采用抗阿米巴治疗有效。"
+    },
+    {
+      "unit_id": "clinical_text_unit_11119c944bfd",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-85"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "肠道血吸虫病：有疫水接触史，常有肝、脾肿大。确诊有赖粪便检查见血吸虫卵或孵化毛蚴阳性：急性期肠镜示直肠乙状结肠黏膜黄褐色颗粒，活检黏膜压片或组织病理检查见血吸虫卵，免疫学检查有助鉴别。"
+    },
+    {
+      "unit_id": "clinical_text_unit_289b7fb3a6ca",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-86"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "药物性肠病：许多药物均可导致药物性肠病，最常见是NSAIDs,其他如霉酚酸酯、免疫检查点抑制剂、抗生素及氟尿嘧啶等抗肿瘤药物等也可导致结肠炎症。需详细了解药物服用史和疗程，结合内镜下改变给予诊断。药物性肠病可以胃、小肠、结肠损害形式同时存在..."
+    },
+    {
+      "unit_id": "clinical_text_unit_0e60d105ddd3",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-87"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "结肠CD:UC与CD两者在临床表现、内镜和病理组织学特征等方面不难区分，见表4。血清学标志物抗酿酒酵母菌抗体(ASCA)和抗中性粒细胞胞质抗体(ANCA)的鉴别诊断价值在我国尚未达成共识。对患有结肠IBD、一时难以区分 UC与CD者，即仅有..."
+    },
+    {
+      "unit_id": "clinical_text_unit_0cbe25150eea",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-88"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "其他应与UC鉴别的疾病包括肠结核、真菌性肠炎、缺血性肠炎、放射性肠炎、嗜酸粒细胞性肠炎、过敏性紫癜、胶原性结肠炎、肠白塞病、结肠息肉病、结肠憩室炎和人类免疫缺陷病毒(HIV)感染合并的结肠病变等。还需注意结肠镜检查发现的直肠轻度炎症反应改变..."
+    },
+    {
+      "unit_id": "clinical_text_unit_b7a272323ec0",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-89",
+        "4524aZ-layout-90"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "重度活动性UC或在免疫抑制剂维持缓解期的UC患者出现难以解释的症状恶化时，应考虑合并艰难梭菌(Clostridium difficile)或巨细胞病毒(cytomegalovirus,CMV)感染的可能[47-48)。确诊艰难梭菌感染可行谷..."
+    },
+    {
+      "unit_id": "clinical_text_unit_f6dde870391f",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-91"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "推荐意见10：完整的UC诊断应包括疾病分型、疾病活动程度、累及部位。(BPS)"
+    },
+    {
+      "unit_id": "clinical_text_unit_8a1773e5ace5",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-92"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "实施建议：UC诊断成立后，需进行疾病评估再做出完整诊断，以利于全面估计病情和预后，制定治疗方案（详见疾病评估部分)。"
+    },
+    {
+      "unit_id": "clinical_text_unit_8bbcdb896a98",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-93"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "诊断举例：溃疡性结肠炎（慢性复发型、活动期重度、广 泛型）。"
+    },
+    {
+      "unit_id": "clinical_text_unit_caa55ad088d6",
+      "page_start": 15,
+      "page_end": 15,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "六、展望"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-279"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "Ⅲ"
+    },
+    {
+      "unit_id": "clinical_text_unit_727771de3fba",
+      "page_start": 18,
+      "page_end": 23,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "起草小组专家："
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-375",
+        "4524aZ-layout-386",
+        "4524aZ-layout-404",
+        "4524aZ-layout-407",
+        "4524aZ-layout-415",
+        "4524aZ-layout-419",
+        "4524aZ-layout-421",
+        "4524aZ-layout-456",
+        "4524aZ-layout-496",
+        "4524aZ-layout-523",
+        "4524aZ-layout-578",
+        "4524aZ-layout-581"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "［［［ ］，［［［［［ldl001.［［"
+    }
+  ],
+  "merged_layout_groups": [
+    {
+      "unit_id": "clinical_text_unit_0296513fd878",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-35",
+        "4524aZ-layout-30"
+      ],
+      "raw_text_preview": "5.证据质量评价：指南工作组在PubMed、Embase、Cochrane Library、CNKI数据库实施了证据检索。采用《牛津循证医学中心证据分级2011版》[Oxford Center for Evidence-Based Medi..."
+    },
+    {
+      "unit_id": "clinical_text_unit_d53611d2fcf9",
+      "page_start": 2,
+      "page_end": 3,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "一、方法"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-36",
+        "4524aZ-layout-44"
+      ],
+      "raw_text_preview": "6.形成推荐意见：推荐意见形成时参考推荐分级的评估、制定与评价(grading of recommendations assessment,development and evaluation,GRADE)对推荐意见进行分级。GRADE提倡..."
+    },
+    {
+      "unit_id": "clinical_text_unit_b9d1f5ecff52",
+      "page_start": 3,
+      "page_end": 3,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "二、诊断及鉴别诊断"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-50",
+        "4524aZ-layout-51"
+      ],
+      "raw_text_preview": "推荐理由：UC最常发生于青壮年期，根据我国统计资料，发病高峰年龄为20~49岁，男女性别差异不大（男女比约为$1 . 0 : 1 \\sim 1 . 3 : 1 )$。UC临床表现为持续或反复发作的腹泻、黏液血便、腹痛及里急后重等，病情重的患..."
+    },
+    {
+      "unit_id": "clinical_text_unit_c19f73ea9c55",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-68",
+        "4524aZ-layout-69"
+      ],
+      "raw_text_preview": "推荐理由：在一项293例接受结肠狭窄手术的IBD患者的回顾性研究中，39例为UC合并结肠狭窄患者，其中10%(4/39)有不典型增生或癌变，包括低级别不典型增生1例(2.5%),高级别不典型增生1例(2.5%)，癌变2例$( 5 \\% )..."
+    },
+    {
+      "unit_id": "clinical_text_unit_042cd40651c5",
+      "page_start": 4,
+      "page_end": 5,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-74",
+        "4524aZ-layout-75",
+        "4524aZ-layout-83"
+      ],
+      "raw_text_preview": "推荐理由：UC诊断需要排除其他原因引起的肠道炎症或损伤，常常需要鉴别的疾病如下：急性细菌感染性肠炎[4546：由志贺菌、空肠弯曲杆菌、沙门菌、产气单胞菌、大肠埃希菌、耶尔森菌等细菌感染引起。常有流行病学特点（如不洁食物史或疫区接触史），急性..."
+    },
+    {
+      "unit_id": "clinical_text_unit_b7a272323ec0",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-89",
+        "4524aZ-layout-90"
+      ],
+      "raw_text_preview": "重度活动性UC或在免疫抑制剂维持缓解期的UC患者出现难以解释的症状恶化时，应考虑合并艰难梭菌(Clostridium difficile)或巨细胞病毒(cytomegalovirus,CMV)感染的可能[47-48)。确诊艰难梭菌感染可行谷..."
+    },
+    {
+      "unit_id": "clinical_text_unit_b8f88a0d4348",
+      "page_start": 5,
+      "page_end": 6,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "三、评估和预后",
+        "1.疾病评估"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-100",
+        "4524aZ-layout-108"
+      ],
+      "raw_text_preview": "实施建议：根据UC疾病严重程度评估，UC分为活动期和缓解期。活动期UC按严重程度分为轻度、中度、重度、急性重度。急性重度溃疡性结肠炎(acute severe ulcerativecolitis,ASUC)的诊治，可详见第五部分。改良 Tr..."
+    },
+    {
+      "unit_id": "clinical_text_unit_884dfb45c309",
+      "page_start": 6,
+      "page_end": 6,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "三、评估和预后",
+        "1.疾病评估"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-114",
+        "4524aZ-layout-115",
+        "4524aZ-layout-107",
+        "4524aZ-layout-116"
+      ],
+      "raw_text_preview": "注：总评分为3个指标评分之和，正常：0分，轻度活动：1~3分，中度活动：4~6分，重度活动：7~8分推荐理由：Mayo内镜评分参数相对简单，临床上简便实用，可作为日常临床诊治中病情活动度分级的标准，但部分注：\"每位受试者作为自身对照，从而评..."
+    },
+    {
+      "unit_id": "clinical_text_unit_1ac8fb5a804c",
+      "page_start": 7,
+      "page_end": 7,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "四、治疗目标"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-138",
+        "4524aZ-layout-139"
+      ],
+      "raw_text_preview": "既往通常将黏膜愈合定义为Mayo内镜评分≤1分。但多项研究显示完全黏膜愈合(Mayo内镜评分=0分)与良好的疾病预后相关，与更好的患者报告结局(PRO)评分和较低的FC水平密切相关。与Mayo内镜评分=0分的患者相比，Mayo内镜评分=1分..."
+    },
+    {
+      "unit_id": "clinical_text_unit_bfe9dc1d25fe",
+      "page_start": 7,
+      "page_end": 8,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "推荐意见 22：轻度活动性直肠型 UC 建议应用 5⁃ASA 直 肠给药诱导缓解。（证据等级：1，推荐强度：强）"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-148",
+        "4524aZ-layout-151"
+      ],
+      "raw_text_preview": "推荐理由：局部应用5-ASA(剂量$1 \\mathrm { g } / \\mathrm { d } )$是直肠型UC的一线治疗。有Cochrane系统性回顾性分析评价38项临床研究，研究显示局部应用5-ASA治疗活动期直肠型及左半结肠型轻度..."
+    },
+    {
+      "unit_id": "clinical_text_unit_867baa573086",
+      "page_start": 8,
+      "page_end": 9,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "推荐意见 27：重度活动性 UC 建议给予口服或静脉注射 糖皮质激素诱导缓解。（证据等级：1，推荐强度：强）"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-167",
+        "4524aZ-layout-170"
+      ],
+      "raw_text_preview": "推荐理由：住院重度活动性UC患者初始治疗推荐足量静脉或口服糖皮质激素治疗，静脉糖皮质激素治疗可选择注射用甲泼尼龙琥珀酸钠$4 0 \\sim 6 0 \\mathrm { m g } / \\mathrm { d }$,或者琥珀酸氢化可的松$3..."
+    },
+    {
+      "unit_id": "clinical_text_unit_0bd6fbbd9af5",
+      "page_start": 9,
+      "page_end": 9,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "推荐意见 27：重度活动性 UC 建议给予口服或静脉注射 糖皮质激素诱导缓解。（证据等级：1，推荐强度：强）"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-176",
+        "4524aZ-layout-177"
+      ],
+      "raw_text_preview": "推荐理由：多项国内外RCT及真实世界证据已证实IFX对传统治疗应答不佳或不耐受的中重度UC患者的疗效。ACT-1&2研究证实，IFX能快速诱导中重度UC患者实现临床应答，8周的临床应答率分别为69.4%和$6 4 . 5 \\% ^ { [..."
+    },
+    {
+      "unit_id": "clinical_text_unit_ba589a56aca6",
+      "page_start": 9,
+      "page_end": 10,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "推荐意见 30：IFX 或 VDZ 可考虑作为中重度活动性 UC 的一线治疗方案。（证据等级：2，推荐强度：弱）"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-184",
+        "4524aZ-layout-187"
+      ],
+      "raw_text_preview": "推荐理由：联合使用免疫抑制剂可能会减少IFX抗体的产生和（或）增加IFX的谷浓度，从而提高疗效[127-128*)。抗TNF制剂与免疫抑制剂的联合治疗很重要，UC-SUCCESS研究结果表明，IFX联合硫唑嘌呤治疗比单独使用IFX更有效[1..."
+    },
+    {
+      "unit_id": "clinical_text_unit_5a01ab98b388",
+      "page_start": 10,
+      "page_end": 10,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "推荐意见34：生物类似药适应证同原研药物。（证据等级：2，推荐强度：强)"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-192",
+        "4524aZ-layout-193"
+      ],
+      "raw_text_preview": "推荐理由：生物类似药也进入国内市场，如果生物类似 药与原研药均做过头对头等效性研究，适应证可等同原研药物。生物类似药可有效降低患者的治疗成本，提高了临床用药的可及性。目前国内已获批IBD适应证的生物类似药主要包括阿达木单抗生物类似药和IFX..."
+    },
+    {
+      "unit_id": "clinical_text_unit_a6e77ba8c7c3",
+      "page_start": 10,
+      "page_end": 11,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "3.ASUC的诊治管理"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-200",
+        "4524aZ-layout-203"
+      ],
+      "raw_text_preview": "实施建议：ASUC容易存在低钾、低白蛋白血症，需要维持电解质、酸碱平衡，纠正低蛋白、贫血15156)。同时，ASUC容易合并艰难梭菌、CMV感染，近期也发现真菌感染(139.157*]。通过血液、粪便及结肠镜检查对于明确合并感染非常重要。应..."
+    },
+    {
+      "unit_id": "clinical_text_unit_35b617e482bc",
+      "page_start": 11,
+      "page_end": 11,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "3.ASUC的诊治管理"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-211",
+        "4524aZ-layout-212"
+      ],
+      "raw_text_preview": "推荐理由：多国研究曾报道IBD患者相较健康人群有2~3倍的静脉血栓发生率67.2017年中国的一项全国多中心回顾性研究对我国IBD患者合并静脉血栓的情况展开调查，结果显示静脉血栓发生率为41.45/10万人年，其中最常见的血栓类型为下肢深静..."
+    },
+    {
+      "unit_id": "clinical_text_unit_0f04e0e792b2",
+      "page_start": 11,
+      "page_end": 12,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "3.ASUC的诊治管理"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-217",
+        "4524aZ-layout-220"
+      ],
+      "raw_text_preview": "实施建议：基于人群的研究显示，IBD患者的艰难梭菌感染(Clostridium difficile infection,CDI)发生率是非IBD人群的5倍以上[33.82)。治疗艰难梭菌感染的药物有甲硝唑和万古霉素等。对于非重症CDI,口服..."
+    },
+    {
+      "unit_id": "clinical_text_unit_910e49882f37",
+      "page_start": 12,
+      "page_end": 12,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "3.ASUC的诊治管理"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-231",
+        "4524aZ-layout-226"
+      ],
+      "raw_text_preview": "推荐理由：可用于糖皮质激素治疗无效的转换药物有IFX、环孢素、他克莫司和小分子药物如托法替布、乌帕替尼等。具体应用如下。"
+    },
+    {
+      "unit_id": "clinical_text_unit_a956ed4dbf2d",
+      "page_start": 12,
+      "page_end": 13,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "3.ASUC的诊治管理"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-230",
+        "4524aZ-layout-234",
+        "4524aZ-layout-235",
+        "4524aZ-layout-236"
+      ],
+      "raw_text_preview": "(4)小分子药物包括托法替布和乌帕替尼也有报道用于ASUC治疗。托法替布是一类口服的非选择性JAK抑制剂，目前尚未在国内获批为UC适应证，但鉴于其在大型三期临床试验OCTAVE中的疗效，特别是事后分析显示其在使用后3d内显著减少便次及直肠出..."
+    },
+    {
+      "unit_id": "clinical_text_unit_04c2226eaed8",
+      "page_start": 13,
+      "page_end": 13,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "3.ASUC的诊治管理"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-237",
+        "4524aZ-layout-238"
+      ],
+      "raw_text_preview": "推荐理由：在一次或多次严重恶化后，有 的 30% ~ 40% 患者将接受结肠切除， 的 患者在首次 ASUC 10% ~ 20% ASUC 入院时就需要进行手术干预［ ， ］。标准的初始治疗包括 146 208⁃210* 静脉注射糖皮质激素..."
+    },
+    {
+      "unit_id": "clinical_text_unit_368fa830b2af",
+      "page_start": 13,
+      "page_end": 13,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "维持治疗和癌变监测"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-240",
+        "4524aZ-layout-241"
+      ],
+      "raw_text_preview": "4.推荐意见 47：UC 是一种慢性疾病，容易复发，达到临床 症状缓解、炎性指标正常、内镜下黏膜愈合后，多数患者仍建 议长期维持治疗。（证据等级：1，推荐强度：强）"
+    },
+    {
+      "unit_id": "clinical_text_unit_a5d3b72aeea2",
+      "page_start": 13,
+      "page_end": 13,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "（ ）维持治疗药物"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-243",
+        "4524aZ-layout-244"
+      ],
+      "raw_text_preview": "1推荐意见 48：对于轻度活动性直肠型 UC，5⁃ASA 诱导 缓解后建议选择 0.5 ~ 1.0 g/d 美沙拉嗪栓或 2 g/d 美沙拉嗪 ≥ ≥ 口服（不超过 4 g/d）维持治疗。（证据等级：1，推荐强度：强）"
+    },
+    {
+      "unit_id": "clinical_text_unit_7ff5e8554849",
+      "page_start": 13,
+      "page_end": 13,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "（ ）维持治疗药物"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-245",
+        "4524aZ-layout-246",
+        "4524aZ-layout-247",
+        "4524aZ-layout-248"
+      ],
+      "raw_text_preview": "推荐理由：使用 维持可以减少轻中度 的复发。 5⁃ASA UC 有荟萃分析纳入了 项安慰剂对照的临床研究以评估直肠 4 使用美沙拉嗪维持治疗的疗效，直肠使用美沙拉嗪维持治疗 个月，可获得相比安慰剂更高的临床缓解率（ 比 ， 12 62% 3..."
+    },
+    {
+      "unit_id": "clinical_text_unit_f8c465fa29d7",
+      "page_start": 13,
+      "page_end": 13,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "（ ）维持治疗药物"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-249",
+        "4524aZ-layout-250"
+      ],
+      "raw_text_preview": "推荐理由：美沙拉嗪栓仅能递药至直肠内 处，而 20 cm 灌肠液可以递药至结肠脾曲处，故可适用于左半结肠型 ［ ］。维持治疗期间直肠使用美沙拉嗪的剂量在 221 次、 UC 1 g/ 每周 次到 之间。 维持治疗期间出现临床复发 3 1 g..."
+    },
+    {
+      "unit_id": "clinical_text_unit_8395787ecb04",
+      "page_start": 13,
+      "page_end": 13,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "（ ）维持治疗药物"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-251",
+        "4524aZ-layout-252"
+      ],
+      "raw_text_preview": "推荐理由：美沙拉嗪制剂的量效关系还未完全建立，最 新的分析显示 有剂量越高、疗效越强的趋势，使用较 5⁃ASA 高剂量的患者比使用低剂量的患者有更长的维持缓解时间 ［（ ± ） 比（ ± ） ，P＜ ］，对于广泛性 175.0 126.0..."
+    },
+    {
+      "unit_id": "clinical_text_unit_9f93abe22f67",
+      "page_start": 13,
+      "page_end": 14,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "（ ）维持治疗药物"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-253",
+        "4524aZ-layout-256"
+      ],
+      "raw_text_preview": "推荐理由：免疫抑制剂（硫唑嘌呤、沙利度胺等）、生物制 剂（ 、 ）以及小分子药物（托法替布、乌帕替尼等）适用 IFX VDZ 于激素无效或依赖者。欧美推荐硫唑嘌呤的目标剂量为 1.5 ~ -1 -1。我国相关文献数据显示，低剂量硫唑嘌呤 2..."
+    },
+    {
+      "unit_id": "clinical_text_unit_a907e870c28c",
+      "page_start": 14,
+      "page_end": 14,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "五、治疗",
+        "（ ）维持治疗药物",
+        "(2)癌变监测"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-265",
+        "4524aZ-layout-266"
+      ],
+      "raw_text_preview": "如果既往有结肠切除和回肠造口，或结肠切除和回肠直肠吻合，保留的直肠应进行监测检查。目前没有药物足以预防异型增生或CRC,以避免结肠镜监测。由于证据不足，不建议将粪便DNA检测和虚拟结肠镜检查用于UC相关肿瘤的筛查或监测。"
+    },
+    {
+      "unit_id": "clinical_text_unit_727771de3fba",
+      "page_start": 18,
+      "page_end": 23,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "起草小组专家："
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-375",
+        "4524aZ-layout-386",
+        "4524aZ-layout-404",
+        "4524aZ-layout-407",
+        "4524aZ-layout-415",
+        "4524aZ-layout-419",
+        "4524aZ-layout-421",
+        "4524aZ-layout-456",
+        "4524aZ-layout-496",
+        "4524aZ-layout-523",
+        "4524aZ-layout-578",
+        "4524aZ-layout-581"
+      ],
+      "raw_text_preview": "［［［ ］，［［［［［ldl001.［［"
+    }
+  ],
+  "output_cards": 112
+}

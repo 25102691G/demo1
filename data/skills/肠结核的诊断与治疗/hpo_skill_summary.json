@@ -1,0 +1,4105 @@
+{
+  "source_type": "cards",
+  "positive_features": {
+    "source_type": "cards_positive",
+    "similarity_threshold": 0.7,
+    "top_k": 5,
+    "input_count": 108,
+    "deduped_count": 108,
+    "mapped_count": 73,
+    "low_similarity_count": 1,
+    "duplicate_count": 34,
+    "items": [
+      {
+        "phenotype": "腹痛",
+        "matched_term": "腹痛",
+        "hpo_code": "HP:0002027",
+        "similarity_score": 0.999897837638855,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "腹痛",
+            "hpo_code": "HP:0002027",
+            "similarity_score": 0.999897837638855
+          },
+          {
+            "hpo_term": "腹部绞痛",
+            "hpo_code": "HP:0011848",
+            "similarity_score": 0.8970220685005188
+          },
+          {
+            "hpo_term": "急性腹痛",
+            "hpo_code": "HP:0033400",
+            "similarity_score": 0.8369598984718323
+          },
+          {
+            "hpo_term": "腹部症状",
+            "hpo_code": "HP:0011458",
+            "similarity_score": 0.8355726599693298
+          },
+          {
+            "hpo_term": "上腹部疼痛",
+            "hpo_code": "HP:0410019",
+            "similarity_score": 0.8328900933265686
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8",
+          "ocr_card_c619a9e770b8",
+          "ocr_card_862cfced44da"
+        ]
+      },
+      {
+        "phenotype": "隐痛",
+        "matched_term": "疼痛",
+        "hpo_code": "HP:0012531",
+        "similarity_score": 0.7556438446044922,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "疼痛",
+            "hpo_code": "HP:0012531",
+            "similarity_score": 0.7556438446044922
+          },
+          {
+            "hpo_term": "阵发性疼痛",
+            "hpo_code": "HP:0032148",
+            "similarity_score": 0.7184550166130066
+          },
+          {
+            "hpo_term": "疼痛的特征",
+            "hpo_code": "HP:0025280",
+            "similarity_score": 0.7085108160972595
+          },
+          {
+            "hpo_term": "自发性疼痛感",
+            "hpo_code": "HP:0010833",
+            "similarity_score": 0.7052018642425537
+          },
+          {
+            "hpo_term": "慢性疼痛",
+            "hpo_code": "HP:0012532",
+            "similarity_score": 0.7031322717666626
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "右下腹痛",
+        "matched_term": "侧腹疼痛",
+        "hpo_code": "HP:0030157",
+        "similarity_score": 0.849534809589386,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "侧腹疼痛",
+            "hpo_code": "HP:0030157",
+            "similarity_score": 0.849534809589386
+          },
+          {
+            "hpo_term": "腹痛",
+            "hpo_code": "HP:0002027",
+            "similarity_score": 0.8418989777565002
+          },
+          {
+            "hpo_term": "腹部绞痛",
+            "hpo_code": "HP:0011848",
+            "similarity_score": 0.7953031659126282
+          },
+          {
+            "hpo_term": "腹股沟痛",
+            "hpo_code": "HP:0031520",
+            "similarity_score": 0.79221510887146
+          },
+          {
+            "hpo_term": "上腹部疼痛",
+            "hpo_code": "HP:0410019",
+            "similarity_score": 0.7835915684700012
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "脐周痛",
+        "matched_term": "腹部绞痛",
+        "hpo_code": "HP:0011848",
+        "similarity_score": 0.8716460466384888,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "腹部绞痛",
+            "hpo_code": "HP:0011848",
+            "similarity_score": 0.8716460466384888
+          },
+          {
+            "hpo_term": "腹痛",
+            "hpo_code": "HP:0002027",
+            "similarity_score": 0.8642657995223999
+          },
+          {
+            "hpo_term": "阵发性腹痛",
+            "hpo_code": "HP:0002574",
+            "similarity_score": 0.8518975377082825
+          },
+          {
+            "hpo_term": "上腹部疼痛",
+            "hpo_code": "HP:0410019",
+            "similarity_score": 0.8299702405929565
+          },
+          {
+            "hpo_term": "腹部症状",
+            "hpo_code": "HP:0011458",
+            "similarity_score": 0.8014636039733887
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "腹胀",
+        "matched_term": "腹胀",
+        "hpo_code": "HP:0003270",
+        "similarity_score": 0.9999228119850159,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "腹胀",
+            "hpo_code": "HP:0003270",
+            "similarity_score": 0.9999228119850159
+          },
+          {
+            "hpo_term": "肠胃胀气",
+            "hpo_code": "HP:0033589",
+            "similarity_score": 0.867205798625946
+          },
+          {
+            "hpo_term": "肠胀气",
+            "hpo_code": "HP:6000319",
+            "similarity_score": 0.8409999012947083
+          },
+          {
+            "hpo_term": "早饱",
+            "hpo_code": "HP:0033842",
+            "similarity_score": 0.8121166825294495
+          },
+          {
+            "hpo_term": "餐后过饱感",
+            "hpo_code": "HP:0033843",
+            "similarity_score": 0.7938037514686584
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "腹部包块",
+        "matched_term": "腹部肿块",
+        "hpo_code": "HP:0031500",
+        "similarity_score": 0.9640942811965942,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "腹部肿块",
+            "hpo_code": "HP:0031500",
+            "similarity_score": 0.9640942811965942
+          },
+          {
+            "hpo_term": "腹壁肿块",
+            "hpo_code": "HP:6000171",
+            "similarity_score": 0.9127553701400757
+          },
+          {
+            "hpo_term": "腹膜肿块",
+            "hpo_code": "HP:0034971",
+            "similarity_score": 0.8505465984344482
+          },
+          {
+            "hpo_term": "侧腹肿块",
+            "hpo_code": "HP:6000363",
+            "similarity_score": 0.8408784866333008
+          },
+          {
+            "hpo_term": "腹部症状",
+            "hpo_code": "HP:0011458",
+            "similarity_score": 0.8282639980316162
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8",
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "腹泻",
+        "matched_term": "腹泻",
+        "hpo_code": "HP:0002014",
+        "similarity_score": 0.9999127984046936,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "腹泻",
+            "hpo_code": "HP:0002014",
+            "similarity_score": 0.9999127984046936
+          },
+          {
+            "hpo_term": "间歇性腹泻",
+            "hpo_code": "HP:0002254",
+            "similarity_score": 0.8253882527351379
+          },
+          {
+            "hpo_term": "慢性腹泻",
+            "hpo_code": "HP:0002028",
+            "similarity_score": 0.8229081630706787
+          },
+          {
+            "hpo_term": "顽固性腹泻",
+            "hpo_code": "HP:0002041",
+            "similarity_score": 0.8146618008613586
+          },
+          {
+            "hpo_term": "脂肪泻",
+            "hpo_code": "HP:0002570",
+            "similarity_score": 0.7930700182914734
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8",
+          "ocr_card_c619a9e770b8",
+          "ocr_card_862cfced44da"
+        ]
+      },
+      {
+        "phenotype": "便秘",
+        "matched_term": "便秘",
+        "hpo_code": "HP:0002019",
+        "similarity_score": 0.9998937845230103,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "便秘",
+            "hpo_code": "HP:0002019",
+            "similarity_score": 0.9998937845230103
+          },
+          {
+            "hpo_term": "慢性便秘",
+            "hpo_code": "HP:0012450",
+            "similarity_score": 0.8516072034835815
+          },
+          {
+            "hpo_term": "急性便秘",
+            "hpo_code": "HP:0012451",
+            "similarity_score": 0.8440214991569519
+          },
+          {
+            "hpo_term": "肠鸣音减弱",
+            "hpo_code": "HP:0030144",
+            "similarity_score": 0.7635320425033569
+          },
+          {
+            "hpo_term": "肠鸣音消失",
+            "hpo_code": "HP:0030145",
+            "similarity_score": 0.7468826174736023
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8",
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "腹泻与便秘交替",
+        "matched_term": "间歇性腹泻",
+        "hpo_code": "HP:0002254",
+        "similarity_score": 0.8043990135192871,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "间歇性腹泻",
+            "hpo_code": "HP:0002254",
+            "similarity_score": 0.8043990135192871
+          },
+          {
+            "hpo_term": "顽固性腹泻",
+            "hpo_code": "HP:0002041",
+            "similarity_score": 0.751011848449707
+          },
+          {
+            "hpo_term": "腹泻",
+            "hpo_code": "HP:0002014",
+            "similarity_score": 0.7339316010475159
+          },
+          {
+            "hpo_term": "慢性腹泻",
+            "hpo_code": "HP:0002028",
+            "similarity_score": 0.7319928407669067
+          },
+          {
+            "hpo_term": "粪便中有黏液",
+            "hpo_code": "HP:6000686",
+            "similarity_score": 0.7284774780273438
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "便血",
+        "matched_term": "便血",
+        "hpo_code": "HP:0002573",
+        "similarity_score": 0.9998902678489685,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "便血",
+            "hpo_code": "HP:0002573",
+            "similarity_score": 0.9998902678489685
+          },
+          {
+            "hpo_term": "肠道出血",
+            "hpo_code": "HP:0002584",
+            "similarity_score": 0.8542328476905823
+          },
+          {
+            "hpo_term": "黑便",
+            "hpo_code": "HP:0002249",
+            "similarity_score": 0.8231242895126343
+          },
+          {
+            "hpo_term": "呕血",
+            "hpo_code": "HP:0002248",
+            "similarity_score": 0.7909322381019592
+          },
+          {
+            "hpo_term": "粪便隐血试验阳性",
+            "hpo_code": "HP:6000221",
+            "similarity_score": 0.7885048389434814
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "月经紊乱",
+        "matched_term": "月经不调",
+        "hpo_code": "HP:0000858",
+        "similarity_score": 0.9222906827926636,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "月经不调",
+            "hpo_code": "HP:0000858",
+            "similarity_score": 0.9222906827926636
+          },
+          {
+            "hpo_term": "月经周期异常",
+            "hpo_code": "HP:0000140",
+            "similarity_score": 0.9180729389190674
+          },
+          {
+            "hpo_term": "闭经",
+            "hpo_code": "HP:0000141",
+            "similarity_score": 0.8143783807754517
+          },
+          {
+            "hpo_term": "月经触发",
+            "hpo_code": "HP:0025220",
+            "similarity_score": 0.7938122153282166
+          },
+          {
+            "hpo_term": "继发性闭经",
+            "hpo_code": "HP:0000869",
+            "similarity_score": 0.7929408550262451
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "低热",
+        "matched_term": "低热",
+        "hpo_code": "HP:0011134",
+        "similarity_score": 0.9998981356620789,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "低热",
+            "hpo_code": "HP:0011134",
+            "similarity_score": 0.9998981356620789
+          },
+          {
+            "hpo_term": "低体温",
+            "hpo_code": "HP:0002045",
+            "similarity_score": 0.7922974228858948
+          },
+          {
+            "hpo_term": "发热",
+            "hpo_code": "HP:0001945",
+            "similarity_score": 0.7453860640525818
+          },
+          {
+            "hpo_term": "体温不稳定",
+            "hpo_code": "HP:0005968",
+            "similarity_score": 0.7325029373168945
+          },
+          {
+            "hpo_term": "间歇性低体温",
+            "hpo_code": "HP:0005964",
+            "similarity_score": 0.7209669947624207
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "盗汗",
+        "matched_term": "盗汗",
+        "hpo_code": "HP:0030166",
+        "similarity_score": 0.9998390674591064,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "盗汗",
+            "hpo_code": "HP:0030166",
+            "similarity_score": 0.9998390674591064
+          },
+          {
+            "hpo_term": "多汗症",
+            "hpo_code": "HP:0000975",
+            "similarity_score": 0.8102139830589294
+          },
+          {
+            "hpo_term": "排汗调控异常",
+            "hpo_code": "HP:0012333",
+            "similarity_score": 0.7840374708175659
+          },
+          {
+            "hpo_term": "发作性多汗症",
+            "hpo_code": "HP:0001069",
+            "similarity_score": 0.7668334245681763
+          },
+          {
+            "hpo_term": "少汗/多汗症",
+            "hpo_code": "HP:0007550",
+            "similarity_score": 0.7641209363937378
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "乏力",
+        "matched_term": "疲乏",
+        "hpo_code": "HP:0012378",
+        "similarity_score": 0.9171593189239502,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "疲乏",
+            "hpo_code": "HP:0012378",
+            "similarity_score": 0.9171593189239502
+          },
+          {
+            "hpo_term": "虚弱",
+            "hpo_code": "HP:0025406",
+            "similarity_score": 0.87163907289505
+          },
+          {
+            "hpo_term": "全身乏力不适",
+            "hpo_code": "HP:0033834",
+            "similarity_score": 0.8191182017326355
+          },
+          {
+            "hpo_term": "慢性疲劳",
+            "hpo_code": "HP:0012432",
+            "similarity_score": 0.8177894949913025
+          },
+          {
+            "hpo_term": "困倦",
+            "hpo_code": "HP:0002329",
+            "similarity_score": 0.8102662563323975
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "纳差",
+        "matched_term": "食欲不振",
+        "hpo_code": "HP:0004396",
+        "similarity_score": 0.8551785349845886,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "食欲不振",
+            "hpo_code": "HP:0004396",
+            "similarity_score": 0.8551785349845886
+          },
+          {
+            "hpo_term": "疲乏",
+            "hpo_code": "HP:0012378",
+            "similarity_score": 0.7707704305648804
+          },
+          {
+            "hpo_term": "困倦",
+            "hpo_code": "HP:0002329",
+            "similarity_score": 0.7594575881958008
+          },
+          {
+            "hpo_term": "虚弱",
+            "hpo_code": "HP:0025406",
+            "similarity_score": 0.7220774292945862
+          },
+          {
+            "hpo_term": "慢性疲劳",
+            "hpo_code": "HP:0012432",
+            "similarity_score": 0.7196739912033081
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "体重下降",
+        "matched_term": "体重下降",
+        "hpo_code": "HP:0004325",
+        "similarity_score": 0.9999139904975891,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "体重下降",
+            "hpo_code": "HP:0004325",
+            "similarity_score": 0.9999139904975891
+          },
+          {
+            "hpo_term": "体重减轻",
+            "hpo_code": "HP:0001824",
+            "similarity_score": 0.9770629405975342
+          },
+          {
+            "hpo_term": "体重指数下降",
+            "hpo_code": "HP:0045082",
+            "similarity_score": 0.9316534996032715
+          },
+          {
+            "hpo_term": "体重增加",
+            "hpo_code": "HP:0004324",
+            "similarity_score": 0.8000069856643677
+          },
+          {
+            "hpo_term": "体重异常",
+            "hpo_code": "HP:0004323",
+            "similarity_score": 0.7928219437599182
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "腹部压痛",
+        "matched_term": "腹痛",
+        "hpo_code": "HP:0002027",
+        "similarity_score": 0.8812414407730103,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "腹痛",
+            "hpo_code": "HP:0002027",
+            "similarity_score": 0.8812414407730103
+          },
+          {
+            "hpo_term": "腹部绞痛",
+            "hpo_code": "HP:0011848",
+            "similarity_score": 0.8802821040153503
+          },
+          {
+            "hpo_term": "腹部症状",
+            "hpo_code": "HP:0011458",
+            "similarity_score": 0.8587807416915894
+          },
+          {
+            "hpo_term": "上腹部疼痛",
+            "hpo_code": "HP:0410019",
+            "similarity_score": 0.8228411674499512
+          },
+          {
+            "hpo_term": "侧腹疼痛",
+            "hpo_code": "HP:0030157",
+            "similarity_score": 0.8105840086936951
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "腹部反跳痛",
+        "matched_term": "腹部绞痛",
+        "hpo_code": "HP:0011848",
+        "similarity_score": 0.8582521080970764,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "腹部绞痛",
+            "hpo_code": "HP:0011848",
+            "similarity_score": 0.8582521080970764
+          },
+          {
+            "hpo_term": "腹痛",
+            "hpo_code": "HP:0002027",
+            "similarity_score": 0.8413906097412109
+          },
+          {
+            "hpo_term": "急性腹痛",
+            "hpo_code": "HP:0033400",
+            "similarity_score": 0.8107685446739197
+          },
+          {
+            "hpo_term": "肋脊角压痛",
+            "hpo_code": "HP:6000106",
+            "similarity_score": 0.7973930835723877
+          },
+          {
+            "hpo_term": "上腹部疼痛",
+            "hpo_code": "HP:0410019",
+            "similarity_score": 0.7929565906524658
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "肠鸣音亢进",
+        "matched_term": "肠鸣音亢进",
+        "hpo_code": "HP:0030143",
+        "similarity_score": 0.9998885989189148,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "肠鸣音亢进",
+            "hpo_code": "HP:0030143",
+            "similarity_score": 0.9998885989189148
+          },
+          {
+            "hpo_term": "肠鸣音过度活跃",
+            "hpo_code": "HP:6000633",
+            "similarity_score": 0.9569222927093506
+          },
+          {
+            "hpo_term": "肠鸣音异常",
+            "hpo_code": "HP:0030142",
+            "similarity_score": 0.9418774843215942
+          },
+          {
+            "hpo_term": "肠鸣音减弱",
+            "hpo_code": "HP:0030144",
+            "similarity_score": 0.8846942186355591
+          },
+          {
+            "hpo_term": "肠鸣音消失",
+            "hpo_code": "HP:0030145",
+            "similarity_score": 0.8441309928894043
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "肠型",
+        "matched_term": "胃肠道形态异常",
+        "hpo_code": "HP:0012718",
+        "similarity_score": 0.7902075052261353,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "胃肠道形态异常",
+            "hpo_code": "HP:0012718",
+            "similarity_score": 0.7902075052261353
+          },
+          {
+            "hpo_term": "肠平滑肌形态异常",
+            "hpo_code": "HP:0030935",
+            "similarity_score": 0.7832236886024475
+          },
+          {
+            "hpo_term": "肠神经系统形态异常",
+            "hpo_code": "HP:0025028",
+            "similarity_score": 0.7815173864364624
+          },
+          {
+            "hpo_term": "空肠形态异常",
+            "hpo_code": "HP:0005265",
+            "similarity_score": 0.7777827978134155
+          },
+          {
+            "hpo_term": "肠系膜形态异常",
+            "hpo_code": "HP:0100016",
+            "similarity_score": 0.777461588382721
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "腹水",
+        "matched_term": "腹水",
+        "hpo_code": "HP:0001541",
+        "similarity_score": 0.9998952150344849,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "腹水",
+            "hpo_code": "HP:0001541",
+            "similarity_score": 0.9998952150344849
+          },
+          {
+            "hpo_term": "包裹性腹水",
+            "hpo_code": "HP:0025673",
+            "similarity_score": 0.8716211318969727
+          },
+          {
+            "hpo_term": "胶状腹水",
+            "hpo_code": "HP:0040414",
+            "similarity_score": 0.8598775863647461
+          },
+          {
+            "hpo_term": "水肿",
+            "hpo_code": "HP:0000969",
+            "similarity_score": 0.8303048014640808
+          },
+          {
+            "hpo_term": "胸腔积液",
+            "hpo_code": "HP:0002202",
+            "similarity_score": 0.8297656774520874
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "腹部包块质地硬",
+        "matched_term": "腹部肿块",
+        "hpo_code": "HP:0031500",
+        "similarity_score": 0.8767863512039185,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "腹部肿块",
+            "hpo_code": "HP:0031500",
+            "similarity_score": 0.8767863512039185
+          },
+          {
+            "hpo_term": "腹壁肿块",
+            "hpo_code": "HP:6000171",
+            "similarity_score": 0.8290956020355225
+          },
+          {
+            "hpo_term": "腹膜肿块",
+            "hpo_code": "HP:0034971",
+            "similarity_score": 0.8044477105140686
+          },
+          {
+            "hpo_term": "侧腹肿块",
+            "hpo_code": "HP:6000363",
+            "similarity_score": 0.7982069849967957
+          },
+          {
+            "hpo_term": "腹膜后肿块",
+            "hpo_code": "HP:6000285",
+            "similarity_score": 0.7873849272727966
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "腹部包块表面不平",
+        "matched_term": "腹部肿块",
+        "hpo_code": "HP:0031500",
+        "similarity_score": 0.9009320735931396,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "腹部肿块",
+            "hpo_code": "HP:0031500",
+            "similarity_score": 0.9009320735931396
+          },
+          {
+            "hpo_term": "腹壁肿块",
+            "hpo_code": "HP:6000171",
+            "similarity_score": 0.861382007598877
+          },
+          {
+            "hpo_term": "腹膜肿块",
+            "hpo_code": "HP:0034971",
+            "similarity_score": 0.8251888751983643
+          },
+          {
+            "hpo_term": "侧腹肿块",
+            "hpo_code": "HP:6000363",
+            "similarity_score": 0.8198197484016418
+          },
+          {
+            "hpo_term": "腹膜后肿块",
+            "hpo_code": "HP:6000285",
+            "similarity_score": 0.8026726245880127
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "腹部包块压痛",
+        "matched_term": "腹部肿块",
+        "hpo_code": "HP:0031500",
+        "similarity_score": 0.8903171420097351,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "腹部肿块",
+            "hpo_code": "HP:0031500",
+            "similarity_score": 0.8903171420097351
+          },
+          {
+            "hpo_term": "腹壁肿块",
+            "hpo_code": "HP:6000171",
+            "similarity_score": 0.8307183980941772
+          },
+          {
+            "hpo_term": "侧腹肿块",
+            "hpo_code": "HP:6000363",
+            "similarity_score": 0.8102245330810547
+          },
+          {
+            "hpo_term": "腹膜肿块",
+            "hpo_code": "HP:0034971",
+            "similarity_score": 0.7978944182395935
+          },
+          {
+            "hpo_term": "腹部绞痛",
+            "hpo_code": "HP:0011848",
+            "similarity_score": 0.7951167225837708
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "腹部包块固定",
+        "matched_term": "腹部肿块",
+        "hpo_code": "HP:0031500",
+        "similarity_score": 0.8918840289115906,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "腹部肿块",
+            "hpo_code": "HP:0031500",
+            "similarity_score": 0.8918840289115906
+          },
+          {
+            "hpo_term": "腹壁肿块",
+            "hpo_code": "HP:6000171",
+            "similarity_score": 0.8525808453559875
+          },
+          {
+            "hpo_term": "腹膜肿块",
+            "hpo_code": "HP:0034971",
+            "similarity_score": 0.8346149921417236
+          },
+          {
+            "hpo_term": "侧腹肿块",
+            "hpo_code": "HP:6000363",
+            "similarity_score": 0.8186938762664795
+          },
+          {
+            "hpo_term": "腹膜后肿块",
+            "hpo_code": "HP:6000285",
+            "similarity_score": 0.8089775443077087
+          }
+        ],
+        "card_id": [
+          "ocr_card_92f6e7d015d8"
+        ]
+      },
+      {
+        "phenotype": "PPD试验阳性",
+        "matched_term": "结核菌素皮肤试验阳性",
+        "hpo_code": "HP:6000925",
+        "similarity_score": 0.9394053816795349,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "结核菌素皮肤试验阳性",
+            "hpo_code": "HP:6000925",
+            "similarity_score": 0.9394053816795349
+          },
+          {
+            "hpo_term": "Quantiferon结核病检测阳性",
+            "hpo_code": "HP:6000799",
+            "similarity_score": 0.8561118245124817
+          },
+          {
+            "hpo_term": "针刺反应阳性",
+            "hpo_code": "HP:0025532",
+            "similarity_score": 0.7997345924377441
+          },
+          {
+            "hpo_term": "迟发型皮肤超敏试验异常",
+            "hpo_code": "HP:0002963",
+            "similarity_score": 0.7845337390899658
+          },
+          {
+            "hpo_term": "血流结核病诱导T细胞干扰素γ释放试验阳性",
+            "hpo_code": "HP:6000901",
+            "similarity_score": 0.7783389091491699
+          }
+        ],
+        "card_id": [
+          "ocr_card_0607e4e31699",
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "痰培养阳性",
+        "matched_term": "痰液真菌菌丝",
+        "hpo_code": "HP:0034404",
+        "similarity_score": 0.7730721831321716,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "痰液真菌菌丝",
+            "hpo_code": "HP:0034404",
+            "similarity_score": 0.7730721831321716
+          },
+          {
+            "hpo_term": "呼吸道感染性病原体检测阳性",
+            "hpo_code": "HP:0430151",
+            "similarity_score": 0.771388590335846
+          },
+          {
+            "hpo_term": "鸟分枝杆菌痰培养阳性",
+            "hpo_code": "HP:0430108",
+            "similarity_score": 0.7713868618011475
+          },
+          {
+            "hpo_term": "口咽部感染原试验阳性",
+            "hpo_code": "HP:6000579",
+            "similarity_score": 0.7676411271095276
+          },
+          {
+            "hpo_term": "组织球孢子菌培养阳性",
+            "hpo_code": "HP:6000965",
+            "similarity_score": 0.7546775937080383
+          }
+        ],
+        "card_id": [
+          "ocr_card_0607e4e31699",
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "腹水呈草绿色",
+        "matched_term": "腹水",
+        "hpo_code": "HP:0001541",
+        "similarity_score": 0.8546923995018005,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "腹水",
+            "hpo_code": "HP:0001541",
+            "similarity_score": 0.8546923995018005
+          },
+          {
+            "hpo_term": "胶状腹水",
+            "hpo_code": "HP:0040414",
+            "similarity_score": 0.8236706256866455
+          },
+          {
+            "hpo_term": "包裹性腹水",
+            "hpo_code": "HP:0025673",
+            "similarity_score": 0.8127247095108032
+          },
+          {
+            "hpo_term": "腹腔积液细菌培养阳性",
+            "hpo_code": "HP:6000954",
+            "similarity_score": 0.7826847434043884
+          },
+          {
+            "hpo_term": "腹膜渗出物",
+            "hpo_code": "HP:0030995",
+            "similarity_score": 0.7618668675422668
+          }
+        ],
+        "card_id": [
+          "ocr_card_0607e4e31699"
+        ]
+      },
+      {
+        "phenotype": "腹水呈淡血性",
+        "matched_term": "腹水",
+        "hpo_code": "HP:0001541",
+        "similarity_score": 0.8747957944869995,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "腹水",
+            "hpo_code": "HP:0001541",
+            "similarity_score": 0.8747957944869995
+          },
+          {
+            "hpo_term": "胶状腹水",
+            "hpo_code": "HP:0040414",
+            "similarity_score": 0.8249134421348572
+          },
+          {
+            "hpo_term": "包裹性腹水",
+            "hpo_code": "HP:0025673",
+            "similarity_score": 0.8213542699813843
+          },
+          {
+            "hpo_term": "腹膜渗出物",
+            "hpo_code": "HP:0030995",
+            "similarity_score": 0.7735361456871033
+          },
+          {
+            "hpo_term": "腹腔积液细菌培养阳性",
+            "hpo_code": "HP:6000954",
+            "similarity_score": 0.768610417842865
+          }
+        ],
+        "card_id": [
+          "ocr_card_0607e4e31699"
+        ]
+      },
+      {
+        "phenotype": "腹水呈乳糜样",
+        "matched_term": "乳糜腹水",
+        "hpo_code": "HP:0012281",
+        "similarity_score": 0.8894510865211487,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "乳糜腹水",
+            "hpo_code": "HP:0012281",
+            "similarity_score": 0.8894510865211487
+          },
+          {
+            "hpo_term": "腹水",
+            "hpo_code": "HP:0001541",
+            "similarity_score": 0.8840663433074951
+          },
+          {
+            "hpo_term": "胶状腹水",
+            "hpo_code": "HP:0040414",
+            "similarity_score": 0.8678659200668335
+          },
+          {
+            "hpo_term": "包裹性腹水",
+            "hpo_code": "HP:0025673",
+            "similarity_score": 0.8426734805107117
+          },
+          {
+            "hpo_term": "腹膜渗出物",
+            "hpo_code": "HP:0030995",
+            "similarity_score": 0.7927432656288147
+          }
+        ],
+        "card_id": [
+          "ocr_card_0607e4e31699"
+        ]
+      },
+      {
+        "phenotype": "腹水静置后可凝固",
+        "matched_term": "腹水",
+        "hpo_code": "HP:0001541",
+        "similarity_score": 0.9156935214996338,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "腹水",
+            "hpo_code": "HP:0001541",
+            "similarity_score": 0.9156935214996338
+          },
+          {
+            "hpo_term": "胶状腹水",
+            "hpo_code": "HP:0040414",
+            "similarity_score": 0.8768527507781982
+          },
+          {
+            "hpo_term": "包裹性腹水",
+            "hpo_code": "HP:0025673",
+            "similarity_score": 0.8619363307952881
+          },
+          {
+            "hpo_term": "腹膜渗出物",
+            "hpo_code": "HP:0030995",
+            "similarity_score": 0.7912402153015137
+          },
+          {
+            "hpo_term": "腹腔积液细菌培养阳性",
+            "hpo_code": "HP:6000954",
+            "similarity_score": 0.7889438271522522
+          }
+        ],
+        "card_id": [
+          "ocr_card_0607e4e31699"
+        ]
+      },
+      {
+        "phenotype": "腹水性质为渗出液",
+        "matched_term": "腹水",
+        "hpo_code": "HP:0001541",
+        "similarity_score": 0.8803120255470276,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "腹水",
+            "hpo_code": "HP:0001541",
+            "similarity_score": 0.8803120255470276
+          },
+          {
+            "hpo_term": "胶状腹水",
+            "hpo_code": "HP:0040414",
+            "similarity_score": 0.8703456521034241
+          },
+          {
+            "hpo_term": "包裹性腹水",
+            "hpo_code": "HP:0025673",
+            "similarity_score": 0.8635432124137878
+          },
+          {
+            "hpo_term": "腹腔积液细菌培养阳性",
+            "hpo_code": "HP:6000954",
+            "similarity_score": 0.8285090327262878
+          },
+          {
+            "hpo_term": "腹膜渗出物",
+            "hpo_code": "HP:0030995",
+            "similarity_score": 0.8033219575881958
+          }
+        ],
+        "card_id": [
+          "ocr_card_0607e4e31699"
+        ]
+      },
+      {
+        "phenotype": "腹水ADA > 40 U/L",
+        "matched_term": "胶状腹水",
+        "hpo_code": "HP:0040414",
+        "similarity_score": 0.809320867061615,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "胶状腹水",
+            "hpo_code": "HP:0040414",
+            "similarity_score": 0.809320867061615
+          },
+          {
+            "hpo_term": "腹腔积液细菌培养阳性",
+            "hpo_code": "HP:6000954",
+            "similarity_score": 0.8048344254493713
+          },
+          {
+            "hpo_term": "血清-腹水白蛋白梯度（SAAG）升高",
+            "hpo_code": "HP:6000863",
+            "similarity_score": 0.8013296723365784
+          },
+          {
+            "hpo_term": "包裹性腹水",
+            "hpo_code": "HP:0025673",
+            "similarity_score": 0.7859705686569214
+          },
+          {
+            "hpo_term": "嗜酸性粒细胞性腹水",
+            "hpo_code": "HP:0031780",
+            "similarity_score": 0.7832293510437012
+          }
+        ],
+        "card_id": [
+          "ocr_card_0607e4e31699"
+        ]
+      },
+      {
+        "phenotype": "血沉加快",
+        "matched_term": "红细胞沉降速度升高",
+        "hpo_code": "HP:0003565",
+        "similarity_score": 0.8988606929779053,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "红细胞沉降速度升高",
+            "hpo_code": "HP:0003565",
+            "similarity_score": 0.8988606929779053
+          },
+          {
+            "hpo_term": "红细胞沉降率异常",
+            "hpo_code": "HP:0025021",
+            "similarity_score": 0.8858467936515808
+          },
+          {
+            "hpo_term": "血液沉淀素水平升高",
+            "hpo_code": "HP:0033039",
+            "similarity_score": 0.8516656160354614
+          },
+          {
+            "hpo_term": "红细胞沉降率下降",
+            "hpo_code": "HP:0025022",
+            "similarity_score": 0.8469309210777283
+          },
+          {
+            "hpo_term": "血液球蛋白水平升高",
+            "hpo_code": "HP:0032311",
+            "similarity_score": 0.780566394329071
+          }
+        ],
+        "card_id": [
+          "ocr_card_0607e4e31699"
+        ]
+      },
+      {
+        "phenotype": "贫血",
+        "matched_term": "贫血",
+        "hpo_code": "HP:0001903",
+        "similarity_score": 0.9999313950538635,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "贫血",
+            "hpo_code": "HP:0001903",
+            "similarity_score": 0.9999313950538635
+          },
+          {
+            "hpo_term": "缺铁性贫血",
+            "hpo_code": "HP:0001891",
+            "similarity_score": 0.8856193423271179
+          },
+          {
+            "hpo_term": "血红蛋白浓度减低",
+            "hpo_code": "HP:0020062",
+            "similarity_score": 0.8530948758125305
+          },
+          {
+            "hpo_term": "低色素性贫血",
+            "hpo_code": "HP:0001931",
+            "similarity_score": 0.8259595036506653
+          },
+          {
+            "hpo_term": "再生障碍性贫血",
+            "hpo_code": "HP:0001915",
+            "similarity_score": 0.8065691590309143
+          }
+        ],
+        "card_id": [
+          "ocr_card_0607e4e31699"
+        ]
+      },
+      {
+        "phenotype": "活动性或陈旧性肠外结核病灶",
+        "matched_term": "肺外结核",
+        "hpo_code": "HP:0032271",
+        "similarity_score": 0.8035162687301636,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "肺外结核",
+            "hpo_code": "HP:0032271",
+            "similarity_score": 0.8035162687301636
+          },
+          {
+            "hpo_term": "胃肠道肉芽肿病",
+            "hpo_code": "HP:0034841",
+            "similarity_score": 0.7635963559150696
+          },
+          {
+            "hpo_term": "肺结核",
+            "hpo_code": "HP:0032262",
+            "similarity_score": 0.7633399367332458
+          },
+          {
+            "hpo_term": "血流结核病诱导T细胞干扰素γ释放试验阳性",
+            "hpo_code": "HP:6000901",
+            "similarity_score": 0.7436097860336304
+          },
+          {
+            "hpo_term": "结核菌素皮肤试验阳性",
+            "hpo_code": "HP:6000925",
+            "similarity_score": 0.7357028126716614
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "多发大小不等溃疡",
+        "matched_term": "口疮性溃疡",
+        "hpo_code": "HP:0032154",
+        "similarity_score": 0.8364439010620117,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "口疮性溃疡",
+            "hpo_code": "HP:0032154",
+            "similarity_score": 0.8364439010620117
+          },
+          {
+            "hpo_term": "口腔溃疡",
+            "hpo_code": "HP:0000155",
+            "similarity_score": 0.8010849952697754
+          },
+          {
+            "hpo_term": "复发性口疮性口炎",
+            "hpo_code": "HP:0011107",
+            "similarity_score": 0.7988457679748535
+          },
+          {
+            "hpo_term": "阴道粘膜溃疡",
+            "hpo_code": "HP:0032565",
+            "similarity_score": 0.7933566570281982
+          },
+          {
+            "hpo_term": "口腔黏膜糜烂",
+            "hpo_code": "HP:0031446",
+            "similarity_score": 0.7926183342933655
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "粘膜集中",
+        "matched_term": "粘膜疹",
+        "hpo_code": "HP:0030249",
+        "similarity_score": 0.7845504283905029,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "粘膜疹",
+            "hpo_code": "HP:0030249",
+            "similarity_score": 0.7845504283905029
+          },
+          {
+            "hpo_term": "粘膜毛细血管扩张",
+            "hpo_code": "HP:0100579",
+            "similarity_score": 0.7717708349227905
+          },
+          {
+            "hpo_term": "粘液栓",
+            "hpo_code": "HP:0025695",
+            "similarity_score": 0.749731719493866
+          },
+          {
+            "hpo_term": "口腔黏膜形态异常",
+            "hpo_code": "HP:0011830",
+            "similarity_score": 0.7387713193893433
+          },
+          {
+            "hpo_term": "颊粘膜形态异常",
+            "hpo_code": "HP:3000019",
+            "similarity_score": 0.7345678210258484
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "肠腔狭窄",
+        "matched_term": "小肠狭窄",
+        "hpo_code": "HP:0012848",
+        "similarity_score": 0.9365848898887634,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "小肠狭窄",
+            "hpo_code": "HP:0012848",
+            "similarity_score": 0.9365848898887634
+          },
+          {
+            "hpo_term": "结肠狭窄",
+            "hpo_code": "HP:0012851",
+            "similarity_score": 0.9263887405395508
+          },
+          {
+            "hpo_term": "肠梗阻",
+            "hpo_code": "HP:0002595",
+            "similarity_score": 0.8844305872917175
+          },
+          {
+            "hpo_term": "肛门狭窄",
+            "hpo_code": "HP:0002025",
+            "similarity_score": 0.8677340745925903
+          },
+          {
+            "hpo_term": "十二指肠狭窄",
+            "hpo_code": "HP:0100867",
+            "similarity_score": 0.8626408576965332
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "结肠袋变浅消失",
+        "matched_term": "结肠狭窄",
+        "hpo_code": "HP:0012851",
+        "similarity_score": 0.8443825244903564,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "结肠狭窄",
+            "hpo_code": "HP:0012851",
+            "similarity_score": 0.8443825244903564
+          },
+          {
+            "hpo_term": "大肠形态异常",
+            "hpo_code": "HP:0002250",
+            "similarity_score": 0.8382486701011658
+          },
+          {
+            "hpo_term": "大肠黏膜形态异常",
+            "hpo_code": "HP:0025090",
+            "similarity_score": 0.8282472491264343
+          },
+          {
+            "hpo_term": "直肠形态结构异常",
+            "hpo_code": "HP:0002034",
+            "similarity_score": 0.8244566917419434
+          },
+          {
+            "hpo_term": "小肠外肌层变薄",
+            "hpo_code": "HP:6000072",
+            "similarity_score": 0.8186017870903015
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "肠道痉挛激惹征象",
+        "matched_term": "肠平滑肌形态异常",
+        "hpo_code": "HP:0030935",
+        "similarity_score": 0.7759722471237183,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "肠平滑肌形态异常",
+            "hpo_code": "HP:0030935",
+            "similarity_score": 0.7759722471237183
+          },
+          {
+            "hpo_term": "胃肠蠕动异常",
+            "hpo_code": "HP:0030895",
+            "similarity_score": 0.7737780809402466
+          },
+          {
+            "hpo_term": "（消化道）蠕动异常",
+            "hpo_code": "HP:0030914",
+            "similarity_score": 0.7736362814903259
+          },
+          {
+            "hpo_term": "肠鸣音异常",
+            "hpo_code": "HP:0030142",
+            "similarity_score": 0.7659833431243896
+          },
+          {
+            "hpo_term": "肠鸣音亢进",
+            "hpo_code": "HP:0030143",
+            "similarity_score": 0.7571812272071838
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "多段肠管破坏，呈“跳跃征”",
+        "matched_term": "回肠形态结构异常",
+        "hpo_code": "HP:0001549",
+        "similarity_score": 0.7735939025878906,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "回肠形态结构异常",
+            "hpo_code": "HP:0001549",
+            "similarity_score": 0.7735939025878906
+          },
+          {
+            "hpo_term": "结肠穿孔",
+            "hpo_code": "HP:0031369",
+            "similarity_score": 0.7635944485664368
+          },
+          {
+            "hpo_term": "空肠形态异常",
+            "hpo_code": "HP:0005265",
+            "similarity_score": 0.7613266706466675
+          },
+          {
+            "hpo_term": "小肠粘膜形态异常",
+            "hpo_code": "HP:0025129",
+            "similarity_score": 0.7609737515449524
+          },
+          {
+            "hpo_term": "大肠形态异常",
+            "hpo_code": "HP:0002250",
+            "similarity_score": 0.7571558952331543
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "盲升结肠变形缩短",
+        "matched_term": "结肠狭窄",
+        "hpo_code": "HP:0012851",
+        "similarity_score": 0.8227493762969971,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "结肠狭窄",
+            "hpo_code": "HP:0012851",
+            "similarity_score": 0.8227493762969971
+          },
+          {
+            "hpo_term": "直肠形态结构异常",
+            "hpo_code": "HP:0002034",
+            "similarity_score": 0.8128911852836609
+          },
+          {
+            "hpo_term": "大肠形态异常",
+            "hpo_code": "HP:0002250",
+            "similarity_score": 0.8111549615859985
+          },
+          {
+            "hpo_term": "回肠形态结构异常",
+            "hpo_code": "HP:0001549",
+            "similarity_score": 0.791003942489624
+          },
+          {
+            "hpo_term": "肠平滑肌形态异常",
+            "hpo_code": "HP:0030935",
+            "similarity_score": 0.7833885550498962
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "回盲瓣增厚",
+        "matched_term": "回盲肠溃疡",
+        "hpo_code": "HP:0033433",
+        "similarity_score": 0.8206176161766052,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "回盲肠溃疡",
+            "hpo_code": "HP:0033433",
+            "similarity_score": 0.8206176161766052
+          },
+          {
+            "hpo_term": "回肠形态结构异常",
+            "hpo_code": "HP:0001549",
+            "similarity_score": 0.8169305324554443
+          },
+          {
+            "hpo_term": "回盲肠肠套叠",
+            "hpo_code": "HP:0033309",
+            "similarity_score": 0.7962021231651306
+          },
+          {
+            "hpo_term": "小肠外肌层变薄",
+            "hpo_code": "HP:6000072",
+            "similarity_score": 0.7919982671737671
+          },
+          {
+            "hpo_term": "肠隐窝增生",
+            "hpo_code": "HP:0034588",
+            "similarity_score": 0.7872478365898132
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "回肠末端狭窄",
+        "matched_term": "小肠狭窄",
+        "hpo_code": "HP:0012848",
+        "similarity_score": 0.9374344348907471,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "小肠狭窄",
+            "hpo_code": "HP:0012848",
+            "similarity_score": 0.9374344348907471
+          },
+          {
+            "hpo_term": "结肠狭窄",
+            "hpo_code": "HP:0012851",
+            "similarity_score": 0.9195234775543213
+          },
+          {
+            "hpo_term": "回肠形态结构异常",
+            "hpo_code": "HP:0001549",
+            "similarity_score": 0.8961613178253174
+          },
+          {
+            "hpo_term": "十二指肠狭窄",
+            "hpo_code": "HP:0100867",
+            "similarity_score": 0.8731023669242859
+          },
+          {
+            "hpo_term": "远端回肠闭锁",
+            "hpo_code": "HP:0200116",
+            "similarity_score": 0.8434541821479797
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "回肠末端粘膜破坏",
+        "matched_term": "回肠炎",
+        "hpo_code": "HP:0032564",
+        "similarity_score": 0.9069440960884094,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "回肠炎",
+            "hpo_code": "HP:0032564",
+            "similarity_score": 0.9069440960884094
+          },
+          {
+            "hpo_term": "回肠溃疡",
+            "hpo_code": "HP:0032024",
+            "similarity_score": 0.8868049383163452
+          },
+          {
+            "hpo_term": "回肠形态结构异常",
+            "hpo_code": "HP:0001549",
+            "similarity_score": 0.8764523863792419
+          },
+          {
+            "hpo_term": "空肠炎",
+            "hpo_code": "HP:0033143",
+            "similarity_score": 0.8645719885826111
+          },
+          {
+            "hpo_term": "回盲肠溃疡",
+            "hpo_code": "HP:0033433",
+            "similarity_score": 0.8521441221237183
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "回肠末端与盲肠排列成一直线，呈“一字征”",
+        "matched_term": "回肠形态结构异常",
+        "hpo_code": "HP:0001549",
+        "similarity_score": 0.7889084815979004,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "回肠形态结构异常",
+            "hpo_code": "HP:0001549",
+            "similarity_score": 0.7889084815979004
+          },
+          {
+            "hpo_term": "小肠形态异常",
+            "hpo_code": "HP:0002242",
+            "similarity_score": 0.7828612327575684
+          },
+          {
+            "hpo_term": "空肠形态异常",
+            "hpo_code": "HP:0005265",
+            "similarity_score": 0.7815634608268738
+          },
+          {
+            "hpo_term": "大肠形态异常",
+            "hpo_code": "HP:0002250",
+            "similarity_score": 0.7713885307312012
+          },
+          {
+            "hpo_term": "肠系膜形态异常",
+            "hpo_code": "HP:0100016",
+            "similarity_score": 0.7631881833076477
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "肠壁环形增厚",
+        "matched_term": "肠隐窝增生",
+        "hpo_code": "HP:0034588",
+        "similarity_score": 0.806861400604248,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "肠隐窝增生",
+            "hpo_code": "HP:0034588",
+            "similarity_score": 0.806861400604248
+          },
+          {
+            "hpo_term": "肠平滑肌形态异常",
+            "hpo_code": "HP:0030935",
+            "similarity_score": 0.7984526753425598
+          },
+          {
+            "hpo_term": "大肠形态异常",
+            "hpo_code": "HP:0002250",
+            "similarity_score": 0.7883531451225281
+          },
+          {
+            "hpo_term": "结肠狭窄",
+            "hpo_code": "HP:0012851",
+            "similarity_score": 0.779432475566864
+          },
+          {
+            "hpo_term": "小肠外肌层变薄",
+            "hpo_code": "HP:6000072",
+            "similarity_score": 0.7746450304985046
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "盲肠内侧偏心性增厚",
+        "matched_term": "大肠形态异常",
+        "hpo_code": "HP:0002250",
+        "similarity_score": 0.8313421010971069,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "大肠形态异常",
+            "hpo_code": "HP:0002250",
+            "similarity_score": 0.8313421010971069
+          },
+          {
+            "hpo_term": "回盲肠肠套叠",
+            "hpo_code": "HP:0033309",
+            "similarity_score": 0.8171082139015198
+          },
+          {
+            "hpo_term": "回盲肠溃疡",
+            "hpo_code": "HP:0033433",
+            "similarity_score": 0.8157956004142761
+          },
+          {
+            "hpo_term": "肠系膜形态异常",
+            "hpo_code": "HP:0100016",
+            "similarity_score": 0.8078693747520447
+          },
+          {
+            "hpo_term": "结肠新生物",
+            "hpo_code": "HP:0100273",
+            "similarity_score": 0.8063817024230957
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "肠道跳跃性改变",
+        "matched_term": "胃肠蠕动异常",
+        "hpo_code": "HP:0030895",
+        "similarity_score": 0.8571854829788208,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "胃肠蠕动异常",
+            "hpo_code": "HP:0030895",
+            "similarity_score": 0.8571854829788208
+          },
+          {
+            "hpo_term": "肠平滑肌形态异常",
+            "hpo_code": "HP:0030935",
+            "similarity_score": 0.8504409193992615
+          },
+          {
+            "hpo_term": "（消化道）蠕动异常",
+            "hpo_code": "HP:0030914",
+            "similarity_score": 0.8296002149581909
+          },
+          {
+            "hpo_term": "胃肠通过时间异常",
+            "hpo_code": "HP:0030896",
+            "similarity_score": 0.8271619081497192
+          },
+          {
+            "hpo_term": "肠神经系统形态异常",
+            "hpo_code": "HP:0025028",
+            "similarity_score": 0.8263758420944214
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "增强后均匀强化",
+        "matched_term": "",
+        "hpo_code": "",
+        "similarity_score": 0.6807003617286682,
+        "status": "low_similarity",
+        "top_candidates": [
+          {
+            "hpo_term": "臂展增加",
+            "hpo_code": "HP:0012771",
+            "similarity_score": 0.6807003617286682
+          },
+          {
+            "hpo_term": "C-反射增强",
+            "hpo_code": "HP:0001340",
+            "similarity_score": 0.6753749847412109
+          },
+          {
+            "hpo_term": "因……而加剧的",
+            "hpo_code": "HP:0025285",
+            "similarity_score": 0.6610558032989502
+          },
+          {
+            "hpo_term": "Z线宽度增加",
+            "hpo_code": "HP:0033008",
+            "similarity_score": 0.6540908813476562
+          },
+          {
+            "hpo_term": "夜晚加重",
+            "hpo_code": "HP:0410401",
+            "similarity_score": 0.6506470441818237
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "合并腹内肠外结核，特别是淋巴结结核",
+        "matched_term": "肺外结核",
+        "hpo_code": "HP:0032271",
+        "similarity_score": 0.7507973909378052,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "肺外结核",
+            "hpo_code": "HP:0032271",
+            "similarity_score": 0.7507973909378052
+          },
+          {
+            "hpo_term": "肠淋巴样结节性增生",
+            "hpo_code": "HP:0011956",
+            "similarity_score": 0.723161518573761
+          },
+          {
+            "hpo_term": "胃肠道肉芽肿病",
+            "hpo_code": "HP:0034841",
+            "similarity_score": 0.7191465497016907
+          },
+          {
+            "hpo_term": "肠淋巴管扩张",
+            "hpo_code": "HP:0002593",
+            "similarity_score": 0.7110369801521301
+          },
+          {
+            "hpo_term": "小肠淋巴浆细胞浸润",
+            "hpo_code": "HP:0034550",
+            "similarity_score": 0.7089658975601196
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "淋巴结结核表现为环形或多环状强化的肿大淋巴结",
+        "matched_term": "感染时周围淋巴结缺失",
+        "hpo_code": "HP:0033581",
+        "similarity_score": 0.7677293419837952,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "感染时周围淋巴结缺失",
+            "hpo_code": "HP:0033581",
+            "similarity_score": 0.7677293419837952
+          },
+          {
+            "hpo_term": "血流结核病诱导T细胞干扰素γ释放试验阳性",
+            "hpo_code": "HP:6000901",
+            "similarity_score": 0.7646991610527039
+          },
+          {
+            "hpo_term": "淋巴结上皮样组织细胞计数增加",
+            "hpo_code": "HP:0020239",
+            "similarity_score": 0.7625560760498047
+          },
+          {
+            "hpo_term": "淋巴结淋巴细胞胞质增多",
+            "hpo_code": "HP:0020286",
+            "similarity_score": 0.7618458271026611
+          },
+          {
+            "hpo_term": "淋巴结淋巴细胞核形态异常",
+            "hpo_code": "HP:0020278",
+            "similarity_score": 0.760471522808075
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "钙化性淋巴结",
+        "matched_term": "淋巴结蛋壳状钙化",
+        "hpo_code": "HP:6001019",
+        "similarity_score": 0.8637214303016663,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "淋巴结蛋壳状钙化",
+            "hpo_code": "HP:6001019",
+            "similarity_score": 0.8637214303016663
+          },
+          {
+            "hpo_term": "钙化点",
+            "hpo_code": "HP:0002832",
+            "similarity_score": 0.8341739177703857
+          },
+          {
+            "hpo_term": "皮下钙化",
+            "hpo_code": "HP:0007618",
+            "similarity_score": 0.8205214142799377
+          },
+          {
+            "hpo_term": "肝钙化",
+            "hpo_code": "HP:0006559",
+            "similarity_score": 0.8113073110580444
+          },
+          {
+            "hpo_term": "纵隔淋巴结钙化",
+            "hpo_code": "HP:6001018",
+            "similarity_score": 0.8090848326683044
+          }
+        ],
+        "card_id": [
+          "ocr_card_59f340759d2a"
+        ]
+      },
+      {
+        "phenotype": "粘膜充血水肿",
+        "matched_term": "粘膜毛细血管扩张",
+        "hpo_code": "HP:0100579",
+        "similarity_score": 0.8278525471687317,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "粘膜毛细血管扩张",
+            "hpo_code": "HP:0100579",
+            "similarity_score": 0.8278525471687317
+          },
+          {
+            "hpo_term": "粘膜疹",
+            "hpo_code": "HP:0030249",
+            "similarity_score": 0.7916710376739502
+          },
+          {
+            "hpo_term": "鼻粘膜毛细血管扩张",
+            "hpo_code": "HP:0000434",
+            "similarity_score": 0.750065803527832
+          },
+          {
+            "hpo_term": "口腔粘膜毛细血管扩张",
+            "hpo_code": "HP:0007428",
+            "similarity_score": 0.7488405704498291
+          },
+          {
+            "hpo_term": "鼻黏膜血管炎",
+            "hpo_code": "HP:0034920",
+            "similarity_score": 0.7449355721473694
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "血管纹理模糊",
+        "matched_term": "血管迂曲",
+        "hpo_code": "HP:0004948",
+        "similarity_score": 0.8371889591217041,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "血管迂曲",
+            "hpo_code": "HP:0004948",
+            "similarity_score": 0.8371889591217041
+          },
+          {
+            "hpo_term": "血管形态异常",
+            "hpo_code": "HP:0025015",
+            "similarity_score": 0.8333509564399719
+          },
+          {
+            "hpo_term": "静脉形态异常",
+            "hpo_code": "HP:0002624",
+            "similarity_score": 0.8015488386154175
+          },
+          {
+            "hpo_term": "动脉迂曲",
+            "hpo_code": "HP:0005116",
+            "similarity_score": 0.7872879505157471
+          },
+          {
+            "hpo_term": "血管生理功能异常",
+            "hpo_code": "HP:0030163",
+            "similarity_score": 0.7709786891937256
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "点状糜烂灶",
+        "matched_term": "点状角膜上皮糜烂",
+        "hpo_code": "HP:0000584",
+        "similarity_score": 0.7534838318824768,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "点状角膜上皮糜烂",
+            "hpo_code": "HP:0000584",
+            "similarity_score": 0.7534838318824768
+          },
+          {
+            "hpo_term": "口腔黏膜糜烂",
+            "hpo_code": "HP:0031446",
+            "similarity_score": 0.7416203618049622
+          },
+          {
+            "hpo_term": "口腔粘膜局灶性上皮增生",
+            "hpo_code": "HP:0410340",
+            "similarity_score": 0.7373372316360474
+          },
+          {
+            "hpo_term": "口腔黏膜斑",
+            "hpo_code": "HP:6001110",
+            "similarity_score": 0.715086817741394
+          },
+          {
+            "hpo_term": "基底层“洋葱头样”改变",
+            "hpo_code": "HP:0003400",
+            "similarity_score": 0.7141081094741821
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "片状糜烂灶",
+        "matched_term": "胃黏膜形态异常",
+        "hpo_code": "HP:0004295",
+        "similarity_score": 0.7655249834060669,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "胃黏膜形态异常",
+            "hpo_code": "HP:0004295",
+            "similarity_score": 0.7655249834060669
+          },
+          {
+            "hpo_term": "口腔粘膜局灶性上皮增生",
+            "hpo_code": "HP:0410340",
+            "similarity_score": 0.749963104724884
+          },
+          {
+            "hpo_term": "基底层“洋葱头样”改变",
+            "hpo_code": "HP:0003400",
+            "similarity_score": 0.7402057647705078
+          },
+          {
+            "hpo_term": "口腔黏膜糜烂",
+            "hpo_code": "HP:0031446",
+            "similarity_score": 0.7230415344238281
+          },
+          {
+            "hpo_term": "口腔黏膜斑",
+            "hpo_code": "HP:6001110",
+            "similarity_score": 0.7218623757362366
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "表面附黄白色粘稠渗出物",
+        "matched_term": "咽部渗出液",
+        "hpo_code": "HP:0034035",
+        "similarity_score": 0.7200039625167847,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "咽部渗出液",
+            "hpo_code": "HP:0034035",
+            "similarity_score": 0.7200039625167847
+          },
+          {
+            "hpo_term": "皮肤病变边界不清",
+            "hpo_code": "HP:6000538",
+            "similarity_score": 0.7030481696128845
+          },
+          {
+            "hpo_term": "化脓性眼分泌物",
+            "hpo_code": "HP:0034427",
+            "similarity_score": 0.7024699449539185
+          },
+          {
+            "hpo_term": "粘膜疹",
+            "hpo_code": "HP:0030249",
+            "similarity_score": 0.7017986178398132
+          },
+          {
+            "hpo_term": "由薄层鳞状皮肤覆盖的黄色皮下组织",
+            "hpo_code": "HP:0007525",
+            "similarity_score": 0.6993798017501831
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "表面附霜样白苔",
+        "matched_term": "口腔黏膜白色病变。",
+        "hpo_code": "HP:0025125",
+        "similarity_score": 0.7144462466239929,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "口腔黏膜白色病变。",
+            "hpo_code": "HP:0025125",
+            "similarity_score": 0.7144462466239929
+          },
+          {
+            "hpo_term": "口腔苔藓样病变",
+            "hpo_code": "HP:0031453",
+            "similarity_score": 0.6983880400657654
+          },
+          {
+            "hpo_term": "口腔粘膜色素沉着异常",
+            "hpo_code": "HP:0100669",
+            "similarity_score": 0.6930438280105591
+          },
+          {
+            "hpo_term": "口腔粘膜白斑",
+            "hpo_code": "HP:0033026",
+            "similarity_score": 0.6845744848251343
+          },
+          {
+            "hpo_term": "口腔黏膜形态异常",
+            "hpo_code": "HP:0011830",
+            "similarity_score": 0.6812757849693298
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "大小不等的溃疡",
+        "matched_term": "口疮性溃疡",
+        "hpo_code": "HP:0032154",
+        "similarity_score": 0.8321968913078308,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "口疮性溃疡",
+            "hpo_code": "HP:0032154",
+            "similarity_score": 0.8321968913078308
+          },
+          {
+            "hpo_term": "粪性溃疡",
+            "hpo_code": "HP:0012425",
+            "similarity_score": 0.7998507022857666
+          },
+          {
+            "hpo_term": "空回肠溃疡",
+            "hpo_code": "HP:0005229",
+            "similarity_score": 0.7963114380836487
+          },
+          {
+            "hpo_term": "口腔溃疡",
+            "hpo_code": "HP:0000155",
+            "similarity_score": 0.791007399559021
+          },
+          {
+            "hpo_term": "消化道溃疡",
+            "hpo_code": "HP:0034274",
+            "similarity_score": 0.7899522185325623
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "溃疡单发或多发",
+        "matched_term": "粪性溃疡",
+        "hpo_code": "HP:0012425",
+        "similarity_score": 0.85448157787323,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "粪性溃疡",
+            "hpo_code": "HP:0012425",
+            "similarity_score": 0.85448157787323
+          },
+          {
+            "hpo_term": "皮肤溃疡",
+            "hpo_code": "HP:0200042",
+            "similarity_score": 0.8349739909172058
+          },
+          {
+            "hpo_term": "空回肠溃疡",
+            "hpo_code": "HP:0005229",
+            "similarity_score": 0.8286920189857483
+          },
+          {
+            "hpo_term": "胃溃疡",
+            "hpo_code": "HP:0002592",
+            "similarity_score": 0.8236733078956604
+          },
+          {
+            "hpo_term": "回肠溃疡",
+            "hpo_code": "HP:0032024",
+            "similarity_score": 0.8211478590965271
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "溃疡环肠壁半周",
+        "matched_term": "粪性溃疡",
+        "hpo_code": "HP:0012425",
+        "similarity_score": 0.8038207292556763,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "粪性溃疡",
+            "hpo_code": "HP:0012425",
+            "similarity_score": 0.8038207292556763
+          },
+          {
+            "hpo_term": "回肠溃疡",
+            "hpo_code": "HP:0032024",
+            "similarity_score": 0.7897146344184875
+          },
+          {
+            "hpo_term": "空回肠溃疡",
+            "hpo_code": "HP:0005229",
+            "similarity_score": 0.7814788818359375
+          },
+          {
+            "hpo_term": "回盲肠溃疡",
+            "hpo_code": "HP:0033433",
+            "similarity_score": 0.780590295791626
+          },
+          {
+            "hpo_term": "胃溃疡",
+            "hpo_code": "HP:0002592",
+            "similarity_score": 0.7512022256851196
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "溃疡不规则",
+        "matched_term": "皮肤溃疡",
+        "hpo_code": "HP:0200042",
+        "similarity_score": 0.8103246092796326,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "皮肤溃疡",
+            "hpo_code": "HP:0200042",
+            "similarity_score": 0.8103246092796326
+          },
+          {
+            "hpo_term": "粪性溃疡",
+            "hpo_code": "HP:0012425",
+            "similarity_score": 0.7928153872489929
+          },
+          {
+            "hpo_term": "皮肤糜烂",
+            "hpo_code": "HP:0200041",
+            "similarity_score": 0.7795957326889038
+          },
+          {
+            "hpo_term": "鼻溃疡",
+            "hpo_code": "HP:0033361",
+            "similarity_score": 0.7749861478805542
+          },
+          {
+            "hpo_term": "伤口愈合不良",
+            "hpo_code": "HP:0001058",
+            "similarity_score": 0.7672183513641357
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "溃疡呈椭圆形",
+        "matched_term": "粪性溃疡",
+        "hpo_code": "HP:0012425",
+        "similarity_score": 0.8160655498504639,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "粪性溃疡",
+            "hpo_code": "HP:0012425",
+            "similarity_score": 0.8160655498504639
+          },
+          {
+            "hpo_term": "胃溃疡",
+            "hpo_code": "HP:0002592",
+            "similarity_score": 0.8118599653244019
+          },
+          {
+            "hpo_term": "空回肠溃疡",
+            "hpo_code": "HP:0005229",
+            "similarity_score": 0.7883684039115906
+          },
+          {
+            "hpo_term": "消化性溃疡",
+            "hpo_code": "HP:0004398",
+            "similarity_score": 0.787754237651825
+          },
+          {
+            "hpo_term": "口疮性溃疡",
+            "hpo_code": "HP:0032154",
+            "similarity_score": 0.7868789434432983
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "溃疡呈类圆形",
+        "matched_term": "粪性溃疡",
+        "hpo_code": "HP:0012425",
+        "similarity_score": 0.8031928539276123,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "粪性溃疡",
+            "hpo_code": "HP:0012425",
+            "similarity_score": 0.8031928539276123
+          },
+          {
+            "hpo_term": "胃溃疡",
+            "hpo_code": "HP:0002592",
+            "similarity_score": 0.7970975637435913
+          },
+          {
+            "hpo_term": "口疮性溃疡",
+            "hpo_code": "HP:0032154",
+            "similarity_score": 0.7791855335235596
+          },
+          {
+            "hpo_term": "消化性溃疡",
+            "hpo_code": "HP:0004398",
+            "similarity_score": 0.7762073874473572
+          },
+          {
+            "hpo_term": "空回肠溃疡",
+            "hpo_code": "HP:0005229",
+            "similarity_score": 0.7748274803161621
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "溃疡横形走向",
+        "matched_term": "粪性溃疡",
+        "hpo_code": "HP:0012425",
+        "similarity_score": 0.8124305009841919,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "粪性溃疡",
+            "hpo_code": "HP:0012425",
+            "similarity_score": 0.8124305009841919
+          },
+          {
+            "hpo_term": "回肠溃疡",
+            "hpo_code": "HP:0032024",
+            "similarity_score": 0.8037660717964172
+          },
+          {
+            "hpo_term": "空回肠溃疡",
+            "hpo_code": "HP:0005229",
+            "similarity_score": 0.800491452217102
+          },
+          {
+            "hpo_term": "胃溃疡",
+            "hpo_code": "HP:0002592",
+            "similarity_score": 0.7913303971290588
+          },
+          {
+            "hpo_term": "回盲肠溃疡",
+            "hpo_code": "HP:0033433",
+            "similarity_score": 0.7767506837844849
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "溃疡与肠轴垂直",
+        "matched_term": "回肠溃疡",
+        "hpo_code": "HP:0032024",
+        "similarity_score": 0.8055252432823181,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "回肠溃疡",
+            "hpo_code": "HP:0032024",
+            "similarity_score": 0.8055252432823181
+          },
+          {
+            "hpo_term": "空回肠溃疡",
+            "hpo_code": "HP:0005229",
+            "similarity_score": 0.7969592809677124
+          },
+          {
+            "hpo_term": "粪性溃疡",
+            "hpo_code": "HP:0012425",
+            "similarity_score": 0.7904651761054993
+          },
+          {
+            "hpo_term": "回盲肠溃疡",
+            "hpo_code": "HP:0033433",
+            "similarity_score": 0.7903775572776794
+          },
+          {
+            "hpo_term": "十二指肠溃疡",
+            "hpo_code": "HP:0002588",
+            "similarity_score": 0.7556151747703552
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "溃疡底部覆黄白色苔",
+        "matched_term": "口疮性溃疡",
+        "hpo_code": "HP:0032154",
+        "similarity_score": 0.7939527630805969,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "口疮性溃疡",
+            "hpo_code": "HP:0032154",
+            "similarity_score": 0.7939527630805969
+          },
+          {
+            "hpo_term": "粪性溃疡",
+            "hpo_code": "HP:0012425",
+            "similarity_score": 0.7900421023368835
+          },
+          {
+            "hpo_term": "口腔溃疡",
+            "hpo_code": "HP:0000155",
+            "similarity_score": 0.7688279747962952
+          },
+          {
+            "hpo_term": "鼻溃疡",
+            "hpo_code": "HP:0033361",
+            "similarity_score": 0.761785089969635
+          },
+          {
+            "hpo_term": "胃溃疡",
+            "hpo_code": "HP:0002592",
+            "similarity_score": 0.7611804008483887
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "溃疡部分可见肉芽组织生长",
+        "matched_term": "皮肤溃疡",
+        "hpo_code": "HP:0200042",
+        "similarity_score": 0.7977640628814697,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "皮肤溃疡",
+            "hpo_code": "HP:0200042",
+            "similarity_score": 0.7977640628814697
+          },
+          {
+            "hpo_term": "伤口愈合不良",
+            "hpo_code": "HP:0001058",
+            "similarity_score": 0.7918958067893982
+          },
+          {
+            "hpo_term": "肉芽组织旺盛",
+            "hpo_code": "HP:6000956",
+            "similarity_score": 0.7813635468482971
+          },
+          {
+            "hpo_term": "皮肤糜烂",
+            "hpo_code": "HP:0200041",
+            "similarity_score": 0.7713749408721924
+          },
+          {
+            "hpo_term": "肢端溃疡",
+            "hpo_code": "HP:0006121",
+            "similarity_score": 0.7545050382614136
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "溃疡界限多不分明",
+        "matched_term": "皮肤病变边界不清",
+        "hpo_code": "HP:6000538",
+        "similarity_score": 0.7871913909912109,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "皮肤病变边界不清",
+            "hpo_code": "HP:6000538",
+            "similarity_score": 0.7871913909912109
+          },
+          {
+            "hpo_term": "皮肤溃疡",
+            "hpo_code": "HP:0200042",
+            "similarity_score": 0.7451868653297424
+          },
+          {
+            "hpo_term": "粪性溃疡",
+            "hpo_code": "HP:0012425",
+            "similarity_score": 0.7419254183769226
+          },
+          {
+            "hpo_term": "口疮性溃疡",
+            "hpo_code": "HP:0032154",
+            "similarity_score": 0.7321890592575073
+          },
+          {
+            "hpo_term": "回盲肠溃疡",
+            "hpo_code": "HP:0033433",
+            "similarity_score": 0.7298941612243652
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "溃疡周围粘膜呈炎症性改变",
+        "matched_term": "空回肠溃疡",
+        "hpo_code": "HP:0005229",
+        "similarity_score": 0.8465158939361572,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "空回肠溃疡",
+            "hpo_code": "HP:0005229",
+            "similarity_score": 0.8465158939361572
+          },
+          {
+            "hpo_term": "回肠溃疡",
+            "hpo_code": "HP:0032024",
+            "similarity_score": 0.8457162380218506
+          },
+          {
+            "hpo_term": "回盲肠溃疡",
+            "hpo_code": "HP:0033433",
+            "similarity_score": 0.8383631110191345
+          },
+          {
+            "hpo_term": "粪性溃疡",
+            "hpo_code": "HP:0012425",
+            "similarity_score": 0.8215060830116272
+          },
+          {
+            "hpo_term": "胃溃疡",
+            "hpo_code": "HP:0002592",
+            "similarity_score": 0.7999340891838074
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "增生性结节",
+        "matched_term": "甲状腺增生",
+        "hpo_code": "HP:0008249",
+        "similarity_score": 0.7981625199317932,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "甲状腺增生",
+            "hpo_code": "HP:0008249",
+            "similarity_score": 0.7981625199317932
+          },
+          {
+            "hpo_term": "硬化性结节",
+            "hpo_code": "HP:0032217",
+            "similarity_score": 0.7944201231002808
+          },
+          {
+            "hpo_term": "结节性甲状腺肿",
+            "hpo_code": "HP:0005994",
+            "similarity_score": 0.7809752821922302
+          },
+          {
+            "hpo_term": "甲状腺结节",
+            "hpo_code": "HP:0025388",
+            "similarity_score": 0.7778350114822388
+          },
+          {
+            "hpo_term": "皮质结节",
+            "hpo_code": "HP:0009717",
+            "similarity_score": 0.7675134539604187
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "铺路石样改变",
+        "matched_term": "皮质管周毛细血管腔形态异常",
+        "hpo_code": "HP:0033863",
+        "similarity_score": 0.7553747892379761,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "皮质管周毛细血管腔形态异常",
+            "hpo_code": "HP:0033863",
+            "similarity_score": 0.7553747892379761
+          },
+          {
+            "hpo_term": "肺部HRCT可见铺石路状结构",
+            "hpo_code": "HP:0025391",
+            "similarity_score": 0.7528027892112732
+          },
+          {
+            "hpo_term": "胸膜鹅卵石样改变",
+            "hpo_code": "HP:0033344",
+            "similarity_score": 0.7526481747627258
+          },
+          {
+            "hpo_term": "管状微囊变",
+            "hpo_code": "HP:0032962",
+            "similarity_score": 0.7495867609977722
+          },
+          {
+            "hpo_term": "基底层“洋葱头样”改变",
+            "hpo_code": "HP:0003400",
+            "similarity_score": 0.7482544183731079
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "不规则肿物样隆起",
+        "matched_term": "橡胶样肿块",
+        "hpo_code": "HP:0025765",
+        "similarity_score": 0.7795242071151733,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "橡胶样肿块",
+            "hpo_code": "HP:0025765",
+            "similarity_score": 0.7795242071151733
+          },
+          {
+            "hpo_term": "乳头-乳晕复合体不对称增厚",
+            "hpo_code": "HP:0040405",
+            "similarity_score": 0.7766711115837097
+          },
+          {
+            "hpo_term": "皮下球状物",
+            "hpo_code": "HP:0025014",
+            "similarity_score": 0.7760409116744995
+          },
+          {
+            "hpo_term": "活动性肿块",
+            "hpo_code": "HP:0025759",
+            "similarity_score": 0.7693691849708557
+          },
+          {
+            "hpo_term": "圆柱瘤",
+            "hpo_code": "HP:0031024",
+            "similarity_score": 0.767154335975647
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "质地脆",
+        "matched_term": "牙齿发脆",
+        "hpo_code": "HP:0025124",
+        "similarity_score": 0.744954526424408,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "牙齿发脆",
+            "hpo_code": "HP:0025124",
+            "similarity_score": 0.744954526424408
+          },
+          {
+            "hpo_term": "皮肤柔软",
+            "hpo_code": "HP:0000977",
+            "similarity_score": 0.7284313440322876
+          },
+          {
+            "hpo_term": "硬皮",
+            "hpo_code": "HP:0030053",
+            "similarity_score": 0.7065340280532837
+          },
+          {
+            "hpo_term": "牙龈脆弱",
+            "hpo_code": "HP:0034518",
+            "similarity_score": 0.68380206823349
+          },
+          {
+            "hpo_term": "毛发粗糙",
+            "hpo_code": "HP:0002208",
+            "similarity_score": 0.6800681948661804
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "色红",
+        "matched_term": "红晕",
+        "hpo_code": "HP:0031284",
+        "similarity_score": 0.8556665182113647,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "红晕",
+            "hpo_code": "HP:0031284",
+            "similarity_score": 0.8556665182113647
+          },
+          {
+            "hpo_term": "红色弱",
+            "hpo_code": "HP:0200018",
+            "similarity_score": 0.8342962265014648
+          },
+          {
+            "hpo_term": "红色盲",
+            "hpo_code": "HP:0011522",
+            "similarity_score": 0.8015955090522766
+          },
+          {
+            "hpo_term": "红色脱饱和",
+            "hpo_code": "HP:0030585",
+            "similarity_score": 0.7730666399002075
+          },
+          {
+            "hpo_term": "色盲",
+            "hpo_code": "HP:0011516",
+            "similarity_score": 0.7710258364677429
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "触之易出血",
+        "matched_term": "出血时间延长",
+        "hpo_code": "HP:0003010",
+        "similarity_score": 0.8024861812591553,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "出血时间延长",
+            "hpo_code": "HP:0003010",
+            "similarity_score": 0.8024861812591553
+          },
+          {
+            "hpo_term": "牙龈出血",
+            "hpo_code": "HP:0000225",
+            "similarity_score": 0.7731920480728149
+          },
+          {
+            "hpo_term": "口腔出血",
+            "hpo_code": "HP:0030140",
+            "similarity_score": 0.7643753886222839
+          },
+          {
+            "hpo_term": "瘀斑易感性",
+            "hpo_code": "HP:0000978",
+            "similarity_score": 0.753911018371582
+          },
+          {
+            "hpo_term": "肌肉出血",
+            "hpo_code": "HP:0040242",
+            "similarity_score": 0.7510635852813721
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "肠腔节段性狭窄",
+        "matched_term": "小肠狭窄",
+        "hpo_code": "HP:0012848",
+        "similarity_score": 0.9347434043884277,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "小肠狭窄",
+            "hpo_code": "HP:0012848",
+            "similarity_score": 0.9347434043884277
+          },
+          {
+            "hpo_term": "结肠狭窄",
+            "hpo_code": "HP:0012851",
+            "similarity_score": 0.932361364364624
+          },
+          {
+            "hpo_term": "十二指肠狭窄",
+            "hpo_code": "HP:0100867",
+            "similarity_score": 0.8673506379127502
+          },
+          {
+            "hpo_term": "肠梗阻",
+            "hpo_code": "HP:0002595",
+            "similarity_score": 0.8462263345718384
+          },
+          {
+            "hpo_term": "肛门狭窄",
+            "hpo_code": "HP:0002025",
+            "similarity_score": 0.8400563597679138
+          }
+        ],
+        "card_id": [
+          "ocr_card_5512f41dcf58"
+        ]
+      },
+      {
+        "phenotype": "肠壁全层的慢性炎症",
+        "matched_term": "回肠炎",
+        "hpo_code": "HP:0032564",
+        "similarity_score": 0.7659754157066345,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "回肠炎",
+            "hpo_code": "HP:0032564",
+            "similarity_score": 0.7659754157066345
+          },
+          {
+            "hpo_term": "肠隐窝增生",
+            "hpo_code": "HP:0034588",
+            "similarity_score": 0.7511857748031616
+          },
+          {
+            "hpo_term": "胃肠道肉芽肿病",
+            "hpo_code": "HP:0034841",
+            "similarity_score": 0.7508283853530884
+          },
+          {
+            "hpo_term": "大肠炎症",
+            "hpo_code": "HP:0002037",
+            "similarity_score": 0.7505261301994324
+          },
+          {
+            "hpo_term": "全结肠炎",
+            "hpo_code": "HP:0033256",
+            "similarity_score": 0.7463556528091431
+          }
+        ],
+        "card_id": [
+          "ocr_card_c06590140e51"
+        ]
+      },
+      {
+        "phenotype": "溃疡形成且较深",
+        "matched_term": "粪性溃疡",
+        "hpo_code": "HP:0012425",
+        "similarity_score": 0.818252682685852,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "粪性溃疡",
+            "hpo_code": "HP:0012425",
+            "similarity_score": 0.818252682685852
+          },
+          {
+            "hpo_term": "皮肤溃疡",
+            "hpo_code": "HP:0200042",
+            "similarity_score": 0.8114953637123108
+          },
+          {
+            "hpo_term": "回盲肠溃疡",
+            "hpo_code": "HP:0033433",
+            "similarity_score": 0.7776128053665161
+          },
+          {
+            "hpo_term": "回肠溃疡",
+            "hpo_code": "HP:0032024",
+            "similarity_score": 0.7767025232315063
+          },
+          {
+            "hpo_term": "胃溃疡",
+            "hpo_code": "HP:0002592",
+            "similarity_score": 0.7751999497413635
+          }
+        ],
+        "card_id": [
+          "ocr_card_c06590140e51"
+        ]
+      },
+      {
+        "phenotype": "肠壁或肠淋巴结干酪样坏死",
+        "matched_term": "坏死性回肠炎",
+        "hpo_code": "HP:4000012",
+        "similarity_score": 0.8215802907943726,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "坏死性回肠炎",
+            "hpo_code": "HP:4000012",
+            "similarity_score": 0.8215802907943726
+          },
+          {
+            "hpo_term": "胃肠道肉芽肿病",
+            "hpo_code": "HP:0034841",
+            "similarity_score": 0.769822359085083
+          },
+          {
+            "hpo_term": "淋巴结坏死",
+            "hpo_code": "HP:4000149",
+            "similarity_score": 0.7613756656646729
+          },
+          {
+            "hpo_term": "坏死性小肠结肠炎",
+            "hpo_code": "HP:0033165",
+            "similarity_score": 0.7569662928581238
+          },
+          {
+            "hpo_term": "脾坏死",
+            "hpo_code": "HP:6000232",
+            "similarity_score": 0.7496369481086731
+          }
+        ],
+        "card_id": [
+          "ocr_card_c06590140e51"
+        ]
+      },
+      {
+        "phenotype": "黏膜下层闭锁",
+        "matched_term": "固有肌层异常分层",
+        "hpo_code": "HP:0030936",
+        "similarity_score": 0.8109745383262634,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "固有肌层异常分层",
+            "hpo_code": "HP:0030936",
+            "similarity_score": 0.8109745383262634
+          },
+          {
+            "hpo_term": "消化道闭锁",
+            "hpo_code": "HP:0002589",
+            "similarity_score": 0.7960113883018494
+          },
+          {
+            "hpo_term": "小肠狭窄",
+            "hpo_code": "HP:0012848",
+            "similarity_score": 0.7946710586547852
+          },
+          {
+            "hpo_term": "小肠外肌层变薄",
+            "hpo_code": "HP:6000072",
+            "similarity_score": 0.7935552597045898
+          },
+          {
+            "hpo_term": "远端回肠闭锁",
+            "hpo_code": "HP:0200116",
+            "similarity_score": 0.790261447429657
+          }
+        ],
+        "card_id": [
+          "ocr_card_c06590140e51"
+        ]
+      },
+      {
+        "phenotype": "粘膜肌层的破坏",
+        "matched_term": "层内粘液样细胞外基质积聚",
+        "hpo_code": "HP:0032081",
+        "similarity_score": 0.7502195835113525,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "层内粘液样细胞外基质积聚",
+            "hpo_code": "HP:0032081",
+            "similarity_score": 0.7502195835113525
+          },
+          {
+            "hpo_term": "食管-胃交界处粘膜撕裂",
+            "hpo_code": "HP:0032062",
+            "similarity_score": 0.7303667664527893
+          },
+          {
+            "hpo_term": "固有肌层萎缩",
+            "hpo_code": "HP:0025149",
+            "similarity_score": 0.724916934967041
+          },
+          {
+            "hpo_term": "呼吸道上皮的形态异常",
+            "hpo_code": "HP:0012253",
+            "similarity_score": 0.7248631715774536
+          },
+          {
+            "hpo_term": "系膜基质扩张",
+            "hpo_code": "HP:0033493",
+            "similarity_score": 0.7232036590576172
+          }
+        ],
+        "card_id": [
+          "ocr_card_c06590140e51"
+        ]
+      },
+      {
+        "phenotype": "结核结节（干酪样肉芽肿）",
+        "matched_term": "非干酪性上皮样细胞肉芽肿",
+        "hpo_code": "HP:0012220",
+        "similarity_score": 0.7997334003448486,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "非干酪性上皮样细胞肉芽肿",
+            "hpo_code": "HP:0012220",
+            "similarity_score": 0.7997334003448486
+          },
+          {
+            "hpo_term": "Koeppe结节",
+            "hpo_code": "HP:0034820",
+            "similarity_score": 0.7747191190719604
+          },
+          {
+            "hpo_term": "肉芽肿",
+            "hpo_code": "HP:0032252",
+            "similarity_score": 0.7674775719642639
+          },
+          {
+            "hpo_term": "肉芽肿病",
+            "hpo_code": "HP:0002955",
+            "similarity_score": 0.7634516358375549
+          },
+          {
+            "hpo_term": "胶样小体",
+            "hpo_code": "HP:0025115",
+            "similarity_score": 0.7540881037712097
+          }
+        ],
+        "card_id": [
+          "ocr_card_c06590140e51"
+        ]
+      },
+      {
+        "phenotype": "抗酸染色可找到阳性杆菌",
+        "matched_term": "伤口组织中显示抗酸杆菌",
+        "hpo_code": "HP:6000963",
+        "similarity_score": 0.7932501435279846,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "伤口组织中显示抗酸杆菌",
+            "hpo_code": "HP:6000963",
+            "similarity_score": 0.7932501435279846
+          },
+          {
+            "hpo_term": "结核菌素皮肤试验阳性",
+            "hpo_code": "HP:6000925",
+            "similarity_score": 0.7554910182952881
+          },
+          {
+            "hpo_term": "粪便巴比妥酸盐试验阳性",
+            "hpo_code": "HP:0410202",
+            "similarity_score": 0.7379741072654724
+          },
+          {
+            "hpo_term": "脑脊液分枝杆菌显微镜检查阳性",
+            "hpo_code": "HP:6000544",
+            "similarity_score": 0.7303986549377441
+          },
+          {
+            "hpo_term": "三氯化铁试验阳性",
+            "hpo_code": "HP:0003612",
+            "similarity_score": 0.7222721576690674
+          }
+        ],
+        "card_id": [
+          "ocr_card_c06590140e51"
+        ]
+      },
+      {
+        "phenotype": "结核病史",
+        "matched_term": "肺结核",
+        "hpo_code": "HP:0032262",
+        "similarity_score": 0.8412654399871826,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "肺结核",
+            "hpo_code": "HP:0032262",
+            "similarity_score": 0.8412654399871826
+          },
+          {
+            "hpo_term": "异烟肼服用史",
+            "hpo_code": "HP:4000137",
+            "similarity_score": 0.7678239941596985
+          },
+          {
+            "hpo_term": "结核菌素皮肤试验阳性",
+            "hpo_code": "HP:6000925",
+            "similarity_score": 0.7564684748649597
+          },
+          {
+            "hpo_term": "既往病史",
+            "hpo_code": "HP:0032443",
+            "similarity_score": 0.7549520134925842
+          },
+          {
+            "hpo_term": "Quantiferon结核病检测阳性",
+            "hpo_code": "HP:6000799",
+            "similarity_score": 0.7311569452285767
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "肠外结核病灶（如肺结核）",
+        "matched_term": "肺外结核",
+        "hpo_code": "HP:0032271",
+        "similarity_score": 0.8297492265701294,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "肺外结核",
+            "hpo_code": "HP:0032271",
+            "similarity_score": 0.8297492265701294
+          },
+          {
+            "hpo_term": "肺结核",
+            "hpo_code": "HP:0032262",
+            "similarity_score": 0.7729041576385498
+          },
+          {
+            "hpo_term": "血流结核病诱导T细胞干扰素γ释放试验阳性",
+            "hpo_code": "HP:6000901",
+            "similarity_score": 0.7287381291389465
+          },
+          {
+            "hpo_term": "分枝杆菌菌血症",
+            "hpo_code": "HP:0034543",
+            "similarity_score": 0.725631058216095
+          },
+          {
+            "hpo_term": "播散性非结核分枝杆菌感染",
+            "hpo_code": "HP:0032283",
+            "similarity_score": 0.7201024293899536
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "结核中毒症状",
+        "matched_term": "肺结核",
+        "hpo_code": "HP:0032262",
+        "similarity_score": 0.768224835395813,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "肺结核",
+            "hpo_code": "HP:0032262",
+            "similarity_score": 0.768224835395813
+          },
+          {
+            "hpo_term": "结核菌素皮肤试验阳性",
+            "hpo_code": "HP:6000925",
+            "similarity_score": 0.7613970041275024
+          },
+          {
+            "hpo_term": "肺外结核",
+            "hpo_code": "HP:0032271",
+            "similarity_score": 0.7292719483375549
+          },
+          {
+            "hpo_term": "异烟肼服用史",
+            "hpo_code": "HP:4000137",
+            "similarity_score": 0.7131350040435791
+          },
+          {
+            "hpo_term": "接种卡介苗后远处或播散性感染",
+            "hpo_code": "HP:0020087",
+            "similarity_score": 0.7076336741447449
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "轻度贫血",
+        "matched_term": "低色素性贫血",
+        "hpo_code": "HP:0001931",
+        "similarity_score": 0.8550721406936646,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "低色素性贫血",
+            "hpo_code": "HP:0001931",
+            "similarity_score": 0.8550721406936646
+          },
+          {
+            "hpo_term": "缺铁性贫血",
+            "hpo_code": "HP:0001891",
+            "similarity_score": 0.8004027605056763
+          },
+          {
+            "hpo_term": "贫血",
+            "hpo_code": "HP:0001903",
+            "similarity_score": 0.7899996042251587
+          },
+          {
+            "hpo_term": "小细胞性贫血",
+            "hpo_code": "HP:0001935",
+            "similarity_score": 0.7848532795906067
+          },
+          {
+            "hpo_term": "低色素性小红细胞性贫血",
+            "hpo_code": "HP:0004840",
+            "similarity_score": 0.7829180955886841
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "血沉增快",
+        "matched_term": "红细胞沉降速度升高",
+        "hpo_code": "HP:0003565",
+        "similarity_score": 0.8959379196166992,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "红细胞沉降速度升高",
+            "hpo_code": "HP:0003565",
+            "similarity_score": 0.8959379196166992
+          },
+          {
+            "hpo_term": "红细胞沉降率异常",
+            "hpo_code": "HP:0025021",
+            "similarity_score": 0.8829733729362488
+          },
+          {
+            "hpo_term": "红细胞沉降率下降",
+            "hpo_code": "HP:0025022",
+            "similarity_score": 0.8477780818939209
+          },
+          {
+            "hpo_term": "血液沉淀素水平升高",
+            "hpo_code": "HP:0033039",
+            "similarity_score": 0.8445277810096741
+          },
+          {
+            "hpo_term": "血液球蛋白水平升高",
+            "hpo_code": "HP:0032311",
+            "similarity_score": 0.7735415101051331
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "X线钡餐造影示肠管激惹征",
+        "matched_term": "小肠粘膜形态异常",
+        "hpo_code": "HP:0025129",
+        "similarity_score": 0.7639369368553162,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "小肠粘膜形态异常",
+            "hpo_code": "HP:0025129",
+            "similarity_score": 0.7639369368553162
+          },
+          {
+            "hpo_term": "胃液巴比妥酸盐试验阳性",
+            "hpo_code": "HP:0410203",
+            "similarity_score": 0.7557847499847412
+          },
+          {
+            "hpo_term": "粪便巴比妥酸盐试验阳性",
+            "hpo_code": "HP:0410202",
+            "similarity_score": 0.7382656931877136
+          },
+          {
+            "hpo_term": "肠鸣音亢进",
+            "hpo_code": "HP:0030143",
+            "similarity_score": 0.72797691822052
+          },
+          {
+            "hpo_term": "小肠绒毛形态异常",
+            "hpo_code": "HP:0011472",
+            "similarity_score": 0.7210522890090942
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "X线钡餐造影示充盈缺损",
+        "matched_term": "胃液巴比妥酸盐试验阳性",
+        "hpo_code": "HP:0410203",
+        "similarity_score": 0.7453131675720215,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "胃液巴比妥酸盐试验阳性",
+            "hpo_code": "HP:0410203",
+            "similarity_score": 0.7453131675720215
+          },
+          {
+            "hpo_term": "大肠形态异常",
+            "hpo_code": "HP:0002250",
+            "similarity_score": 0.7407389283180237
+          },
+          {
+            "hpo_term": "大肠黏膜形态异常",
+            "hpo_code": "HP:0025090",
+            "similarity_score": 0.7377060651779175
+          },
+          {
+            "hpo_term": "胃肠道形态异常",
+            "hpo_code": "HP:0012718",
+            "similarity_score": 0.7344669103622437
+          },
+          {
+            "hpo_term": "胃呈扭曲外观",
+            "hpo_code": "HP:6000987",
+            "similarity_score": 0.7148652076721191
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "X线钡餐造影示肠腔狭窄",
+        "matched_term": "结肠狭窄",
+        "hpo_code": "HP:0012851",
+        "similarity_score": 0.8440375328063965,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "结肠狭窄",
+            "hpo_code": "HP:0012851",
+            "similarity_score": 0.8440375328063965
+          },
+          {
+            "hpo_term": "小肠狭窄",
+            "hpo_code": "HP:0012848",
+            "similarity_score": 0.832379937171936
+          },
+          {
+            "hpo_term": "十二指肠狭窄",
+            "hpo_code": "HP:0100867",
+            "similarity_score": 0.7985848188400269
+          },
+          {
+            "hpo_term": "回肠形态结构异常",
+            "hpo_code": "HP:0001549",
+            "similarity_score": 0.7645323276519775
+          },
+          {
+            "hpo_term": "小肠粘膜形态异常",
+            "hpo_code": "HP:0025129",
+            "similarity_score": 0.7643299698829651
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "CT示肠壁环形增厚",
+        "matched_term": "结肠狭窄",
+        "hpo_code": "HP:0012851",
+        "similarity_score": 0.7598789930343628,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "结肠狭窄",
+            "hpo_code": "HP:0012851",
+            "similarity_score": 0.7598789930343628
+          },
+          {
+            "hpo_term": "大肠形态异常",
+            "hpo_code": "HP:0002250",
+            "similarity_score": 0.7548767328262329
+          },
+          {
+            "hpo_term": "结肠新生物",
+            "hpo_code": "HP:0100273",
+            "similarity_score": 0.7450956106185913
+          },
+          {
+            "hpo_term": "结肠嗜酸性粒细胞增多",
+            "hpo_code": "HP:0031813",
+            "similarity_score": 0.742615282535553
+          },
+          {
+            "hpo_term": "回肠形态结构异常",
+            "hpo_code": "HP:0001549",
+            "similarity_score": 0.7423242926597595
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "CT示盲肠内侧偏心性增厚",
+        "matched_term": "回盲肠肠套叠",
+        "hpo_code": "HP:0033309",
+        "similarity_score": 0.7832221984863281,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "回盲肠肠套叠",
+            "hpo_code": "HP:0033309",
+            "similarity_score": 0.7832221984863281
+          },
+          {
+            "hpo_term": "回盲肠溃疡",
+            "hpo_code": "HP:0033433",
+            "similarity_score": 0.7814114689826965
+          },
+          {
+            "hpo_term": "大肠形态异常",
+            "hpo_code": "HP:0002250",
+            "similarity_score": 0.762366771697998
+          },
+          {
+            "hpo_term": "结肠新生物",
+            "hpo_code": "HP:0100273",
+            "similarity_score": 0.7620092034339905
+          },
+          {
+            "hpo_term": "回肠形态结构异常",
+            "hpo_code": "HP:0001549",
+            "similarity_score": 0.7463647127151489
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "CT示回盲瓣增厚",
+        "matched_term": "回盲肠溃疡",
+        "hpo_code": "HP:0033433",
+        "similarity_score": 0.7881345152854919,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "回盲肠溃疡",
+            "hpo_code": "HP:0033433",
+            "similarity_score": 0.7881345152854919
+          },
+          {
+            "hpo_term": "回肠炎",
+            "hpo_code": "HP:0032564",
+            "similarity_score": 0.763943612575531
+          },
+          {
+            "hpo_term": "小肠粘膜形态异常",
+            "hpo_code": "HP:0025129",
+            "similarity_score": 0.757085919380188
+          },
+          {
+            "hpo_term": "小肠淋巴浆细胞浸润",
+            "hpo_code": "HP:0034550",
+            "similarity_score": 0.7522035241127014
+          },
+          {
+            "hpo_term": "结直肠粘膜淋巴细胞浸润",
+            "hpo_code": "HP:0032216",
+            "similarity_score": 0.7511733770370483
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "纤维结肠镜示肠道炎症",
+        "matched_term": "大肠黏膜形态异常",
+        "hpo_code": "HP:0025090",
+        "similarity_score": 0.8276901245117188,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "大肠黏膜形态异常",
+            "hpo_code": "HP:0025090",
+            "similarity_score": 0.8276901245117188
+          },
+          {
+            "hpo_term": "结肠炎",
+            "hpo_code": "HP:0002583",
+            "similarity_score": 0.8098502159118652
+          },
+          {
+            "hpo_term": "结直肠粘膜淋巴细胞浸润",
+            "hpo_code": "HP:0032216",
+            "similarity_score": 0.8093141913414001
+          },
+          {
+            "hpo_term": "大肠炎症",
+            "hpo_code": "HP:0002037",
+            "similarity_score": 0.8070892095565796
+          },
+          {
+            "hpo_term": "结肠嗜酸性粒细胞增多",
+            "hpo_code": "HP:0031813",
+            "similarity_score": 0.7948099374771118
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "纤维结肠镜示溃疡（不规则，椭圆形或类圆形，横形走向，与肠轴垂直）",
+        "matched_term": "大肠黏膜形态异常",
+        "hpo_code": "HP:0025090",
+        "similarity_score": 0.8118966817855835,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "大肠黏膜形态异常",
+            "hpo_code": "HP:0025090",
+            "similarity_score": 0.8118966817855835
+          },
+          {
+            "hpo_term": "结肠纤维蛋白脓性渗出物",
+            "hpo_code": "HP:0034638",
+            "similarity_score": 0.7868998050689697
+          },
+          {
+            "hpo_term": "结肠新生物",
+            "hpo_code": "HP:0100273",
+            "similarity_score": 0.7724061608314514
+          },
+          {
+            "hpo_term": "肠隐窝增生",
+            "hpo_code": "HP:0034588",
+            "similarity_score": 0.7710130214691162
+          },
+          {
+            "hpo_term": "大肠形态异常",
+            "hpo_code": "HP:0002250",
+            "similarity_score": 0.7686133980751038
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "纤维结肠镜示增生性结节（铺路石样改变，可形成不规则肿物样隆起）",
+        "matched_term": "增生性结肠息肉病",
+        "hpo_code": "HP:0012183",
+        "similarity_score": 0.794189989566803,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "增生性结肠息肉病",
+            "hpo_code": "HP:0012183",
+            "similarity_score": 0.794189989566803
+          },
+          {
+            "hpo_term": "肠隐窝增生",
+            "hpo_code": "HP:0034588",
+            "similarity_score": 0.7823802828788757
+          },
+          {
+            "hpo_term": "大肠黏膜形态异常",
+            "hpo_code": "HP:0025090",
+            "similarity_score": 0.7731279730796814
+          },
+          {
+            "hpo_term": "分散性肠息肉",
+            "hpo_code": "HP:0005238",
+            "similarity_score": 0.7536821365356445
+          },
+          {
+            "hpo_term": "结肠新生物",
+            "hpo_code": "HP:0100273",
+            "similarity_score": 0.7505255341529846
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "病理组织学见结核结节",
+        "matched_term": "伤口组织中显示抗酸杆菌",
+        "hpo_code": "HP:6000963",
+        "similarity_score": 0.8242913484573364,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "伤口组织中显示抗酸杆菌",
+            "hpo_code": "HP:6000963",
+            "similarity_score": 0.8242913484573364
+          },
+          {
+            "hpo_term": "结核菌素皮肤试验阳性",
+            "hpo_code": "HP:6000925",
+            "similarity_score": 0.7811028361320496
+          },
+          {
+            "hpo_term": "肺结核",
+            "hpo_code": "HP:0032262",
+            "similarity_score": 0.7506856918334961
+          },
+          {
+            "hpo_term": "Quantiferon结核病检测阳性",
+            "hpo_code": "HP:6000799",
+            "similarity_score": 0.7432126402854919
+          },
+          {
+            "hpo_term": "分枝杆菌关节液核酸检测阳性",
+            "hpo_code": "HP:6000735",
+            "similarity_score": 0.7407288551330566
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "抗酸染色发现结核杆菌",
+        "matched_term": "伤口组织中显示抗酸杆菌",
+        "hpo_code": "HP:6000963",
+        "similarity_score": 0.8281652927398682,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "伤口组织中显示抗酸杆菌",
+            "hpo_code": "HP:6000963",
+            "similarity_score": 0.8281652927398682
+          },
+          {
+            "hpo_term": "结核菌素皮肤试验阳性",
+            "hpo_code": "HP:6000925",
+            "similarity_score": 0.815894365310669
+          },
+          {
+            "hpo_term": "脑脊液分枝杆菌显微镜检查阳性",
+            "hpo_code": "HP:6000544",
+            "similarity_score": 0.7960807085037231
+          },
+          {
+            "hpo_term": "脑脊液结核分枝杆菌核酸检测阳性",
+            "hpo_code": "HP:6000542",
+            "similarity_score": 0.7918266654014587
+          },
+          {
+            "hpo_term": "分枝杆菌关节液核酸检测阳性",
+            "hpo_code": "HP:6000735",
+            "similarity_score": 0.789213240146637
+          }
+        ],
+        "card_id": [
+          "ocr_card_c619a9e770b8"
+        ]
+      },
+      {
+        "phenotype": "完全性肠梗阻",
+        "matched_term": "肠梗阻",
+        "hpo_code": "HP:0002595",
+        "similarity_score": 0.913785994052887,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "肠梗阻",
+            "hpo_code": "HP:0002595",
+            "similarity_score": 0.913785994052887
+          },
+          {
+            "hpo_term": "机械性肠梗阻",
+            "hpo_code": "HP:0010676",
+            "similarity_score": 0.8950843214988708
+          },
+          {
+            "hpo_term": "胃肠道梗阻",
+            "hpo_code": "HP:0004796",
+            "similarity_score": 0.8944846987724304
+          },
+          {
+            "hpo_term": "胃肠道梗塞",
+            "hpo_code": "HP:0005244",
+            "similarity_score": 0.8897867202758789
+          },
+          {
+            "hpo_term": "高位肠梗阻",
+            "hpo_code": "HP:0005250",
+            "similarity_score": 0.8851586580276489
+          }
+        ],
+        "card_id": [
+          "ocr_card_4d9d708c2da3"
+        ]
+      },
+      {
+        "phenotype": "急性肠穿孔",
+        "matched_term": "小肠穿孔",
+        "hpo_code": "HP:0031370",
+        "similarity_score": 0.9279746413230896,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "小肠穿孔",
+            "hpo_code": "HP:0031370",
+            "similarity_score": 0.9279746413230896
+          },
+          {
+            "hpo_term": "肠穿孔",
+            "hpo_code": "HP:0031368",
+            "similarity_score": 0.926237165927887
+          },
+          {
+            "hpo_term": "胃穿孔",
+            "hpo_code": "HP:6000383",
+            "similarity_score": 0.9054463505744934
+          },
+          {
+            "hpo_term": "结肠穿孔",
+            "hpo_code": "HP:0031369",
+            "similarity_score": 0.9017263054847717
+          },
+          {
+            "hpo_term": "直肠穿孔",
+            "hpo_code": "HP:0031371",
+            "similarity_score": 0.8932428956031799
+          }
+        ],
+        "card_id": [
+          "ocr_card_4d9d708c2da3"
+        ]
+      },
+      {
+        "phenotype": "慢性肠穿孔瘘管形成经内科治疗而未能闭合者",
+        "matched_term": "肠瘘",
+        "hpo_code": "HP:0100819",
+        "similarity_score": 0.8274660706520081,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "肠瘘",
+            "hpo_code": "HP:0100819",
+            "similarity_score": 0.8274660706520081
+          },
+          {
+            "hpo_term": "肠外瘘",
+            "hpo_code": "HP:0033279",
+            "similarity_score": 0.821500301361084
+          },
+          {
+            "hpo_term": "肠穿孔",
+            "hpo_code": "HP:0031368",
+            "similarity_score": 0.8184535503387451
+          },
+          {
+            "hpo_term": "结肠穿孔",
+            "hpo_code": "HP:0031369",
+            "similarity_score": 0.8155383467674255
+          },
+          {
+            "hpo_term": "小肠穿孔",
+            "hpo_code": "HP:0031370",
+            "similarity_score": 0.8042007088661194
+          }
+        ],
+        "card_id": [
+          "ocr_card_4d9d708c2da3"
+        ]
+      },
+      {
+        "phenotype": "肠道大量出血经积极抢救不能有效止血者",
+        "matched_term": "胃肠道出血",
+        "hpo_code": "HP:0002239",
+        "similarity_score": 0.8166165947914124,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "胃肠道出血",
+            "hpo_code": "HP:0002239",
+            "similarity_score": 0.8166165947914124
+          },
+          {
+            "hpo_term": "肠道出血",
+            "hpo_code": "HP:0002584",
+            "similarity_score": 0.8126430511474609
+          },
+          {
+            "hpo_term": "小肠出血",
+            "hpo_code": "HP:0012849",
+            "similarity_score": 0.804763674736023
+          },
+          {
+            "hpo_term": "胆道出血",
+            "hpo_code": "HP:0100762",
+            "similarity_score": 0.7525736689567566
+          },
+          {
+            "hpo_term": "结肠动静脉畸形",
+            "hpo_code": "HP:0031345",
+            "similarity_score": 0.7429313063621521
+          }
+        ],
+        "card_id": [
+          "ocr_card_4d9d708c2da3"
+        ]
+      },
+      {
+        "phenotype": "诊断困难须剖腹探查者",
+        "matched_term": "墨菲征阳性",
+        "hpo_code": "HP:0034753",
+        "similarity_score": 0.7374069690704346,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "墨菲征阳性",
+            "hpo_code": "HP:0034753",
+            "similarity_score": 0.7374069690704346
+          },
+          {
+            "hpo_term": "腹膜形态异常",
+            "hpo_code": "HP:0002585",
+            "similarity_score": 0.7172259092330933
+          },
+          {
+            "hpo_term": "腹膜后肿块",
+            "hpo_code": "HP:6000285",
+            "similarity_score": 0.7051451206207275
+          },
+          {
+            "hpo_term": "脾坏死",
+            "hpo_code": "HP:6000232",
+            "similarity_score": 0.6980113387107849
+          },
+          {
+            "hpo_term": "胆囊蒂扭转",
+            "hpo_code": "HP:6001042",
+            "similarity_score": 0.6976624727249146
+          }
+        ],
+        "card_id": [
+          "ocr_card_4d9d708c2da3"
+        ]
+      },
+      {
+        "phenotype": "反复发作的慢性肠梗阻，严重影响患者的工作、生活，伴营养障碍",
+        "matched_term": "肠梗阻",
+        "hpo_code": "HP:0002595",
+        "similarity_score": 0.7555685043334961,
+        "status": "duplicate",
+        "top_candidates": [
+          {
+            "hpo_term": "肠梗阻",
+            "hpo_code": "HP:0002595",
+            "similarity_score": 0.7555685043334961
+          },
+          {
+            "hpo_term": "功能性肠梗阻",
+            "hpo_code": "HP:0005249",
+            "similarity_score": 0.747500479221344
+          },
+          {
+            "hpo_term": "结肠狭窄",
+            "hpo_code": "HP:0012851",
+            "similarity_score": 0.7453008890151978
+          },
+          {
+            "hpo_term": "胃肠道梗阻",
+            "hpo_code": "HP:0004796",
+            "similarity_score": 0.74050372838974
+          },
+          {
+            "hpo_term": "高位肠梗阻",
+            "hpo_code": "HP:0005250",
+            "similarity_score": 0.7367696166038513
+          }
+        ],
+        "card_id": [
+          "ocr_card_4d9d708c2da3"
+        ]
+      }
+    ]
+  },
+  "negative_features": {
+    "source_type": "cards_negative",
+    "similarity_threshold": 0.7,
+    "top_k": 5,
+    "input_count": 2,
+    "deduped_count": 2,
+    "mapped_count": 2,
+    "low_similarity_count": 0,
+    "duplicate_count": 0,
+    "items": [
+      {
+        "phenotype": "PPD试验阴性",
+        "matched_term": "结核菌素皮肤试验阳性",
+        "hpo_code": "HP:6000925",
+        "similarity_score": 0.8229095339775085,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "结核菌素皮肤试验阳性",
+            "hpo_code": "HP:6000925",
+            "similarity_score": 0.8229095339775085
+          },
+          {
+            "hpo_term": "四氮唑蓝（NBT）还原试验阴性",
+            "hpo_code": "HP:0003203",
+            "similarity_score": 0.7706394195556641
+          },
+          {
+            "hpo_term": "Quantiferon结核病检测阳性",
+            "hpo_code": "HP:6000799",
+            "similarity_score": 0.7589013576507568
+          },
+          {
+            "hpo_term": "血液IgE持续缺乏",
+            "hpo_code": "HP:0033023",
+            "similarity_score": 0.7322022914886475
+          },
+          {
+            "hpo_term": "迟发型皮肤超敏试验异常",
+            "hpo_code": "HP:0002963",
+            "similarity_score": 0.7299011945724487
+          }
+        ],
+        "card_id": [
+          "ocr_card_0607e4e31699"
+        ]
+      },
+      {
+        "phenotype": "干酪样坏死少见",
+        "matched_term": "非坏死性肉芽肿",
+        "hpo_code": "HP:0033805",
+        "similarity_score": 0.7899489402770996,
+        "status": "mapped",
+        "top_candidates": [
+          {
+            "hpo_term": "非坏死性肉芽肿",
+            "hpo_code": "HP:0033805",
+            "similarity_score": 0.7899489402770996
+          },
+          {
+            "hpo_term": "非干酪性上皮样细胞肉芽肿",
+            "hpo_code": "HP:0012220",
+            "similarity_score": 0.7688190340995789
+          },
+          {
+            "hpo_term": "非坏死性肺肉芽肿病",
+            "hpo_code": "HP:0033551",
+            "similarity_score": 0.744113564491272
+          },
+          {
+            "hpo_term": "坏死性肺肉芽肿病",
+            "hpo_code": "HP:0033550",
+            "similarity_score": 0.739465594291687
+          },
+          {
+            "hpo_term": "淋巴结坏死",
+            "hpo_code": "HP:4000149",
+            "similarity_score": 0.7309874296188354
+          }
+        ],
+        "card_id": [
+          "ocr_card_c06590140e51"
+        ]
+      }
+    ]
+  }
+}
