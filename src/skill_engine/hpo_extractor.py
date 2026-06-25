@@ -593,10 +593,14 @@ def _hpo_candidates(
             {
                 "hpo_term": hpo_term,
                 "hpo_code": definition_values[index],
-                "similarity_score": float(value),
+                "similarity_score": _normalize_similarity_score(value),
             }
         )
     return candidates
+
+
+def _normalize_similarity_score(value: Any) -> float:
+    return max(0.0, min(float(value or 0.0), 1.0))
 
 
 def _mapping_result(
