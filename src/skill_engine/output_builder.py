@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import uuid
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping
 
 from .schemas import load_json_schema, validate_json
 from .skill_loader import SkillPack
@@ -275,7 +275,7 @@ def _summary(
     top_candidates: list[dict[str, Any]],
     structured_result: dict[str, Any],
 ) -> str:
-    disease = top_candidates[0]["disease_name"] if top_candidates else "未选择技能"
+    disease = _candidate_disease(top_candidates[0]) if top_candidates else "未选择技能"
     if status == "stopped_for_safety":
         return "检测到安全红旗，流程已停止并建议优先安全评估。"
     if status == "error":
@@ -286,6 +286,10 @@ def _summary(
         missing = structured_result.get("missing_information") or []
         return f"{disease} 工作流提示关键证据不足，需补充 {len(missing)} 项信息。"
     return f"{disease} 工作流已完成规则版指南信息组织。"
+
+
+def _candidate_disease(candidate: Mapping[str, Any]) -> str:
+    return clean_text(candidate.get("disease")) or clean_text(candidate.get("disease_name")) or "未知疾病"
 
 
 def _execution_errors(selected_skill_outputs: list[dict[str, Any]]) -> list[str]:

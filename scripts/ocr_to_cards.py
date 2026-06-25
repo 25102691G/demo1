@@ -16,14 +16,6 @@ SOURCE_ROOT = Path(__file__).resolve().parents[1] / "src"
 if str(SOURCE_ROOT) not in sys.path:
     sys.path.insert(0, str(SOURCE_ROOT))
 
-from skill_engine.icd_extractor import (
-    DEFAULT_ICD10_EMBEDDINGS_PATH,
-    DEFAULT_ICD10_PATH,
-    DEFAULT_MODEL_PATH as DEFAULT_ICD_MODEL_PATH,
-    IcdExtractor,
-)
-
-
 END_PUNCTUATION = "。！？；!?;”）)]"
 NEW_NUMBERED_SECTION_RE = re.compile(r"^\s*\d+[.．、]\s*[^。；;]{1,40}[:：]")
 ALLOWED_POPULATIONS = {"儿童", "青少年", "成人", "老年人", "孕妇", "普遍适用"}
@@ -39,6 +31,14 @@ POPULATION_FROM_FILENAME_SYSTEM_PROMPT = """你是医学指南文件名解析助
 只能返回 JSON 对象，且 population 必须是以下值之一：
 儿童、青少年、成人、老年人、孕妇、普遍适用。
 如果文件名没有明确人群信息，返回 {"population": "普遍适用"}。"""
+DISEASE_FROM_TITLE_SYSTEM_PROMPT = """你是医学指南标题解析助手。
+请只根据输入的指南标题或文件名，截取该指南适用的疾病名称。
+规则：
+1. 只能从输入原文中截取疾病名称，不能做 ICD 标准化、同义词改写或医学常识补全。
+2. 去掉“诊断”“治疗”“诊治”“指南”“共识意见”“专家共识”“临床实践指南”“推荐意见”“版”“解读”等文档类型词。
+3. 去掉文件后缀、年份、地区、发布机构、括号中的年份或版本信息，但保留疾病别名括号，例如“肠型贝赫切特综合征(肠白塞病)”。
+4. 如果标题中有多个疾病名称，只返回指南核心适用疾病名称。
+5. 只能返回 JSON 对象，格式为 {"disease": "疾病名称"}，不要返回解释。"""
 ALLOWED_CLINICAL_STAGES = {"诊断评估流程", "治疗流程", "其他流程"}
 CLINICAL_STAGE_SYSTEM_PROMPT = """你是医学指南章节分类助手。
 请只根据输入的 section_path 判断该章节属于哪类临床流程。
@@ -113,7 +113,6 @@ def main(argv: Sequence[str] | None = None) -> None:
     args = parse_args(argv)
     input_paths = collect_input_paths(args.input, args.input_dir)
     client = build_llm_client()
-    metadata_icd_extractor = build_metadata_icd_extractor(args.model_path)
     population_cache: dict[str, str] = {}
     clinical_stage_cache: dict[str, str] = {}
     total_inputs = len(input_paths)
@@ -127,7 +126,6 @@ def main(argv: Sequence[str] | None = None) -> None:
                 client,
                 population_cache,
                 clinical_stage_cache,
-                metadata_icd_extractor,
                 args.llm_workers,
             )
             cards.extend(file_cards)
@@ -146,7 +144,6 @@ def main(argv: Sequence[str] | None = None) -> None:
             client,
             population_cache,
             clinical_stage_cache,
-            metadata_icd_extractor,
             args.llm_workers,
         )
         output_path = default_output_path(input_path)
@@ -167,7 +164,7 @@ def parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument(
         "--model-path",
         default=None,
-        help="Optional ICD10 embedding model path. Use the same model that built ICD10_embeddings.pt.",
+        help=argparse.SUPPRESS,
     )
     args = parser.parse_args(argv)
     if args.input is None and args.input_dir is None:
@@ -199,7 +196,6 @@ def convert_input_file(
     client: Any,
     population_cache: dict[str, str],
     clinical_stage_cache: dict[str, str],
-    metadata_icd_extractor: IcdExtractor,
     llm_workers: int,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     """读取单个 OCR parse_result.json 文件，转换为 recommendation_card 列表和处理 summary"""
@@ -212,7 +208,6 @@ def convert_input_file(
         client=client,
         population=population,
         summary=summary,
-        metadata_icd_extractor=metadata_icd_extractor,
         llm_workers=llm_workers,
     )
     cards = build_cards(units, payload, client, clinical_stage_cache, summary, llm_workers)
@@ -426,7 +421,6 @@ def parse_ocr_payload(
     client: Any,
     population: str | None,
     summary: dict[str, Any],
-    metadata_icd_extractor: IcdExtractor,
     llm_workers: int,
 ) -> list[ClinicalTextUnit]:
     """从 OCR parse_result.json 中提取文本布局，清洗过滤后构建 ClinicalTextUnit 列表"""
@@ -437,7 +431,7 @@ def parse_ocr_payload(
     enrich_layouts_with_llm(text_layouts, client, llm_workers)
     discard_layouts(text_layouts, summary)
 
-    disease = resolve_disease(payload, input_path, metadata_icd_extractor)
+    disease = resolve_disease(payload, input_path, client)
     units = build_units(text_layouts, disease=disease, population=population)
     merged_units = merge_units(units)
     summary["merged_layout_groups"] = merged_layout_groups(merged_units)
@@ -1027,31 +1021,19 @@ def join_text(left: str, right: str) -> str:
     return left.rstrip() + right.lstrip()
 
 
-def build_metadata_icd_extractor(model_path: str | Path | None = None) -> IcdExtractor:
-    return IcdExtractor.from_paths(
-        model_path=model_path or DEFAULT_ICD_MODEL_PATH,
-        icd10_path=DEFAULT_ICD10_PATH,
-        icd10_embeddings_path=DEFAULT_ICD10_EMBEDDINGS_PATH,
-        similarity_threshold=0.0,
-        batch_size=1,
-    )
-
-
 def resolve_disease(
     payload: Mapping[str, Any],
     input_path: Path,
-    metadata_icd_extractor: IcdExtractor,
+    client: Any,
 ) -> str:
     query = metadata_disease_query(payload, input_path)
-    mappings = metadata_icd_extractor.map_diagnoses_to_icd(
-        [{"diagnosis": query}],
-        source_type="metadata",
+    llm_payload = client.chat_json(
+        DISEASE_FROM_TITLE_SYSTEM_PROMPT,
+        json.dumps({"title_or_filename": query}, ensure_ascii=False),
     )
-    if not mappings:
-        raise OcrToCardsError(f"{input_path}: ICD10 metadata disease mapping failed for {query!r}")
-    disease = clean_text(mappings[0].get("diagnosis_name"))
+    disease = clean_text(llm_payload.get("disease"))
     if not disease:
-        raise OcrToCardsError(f"{input_path}: ICD10 metadata disease mapping returned empty diagnosis_name for {query!r}")
+        raise OcrToCardsError(f"{input_path}: LLM disease extraction returned empty disease for {query!r}")
     return disease
 
 

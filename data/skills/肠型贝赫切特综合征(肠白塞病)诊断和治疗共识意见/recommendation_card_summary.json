@@ -1,0 +1,1755 @@
+{
+  "input_file": "data/skills/肠型贝赫切特综合征(肠白塞病)诊断和治疗共识意见/肠型贝赫切特综合征(肠白塞病)诊断和治疗共识意见.parse_result.json",
+  "guideline_title": "肠型贝赫切特综合征(肠白塞病)诊断和治疗共识意见.pdf",
+  "source_file": "肠型贝赫切特综合征(肠白塞病)诊断和治疗共识意见.pdf",
+  "total_layouts": 322,
+  "layouts_by_type": {
+    "head_tail": 31,
+    "text": 220,
+    "title": 19,
+    "table": 1,
+    "reference": 51
+  },
+  "discarded_layout_count": 175,
+  "discarded_by_reason": {
+    "type_not_supported": 83,
+    "llm_metadata": 75,
+    "llm_abstract": 4,
+    "llm_reference": 8,
+    "llm_conclusion": 5
+  },
+  "discarded_layouts": [
+    {
+      "layout_id": "1auLpg-layout-1",
+      "page_num": 1,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "胃肠病学 年第 卷第 期"
+    },
+    {
+      "layout_id": "1auLpg-layout-2",
+      "page_num": 1,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "1auLpg-layout-33",
+      "page_num": 1,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "com"
+    },
+    {
+      "layout_id": "1auLpg-layout-35",
+      "page_num": 2,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·724."
+    },
+    {
+      "layout_id": "1auLpg-layout-36",
+      "page_num": 2,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "Chin J Gastroenterol, 2022， Vol. 27， No.12"
+    },
+    {
+      "layout_id": "1auLpg-layout-52",
+      "page_num": 3,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "胃肠病学 年第 卷第 期"
+    },
+    {
+      "layout_id": "1auLpg-layout-53",
+      "page_num": 3,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "1auLpg-layout-82",
+      "page_num": 3,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "41.43%"
+    },
+    {
+      "layout_id": "1auLpg-layout-83",
+      "page_num": 3,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "<5 cm"
+    },
+    {
+      "layout_id": "1auLpg-layout-84",
+      "page_num": 4,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·726."
+    },
+    {
+      "layout_id": "1auLpg-layout-85",
+      "page_num": 4,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "Chin J Gastroenterol, 2022， Vol. 27， No.12"
+    },
+    {
+      "layout_id": "1auLpg-layout-88",
+      "page_num": 4,
+      "type": "table",
+      "reason": "type_not_supported",
+      "text_preview": ""
+    },
+    {
+      "layout_id": "1auLpg-layout-104",
+      "page_num": 5,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "胃肠病学 年第 卷第 期"
+    },
+    {
+      "layout_id": "1auLpg-layout-105",
+      "page_num": 5,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "1auLpg-layout-135",
+      "page_num": 5,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "CRP"
+    },
+    {
+      "layout_id": "1auLpg-layout-136",
+      "page_num": 6,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·728."
+    },
+    {
+      "layout_id": "1auLpg-layout-137",
+      "page_num": 6,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "Chin J Gastroenterol, 2022， Vol. 27， No.12"
+    },
+    {
+      "layout_id": "1auLpg-layout-161",
+      "page_num": 7,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "胃肠病学 年第 卷第 期"
+    },
+    {
+      "layout_id": "1auLpg-layout-162",
+      "page_num": 7,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "· ·"
+    },
+    {
+      "layout_id": "1auLpg-layout-190",
+      "page_num": 7,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "B"
+    },
+    {
+      "layout_id": "1auLpg-layout-191",
+      "page_num": 7,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "24"
+    },
+    {
+      "layout_id": "1auLpg-layout-192",
+      "page_num": 7,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "52"
+    },
+    {
+      "layout_id": "1auLpg-layout-193",
+      "page_num": 8,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·730."
+    },
+    {
+      "layout_id": "1auLpg-layout-194",
+      "page_num": 8,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "Chin J Gastroenterol, 2022， Vol.27, No.12"
+    },
+    {
+      "layout_id": "1auLpg-layout-211",
+      "page_num": 9,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "胃肠病学 年第 卷第 期"
+    },
+    {
+      "layout_id": "1auLpg-layout-212",
+      "page_num": 9,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·"
+    },
+    {
+      "layout_id": "1auLpg-layout-213",
+      "page_num": 9,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·"
+    },
+    {
+      "layout_id": "1auLpg-layout-263",
+      "page_num": 9,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[ 1 ] HATEMI I, ESATOGLU S N, HATEMI G, et al. Characteristics, treatment, and long ⁃ term outcome of ’ gastrointestinal..."
+    },
+    {
+      "layout_id": "1auLpg-layout-265",
+      "page_num": 9,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "尹建宝，岳鸿丽，白静，等 肠白塞病 例临床分析 [ 2 ] . 64 [J]. 中华风湿病学杂志"
+    },
+    {
+      "layout_id": "1auLpg-layout-267",
+      "page_num": 9,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[ 3 ] JUNG Y S, CHEON J H, PARK S J, et al. Clinical course ’ of intestinal Behcet s disease during the first five years..."
+    },
+    {
+      "layout_id": "1auLpg-layout-269",
+      "page_num": 9,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "白静 肠白塞病临床特点分析 北京 中国协和医科 [ 4 ] . [D]. : 大学"
+    },
+    {
+      "layout_id": "1auLpg-layout-271",
+      "page_num": 9,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[ 5 ] LEE C R, KIM W H, CHO Y S, et al. Colonoscopic ’ findings in intestinal Behcet s disease[J]. Inflamm Bowel"
+    },
+    {
+      "layout_id": "1auLpg-layout-272",
+      "page_num": 9,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "Dis, 2001, 7 (3): 243⁃249."
+    },
+    {
+      "layout_id": "1auLpg-layout-273",
+      "page_num": 10,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·732."
+    },
+    {
+      "layout_id": "1auLpg-layout-274",
+      "page_num": 10,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "Chin J Gastroenterol, 2022， Vol. 27， No.12"
+    },
+    {
+      "layout_id": "1auLpg-layout-275",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[6] CHEON J H, KIM E S, SHIN S J, et al. Development andvalidation of novel diagnostic criteria for intestinalBehcet's d..."
+    },
+    {
+      "layout_id": "1auLpg-layout-276",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[7] LI J, LI P, BAI J, et al. Discriminating potential ofextraintestinal systemic manifestations and colonoscopicfeature..."
+    },
+    {
+      "layout_id": "1auLpg-layout-277",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[8] NEVES F S, FYLYK S N, LAGE L V, et al. Behcet'sdisease: clinical value of the video capsule endoscopy forsmall intes..."
+    },
+    {
+      "layout_id": "1auLpg-layout-278",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[9] PARK J J, KIM W H, CHEON J H. Outcome predictorsfor intestinal Behcet's disease[J]. Yonsei Med J, 2013， 54(5):1084-1..."
+    },
+    {
+      "layout_id": "1auLpg-layout-279",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[10] YANG H, ZHANG H, LIU W, et al. Computedtomography enterography increases the ability ofendoscopy to differentiate C..."
+    },
+    {
+      "layout_id": "1auLpg-layout-280",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[11] MA L, WANG M, LI W, et al. Pilot case-control study toexplore the value of intestinal ultrasound in the differ-enti..."
+    },
+    {
+      "layout_id": "1auLpg-layout-281",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[12] TAKADA Y, FUJITA Y, IGARASHI M, et al. IntestinalBehcet's disease: pathognomonic changes in intramucosallymphoid ti..."
+    },
+    {
+      "layout_id": "1auLpg-layout-282",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[13]汪朝靓，丁西平，王巧民，等。肠白塞病38例临床病理分析[J].临床与实验病理学杂志，2019,35(7)：787-790。"
+    },
+    {
+      "layout_id": "1auLpg-layout-283",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[14]郑文洁，张娜，朱小春，等。白塞综合征诊疗规范[J].中华内科杂志，2021,60(10)：860-867。"
+    },
+    {
+      "layout_id": "1auLpg-layout-284",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[15] CHEON J H, SHIN S J, KIM S W, et al. Diagnosis ofintestinal Behcet's disease[J]. Korean J Gastroenterol,2009,53(3):..."
+    },
+    {
+      "layout_id": "1auLpg-layout-285",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[16] MIZUSHIMA Y. Recent research into Behcet's disease inJapan[J]. Int J Tissue React, 1988， 10(2)： 59-65。"
+    },
+    {
+      "layout_id": "1auLpg-layout-286",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[17] GRIGG E L, KANE S, KATZ S. Mimicry and deception ininflammatory bowel disease and intestinal Behcet disease[J]. Gas..."
+    },
+    {
+      "layout_id": "1auLpg-layout-287",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[18] LEE S K, KIM B K, KIM T I, et al. Differential diagnosisof intestinal Behcet's disease and Crohn's disease bycolono..."
+    },
+    {
+      "layout_id": "1auLpg-layout-288",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[19] ZHANG T, HONG L, WANG Z, et al. Comparisonbetween intestinal Behcet's disease and Crohn's diseasein characteristics..."
+    },
+    {
+      "layout_id": "1auLpg-layout-289",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[20] LEE H J, KIM Y N, JANG H W, et al. Correlationsbetween endoscopic and clinical disease activity indicesin intestina..."
+    },
+    {
+      "layout_id": "1auLpg-layout-290",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[21] JUNG Y S, KIM S W, YOON J Y, et al. Expression of asoluble triggering receptor expressed on myeloid cells-1(sTREM-1..."
+    },
+    {
+      "layout_id": "1auLpg-layout-291",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[22] SCHOEPFER A M, BEGLINGER C, STRAUMANN A, etal. Fecal calprotectin correlates more closely with thesimple endoscopic..."
+    },
+    {
+      "layout_id": "1auLpg-layout-292",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[23]周青杨，杨红，钱家鸣。克罗恩病的疾病活动度评分及相关评估指标研究[J].胃肠病学和肝病学杂志，2020，29(9):961-964."
+    },
+    {
+      "layout_id": "1auLpg-layout-293",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[24] KIM D H, PARK Y, KIM B, et al. Fecal calprotectin as anon-invasive biomarker for intestinal involvement ofBehcet's..."
+    },
+    {
+      "layout_id": "1auLpg-layout-294",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[25] LEE H J, CHEON J H. Optimal diagnosis and diseaseactivity monitoring of intestinal Behcet's disease[J]. IntestRes,..."
+    },
+    {
+      "layout_id": "1auLpg-layout-295",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[26] YIM S M, KIM D H, LEE H J, et al. Mucosal healingpredicts the long-term prognosis of intestinal Behcet'sdisease[J]...."
+    },
+    {
+      "layout_id": "1auLpg-layout-296",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[27] KIM J S, LIM S H, CHOI I J, et al. Prediction of theclinical course of Behcet's colitis according to macro-scopic c..."
+    },
+    {
+      "layout_id": "1auLpg-layout-297",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[28] TANIDA S, INOUE N, KOBAYASHI K, et al.Adalimumab for the treatment of Japanese patients withintestinal Behcet's dis..."
+    },
+    {
+      "layout_id": "1auLpg-layout-298",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[29] HATEMI G, CHRISTENSEN R, BANG D, et al. 2018update of the EULAR recommendations for the manage-ment of Behcet's syn..."
+    },
+    {
+      "layout_id": "1auLpg-layout-299",
+      "page_num": 10,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[30] WATANABE K, TANIDA S, INOUE N, et al. Evidence-based diagnosis and clinical practice guidelines for"
+    },
+    {
+      "layout_id": "1auLpg-layout-300",
+      "page_num": 11,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "胃肠病学2022年第27卷第12期"
+    },
+    {
+      "layout_id": "1auLpg-layout-301",
+      "page_num": 11,
+      "type": "head_tail",
+      "reason": "type_not_supported",
+      "text_preview": "·733."
+    },
+    {
+      "layout_id": "1auLpg-layout-302",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "intestinal Behcet's disease 2020 edited by IntractableDiseases, the Health and Labour Sciences ResearchGrants[J]. J Gast..."
+    },
+    {
+      "layout_id": "1auLpg-layout-303",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[31]中华医学会消化病学分会炎症性肠病学组。炎症性肠病诊断与治疗的共识意见(2018年，北京)[J].中华消化杂志，2018,38(5)：292-311。"
+    },
+    {
+      "layout_id": "1auLpg-layout-304",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[32] JUNG Y S, HONG S P, KIM T I, et al. Long-term clinicaloutcomes and factors predictive of relapse after 5-aminosalic..."
+    },
+    {
+      "layout_id": "1auLpg-layout-305",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[33] KINOSHITA H, NISHIOKA H, IKEDA A, et al.Remission induction, maintenance, and endoscopicoutcome with oral 5-aminosa..."
+    },
+    {
+      "layout_id": "1auLpg-layout-306",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[34] PARK J J, CHEON J H, MOON C M, et al. W1321 long-term clinical outcomes after the first course of cortico-steroid t..."
+    },
+    {
+      "layout_id": "1auLpg-layout-307",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[35] LEE H W, CHEON J H, LEE H J, et al. Postoperativeeffects of thiopurines in patients with intestinal Behcet'sdisease..."
+    },
+    {
+      "layout_id": "1auLpg-layout-308",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[36] YASUI K, UCHIDA N, AKAZAWA Y, et al. Thalidomidefor treatment of intestinal involvement of juvenile-onsetBehcet dis..."
+    },
+    {
+      "layout_id": "1auLpg-layout-309",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[37] HATEMI I, HATEMI G, PAMUK O N, et al. TNF-alphaantagonists and thalidomide for the management ofgastrointestinal Be..."
+    },
+    {
+      "layout_id": "1auLpg-layout-310",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[38] MATSUMURA K, NAKASE H, CHIBA T. Efficacy of oraltacrolimus on intestinal Behcet's disease[J]. InflammBowel Dis, 201..."
+    },
+    {
+      "layout_id": "1auLpg-layout-311",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[39] IWATA S, SAITO K, YAMAOKA K, et al. Efficacy of"
+    },
+    {
+      "layout_id": "1auLpg-layout-312",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "combination therapy of anti-TNF-α antibody infliximaband methotrexate in refractory entero- Behcet's disease[J]. Mod Rhe..."
+    },
+    {
+      "layout_id": "1auLpg-layout-313",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[40] ZOU J, JI D N, CAI J F, et al. Long-term outcomes andpredictors of sustained response in patients with intestinalBe..."
+    },
+    {
+      "layout_id": "1auLpg-layout-314",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[41]孟德钎，李璐，刘金晶，等。英夫利西单克隆抗体治疗重症/难治性肠型白塞病的疗效分析：单中心回顾性研究[J].协和医学杂志，2019,10(3)：237-242。"
+    },
+    {
+      "layout_id": "1auLpg-layout-315",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[42] ZHANG M, LIU J, LIU T, et al. The efficacy and safety ofanti-tumor necrosis factor agents in the treatment ofintest..."
+    },
+    {
+      "layout_id": "1auLpg-layout-316",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[43] SUZUKI Y, HAGIWARA T, KOBAYASHI M, et al. Long-term safety and effectiveness of adalimumab in 462patients with inte..."
+    },
+    {
+      "layout_id": "1auLpg-layout-317",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[44] KOBAYASHI K, IGARASHI M, KIKUCHI Y, et al. Astudy on nutritional therapy for the patients with intestinalBehcet[J]...."
+    },
+    {
+      "layout_id": "1auLpg-layout-318",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[45] HISAMATSU T, HAYASHIDA M. Treatment andoutcomes: medical and surgical treatment for intestinalBehcet's disease[J]...."
+    },
+    {
+      "layout_id": "1auLpg-layout-319",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[46] LOPALCO G, RIGANTE D, VENERITO V, et al. Updateon the medical management of gastrointestinal Behcet'sdisease[J]. Me..."
+    },
+    {
+      "layout_id": "1auLpg-layout-320",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[47] CHOI I J, KIM J S, CHA S D, et al. Long-term clinicalcourse and prognostic factors in intestinal Behcet'sdisease[J]..."
+    },
+    {
+      "layout_id": "1auLpg-layout-321",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "[48] KONE-PAUT I, BARETE S, BODAGHI B, et al. Frenchrecommendations for the management of Behcet's disease[J]. Orphanet..."
+    },
+    {
+      "layout_id": "1auLpg-layout-322",
+      "page_num": 11,
+      "type": "reference",
+      "reason": "type_not_supported",
+      "text_preview": "《中华消化杂志》2022年第42卷第10期649-658页"
+    },
+    {
+      "layout_id": "1auLpg-layout-3",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "2022"
+    },
+    {
+      "layout_id": "1auLpg-layout-4",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "27"
+    },
+    {
+      "layout_id": "1auLpg-layout-5",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "12"
+    },
+    {
+      "layout_id": "1auLpg-layout-16",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_abstract",
+      "text_preview": "关键词 贝赫切特综合征； 肠白塞病； 诊断； 诊断，鉴别； 治疗"
+    },
+    {
+      "layout_id": "1auLpg-layout-19",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "CHEN Minhu, Email: chenminhu@vip.163.com"
+    },
+    {
+      "layout_id": "1auLpg-layout-26",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "DOI *原文刊载于《中华消化杂志》，经中华医学会和《中华消化杂志》 10.3969/j.issn.1008⁃7125.2022.12.004 编辑部授权转载"
+    },
+    {
+      "layout_id": "1auLpg-layout-27",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "#本文通信作者：钱家鸣，Email: qianjiaming1957@126.com；吴开春，"
+    },
+    {
+      "layout_id": "1auLpg-layout-28",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "Email: kaicwu@fmmu."
+    },
+    {
+      "layout_id": "1auLpg-layout-29",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "edu."
+    },
+    {
+      "layout_id": "1auLpg-layout-30",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "cn；陈旻湖，Email:"
+    },
+    {
+      "layout_id": "1auLpg-layout-31",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "chenminhu@vip."
+    },
+    {
+      "layout_id": "1auLpg-layout-6",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "723"
+    },
+    {
+      "layout_id": "1auLpg-layout-7",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "· 共识与指南 ·"
+    },
+    {
+      "layout_id": "1auLpg-layout-9",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "中华医学会消化病学分会炎症性肠病学组"
+    },
+    {
+      "layout_id": "1auLpg-layout-10",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "杨 红 1 何 瑶 2 王玉芳 3 梁 洁 4 郑 青 5 刘 炜 1 周炜洵 1 朱庆莉 1"
+    },
+    {
+      "layout_id": "1auLpg-layout-11",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "陈旻湖 2 吴开春 4 钱家鸣 1"
+    },
+    {
+      "layout_id": "1auLpg-layout-12",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "中国医学科学院 北京协和医学院 北京协和医院消化内科 1（100730）"
+    },
+    {
+      "layout_id": "1auLpg-layout-13",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "中山大学附属第一医院消化内科 2 四川大学华西医院消化内科 3"
+    },
+    {
+      "layout_id": "1auLpg-layout-14",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "空军军医大学第一附属医院消化内科 4 上海交通大学医学院附属仁济医院消化内科 5"
+    },
+    {
+      "layout_id": "1auLpg-layout-15",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_abstract",
+      "text_preview": "摘要 贝赫切特综合征是一类可累及全身多脏器的慢性系统性血管炎症性疾病，累及肠道者被命名为肠型贝 赫切特综合征（又称肠白塞病）。除此之外，肠白塞病还存在第 型表现，即仅有典型肠道溃疡。肠白塞病与克罗 Ⅱ 恩病、肠结核、肠淋巴瘤、其他有肠道表现..."
+    },
+    {
+      "layout_id": "1auLpg-layout-17",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "Chinese Consensus on Diagnosis and Treatment of Intestinal Behçet’s Syndrome Inflammatory Bowel Disease Group, Chinese S..."
+    },
+    {
+      "layout_id": "1auLpg-layout-18",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "Correspondence to: QIAN Jiaming, Email: qianjiaming1957@126.com; WU Kaichun, Email: kaicwu@fmmu.edu.cn;"
+    },
+    {
+      "layout_id": "1auLpg-layout-20",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_abstract",
+      "text_preview": "Abstract ’ Behçet s syndrome is a kind of chronic systemic vasculitis with involvement of multiple organs. Intestinal ’..."
+    },
+    {
+      "layout_id": "1auLpg-layout-22",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_abstract",
+      "text_preview": "Key words Behcet Syndrome; Intestinal Behcet Disease; Diagnosis; Diagnosis, Differential; Therapy"
+    },
+    {
+      "layout_id": "1auLpg-layout-24",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "1937"
+    },
+    {
+      "layout_id": "1auLpg-layout-32",
+      "page_num": 1,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "163."
+    },
+    {
+      "layout_id": "1auLpg-layout-54",
+      "page_num": 3,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "2022"
+    },
+    {
+      "layout_id": "1auLpg-layout-55",
+      "page_num": 3,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "27"
+    },
+    {
+      "layout_id": "1auLpg-layout-56",
+      "page_num": 3,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "12"
+    },
+    {
+      "layout_id": "1auLpg-layout-57",
+      "page_num": 3,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "725"
+    },
+    {
+      "layout_id": "1auLpg-layout-106",
+      "page_num": 5,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "2022"
+    },
+    {
+      "layout_id": "1auLpg-layout-107",
+      "page_num": 5,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "27"
+    },
+    {
+      "layout_id": "1auLpg-layout-108",
+      "page_num": 5,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "12"
+    },
+    {
+      "layout_id": "1auLpg-layout-109",
+      "page_num": 5,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "727"
+    },
+    {
+      "layout_id": "1auLpg-layout-131",
+      "page_num": 5,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "1/2"
+    },
+    {
+      "layout_id": "1auLpg-layout-163",
+      "page_num": 7,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "2022"
+    },
+    {
+      "layout_id": "1auLpg-layout-164",
+      "page_num": 7,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "27"
+    },
+    {
+      "layout_id": "1auLpg-layout-168",
+      "page_num": 7,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "6⁃"
+    },
+    {
+      "layout_id": "1auLpg-layout-166",
+      "page_num": 7,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "729"
+    },
+    {
+      "layout_id": "1auLpg-layout-210",
+      "page_num": 8,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "本共识通过证据检索和循证判断从诊断、鉴别诊断、疾病活动度评价、治疗等方面对肠白塞病进行探讨，为临床甄别并治疗肠白塞病提供参考。纵览国际进展，各类检测手段、鉴别诊断模型和新型药物的涌现，为肠白塞病的诊断和治疗带来更多新前景。相信未来会有更多具..."
+    },
+    {
+      "layout_id": "1auLpg-layout-214",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "2022"
+    },
+    {
+      "layout_id": "1auLpg-layout-215",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "27"
+    },
+    {
+      "layout_id": "1auLpg-layout-216",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "12"
+    },
+    {
+      "layout_id": "1auLpg-layout-218",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "管理。相信未来会有更多的优良临床研究为肠白 塞病患者的诊治提供更多证据，帮助患者获得更好 的预后。"
+    },
+    {
+      "layout_id": "1auLpg-layout-219",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "利益冲突：专家组所有成员均声明不存在利益冲突"
+    },
+    {
+      "layout_id": "1auLpg-layout-220",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "参与指南讨论和制定的专家（按姓氏汉语拼音排序）：曹"
+    },
+    {
+      "layout_id": "1auLpg-layout-221",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "倩（浙江大学医学院附属邵逸夫医院消化内科），曹务腾（中"
+    },
+    {
+      "layout_id": "1auLpg-layout-222",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "山大学附属第六医院放射科），陈旻湖（中山大学附属第一医"
+    },
+    {
+      "layout_id": "1auLpg-layout-223",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "院消化内科），陈宁（北京大学人民医院消化内科），陈晓宇"
+    },
+    {
+      "layout_id": "1auLpg-layout-224",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "（上海交通大学医学院附属仁济医院消化内科病理室），陈焰"
+    },
+    {
+      "layout_id": "1auLpg-layout-225",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "（浙江大学医学院附属第二医院消化内科），董卫国（武汉大"
+    },
+    {
+      "layout_id": "1auLpg-layout-226",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "学人民医院消化内科），窦艳（解放军总医院消化内科），杜奕"
+    },
+    {
+      "layout_id": "1auLpg-layout-227",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "奇（海军军医大学第一附属医院消化内科），范松青（中南大"
+    },
+    {
+      "layout_id": "1auLpg-layout-228",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "学湘雅二医院病理科），费宇彤（北京中医药大学循证医学教"
+    },
+    {
+      "layout_id": "1auLpg-layout-229",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "研室），冯砅锦（同济大学附属第十人民医院病理科），冯仕庭"
+    },
+    {
+      "layout_id": "1auLpg-layout-230",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "（中山大学附属第一医院放射科），高翔（中山大学附属第六"
+    },
+    {
+      "layout_id": "1auLpg-layout-231",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "医院消化内科），高玉颖（中国医科大学附属盛京医院放射"
+    },
+    {
+      "layout_id": "1auLpg-layout-232",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "科），韩玮（安徽医科大学第一附属医院消化内科），何度（四"
+    },
+    {
+      "layout_id": "1auLpg-layout-233",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "川大学华西医院病理科），何瑶（中山大学附属第一医院消化"
+    },
+    {
+      "layout_id": "1auLpg-layout-234",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "内科），胡品津（中山大学附属第六医院消化内科），胡益群"
+    },
+    {
+      "layout_id": "1auLpg-layout-235",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "（厦门大学附属中山医院消化内科），黄梅芳（武汉大学中南"
+    },
+    {
+      "layout_id": "1auLpg-layout-236",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "医院消化内科），黄艳（中山大学附属第六医院病理科），霍丽"
+    },
+    {
+      "layout_id": "1auLpg-layout-237",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "娟（山西医科大学第一医院消化内科），姜支农（浙江大学医"
+    },
+    {
+      "layout_id": "1auLpg-layout-238",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "学院附属邵逸夫医院病理科），雷梓（昆明医科大学第一附属"
+    },
+    {
+      "layout_id": "1auLpg-layout-239",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "医院病理科），李瑾（广州医科大学附属第三医院消化内科），"
+    },
+    {
+      "layout_id": "1auLpg-layout-240",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "李军（北京大学第三医院消化内科），李俊霞（北京大学第一"
+    },
+    {
+      "layout_id": "1auLpg-layout-241",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "医院消化内科），李清海（浙江大学医学院附属第二医院放射"
+    },
+    {
+      "layout_id": "1auLpg-layout-242",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "科），李延青（山东大学齐鲁医院消化内科），李毅（解放军东"
+    },
+    {
+      "layout_id": "1auLpg-layout-243",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "部战区总医院普通外科），李玥（中国医学科学院 北京协和"
+    },
+    {
+      "layout_id": "1auLpg-layout-244",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "医学院 北京协和医院消化内科），李增山（空军军医大学第"
+    },
+    {
+      "layout_id": "1auLpg-layout-245",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "一附属医院病理科），梁洁（空军军医大学第一附属医院消化"
+    },
+    {
+      "layout_id": "1auLpg-layout-246",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "内科），刘金晶（中国医学科学院 北京协和医学院 北京协和"
+    },
+    {
+      "layout_id": "1auLpg-layout-247",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "医院风湿免疫科），刘炜（中国医学科学院 北京协和医学院"
+    },
+    {
+      "layout_id": "1auLpg-layout-248",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "北京协和医院放射科），刘小伟（中南大学湘雅医院消化内"
+    },
+    {
+      "layout_id": "1auLpg-layout-249",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "科），刘玉兰（北京大学人民医院消化内科），刘占举（同济大"
+    },
+    {
+      "layout_id": "1auLpg-layout-250",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "学附属第十人民医院消化内科），缪应雷（昆明医科大学第一"
+    },
+    {
+      "layout_id": "1auLpg-layout-251",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_conclusion",
+      "text_preview": "附属医院消化内科），牛俊坤（昆明医科大学第一附属医院消"
+    },
+    {
+      "layout_id": "1auLpg-layout-252",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "化内科），欧阳钦（四川大学华西医院消化内科），钱家鸣（中"
+    },
+    {
+      "layout_id": "1auLpg-layout-253",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "国医学科学院 北京协和医学院 北京协和医院消化内科），冉"
+    },
+    {
+      "layout_id": "1auLpg-layout-254",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "志华（上海交通大学医学院附属仁济医院消化内科），施嫣红"
+    },
+    {
+      "layout_id": "1auLpg-layout-255",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "（同济大学附属第十人民医院消化内科），石雪迎（北京大学"
+    },
+    {
+      "layout_id": "1auLpg-layout-256",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "医学部病理系 北京大学第三医院病理科），孙菁（上海交通"
+    },
+    {
+      "layout_id": "1auLpg-layout-257",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "大学医学院附属瑞金医院消化内科），唐永华（上海交通大学"
+    },
+    {
+      "layout_id": "1auLpg-layout-258",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "医学院附属瑞金医院放射科），田德安（华中科技大学同济医"
+    },
+    {
+      "layout_id": "1auLpg-layout-259",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "学院附属同济医院消化内科），汪芳裕（解放军东部战区总医"
+    },
+    {
+      "layout_id": "1auLpg-layout-260",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "院消化内科），王化虹（北京大学人民医院消化内科），王晓艳"
+    },
+    {
+      "layout_id": "1auLpg-layout-217",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "731"
+    },
+    {
+      "layout_id": "1auLpg-layout-261",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "（中南大学湘雅三医院消化内科），王英德（大连医科大学附 属第一医院消化内科），王玉芳（四川大学华西医院消化内 科），魏艳玲 陆军特色医学中心（重庆大坪医院）消化内科 ， [ ] 吴迪（中国医学科学院 北京协和医学院 北京协和医院风湿 免疫科..."
+    },
+    {
+      "layout_id": "1auLpg-layout-264",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "95 (16): e3348."
+    },
+    {
+      "layout_id": "1auLpg-layout-266",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": ", 2014, 18 (8): 515⁃519."
+    },
+    {
+      "layout_id": "1auLpg-layout-268",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "Dig Dis Sci, 2013, 58 (2): 496⁃503."
+    },
+    {
+      "layout_id": "1auLpg-layout-270",
+      "page_num": 9,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": ", 2007."
+    }
+  ],
+  "discarded_unit_count": 5,
+  "discarded_units_by_reason": {
+    "clinical_stage_other": 5
+  },
+  "discarded_units": [
+    {
+      "unit_id": "clinical_text_unit_a76c4d764e17",
+      "page_start": 1,
+      "page_end": 1,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-21",
+        "1auLpg-layout-23"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "will be of great significance for clinical practice.贝赫切特综合征（又称白塞病）是一类可累及 全身多脏器的慢性系统性血管炎症性疾病。"
+    },
+    {
+      "unit_id": "clinical_text_unit_29ed4f22cd69",
+      "page_start": 1,
+      "page_end": 2,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-25",
+        "1auLpg-layout-34",
+        "1auLpg-layout-37"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "：年，土耳其皮肤科医师 发表了第 例白塞病 Behçet 1 病例报告，之后以 命名该病。目前认为白塞 Behçet 病的临床表现包括复发性口腔溃疡、生殖器溃疡、 葡萄膜炎、皮肤损害等。该病可累及神经系统、消 化道、肺、肾、附睾等，并可累及..."
+    },
+    {
+      "unit_id": "clinical_text_unit_a1fedb662a8c",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-38"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "肠白塞病的临床表现与克罗恩病相似，传统观念普遍认为肠白塞病与克罗恩病误诊不误治。然而，肠白塞病预后较差，更易出现肠穿孔等并发症，且越来越多的临床经验和证据提示，肠白塞病的诊断和药物治疗有其特殊之处。肠白塞病与肠结核、肠淋巴瘤、有肠道表现的免..."
+    },
+    {
+      "unit_id": "clinical_text_unit_a1444957b4b6",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-39"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "本次共识修订采用国际通用的德尔菲法进行，具体步骤如下。①所有专家分为5个工作小组，分别进行专家访谈，收集临床问题，然后参照德尔菲法进行筛选和排序，获得优先需要解决的临床问题并纳入共识。针对临床问题开展临床文献的系统评价并总结证据。将证据汇总..."
+    },
+    {
+      "unit_id": "clinical_text_unit_4f74d5e3fd06",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-40"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "本共识中投票意见分为a、b、c、d四档，分别指完全赞同（必不可少，最起码的要求）、部分赞成且推荐（应该做到，但未达到必不可少的程度）、视情况而定和不赞成（不合理、不必要、不合国情、不可操作、不可评估、不必放在本共识意见中)，d档投票意见直接..."
+    }
+  ],
+  "merged_layout_groups": [
+    {
+      "unit_id": "clinical_text_unit_a76c4d764e17",
+      "page_start": 1,
+      "page_end": 1,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-21",
+        "1auLpg-layout-23"
+      ],
+      "raw_text_preview": "will be of great significance for clinical practice.贝赫切特综合征（又称白塞病）是一类可累及 全身多脏器的慢性系统性血管炎症性疾病。"
+    },
+    {
+      "unit_id": "clinical_text_unit_29ed4f22cd69",
+      "page_start": 1,
+      "page_end": 2,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-25",
+        "1auLpg-layout-34",
+        "1auLpg-layout-37"
+      ],
+      "raw_text_preview": "：年，土耳其皮肤科医师 发表了第 例白塞病 Behçet 1 病例报告，之后以 命名该病。目前认为白塞 Behçet 病的临床表现包括复发性口腔溃疡、生殖器溃疡、 葡萄膜炎、皮肤损害等。该病可累及神经系统、消 化道、肺、肾、附睾等，并可累及..."
+    },
+    {
+      "unit_id": "clinical_text_unit_be1f71d03d25",
+      "page_start": 2,
+      "page_end": 2,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "一、肠白塞病的诊断"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-51",
+        "1auLpg-layout-46"
+      ],
+      "raw_text_preview": "C【陈述3】肠白塞病的常见并发症包括肠穿孔、消化道出血、肠瘘、腹腔脓肿、血栓栓塞等，合并骨髓异常增生综合征的风险增加(A级)。"
+    },
+    {
+      "unit_id": "clinical_text_unit_c4bd15c6c8cd",
+      "page_start": 2,
+      "page_end": 3,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "一、肠白塞病的诊断"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-50",
+        "1auLpg-layout-58"
+      ],
+      "raw_text_preview": "【陈述5】人白细胞抗原(human leukocyteantigen, HLA）⁃B51 等位基因检测对肠白塞病的诊 断有一定价值。尚未发现其他确定的有助于肠白 塞病诊断和鉴别诊断的实验室检查或生物学标志 物（B 级）。"
+    },
+    {
+      "unit_id": "clinical_text_unit_f7a9c138172b",
+      "page_start": 3,
+      "page_end": 3,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "一、肠白塞病的诊断"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-60",
+        "1auLpg-layout-61",
+        "1auLpg-layout-62"
+      ],
+      "raw_text_preview": "30.8%HLA⁃B51有研究通过自身免疫相关抗体检测发现，肠白 塞病患者的抗心磷脂抗体、类风湿因子、抗中性粒 细胞胞质抗体阳性率分别为 、 和 ， 15.8% 11.8% 3.8% 的患者会出现血清抗酿酒酵母菌抗体 41.7%~44.3%..."
+    },
+    {
+      "unit_id": "clinical_text_unit_9261bb0fa54d",
+      "page_start": 3,
+      "page_end": 3,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "一、肠白塞病的诊断"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-65",
+        "1auLpg-layout-66",
+        "1auLpg-layout-67"
+      ],
+      "raw_text_preview": "10.5%4.0%【陈述 7】胶囊内镜和小肠镜检查对发现和评估 肠白塞病小肠受累有一定价值（B 级）。"
+    },
+    {
+      "unit_id": "clinical_text_unit_cdb8f97046d2",
+      "page_start": 3,
+      "page_end": 3,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "一、肠白塞病的诊断"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-70",
+        "1auLpg-layout-71"
+      ],
+      "raw_text_preview": "解释： 小肠成像和 小肠成像可显示病变 CT MR 肠黏膜有无强化、肠壁厚度，以及肠系膜、周围淋巴 结等肠管周围组织的病变，辅助医师发现肠道狭 窄、肠瘘、腹腔脓肿等并发症[9]。肠白塞病的典型影 像学特点：肠道受累节段 处，受累节段长度一般..."
+    },
+    {
+      "unit_id": "clinical_text_unit_139a12dc3196",
+      "page_start": 3,
+      "page_end": 3,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "一、肠白塞病的诊断"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-72",
+        "1auLpg-layout-73",
+        "1auLpg-layout-74"
+      ],
+      "raw_text_preview": "97.14%<1 cm【陈述 9】经腹部肠道超声对于肠瘘、腹腔脓肿、 肠壁增厚等有一定监测价值（B 级）。"
+    },
+    {
+      "unit_id": "clinical_text_unit_b2613b7c3b71",
+      "page_start": 3,
+      "page_end": 3,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "一、肠白塞病的诊断"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-78",
+        "1auLpg-layout-79"
+      ],
+      "raw_text_preview": "21%【陈述 11】中国肠白塞病诊断标准：符合 2021 年中华医学会风湿病学分会发布的白塞病诊断标 准[14]，同时具有白塞病相关典型肠道溃疡；或参考 2009 年韩国肠白塞病协作组提出的肠白塞病诊断 标准[15（]B 级）。"
+    },
+    {
+      "unit_id": "clinical_text_unit_ebb930df99e4",
+      "page_start": 3,
+      "page_end": 4,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "一、肠白塞病的诊断"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-81",
+        "1auLpg-layout-86"
+      ],
+      "raw_text_preview": "此外，随着对肠白塞病认识的深入，发现并非 所有肠白塞病患者都符合系统性白塞病的诊断标 准。有鉴于此，韩国肠白塞病协作组在 年提出 2009 了肠白塞病诊断标准（表 ）[15]，该标准主要根据内 1 镜下回盲部肠道溃疡特点和肠外表现进行诊断，..."
+    },
+    {
+      "unit_id": "clinical_text_unit_0b803a147e19",
+      "page_start": 4,
+      "page_end": 4,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "二、临床、内镜、影像学、病理学等指标对肠白 塞病诊断的意义"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-91",
+        "1auLpg-layout-92"
+      ],
+      "raw_text_preview": "本共识纳入的典型特征（德尔菲评分，95%CI）如下。典型临床特征：腹痛(5.04分，4.80~5.28分)、便血(4.42分，4.15~4.69分)、腹泻(4.26分，3.97~4.55分)。典型肠外表现：口腔溃疡(5.71分，5.54~5..."
+    },
+    {
+      "unit_id": "clinical_text_unit_284f157dee38",
+      "page_start": 4,
+      "page_end": 5,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "三、肠白塞病的鉴别诊断",
+        "2.肠白塞病与其他肠病"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-102",
+        "1auLpg-layout-110"
+      ],
+      "raw_text_preview": "推荐意见：诊断肠白塞病还需排除淋巴瘤、缺血性肠病、药物性肠病，以及其他感染性肠病，如肠 结核、耶尔森菌结肠炎、巨细胞病毒性肠炎、 病毒 EB 肠炎、阿米巴肠病、血吸虫病、组织胞浆菌病等，这 些疾病均可表现为腹痛、腹泻、发热、肠道溃疡等， 医..."
+    },
+    {
+      "unit_id": "clinical_text_unit_7f8aa003cf0c",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "四、肠白塞病疾病活动度评价"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-117",
+        "1auLpg-layout-118",
+        "1auLpg-layout-119"
+      ],
+      "raw_text_preview": "10【陈 述 2】CRP 和 红 细 胞 沉 降 率（erythrocyte sedimentation rate, ESR）是反映肠白塞病炎症活动度的重要指标。粪钙卫蛋白可帮助评价疾病活 动度，但相关临床研究有限（B 级）。"
+    },
+    {
+      "unit_id": "clinical_text_unit_defdc5865903",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "四、肠白塞病疾病活动度评价"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-121",
+        "1auLpg-layout-122"
+      ],
+      "raw_text_preview": "CRP钙卫蛋白于 年首次由 等从粒细 1980 Fagerhol 胞中分离、发现。已有相关研究证实，克罗恩病患 者的粪钙卫蛋白与内镜疾病活动度评分的相关性 （r ）高于 、白细胞计数和克罗恩病活动指 =0.75 CRP 数[22⁃23]。..."
+    },
+    {
+      "unit_id": "clinical_text_unit_bc30bdf3d9ce",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "四、肠白塞病疾病活动度评价"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-123",
+        "1auLpg-layout-124",
+        "1auLpg-layout-125",
+        "1auLpg-layout-126"
+      ],
+      "raw_text_preview": "76%79%DAIBD亦有其他研究提示血清可溶性髓系细胞触发 受体 （ ⁃1 soluble triggering receptor expressed on myeloid ）、 烯 醇 化 酶 、白 细 胞 介 素 cells ⁃ 1,..."
+    },
+    {
+      "unit_id": "clinical_text_unit_d00e0d6f19bb",
+      "page_start": 5,
+      "page_end": 5,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "四、肠白塞病疾病活动度评价"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-130",
+        "1auLpg-layout-132"
+      ],
+      "raw_text_preview": ">3"
+    },
+    {
+      "unit_id": "clinical_text_unit_aaea214dfb7f",
+      "page_start": 5,
+      "page_end": 6,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "五、肠白塞病的治疗目标"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-134",
+        "1auLpg-layout-138"
+      ],
+      "raw_text_preview": "推荐意见：短期治疗目标为改善患者的肠内和 肠外症状，使炎症指标如 等恢复至正常参考值范围内，达到临床缓解；对无临床症状且血清CRP在正常参考值范围内的患者，建议将黏膜愈合作为进一步的治疗目标。长期治疗目标为避免复发，预防肠白塞病进展，以及防..."
+    },
+    {
+      "unit_id": "clinical_text_unit_a333a632f48a",
+      "page_start": 6,
+      "page_end": 7,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "六、肠白塞病的治疗方案",
+        "3.药物治疗",
+        "免疫调节剂"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-159",
+        "1auLpg-layout-165",
+        "1auLpg-layout-167"
+      ],
+      "raw_text_preview": "解释：参考2020年日本肠白塞病临床实践指南，硫唑嘌呤首次使用剂量为$2 5 \\sim 5 0 \\mathrm { m g } / \\mathrm { d }$,如未出12现白细胞计数下降、肝功能受损等不良反应，可逐 渐加量至 ⁃1 ⁃1；..."
+    },
+    {
+      "unit_id": "clinical_text_unit_a82e4398185e",
+      "page_start": 7,
+      "page_end": 7,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "六、肠白塞病的治疗方案",
+        "3.药物治疗",
+        "免疫调节剂"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-169",
+        "1auLpg-layout-170"
+      ],
+      "raw_text_preview": "0.75~1.50 mg·kg ·d目前，巯嘌呤类药物用于肠白塞病缓解期维持 治 疗 的 相 关 临 床 研 究 有 限 ，且 均 为 回 顾 性 研 究 。 年 等[32]开 展 了 一 项 单 中 心 研 究 ，共 纳 入 2012 J..."
+    },
+    {
+      "unit_id": "clinical_text_unit_48e5f053395d",
+      "page_start": 7,
+      "page_end": 7,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "六、肠白塞病的治疗方案",
+        "3.药物治疗",
+        "免疫调节剂"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-171",
+        "1auLpg-layout-172",
+        "1auLpg-layout-173"
+      ],
+      "raw_text_preview": "5⁃ASA66%水解酶 （ ） Nudix 15 Nudix hydrolase 15, NUDT15 基因多态性检测对预测巯嘌呤类药物相关骨髓抑 制的敏感性和特异性高，如条件允许，建议在使用 硫 唑 嘌 呤 前 进 行 该 项 检 测[1..."
+    },
+    {
+      "unit_id": "clinical_text_unit_3388662c5ebf",
+      "page_start": 7,
+      "page_end": 7,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "六、肠白塞病的治疗方案",
+        "3.药物治疗",
+        "免疫调节剂"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-175",
+        "1auLpg-layout-176"
+      ],
+      "raw_text_preview": "A解释：目前沙利度胺用于治疗肠白塞病的相关 临床研究有限。 等[36]的研究纳入 例自幼年 Yasui 7 开始反复发病的重度肠白塞病患者，予沙利度胺治 疗；起始剂量为 ⁃1 ⁃1，之后根据药物反应将 2 mg·kg ·d 剂量升至 ⁃1..."
+    },
+    {
+      "unit_id": "clinical_text_unit_80871918b9f4",
+      "page_start": 7,
+      "page_end": 7,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "六、肠白塞病的治疗方案",
+        "3.药物治疗",
+        "生物制剂"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-182",
+        "1auLpg-layout-183"
+      ],
+      "raw_text_preview": "④生物制剂主要包括抗 单抗和其他生物 TNF⁃α 制剂。"
+    },
+    {
+      "unit_id": "clinical_text_unit_925066dd67c7",
+      "page_start": 7,
+      "page_end": 7,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "六、肠白塞病的治疗方案",
+        "3.药物治疗",
+        "生物制剂"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-185",
+        "1auLpg-layout-186",
+        "1auLpg-layout-187",
+        "1auLpg-layout-188"
+      ],
+      "raw_text_preview": "140 mgA解释：目前多项研究显示抗 单抗对肠白 TNF⁃α 塞病有诱导和维持缓解作用。 等[40]的研究纳入 Zou 例接受英夫利西单抗治疗的肠白塞病患者，治疗 27 第 、 、 周的临床缓解率分别为 、 14 30 52 84.6%..."
+    },
+    {
+      "unit_id": "clinical_text_unit_dc5be76d8df3",
+      "page_start": 7,
+      "page_end": 8,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "六、肠白塞病的治疗方案",
+        "3.药物治疗",
+        "生物制剂"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-189",
+        "1auLpg-layout-195"
+      ],
+      "raw_text_preview": "年日本肠白塞病临床实践指南提出，阿达 2020 木 单 抗 可 作 为 糖 皮 质 激 素 依 赖 或 无 效 肠 白 塞 病 患 者 的 一 线 抗 药 物 以 诱 导 和 维 持 缓 解[30]。 TNF ⁃ α 等[28]进行了一项多..."
+    },
+    {
+      "unit_id": "clinical_text_unit_6ac396c6ee1b",
+      "page_start": 8,
+      "page_end": 8,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "六、肠白塞病的治疗方案",
+        "3.药物治疗",
+        "生物制剂"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-197",
+        "1auLpg-layout-198"
+      ],
+      "raw_text_preview": "4.营养支持治疗推荐意见：推荐存在营养不良的肠白塞病患者行肠内和肠外营养治疗，是否推荐肠白塞病患者行全肠内营养治疗尚缺乏证据支持(A级)。"
+    },
+    {
+      "unit_id": "clinical_text_unit_6dd9d7183760",
+      "page_start": 8,
+      "page_end": 8,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "六、肠白塞病的治疗方案",
+        "3.药物治疗",
+        "生物制剂"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-201",
+        "1auLpg-layout-202",
+        "1auLpg-layout-203"
+      ],
+      "raw_text_preview": "5.手术治疗推荐意见：手术治疗肠白塞病的绝对适应证包括合并严重并发症如肠穿孔、严重肠腔狭窄、消化道大出血、腹腔脓肿等；相对适应证包括反复药物治疗效果差、严重影响生活质量的肠道并发症如肠瘘等。疾病活动度高、营养不良、合并感染、长期使用糖皮质激..."
+    },
+    {
+      "unit_id": "clinical_text_unit_eae0c59ab056",
+      "page_start": 8,
+      "page_end": 8,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "六、肠白塞病的治疗方案",
+        "3.药物治疗",
+        "生物制剂"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-205",
+        "1auLpg-layout-206"
+      ],
+      "raw_text_preview": "6.合并其他器官受累时的治疗选择推荐意见：白塞病是一种全身性免疫系统疾病，除消化系统外，还可累及人体多个器官，包括口腔、皮肤、关节肌肉、眼、血管、心脏、肺、神经系统等。肠白塞病患者合并其他器官受累时，治疗方案的选择应遵循白塞病相关诊治指南，..."
+    },
+    {
+      "unit_id": "clinical_text_unit_4da6bd65fc3f",
+      "page_start": 8,
+      "page_end": 8,
+      "section_path": [
+        "肠型贝赫切特综合征（肠白塞病）诊断和 治疗共识意见*#",
+        "六、肠白塞病的治疗方案",
+        "3.药物治疗",
+        "生物制剂"
+      ],
+      "source_layout_ids": [
+        "1auLpg-layout-207",
+        "1auLpg-layout-208"
+      ],
+      "raw_text_preview": "7.停药时机推荐意见：目前对肠白塞病患者尚无标准停药方案。对有重要脏器受累（眼、心血管、肺、消化系统、神经系统等)者，建议根据年龄、性别、疾病严重程度，在疾病缓解2~5年后逐渐减少免疫抑制剂的剂量。任何停药方案都需要专家建议148(A级)。"
+    }
+  ],
+  "output_cards": 83
+}

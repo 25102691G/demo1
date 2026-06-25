@@ -11,13 +11,13 @@
     "footnote": 1,
     "reference": 256
   },
-  "discarded_layout_count": 456,
+  "discarded_layout_count": 460,
   "discarded_by_reason": {
     "type_not_supported": 335,
-    "llm_metadata": 77,
+    "llm_metadata": 91,
     "llm_abstract": 4,
-    "llm_conclusion": 5,
-    "llm_reference": 35
+    "llm_conclusion": 4,
+    "llm_reference": 26
   },
   "discarded_layouts": [
     {
@@ -2471,6 +2471,13 @@
       "text_preview": "： DOI 10.3760/cma.j.cn101480⁃20240123⁃00017"
     },
     {
+      "layout_id": "4524aZ-layout-27",
+      "page_num": 2,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "本文是 的指南部分。"
+    },
+    {
       "layout_id": "4524aZ-layout-33",
       "page_num": 2,
       "type": "text",
@@ -2478,18 +2485,18 @@
       "text_preview": "利益冲突声明与基金资助：参与指南制定所有专家均填写利益冲突表，声明利益冲突。本指南由上海市志愿服务公 益基金会及中国健康促进基金会的教育基金提供资金资助。"
     },
     {
+      "layout_id": "4524aZ-layout-240",
+      "page_num": 13,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "4."
+    },
+    {
       "layout_id": "4524aZ-layout-271",
       "page_num": 14,
       "type": "text",
       "reason": "llm_conclusion",
       "text_preview": "UC的治疗经历了几个阶段的演变，首先是内科保守治疗与手术治疗之间的争执，随着对UC发病机制的深入研究，人们逐渐认识到药物治疗是UC治疗的主要方式。20世纪30年代引入氨基水杨酸制剂，50年代引入糖皮质激素，60年代引入免疫抑制剂，UC的死亡..."
-    },
-    {
-      "layout_id": "4524aZ-layout-276",
-      "page_num": 15,
-      "type": "text",
-      "reason": "llm_conclusion",
-      "text_preview": "个共识意见和临床应用中，单用免疫抑制剂维持 缓解有 UC 逐步淡化的趋势，多建议与生物制剂联合应用。但我们需要 清醒地认识到，单用免疫抑制剂在 维持治疗中的循证证 UC 据较强，因此仍不失为有效的治疗手段。"
     },
     {
       "layout_id": "4524aZ-layout-277",
@@ -2558,21 +2565,21 @@
       "layout_id": "4524aZ-layout-290",
       "page_num": 15,
       "type": "text",
-      "reason": "llm_metadata",
+      "reason": "llm_reference",
       "text_preview": "［"
     },
     {
       "layout_id": "4524aZ-layout-294",
       "page_num": 15,
       "type": "text",
-      "reason": "llm_metadata",
+      "reason": "llm_reference",
       "text_preview": "2019 114 3 384⁃413. DOI 10.14309/ajg.0000000000000152."
     },
     {
       "layout_id": "4524aZ-layout-307",
       "page_num": 16,
       "type": "text",
-      "reason": "llm_metadata",
+      "reason": "llm_reference",
       "text_preview": "［"
     },
     {
@@ -2635,7 +2642,7 @@
       "layout_id": "4524aZ-layout-379",
       "page_num": 18,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "2015.233."
     },
     {
@@ -2649,15 +2656,8 @@
       "layout_id": "4524aZ-layout-383",
       "page_num": 18,
       "type": "text",
-      "reason": "llm_reference",
-      "text_preview": "2 231⁃239. DOI 10.1097/01.MIB.0000437985.00190.aa."
-    },
-    {
-      "layout_id": "4524aZ-layout-384",
-      "page_num": 18,
-      "type": "text",
       "reason": "llm_metadata",
-      "text_preview": "［"
+      "text_preview": "2 231⁃239. DOI 10.1097/01.MIB.0000437985.00190.aa."
     },
     {
       "layout_id": "4524aZ-layout-392",
@@ -2681,14 +2681,21 @@
       "text_preview": "309598."
     },
     {
-      "layout_id": "4524aZ-layout-405",
+      "layout_id": "4524aZ-layout-404",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［ ］"
+    },
+    {
+      "layout_id": "4524aZ-layout-406",
       "page_num": 19,
       "type": "text",
       "reason": "llm_metadata",
       "text_preview": "，"
     },
     {
-      "layout_id": "4524aZ-layout-406",
+      "layout_id": "4524aZ-layout-407",
       "page_num": 19,
       "type": "text",
       "reason": "llm_metadata",
@@ -2709,11 +2716,32 @@
       "text_preview": "862917."
     },
     {
+      "layout_id": "4524aZ-layout-415",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
+    },
+    {
       "layout_id": "4524aZ-layout-418",
       "page_num": 19,
       "type": "text",
       "reason": "llm_metadata",
       "text_preview": "j.0953⁃0673.1996.00327.x."
+    },
+    {
+      "layout_id": "4524aZ-layout-419",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-421",
+      "page_num": 19,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
     },
     {
       "layout_id": "4524aZ-layout-423",
@@ -2723,38 +2751,38 @@
       "text_preview": "［"
     },
     {
-      "layout_id": "4524aZ-layout-425",
-      "page_num": 19,
-      "type": "text",
-      "reason": "llm_reference",
-      "text_preview": "［"
-    },
-    {
       "layout_id": "4524aZ-layout-428",
       "page_num": 19,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "［"
     },
     {
       "layout_id": "4524aZ-layout-443",
       "page_num": 20,
       "type": "text",
-      "reason": "llm_metadata",
+      "reason": "llm_reference",
       "text_preview": "2006.10.011."
     },
     {
-      "layout_id": "4524aZ-layout-457",
+      "layout_id": "4524aZ-layout-456",
       "page_num": 20,
       "type": "text",
       "reason": "llm_metadata",
       "text_preview": "［"
     },
     {
+      "layout_id": "4524aZ-layout-457",
+      "page_num": 20,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
+    },
+    {
       "layout_id": "4524aZ-layout-464",
       "page_num": 21,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "Assess 2022 26 41 1⁃118. DOI 10.3310/RHXR5192."
     },
     {
@@ -2768,21 +2796,21 @@
       "layout_id": "4524aZ-layout-472",
       "page_num": 21,
       "type": "text",
-      "reason": "llm_metadata",
+      "reason": "llm_reference",
       "text_preview": "［"
     },
     {
       "layout_id": "4524aZ-layout-477",
       "page_num": 21,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "NEJMoa1905725."
     },
     {
       "layout_id": "4524aZ-layout-478",
       "page_num": 21,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "［"
     },
     {
@@ -2817,7 +2845,7 @@
       "layout_id": "4524aZ-layout-490",
       "page_num": 21,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "gastro.2013.10.052."
     },
     {
@@ -2838,8 +2866,15 @@
       "layout_id": "4524aZ-layout-495",
       "page_num": 21,
       "type": "text",
-      "reason": "llm_metadata",
+      "reason": "llm_reference",
       "text_preview": "10.1056/NEJMoa020888."
+    },
+    {
+      "layout_id": "4524aZ-layout-496",
+      "page_num": 21,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
     },
     {
       "layout_id": "4524aZ-layout-503",
@@ -2873,21 +2908,28 @@
       "layout_id": "4524aZ-layout-532",
       "page_num": 22,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "［"
+    },
+    {
+      "layout_id": "4524aZ-layout-523",
+      "page_num": 22,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "ldl001."
     },
     {
       "layout_id": "4524aZ-layout-533",
       "page_num": 22,
       "type": "text",
-      "reason": "llm_metadata",
+      "reason": "llm_reference",
       "text_preview": "［"
     },
     {
       "layout_id": "4524aZ-layout-534",
       "page_num": 22,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "［"
     },
     {
@@ -2908,29 +2950,22 @@
       "layout_id": "4524aZ-layout-537",
       "page_num": 22,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "［"
     },
     {
       "layout_id": "4524aZ-layout-529",
       "page_num": 22,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "1858. DOI 10.1002/ibd.20986."
     },
     {
       "layout_id": "4524aZ-layout-538",
       "page_num": 22,
       "type": "text",
-      "reason": "llm_metadata",
-      "text_preview": "［"
-    },
-    {
-      "layout_id": "4524aZ-layout-556",
-      "page_num": 23,
-      "type": "text",
       "reason": "llm_reference",
-      "text_preview": "［ ］"
+      "text_preview": "［"
     },
     {
       "layout_id": "4524aZ-layout-557",
@@ -2952,6 +2987,13 @@
       "type": "text",
       "reason": "llm_metadata",
       "text_preview": "，"
+    },
+    {
+      "layout_id": "4524aZ-layout-578",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_reference",
+      "text_preview": "［"
     },
     {
       "layout_id": "4524aZ-layout-565",
@@ -2985,21 +3027,28 @@
       "layout_id": "4524aZ-layout-570",
       "page_num": 23,
       "type": "text",
-      "reason": "llm_metadata",
+      "reason": "llm_reference",
       "text_preview": "crohns.2012.10.008."
+    },
+    {
+      "layout_id": "4524aZ-layout-581",
+      "page_num": 23,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "［"
     },
     {
       "layout_id": "4524aZ-layout-572",
       "page_num": 23,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "ibd/izaa002."
     },
     {
       "layout_id": "4524aZ-layout-582",
       "page_num": 23,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "［"
     },
     {
@@ -3020,21 +3069,14 @@
       "layout_id": "4524aZ-layout-616",
       "page_num": 25,
       "type": "text",
-      "reason": "llm_reference",
-      "text_preview": "［"
-    },
-    {
-      "layout_id": "4524aZ-layout-631",
-      "page_num": 25,
-      "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "［"
     },
     {
       "layout_id": "4524aZ-layout-634",
       "page_num": 25,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "［"
     },
     {
@@ -3048,28 +3090,21 @@
       "layout_id": "4524aZ-layout-638",
       "page_num": 25,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "ibd.20099."
     },
     {
       "layout_id": "4524aZ-layout-639",
       "page_num": 25,
       "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "［"
     },
     {
       "layout_id": "4524aZ-layout-641",
       "page_num": 25,
       "type": "text",
-      "reason": "llm_reference",
-      "text_preview": "［"
-    },
-    {
-      "layout_id": "4524aZ-layout-643",
-      "page_num": 25,
-      "type": "text",
-      "reason": "llm_reference",
+      "reason": "llm_metadata",
       "text_preview": "［"
     },
     {
@@ -3080,17 +3115,10 @@
       "text_preview": "［"
     },
     {
-      "layout_id": "4524aZ-layout-647",
-      "page_num": 25,
-      "type": "text",
-      "reason": "llm_reference",
-      "text_preview": "［"
-    },
-    {
       "layout_id": "4524aZ-layout-649",
       "page_num": 25,
       "type": "text",
-      "reason": "llm_metadata",
+      "reason": "llm_reference",
       "text_preview": "［"
     },
     {
@@ -3261,21 +3289,6 @@
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
       "text_preview": "本指南主要是针对成人 的诊断和内科治疗的最新 IBD 推荐意见， 的外科治疗［ ］、营养支持治疗［ ］、生物制剂治 9 10 IBD 疗［ ］、多学科诊疗模式［ ］、病理诊断［ ］、妊娠期管理［ ］及儿童 11 12 13 14 ］的问题已..."
-    },
-    {
-      "unit_id": "clinical_text_unit_5d639c161e81",
-      "page_start": 2,
-      "page_end": 2,
-      "section_path": [
-        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
-        "Chinese clinical practice guideline on the management of ulcerative colitis（2023，Xi ′ an)"
-      ],
-      "source_layout_ids": [
-        "4524aZ-layout-27"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "本文是 的指南部分。"
     },
     {
       "unit_id": "clinical_text_unit_08b290bc47ad",
@@ -3719,6 +3732,21 @@
       "text_preview": "诊断举例：溃疡性结肠炎（慢性复发型、活动期重度、广 泛型）。"
     },
     {
+      "unit_id": "clinical_text_unit_e76ba5b6f707",
+      "page_start": 15,
+      "page_end": 15,
+      "section_path": [
+        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
+        "六、展望"
+      ],
+      "source_layout_ids": [
+        "4524aZ-layout-276"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "个共识意见和临床应用中，单用免疫抑制剂维持 缓解有 UC 逐步淡化的趋势，多建议与生物制剂联合应用。但我们需要 清醒地认识到，单用免疫抑制剂在 维持治疗中的循证证 UC 据较强，因此仍不失为有效的治疗手段。"
+    },
+    {
       "unit_id": "clinical_text_unit_caa55ad088d6",
       "page_start": 15,
       "page_end": 15,
@@ -3734,30 +3762,27 @@
       "text_preview": "Ⅲ"
     },
     {
-      "unit_id": "clinical_text_unit_727771de3fba",
+      "unit_id": "clinical_text_unit_e05939ee4f8a",
       "page_start": 18,
-      "page_end": 23,
+      "page_end": 25,
       "section_path": [
         "中国溃疡性结肠炎诊治指南（2023 年·西安）",
         "起草小组专家："
       ],
       "source_layout_ids": [
         "4524aZ-layout-375",
+        "4524aZ-layout-384",
         "4524aZ-layout-386",
-        "4524aZ-layout-404",
-        "4524aZ-layout-407",
-        "4524aZ-layout-415",
-        "4524aZ-layout-419",
-        "4524aZ-layout-421",
-        "4524aZ-layout-456",
-        "4524aZ-layout-496",
-        "4524aZ-layout-523",
-        "4524aZ-layout-578",
-        "4524aZ-layout-581"
+        "4524aZ-layout-405",
+        "4524aZ-layout-425",
+        "4524aZ-layout-556",
+        "4524aZ-layout-631",
+        "4524aZ-layout-643",
+        "4524aZ-layout-647"
       ],
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
-      "text_preview": "［［［ ］，［［［［［ldl001.［［"
+      "text_preview": "［［［，［［ ］［［［"
     }
   ],
   "merged_layout_groups": [
@@ -4060,21 +4085,6 @@
       "raw_text_preview": "推荐理由：在一次或多次严重恶化后，有 的 30% ~ 40% 患者将接受结肠切除， 的 患者在首次 ASUC 10% ~ 20% ASUC 入院时就需要进行手术干预［ ， ］。标准的初始治疗包括 146 208⁃210* 静脉注射糖皮质激素..."
     },
     {
-      "unit_id": "clinical_text_unit_368fa830b2af",
-      "page_start": 13,
-      "page_end": 13,
-      "section_path": [
-        "中国溃疡性结肠炎诊治指南（2023 年·西安）",
-        "五、治疗",
-        "维持治疗和癌变监测"
-      ],
-      "source_layout_ids": [
-        "4524aZ-layout-240",
-        "4524aZ-layout-241"
-      ],
-      "raw_text_preview": "4.推荐意见 47：UC 是一种慢性疾病，容易复发，达到临床 症状缓解、炎性指标正常、内镜下黏膜愈合后，多数患者仍建 议长期维持治疗。（证据等级：1，推荐强度：强）"
-    },
-    {
       "unit_id": "clinical_text_unit_a5d3b72aeea2",
       "page_start": 13,
       "page_end": 13,
@@ -4168,28 +4178,25 @@
       "raw_text_preview": "如果既往有结肠切除和回肠造口，或结肠切除和回肠直肠吻合，保留的直肠应进行监测检查。目前没有药物足以预防异型增生或CRC,以避免结肠镜监测。由于证据不足，不建议将粪便DNA检测和虚拟结肠镜检查用于UC相关肿瘤的筛查或监测。"
     },
     {
-      "unit_id": "clinical_text_unit_727771de3fba",
+      "unit_id": "clinical_text_unit_e05939ee4f8a",
       "page_start": 18,
-      "page_end": 23,
+      "page_end": 25,
       "section_path": [
         "中国溃疡性结肠炎诊治指南（2023 年·西安）",
         "起草小组专家："
       ],
       "source_layout_ids": [
         "4524aZ-layout-375",
+        "4524aZ-layout-384",
         "4524aZ-layout-386",
-        "4524aZ-layout-404",
-        "4524aZ-layout-407",
-        "4524aZ-layout-415",
-        "4524aZ-layout-419",
-        "4524aZ-layout-421",
-        "4524aZ-layout-456",
-        "4524aZ-layout-496",
-        "4524aZ-layout-523",
-        "4524aZ-layout-578",
-        "4524aZ-layout-581"
+        "4524aZ-layout-405",
+        "4524aZ-layout-425",
+        "4524aZ-layout-556",
+        "4524aZ-layout-631",
+        "4524aZ-layout-643",
+        "4524aZ-layout-647"
       ],
-      "raw_text_preview": "［［［ ］，［［［［［ldl001.［［"
+      "raw_text_preview": "［［［，［［ ］［［［"
     }
   ],
   "output_cards": 112

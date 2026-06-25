@@ -1,7 +1,7 @@
 schema_version: '0.3'
 metadata:
   skill_id: 肠型贝赫切特综合征(肠白塞病)诊断和治疗共识意见
-  disease_name: 神经贝赫切特病
+  disease: 肠型贝赫切特综合征(肠白塞病)
   guideline:
     name: 肠型贝赫切特综合征(肠白塞病)诊断和治疗共识意见.pdf
     version: unknown
@@ -12,19 +12,199 @@ routing_profile:
   population:
   - 普遍适用
   positive_features:
+  - name: 腹痛
+    hpo_code: HP:0002027
+    hpo_term: 腹痛
+    similarity_score: 0.9999001622200012
+    status: mapped
+    card_id:
+    - ocr_card_6dd6b6daabed
+    - ocr_card_303f000a3167
+    - ocr_card_c6355bdb1297
+    - ocr_card_ae460cad29d7
+    - ocr_card_101616bc690c
+    - ocr_card_367c5ebbf479
+    clinical_sources:
+    - card_id: ocr_card_6dd6b6daabed
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_303f000a3167
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_c6355bdb1297
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+    - card_id: ocr_card_ae460cad29d7
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+    - card_id: ocr_card_101616bc690c
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+    - card_id: ocr_card_367c5ebbf479
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 腹泻
+    hpo_code: HP:0002014
+    hpo_term: 腹泻
+    similarity_score: 0.9999088048934937
+    status: mapped
+    card_id:
+    - ocr_card_6dd6b6daabed
+    - ocr_card_303f000a3167
+    - ocr_card_c6355bdb1297
+    - ocr_card_101616bc690c
+    - ocr_card_367c5ebbf479
+    clinical_sources:
+    - card_id: ocr_card_6dd6b6daabed
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_303f000a3167
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_c6355bdb1297
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+    - card_id: ocr_card_101616bc690c
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+    - card_id: ocr_card_367c5ebbf479
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 粪便呈糊状
+    hpo_code: HP:6000686
+    hpo_term: 粪便中有黏液
+    similarity_score: 0.8624773025512695
+    status: mapped
+    card_id:
+    - ocr_card_303f000a3167
+    clinical_sources:
+    - card_id: ocr_card_303f000a3167
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 血便
+    hpo_code: HP:0002573
+    hpo_term: 便血
+    similarity_score: 0.9328060150146484
+    status: mapped
+    card_id:
+    - ocr_card_303f000a3167
+    clinical_sources:
+    - card_id: ocr_card_303f000a3167
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 纳差
+    hpo_code: HP:0004396
+    hpo_term: 食欲不振
+    similarity_score: 0.8524503111839294
+    status: mapped
+    card_id:
+    - ocr_card_303f000a3167
+    clinical_sources:
+    - card_id: ocr_card_303f000a3167
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 恶心
+    hpo_code: HP:0002018
+    hpo_term: 恶心
+    similarity_score: 0.9999329447746277
+    status: mapped
+    card_id:
+    - ocr_card_303f000a3167
+    clinical_sources:
+    - card_id: ocr_card_303f000a3167
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 呕吐
+    hpo_code: HP:0002013
+    hpo_term: 呕吐
+    similarity_score: 0.9999256134033203
+    status: mapped
+    card_id:
+    - ocr_card_303f000a3167
+    clinical_sources:
+    - card_id: ocr_card_303f000a3167
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 贫血
+    hpo_code: HP:0001903
+    hpo_term: 贫血
+    similarity_score: 0.9999143481254578
+    status: mapped
+    card_id:
+    - ocr_card_303f000a3167
+    clinical_sources:
+    - card_id: ocr_card_303f000a3167
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 乏力
+    hpo_code: HP:0012378
+    hpo_term: 疲乏
+    similarity_score: 0.9178274869918823
+    status: mapped
+    card_id:
+    - ocr_card_303f000a3167
+    clinical_sources:
+    - card_id: ocr_card_303f000a3167
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 体质量下降
+    hpo_code: HP:0004325
+    hpo_term: 体重下降
+    similarity_score: 0.9183603525161743
+    status: mapped
+    card_id:
+    - ocr_card_303f000a3167
+    clinical_sources:
+    - card_id: ocr_card_303f000a3167
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 反复复发
+    hpo_code: HP:0002719
+    hpo_term: 反复感染
+    similarity_score: 0.9252483248710632
+    status: mapped
+    card_id:
+    - ocr_card_303f000a3167
+    clinical_sources:
+    - card_id: ocr_card_303f000a3167
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 发热
+    hpo_code: HP:0001945
+    hpo_term: 发热
+    similarity_score: 0.999930739402771
+    status: mapped
+    card_id:
+    - ocr_card_c11c8ed02fe1
+    - ocr_card_69e9304e5d77
+    - ocr_card_101616bc690c
+    - ocr_card_367c5ebbf479
+    - ocr_card_1e45980a69de
+    clinical_sources:
+    - card_id: ocr_card_c11c8ed02fe1
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_69e9304e5d77
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_101616bc690c
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+    - card_id: ocr_card_367c5ebbf479
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_1e45980a69de
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
   - name: 复发性口腔溃疡
     hpo_code: HP:0011107
     hpo_term: 复发性口疮性口炎
-    similarity_score: 0.9674625992774963
+    similarity_score: 0.9671957492828369
     status: mapped
     card_id:
-    - ocr_card_411cf747278e
     - ocr_card_c11c8ed02fe1
     - ocr_card_69e9304e5d77
     clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
     - card_id: ocr_card_c11c8ed02fe1
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
@@ -34,19 +214,15 @@ routing_profile:
   - name: 生殖器溃疡
     hpo_code: HP:0003249
     hpo_term: 生殖器溃疡
-    similarity_score: 0.9998717904090881
+    similarity_score: 0.9999059438705444
     status: mapped
     card_id:
-    - ocr_card_411cf747278e
     - ocr_card_c11c8ed02fe1
     - ocr_card_69e9304e5d77
     - ocr_card_83f43a9b47e6
     - ocr_card_c6355bdb1297
     - ocr_card_a185a331f895
     clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
     - card_id: ocr_card_c11c8ed02fe1
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
@@ -62,300 +238,10 @@ routing_profile:
     - card_id: ocr_card_a185a331f895
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
-  - name: 葡萄膜炎
-    hpo_code: HP:0000554
-    hpo_term: 葡萄膜炎
-    similarity_score: 0.9999209642410278
-    status: mapped
-    card_id:
-    - ocr_card_411cf747278e
-    clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
-  - name: 皮肤损害
-    hpo_code: HP:0000951
-    hpo_term: 皮肤异常
-    similarity_score: 0.9108312129974365
-    status: mapped
-    card_id:
-    - ocr_card_411cf747278e
-    clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
-  - name: 神经系统受累
-    hpo_code: HP:0000707
-    hpo_term: 神经系统异常
-    similarity_score: 0.8692212104797363
-    status: mapped
-    card_id:
-    - ocr_card_411cf747278e
-    - ocr_card_69e9304e5d77
-    - ocr_card_e9695230696b
-    clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
-    - card_id: ocr_card_69e9304e5d77
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-    - card_id: ocr_card_e9695230696b
-      clinical_stage: 治疗流程
-      clinical_task: 药物治疗
-  - name: 消化道受累
-    hpo_code: HP:0025031
-    hpo_term: 消化系统异常
-    similarity_score: 0.8396307229995728
-    status: mapped
-    card_id:
-    - ocr_card_411cf747278e
-    clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
-  - name: 肺受累
-    hpo_code: HP:0002113
-    hpo_term: 肺浸润
-    similarity_score: 0.8789840936660767
-    status: mapped
-    card_id:
-    - ocr_card_411cf747278e
-    - ocr_card_e9695230696b
-    clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
-    - card_id: ocr_card_e9695230696b
-      clinical_stage: 治疗流程
-      clinical_task: 药物治疗
-  - name: 肾受累
-    hpo_code: HP:0000112
-    hpo_term: 肾病
-    similarity_score: 0.8900103569030762
-    status: mapped
-    card_id:
-    - ocr_card_411cf747278e
-    clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
-  - name: 附睾受累
-    hpo_code: HP:0000031
-    hpo_term: 附睾炎
-    similarity_score: 0.9206846952438354
-    status: mapped
-    card_id:
-    - ocr_card_411cf747278e
-    clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
-  - name: 全身大、中、小血管受累
-    hpo_code: HP:0005310
-    hpo_term: 大血管炎
-    similarity_score: 0.8575738072395325
-    status: mapped
-    card_id:
-    - ocr_card_411cf747278e
-    clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
-  - name: 典型肠道溃疡
-    hpo_code: HP:0034274
-    hpo_term: 消化道溃疡
-    similarity_score: 0.8314521312713623
-    status: mapped
-    card_id:
-    - ocr_card_411cf747278e
-    clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
-  - name: 其他肠道表现
-    hpo_code: HP:0011024
-    hpo_term: 胃肠道异常
-    similarity_score: 0.7731335163116455
-    status: mapped
-    card_id:
-    - ocr_card_411cf747278e
-    clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
-  - name: 腹痛
-    hpo_code: HP:0002027
-    hpo_term: 腹痛
-    similarity_score: 0.9999020099639893
-    status: mapped
-    card_id:
-    - ocr_card_6dd6b6daabed
-    - ocr_card_303f000a3167
-    - ocr_card_c6355bdb1297
-    - ocr_card_ae460cad29d7
-    - ocr_card_367c5ebbf479
-    clinical_sources:
-    - card_id: ocr_card_6dd6b6daabed
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-    - card_id: ocr_card_303f000a3167
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-    - card_id: ocr_card_c6355bdb1297
-      clinical_stage: 诊断评估流程
-      clinical_task: 综合诊断
-    - card_id: ocr_card_ae460cad29d7
-      clinical_stage: 诊断评估流程
-      clinical_task: 综合诊断
-    - card_id: ocr_card_367c5ebbf479
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 腹泻
-    hpo_code: HP:0002014
-    hpo_term: 腹泻
-    similarity_score: 0.9999070763587952
-    status: mapped
-    card_id:
-    - ocr_card_6dd6b6daabed
-    - ocr_card_303f000a3167
-    - ocr_card_c6355bdb1297
-    - ocr_card_367c5ebbf479
-    clinical_sources:
-    - card_id: ocr_card_6dd6b6daabed
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-    - card_id: ocr_card_303f000a3167
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-    - card_id: ocr_card_c6355bdb1297
-      clinical_stage: 诊断评估流程
-      clinical_task: 综合诊断
-    - card_id: ocr_card_367c5ebbf479
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 反复复发
-    hpo_code: HP:0002719
-    hpo_term: 反复感染
-    similarity_score: 0.9252998232841492
-    status: mapped
-    card_id:
-    - ocr_card_303f000a3167
-    clinical_sources:
-    - card_id: ocr_card_303f000a3167
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 糊状便
-    hpo_code: HP:0033343
-    hpo_term: 黏液状腹泻
-    similarity_score: 0.8604267835617065
-    status: mapped
-    card_id:
-    - ocr_card_303f000a3167
-    clinical_sources:
-    - card_id: ocr_card_303f000a3167
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 血便
-    hpo_code: HP:0002573
-    hpo_term: 便血
-    similarity_score: 0.9324361085891724
-    status: mapped
-    card_id:
-    - ocr_card_303f000a3167
-    clinical_sources:
-    - card_id: ocr_card_303f000a3167
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 纳差
-    hpo_code: HP:0004396
-    hpo_term: 食欲不振
-    similarity_score: 0.8575614094734192
-    status: mapped
-    card_id:
-    - ocr_card_303f000a3167
-    clinical_sources:
-    - card_id: ocr_card_303f000a3167
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 恶心呕吐
-    hpo_code: HP:0002017
-    hpo_term: 恶心和呕吐
-    similarity_score: 0.9042266607284546
-    status: mapped
-    card_id:
-    - ocr_card_303f000a3167
-    clinical_sources:
-    - card_id: ocr_card_303f000a3167
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 贫血
-    hpo_code: HP:0001903
-    hpo_term: 贫血
-    similarity_score: 0.9999242424964905
-    status: mapped
-    card_id:
-    - ocr_card_303f000a3167
-    clinical_sources:
-    - card_id: ocr_card_303f000a3167
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 乏力
-    hpo_code: HP:0012378
-    hpo_term: 疲乏
-    similarity_score: 0.9185001254081726
-    status: mapped
-    card_id:
-    - ocr_card_303f000a3167
-    clinical_sources:
-    - card_id: ocr_card_303f000a3167
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 体质量下降
-    hpo_code: HP:0004325
-    hpo_term: 体重下降
-    similarity_score: 0.9183946847915649
-    status: mapped
-    card_id:
-    - ocr_card_303f000a3167
-    clinical_sources:
-    - card_id: ocr_card_303f000a3167
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 右下腹痛
-    hpo_code: HP:0030157
-    hpo_term: 侧腹疼痛
-    similarity_score: 0.8493191003799438
-    status: mapped
-    card_id:
-    - ocr_card_303f000a3167
-    clinical_sources:
-    - card_id: ocr_card_303f000a3167
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 发热
-    hpo_code: HP:0001945
-    hpo_term: 发热
-    similarity_score: 0.9999182820320129
-    status: mapped
-    card_id:
-    - ocr_card_c11c8ed02fe1
-    - ocr_card_69e9304e5d77
-    - ocr_card_1e45980a69de
-    clinical_sources:
-    - card_id: ocr_card_c11c8ed02fe1
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-    - card_id: ocr_card_69e9304e5d77
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-    - card_id: ocr_card_1e45980a69de
-      clinical_stage: 治疗流程
-      clinical_task: 一般治疗
   - name: 眼部病变
     hpo_code: HP:0000478
     hpo_term: 眼部异常
-    similarity_score: 0.9394530057907104
+    similarity_score: 0.9390362501144409
     status: mapped
     card_id:
     - ocr_card_c11c8ed02fe1
@@ -379,10 +265,25 @@ routing_profile:
     - card_id: ocr_card_367c5ebbf479
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
+  - name: 皮肤病变
+    hpo_code: HP:0000951
+    hpo_term: 皮肤异常
+    similarity_score: 0.9501788020133972
+    status: mapped
+    card_id:
+    - ocr_card_c11c8ed02fe1
+    - ocr_card_c6355bdb1297
+    clinical_sources:
+    - card_id: ocr_card_c11c8ed02fe1
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_c6355bdb1297
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
   - name: 关节炎
     hpo_code: HP:0001369
     hpo_term: 关节炎
-    similarity_score: 0.9999179840087891
+    similarity_score: 0.9999128580093384
     status: mapped
     card_id:
     - ocr_card_c11c8ed02fe1
@@ -397,7 +298,18 @@ routing_profile:
   - name: 血管损害
     hpo_code: HP:0030163
     hpo_term: 血管生理功能异常
-    similarity_score: 0.8817739486694336
+    similarity_score: 0.8817037343978882
+    status: mapped
+    card_id:
+    - ocr_card_c11c8ed02fe1
+    clinical_sources:
+    - card_id: ocr_card_c11c8ed02fe1
+      clinical_stage: 诊断评估流程
+      clinical_task: 初步筛查与临床表现评估
+  - name: 神经系统疾病
+    hpo_code: HP:0000707
+    hpo_term: 神经系统异常
+    similarity_score: 0.8908151388168335
     status: mapped
     card_id:
     - ocr_card_c11c8ed02fe1
@@ -408,7 +320,7 @@ routing_profile:
   - name: 血液系统疾病
     hpo_code: HP:0004377
     hpo_term: 血液肿瘤
-    similarity_score: 0.9083659052848816
+    similarity_score: 0.908759355545044
     status: mapped
     card_id:
     - ocr_card_c11c8ed02fe1
@@ -419,7 +331,7 @@ routing_profile:
   - name: 皮肤脓疱丘疹性病变
     hpo_code: HP:0031292
     hpo_term: 皮肤脓肿
-    similarity_score: 0.872547447681427
+    similarity_score: 0.8729985356330872
     status: mapped
     card_id:
     - ocr_card_69e9304e5d77
@@ -430,32 +342,32 @@ routing_profile:
   - name: 肠穿孔
     hpo_code: HP:0031368
     hpo_term: 肠穿孔
-    similarity_score: 0.9998993277549744
+    similarity_score: 0.999901294708252
     status: mapped
     card_id:
     - ocr_card_118dfaa2852f
     - ocr_card_3b43460257e7
     - ocr_card_c6355bdb1297
-    - ocr_card_ae460cad29d7
     - ocr_card_367c5ebbf479
+    - ocr_card_c4bd4d947c6b
     - ocr_card_3b8238b2544f
     - ocr_card_de63b25fef54
     clinical_sources:
     - card_id: ocr_card_118dfaa2852f
       clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
+      clinical_task: 未知
     - card_id: ocr_card_3b43460257e7
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
     - card_id: ocr_card_c6355bdb1297
       clinical_stage: 诊断评估流程
       clinical_task: 综合诊断
-    - card_id: ocr_card_ae460cad29d7
-      clinical_stage: 诊断评估流程
-      clinical_task: 综合诊断
     - card_id: ocr_card_367c5ebbf479
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_c4bd4d947c6b
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
     - card_id: ocr_card_3b8238b2544f
       clinical_stage: 治疗流程
       clinical_task: 手术治疗
@@ -465,43 +377,40 @@ routing_profile:
   - name: 消化道出血
     hpo_code: HP:0002239
     hpo_term: 胃肠道出血
-    similarity_score: 0.9573617577552795
+    similarity_score: 0.9570409059524536
     status: mapped
     card_id:
     - ocr_card_118dfaa2852f
+    - ocr_card_3b43460257e7
     clinical_sources:
     - card_id: ocr_card_118dfaa2852f
+      clinical_stage: 诊断评估流程
+      clinical_task: 未知
+    - card_id: ocr_card_3b43460257e7
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
   - name: 肠瘘
     hpo_code: HP:0100819
     hpo_term: 肠瘘
-    similarity_score: 0.9999269247055054
+    similarity_score: 0.9999189972877502
     status: mapped
     card_id:
     - ocr_card_118dfaa2852f
     - ocr_card_3b43460257e7
-    - ocr_card_f54ddc677613
     - ocr_card_6273a0633b92
-    - ocr_card_93c6513cb4ef
     - ocr_card_ae460cad29d7
     - ocr_card_367c5ebbf479
+    - ocr_card_c4bd4d947c6b
     - ocr_card_3b8238b2544f
     - ocr_card_de63b25fef54
     clinical_sources:
     - card_id: ocr_card_118dfaa2852f
       clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
+      clinical_task: 未知
     - card_id: ocr_card_3b43460257e7
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
-    - card_id: ocr_card_f54ddc677613
-      clinical_stage: 诊断评估流程
-      clinical_task: 影像学检查
     - card_id: ocr_card_6273a0633b92
-      clinical_stage: 诊断评估流程
-      clinical_task: 影像学检查
-    - card_id: ocr_card_93c6513cb4ef
       clinical_stage: 诊断评估流程
       clinical_task: 影像学检查
     - card_id: ocr_card_ae460cad29d7
@@ -510,6 +419,9 @@ routing_profile:
     - card_id: ocr_card_367c5ebbf479
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
+    - card_id: ocr_card_c4bd4d947c6b
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
     - card_id: ocr_card_3b8238b2544f
       clinical_stage: 治疗流程
       clinical_task: 手术治疗
@@ -519,13 +431,11 @@ routing_profile:
   - name: 腹腔脓肿
     hpo_code: HP:0100592
     hpo_term: 腹膜脓肿
-    similarity_score: 0.9658744931221008
+    similarity_score: 0.9670255184173584
     status: mapped
     card_id:
     - ocr_card_118dfaa2852f
-    - ocr_card_f54ddc677613
     - ocr_card_6273a0633b92
-    - ocr_card_93c6513cb4ef
     - ocr_card_c6355bdb1297
     - ocr_card_367c5ebbf479
     - ocr_card_c4bd4d947c6b
@@ -533,14 +443,8 @@ routing_profile:
     clinical_sources:
     - card_id: ocr_card_118dfaa2852f
       clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-    - card_id: ocr_card_f54ddc677613
-      clinical_stage: 诊断评估流程
-      clinical_task: 影像学检查
+      clinical_task: 未知
     - card_id: ocr_card_6273a0633b92
-      clinical_stage: 诊断评估流程
-      clinical_task: 影像学检查
-    - card_id: ocr_card_93c6513cb4ef
       clinical_stage: 诊断评估流程
       clinical_task: 影像学检查
     - card_id: ocr_card_c6355bdb1297
@@ -551,51 +455,36 @@ routing_profile:
       clinical_task: 初步筛查与临床表现评估
     - card_id: ocr_card_c4bd4d947c6b
       clinical_stage: 治疗流程
-      clinical_task: 未知
+      clinical_task: 一般治疗
     - card_id: ocr_card_3b8238b2544f
       clinical_stage: 治疗流程
       clinical_task: 手术治疗
   - name: 血栓栓塞
     hpo_code: HP:0001907
     hpo_term: 血栓栓塞症
-    similarity_score: 0.9809036254882812
+    similarity_score: 0.9809283018112183
     status: mapped
     card_id:
     - ocr_card_118dfaa2852f
     clinical_sources:
     - card_id: ocr_card_118dfaa2852f
       clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 骨髓异常增生综合征
-    hpo_code: HP:0002863
-    hpo_term: 骨髓增生异常
-    similarity_score: 0.9342964887619019
+      clinical_task: 未知
+  - name: 合并骨髓异常增生综合征
+    hpo_code: HP:0012148
+    hpo_term: 多系骨髓增生异常
+    similarity_score: 0.8986682891845703
     status: mapped
     card_id:
     - ocr_card_118dfaa2852f
-    - ocr_card_c6355bdb1297
     clinical_sources:
     - card_id: ocr_card_118dfaa2852f
       clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-    - card_id: ocr_card_c6355bdb1297
-      clinical_stage: 诊断评估流程
-      clinical_task: 综合诊断
-  - name: 急性下消化道出血
-    hpo_code: HP:0002584
-    hpo_term: 肠道出血
-    similarity_score: 0.8641446232795715
-    status: mapped
-    card_id:
-    - ocr_card_3b43460257e7
-    clinical_sources:
-    - card_id: ocr_card_3b43460257e7
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
+      clinical_task: 未知
   - name: 肛瘘
     hpo_code: HP:0010447
     hpo_term: 肛瘘
-    similarity_score: 0.9999166131019592
+    similarity_score: 0.9998974204063416
     status: mapped
     card_id:
     - ocr_card_3b43460257e7
@@ -606,7 +495,7 @@ routing_profile:
   - name: 肠道慢性缺血性病变
     hpo_code: HP:0033404
     hpo_term: 肠缺血
-    similarity_score: 0.8823705315589905
+    similarity_score: 0.8804279565811157
     status: mapped
     card_id:
     - ocr_card_3b43460257e7
@@ -617,7 +506,7 @@ routing_profile:
   - name: 肠狭窄
     hpo_code: HP:0012848
     hpo_term: 小肠狭窄
-    similarity_score: 0.9408732056617737
+    similarity_score: 0.9404370188713074
     status: mapped
     card_id:
     - ocr_card_3b43460257e7
@@ -629,21 +518,25 @@ routing_profile:
     - card_id: ocr_card_c6355bdb1297
       clinical_stage: 诊断评估流程
       clinical_task: 综合诊断
-  - name: 针刺试验呈阳性
+  - name: 针刺试验阳性
     hpo_code: HP:0025532
     hpo_term: 针刺反应阳性
-    similarity_score: 0.9128005504608154
+    similarity_score: 0.9302560687065125
     status: mapped
     card_id:
     - ocr_card_32d4ee459189
+    - ocr_card_83f43a9b47e6
     clinical_sources:
     - card_id: ocr_card_32d4ee459189
       clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 人白细胞抗原HLA-B51等位基因检测对诊断有一定价值
-    hpo_code: HP:0033034
-    hpo_term: 抗瓜氨酸化蛋白抗体阳性
-    similarity_score: 0.777733564376831
+      clinical_task: 实验室检查
+    - card_id: ocr_card_83f43a9b47e6
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+  - name: 人白细胞抗原HLA-B51等位基因检测阳性
+    hpo_code: HP:0002853
+    hpo_term: HLA-DR阳性T细胞比例多
+    similarity_score: 0.7932206988334656
     status: mapped
     card_id:
     - ocr_card_0277256cbccb
@@ -651,10 +544,25 @@ routing_profile:
     - card_id: ocr_card_0277256cbccb
       clinical_stage: 诊断评估流程
       clinical_task: 实验室检查
+  - name: HLA-B51阳性
+    hpo_code: HP:0033034
+    hpo_term: 抗瓜氨酸化蛋白抗体阳性
+    similarity_score: 0.8115344047546387
+    status: mapped
+    card_id:
+    - ocr_card_7c99a45352a5
+    - ocr_card_42c3f8a11e29
+    clinical_sources:
+    - card_id: ocr_card_7c99a45352a5
+      clinical_stage: 诊断评估流程
+      clinical_task: 实验室检查
+    - card_id: ocr_card_42c3f8a11e29
+      clinical_stage: 诊断评估流程
+      clinical_task: 实验室检查
   - name: 抗心磷脂抗体阳性
     hpo_code: HP:0020136
     hpo_term: 抗心磷脂IgG抗体阳性
-    similarity_score: 0.9812421798706055
+    similarity_score: 0.9813290238380432
     status: mapped
     card_id:
     - ocr_card_42c3f8a11e29
@@ -665,7 +573,7 @@ routing_profile:
   - name: 类风湿因子阳性
     hpo_code: HP:0002923
     hpo_term: 类风湿因子阳性
-    similarity_score: 0.9998486638069153
+    similarity_score: 0.9998902678489685
     status: mapped
     card_id:
     - ocr_card_42c3f8a11e29
@@ -676,7 +584,7 @@ routing_profile:
   - name: 抗中性粒细胞胞质抗体阳性
     hpo_code: HP:0003453
     hpo_term: 抗中性粒细胞抗体阳性
-    similarity_score: 0.9497604370117188
+    similarity_score: 0.9497966766357422
     status: mapped
     card_id:
     - ocr_card_42c3f8a11e29
@@ -684,21 +592,25 @@ routing_profile:
     - card_id: ocr_card_42c3f8a11e29
       clinical_stage: 诊断评估流程
       clinical_task: 实验室检查
-  - name: 抗酿酒酵母菌抗体阳性
+  - name: 血清抗酿酒酵母菌抗体阳性
     hpo_code: HP:0430076
     hpo_term: 血流抗真菌抗体阳性
-    similarity_score: 0.8505517244338989
+    similarity_score: 0.85403972864151
     status: mapped
     card_id:
     - ocr_card_42c3f8a11e29
+    - ocr_card_ae460cad29d7
     clinical_sources:
     - card_id: ocr_card_42c3f8a11e29
       clinical_stage: 诊断评估流程
       clinical_task: 实验室检查
+    - card_id: ocr_card_ae460cad29d7
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
   - name: 圆形或类圆形的深溃疡
     hpo_code: HP:0012425
     hpo_term: 粪性溃疡
-    similarity_score: 0.7598387598991394
+    similarity_score: 0.759943425655365
     status: mapped
     card_id:
     - ocr_card_251a60bdb86a
@@ -709,7 +621,7 @@ routing_profile:
   - name: 火山口样溃疡
     hpo_code: HP:0032154
     hpo_term: 口疮性溃疡
-    similarity_score: 0.8087542057037354
+    similarity_score: 0.8098070025444031
     status: mapped
     card_id:
     - ocr_card_251a60bdb86a
@@ -717,10 +629,10 @@ routing_profile:
     - card_id: ocr_card_251a60bdb86a
       clinical_stage: 诊断评估流程
       clinical_task: 内镜检查
-  - name: 单发或多发，多发数量<5 个且互相不融合
-    hpo_code: HP:6000914
-    hpo_term: 单发病灶
-    similarity_score: 0.7781859636306763
+  - name: 单发溃疡
+    hpo_code: HP:0005229
+    hpo_term: 空回肠溃疡
+    similarity_score: 0.8097082376480103
     status: mapped
     card_id:
     - ocr_card_251a60bdb86a
@@ -731,7 +643,7 @@ routing_profile:
   - name: 回盲部边界清晰的单个巨大溃疡
     hpo_code: HP:0033433
     hpo_term: 回盲肠溃疡
-    similarity_score: 0.9033434987068176
+    similarity_score: 0.9029743671417236
     status: mapped
     card_id:
     - ocr_card_251a60bdb86a
@@ -739,54 +651,47 @@ routing_profile:
     - card_id: ocr_card_251a60bdb86a
       clinical_stage: 诊断评估流程
       clinical_task: 内镜检查
-  - name: 肠道溃疡边缘清晰
-    hpo_code: HP:0032024
-    hpo_term: 回肠溃疡
-    similarity_score: 0.840512216091156
-    status: mapped
-    card_id:
-    - ocr_card_4e5a05163ec7
-    clinical_sources:
-    - card_id: ocr_card_4e5a05163ec7
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
   - name: 溃疡数量<5个或单发
     hpo_code: HP:0011355
     hpo_term: 局限性皮损
-    similarity_score: 0.7124176025390625
+    similarity_score: 0.7127466201782227
     status: mapped
     card_id:
     - ocr_card_4e5a05163ec7
     clinical_sources:
     - card_id: ocr_card_4e5a05163ec7
       clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 孤立、边界清晰、底部相对平坦且洁净的深大溃疡
+      clinical_task: 内镜检查
+  - name: 深大溃疡
     hpo_code: HP:0200042
     hpo_term: 皮肤溃疡
-    similarity_score: 0.7715370059013367
+    similarity_score: 0.8177773952484131
     status: mapped
     card_id:
     - ocr_card_4e5a05163ec7
+    - ocr_card_c4bd4d947c6b
     clinical_sources:
     - card_id: ocr_card_4e5a05163ec7
       clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
+      clinical_task: 内镜检查
+    - card_id: ocr_card_c4bd4d947c6b
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
   - name: 星状溃疡
     hpo_code: HP:0002592
     hpo_term: 胃溃疡
-    similarity_score: 0.8073325753211975
+    similarity_score: 0.8083853721618652
     status: mapped
     card_id:
     - ocr_card_4e5a05163ec7
     clinical_sources:
     - card_id: ocr_card_4e5a05163ec7
       clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
+      clinical_task: 内镜检查
   - name: 小肠受累
     hpo_code: HP:0033143
     hpo_term: 空肠炎
-    similarity_score: 0.8493520617485046
+    similarity_score: 0.8495100140571594
     status: mapped
     card_id:
     - ocr_card_8d2744a857c1
@@ -794,10 +699,10 @@ routing_profile:
     - card_id: ocr_card_8d2744a857c1
       clinical_stage: 诊断评估流程
       clinical_task: 内镜检查
-  - name: 受累节段长度一般<3 cm
+  - name: 受累节段长度一般小于3 cm
     hpo_code: HP:0030041
     hpo_term: Schmorl's结节
-    similarity_score: 0.7173573970794678
+    similarity_score: 0.7296320199966431
     status: mapped
     card_id:
     - ocr_card_f54ddc677613
@@ -805,10 +710,21 @@ routing_profile:
     - card_id: ocr_card_f54ddc677613
       clinical_stage: 诊断评估流程
       clinical_task: 影像学检查
-  - name: 病变节段较短，<5 cm
-    hpo_code: HP:0034556
-    hpo_term: 脊柱节段水平缺损
-    similarity_score: 0.735593318939209
+  - name: 病变节段较短，小于5 cm
+    hpo_code: HP:0008450
+    hpo_term: 椎弓根间隙变窄
+    similarity_score: 0.7210363149642944
+    status: mapped
+    card_id:
+    - ocr_card_f54ddc677613
+    clinical_sources:
+    - card_id: ocr_card_f54ddc677613
+      clinical_stage: 诊断评估流程
+      clinical_task: 影像学检查
+  - name: 肠壁增厚不明显
+    hpo_code: HP:6000072
+    hpo_term: 小肠外肌层变薄
+    similarity_score: 0.7642514109611511
     status: mapped
     card_id:
     - ocr_card_f54ddc677613
@@ -819,26 +735,18 @@ routing_profile:
   - name: 肠壁增厚
     hpo_code: HP:0034588
     hpo_term: 肠隐窝增生
-    similarity_score: 0.839226484298706
+    similarity_score: 0.8390923142433167
     status: mapped
     card_id:
     - ocr_card_6273a0633b92
-    - ocr_card_93c6513cb4ef
-    - ocr_card_c6355bdb1297
     clinical_sources:
     - card_id: ocr_card_6273a0633b92
       clinical_stage: 诊断评估流程
       clinical_task: 影像学检查
-    - card_id: ocr_card_93c6513cb4ef
-      clinical_stage: 诊断评估流程
-      clinical_task: 影像学检查
-    - card_id: ocr_card_c6355bdb1297
-      clinical_stage: 诊断评估流程
-      clinical_task: 综合诊断
-  - name: 内镜黏膜活检和手术病理发现血管炎
-    hpo_code: HP:0410147
-    hpo_term: 胃粘膜嗜酸性粒细胞浸润
-    similarity_score: 0.7539464831352234
+  - name: 病理发现血管炎
+    hpo_code: HP:0034784
+    hpo_term: 根据解剖部位分类的血管炎
+    similarity_score: 0.8335519433021545
     status: mapped
     card_id:
     - ocr_card_e62b9bd10637
@@ -849,7 +757,7 @@ routing_profile:
   - name: 小血管和中等大小血管炎
     hpo_code: HP:0011944
     hpo_term: 小血管炎
-    similarity_score: 0.9144203662872314
+    similarity_score: 0.914842426776886
     status: mapped
     card_id:
     - ocr_card_549144ffa8be
@@ -860,7 +768,7 @@ routing_profile:
   - name: 淋巴细胞围绕血管浸润
     hpo_code: HP:0020237
     hpo_term: 淋巴细胞侵袭淋巴结包膜
-    similarity_score: 0.8913063406944275
+    similarity_score: 0.8905711770057678
     status: mapped
     card_id:
     - ocr_card_549144ffa8be
@@ -871,7 +779,7 @@ routing_profile:
   - name: 大量中性粒细胞浸润
     hpo_code: HP:0011991
     hpo_term: 中性粒细胞数量异常
-    similarity_score: 0.8348962664604187
+    similarity_score: 0.8340355753898621
     status: mapped
     card_id:
     - ocr_card_549144ffa8be
@@ -879,32 +787,29 @@ routing_profile:
     - card_id: ocr_card_549144ffa8be
       clinical_stage: 诊断评估流程
       clinical_task: 病理
-  - name: 可见血管炎
+  - name: 血管炎
     hpo_code: HP:0002633
     hpo_term: 血管炎
-    similarity_score: 0.8844749331474304
+    similarity_score: 0.9998990893363953
     status: mapped
     card_id:
     - ocr_card_549144ffa8be
+    - ocr_card_c6355bdb1297
+    - ocr_card_9cb115059fe1
     clinical_sources:
     - card_id: ocr_card_549144ffa8be
       clinical_stage: 诊断评估流程
       clinical_task: 病理
-  - name: 白塞病相关典型肠道溃疡
-    hpo_code: HP:0005229
-    hpo_term: 空回肠溃疡
-    similarity_score: 0.7210376858711243
-    status: mapped
-    card_id:
-    - ocr_card_f44a24915b45
-    clinical_sources:
-    - card_id: ocr_card_f44a24915b45
+    - card_id: ocr_card_c6355bdb1297
       clinical_stage: 诊断评估流程
       clinical_task: 综合诊断
+    - card_id: ocr_card_9cb115059fe1
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
   - name: 口腔溃疡
     hpo_code: HP:0000155
     hpo_term: 口腔溃疡
-    similarity_score: 0.9999029040336609
+    similarity_score: 0.9999047517776489
     status: mapped
     card_id:
     - ocr_card_83f43a9b47e6
@@ -927,7 +832,7 @@ routing_profile:
   - name: 眼部病变（前葡萄膜炎、后葡萄膜炎或视网膜血管炎）
     hpo_code: HP:0025188
     hpo_term: 视网膜血管炎
-    similarity_score: 0.8182622194290161
+    similarity_score: 0.8182072639465332
     status: mapped
     card_id:
     - ocr_card_83f43a9b47e6
@@ -938,7 +843,7 @@ routing_profile:
   - name: 皮肤病变（结节性红斑、假性毛囊炎、皮肤溃疡）
     hpo_code: HP:0200036
     hpo_term: 皮肤结节
-    similarity_score: 0.7657445669174194
+    similarity_score: 0.7653396725654602
     status: mapped
     card_id:
     - ocr_card_83f43a9b47e6
@@ -946,21 +851,10 @@ routing_profile:
     - card_id: ocr_card_83f43a9b47e6
       clinical_stage: 诊断评估流程
       clinical_task: 综合诊断
-  - name: 中枢神经系统受累
-    hpo_code: HP:0002529
-    hpo_term: 中枢神经系统神经元损失
-    similarity_score: 0.83635014295578
-    status: mapped
-    card_id:
-    - ocr_card_83f43a9b47e6
-    clinical_sources:
-    - card_id: ocr_card_83f43a9b47e6
-      clinical_stage: 诊断评估流程
-      clinical_task: 综合诊断
-  - name: 血管病变（动脉血栓形成、大静脉血栓、静脉炎或浅静脉炎）
-    hpo_code: HP:0004936
-    hpo_term: 静脉血栓形成
-    similarity_score: 0.8386653065681458
+  - name: 中枢神经系统受累和血管病变（动脉血栓形成、大静脉血栓、静脉炎或浅静脉炎）
+    hpo_code: HP:0005305
+    hpo_term: 脑静脉血栓形成
+    similarity_score: 0.7191423773765564
     status: mapped
     card_id:
     - ocr_card_83f43a9b47e6
@@ -971,7 +865,18 @@ routing_profile:
   - name: 关节病变
     hpo_code: HP:0003040
     hpo_term: 关节病
-    similarity_score: 0.9440556168556213
+    similarity_score: 0.9438443779945374
+    status: mapped
+    card_id:
+    - ocr_card_c6355bdb1297
+    clinical_sources:
+    - card_id: ocr_card_c6355bdb1297
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+  - name: 骨髓异常增生综合征
+    hpo_code: HP:0002863
+    hpo_term: 骨髓增生异常
+    similarity_score: 0.934083104133606
     status: mapped
     card_id:
     - ocr_card_c6355bdb1297
@@ -982,7 +887,18 @@ routing_profile:
   - name: 呼吸系统病变
     hpo_code: HP:0002086
     hpo_term: 呼吸系统异常
-    similarity_score: 0.9299172759056091
+    similarity_score: 0.9296950697898865
+    status: mapped
+    card_id:
+    - ocr_card_c6355bdb1297
+    clinical_sources:
+    - card_id: ocr_card_c6355bdb1297
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
+  - name: 肠出血
+    hpo_code: HP:0002584
+    hpo_term: 肠道出血
+    similarity_score: 0.9590181708335876
     status: mapped
     card_id:
     - ocr_card_c6355bdb1297
@@ -993,12 +909,11 @@ routing_profile:
   - name: 肠梗阻
     hpo_code: HP:0002595
     hpo_term: 肠梗阻
-    similarity_score: 0.9999120235443115
+    similarity_score: 0.999901294708252
     status: mapped
     card_id:
     - ocr_card_c6355bdb1297
     - ocr_card_367c5ebbf479
-    - ocr_card_c4bd4d947c6b
     clinical_sources:
     - card_id: ocr_card_c6355bdb1297
       clinical_stage: 诊断评估流程
@@ -1006,13 +921,10 @@ routing_profile:
     - card_id: ocr_card_367c5ebbf479
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
-    - card_id: ocr_card_c4bd4d947c6b
-      clinical_stage: 治疗流程
-      clinical_task: 未知
-  - name: 非环周局限性病变
-    hpo_code: HP:0033620
-    hpo_term: 非典型裂周结节
-    similarity_score: 0.7373752593994141
+  - name: 肠壁增厚、强化增高、病变长度通常≤5cm
+    hpo_code: HP:0025090
+    hpo_term: 大肠黏膜形态异常
+    similarity_score: 0.7638570070266724
     status: mapped
     card_id:
     - ocr_card_c6355bdb1297
@@ -1020,10 +932,10 @@ routing_profile:
     - card_id: ocr_card_c6355bdb1297
       clinical_stage: 诊断评估流程
       clinical_task: 综合诊断
-  - name: 肠壁强化增高
-    hpo_code: HP:6000148
-    hpo_term: 肝周增强
-    similarity_score: 0.7916972637176514
+  - name: 如有肠腔狭窄，通常不伴上游肠管扩张
+    hpo_code: HP:0012851
+    hpo_term: 结肠狭窄
+    similarity_score: 0.8181672692298889
     status: mapped
     card_id:
     - ocr_card_c6355bdb1297
@@ -1031,10 +943,10 @@ routing_profile:
     - card_id: ocr_card_c6355bdb1297
       clinical_stage: 诊断评估流程
       clinical_task: 综合诊断
-  - name: 病变长度≤5cm
-    hpo_code: HP:0012836
-    hpo_term: 病变分布
-    similarity_score: 0.7097011208534241
+  - name: 炎症仅限于溃疡附近，远处无异常
+    hpo_code: HP:0032024
+    hpo_term: 回肠溃疡
+    similarity_score: 0.7518746256828308
     status: mapped
     card_id:
     - ocr_card_c6355bdb1297
@@ -1042,21 +954,10 @@ routing_profile:
     - card_id: ocr_card_c6355bdb1297
       clinical_stage: 诊断评估流程
       clinical_task: 综合诊断
-  - name: 多节段受累，节段数≤3处
-    hpo_code: HP:0030775
-    hpo_term: Modic 类型椎体终板改变
-    similarity_score: 0.7406892776489258
-    status: mapped
-    card_id:
-    - ocr_card_c6355bdb1297
-    clinical_sources:
-    - card_id: ocr_card_c6355bdb1297
-      clinical_stage: 诊断评估流程
-      clinical_task: 综合诊断
-  - name: 炎症指标升高（如C反应蛋白升高）
-    hpo_code: HP:0011227
-    hpo_term: C-反应蛋白水平升高
-    similarity_score: 0.8518008589744568
+  - name: C反应蛋白升高
+    hpo_code: HP:0032436
+    hpo_term: 循环C反应蛋白浓度异常
+    similarity_score: 0.9210715889930725
     status: mapped
     card_id:
     - ocr_card_ae460cad29d7
@@ -1064,10 +965,10 @@ routing_profile:
     - card_id: ocr_card_ae460cad29d7
       clinical_stage: 诊断评估流程
       clinical_task: 综合诊断
-  - name: 肠壁增厚和强化（影像学）
+  - name: 影像学肠壁增厚和强化
     hpo_code: HP:0002250
     hpo_term: 大肠形态异常
-    similarity_score: 0.7677712440490723
+    similarity_score: 0.7537654638290405
     status: mapped
     card_id:
     - ocr_card_ae460cad29d7
@@ -1075,10 +976,10 @@ routing_profile:
     - card_id: ocr_card_ae460cad29d7
       clinical_stage: 诊断评估流程
       clinical_task: 综合诊断
-  - name: 皮肤病变如毛囊炎或痤疮样皮损
-    hpo_code: HP:0031286
-    hpo_term: 毛囊周围红斑
-    similarity_score: 0.7596909403800964
+  - name: 毛囊炎或痤疮样皮损
+    hpo_code: HP:0025084
+    hpo_term: 毛囊炎
+    similarity_score: 0.8761860728263855
     status: mapped
     card_id:
     - ocr_card_a185a331f895
@@ -1089,7 +990,7 @@ routing_profile:
   - name: 皮肤针刺试验阳性
     hpo_code: HP:6000899
     hpo_term: 皮肤疥疮试验阳性
-    similarity_score: 0.9040388464927673
+    similarity_score: 0.9034727215766907
     status: mapped
     card_id:
     - ocr_card_a185a331f895
@@ -1097,21 +998,43 @@ routing_profile:
     - card_id: ocr_card_a185a331f895
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
-  - name: 肠壁增厚和强化程度均较克罗恩病轻
-    hpo_code: HP:0100280
-    hpo_term: 克罗恩氏病
-    similarity_score: 0.7346590757369995
+  - name: 肠壁增厚和强化程度轻至中度
+    hpo_code: HP:6000148
+    hpo_term: 肝周增强
+    similarity_score: 0.7533730268478394
     status: mapped
     card_id:
     - ocr_card_630b35f9a45a
     clinical_sources:
     - card_id: ocr_card_630b35f9a45a
       clinical_stage: 诊断评估流程
-      clinical_task: 影像学检查
+      clinical_task: 综合诊断
+  - name: 上皮样肉芽肿
+    hpo_code: HP:0012220
+    hpo_term: 非干酪性上皮样细胞肉芽肿
+    similarity_score: 0.9015677571296692
+    status: mapped
+    card_id:
+    - ocr_card_9cb115059fe1
+    clinical_sources:
+    - card_id: ocr_card_9cb115059fe1
+      clinical_stage: 诊断评估流程
+      clinical_task: 病理
+  - name: 肠道溃疡
+    hpo_code: HP:0034274
+    hpo_term: 消化道溃疡
+    similarity_score: 0.920254647731781
+    status: mapped
+    card_id:
+    - ocr_card_101616bc690c
+    clinical_sources:
+    - card_id: ocr_card_101616bc690c
+      clinical_stage: 诊断评估流程
+      clinical_task: 综合诊断
   - name: 腹部包块
     hpo_code: HP:0031500
     hpo_term: 腹部肿块
-    similarity_score: 0.9644948244094849
+    similarity_score: 0.9641977548599243
     status: mapped
     card_id:
     - ocr_card_367c5ebbf479
@@ -1122,7 +1045,7 @@ routing_profile:
   - name: 皮损
     hpo_code: HP:0032674
     hpo_term: 皮损
-    similarity_score: 0.99991774559021
+    similarity_score: 1.0000009536743164
     status: mapped
     card_id:
     - ocr_card_367c5ebbf479
@@ -1133,7 +1056,7 @@ routing_profile:
   - name: 关节痛
     hpo_code: HP:0002829
     hpo_term: 关节疼痛
-    similarity_score: 0.9832385182380676
+    similarity_score: 0.9839126467704773
     status: mapped
     card_id:
     - ocr_card_367c5ebbf479
@@ -1144,7 +1067,7 @@ routing_profile:
   - name: 血管病变
     hpo_code: HP:0025015
     hpo_term: 血管形态异常
-    similarity_score: 0.9061090350151062
+    similarity_score: 0.9059263467788696
     status: mapped
     card_id:
     - ocr_card_367c5ebbf479
@@ -1152,43 +1075,54 @@ routing_profile:
     - card_id: ocr_card_367c5ebbf479
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
-  - name: C反应蛋白升高
-    hpo_code: HP:0032436
-    hpo_term: 循环C反应蛋白浓度异常
-    similarity_score: 0.9214648008346558
+  - name: 中枢神经系统损害
+    hpo_code: HP:0002529
+    hpo_term: 中枢神经系统神经元损失
+    similarity_score: 0.8698915243148804
     status: mapped
     card_id:
-    - ocr_card_6fafb61ce2e0
+    - ocr_card_367c5ebbf479
     clinical_sources:
-    - card_id: ocr_card_6fafb61ce2e0
+    - card_id: ocr_card_367c5ebbf479
       clinical_stage: 诊断评估流程
-      clinical_task: 实验室检查
-  - name: 红细胞沉降率升高
-    hpo_code: HP:0003565
-    hpo_term: 红细胞沉降速度升高
-    similarity_score: 0.9622050523757935
+      clinical_task: 初步筛查与临床表现评估
+  - name: CRP是反映肠白塞病炎症活动度的重要指标
+    hpo_code: HP:0034447
+    hpo_term: 循环白介素18浓度增高
+    similarity_score: 0.7494581341743469
     status: mapped
     card_id:
-    - ocr_card_6fafb61ce2e0
+    - ocr_card_9f6d9513b859
     clinical_sources:
-    - card_id: ocr_card_6fafb61ce2e0
+    - card_id: ocr_card_9f6d9513b859
       clinical_stage: 诊断评估流程
       clinical_task: 实验室检查
-  - name: 粪钙卫蛋白升高
+  - name: 红细胞沉降率是反映肠白塞病炎症活动度的重要指标
+    hpo_code: HP:0025022
+    hpo_term: 红细胞沉降率下降
+    similarity_score: 0.7598621249198914
+    status: mapped
+    card_id:
+    - ocr_card_9f6d9513b859
+    clinical_sources:
+    - card_id: ocr_card_9f6d9513b859
+      clinical_stage: 诊断评估流程
+      clinical_task: 实验室检查
+  - name: 粪钙卫蛋白可帮助评价疾病活动度
     hpo_code: HP:0034056
     hpo_term: 粪便钙卫蛋白水平升高
-    similarity_score: 0.9364057183265686
+    similarity_score: 0.854390025138855
     status: mapped
     card_id:
-    - ocr_card_6fafb61ce2e0
+    - ocr_card_9f6d9513b859
     clinical_sources:
-    - card_id: ocr_card_6fafb61ce2e0
+    - card_id: ocr_card_9f6d9513b859
       clinical_stage: 诊断评估流程
       clinical_task: 实验室检查
   - name: ESR增高
     hpo_code: HP:0025021
     hpo_term: 红细胞沉降率异常
-    similarity_score: 0.8439784049987793
+    similarity_score: 0.8437833786010742
     status: mapped
     card_id:
     - ocr_card_1fcc26b3e9dc
@@ -1196,43 +1130,54 @@ routing_profile:
     - card_id: ocr_card_1fcc26b3e9dc
       clinical_stage: 诊断评估流程
       clinical_task: 实验室检查
-  - name: 溃疡完全愈合
-    hpo_code: HP:0001058
-    hpo_term: 伤口愈合不良
-    similarity_score: 0.7792280912399292
-    status: mapped
-    card_id:
-    - ocr_card_d8910538afe1
-    clinical_sources:
-    - card_id: ocr_card_d8910538afe1
-      clinical_stage: 诊断评估流程
-      clinical_task: 内镜检查
-  - name: 肠外症状
-    hpo_code: HP:0025142
-    hpo_term: 全身性症状
-    similarity_score: 0.7379617691040039
+  - name: 肠内和肠外症状
+    hpo_code: HP:0032564
+    hpo_term: 回肠炎
+    similarity_score: 0.7372837066650391
     status: mapped
     card_id:
     - ocr_card_721afa0537d8
     clinical_sources:
     - card_id: ocr_card_721afa0537d8
       clinical_stage: 治疗流程
-      clinical_task: 一般治疗
-  - name: 狭窄
-    hpo_code: HP:0100958
-    hpo_term: 闭孔狭窄
-    similarity_score: 0.8179185390472412
+      clinical_task: 随访与监测
+  - name: 炎症指标异常
+    hpo_code: HP:0012649
+    hpo_term: 炎症反应增强
+    similarity_score: 0.8274436593055725
+    status: mapped
+    card_id:
+    - ocr_card_721afa0537d8
+    clinical_sources:
+    - card_id: ocr_card_721afa0537d8
+      clinical_stage: 治疗流程
+      clinical_task: 随访与监测
+  - name: 严重全身症状
+    hpo_code: HP:0025142
+    hpo_term: 全身性症状
+    similarity_score: 0.8236382007598877
     status: mapped
     card_id:
     - ocr_card_c4bd4d947c6b
     clinical_sources:
     - card_id: ocr_card_c4bd4d947c6b
       clinical_stage: 治疗流程
-      clinical_task: 未知
+      clinical_task: 一般治疗
+  - name: 狭窄
+    hpo_code: HP:0100958
+    hpo_term: 闭孔狭窄
+    similarity_score: 0.8168060183525085
+    status: mapped
+    card_id:
+    - ocr_card_c4bd4d947c6b
+    clinical_sources:
+    - card_id: ocr_card_c4bd4d947c6b
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
   - name: 瘘管
     hpo_code: HP:0020223
     hpo_term: 皮窦管
-    similarity_score: 0.8496311902999878
+    similarity_score: 0.850102961063385
     status: mapped
     card_id:
     - ocr_card_c4bd4d947c6b
@@ -1240,14 +1185,14 @@ routing_profile:
     clinical_sources:
     - card_id: ocr_card_c4bd4d947c6b
       clinical_stage: 治疗流程
-      clinical_task: 未知
+      clinical_task: 一般治疗
     - card_id: ocr_card_1e45980a69de
       clinical_stage: 治疗流程
       clinical_task: 一般治疗
   - name: 出血
     hpo_code: HP:0040242
     hpo_term: 肌肉出血
-    similarity_score: 0.8444665670394897
+    similarity_score: 0.8443689346313477
     status: mapped
     card_id:
     - ocr_card_c4bd4d947c6b
@@ -1255,25 +1200,36 @@ routing_profile:
     clinical_sources:
     - card_id: ocr_card_c4bd4d947c6b
       clinical_stage: 治疗流程
-      clinical_task: 未知
+      clinical_task: 一般治疗
     - card_id: ocr_card_1e45980a69de
       clinical_stage: 治疗流程
       clinical_task: 一般治疗
   - name: 穿孔
     hpo_code: HP:0100583
     hpo_term: 角膜穿孔
-    similarity_score: 0.7218584418296814
+    similarity_score: 0.7220500111579895
     status: mapped
     card_id:
     - ocr_card_c4bd4d947c6b
     clinical_sources:
     - card_id: ocr_card_c4bd4d947c6b
       clinical_stage: 治疗流程
-      clinical_task: 未知
+      clinical_task: 一般治疗
+  - name: 药物治疗反应差
+    hpo_code: HP:0020174
+    hpo_term: 药物治疗应答无能
+    similarity_score: 0.9275445342063904
+    status: mapped
+    card_id:
+    - ocr_card_c4bd4d947c6b
+    clinical_sources:
+    - card_id: ocr_card_c4bd4d947c6b
+      clinical_stage: 治疗流程
+      clinical_task: 一般治疗
   - name: 中重度活动期肠白塞病
     hpo_code: HP:0033164
     hpo_term: 局灶性活动性结肠炎
-    similarity_score: 0.7318068742752075
+    similarity_score: 0.7304785847663879
     status: mapped
     card_id:
     - ocr_card_2bf81e262a01
@@ -1281,21 +1237,32 @@ routing_profile:
     - card_id: ocr_card_2bf81e262a01
       clinical_stage: 治疗流程
       clinical_task: 药物治疗
-  - name: 对ASA制剂治疗无应答
-    hpo_code: HP:0020174
-    hpo_term: 药物治疗应答无能
-    similarity_score: 0.8638350963592529
+  - name: 糖皮质激素依赖或无效的难治性肠白塞病
+    hpo_code: HP:0034170
+    hpo_term: 循环白细胞介素23水平异常
+    similarity_score: 0.707298994064331
     status: mapped
     card_id:
-    - ocr_card_2bf81e262a01
+    - ocr_card_9514ac2064c9
     clinical_sources:
-    - card_id: ocr_card_2bf81e262a01
+    - card_id: ocr_card_9514ac2064c9
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  - name: 消化道症状
+    hpo_code: HP:0025031
+    hpo_term: 消化系统异常
+    similarity_score: 0.8640090227127075
+    status: mapped
+    card_id:
+    - ocr_card_82350a524298
+    clinical_sources:
+    - card_id: ocr_card_82350a524298
       clinical_stage: 治疗流程
       clinical_task: 药物治疗
   - name: 营养不良
     hpo_code: HP:0004395
     hpo_term: 营养不良
-    similarity_score: 0.999914288520813
+    similarity_score: 0.9999266862869263
     status: mapped
     card_id:
     - ocr_card_f2e730cf88e0
@@ -1307,43 +1274,43 @@ routing_profile:
     - card_id: ocr_card_1e45980a69de
       clinical_stage: 治疗流程
       clinical_task: 一般治疗
-  - name: 严重肠腔狭窄
-    hpo_code: HP:0012851
-    hpo_term: 结肠狭窄
-    similarity_score: 0.8958731293678284
+  - name: 口腔和上消化道病变严重
+    hpo_code: HP:0011830
+    hpo_term: 口腔黏膜形态异常
+    similarity_score: 0.7444751262664795
     status: mapped
     card_id:
-    - ocr_card_3b8238b2544f
+    - ocr_card_1e45980a69de
     clinical_sources:
-    - card_id: ocr_card_3b8238b2544f
+    - card_id: ocr_card_1e45980a69de
       clinical_stage: 治疗流程
-      clinical_task: 手术治疗
-  - name: 瘘管形成
-    hpo_code: HP:0009795
-    hpo_term: 鳃裂瘘管
-    similarity_score: 0.8297950029373169
+      clinical_task: 一般治疗
+  - name: 肠道并发症
+    hpo_code: HP:0004796
+    hpo_term: 胃肠道梗阻
+    similarity_score: 0.7937291264533997
     status: mapped
     card_id:
-    - ocr_card_3b8238b2544f
+    - ocr_card_b9c161b62e3b
     clinical_sources:
-    - card_id: ocr_card_3b8238b2544f
+    - card_id: ocr_card_b9c161b62e3b
       clinical_stage: 治疗流程
-      clinical_task: 手术治疗
-  - name: 术后复发
-    hpo_code: HP:0031796
-    hpo_term: 复发性
-    similarity_score: 0.857784628868103
+      clinical_task: 一般治疗
+  - name: CRP ≥44 mg/L
+    hpo_code: HP:0011227
+    hpo_term: C-反应蛋白水平升高
+    similarity_score: 0.7160515189170837
     status: mapped
     card_id:
-    - ocr_card_3b8238b2544f
+    - ocr_card_de63b25fef54
     clinical_sources:
-    - card_id: ocr_card_3b8238b2544f
+    - card_id: ocr_card_de63b25fef54
       clinical_stage: 治疗流程
-      clinical_task: 手术治疗
+      clinical_task: 药物治疗
   - name: 口腔受累
     hpo_code: HP:0000163
     hpo_term: 口腔形态异常
-    similarity_score: 0.8560029864311218
+    similarity_score: 0.855710506439209
     status: mapped
     card_id:
     - ocr_card_e9695230696b
@@ -1354,7 +1321,7 @@ routing_profile:
   - name: 眼受累
     hpo_code: HP:0200026
     hpo_term: 眼痛
-    similarity_score: 0.8503009676933289
+    similarity_score: 0.852149486541748
     status: mapped
     card_id:
     - ocr_card_e9695230696b
@@ -1365,7 +1332,18 @@ routing_profile:
   - name: 心脏受累
     hpo_code: HP:0006670
     hpo_term: 心肌收缩力受损
-    similarity_score: 0.8375455737113953
+    similarity_score: 0.8376924395561218
+    status: mapped
+    card_id:
+    - ocr_card_e9695230696b
+    clinical_sources:
+    - card_id: ocr_card_e9695230696b
+      clinical_stage: 治疗流程
+      clinical_task: 药物治疗
+  - name: 肺受累
+    hpo_code: HP:0002113
+    hpo_term: 肺浸润
+    similarity_score: 0.8786196112632751
     status: mapped
     card_id:
     - ocr_card_e9695230696b
@@ -1374,54 +1352,32 @@ routing_profile:
       clinical_stage: 治疗流程
       clinical_task: 药物治疗
   negative_features:
-  - name: 无系统性白塞病
+  - name: 缺乏非干酪样肉芽肿
     hpo_code: HP:0033805
     hpo_term: 非坏死性肉芽肿
-    similarity_score: 0.7014181613922119
+    similarity_score: 0.8016760945320129
     status: mapped
     card_id:
-    - ocr_card_411cf747278e
+    - ocr_card_549144ffa8be
     clinical_sources:
-    - card_id: ocr_card_411cf747278e
-      clinical_stage: 其他流程
-      clinical_task: 未知
-  - name: 肠壁增厚不明显
-    hpo_code: HP:6000072
-    hpo_term: 小肠外肌层变薄
-    similarity_score: 0.76424640417099
-    status: mapped
-    card_id:
-    - ocr_card_f54ddc677613
-    clinical_sources:
-    - card_id: ocr_card_f54ddc677613
+    - card_id: ocr_card_549144ffa8be
       clinical_stage: 诊断评估流程
-      clinical_task: 影像学检查
-  - name: 无上游肠管扩张
-    hpo_code: HP:0001549
-    hpo_term: 回肠形态结构异常
-    similarity_score: 0.7735004425048828
+      clinical_task: 病理
+  - name: 累及直肠肛管
+    hpo_code: HP:0100590
+    hpo_term: 直肠瘘
+    similarity_score: 0.7983919978141785
     status: mapped
     card_id:
-    - ocr_card_c6355bdb1297
+    - ocr_card_a185a331f895
     clinical_sources:
-    - card_id: ocr_card_c6355bdb1297
+    - card_id: ocr_card_a185a331f895
       clinical_stage: 诊断评估流程
-      clinical_task: 综合诊断
-  - name: 远处黏膜无异常
-    hpo_code: HP:0004295
-    hpo_term: 胃黏膜形态异常
-    similarity_score: 0.7539758682250977
-    status: mapped
-    card_id:
-    - ocr_card_c6355bdb1297
-    clinical_sources:
-    - card_id: ocr_card_c6355bdb1297
-      clinical_stage: 诊断评估流程
-      clinical_task: 综合诊断
-  - name: 较少发生肛瘘
+      clinical_task: 初步筛查与临床表现评估
+  - name: 肛瘘
     hpo_code: HP:0010447
     hpo_term: 肛瘘
-    similarity_score: 0.7014679908752441
+    similarity_score: 0.9999065399169922
     status: mapped
     card_id:
     - ocr_card_a185a331f895
@@ -1432,7 +1388,7 @@ routing_profile:
   - name: 炎症性息肉较少见
     hpo_code: HP:0025198
     hpo_term: 炎性帽状息肉
-    similarity_score: 0.8285598754882812
+    similarity_score: 0.8274688124656677
     status: mapped
     card_id:
     - ocr_card_396b9c790b07
@@ -1440,43 +1396,32 @@ routing_profile:
     - card_id: ocr_card_396b9c790b07
       clinical_stage: 诊断评估流程
       clinical_task: 内镜检查
-  - name: 肠系膜侧肠壁病变较对侧更严重
+  - name: 肠系膜侧肠壁病变较对侧严重
     hpo_code: HP:0100016
     hpo_term: 肠系膜形态异常
-    similarity_score: 0.7975528240203857
+    similarity_score: 0.8074072003364563
     status: mapped
     card_id:
     - ocr_card_630b35f9a45a
     clinical_sources:
     - card_id: ocr_card_630b35f9a45a
       clinical_stage: 诊断评估流程
-      clinical_task: 影像学检查
+      clinical_task: 综合诊断
   - name: 脂肪爬行征
     hpo_code: HP:0009124
     hpo_term: 脂肪组织形态异常
-    similarity_score: 0.8235402703285217
+    similarity_score: 0.824069619178772
     status: mapped
     card_id:
     - ocr_card_630b35f9a45a
     clinical_sources:
     - card_id: ocr_card_630b35f9a45a
       clinical_stage: 诊断评估流程
-      clinical_task: 影像学检查
+      clinical_task: 综合诊断
   - name: 无腹痛
     hpo_code: HP:0002027
     hpo_term: 腹痛
-    similarity_score: 0.7454463243484497
-    status: mapped
-    card_id:
-    - ocr_card_367c5ebbf479
-    clinical_sources:
-    - card_id: ocr_card_367c5ebbf479
-      clinical_stage: 诊断评估流程
-      clinical_task: 初步筛查与临床表现评估
-  - name: 体温<38℃
-    hpo_code: HP:0033104
-    hpo_term: 异常的不发热
-    similarity_score: 0.7800294160842896
+    similarity_score: 0.7445237040519714
     status: mapped
     card_id:
     - ocr_card_367c5ebbf479
@@ -1487,7 +1432,7 @@ routing_profile:
   - name: 无腹部包块
     hpo_code: HP:0031500
     hpo_term: 腹部肿块
-    similarity_score: 0.7796236276626587
+    similarity_score: 0.779106080532074
     status: mapped
     card_id:
     - ocr_card_367c5ebbf479
@@ -1498,7 +1443,7 @@ routing_profile:
   - name: 无腹泻
     hpo_code: HP:0011985
     hpo_term: 无胆色大便
-    similarity_score: 0.7213520407676697
+    similarity_score: 0.7212249636650085
     status: mapped
     card_id:
     - ocr_card_367c5ebbf479
@@ -1506,50 +1451,17 @@ routing_profile:
     - card_id: ocr_card_367c5ebbf479
       clinical_stage: 诊断评估流程
       clinical_task: 初步筛查与临床表现评估
-  - name: 非典型溃疡
-    hpo_code: HP:0004398
-    hpo_term: 消化性溃疡
-    similarity_score: 0.8226950168609619
-    status: mapped
-    card_id:
-    - ocr_card_1eebe30e2100
-    clinical_sources:
-    - card_id: ocr_card_1eebe30e2100
-      clinical_stage: 诊断评估流程
-      clinical_task: 实验室检查
   - name: 血清CRP在正常参考值范围内
     hpo_code: HP:0032436
     hpo_term: 循环C反应蛋白浓度异常
-    similarity_score: 0.8111444115638733
+    similarity_score: 0.811347484588623
     status: mapped
     card_id:
     - ocr_card_721afa0537d8
     clinical_sources:
     - card_id: ocr_card_721afa0537d8
       clinical_stage: 治疗流程
-      clinical_task: 一般治疗
-  - name: 静脉导管相关感染
-    hpo_code: HP:0010947
-    hpo_term: 静脉导管血流异常
-    similarity_score: 0.7876168489456177
-    status: mapped
-    card_id:
-    - ocr_card_b9c161b62e3b
-    clinical_sources:
-    - card_id: ocr_card_b9c161b62e3b
-      clinical_stage: 治疗流程
-      clinical_task: 一般治疗
-  - name: 血栓形成
-    hpo_code: HP:0004420
-    hpo_term: 动脉血栓形成
-    similarity_score: 0.9107140898704529
-    status: mapped
-    card_id:
-    - ocr_card_b9c161b62e3b
-    clinical_sources:
-    - card_id: ocr_card_b9c161b62e3b
-      clinical_stage: 治疗流程
-      clinical_task: 一般治疗
+      clinical_task: 随访与监测
   scoring:
     method: hybrid_weighted_semantic
     normalization: sum_max_1
@@ -1560,37 +1472,9 @@ routing_profile:
     top_k_default: 5
     safety_override: true
     mapping:
-      ocr_card_61f0c0df36ba:
-        evidence_quality_raw: null
-        evidence_quality_normalized: 0.75
-        evidence_quality_normalized_info: default_no_raw_evidence
-      ocr_card_3e6991e05bc8:
-        evidence_quality_raw: null
-        evidence_quality_normalized: 0.75
-        evidence_quality_normalized_info: default_no_raw_evidence
-      ocr_card_16fee09acafc:
-        evidence_quality_raw: null
-        evidence_quality_normalized: 0.75
-        evidence_quality_normalized_info: default_no_raw_evidence
-      ocr_card_411cf747278e:
-        evidence_quality_raw: null
-        evidence_quality_normalized: 0.75
-        evidence_quality_normalized_info: default_no_raw_evidence
-      ocr_card_50d85757bdef:
-        evidence_quality_raw: null
-        evidence_quality_normalized: 0.75
-        evidence_quality_normalized_info: default_no_raw_evidence
-      ocr_card_a7440aa83a4c:
-        evidence_quality_raw: null
-        evidence_quality_normalized: 0.75
-        evidence_quality_normalized_info: default_no_raw_evidence
-      ocr_card_e66a9020d916:
-        evidence_quality_raw: 推荐等级分为A、B、C三级，A级指≥3/4的专家投票意见为a，B级指≥3/4的专家投票意见为a或b，C级为其他情况并直接剔除。
-        evidence_quality_normalized: 0.75
-        evidence_quality_normalized_info: default_unmapped_raw_evidence
       ocr_card_6dd6b6daabed:
         evidence_quality_raw: B 级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_303f000a3167:
         evidence_quality_raw: null
@@ -1605,16 +1489,16 @@ routing_profile:
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_118dfaa2852f:
-        evidence_quality_raw: C, A级
-        evidence_quality_normalized: 0.75
-        evidence_quality_normalized_info: default_unmapped_raw_evidence
+        evidence_quality_raw: A级
+        evidence_quality_normalized: 1.0
+        evidence_quality_normalized_info: llm_normalized
       ocr_card_3b43460257e7:
         evidence_quality_raw: null
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_b56d7d6dc8c3:
         evidence_quality_raw: B 级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_32d4ee459189:
         evidence_quality_raw: null
@@ -1622,16 +1506,16 @@ routing_profile:
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_0277256cbccb:
         evidence_quality_raw: B 级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_7c99a45352a5:
         evidence_quality_raw: null
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_42c3f8a11e29:
-        evidence_quality_raw: 尚无明确证据
-        evidence_quality_normalized: 0.6
-        evidence_quality_normalized_info: llm_normalized
+        evidence_quality_raw: null
+        evidence_quality_normalized: 0.75
+        evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_251a60bdb86a:
         evidence_quality_raw: A 级
         evidence_quality_normalized: 1.0
@@ -1642,7 +1526,7 @@ routing_profile:
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_04669514147c:
         evidence_quality_raw: B 级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_8d2744a857c1:
         evidence_quality_raw: null
@@ -1650,15 +1534,15 @@ routing_profile:
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_30174c585892:
         evidence_quality_raw: B 级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_f54ddc677613:
         evidence_quality_raw: null
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_6273a0633b92:
-        evidence_quality_raw: 97.14%, B 级
-        evidence_quality_normalized: 0.85
+        evidence_quality_raw: B 级
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_93c6513cb4ef:
         evidence_quality_raw: null
@@ -1673,8 +1557,8 @@ routing_profile:
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_f44a24915b45:
-        evidence_quality_raw: 21%，B 级
-        evidence_quality_normalized: 0.85
+        evidence_quality_raw: B级
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_83f43a9b47e6:
         evidence_quality_raw: null
@@ -1685,13 +1569,13 @@ routing_profile:
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_702dae659a7b:
-        evidence_quality_raw: null
-        evidence_quality_normalized: 0.75
-        evidence_quality_normalized_info: default_no_raw_evidence
+        evidence_quality_raw: 德尔菲评分法，分值1~6分，纳入标准为专家意见平均分的95%CI下限>3
+        evidence_quality_normalized: 0.6
+        evidence_quality_normalized_info: llm_normalized
       ocr_card_c6355bdb1297:
         evidence_quality_raw: 德尔菲评分，95%CI
-        evidence_quality_normalized: 0.75
-        evidence_quality_normalized_info: default_unmapped_raw_evidence
+        evidence_quality_normalized: 0.6
+        evidence_quality_normalized_info: llm_normalized
       ocr_card_09a50052783b:
         evidence_quality_raw: null
         evidence_quality_normalized: 0.75
@@ -1714,19 +1598,19 @@ routing_profile:
         evidence_quality_normalized_info: llm_normalized
       ocr_card_630b35f9a45a:
         evidence_quality_raw: B级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_9cb115059fe1:
         evidence_quality_raw: B级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_101616bc690c:
-        evidence_quality_raw: （ 级）
+        evidence_quality_raw: 级
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_unmapped_raw_evidence
       ocr_card_1a57f5a009c6:
         evidence_quality_raw: B
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_ff6731d30fd9:
         evidence_quality_raw: null
@@ -1744,9 +1628,9 @@ routing_profile:
         evidence_quality_raw: null
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
-      ocr_card_6fafb61ce2e0:
+      ocr_card_9f6d9513b859:
         evidence_quality_raw: B 级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_1fcc26b3e9dc:
         evidence_quality_raw: null
@@ -1786,7 +1670,7 @@ routing_profile:
         evidence_quality_normalized_info: llm_normalized
       ocr_card_adbcc7ac2858:
         evidence_quality_raw: B级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_c4bd4d947c6b:
         evidence_quality_raw: A级
@@ -1794,14 +1678,14 @@ routing_profile:
         evidence_quality_normalized_info: llm_normalized
       ocr_card_bed5c5ba6965:
         evidence_quality_raw: B级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_3c02fec5d579:
         evidence_quality_raw: B级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_c1f6a9d265d1:
-        evidence_quality_raw: A级
+        evidence_quality_raw: (A级)
         evidence_quality_normalized: 1.0
         evidence_quality_normalized_info: llm_normalized
       ocr_card_c08d7b7be426:
@@ -1810,7 +1694,7 @@ routing_profile:
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_e31c8f642e0e:
         evidence_quality_raw: B级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_c46a8ea25aae:
         evidence_quality_raw: 证据质量不高
@@ -1821,26 +1705,26 @@ routing_profile:
         evidence_quality_normalized: 1.0
         evidence_quality_normalized_info: llm_normalized
       ocr_card_26dfb8576fd7:
-        evidence_quality_raw: G
-        evidence_quality_normalized: 0.75
-        evidence_quality_normalized_info: default_unmapped_raw_evidence
-      ocr_card_3a061d7d6595:
         evidence_quality_raw: null
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
+      ocr_card_3a061d7d6595:
+        evidence_quality_raw: 仅基于临床实践经验，尚需更多高水平临床研究提供依据
+        evidence_quality_normalized: 0.6
+        evidence_quality_normalized_info: llm_normalized
       ocr_card_f7867b863969:
         evidence_quality_raw: null
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_67e28e121bbb:
         evidence_quality_raw: B级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_583b1afdf801:
         evidence_quality_raw: null
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
-      ocr_card_94fd62c15b82:
+      ocr_card_1b44da1f6885:
         evidence_quality_raw: null
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
@@ -1861,16 +1745,16 @@ routing_profile:
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_1ec303cba169:
-        evidence_quality_raw: 缺乏高质量证据
+        evidence_quality_raw: 但目前其治疗肠白塞病的证据不多且缺乏高质量 证据。
         evidence_quality_normalized: 0.6
         evidence_quality_normalized_info: llm_normalized
       ocr_card_e8411013fa3a:
-        evidence_quality_raw: null
+        evidence_quality_raw: （ 级）
         evidence_quality_normalized: 0.75
-        evidence_quality_normalized_info: default_no_raw_evidence
+        evidence_quality_normalized_info: default_unmapped_raw_evidence
       ocr_card_70c95795dbf3:
         evidence_quality_raw: B
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_2d3ae7435c92:
         evidence_quality_raw: null
@@ -1890,10 +1774,10 @@ routing_profile:
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_1e4fcace597c:
         evidence_quality_raw: B级
-        evidence_quality_normalized: 0.85
+        evidence_quality_normalized: 0.8
         evidence_quality_normalized_info: llm_normalized
       ocr_card_f2e730cf88e0:
-        evidence_quality_raw: (A级)
+        evidence_quality_raw: A级
         evidence_quality_normalized: 1.0
         evidence_quality_normalized_info: llm_normalized
       ocr_card_1e45980a69de:
@@ -1905,7 +1789,7 @@ routing_profile:
         evidence_quality_normalized: 0.75
         evidence_quality_normalized_info: default_no_raw_evidence
       ocr_card_3b8238b2544f:
-        evidence_quality_raw: 建议使用巯嘌呤类药物维持治疗(A级)
+        evidence_quality_raw: A级
         evidence_quality_normalized: 1.0
         evidence_quality_normalized_info: llm_normalized
       ocr_card_de63b25fef54:
@@ -1921,225 +1805,159 @@ routing_profile:
         evidence_quality_normalized: 1.0
         evidence_quality_normalized_info: llm_normalized
 medical_examinations:
-  初步筛查与临床表现评估:
-  - examination: 针刺试验
-    source_cards:
-    - card_id: ocr_card_32d4ee459189
-      recommendation_label: null
-    key_symptoms: []
-    attention_points: []
-  - examination: 皮肤针刺试验
-    source_cards:
-    - card_id: ocr_card_a185a331f895
-      recommendation_label: null
-    key_symptoms:
-    - 口腔溃疡
-    - 生殖器溃疡
-    - 眼部病变
-    - 皮肤病变（毛囊炎或痤疮样皮损）
-    - 皮肤针刺试验阳性
-    attention_points:
-    - 肠白塞病较少累及直肠肛管，较少发生肛瘘；克罗恩病更常见肛周病变
-  - examination: 一般状况评估
-    source_cards:
-    - &id001
-      card_id: ocr_card_367c5ebbf479
-      recommendation_label: null
-    key_symptoms:
-    - 一般状况
-    - 腹痛
-    - 腹部压痛
-    - 腹泻频率
-    - 腹部包块
-    - 肠外表现
-    attention_points:
-    - 肠道并发症（肠瘘、肠穿孔、腹腔脓肿、肠梗阻）
-  - examination: 体温测量
-    source_cards:
-    - *id001
-    key_symptoms:
-    - 一般状况
-    - 腹痛
-    - 腹部压痛
-    - 腹泻频率
-    - 腹部包块
-    - 肠外表现
-    attention_points:
-    - 肠道并发症（肠瘘、肠穿孔、腹腔脓肿、肠梗阻）
-  - examination: 腹部压痛检查
-    source_cards:
-    - *id001
-    key_symptoms:
-    - 一般状况
-    - 腹痛
-    - 腹部压痛
-    - 腹泻频率
-    - 腹部包块
-    - 肠外表现
-    attention_points:
-    - 肠道并发症（肠瘘、肠穿孔、腹腔脓肿、肠梗阻）
-  - examination: 腹泻频率询问
-    source_cards:
-    - *id001
-    key_symptoms:
-    - 一般状况
-    - 腹痛
-    - 腹部压痛
-    - 腹泻频率
-    - 腹部包块
-    - 肠外表现
-    attention_points:
-    - 肠道并发症（肠瘘、肠穿孔、腹腔脓肿、肠梗阻）
-  - examination: 腹部包块触诊
-    source_cards:
-    - *id001
-    key_symptoms:
-    - 一般状况
-    - 腹痛
-    - 腹部压痛
-    - 腹泻频率
-    - 腹部包块
-    - 肠外表现
-    attention_points:
-    - 肠道并发症（肠瘘、肠穿孔、腹腔脓肿、肠梗阻）
-  - examination: 肠外表现检查
-    source_cards:
-    - *id001
-    key_symptoms:
-    - 一般状况
-    - 腹痛
-    - 腹部压痛
-    - 腹泻频率
-    - 腹部包块
-    - 肠外表现
-    attention_points:
-    - 肠道并发症（肠瘘、肠穿孔、腹腔脓肿、肠梗阻）
   实验室检查:
   - examination: 针刺试验
     source_cards:
     - card_id: ocr_card_b56d7d6dc8c3
       recommendation_label: null
+    - card_id: ocr_card_32d4ee459189
+      recommendation_label: null
     key_symptoms: []
     attention_points: []
-  - examination: 人白细胞抗原(HLA)-B51等位基因检测
+  - examination: HLA-B51等位基因检测
     source_cards:
     - card_id: ocr_card_0277256cbccb
       recommendation_label: null
+    - card_id: ocr_card_7c99a45352a5
+      recommendation_label: null
     key_symptoms: []
     attention_points: []
-  - examination: 等位基因检测
+  - examination: 抗心磷脂抗体检测
     source_cards:
-    - &id002
-      card_id: ocr_card_7c99a45352a5
+    - card_id: ocr_card_42c3f8a11e29
       recommendation_label: null
     key_symptoms: []
     attention_points:
-    - HLA-B51阳性
-  - examination: HLA-B51检测
+    - 这些指标对肠白塞病的诊断价值尚无明确证据
+  - examination: 类风湿因子检测
     source_cards:
-    - *id002
+    - card_id: ocr_card_42c3f8a11e29
+      recommendation_label: null
     key_symptoms: []
     attention_points:
-    - HLA-B51阳性
+    - 这些指标对肠白塞病的诊断价值尚无明确证据
+  - examination: 抗中性粒细胞胞质抗体检测
+    source_cards:
+    - card_id: ocr_card_42c3f8a11e29
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - 这些指标对肠白塞病的诊断价值尚无明确证据
+  - examination: 血清抗酿酒酵母菌抗体检测
+    source_cards:
+    - card_id: ocr_card_42c3f8a11e29
+      recommendation_label: null
+    key_symptoms: []
+    attention_points:
+    - 这些指标对肠白塞病的诊断价值尚无明确证据
   - examination: CRP
     source_cards:
-    - &id003
-      card_id: ocr_card_6fafb61ce2e0
+    - card_id: ocr_card_9f6d9513b859
+      recommendation_label: null
+    - card_id: ocr_card_1fcc26b3e9dc
       recommendation_label: null
     key_symptoms: []
     attention_points: []
   - examination: 红细胞沉降率(ESR)
     source_cards:
-    - *id003
+    - card_id: ocr_card_9f6d9513b859
+      recommendation_label: null
     key_symptoms: []
     attention_points: []
   - examination: 粪钙卫蛋白
     source_cards:
-    - *id003
+    - card_id: ocr_card_9f6d9513b859
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: ESR
+    source_cards:
+    - card_id: ocr_card_1fcc26b3e9dc
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
+  - examination: 粪钙卫蛋白检测
+    source_cards:
     - card_id: ocr_card_1eebe30e2100
       recommendation_label: null
     key_symptoms: []
     attention_points:
-    - 粪钙卫蛋白与内镜疾病活动度评分相关
-    - 预测肠白塞病的截断值为68.89 μg/g
-  - examination: C反应蛋白（CRP）
+    - 粪钙卫蛋白水平预测肠白塞病的截断值为68.89 μg/g
+  - examination: 血清可溶性髓系细胞触发受体-1检测
     source_cards:
-    - &id004
-      card_id: ocr_card_1fcc26b3e9dc
+    - card_id: ocr_card_86f6401aeba5
       recommendation_label: null
     key_symptoms: []
-    attention_points:
-    - CRP和ESR在炎症和免疫相关疾病中均可增高，缺乏特异性
-    - CRP与DAIBD呈正相关，CRP≥44 mg/L是肠白塞病患者术后复发的独立预测因素
-    - ESR与DAIBD和肠白塞病的内镜下溃疡活动程度呈正相关
-    - 肠白塞病患者处于疾病活动期时，92.3%的患者ESR增高，92.0%的患者CRP增高
-  - examination: 红细胞沉降率（ESR）
+    attention_points: []
+  - examination: 血清烯醇化酶检测
     source_cards:
-    - *id004
+    - card_id: ocr_card_86f6401aeba5
+      recommendation_label: null
     key_symptoms: []
-    attention_points:
-    - CRP和ESR在炎症和免疫相关疾病中均可增高，缺乏特异性
-    - CRP与DAIBD呈正相关，CRP≥44 mg/L是肠白塞病患者术后复发的独立预测因素
-    - ESR与DAIBD和肠白塞病的内镜下溃疡活动程度呈正相关
-    - 肠白塞病患者处于疾病活动期时，92.3%的患者ESR增高，92.0%的患者CRP增高
+    attention_points: []
+  - examination: 血清白细胞介素-12B检测
+    source_cards:
+    - card_id: ocr_card_86f6401aeba5
+      recommendation_label: null
+    key_symptoms: []
+    attention_points: []
   影像学检查:
-  - examination: CT小肠成像
+  - examination: CT 小肠成像
     source_cards:
-    - &id005
-      card_id: ocr_card_30174c585892
+    - card_id: ocr_card_30174c585892
       recommendation_label: null
     key_symptoms: []
     attention_points: []
-  - examination: MR小肠成像
+  - examination: MR 小肠成像
     source_cards:
-    - *id005
+    - card_id: ocr_card_30174c585892
+      recommendation_label: null
     key_symptoms: []
     attention_points: []
-  - examination: 小肠CT成像
+  - examination: 小肠CT
     source_cards:
-    - &id006
-      card_id: ocr_card_f54ddc677613
+    - card_id: ocr_card_f54ddc677613
       recommendation_label: null
     key_symptoms: []
     attention_points:
     - 肠黏膜有无强化
     - 肠壁厚度
-    - 肠系膜、周围淋巴结等肠管周围组织的病变
-    - 肠道狭窄
-    - 肠瘘
-    - 腹腔脓肿
-    - 肠白塞病受累节段长度一般<3 cm
-    - 病变节段较短<5 cm
-    - 肠壁增厚不明显
-  - examination: 小肠MR成像
+    - 肠系膜及周围淋巴结病变
+    - 肠道狭窄、肠瘘、腹腔脓肿等并发症
+    - 肠白塞病典型影像学特点：病变节段较短（<5 cm），肠壁增厚不明显
+  - examination: 小肠MR
     source_cards:
-    - *id006
+    - card_id: ocr_card_f54ddc677613
+      recommendation_label: null
     key_symptoms: []
     attention_points:
     - 肠黏膜有无强化
     - 肠壁厚度
-    - 肠系膜、周围淋巴结等肠管周围组织的病变
-    - 肠道狭窄
-    - 肠瘘
-    - 腹腔脓肿
-    - 肠白塞病受累节段长度一般<3 cm
-    - 病变节段较短<5 cm
-    - 肠壁增厚不明显
+    - 肠系膜及周围淋巴结病变
+    - 肠道狭窄、肠瘘、腹腔脓肿等并发症
+    - 肠白塞病典型影像学特点：病变节段较短（<5 cm），肠壁增厚不明显
   - examination: 经腹部肠道超声
     source_cards:
     - card_id: ocr_card_6273a0633b92
       recommendation_label: null
-    key_symptoms:
+    key_symptoms: []
+    attention_points:
     - 肠瘘
     - 腹腔脓肿
     - 肠壁增厚
-    attention_points: []
   - examination: 经腹肠道超声
     source_cards:
     - card_id: ocr_card_93c6513cb4ef
       recommendation_label: null
     key_symptoms: []
-    attention_points: []
+    attention_points:
+    - 病变受累范围
+    - 肠壁增厚程度
+    - 周围肠系膜
+    - 淋巴结情况
+    - 肠道狭窄
+    - 肠瘘
+    - 腹腔脓肿
   内镜检查:
   - examination: 结肠镜检查
     source_cards:
@@ -2147,66 +1965,85 @@ medical_examinations:
       recommendation_label: null
     key_symptoms: []
     attention_points:
-    - 结肠镜下表现为圆形或类圆形的深溃疡、火山口样溃疡，溃疡边缘清晰，呈单发或多发，多发数量<5个且互相不融合
-    - 最典型表现是回盲部边界清晰的单个巨大溃疡
-    - 结肠镜下典型溃疡特征是诊断和鉴别诊断肠白塞病的重要依据
+    - 圆形或类圆形深溃疡、火山口样溃疡，溃疡边缘清晰，单发或多发（数量<5个且互相不融合），回盲部边界清晰的单个巨大溃疡
   - examination: 胶囊内镜
     source_cards:
-    - &id007
-      card_id: ocr_card_04669514147c
+    - card_id: ocr_card_04669514147c
       recommendation_label: null
     - card_id: ocr_card_8d2744a857c1
       recommendation_label: null
     key_symptoms:
     - 消化道 Neves 10 症状
     attention_points:
-    - 小肠受累（以空肠受累最为常见）
-  - examination: 小肠镜检查
+    - 所有患者均有小肠受累
+    - 空肠受累最为常见
+  - examination: 小肠镜
     source_cards:
-    - *id007
+    - card_id: ocr_card_04669514147c
+      recommendation_label: null
     key_symptoms: []
     attention_points: []
   - examination: 内镜检查
     source_cards:
     - card_id: ocr_card_d700842a7672
       recommendation_label: null
+    - card_id: ocr_card_396b9c790b07
+      recommendation_label: null
     - card_id: ocr_card_415ee2cadd57
       recommendation_label: null
     - card_id: ocr_card_85046002dac9
       recommendation_label: null
     key_symptoms:
-    - 回盲部肠道溃疡
     - 火山型溃疡形态
     - 溃疡大小
     - 溃疡深浅
     attention_points:
-    - 参考克罗恩病的内镜评分系统
-    - 可将黏膜愈合或溃疡消失作为治疗目标
-    - 可将黏膜部分愈合或内镜下改善作为治疗有效的指征之一
+    - 回盲部肠道溃疡特点
+    - 肠外表现
+    - 克罗恩病典型内镜下表现为纵行溃疡、铺路石征和炎症性息肉
+    - 肠白塞病典型内镜下表现为圆形或类圆形溃疡，溃疡边界清楚，炎症性息肉较少见
+    - 内镜活动度评估可参考克罗恩病的内镜评分系统
+    - 治疗后内镜评估以黏膜愈合或溃疡消失作为治疗目标
+    - 黏膜部分愈合或内镜下改善可作为治疗有效的指征
   病理:
   - examination: 内镜黏膜活检
     source_cards:
-    - &id008
-      card_id: ocr_card_e62b9bd10637
+    - card_id: ocr_card_e62b9bd10637
+      recommendation_label: null
+    - card_id: ocr_card_549144ffa8be
       recommendation_label: null
     key_symptoms: []
     attention_points:
-    - 发现血管炎
-  - examination: 手术病理检查
+    - 血管炎是肠白塞病确诊的部分依据，但不建议作为诊断的必要条件
+    - 小血管和中等大小血管炎
+    - 淋巴细胞围绕血管浸润
+    - 缺乏非干酪样肉芽肿
+    - 血管炎多出现于溃疡基底深部
+    - 内镜黏膜活检发现典型血管炎比例不高
+    - 大量中性粒细胞浸润
+  - examination: 手术病理
     source_cards:
-    - *id008
+    - card_id: ocr_card_e62b9bd10637
+      recommendation_label: null
+    - card_id: ocr_card_549144ffa8be
+      recommendation_label: null
     key_symptoms: []
     attention_points:
-    - 发现血管炎
+    - 血管炎是肠白塞病确诊的部分依据，但不建议作为诊断的必要条件
+    - 小血管和中等大小血管炎
+    - 淋巴细胞围绕血管浸润
+    - 缺乏非干酪样肉芽肿
+    - 血管炎多出现于溃疡基底深部
+    - 内镜黏膜活检发现典型血管炎比例不高
+    - 大量中性粒细胞浸润
   - examination: 活检病理
     source_cards:
     - card_id: ocr_card_9cb115059fe1
       recommendation_label: null
     key_symptoms: []
     attention_points:
-    - 肠白塞病的典型病理学表现为血管炎，但检出率仅为21%
-    - 克罗恩病的典型病理学表现为上皮样肉芽肿，但检出率仅约30%
-    - 活检病理的鉴别诊断价值有限
+    - 血管炎
+    - 上皮样肉芽肿
   综合诊断:
   - examination: 针刺试验
     source_cards:
@@ -2219,40 +2056,47 @@ medical_examinations:
     - 皮肤病变（结节性红斑、假性毛囊炎、皮肤溃疡）
     - 中枢神经系统受累
     - 血管病变（动脉血栓形成、大静脉血栓、静脉炎或浅静脉炎）
-    attention_points:
-    - 典型肠道病变：溃疡边缘清晰、呈圆形或类圆形深溃疡、火山口样溃疡
-    - 符合白塞病诊断标准且具有典型肠道病变可临床诊断为肠白塞病
+    - 典型肠道溃疡（边缘清晰、呈圆形或类圆形深溃疡、火山口样溃疡）
+    attention_points: []
   - examination: 实验室检查
     source_cards:
-    - &id009
-      card_id: ocr_card_09a50052783b
+    - card_id: ocr_card_09a50052783b
       recommendation_label: null
     key_symptoms: []
     attention_points:
-    - 需与肠白塞病鉴别的疾病包括克罗恩病、肠结核、肠淋巴瘤、缺血性肠病、药物性肠病、其他感染性肠病
+    - 需与肠白塞病鉴别的疾病：克罗恩病、肠结核、肠淋巴瘤、缺血性肠病、药物性肠病、其他感染性肠病
   - examination: 影像学检查
     source_cards:
-    - *id009
-    - &id010
-      card_id: ocr_card_ae460cad29d7
+    - card_id: ocr_card_09a50052783b
+      recommendation_label: null
+    - card_id: ocr_card_ae460cad29d7
+      recommendation_label: null
+    - card_id: ocr_card_630b35f9a45a
       recommendation_label: null
     key_symptoms:
     - 反复口腔溃疡
     - 腹痛
     - 便血
     attention_points:
-    - 需与肠白塞病鉴别的疾病包括克罗恩病、肠结核、肠淋巴瘤、缺血性肠病、药物性肠病、其他感染性肠病
-    - 内镜下可见深大溃疡
-    - 肠壁增厚和强化
-    - 血清抗酿酒酵母菌抗体阳性
+    - 需与肠白塞病鉴别的疾病：克罗恩病、肠结核、肠淋巴瘤、缺血性肠病、药物性肠病、其他感染性肠病
+    - 炎症指标升高
+    - 内镜下深大溃疡
     - 肠穿孔
     - 肠瘘
+    - 影像学肠壁增厚和强化
+    - 血清抗酿酒酵母菌抗体阳性
+    - 肠白塞病肠壁增厚和强化程度均较克罗恩病轻，多呈轻、中度强化
+    - 克罗恩病肠系膜侧肠壁病变往往较对侧更严重，可见肠系膜脂肪增生或脂肪爬行征
+    - 影像学和内镜指标联合应用有助于鉴别肠白塞病和克罗恩病
   - examination: 内镜检查
     source_cards:
-    - *id009
-    - *id010
-    - &id011
-      card_id: ocr_card_101616bc690c
+    - card_id: ocr_card_09a50052783b
+      recommendation_label: null
+    - card_id: ocr_card_ae460cad29d7
+      recommendation_label: null
+    - card_id: ocr_card_630b35f9a45a
+      recommendation_label: null
+    - card_id: ocr_card_101616bc690c
       recommendation_label: null
     key_symptoms:
     - 反复口腔溃疡
@@ -2262,65 +2106,87 @@ medical_examinations:
     - 发热
     - 肠道溃疡
     attention_points:
-    - 需与肠白塞病鉴别的疾病包括克罗恩病、肠结核、肠淋巴瘤、缺血性肠病、药物性肠病、其他感染性肠病
-    - 内镜下可见深大溃疡
-    - 肠壁增厚和强化
-    - 血清抗酿酒酵母菌抗体阳性
+    - 需与肠白塞病鉴别的疾病：克罗恩病、肠结核、肠淋巴瘤、缺血性肠病、药物性肠病、其他感染性肠病
+    - 炎症指标升高
+    - 内镜下深大溃疡
     - 肠穿孔
     - 肠瘘
-    - 流行病学史
+    - 影像学肠壁增厚和强化
+    - 血清抗酿酒酵母菌抗体阳性
+    - 肠白塞病肠壁增厚和强化程度均较克罗恩病轻，多呈轻、中度强化
+    - 克罗恩病肠系膜侧肠壁病变往往较对侧更严重，可见肠系膜脂肪增生或脂肪爬行征
+    - 影像学和内镜指标联合应用有助于鉴别肠白塞病和克罗恩病
+    - 需排除淋巴瘤、缺血性肠病、药物性肠病及其他感染性肠病，如肠结核、耶尔森菌结肠炎、巨细胞病毒性肠炎、病毒EB肠炎、阿米巴肠病、血吸虫病、组织胞浆菌病等
   - examination: 病理检查
     source_cards:
-    - *id009
+    - card_id: ocr_card_09a50052783b
+      recommendation_label: null
     key_symptoms: []
     attention_points:
-    - 需与肠白塞病鉴别的疾病包括克罗恩病、肠结核、肠淋巴瘤、缺血性肠病、药物性肠病、其他感染性肠病
-  - examination: C反应蛋白等炎症指标检测
+    - 需与肠白塞病鉴别的疾病：克罗恩病、肠结核、肠淋巴瘤、缺血性肠病、药物性肠病、其他感染性肠病
+  - examination: C反应蛋白检测
     source_cards:
-    - *id010
+    - card_id: ocr_card_ae460cad29d7
+      recommendation_label: null
     key_symptoms:
     - 反复口腔溃疡
     - 腹痛
     - 便血
     attention_points:
-    - 内镜下可见深大溃疡
-    - 肠壁增厚和强化
-    - 血清抗酿酒酵母菌抗体阳性
+    - 炎症指标升高
+    - 内镜下深大溃疡
     - 肠穿孔
     - 肠瘘
+    - 影像学肠壁增厚和强化
+    - 血清抗酿酒酵母菌抗体阳性
   - examination: 血清抗酿酒酵母菌抗体检测
     source_cards:
-    - *id010
+    - card_id: ocr_card_ae460cad29d7
+      recommendation_label: null
     key_symptoms:
     - 反复口腔溃疡
     - 腹痛
     - 便血
     attention_points:
-    - 内镜下可见深大溃疡
-    - 肠壁增厚和强化
-    - 血清抗酿酒酵母菌抗体阳性
+    - 炎症指标升高
+    - 内镜下深大溃疡
     - 肠穿孔
     - 肠瘘
+    - 影像学肠壁增厚和强化
+    - 血清抗酿酒酵母菌抗体阳性
+  - examination: 流行病学史
+    source_cards:
+    - card_id: ocr_card_101616bc690c
+      recommendation_label: null
+    key_symptoms:
+    - 腹痛
+    - 腹泻
+    - 发热
+    - 肠道溃疡
+    attention_points:
+    - 需排除淋巴瘤、缺血性肠病、药物性肠病及其他感染性肠病，如肠结核、耶尔森菌结肠炎、巨细胞病毒性肠炎、病毒EB肠炎、阿米巴肠病、血吸虫病、组织胞浆菌病等
   - examination: 相关病原学检查
     source_cards:
-    - *id011
+    - card_id: ocr_card_101616bc690c
+      recommendation_label: null
     key_symptoms:
     - 腹痛
     - 腹泻
     - 发热
     - 肠道溃疡
     attention_points:
-    - 流行病学史
+    - 需排除淋巴瘤、缺血性肠病、药物性肠病及其他感染性肠病，如肠结核、耶尔森菌结肠炎、巨细胞病毒性肠炎、病毒EB肠炎、阿米巴肠病、血吸虫病、组织胞浆菌病等
   - examination: 病理学检查
     source_cards:
-    - *id011
+    - card_id: ocr_card_101616bc690c
+      recommendation_label: null
     key_symptoms:
     - 腹痛
     - 腹泻
     - 发热
     - 肠道溃疡
     attention_points:
-    - 流行病学史
+    - 需排除淋巴瘤、缺血性肠病、药物性肠病及其他感染性肠病，如肠结核、耶尔森菌结肠炎、巨细胞病毒性肠炎、病毒EB肠炎、阿米巴肠病、血吸虫病、组织胞浆菌病等
 knowledge_base:
   cards_path: recommendation_card.jsonl
   card_schema_ref: schema/recommendation_card.schema.json
@@ -2366,7 +2232,6 @@ workflow:
       card_filter:
         clinical_stage: 诊断评估流程
         clinical_task:
-        - 初步筛查与临床表现评估
         - 实验室检查
         - 影像学检查
         - 内镜检查

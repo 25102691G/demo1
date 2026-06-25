@@ -133,10 +133,10 @@ def _score_skill(
         pack,
         semantic_resources=semantic_resources,
     )
-    disease_name = pack.disease_name or clean_text((routing.get("disease_identity") or {}).get("primary_name"))
+    disease = pack.disease_name or clean_text((routing.get("disease_identity") or {}).get("primary_name"))
     return {
         "skill_id": pack.skill_id,
-        "disease_name": disease_name,
+        "disease": disease,
         "score": score,
         "rank": 0,
         "matched_positive_features": matched_positive_features,

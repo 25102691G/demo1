@@ -12,13 +12,13 @@
     "hand_sign": 1,
     "reference": 364
   },
-  "discarded_layout_count": 477,
+  "discarded_layout_count": 480,
   "discarded_by_reason": {
     "type_not_supported": 438,
-    "llm_metadata": 28,
+    "llm_metadata": 32,
     "llm_abstract": 4,
-    "llm_conclusion": 6,
-    "llm_reference": 1
+    "llm_conclusion": 4,
+    "llm_reference": 2
   },
   "discarded_layouts": [
     {
@@ -3245,7 +3245,7 @@
       "layout_id": "3gSEHT-layout-682",
       "page_num": 33,
       "type": "text",
-      "reason": "llm_conclusion",
+      "reason": "llm_metadata",
       "text_preview": "陈"
     },
     {
@@ -3326,17 +3326,38 @@
       "text_preview": "（以下名单按姓氏汉语拼音排序）"
     },
     {
-      "layout_id": "3gSEHT-layout-688",
+      "layout_id": "3gSEHT-layout-685",
       "page_num": 33,
       "type": "text",
       "reason": "llm_conclusion",
+      "text_preview": "季"
+    },
+    {
+      "layout_id": "3gSEHT-layout-686",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "蒯小玲"
+    },
+    {
+      "layout_id": "3gSEHT-layout-687",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "李"
+    },
+    {
+      "layout_id": "3gSEHT-layout-688",
+      "page_num": 33,
+      "type": "text",
+      "reason": "llm_reference",
       "text_preview": "李"
     },
     {
       "layout_id": "3gSEHT-layout-692",
       "page_num": 33,
       "type": "text",
-      "reason": "llm_conclusion",
+      "reason": "llm_metadata",
       "text_preview": "王拥军"
     },
     {
@@ -3361,9 +3382,9 @@
       "text_preview": "吴东"
     }
   ],
-  "discarded_unit_count": 23,
+  "discarded_unit_count": 22,
   "discarded_units_by_reason": {
-    "clinical_stage_other": 23
+    "clinical_stage_other": 22
   },
   "discarded_units": [
     {
@@ -3698,23 +3719,6 @@
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
       "text_preview": "CTE是评估CD患者回结肠切除术后复发的可靠方法，CTE可以作为内镜检查的一个重要的补充工具来评估CD的术后病程[298]。MRE对评估CD回结肠切除术后复发具有同样价值[299]。"
-    },
-    {
-      "unit_id": "clinical_text_unit_b4833706ee02",
-      "page_start": 33,
-      "page_end": 33,
-      "section_path": [
-        "中国克罗恩病诊治指南(2023年·广州)",
-        "七、展望"
-      ],
-      "source_layout_ids": [
-        "3gSEHT-layout-685",
-        "3gSEHT-layout-686",
-        "3gSEHT-layout-687"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "季蒯小玲李"
     }
   ],
   "merged_layout_groups": [
@@ -4148,21 +4152,6 @@
         "3gSEHT-layout-267"
       ],
       "raw_text_preview": "一项 meta分析显示，CD小肠癌的发病率为30/10万人年[317]。CD患者小肠癌的发生率为正常人群的10倍[318]。CD相关小肠癌多为腺癌，多见于空肠下段和回肠，且与穿透和狭窄型疾病行为、既往手术史及病程相关。目前尚无明确证据支持对..."
-    },
-    {
-      "unit_id": "clinical_text_unit_b4833706ee02",
-      "page_start": 33,
-      "page_end": 33,
-      "section_path": [
-        "中国克罗恩病诊治指南(2023年·广州)",
-        "七、展望"
-      ],
-      "source_layout_ids": [
-        "3gSEHT-layout-685",
-        "3gSEHT-layout-686",
-        "3gSEHT-layout-687"
-      ],
-      "raw_text_preview": "季蒯小玲李"
     }
   ],
   "output_cards": 136

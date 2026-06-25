@@ -11,10 +11,10 @@
     "contents": 1,
     "formula": 1
   },
-  "discarded_layout_count": 123,
+  "discarded_layout_count": 122,
   "discarded_by_reason": {
     "type_not_supported": 105,
-    "llm_metadata": 18
+    "llm_metadata": 17
   },
   "discarded_layouts": [
     {
@@ -760,13 +760,6 @@
       "text_preview": "（2022 年版）"
     },
     {
-      "layout_id": "Xtpxbo-layout-450",
-      "page_num": 57,
-      "type": "text",
-      "reason": "llm_metadata",
-      "text_preview": "a 22. 乳房植入物相关间变性大细胞淋巴瘤"
-    },
-    {
       "layout_id": "Xtpxbo-layout-460",
       "page_num": 58,
       "type": "text",
@@ -774,32 +767,25 @@
       "text_preview": "附件 2. 淋巴瘤的分期系统"
     },
     {
+      "layout_id": "Xtpxbo-layout-461",
+      "page_num": 58,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "附件 2.1 Ann-Arbor （Cotswolds 修订）分期系统。"
+    },
+    {
+      "layout_id": "Xtpxbo-layout-471",
+      "page_num": 59,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "附件2.2慢性淋巴细胞白血病的Rai分期和Binet分期系统"
+    },
+    {
       "layout_id": "Xtpxbo-layout-475",
       "page_num": 60,
       "type": "text",
       "reason": "llm_metadata",
       "text_preview": "附件2.3蕈样霉菌病和塞扎里综合征TNMB分期系统"
-    },
-    {
-      "layout_id": "Xtpxbo-layout-481",
-      "page_num": 61,
-      "type": "text",
-      "reason": "llm_metadata",
-      "text_preview": "附件2.4Lugano胃肠淋巴瘤分期系统"
-    },
-    {
-      "layout_id": "Xtpxbo-layout-490",
-      "page_num": 61,
-      "type": "text",
-      "reason": "llm_metadata",
-      "text_preview": "附件2.5鼻型$\\mathrm { N K } / \\mathrm { T }$细胞淋巴瘤CA分期系统"
-    },
-    {
-      "layout_id": "Xtpxbo-layout-495",
-      "page_num": 62,
-      "type": "text",
-      "reason": "llm_metadata",
-      "text_preview": "附件 3 淋巴瘤疗效判定标准"
     },
     {
       "layout_id": "Xtpxbo-layout-496",
@@ -830,11 +816,11 @@
       "text_preview": "附件4.1HL预后评分"
     },
     {
-      "layout_id": "Xtpxbo-layout-521",
-      "page_num": 66,
+      "layout_id": "Xtpxbo-layout-529",
+      "page_num": 67,
       "type": "text",
       "reason": "llm_metadata",
-      "text_preview": "早期HL不良预后因素"
+      "text_preview": "附件4.2弥漫大B细胞淋巴瘤预后评分"
     },
     {
       "layout_id": "Xtpxbo-layout-544",
@@ -842,6 +828,13 @@
       "type": "text",
       "reason": "llm_metadata",
       "text_preview": "附件4.3滤泡性淋巴瘤预后评分"
+    },
+    {
+      "layout_id": "Xtpxbo-layout-556",
+      "page_num": 70,
+      "type": "text",
+      "reason": "llm_metadata",
+      "text_preview": "附件4.4套细胞淋巴瘤预后评分"
     },
     {
       "layout_id": "Xtpxbo-layout-578",
@@ -879,9 +872,9 @@
       "text_preview": "朱雄增、李晔雄、林桐榆、郭小毛、姜文奇、"
     }
   ],
-  "discarded_unit_count": 167,
+  "discarded_unit_count": 50,
   "discarded_units_by_reason": {
-    "clinical_stage_other": 167
+    "clinical_stage_other": 50
   },
   "discarded_units": [
     {
@@ -914,1762 +907,6 @@
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
       "text_preview": "HL是一种独特的淋巴系统恶性疾病，男性多于女性，男女之比为$1 . 3 : 1 \\sim 1 . 4 : 1$。发病年龄在欧美发达国家呈较典型的双峰分布，分别在15~39岁和50岁以后；而包括中国在内的东亚地区，发病年龄多在30~40岁，呈..."
-    },
-    {
-      "unit_id": "clinical_text_unit_6b92f922a04c",
-      "page_start": 15,
-      "page_end": 15,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-108"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "1.弥漫大 B 细胞淋巴瘤"
-    },
-    {
-      "unit_id": "clinical_text_unit_e41c010f63cd",
-      "page_start": 15,
-      "page_end": 15,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-109"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "弥漫大 B 细胞淋巴瘤（diffuse large B-cell lymphoma， DLBCL）是 NHL 中最常见的类型，在欧美地区占成人 NHL 的 30%～40%，中国占 35%～50%。DLBCL 中位发病年龄为 50～70 岁，..."
-    },
-    {
-      "unit_id": "clinical_text_unit_ccab88aae571",
-      "page_start": 15,
-      "page_end": 15,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-110"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（1）临床表现：DLBCL 临床表现多样，因累及的组织、 器官和肿瘤负荷等而不同。发病初期多表现为无痛性淋巴结 肿大，但 DLBCL 可以累及任何组织和器官，淋巴结外病变比 例可达 40%～60%。临床病程呈侵袭性，表现为迅速增大的肿 物。..."
-    },
-    {
-      "unit_id": "clinical_text_unit_c60324a981ec",
-      "page_start": 15,
-      "page_end": 15,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-111"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（2）病理诊断及分类：DLBCL 的主要病理特征是体积较 大的异常淋巴样细胞弥漫性生长，破坏正常淋巴结结构。 DLBCL 包括多种变异型、亚组和亚型（附件 1）。"
-    },
-    {
-      "unit_id": "clinical_text_unit_83318b3c8ba5",
-      "page_start": 15,
-      "page_end": 16,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-112",
-        "Xtpxbo-layout-114"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "诊断 DLBCL 的常规 IHC 标记物包括 CD19、CD20、PAX5、CD3、CD5、CyclinD1、Ki-67；通常表现为 CD19（+）、CD20 （+）、PAX5（+）、CD3（-）。DLBCL 诊断后，为进一步探讨肿 瘤细胞..."
-    },
-    {
-      "unit_id": "clinical_text_unit_caf55be2e25d",
-      "page_start": 16,
-      "page_end": 16,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-115"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "骨髓细胞学：当 DLBCL 骨髓浸润时，可见到瘤细胞胞体 较大，染色质粗糙，核仁多个但不明显，胞质灰蓝色、有少 量空泡。"
-    },
-    {
-      "unit_id": "clinical_text_unit_074358752927",
-      "page_start": 16,
-      "page_end": 17,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-116",
-        "Xtpxbo-layout-118"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（3）治疗原则：DLBCL 的治疗模式是以内科治疗为主的 多学科综合治疗。治疗策略应根据患者的年龄、一般状态、 国际预后指数（internation prognostic index，IPI）评 分、临床分期、是否有大肿块和变异亚型等因素而..."
-    },
-    {
-      "unit_id": "clinical_text_unit_4dd120f960cb",
-      "page_start": 17,
-      "page_end": 17,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-119"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "①Ⅰ和Ⅱ期 DLBCL 的一线治疗：Ⅰ/Ⅱ期、无大肿块者， 推荐选择：R-CHOP 方案 3～4 个周期+ISRT 或 R-CHOP 方案 6 个 周期±ISRT；对于 IPI=0 分的患者，可选择 R-CHOP 方案 4 个周期或 R-C..."
-    },
-    {
-      "unit_id": "clinical_text_unit_0632a9867c44",
-      "page_start": 17,
-      "page_end": 17,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-120"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "②Ⅲ和Ⅳ期患者的一线治疗：首先推荐参加临床试验， 或 R-CHOP 方案化疗 6～8 个周期。可选择在治疗开始前、治 疗中或治疗结束时进行 PET-CT 检查，根据检查结果继续或 调整原治疗方案。为了避免 PET-CT 假阳性，特别是治疗中..."
-    },
-    {
-      "unit_id": "clinical_text_unit_e9f2ebe6a3d2",
-      "page_start": 17,
-      "page_end": 17,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-121"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "③ 年 龄 超 过 80 岁 或 虚 弱 患 者 一 线 治 疗 可 以 选 择 R-miniCHOP 方案，R-CDOP（利妥昔单抗，环磷酰胺，脂质体 阿霉素，长春新碱，泼尼松），R-GemOx（利妥昔单抗，吉西 他滨，奥沙利铂）或 R-..."
-    },
-    {
-      "unit_id": "clinical_text_unit_ce19b1029175",
-      "page_start": 18,
-      "page_end": 18,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-123"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "④同时发生中枢神经系统侵犯的患者，如果累及部位在 脑实质，建议给予高剂量甲氨蝶呤（high dose methotrexate， HdMTX）（≥3g/m2，于 R-CHOP 21 天一周期方案的第 15 天给 药）；如果侵犯脑膜，推荐甲氨..."
-    },
-    {
-      "unit_id": "clinical_text_unit_8445813099e4",
-      "page_start": 18,
-      "page_end": 18,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-124"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "⑤一线巩固治疗（选择性）：60～80 岁的老年患者，可 以考虑来那度胺进行维持治疗。"
-    },
-    {
-      "unit_id": "clinical_text_unit_d67fde445655",
-      "page_start": 18,
-      "page_end": 18,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-125"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "⑥解救治疗：对适合 HDT/ASCT 的患者，可采用的解救 化疗方案包括：ICE±R、DHAP（地塞米松，顺铂，阿糖胞苷） ±R、ESHAP±R、GDP±R、DHAX（地塞米松，阿糖胞苷，奥 沙利铂）±R，GemOx（吉西他滨，奥沙利铂）±..."
-    },
-    {
-      "unit_id": "clinical_text_unit_dfda2afd72bc",
-      "page_start": 18,
-      "page_end": 19,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-126",
-        "Xtpxbo-layout-128"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（4）预后指标：IPI 是目前国际上常用的 DLBCL 预后评 分系统。此系统依据 5 个独立的不良预后因素，即年龄＞60 岁、Ⅲ～Ⅳ期、结外累及部位数目＞1、美国东部肿瘤协作 组（Eastern Cooperative Oncology..."
-    },
-    {
-      "unit_id": "clinical_text_unit_63413fc2091e",
-      "page_start": 19,
-      "page_end": 19,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-129"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "除临床因素外，近年来随着分子遗传学研究的进展，伴 MYC、BCL2 和/或 BCL6 重排的“双打击”或“三打击”淋巴 瘤和 TP53 突变与 DLBCL 的预后不良相关。"
-    },
-    {
-      "unit_id": "clinical_text_unit_bc305ab947d1",
-      "page_start": 19,
-      "page_end": 19,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-130",
-        "Xtpxbo-layout-131"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（5）特殊原发部位及病理类型的 DLBCL：①原发中枢神经系统 DLBCL：为 DLBCL 的亚型之一，是 指原发于颅内或眼内的 DLBCL，而不包括硬脑膜淋巴瘤、血 管内大 B 细胞淋巴瘤、淋巴瘤继发中枢神经系统受侵及免疫 缺陷相关淋巴瘤..."
-    },
-    {
-      "unit_id": "clinical_text_unit_81bac6430c16",
-      "page_start": 19,
-      "page_end": 19,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-132"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "临床表现：50%～80%的患者出现局灶性症状，常伴有精 神和反应水平的改变；由于颅内压升高可引起恶心、呕吐、 头痛等症状。软脑膜病变可导致头痛和非对称性颅神经功能 异常。眼内淋巴瘤表现为视力模糊、视野缺损等。"
-    },
-    {
-      "unit_id": "clinical_text_unit_c076bfd00d44",
-      "page_start": 19,
-      "page_end": 20,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-133",
-        "Xtpxbo-layout-135"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "诊断：影像学上表现为中枢神经系统的结节或肿物。MRI 是首选的检查方法，可见病灶在 T1 加权像呈低信号或等信 号，T2 加权像呈高信号，常伴有水肿。病理学检查为确诊本病所必需，可通过立体定向穿刺活检或开颅活检取得。在无 法取得肿瘤组织活检..."
-    },
-    {
-      "unit_id": "clinical_text_unit_035ba01ac661",
-      "page_start": 20,
-      "page_end": 20,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-136"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "原发中枢神经系统 DLBCL 的血管周围浸润更为明显，肿 瘤细胞形态多类似生发中心母细胞或免疫母细胞，基本上起 源于非生发中心 B 细胞，Ki-67 阳性细胞比例常超过 90%。 IHC 标记物与 DLBCL 相同。"
-    },
-    {
-      "unit_id": "clinical_text_unit_45d417efaa16",
-      "page_start": 20,
-      "page_end": 20,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-137"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "治疗原则：以内科治疗为主的综合治疗。皮质激素类药 物可以迅速缓解症状，但若未经化疗或放疗，肿瘤多在短期 内复发。在肿瘤组织活检前，不推荐使用皮质激素类药物， 但颅内高压危及生命时除外。化疗选用药物的原则是能透过 血脑屏障，首选 HdMTX，..."
-    },
-    {
-      "unit_id": "clinical_text_unit_b55bc9ec59e5",
-      "page_start": 21,
-      "page_end": 21,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-139"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "化疗后联合全脑放疗可延长患者的无进展生存时间 （progression free survival，PFS）。但全脑放疗的神经 毒性对年龄＞60 岁的患者更加明显，因此建议年龄＞60 岁 的患者在化疗缓解后，可推迟放疗。手术的作用仅限于活检..."
-    },
-    {
-      "unit_id": "clinical_text_unit_d36cfe05f946",
-      "page_start": 21,
-      "page_end": 21,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-140"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "预后：本病恶性程度较高，支持治疗的中位生存时间仅 为 2～3 个月，单纯手术为 3～5 个月，单纯放疗约为 12～16 个月，经含 HdMTX 方案化疗后为 25～84 个月。最重要的预 后因素为年龄和行为状态。"
-    },
-    {
-      "unit_id": "clinical_text_unit_b3d32a975148",
-      "page_start": 21,
-      "page_end": 21,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-141"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "②原发睾丸 DLBCL：原发睾丸 DLBCL 占睾丸肿瘤的 3%～ 9%，占 NHL 的 1%～2%。DLBCL 是原发睾丸淋巴瘤最常见的病 理类型，占 80%～90%。本病是 50 岁以上男性最常见的睾丸 恶性肿瘤，中位发病年龄约 65..."
-    },
-    {
-      "unit_id": "clinical_text_unit_80f96e34246b",
-      "page_start": 21,
-      "page_end": 21,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-142"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "临床表现：多表现为睾丸无痛性肿物或肿胀，少数表现 为阴囊疼痛。诊断时双侧睾丸同时受累者约占 20%，多达 35% 的患者在病程中对侧睾丸受侵。腹膜后淋巴结肿大者可表现 为腹痛和腹腔积液。B 症状通常只见于晚期患者。本病易出 现结外器官受累，..."
-    },
-    {
-      "unit_id": "clinical_text_unit_ace9f43e5c29",
-      "page_start": 21,
-      "page_end": 22,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-143",
-        "Xtpxbo-layout-145"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "治疗原则：原发睾丸 DLBCL 应接受包括手术、放疗和免 疫化疗在内的综合治疗。患者应接受睾丸切除和高位精索结扎术，术后应行免疫化疗。因对侧睾丸和中枢神经系统受侵 率高，推荐对侧睾丸的预防性放疗和含 HdMTX 的中枢神经系 统预防性治疗。..."
-    },
-    {
-      "unit_id": "clinical_text_unit_e22e07f32e33",
-      "page_start": 22,
-      "page_end": 22,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-146"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "预后: 本病的不良预后因素包括高龄、晚期、LDH 升高、 B 症状、IPI 高和未经手术或放疗等。"
-    },
-    {
-      "unit_id": "clinical_text_unit_15bb9d31d653",
-      "page_start": 22,
-      "page_end": 22,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-147"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "③原发纵隔大 B 细胞淋巴瘤：多见于年轻的成年人，中 位发病年龄 35 岁左右，女性略多于男性。肿瘤细胞起源于 胸腺 B 细胞，基因表达谱具有自身独特性，与 cHL 相似性更 高。不同于大多数 DLBCL，多数表达 CD23、CD30 和..."
-    },
-    {
-      "unit_id": "clinical_text_unit_3b333272a87d",
-      "page_start": 22,
-      "page_end": 22,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-148"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "临床表现：临床症状和体征多与快速增大的纵隔肿物相 关，可致上腔静脉压迫综合征，心包积液和胸腔积液等。初 诊时病变常较局限，主要位于前上纵隔，可伴有锁骨上、颈 部和肺门淋巴结累及，复发后常伴有广泛的结外器官或组织 受侵。"
-    },
-    {
-      "unit_id": "clinical_text_unit_cd922e0ebdcf",
-      "page_start": 22,
-      "page_end": 22,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-149"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "治疗原则：一线化疗方案的选择尚存争议。可选择的方 案包括：DA-EPOCH-R、R-CHOP 或 R-CHOP 续贯 R-ICE 等。化 疗后可行巩固放疗，对 PET-CT 评价阴性者可以考虑不放疗。 因化疗后前纵隔常残存肿物影，CT 检查..."
-    },
-    {
-      "unit_id": "clinical_text_unit_b51a504f8759",
-      "page_start": 22,
-      "page_end": 23,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-150",
-        "Xtpxbo-layout-152"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "预后：预后优于非特指型的 DLBCL，5 年 PFS 可以达到80%～95%。不良预后因素参考 DLBCL。"
-    },
-    {
-      "unit_id": "clinical_text_unit_20ccf08cdb7e",
-      "page_start": 23,
-      "page_end": 23,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-153"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "④高级别 B 细胞淋巴瘤，伴有 MYC 和 BCL2 和/或 BCL6 基因易位（双/三打击淋巴瘤）：定义是高级别 B 细胞淋巴瘤， 且通过 FISH 检测出 MYC 和 BCL2 和/或 BCL6 基因易位，含 MYC 易位和 BCL2..."
-    },
-    {
-      "unit_id": "clinical_text_unit_8bb2df0f0421",
-      "page_start": 23,
-      "page_end": 23,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-154"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "临床特点：具有高度侵袭性特征，常见 LDH 增高，骨髓 受侵、中枢神经系统受侵和高 IPI 评分等。"
-    },
-    {
-      "unit_id": "clinical_text_unit_478e0b2688ba",
-      "page_start": 23,
-      "page_end": 23,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-155"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "治疗原则：无推荐的标准治疗方案，首先推荐参加临床 试验。R-CHOP 方案疗效差，高强度方案有可能提高疗效。推 荐的治疗方案包括：DA-EPOCH-R，R-HyperCVAD/HdMA（利妥 昔单抗，环磷酰胺，长春新碱，阿霉素，地塞米松与..."
-    },
-    {
-      "unit_id": "clinical_text_unit_3e35c67e89fb",
-      "page_start": 23,
-      "page_end": 23,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-156"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "预后：预后较差。一项随访时间较长，应用 R-CHOP 方 案治疗的回顾性研究中，5 年无进展生存率和总生存率分别 为 18%和 27%。另一项 meta 研究，比较了 R-CHOP、R-HyperCVAD 或 R-CODOX-M/IVAC..."
-    },
-    {
-      "unit_id": "clinical_text_unit_19815fb7c1f2",
-      "page_start": 24,
-      "page_end": 24,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-158",
-        "Xtpxbo-layout-159"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "2.滤泡性淋巴瘤滤泡性淋巴瘤（follicular lymphoma，FL）是欧美地 区最常见的惰性淋巴瘤，约占 NHL 的 20%～30%，包括中国在 内的亚洲地区发病率较低，不足 NHL 的 10%。中位发病年龄 约 60 岁。"
-    },
-    {
-      "unit_id": "clinical_text_unit_c361d50a0cef",
-      "page_start": 24,
-      "page_end": 24,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-160"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（1）临床表现：主要表现为多发淋巴结肿大，亦可累 及骨髓、外周血、脾脏、咽淋巴环、胃肠道和软组织等，原 发结外者少见。晚期患者多见，约占 70%。"
-    },
-    {
-      "unit_id": "clinical_text_unit_792235cda938",
-      "page_start": 24,
-      "page_end": 24,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-161"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（2）病理诊断：形态学上表现为滤泡中心细胞和中心 母细胞的增生，多为滤泡样结节状生长。根据中心母细胞的 数量，将 FL 分为 3 级：每个高倍镜视野 0～5 个中心母细胞 为 1 级、6～15 个为 2 级、15 个以上为 3 级，FL 3..."
-    },
-    {
-      "unit_id": "clinical_text_unit_0f85bfe02cb8",
-      "page_start": 24,
-      "page_end": 25,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-162",
-        "Xtpxbo-layout-164"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "儿童型滤泡性淋巴瘤（paediatric-type follicular lymphoma，PTFL）是一种主要发生于儿童和年轻人，淋巴结起源的滤泡性淋巴瘤。PTFL 多见累及头颈部的淋巴结，分期 早。肿瘤细胞表型为 CD10+/CD20+..."
-    },
-    {
-      "unit_id": "clinical_text_unit_bc7596d5e898",
-      "page_start": 25,
-      "page_end": 25,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-165"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "2017 年版 WHO 造血与淋巴组织肿瘤分类新提出“十二指 肠型滤泡性淋巴瘤”，其预后很好，需要与其他胃肠道解剖 部位的 FL 区分开；新提出的“伴 IRF4 基因重排的大 B 细胞 淋巴瘤”，常发生咽淋巴环和颈部淋巴结，儿童及年轻人多..."
-    },
-    {
-      "unit_id": "clinical_text_unit_a43497a5132d",
-      "page_start": 25,
-      "page_end": 25,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-166"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（3）治疗：1～2 级 FL 属于惰性淋巴瘤，根据不同分期， 治疗策略如下。3 级 FL 的治疗等同于 DLBCL。"
-    },
-    {
-      "unit_id": "clinical_text_unit_f47e6337fb3f",
-      "page_start": 25,
-      "page_end": 26,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-167",
-        "Xtpxbo-layout-169"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "①Ⅰ/Ⅱ期 FL：Ⅰ/Ⅱ期患者通过放疗具有潜在治愈可能。 Ⅰ期和病变范围局限、无大肿块的Ⅱ期患者，以放疗为主。 治疗首选 ISRT，或 ISRT+CD20 单抗±化疗；在无法放疗的特 殊情况下，可以选择 CD20 单抗±化疗。Ⅰ期伴有大肿块..."
-    },
-    {
-      "unit_id": "clinical_text_unit_6aa61dd9e0e7",
-      "page_start": 26,
-      "page_end": 26,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-170"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "②Ⅲ/Ⅳ期 FL：Ⅲ/Ⅳ期 FL 被认为是一种不可治愈的疾 病。Ⅲ/Ⅳ期且低肿瘤负荷的 FL，诊断后即刻治疗与先观察 随诊、待有治疗指征时再治疗比较，患者 OS 并无差异。"
-    },
-    {
-      "unit_id": "clinical_text_unit_f673298648ba",
-      "page_start": 26,
-      "page_end": 26,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-171"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "无治疗指征患者观察随诊期间，5 年内可每 3～6 个月进 行 1 次查体或实验室检查，5 年后每年 1 次；2 年内≥6 个月 进行 1 次 CT 检查，2 年后≥1 年进行 1 次 CT 检查。"
-    },
-    {
-      "unit_id": "clinical_text_unit_7eaa911f0e7c",
-      "page_start": 26,
-      "page_end": 26,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-172"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "具有治疗指征的患者，需进行治疗。治疗指征包括：可 以参加合适的临床试验、高肿瘤负荷、有症状、威胁器官功 能、继发血细胞减少、大肿块和病变持续进展等。"
-    },
-    {
-      "unit_id": "clinical_text_unit_5a8687b4e6ed",
-      "page_start": 26,
-      "page_end": 26,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-173"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "FL 推荐的一线治疗方案包括：R-B（利妥昔单抗，苯达 莫司汀），R-CHOP 或 G-CHOP（奥妥珠单抗，环磷酰胺，阿霉 素，长春新碱，泼尼松），R-CVP（利妥昔单抗，环磷酰胺， 长春新碱，泼尼松）或 G-CVP（奥妥珠单抗，环磷酰胺..."
-    },
-    {
-      "unit_id": "clinical_text_unit_f93d9ac339e4",
-      "page_start": 26,
-      "page_end": 27,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-174",
-        "Xtpxbo-layout-176"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "③复发难治 FL 的治疗：复发 FL 仍可首选观察随诊，当出现治疗指征时再开始解救治疗。对于进展较快的病变，应 再次活检，明确是否有组织学转化，特别是伴有 LDH 增高、 某部位肿瘤异常快速增大、新出现的结外受侵或全身症状等。 PET-CT..."
-    },
-    {
-      "unit_id": "clinical_text_unit_044de75adc35",
-      "page_start": 27,
-      "page_end": 27,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-177"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "如果复发进展的时间距离末次应用利妥昔单抗 6 个月以 上，还可以继续选择利妥昔单抗治疗。根据一线治疗方案， 推荐选择的二线方案包括：R-B，R-CHOP，R-CVP 或 R-R 等。 一线应用 R-CHOP 或 R-CVP 方案治疗开始在..."
-    },
-    {
-      "unit_id": "clinical_text_unit_1ec10a5866d0",
-      "page_start": 27,
-      "page_end": 27,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-178"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "约 15%的 FL 可发生向 DLBCL 的组织学转化，年转化率为 2%～3%。与组织学转化相关的危险因素包括：分期晚、高滤 泡 性 淋 巴 瘤 国 际 预 后 指 数 （ follicular lymphoma international..."
-    },
-    {
-      "unit_id": "clinical_text_unit_19317597ce5a",
-      "page_start": 27,
-      "page_end": 28,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-179",
-        "Xtpxbo-layout-183",
-        "Xtpxbo-layout-181",
-        "Xtpxbo-layout-182"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "④预后：FLIPI 有 FLIPI1 和 FLIPI2 两个评分系统，分 别包含 5 个独立的预后不良因素，均将患者分为 3 个风险组，3.边缘区淋巴瘤FLIPI1 评分系统 0～1 分为低危组，2 分为中危组，≥3 分为 高危组；FLIP..."
-    },
-    {
-      "unit_id": "clinical_text_unit_c239e25717e4",
-      "page_start": 28,
-      "page_end": 28,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-184"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "边缘区淋巴瘤是起源于边缘区的 B 细胞淋巴瘤，属于惰 性淋巴瘤。按照起源部位的不同，分为 3 种亚型：即结外边 缘区淋巴瘤[也称为黏膜相关淋巴组织（mucosa-associated lymphoid tissue，MALT）淋巴瘤]、淋巴..."
-    },
-    {
-      "unit_id": "clinical_text_unit_d78088bebe15",
-      "page_start": 28,
-      "page_end": 28,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-185"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "边缘区淋巴瘤的病因与慢性感染或炎症所致的持续免 疫刺激有关。如胃 MALT 淋巴瘤与 Hp 的慢性感染有关，甲状 腺 MALT 淋巴瘤与桥本甲状腺炎有关，腮腺 MALT 淋巴瘤与干 燥综合征有关，丙型肝炎病毒感染与淋巴结边缘区淋巴瘤和 脾边..."
-    },
-    {
-      "unit_id": "clinical_text_unit_8c2d32a75c3b",
-      "page_start": 28,
-      "page_end": 28,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-186"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "边缘区淋巴瘤的病理诊断更多的是一种排除法，免疫标 记物无特异性，需在除外其他类型的小 B 细胞淋巴瘤后方可 诊断，CD21 和 CD23 常显示扩大的 FDC 网。病理学形态上常 表现为小的淋巴细胞克隆性增生，引起边缘区增宽，生发中 心萎缩..."
-    },
-    {
-      "unit_id": "clinical_text_unit_804e5fb6cc74",
-      "page_start": 28,
-      "page_end": 29,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-187",
-        "Xtpxbo-layout-189"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（1）MALT 淋巴瘤：MALT 淋巴瘤最常见的原发部位是胃肠道，其中胃原发者占约 80%～85%。约 2/3 的患者为局限期， 1/3 的患者为广泛期，骨髓受侵的比例约为 10%～15%。"
-    },
-    {
-      "unit_id": "clinical_text_unit_600b64907e65",
-      "page_start": 29,
-      "page_end": 29,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-190"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "①胃原发 MALT 淋巴瘤：临床特点：症状包括消化不良、 返酸、腹痛和体重减轻等，B 症状不常见，胃出血比例约为 20%～30%、穿孔比例约为 5%～10%。Ⅰ期和Ⅱ期患者占 80%～ 90%，90%的患者 Hp 阳性。胃镜下可表现为胃黏膜..."
-    },
-    {
-      "unit_id": "clinical_text_unit_9e120fdbb6e2",
-      "page_start": 29,
-      "page_end": 29,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-191"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "病理诊断：胃 MALT 淋巴瘤需要胃镜活检病理诊断，常 规进行 Hp 染色。MALT 淋巴瘤的典型形态是小的淋巴细胞密 集增生，多数情况下浸润并破坏黏膜上皮，形成淋巴上皮病 变。IHC 标记物包括 CD3、CD5、CD10、BCL-2、CD..."
-    },
-    {
-      "unit_id": "clinical_text_unit_fb935d53ace8",
-      "page_start": 29,
-      "page_end": 30,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-192",
-        "Xtpxbo-layout-199"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "治疗原则：Ⅰ/Ⅱ期：Hp 阳性，t（11;18）阴性或未知 患者推荐首选抗 Hp 治疗；Hp 阳性，t（11;18）阳性患者首 选抗 Hp 治疗联合 ISRT;若存在放疗禁忌，也可选择抗 Hp 联 合利妥昔单抗治疗。对于抗 Hp 治疗无效或..."
-    },
-    {
-      "unit_id": "clinical_text_unit_be477266192a",
-      "page_start": 30,
-      "page_end": 30,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-194"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "药治疗。抗 Hp 治疗后，首次胃镜复查可在 3 月后，如胃镜 提示病变缓解，以后可每 3～6 个月进行 1 次胃镜检查。IIE、 Ⅲ/Ⅳ期：无治疗指征者可选择观察随诊，有治疗指征的患 者参考Ⅲ/Ⅳ期 FL 的治疗原则，手术治疗仅限于发生大出..."
-    },
-    {
-      "unit_id": "clinical_text_unit_4c1af3eb6bdc",
-      "page_start": 30,
-      "page_end": 30,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-195"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "②非胃原发 MALT 淋巴瘤：临床特点：非胃原发 MALT 淋 巴瘤呈现惰性进程，预后与胃原发 MALT 淋巴瘤近似。常见 的非胃原发 MALT 淋巴瘤发病部位包括唾液腺、肺、头颈部、 眼附属器、皮肤、甲状腺和乳腺等。"
-    },
-    {
-      "unit_id": "clinical_text_unit_8c10f0ccdcad",
-      "page_start": 30,
-      "page_end": 30,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-196"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "治疗原则：Ⅰ/Ⅱ期首选 ISRT 或手术。因治疗可能产生 严重并发症者也可观察随诊或利妥昔单抗单药治疗。Ⅲ/Ⅳ 期参考Ⅲ/Ⅳ期 FL 的治疗策略。"
-    },
-    {
-      "unit_id": "clinical_text_unit_2a6a0630491d",
-      "page_start": 30,
-      "page_end": 30,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-197"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（2）淋巴结边缘区淋巴瘤：临床特点：占所有淋巴瘤 的 1.5%～1.8%，中位发病年龄 60 岁，男女比例相仿，晚期 病变多见。主要累及淋巴结，偶可累及骨髓和外周血。大部 分患者表现为无痛性多发淋巴结肿大，需注意除外 MALT 淋 巴瘤或脾..."
-    },
-    {
-      "unit_id": "clinical_text_unit_0ed4187a20db",
-      "page_start": 30,
-      "page_end": 30,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-198"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "病理诊断：结构特点与脾边缘区淋巴瘤相近，免疫表型 无特异性，与其他边缘区淋巴瘤亚型近似。"
-    },
-    {
-      "unit_id": "clinical_text_unit_a150c28df8eb",
-      "page_start": 30,
-      "page_end": 30,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-200"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "预后：5 年总生存率为 60%～80%，预后判断可参考 FLIPI。"
-    },
-    {
-      "unit_id": "clinical_text_unit_5e2fd4e41b87",
-      "page_start": 30,
-      "page_end": 31,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-201",
-        "Xtpxbo-layout-206"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（3）脾边缘区淋巴瘤：临床特点：占淋巴瘤的 2%，中 位发病年龄 50 岁，男女比例相当。常累及脾、脾门淋巴结，预后：参考 FL 的预后评价。"
-    },
-    {
-      "unit_id": "clinical_text_unit_9b4624e84558",
-      "page_start": 31,
-      "page_end": 31,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-207",
-        "Xtpxbo-layout-203"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "4.CLL/SLL也常累及骨髓、外周血和肝脏。主要表现为脾大，可伴有自 身免疫性血小板减少、贫血，外周血中可见毛细胞。实验室 检查须包括丙型肝炎病毒的检测。"
-    },
-    {
-      "unit_id": "clinical_text_unit_5c08fb760176",
-      "page_start": 31,
-      "page_end": 31,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-204"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "病理诊断：组织结构与淋巴结边缘区淋巴瘤相似，免疫 表型无特异性。可依据骨髓或外周血中出现的异常小淋巴细 胞，且同时伴有脾大的临床表现，在排除了 FL、CLL/SLL、 MCL 等之后方可诊断。"
-    },
-    {
-      "unit_id": "clinical_text_unit_f04ef7ad2671",
-      "page_start": 31,
-      "page_end": 31,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-205"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "治疗原则：对于无症状、无进行性血细胞减少、无脾大 的患者可先观察随诊。对伴有脾肿大且丙型肝炎病毒阳性的 患者，如无治疗禁忌，可给予抗丙型肝炎病毒治疗。对伴有 脾肿大、丙型肝炎病毒阴性的患者，如无症状也可先观察随 诊；对有症状的患者，首选利妥..."
-    },
-    {
-      "unit_id": "clinical_text_unit_a3dab9054f7c",
-      "page_start": 31,
-      "page_end": 32,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-208",
-        "Xtpxbo-layout-210"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "CLL/SLL 属于惰性 B 细胞淋巴瘤，CLL 和 SLL 是同一种 疾病的不同表现，治疗方法相同。两者的主要区别在于 CLL 表现为外周血中存在大量、异常的淋巴细胞；而 SLL 的肿瘤 负荷主要位于淋巴结。国际慢性淋巴细胞白血病工作组对..."
-    },
-    {
-      "unit_id": "clinical_text_unit_f26fdbb6b034",
-      "page_start": 32,
-      "page_end": 32,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-211"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "CLL/SLL 在欧美国家约占 NHL 的 7%～10%，是欧美国家 最常见的成人白血病类型。亚洲及中国 CLL/SLL 的发病率较 低，约占 NHL 的 1%～3%。中位发病年龄 65 岁，男女比例 1.5∶ 1～2∶1。"
-    },
-    {
-      "unit_id": "clinical_text_unit_42ea1301724d",
-      "page_start": 32,
-      "page_end": 32,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-212"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（1）临床表现：病变通常累及外周血、骨髓、淋巴结 和肝脾。临床表现多样，大部分患者可无症状，部分可出现 乏力、自身免疫性贫血、感染、肝脾和淋巴结肿大。"
-    },
-    {
-      "unit_id": "clinical_text_unit_71aa738a8d6e",
-      "page_start": 32,
-      "page_end": 32,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-213"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（2）病理诊断：典型的 CLL/SLL 细胞为单一性，弥漫 性浸润，有假滤泡形成（增殖灶），细胞核染色质颗粒状是 其特点，可见增殖中心。IHC 表型：CD5（+）、CD23（+）、CD43 （+）或（-）、CD10（-）、CD19（+）、C..."
-    },
-    {
-      "unit_id": "clinical_text_unit_bd8807fd5e8a",
-      "page_start": 32,
-      "page_end": 33,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-214",
-        "Xtpxbo-layout-219",
-        "Xtpxbo-layout-216"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "血常规：白细胞和淋巴细胞持续增高，分类时以分化较 好的 CLL 细胞为主，常＞50%，可达 80%～90%，其形态类似(4)治疗：正常淋巴细胞，但细胞核形不规则、呈深切迹或核裂隙，核染色质呈不规则聚集、胞质量少、灰蓝色多无颗粒。破碎细胞（篮..."
-    },
-    {
-      "unit_id": "clinical_text_unit_4ba630f61a4f",
-      "page_start": 33,
-      "page_end": 33,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-217"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "骨髓细胞学：骨髓有核细胞增生明显活跃或极度活跃。淋巴系细胞高度增生，以异常的成熟小淋巴细胞为主，占40%以上，甚至高达90%。细胞大小和形态基本与外周血一致，形态异常不明显，核可有深切迹或裂隙，核染色质不规则聚集，核仁无或不明显，有少量胞质..."
-    },
-    {
-      "unit_id": "clinical_text_unit_494763974490",
-      "page_start": 33,
-      "page_end": 33,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-218"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "(3)分期：SLL参考$\\operatorname { A n n } - \\operatorname { A r b o r }$分期系统，CLL参考 Rai和Binet分期系统（见附件2.2）。"
-    },
-    {
-      "unit_id": "clinical_text_unit_8567c0b14492",
-      "page_start": 33,
-      "page_end": 33,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-220"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "①SLL:I期患者采用局部放疗；Ⅱ~V期患者，如无治疗指征可以观察随诊，有治疗指征时参考CLL的治疗原则。"
-    },
-    {
-      "unit_id": "clinical_text_unit_b0041b5c6862",
-      "page_start": 33,
-      "page_end": 33,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-221"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "② CLL:Rai 0~Ⅱ期的低危和中危患者，如无治疗指征则可以观察随诊；Rai 0~Ⅱ期、有治疗指征或Rai Ⅲ~IV期伴持续血细胞减少的患者，根据FISH检测的del(17p)和/或TP53突变情况、免疫球蛋白重链可变区(immunog..."
-    },
-    {
-      "unit_id": "clinical_text_unit_162ab20bc740",
-      "page_start": 34,
-      "page_end": 34,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-225",
-        "Xtpxbo-layout-223"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "④ 一线治疗方案的选择：突变状态、患者一般状态和合并疾病等因素，选择相应的治 疗方案。应注意 CLL 的支持治疗，如肿瘤溶解综合征、感染 和自身免疫性血细胞减少的处理。"
-    },
-    {
-      "unit_id": "clinical_text_unit_cfe13b9842b8",
-      "page_start": 34,
-      "page_end": 34,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-224"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "③ 治疗指征：适合参加临床试验；出现明显的疾病相 关症状，如严重乏力、盗汗、体重下降和非感染性发热；威 胁脏器功能；持续增大的大肿块，如脾大超过左肋缘下 6cm， 淋巴结直径＞10cm；进行性贫血和进行性血小板减少；激素 治疗无效的 CLL..."
-    },
-    {
-      "unit_id": "clinical_text_unit_8aa4bd9a9798",
-      "page_start": 34,
-      "page_end": 34,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-226"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "A.无 del（17p）/TP53 突变：伴有严重伴随疾病的虚弱 患者（无法耐受嘌呤类似物）或年龄≥65 岁和年龄＜65 岁 但伴有严重伴随疾病（肌酐清除率＜70ml/mim）的患者首先 推荐伊布替尼治疗，其他推荐方案包括：苯达莫司汀+CD..."
-    },
-    {
-      "unit_id": "clinical_text_unit_b4b17777211c",
-      "page_start": 34,
-      "page_end": 34,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-227"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "年龄＜65 岁，不伴有严重合并疾病的患者，推荐的方案 包括：伊布替尼，苯达莫司汀+CD20 单抗，FCR（氟达拉滨， 环磷酰胺，利妥昔单抗）（IGHV 突变的 CLL 患者优选），FR （氟达拉滨，利妥昔单抗），高剂量甲泼尼龙+利妥昔单抗，..."
-    },
-    {
-      "unit_id": "clinical_text_unit_97500c38701a",
-      "page_start": 34,
-      "page_end": 34,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-228"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "一线治疗后的维持治疗：对高危患者（外周血微小残存 肿瘤细胞≥10-2或 IGHV 非突变型外周血微小残存肿瘤细胞≥ 10-4 并＜10-2）可以考虑来那度胺维持治疗。"
-    },
-    {
-      "unit_id": "clinical_text_unit_39cd287612e7",
-      "page_start": 35,
-      "page_end": 35,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-231",
-        "Xtpxbo-layout-230"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "⑤复发耐药患者治疗方案的选择：B.伴有 del（17p）/TP53 突变：首选推荐伊布替尼；其 他推荐方案包括：高剂量甲泼尼龙+利妥昔单抗。"
-    },
-    {
-      "unit_id": "clinical_text_unit_3d3e770d3c12",
-      "page_start": 35,
-      "page_end": 35,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-232"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "A.无 del（17p）/TP53 突变：伴有严重伴随疾病的虚弱 患者或年龄≥65 岁和年龄＜65 岁但伴有严重伴随疾病（肌 酐清除率＜70ml/mim）的患者首先推荐布鲁顿酪氨酸激酶抑 制 剂 （ 伊 布 替 尼 、 泽 布 替 尼 、..."
-    },
-    {
-      "unit_id": "clinical_text_unit_46899edfd1ff",
-      "page_start": 35,
-      "page_end": 35,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-233"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "年龄＜65 岁，不伴有严重合并疾病的患者，首先推荐布 鲁顿酪氨酸激酶抑制剂（伊布替尼、泽布替尼、奥布替尼） 治疗，其他推荐方案包括：苯达莫司汀+利妥昔单抗，FCR， 高剂量甲泼尼龙+利妥昔单抗，来那度胺±利妥昔单抗，维 奈克拉，苯达莫司汀+..."
-    },
-    {
-      "unit_id": "clinical_text_unit_d916b2e2aed6",
-      "page_start": 35,
-      "page_end": 35,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-234"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "二线治疗后的维持治疗：对于二线治疗后获得 CR 或 PR 的患者，可以考虑来那度胺维持治疗。"
-    },
-    {
-      "unit_id": "clinical_text_unit_2f74f51f193f",
-      "page_start": 35,
-      "page_end": 35,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-235"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "B.伴有 del（17p）/TP53 突变：二线以上治疗方案首选 推荐：布鲁顿酪氨酸激酶抑制剂（伊布替尼、泽布替尼、奥 布替尼），维奈克拉+利妥昔单抗，维奈克拉；其他推荐方案 包括：高剂量甲泼尼龙+利妥昔单抗，来那度胺±利妥昔单 抗。"
-    },
-    {
-      "unit_id": "clinical_text_unit_27a4845439f8",
-      "page_start": 36,
-      "page_end": 36,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-238",
-        "Xtpxbo-layout-237"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "5.MCL（5）预后： 不良预后因素包括：IGHV 无突变，del（17p） /TP53 突变，del（11q），复杂核型（≥3 种染色体异常）； 流 式细胞术检测肿瘤细胞 CD38 阳性≥30%，ZAP-70 阳性≥20%， CD49d..."
-    },
-    {
-      "unit_id": "clinical_text_unit_f3fd0d3fef8f",
-      "page_start": 36,
-      "page_end": 36,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-239"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "MCL 约占 NHL 的 3%～10%，男女比例为 2∶1～3∶1，中 位发病年龄 65 岁左右。自然病程可以表现为侵袭性和惰性， 但大部分具有侵袭性生长特点。对治疗的反应类似惰性淋巴 瘤，传统化疗不可治愈。既往多药联合化疗的生存期约为 3..."
-    },
-    {
-      "unit_id": "clinical_text_unit_96c12c45d01e",
-      "page_start": 36,
-      "page_end": 36,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-240"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（1）临床特点： 最常累及淋巴结、骨髓、消化道、脾 脏和咽淋巴环，诊断时 70%为Ⅳ期。骨髓受侵率可达 50%～ 100%，下消化道受侵率高，内镜下常表现为多发性息肉样病 变。"
-    },
-    {
-      "unit_id": "clinical_text_unit_6c49e1d5a317",
-      "page_start": 36,
-      "page_end": 37,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-241",
-        "Xtpxbo-layout-243"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（2）病理诊断：MCL 的肿瘤细胞为形态一致的小至中～ 大的淋巴细胞，细胞核表面略不规则，生长方式多样，包括 套区性、结节性和弥漫性。由于预后差，所以鉴别诊断非常 重要，需要与 CLL/SLL、FL 和边缘区淋巴瘤相鉴别。IHC 标 记物选..."
-    },
-    {
-      "unit_id": "clinical_text_unit_340cd2b3a514",
-      "page_start": 37,
-      "page_end": 37,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-244"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "骨髓细胞学：肿瘤细胞累及骨髓时，骨髓涂片中可见数 量不等的异常淋巴细胞增多，肿瘤细胞胞体大小不一，胞核 多为圆形或轻度不规则，多见一个大而畸形的核仁，染色质 细致弥散，胞质较丰富，呈淡蓝色。"
-    },
-    {
-      "unit_id": "clinical_text_unit_6a41e06e4d97",
-      "page_start": 37,
-      "page_end": 37,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-245"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（3）治疗：对 MCL 患者应进行全面检查，准确分期， 以指导治疗方案选择。发生母细胞变或有中枢神经系统症状 者应进行脑脊液和脑 MRI 检查，对于拟诊为Ⅰ期或Ⅱ期的患 者，应进行内镜检查除外胃肠道侵犯。"
-    },
-    {
-      "unit_id": "clinical_text_unit_5ab1033f1b28",
-      "page_start": 37,
-      "page_end": 37,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-246"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "① 治疗策略：Ⅰ期或局限Ⅱ期不伴有大肿块者，推荐 可采用单纯 ISRT 或常规剂量强度的免疫化疗±ISRT。"
-    },
-    {
-      "unit_id": "clinical_text_unit_d87664217518",
-      "page_start": 38,
-      "page_end": 38,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-252"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "巩固治疗：可以考虑 HDT/ASCT。"
-    },
-    {
-      "unit_id": "clinical_text_unit_cbc72144a7f0",
-      "page_start": 38,
-      "page_end": 38,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-248"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "广泛Ⅱ期不伴有大肿块者，推荐常规剂量强度免疫化疗。 某些具有惰性临床特征者，如白血病样非淋巴结性 MCL 伴脾 大、SOX11 阴性[IGHV 突变型]，无 TP53 突变或缺失以及肿 瘤负荷低、Ki-67 增殖指数＜10%等，可以观察随诊..."
-    },
-    {
-      "unit_id": "clinical_text_unit_afea356776ae",
-      "page_start": 38,
-      "page_end": 38,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-249"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "Ⅱ期伴有大肿块和Ⅲ/Ⅳ期具有侵袭性临床特征的患者， 若适合 HDT/ASCT，推荐高剂量强度诱导化疗后序贯 HDT/ASCT； 不适合 HDT/ASCT 的患者，推荐参加临床试验或常规剂量强 度的治疗。属于惰性特征的患者，如无症状或治疗指征..."
-    },
-    {
-      "unit_id": "clinical_text_unit_fc59e74e7fbc",
-      "page_start": 38,
-      "page_end": 38,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-250"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "② 一线治疗方案：高剂量强度方案：首选 R-DHA（利妥 昔单抗，地塞米松，阿糖胞苷）+铂类（卡铂、顺铂或奥沙 利 铂 ）， R-CHOP/R-DHAP 交 替 方 案 ， NORDIC （ 强 化 剂 量 的 R-CHOP[maxi-CH..."
-    },
-    {
-      "unit_id": "clinical_text_unit_4a32afc8e769",
-      "page_start": 38,
-      "page_end": 38,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-251"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "常规剂量强度方案：推荐苯达莫司汀+利妥昔单抗， VR-CAP（硼替佐米，利妥昔单抗，环磷酰胺，阿霉素和泼尼 松），R-CHOP，来那度胺+利妥昔单抗；其他推荐方案：改良 的 R-HyperCVAD 方案（用于＜60 岁患者），RBAC500..."
-    },
-    {
-      "unit_id": "clinical_text_unit_d35069f34b03",
-      "page_start": 39,
-      "page_end": 39,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-254"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "维持治疗：利妥昔单抗。"
-    },
-    {
-      "unit_id": "clinical_text_unit_1870cc1c6a99",
-      "page_start": 39,
-      "page_end": 39,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-258",
-        "Xtpxbo-layout-255"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "6.伯基特淋巴瘤③二线治疗方案：可以选择一线方案未应用的方案或药 物。推荐的首选方案包括：BTK 抑制剂（伊布替尼、泽布替 尼、奥布替尼）；来那度胺+利妥昔单抗；其他推荐方案包括： 苯达莫司汀+利妥昔单抗，苯达莫司汀+利妥昔单抗+阿糖胞 苷..."
-    },
-    {
-      "unit_id": "clinical_text_unit_120ff539a133",
-      "page_start": 39,
-      "page_end": 39,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-256"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "二线治疗后的巩固治疗：异基因造血干细胞移植。"
-    },
-    {
-      "unit_id": "clinical_text_unit_861858aca658",
-      "page_start": 39,
-      "page_end": 39,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-257"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（4）预后：IPI 源于侵袭性淋巴瘤的生存数据，也可以 作为 MCL 的预后指标，但预后判断效能较差。简易套细胞淋 巴瘤国际预后评分系统（international prognostic index for mantle cell lymp..."
-    },
-    {
-      "unit_id": "clinical_text_unit_897275e47c7e",
-      "page_start": 39,
-      "page_end": 40,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-259",
-        "Xtpxbo-layout-261"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "伯基特淋巴瘤属于高度侵袭性 NHL。可分为地方流行性、散发性和免疫缺陷相关性 3 个变异型。伯基特淋巴瘤约占 NHL 的 3%～5%，约占儿童 NHL 的 40%。"
-    },
-    {
-      "unit_id": "clinical_text_unit_e1cc883573a4",
-      "page_start": 40,
-      "page_end": 40,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-262"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（1）临床特点：流行性伯基特淋巴瘤主要发生于非洲 赤道地区和巴西东北部，高峰发病年龄在 4～7 岁，男女之 比为 2∶1，多累及颌骨，EB 病毒阳性率＞95%。散发性伯基 特淋巴瘤散布于世界各地，主要发生在儿童和青年，男女之 比为 2∶1～..."
-    },
-    {
-      "unit_id": "clinical_text_unit_354a076a3d1c",
-      "page_start": 40,
-      "page_end": 41,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-263",
-        "Xtpxbo-layout-265"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（2）病理诊断：经典型伯基特淋巴瘤形态学表现为较 均一的中等大小肿瘤性 B 细胞弥漫增生，核分裂象及凋亡很 明显，常见星空现象。肿瘤细胞起源于生发中心，IHC 免疫 表型常表现为 sIgM（+）、单一轻链（+）、CD19（+）、CD20 （..."
-    },
-    {
-      "unit_id": "clinical_text_unit_043c3f44bc1b",
-      "page_start": 41,
-      "page_end": 41,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-266"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "骨髓细胞学：骨髓增生明显活跃或极度活跃。典型的伯基特淋巴瘤细胞为中到大的淋巴细胞，大小不一并易见成堆分布；白血病细胞胞核较大，多为圆形或不规则形，核染色质呈粗颗粒状，有1个至多个大小不等的明显核仁；胞质量多少不定，强嗜碱性并含有大小不一、数..."
-    },
-    {
-      "unit_id": "clinical_text_unit_ce6d43c5f40d",
-      "page_start": 41,
-      "page_end": 41,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-267"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "(3)治疗原则：以化疗为主，但CHOP方案疗效不理想，高剂量强化治疗及联合利妥昔单抗可提高疗效。应进行中枢神经系统预防性治疗，并充分预防肿瘤溶解综合征的发生。伯基特淋巴瘤可选择的化疗方案包括：$\\mathrm { C O D O X } -..."
-    },
-    {
-      "unit_id": "clinical_text_unit_3ee14c267290",
-      "page_start": 41,
-      "page_end": 41,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-268"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "没有明确可推荐的二线解救方案，可考虑选择R-ICE、$\\mathrm { R } - \\mathrm { G D P }$、$\\mathrm { R } - \\mathrm { I V A C }$、高剂量阿糖胞苷+利妥昔单抗等方案，解救治..."
-    },
-    {
-      "unit_id": "clinical_text_unit_f311ede20aa6",
-      "page_start": 41,
-      "page_end": 41,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "（二）NHL。"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-269"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（4）预后：年龄＞40 岁、一般情况差、分期晚、LDH"
     },
     {
       "unit_id": "clinical_text_unit_7a20c83debae",
@@ -2825,111 +1062,6 @@
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
       "text_preview": "骨髓细胞学：骨髓有核细胞增生多明显活跃，以淋巴细胞增生为主，成人型T细胞性白血病细胞常$> 1 0 \\%$，可高达80%以上。粒系细胞、幼红细胞及巨核细胞常减少。"
-    },
-    {
-      "unit_id": "clinical_text_unit_41d3b82fadcf",
-      "page_start": 47,
-      "page_end": 48,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
-        "9.蕈样肉芽肿和塞扎里综合征"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-302",
-        "Xtpxbo-layout-303",
-        "Xtpxbo-layout-305"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "蕈 样 肉 芽 肿 和 塞 扎 里 综 合 征 （ mycosis fungoides/sézary syndrome，MF/SS）是最常见的皮肤 T 细胞淋巴瘤（cutaneous T cell lymphoma，CTCL），占 NHL..."
-    },
-    {
-      "unit_id": "clinical_text_unit_bfbf86cce3f5",
-      "page_start": 48,
-      "page_end": 48,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
-        "9.蕈样肉芽肿和塞扎里综合征"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-306"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（2）病理诊断：MF 的诊断比较困难，可能需要经过几 年的观察、多次活检才能确诊。小的、多形核淋巴细胞聚集 在表皮或表真皮交界处，向表皮浸润，形成 Pautrier 微脓 肿是其特点。SS 最主要的特征与 MF 类似。MF 免疫表型通常 为..."
-    },
-    {
-      "unit_id": "clinical_text_unit_e6048ed76e7c",
-      "page_start": 48,
-      "page_end": 48,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
-        "9.蕈样肉芽肿和塞扎里综合征"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-307"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（3）分期： 见皮肤 T 细胞淋巴瘤分期标准（附件 1.3）。"
-    },
-    {
-      "unit_id": "clinical_text_unit_43aaf8a0ee00",
-      "page_start": 48,
-      "page_end": 49,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
-        "9.蕈样肉芽肿和塞扎里综合征"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-308",
-        "Xtpxbo-layout-310"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（4）治疗原则：MF 和 SS 目前尚无根治性治疗方法，主 要依据分期选择合适的治疗。治疗主要目的是控制皮损范围， 减轻症状及降低进展风险。多数情况下治疗不能获得持久缓 解。初期病变的治疗，应选择低毒性和低累积毒性的方法， 达到可以持久或维..."
-    },
-    {
-      "unit_id": "clinical_text_unit_7b6420f4f598",
-      "page_start": 49,
-      "page_end": 49,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
-        "9.蕈样肉芽肿和塞扎里综合征"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-311"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "早期皮损不宜采用强烈的治疗，以采用单一或综合应用 多种局部治疗手段为主；ⅡB 期、Ⅲ期、Ⅳ期和难治性病变 可采用包括全身系统治疗在内的综合治疗或参加合适的临 床试验。针对皮肤病变的治疗方法包括：放疗、光照疗法， 外用皮质类固醇、氮芥软膏或维..."
-    },
-    {
-      "unit_id": "clinical_text_unit_c55351118409",
-      "page_start": 49,
-      "page_end": 49,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
-        "9.蕈样肉芽肿和塞扎里综合征"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-312"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "（5）预后：MF 患者的预后较好，5 年生存率近 90％， 不良预后因素包括 T3/T4 期患者、伴有皮肤外病变和年龄≥ 65 岁。SS 患者预后通常不佳，中位生存期约 2～4 年。"
     },
     {
       "unit_id": "clinical_text_unit_e9569357cf76",
@@ -3104,6 +1236,53 @@
       "text_preview": "说明：本诊疗指南是基于临床研究证据和专家共识制定 的。推荐的治疗方案主要基于中国已批准具有治疗适应证的 药物，同时介绍了国内外研究进展。在决定患者治疗方案时， 应该充分根据每位患者的疾病特点和临床表现，给予患者规 范而个体化的治疗。"
     },
     {
+      "unit_id": "clinical_text_unit_69eb1c604233",
+      "page_start": 53,
+      "page_end": 53,
+      "section_path": [
+        "淋巴瘤诊疗指南",
+        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
+        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
+        "前驱淋巴性肿瘤"
+      ],
+      "source_layout_ids": [
+        "Xtpxbo-layout-333",
+        "Xtpxbo-layout-334",
+        "Xtpxbo-layout-340",
+        "Xtpxbo-layout-345",
+        "Xtpxbo-layout-346",
+        "Xtpxbo-layout-347"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "1. B 淋巴母细胞白血病/淋巴瘤，非特指型2. B 淋巴母细胞白血病/淋巴瘤伴频发基因异常B3. T 淋巴母细胞白血病/淋巴瘤早期 T 前驱淋巴母细胞白血病a 4. NK 淋巴母细胞白血病/淋巴瘤"
+    },
+    {
+      "unit_id": "clinical_text_unit_a931df2bd4f9",
+      "page_start": 53,
+      "page_end": 53,
+      "section_path": [
+        "淋巴瘤诊疗指南",
+        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
+        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
+        "前驱淋巴性肿瘤"
+      ],
+      "source_layout_ids": [
+        "Xtpxbo-layout-335",
+        "Xtpxbo-layout-336",
+        "Xtpxbo-layout-337",
+        "Xtpxbo-layout-338",
+        "Xtpxbo-layout-339",
+        "Xtpxbo-layout-341",
+        "Xtpxbo-layout-342",
+        "Xtpxbo-layout-343",
+        "Xtpxbo-layout-344"
+      ],
+      "reason": "clinical_stage_other",
+      "clinical_stage": "其他流程",
+      "text_preview": "B 淋巴母细胞白血病/淋巴瘤伴 t（9;22）（q34.1;q11.2）；BCR-ABL1B 淋巴母细胞白血病/淋巴瘤伴 t（v;11q23.3）；KMT2A 重排B 淋巴母细胞白血病/淋巴瘤伴 t（12;21）（p13.2;q22.1）；..."
+    },
+    {
       "unit_id": "clinical_text_unit_06b86277f685",
       "page_start": 54,
       "page_end": 54,
@@ -3119,24 +1298,6 @@
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
       "text_preview": "11. 淋巴结边缘区淋巴瘤"
-    },
-    {
-      "unit_id": "clinical_text_unit_a5d23958a9ed",
-      "page_start": 54,
-      "page_end": 54,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
-        "12. 滤泡性淋巴瘤"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-380",
-        "Xtpxbo-layout-383"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "13. 儿童型滤泡性淋巴瘤16. 套细胞淋巴瘤"
     },
     {
       "unit_id": "clinical_text_unit_4b1c03c80cfd",
@@ -3161,69 +1322,6 @@
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
       "text_preview": "意义未明的单克隆丙种球蛋白病，非 IgM 型 浆细胞骨髓瘤骨的孤立性浆细胞瘤骨外浆细胞瘤单克隆免疫球蛋白沉积病原发性淀粉样变性轻链和重链沉积病10. 黏膜相关淋巴组织结外边缘区淋巴瘤a 儿童结内边缘区淋巴瘤"
-    },
-    {
-      "unit_id": "clinical_text_unit_0d639aaaeeb0",
-      "page_start": 54,
-      "page_end": 55,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
-        "12. 滤泡性淋巴瘤"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-377",
-        "Xtpxbo-layout-378",
-        "Xtpxbo-layout-379",
-        "Xtpxbo-layout-381",
-        "Xtpxbo-layout-382",
-        "Xtpxbo-layout-384",
-        "Xtpxbo-layout-385",
-        "Xtpxbo-layout-386",
-        "Xtpxbo-layout-388",
-        "Xtpxbo-layout-389",
-        "Xtpxbo-layout-390",
-        "Xtpxbo-layout-391",
-        "Xtpxbo-layout-392",
-        "Xtpxbo-layout-394",
-        "Xtpxbo-layout-395",
-        "Xtpxbo-layout-396",
-        "Xtpxbo-layout-397",
-        "Xtpxbo-layout-398",
-        "Xtpxbo-layout-399",
-        "Xtpxbo-layout-400",
-        "Xtpxbo-layout-401",
-        "Xtpxbo-layout-402",
-        "Xtpxbo-layout-405",
-        "Xtpxbo-layout-406",
-        "Xtpxbo-layout-407",
-        "Xtpxbo-layout-409"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "原位滤泡性肿瘤十二指肠滤泡性淋巴瘤睾丸滤泡性淋巴瘤a 14. 伴 IRF4 重排的大 B 细胞淋巴瘤15. 原发皮肤的滤泡中心淋巴瘤原位套细胞肿瘤17. 弥漫大 B 细胞淋巴瘤，非特指型 a 生发中心 B 细胞亚型 活化 B 细胞亚型18...."
-    },
-    {
-      "unit_id": "clinical_text_unit_8b1ba024fc52",
-      "page_start": 55,
-      "page_end": 55,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
-        "12. 滤泡性淋巴瘤"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-393",
-        "Xtpxbo-layout-403",
-        "Xtpxbo-layout-404",
-        "Xtpxbo-layout-408",
-        "Xtpxbo-layout-410"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "纤维蛋白相关弥漫大 B 细胞淋巴瘤HHV8 阳性弥漫大 B 细胞淋巴瘤，非特指型HHV8 阳性亲生发中心淋巴增殖性疾病伴有 MYC 和 BCL2 和/或 BCL6 重排35. 介于弥漫大 B 细胞淋巴瘤与典型霍奇金淋巴瘤间的不能分类型 B..."
     },
     {
       "unit_id": "clinical_text_unit_5fcc2bedb154",
@@ -3278,23 +1376,6 @@
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
       "text_preview": "A 组：无全身症状；"
-    },
-    {
-      "unit_id": "clinical_text_unit_4b6e2cc3f935",
-      "page_start": 58,
-      "page_end": 58,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
-        "2. 结节性淋巴细胞为主型霍奇金淋巴瘤"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-461"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "附件 2.1 Ann-Arbor （Cotswolds 修订）分期系统。"
     },
     {
       "unit_id": "clinical_text_unit_fc6efcc7b871",
@@ -3416,7 +1497,7 @@
       "text_preview": "X：大瘤块，肿瘤直径＞胸廓宽度的 1/3 或融合瘤块最大径＞10cm。"
     },
     {
-      "unit_id": "clinical_text_unit_5e3903f07ec2",
+      "unit_id": "clinical_text_unit_b2d4ae9e93d8",
       "page_start": 59,
       "page_end": 61,
       "section_path": [
@@ -3427,8 +1508,8 @@
       ],
       "source_layout_ids": [
         "Xtpxbo-layout-472",
-        "Xtpxbo-layout-471",
         "Xtpxbo-layout-477",
+        "Xtpxbo-layout-481",
         "Xtpxbo-layout-482",
         "Xtpxbo-layout-483",
         "Xtpxbo-layout-485",
@@ -3438,14 +1519,15 @@
         "Xtpxbo-layout-492",
         "Xtpxbo-layout-484",
         "Xtpxbo-layout-489",
+        "Xtpxbo-layout-490",
         "Xtpxbo-layout-491"
       ],
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
-      "text_preview": "Rai 分期附件2.2慢性淋巴细胞白血病的Rai分期和Binet分期系统蕈样肉芽肿和塞扎里综合征TNMB分期系统ⅠE 期：病变局限于胃肠道ⅠE1：侵及黏膜、黏膜下层ⅡE 期：病变扩散至腹腔ⅡE1：累及局部淋巴结ⅡE2：累及远隔淋巴结ⅢE 期..."
+      "text_preview": "Rai 分期蕈样肉芽肿和塞扎里综合征TNMB分期系统附件2.4Lugano胃肠淋巴瘤分期系统ⅠE 期：病变局限于胃肠道ⅠE1：侵及黏膜、黏膜下层ⅡE 期：病变扩散至腹腔ⅡE1：累及局部淋巴结ⅡE2：累及远隔淋巴结ⅢE 期：侵透浆膜层达邻近器..."
     },
     {
-      "unit_id": "clinical_text_unit_598705ec5296",
+      "unit_id": "clinical_text_unit_868b85d464c0",
       "page_start": 61,
       "page_end": 65,
       "section_path": [
@@ -3456,6 +1538,7 @@
       ],
       "source_layout_ids": [
         "Xtpxbo-layout-493",
+        "Xtpxbo-layout-495",
         "Xtpxbo-layout-503",
         "Xtpxbo-layout-504",
         "Xtpxbo-layout-505",
@@ -3470,7 +1553,7 @@
       ],
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
-      "text_preview": "Ⅳ期：非区域淋巴结侵犯或横膈上下淋巴结侵犯或广泛播散性病灶长径或短径增加0.5cm;长径＞2cm的病灶：长径或短径增加1cm脾大时，长径增加＞既往较无脾大，长径需在基础值上增加$> 2 \\mathrm { c m }$;新发或复发的脾大5P..."
+      "text_preview": "Ⅳ期：非区域淋巴结侵犯或横膈上下淋巴结侵犯或广泛播散性病灶附件 3 淋巴瘤疗效判定标准长径或短径增加0.5cm;长径＞2cm的病灶：长径或短径增加1cm脾大时，长径增加＞既往较无脾大，长径需在基础值上增加$> 2 \\mathrm { c m..."
     },
     {
       "unit_id": "clinical_text_unit_cca6413003ab",
@@ -3490,7 +1573,7 @@
       "text_preview": "PET-CT(positron emission tomography-computed tomography,正电子发射计算机体层成像)；FDG(fluorodeoxyglucose,氟代脱氧葡萄糖)。"
     },
     {
-      "unit_id": "clinical_text_unit_7d039decb90e",
+      "unit_id": "clinical_text_unit_3a0c3876758f",
       "page_start": 66,
       "page_end": 66,
       "section_path": [
@@ -3500,11 +1583,12 @@
         "2. 结节性淋巴细胞为主型霍奇金淋巴瘤"
       ],
       "source_layout_ids": [
+        "Xtpxbo-layout-521",
         "Xtpxbo-layout-523"
       ],
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
-      "text_preview": "NCCN(National Comprehensive Cancer Network,美国国立综合癌症网络)；GHSG(German Hodgkin Study Group,德国霍奇金淋巴瘤研究组)；EORTC(EuropeanOrgani..."
+      "text_preview": "早期HL不良预后因素NCCN(National Comprehensive Cancer Network,美国国立综合癌症网络)；GHSG(German Hodgkin Study Group,德国霍奇金淋巴瘤研究组)；EORTC(Euro..."
     },
     {
       "unit_id": "clinical_text_unit_ced2de280766",
@@ -3524,7 +1608,7 @@
       "text_preview": "晚期霍奇金淋巴瘤国际预后评分(International Prognostic Score,IPS)"
     },
     {
-      "unit_id": "clinical_text_unit_dae15fc5c888",
+      "unit_id": "clinical_text_unit_0a564086b5ca",
       "page_start": 67,
       "page_end": 67,
       "section_path": [
@@ -3535,12 +1619,11 @@
       ],
       "source_layout_ids": [
         "Xtpxbo-layout-527",
-        "Xtpxbo-layout-529",
         "Xtpxbo-layout-530"
       ],
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
-      "text_preview": "晚期霍奇金淋巴瘤国际预后评分与生存率附件4.2弥漫大B细胞淋巴瘤预后评分国际预后指数(International Prognostic Index,IPI)"
+      "text_preview": "晚期霍奇金淋巴瘤国际预后评分与生存率国际预后指数(International Prognostic Index,IPI)"
     },
     {
       "unit_id": "clinical_text_unit_ac27b680614c",
@@ -3679,23 +1762,6 @@
       "reason": "clinical_stage_other",
       "clinical_stage": "其他流程",
       "text_preview": "滤泡性淋巴瘤国际预后指数2(Folicullar lymphoma IPI 2，FLIPI2)"
-    },
-    {
-      "unit_id": "clinical_text_unit_cf9fc3df6cf0",
-      "page_start": 70,
-      "page_end": 70,
-      "section_path": [
-        "淋巴瘤诊疗指南",
-        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
-        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
-        "2. 结节性淋巴细胞为主型霍奇金淋巴瘤"
-      ],
-      "source_layout_ids": [
-        "Xtpxbo-layout-556"
-      ],
-      "reason": "clinical_stage_other",
-      "clinical_stage": "其他流程",
-      "text_preview": "附件4.4套细胞淋巴瘤预后评分"
     },
     {
       "unit_id": "clinical_text_unit_af31abfb2194",
@@ -4568,7 +2634,7 @@
       "raw_text_preview": "纤维蛋白相关弥漫大 B 细胞淋巴瘤HHV8 阳性弥漫大 B 细胞淋巴瘤，非特指型HHV8 阳性亲生发中心淋巴增殖性疾病伴有 MYC 和 BCL2 和/或 BCL6 重排35. 介于弥漫大 B 细胞淋巴瘤与典型霍奇金淋巴瘤间的不能分类型 B..."
     },
     {
-      "unit_id": "clinical_text_unit_0b8b40387465",
+      "unit_id": "clinical_text_unit_cae8a2d02de0",
       "page_start": 56,
       "page_end": 57,
       "section_path": [
@@ -4608,7 +2674,8 @@
         "Xtpxbo-layout-445",
         "Xtpxbo-layout-446",
         "Xtpxbo-layout-448",
-        "Xtpxbo-layout-449"
+        "Xtpxbo-layout-449",
+        "Xtpxbo-layout-450"
       ],
       "raw_text_preview": "5.重度蚊虫叮咬性过敏症6. 成人 T 细胞白血病/淋巴瘤7. 结外 NK/T 细胞淋巴瘤，鼻型8. 肠道 T 细胞淋巴瘤肠病相关 T 细胞淋巴瘤肠型性嗜上皮肠道 T 细胞淋巴瘤肠道细胞淋巴瘤，非特指型9. 肠病相关 T 细胞淋巴瘤10...."
     },
@@ -4631,7 +2698,7 @@
       "raw_text_preview": "结节硬化型富于淋巴细胞型混合细胞型淋巴细胞消减型"
     },
     {
-      "unit_id": "clinical_text_unit_5e3903f07ec2",
+      "unit_id": "clinical_text_unit_b2d4ae9e93d8",
       "page_start": 59,
       "page_end": 61,
       "section_path": [
@@ -4642,8 +2709,8 @@
       ],
       "source_layout_ids": [
         "Xtpxbo-layout-472",
-        "Xtpxbo-layout-471",
         "Xtpxbo-layout-477",
+        "Xtpxbo-layout-481",
         "Xtpxbo-layout-482",
         "Xtpxbo-layout-483",
         "Xtpxbo-layout-485",
@@ -4653,12 +2720,13 @@
         "Xtpxbo-layout-492",
         "Xtpxbo-layout-484",
         "Xtpxbo-layout-489",
+        "Xtpxbo-layout-490",
         "Xtpxbo-layout-491"
       ],
-      "raw_text_preview": "Rai 分期附件2.2慢性淋巴细胞白血病的Rai分期和Binet分期系统蕈样肉芽肿和塞扎里综合征TNMB分期系统ⅠE 期：病变局限于胃肠道ⅠE1：侵及黏膜、黏膜下层ⅡE 期：病变扩散至腹腔ⅡE1：累及局部淋巴结ⅡE2：累及远隔淋巴结ⅢE 期..."
+      "raw_text_preview": "Rai 分期蕈样肉芽肿和塞扎里综合征TNMB分期系统附件2.4Lugano胃肠淋巴瘤分期系统ⅠE 期：病变局限于胃肠道ⅠE1：侵及黏膜、黏膜下层ⅡE 期：病变扩散至腹腔ⅡE1：累及局部淋巴结ⅡE2：累及远隔淋巴结ⅢE 期：侵透浆膜层达邻近器..."
     },
     {
-      "unit_id": "clinical_text_unit_598705ec5296",
+      "unit_id": "clinical_text_unit_868b85d464c0",
       "page_start": 61,
       "page_end": 65,
       "section_path": [
@@ -4669,6 +2737,7 @@
       ],
       "source_layout_ids": [
         "Xtpxbo-layout-493",
+        "Xtpxbo-layout-495",
         "Xtpxbo-layout-503",
         "Xtpxbo-layout-504",
         "Xtpxbo-layout-505",
@@ -4681,10 +2750,26 @@
         "Xtpxbo-layout-514",
         "Xtpxbo-layout-516"
       ],
-      "raw_text_preview": "Ⅳ期：非区域淋巴结侵犯或横膈上下淋巴结侵犯或广泛播散性病灶长径或短径增加0.5cm;长径＞2cm的病灶：长径或短径增加1cm脾大时，长径增加＞既往较无脾大，长径需在基础值上增加$> 2 \\mathrm { c m }$;新发或复发的脾大5P..."
+      "raw_text_preview": "Ⅳ期：非区域淋巴结侵犯或横膈上下淋巴结侵犯或广泛播散性病灶附件 3 淋巴瘤疗效判定标准长径或短径增加0.5cm;长径＞2cm的病灶：长径或短径增加1cm脾大时，长径增加＞既往较无脾大，长径需在基础值上增加$> 2 \\mathrm { c m..."
     },
     {
-      "unit_id": "clinical_text_unit_dae15fc5c888",
+      "unit_id": "clinical_text_unit_3a0c3876758f",
+      "page_start": 66,
+      "page_end": 66,
+      "section_path": [
+        "淋巴瘤诊疗指南",
+        "七、常见淋巴瘤类型的临床特点、诊断与治疗",
+        "增高、骨髓和中枢神经系统受侵和人类免疫缺陷病毒阳性等 预后不良。",
+        "2. 结节性淋巴细胞为主型霍奇金淋巴瘤"
+      ],
+      "source_layout_ids": [
+        "Xtpxbo-layout-521",
+        "Xtpxbo-layout-523"
+      ],
+      "raw_text_preview": "早期HL不良预后因素NCCN(National Comprehensive Cancer Network,美国国立综合癌症网络)；GHSG(German Hodgkin Study Group,德国霍奇金淋巴瘤研究组)；EORTC(Euro..."
+    },
+    {
+      "unit_id": "clinical_text_unit_0a564086b5ca",
       "page_start": 67,
       "page_end": 67,
       "section_path": [
@@ -4695,10 +2780,9 @@
       ],
       "source_layout_ids": [
         "Xtpxbo-layout-527",
-        "Xtpxbo-layout-529",
         "Xtpxbo-layout-530"
       ],
-      "raw_text_preview": "晚期霍奇金淋巴瘤国际预后评分与生存率附件4.2弥漫大B细胞淋巴瘤预后评分国际预后指数(International Prognostic Index,IPI)"
+      "raw_text_preview": "晚期霍奇金淋巴瘤国际预后评分与生存率国际预后指数(International Prognostic Index,IPI)"
     },
     {
       "unit_id": "clinical_text_unit_c282e6d6eb72",
@@ -4735,5 +2819,5 @@
       "raw_text_preview": "附件$4 . 6 \\mathrm { N K } / \\mathrm { T }$细胞淋巴瘤预后评分系统附件4.5外周T细胞淋巴瘤，非特指型预后评分ECOG(Eastern Cooperative Oncology Group,美国东部肿瘤..."
     }
   ],
-  "output_cards": 69
+  "output_cards": 184
 }

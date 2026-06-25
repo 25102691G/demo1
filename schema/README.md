@@ -452,7 +452,7 @@
 | 字段名 | 含义 |
 | --- | --- |
 | `skill_id` | 候选技能 ID。 |
-| `disease_name` | 候选技能对应疾病或指南名称。 |
+| `disease` | 候选技能对应疾病或指南名称。 |
 | `score` | 路由匹配得分。 |
 | `rank` | 候选排序。 |
 | `matched_positive_features` | 已匹配的阳性特征证据。 |
@@ -507,7 +507,7 @@
 | 结构/字段名 | 含义 |
 | --- | --- |
 | `candidateSkill.skill_id` | 候选技能 ID。 |
-| `candidateSkill.disease_name` | 候选疾病名称。 |
+| `candidateSkill.disease` | 候选疾病名称。 |
 | `candidateSkill.score` | 路由匹配分数。 |
 | `candidateSkill.rank` | 候选排序名次。 |
 | `candidateSkill.matched_positive_features` | 命中的正向特征列表。 |
